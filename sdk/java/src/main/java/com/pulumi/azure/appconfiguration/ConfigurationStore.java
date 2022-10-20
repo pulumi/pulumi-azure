@@ -6,6 +6,7 @@ package com.pulumi.azure.appconfiguration;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.appconfiguration.ConfigurationStoreArgs;
 import com.pulumi.azure.appconfiguration.inputs.ConfigurationStoreState;
+import com.pulumi.azure.appconfiguration.outputs.ConfigurationStoreEncryption;
 import com.pulumi.azure.appconfiguration.outputs.ConfigurationStoreIdentity;
 import com.pulumi.azure.appconfiguration.outputs.ConfigurationStorePrimaryReadKey;
 import com.pulumi.azure.appconfiguration.outputs.ConfigurationStorePrimaryWriteKey;
@@ -15,6 +16,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -72,6 +75,12 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:appconfiguration/configurationStore:ConfigurationStore")
 public class ConfigurationStore extends com.pulumi.resources.CustomResource {
+    @Export(name="encryption", type=ConfigurationStoreEncryption.class, parameters={})
+    private Output</* @Nullable */ ConfigurationStoreEncryption> encryption;
+
+    public Output<Optional<ConfigurationStoreEncryption>> encryption() {
+        return Codegen.optional(this.encryption);
+    }
     /**
      * The URL of the App Configuration.
      * 
@@ -99,6 +108,20 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<ConfigurationStoreIdentity>> identity() {
         return Codegen.optional(this.identity);
+    }
+    /**
+     * Whether local authentication methods is enabled. Defaults to `true`.
+     * 
+     */
+    @Export(name="localAuthEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> localAuthEnabled;
+
+    /**
+     * @return Whether local authentication methods is enabled. Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> localAuthEnabled() {
+        return Codegen.optional(this.localAuthEnabled);
     }
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -157,18 +180,32 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
         return this.primaryWriteKeys;
     }
     /**
-     * The Public Network Access setting of this App Configuration.
+     * The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
      * 
      */
     @Export(name="publicNetworkAccess", type=String.class, parameters={})
     private Output</* @Nullable */ String> publicNetworkAccess;
 
     /**
-     * @return The Public Network Access setting of this App Configuration.
+     * @return The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
      * 
      */
     public Output<Optional<String>> publicNetworkAccess() {
         return Codegen.optional(this.publicNetworkAccess);
+    }
+    /**
+     * Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
+     * 
+     */
+    @Export(name="purgeProtectionEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> purgeProtectionEnabled;
+
+    /**
+     * @return Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> purgeProtectionEnabled() {
+        return Codegen.optional(this.purgeProtectionEnabled);
     }
     /**
      * The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
@@ -225,6 +262,20 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> sku() {
         return Codegen.optional(this.sku);
+    }
+    /**
+     * The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="softDeleteRetentionDays", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> softDeleteRetentionDays;
+
+    /**
+     * @return The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<Integer>> softDeleteRetentionDays() {
+        return Codegen.optional(this.softDeleteRetentionDays);
     }
     /**
      * A mapping of tags to assign to the resource.

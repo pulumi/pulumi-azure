@@ -6,7 +6,9 @@ package com.pulumi.azure.batch.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule {
@@ -25,6 +27,11 @@ public final class PoolNetworkConfigurationEndpointConfigurationNetworkSecurityG
      * 
      */
     private String sourceAddressPrefix;
+    /**
+     * @return The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can&#39;t overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`.
+     * 
+     */
+    private @Nullable List<String> sourcePortRanges;
 
     private PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule() {}
     /**
@@ -48,6 +55,13 @@ public final class PoolNetworkConfigurationEndpointConfigurationNetworkSecurityG
     public String sourceAddressPrefix() {
         return this.sourceAddressPrefix;
     }
+    /**
+     * @return The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can&#39;t overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`.
+     * 
+     */
+    public List<String> sourcePortRanges() {
+        return this.sourcePortRanges == null ? List.of() : this.sourcePortRanges;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -61,12 +75,14 @@ public final class PoolNetworkConfigurationEndpointConfigurationNetworkSecurityG
         private String access;
         private Integer priority;
         private String sourceAddressPrefix;
+        private @Nullable List<String> sourcePortRanges;
         public Builder() {}
         public Builder(PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.access = defaults.access;
     	      this.priority = defaults.priority;
     	      this.sourceAddressPrefix = defaults.sourceAddressPrefix;
+    	      this.sourcePortRanges = defaults.sourcePortRanges;
         }
 
         @CustomType.Setter
@@ -84,11 +100,20 @@ public final class PoolNetworkConfigurationEndpointConfigurationNetworkSecurityG
             this.sourceAddressPrefix = Objects.requireNonNull(sourceAddressPrefix);
             return this;
         }
+        @CustomType.Setter
+        public Builder sourcePortRanges(@Nullable List<String> sourcePortRanges) {
+            this.sourcePortRanges = sourcePortRanges;
+            return this;
+        }
+        public Builder sourcePortRanges(String... sourcePortRanges) {
+            return sourcePortRanges(List.of(sourcePortRanges));
+        }
         public PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule build() {
             final var o = new PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule();
             o.access = access;
             o.priority = priority;
             o.sourceAddressPrefix = sourceAddressPrefix;
+            o.sourcePortRanges = sourcePortRanges;
             return o;
         }
     }

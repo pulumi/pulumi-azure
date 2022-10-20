@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.hdinsight.outputs;
 
+import com.pulumi.azure.hdinsight.outputs.KafkaClusterRolesWorkerNodeScriptAction;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
@@ -23,6 +24,7 @@ public final class KafkaClusterRolesWorkerNode {
      * 
      */
     private @Nullable String password;
+    private @Nullable List<KafkaClusterRolesWorkerNodeScriptAction> scriptActions;
     /**
      * @return A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
      * 
@@ -68,6 +70,9 @@ public final class KafkaClusterRolesWorkerNode {
      */
     public Optional<String> password() {
         return Optional.ofNullable(this.password);
+    }
+    public List<KafkaClusterRolesWorkerNodeScriptAction> scriptActions() {
+        return this.scriptActions == null ? List.of() : this.scriptActions;
     }
     /**
      * @return A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
@@ -123,6 +128,7 @@ public final class KafkaClusterRolesWorkerNode {
     public static final class Builder {
         private Integer numberOfDisksPerNode;
         private @Nullable String password;
+        private @Nullable List<KafkaClusterRolesWorkerNodeScriptAction> scriptActions;
         private @Nullable List<String> sshKeys;
         private @Nullable String subnetId;
         private Integer targetInstanceCount;
@@ -134,6 +140,7 @@ public final class KafkaClusterRolesWorkerNode {
     	      Objects.requireNonNull(defaults);
     	      this.numberOfDisksPerNode = defaults.numberOfDisksPerNode;
     	      this.password = defaults.password;
+    	      this.scriptActions = defaults.scriptActions;
     	      this.sshKeys = defaults.sshKeys;
     	      this.subnetId = defaults.subnetId;
     	      this.targetInstanceCount = defaults.targetInstanceCount;
@@ -151,6 +158,14 @@ public final class KafkaClusterRolesWorkerNode {
         public Builder password(@Nullable String password) {
             this.password = password;
             return this;
+        }
+        @CustomType.Setter
+        public Builder scriptActions(@Nullable List<KafkaClusterRolesWorkerNodeScriptAction> scriptActions) {
+            this.scriptActions = scriptActions;
+            return this;
+        }
+        public Builder scriptActions(KafkaClusterRolesWorkerNodeScriptAction... scriptActions) {
+            return scriptActions(List.of(scriptActions));
         }
         @CustomType.Setter
         public Builder sshKeys(@Nullable List<String> sshKeys) {
@@ -189,6 +204,7 @@ public final class KafkaClusterRolesWorkerNode {
             final var o = new KafkaClusterRolesWorkerNode();
             o.numberOfDisksPerNode = numberOfDisksPerNode;
             o.password = password;
+            o.scriptActions = scriptActions;
             o.sshKeys = sshKeys;
             o.subnetId = subnetId;
             o.targetInstanceCount = targetInstanceCount;

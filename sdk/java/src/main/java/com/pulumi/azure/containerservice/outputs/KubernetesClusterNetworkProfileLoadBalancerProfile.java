@@ -29,6 +29,11 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfile {
      */
     private @Nullable Integer managedOutboundIpCount;
     /**
+     * @return The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
+     * 
+     */
+    private @Nullable Integer managedOutboundIpv6Count;
+    /**
      * @return The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
      * 
      */
@@ -67,6 +72,13 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfile {
         return Optional.ofNullable(this.managedOutboundIpCount);
     }
     /**
+     * @return The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
+     * 
+     */
+    public Optional<Integer> managedOutboundIpv6Count() {
+        return Optional.ofNullable(this.managedOutboundIpv6Count);
+    }
+    /**
      * @return The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
      * 
      */
@@ -100,6 +112,7 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfile {
         private @Nullable List<String> effectiveOutboundIps;
         private @Nullable Integer idleTimeoutInMinutes;
         private @Nullable Integer managedOutboundIpCount;
+        private @Nullable Integer managedOutboundIpv6Count;
         private @Nullable List<String> outboundIpAddressIds;
         private @Nullable List<String> outboundIpPrefixIds;
         private @Nullable Integer outboundPortsAllocated;
@@ -109,6 +122,7 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfile {
     	      this.effectiveOutboundIps = defaults.effectiveOutboundIps;
     	      this.idleTimeoutInMinutes = defaults.idleTimeoutInMinutes;
     	      this.managedOutboundIpCount = defaults.managedOutboundIpCount;
+    	      this.managedOutboundIpv6Count = defaults.managedOutboundIpv6Count;
     	      this.outboundIpAddressIds = defaults.outboundIpAddressIds;
     	      this.outboundIpPrefixIds = defaults.outboundIpPrefixIds;
     	      this.outboundPortsAllocated = defaults.outboundPortsAllocated;
@@ -130,6 +144,11 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfile {
         @CustomType.Setter
         public Builder managedOutboundIpCount(@Nullable Integer managedOutboundIpCount) {
             this.managedOutboundIpCount = managedOutboundIpCount;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder managedOutboundIpv6Count(@Nullable Integer managedOutboundIpv6Count) {
+            this.managedOutboundIpv6Count = managedOutboundIpv6Count;
             return this;
         }
         @CustomType.Setter
@@ -158,6 +177,7 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfile {
             o.effectiveOutboundIps = effectiveOutboundIps;
             o.idleTimeoutInMinutes = idleTimeoutInMinutes;
             o.managedOutboundIpCount = managedOutboundIpCount;
+            o.managedOutboundIpv6Count = managedOutboundIpv6Count;
             o.outboundIpAddressIds = outboundIpAddressIds;
             o.outboundIpPrefixIds = outboundIpPrefixIds;
             o.outboundPortsAllocated = outboundPortsAllocated;

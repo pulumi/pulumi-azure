@@ -12,11 +12,24 @@ import java.util.Objects;
 @CustomType
 public final class GetPoolNetworkConfiguration {
     /**
+     * @return The scope of dynamic vnet assignment.
+     * 
+     */
+    private String dynamicVnetAssignmentScope;
+    /**
      * @return The inbound NAT pools that are used to address specific ports on the individual compute node externally.
      * 
      */
     private List<GetPoolNetworkConfigurationEndpointConfiguration> endpointConfigurations;
+    /**
+     * @return Type of public IP address provisioning.
+     * 
+     */
     private String publicAddressProvisioningType;
+    /**
+     * @return A list of public IP ids that will be allocated to nodes.
+     * 
+     */
     private List<String> publicIps;
     /**
      * @return The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
@@ -26,15 +39,30 @@ public final class GetPoolNetworkConfiguration {
 
     private GetPoolNetworkConfiguration() {}
     /**
+     * @return The scope of dynamic vnet assignment.
+     * 
+     */
+    public String dynamicVnetAssignmentScope() {
+        return this.dynamicVnetAssignmentScope;
+    }
+    /**
      * @return The inbound NAT pools that are used to address specific ports on the individual compute node externally.
      * 
      */
     public List<GetPoolNetworkConfigurationEndpointConfiguration> endpointConfigurations() {
         return this.endpointConfigurations;
     }
+    /**
+     * @return Type of public IP address provisioning.
+     * 
+     */
     public String publicAddressProvisioningType() {
         return this.publicAddressProvisioningType;
     }
+    /**
+     * @return A list of public IP ids that will be allocated to nodes.
+     * 
+     */
     public List<String> publicIps() {
         return this.publicIps;
     }
@@ -55,6 +83,7 @@ public final class GetPoolNetworkConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String dynamicVnetAssignmentScope;
         private List<GetPoolNetworkConfigurationEndpointConfiguration> endpointConfigurations;
         private String publicAddressProvisioningType;
         private List<String> publicIps;
@@ -62,12 +91,18 @@ public final class GetPoolNetworkConfiguration {
         public Builder() {}
         public Builder(GetPoolNetworkConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.dynamicVnetAssignmentScope = defaults.dynamicVnetAssignmentScope;
     	      this.endpointConfigurations = defaults.endpointConfigurations;
     	      this.publicAddressProvisioningType = defaults.publicAddressProvisioningType;
     	      this.publicIps = defaults.publicIps;
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
+        public Builder dynamicVnetAssignmentScope(String dynamicVnetAssignmentScope) {
+            this.dynamicVnetAssignmentScope = Objects.requireNonNull(dynamicVnetAssignmentScope);
+            return this;
+        }
         @CustomType.Setter
         public Builder endpointConfigurations(List<GetPoolNetworkConfigurationEndpointConfiguration> endpointConfigurations) {
             this.endpointConfigurations = Objects.requireNonNull(endpointConfigurations);
@@ -96,6 +131,7 @@ public final class GetPoolNetworkConfiguration {
         }
         public GetPoolNetworkConfiguration build() {
             final var o = new GetPoolNetworkConfiguration();
+            o.dynamicVnetAssignmentScope = dynamicVnetAssignmentScope;
             o.endpointConfigurations = endpointConfigurations;
             o.publicAddressProvisioningType = publicAddressProvisioningType;
             o.publicIps = publicIps;

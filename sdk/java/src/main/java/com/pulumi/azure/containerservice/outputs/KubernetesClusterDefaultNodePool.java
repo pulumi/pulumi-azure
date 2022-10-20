@@ -70,6 +70,11 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable Integer maxPods;
     /**
+     * @return A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+     * 
+     */
+    private @Nullable String messageOfTheDay;
+    /**
      * @return The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
      * 
      */
@@ -127,6 +132,11 @@ public final class KubernetesClusterDefaultNodePool {
     private @Nullable String podSubnetId;
     private @Nullable String proximityPlacementGroupId;
     /**
+     * @return Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to &#39;ScaleDownModeDelete&#39;. Possible values include &#39;ScaleDownModeDelete&#39; and &#39;ScaleDownModeDeallocate&#39;. Changing this forces a new resource to be created.
+     * 
+     */
+    private @Nullable String scaleDownMode;
+    /**
      * @return A mapping of tags to assign to the Node Pool.
      * 
      */
@@ -156,6 +166,11 @@ public final class KubernetesClusterDefaultNodePool {
      * 
      */
     private @Nullable String vnetSubnetId;
+    /**
+     * @return Specifies the workload runtime used by the node pool. Possible values are `OCIContainer`.
+     * 
+     */
+    private @Nullable String workloadRuntime;
     /**
      * @return Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
      * 
@@ -235,6 +250,13 @@ public final class KubernetesClusterDefaultNodePool {
      */
     public Optional<Integer> maxPods() {
         return Optional.ofNullable(this.maxPods);
+    }
+    /**
+     * @return A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<String> messageOfTheDay() {
+        return Optional.ofNullable(this.messageOfTheDay);
     }
     /**
      * @return The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
@@ -320,6 +342,13 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.proximityPlacementGroupId);
     }
     /**
+     * @return Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to &#39;ScaleDownModeDelete&#39;. Possible values include &#39;ScaleDownModeDelete&#39; and &#39;ScaleDownModeDeallocate&#39;. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<String> scaleDownMode() {
+        return Optional.ofNullable(this.scaleDownMode);
+    }
+    /**
      * @return A mapping of tags to assign to the Node Pool.
      * 
      */
@@ -362,6 +391,13 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.vnetSubnetId);
     }
     /**
+     * @return Specifies the workload runtime used by the node pool. Possible values are `OCIContainer`.
+     * 
+     */
+    public Optional<String> workloadRuntime() {
+        return Optional.ofNullable(this.workloadRuntime);
+    }
+    /**
      * @return Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
      * 
      */
@@ -389,6 +425,7 @@ public final class KubernetesClusterDefaultNodePool {
         private @Nullable KubernetesClusterDefaultNodePoolLinuxOsConfig linuxOsConfig;
         private @Nullable Integer maxCount;
         private @Nullable Integer maxPods;
+        private @Nullable String messageOfTheDay;
         private @Nullable Integer minCount;
         private String name;
         private @Nullable Integer nodeCount;
@@ -402,12 +439,14 @@ public final class KubernetesClusterDefaultNodePool {
         private @Nullable String osSku;
         private @Nullable String podSubnetId;
         private @Nullable String proximityPlacementGroupId;
+        private @Nullable String scaleDownMode;
         private @Nullable Map<String,String> tags;
         private @Nullable String type;
         private @Nullable Boolean ultraSsdEnabled;
         private @Nullable KubernetesClusterDefaultNodePoolUpgradeSettings upgradeSettings;
         private String vmSize;
         private @Nullable String vnetSubnetId;
+        private @Nullable String workloadRuntime;
         private @Nullable List<String> zones;
         public Builder() {}
         public Builder(KubernetesClusterDefaultNodePool defaults) {
@@ -423,6 +462,7 @@ public final class KubernetesClusterDefaultNodePool {
     	      this.linuxOsConfig = defaults.linuxOsConfig;
     	      this.maxCount = defaults.maxCount;
     	      this.maxPods = defaults.maxPods;
+    	      this.messageOfTheDay = defaults.messageOfTheDay;
     	      this.minCount = defaults.minCount;
     	      this.name = defaults.name;
     	      this.nodeCount = defaults.nodeCount;
@@ -436,12 +476,14 @@ public final class KubernetesClusterDefaultNodePool {
     	      this.osSku = defaults.osSku;
     	      this.podSubnetId = defaults.podSubnetId;
     	      this.proximityPlacementGroupId = defaults.proximityPlacementGroupId;
+    	      this.scaleDownMode = defaults.scaleDownMode;
     	      this.tags = defaults.tags;
     	      this.type = defaults.type;
     	      this.ultraSsdEnabled = defaults.ultraSsdEnabled;
     	      this.upgradeSettings = defaults.upgradeSettings;
     	      this.vmSize = defaults.vmSize;
     	      this.vnetSubnetId = defaults.vnetSubnetId;
+    	      this.workloadRuntime = defaults.workloadRuntime;
     	      this.zones = defaults.zones;
         }
 
@@ -498,6 +540,11 @@ public final class KubernetesClusterDefaultNodePool {
         @CustomType.Setter
         public Builder maxPods(@Nullable Integer maxPods) {
             this.maxPods = maxPods;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder messageOfTheDay(@Nullable String messageOfTheDay) {
+            this.messageOfTheDay = messageOfTheDay;
             return this;
         }
         @CustomType.Setter
@@ -569,6 +616,11 @@ public final class KubernetesClusterDefaultNodePool {
             return this;
         }
         @CustomType.Setter
+        public Builder scaleDownMode(@Nullable String scaleDownMode) {
+            this.scaleDownMode = scaleDownMode;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
@@ -599,6 +651,11 @@ public final class KubernetesClusterDefaultNodePool {
             return this;
         }
         @CustomType.Setter
+        public Builder workloadRuntime(@Nullable String workloadRuntime) {
+            this.workloadRuntime = workloadRuntime;
+            return this;
+        }
+        @CustomType.Setter
         public Builder zones(@Nullable List<String> zones) {
             this.zones = zones;
             return this;
@@ -619,6 +676,7 @@ public final class KubernetesClusterDefaultNodePool {
             o.linuxOsConfig = linuxOsConfig;
             o.maxCount = maxCount;
             o.maxPods = maxPods;
+            o.messageOfTheDay = messageOfTheDay;
             o.minCount = minCount;
             o.name = name;
             o.nodeCount = nodeCount;
@@ -632,12 +690,14 @@ public final class KubernetesClusterDefaultNodePool {
             o.osSku = osSku;
             o.podSubnetId = podSubnetId;
             o.proximityPlacementGroupId = proximityPlacementGroupId;
+            o.scaleDownMode = scaleDownMode;
             o.tags = tags;
             o.type = type;
             o.ultraSsdEnabled = ultraSsdEnabled;
             o.upgradeSettings = upgradeSettings;
             o.vmSize = vmSize;
             o.vnetSubnetId = vnetSubnetId;
+            o.workloadRuntime = workloadRuntime;
             o.zones = zones;
             return o;
         }

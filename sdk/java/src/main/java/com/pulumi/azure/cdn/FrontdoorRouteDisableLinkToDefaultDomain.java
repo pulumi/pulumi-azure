@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
 /**
  * Manages the Link To Default Domain property of a CDN FrontDoor Route.
  * 
+ * !&gt;**IMPORTANT:** This resource has been deprecated and should not be used for new deployments. The `azure.cdn.FrontdoorRouteDisableLinkToDefaultDomain` resource will be removed from the 4.0 AzureRM provider. Please use the `link_to_default_domain` field in the `azure.cdn.FrontdoorRoute` resource to control this value.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -52,7 +54,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Frontdoor Routes can be imported using the `resource id`, e.g.
+ * FrontDoor Route Disable Link To Default Domain can be imported using the `resource id`, e.g.
  * 
  * ```sh
  *  $ pulumi import azure:cdn/frontdoorRouteDisableLinkToDefaultDomain:FrontdoorRouteDisableLinkToDefaultDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/afdEndpoints/endpoint1/routes/route1/disableLinkToDefaultDomain/disableLinkToDefaultDomain1
@@ -62,28 +64,36 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:cdn/frontdoorRouteDisableLinkToDefaultDomain:FrontdoorRouteDisableLinkToDefaultDomain")
 public class FrontdoorRouteDisableLinkToDefaultDomain extends com.pulumi.resources.CustomResource {
     /**
-     * The resource IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route. Changing this forces a new Frontdoor Route to be created.
+     * The resource IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route. Changing this forces a new FrontDoor Route Disable Link To Default Domain to be created.
+     * 
+     * @deprecated
+     * the &#39;cdn_frontdoor_route_disable_link_to_default_domain&#39; resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the &#39;link_to_default_domain&#39; field in the &#39;cdn_frontdoor_route&#39; resource to control this value
      * 
      */
+    @Deprecated /* the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value */
     @Export(name="cdnFrontdoorCustomDomainIds", type=List.class, parameters={String.class})
     private Output<List<String>> cdnFrontdoorCustomDomainIds;
 
     /**
-     * @return The resource IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route. Changing this forces a new Frontdoor Route to be created.
+     * @return The resource IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route. Changing this forces a new FrontDoor Route Disable Link To Default Domain to be created.
      * 
      */
     public Output<List<String>> cdnFrontdoorCustomDomainIds() {
         return this.cdnFrontdoorCustomDomainIds;
     }
     /**
-     * The resource ID of the CDN FrontDoor Route where the Link To Default Domain property should be `disabled`. Changing this forces a new Frontdoor Route to be created.
+     * The resource ID of the CDN FrontDoor Route where the Link To Default Domain property should be `disabled`. Changing this forces a new FrontDoor Route Disable Link To Default Domain to be created.
+     * 
+     * @deprecated
+     * the &#39;cdn_frontdoor_route_disable_link_to_default_domain&#39; resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the &#39;link_to_default_domain&#39; field in the &#39;cdn_frontdoor_route&#39; resource to control this value
      * 
      */
+    @Deprecated /* the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value */
     @Export(name="cdnFrontdoorRouteId", type=String.class, parameters={})
     private Output<String> cdnFrontdoorRouteId;
 
     /**
-     * @return The resource ID of the CDN FrontDoor Route where the Link To Default Domain property should be `disabled`. Changing this forces a new Frontdoor Route to be created.
+     * @return The resource ID of the CDN FrontDoor Route where the Link To Default Domain property should be `disabled`. Changing this forces a new FrontDoor Route Disable Link To Default Domain to be created.
      * 
      */
     public Output<String> cdnFrontdoorRouteId() {

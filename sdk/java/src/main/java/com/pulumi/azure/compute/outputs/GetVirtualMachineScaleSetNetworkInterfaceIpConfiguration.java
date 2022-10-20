@@ -52,6 +52,10 @@ public final class GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
      * 
      */
     private String subnetId;
+    /**
+     * @return The Internet Protocol Version of the public IP address.
+     * 
+     */
     private String version;
 
     private GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration() {}
@@ -111,6 +115,10 @@ public final class GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
     public String subnetId() {
         return this.subnetId;
     }
+    /**
+     * @return The Internet Protocol Version of the public IP address.
+     * 
+     */
     public String version() {
         return this.version;
     }

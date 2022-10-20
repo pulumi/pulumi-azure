@@ -49,9 +49,17 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.diskSizeGb);
     }
 
+    /**
+     * A `encryption_settings` block as defined below.
+     * 
+     */
     @Import(name="encryptionSettings")
     private @Nullable Output<SnapshotEncryptionSettingsArgs> encryptionSettings;
 
+    /**
+     * @return A `encryption_settings` block as defined below.
+     * 
+     */
     public Optional<Output<SnapshotEncryptionSettingsArgs>> encryptionSettings() {
         return Optional.ofNullable(this.encryptionSettings);
     }
@@ -252,11 +260,23 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
             return diskSizeGb(Output.of(diskSizeGb));
         }
 
+        /**
+         * @param encryptionSettings A `encryption_settings` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder encryptionSettings(@Nullable Output<SnapshotEncryptionSettingsArgs> encryptionSettings) {
             $.encryptionSettings = encryptionSettings;
             return this;
         }
 
+        /**
+         * @param encryptionSettings A `encryption_settings` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder encryptionSettings(SnapshotEncryptionSettingsArgs encryptionSettings) {
             return encryptionSettings(Output.of(encryptionSettings));
         }

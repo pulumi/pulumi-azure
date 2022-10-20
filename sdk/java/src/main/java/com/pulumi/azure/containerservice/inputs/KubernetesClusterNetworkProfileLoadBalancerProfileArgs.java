@@ -63,6 +63,21 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfileArgs extend
     }
 
     /**
+     * The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
+     * 
+     */
+    @Import(name="managedOutboundIpv6Count")
+    private @Nullable Output<Integer> managedOutboundIpv6Count;
+
+    /**
+     * @return The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
+     * 
+     */
+    public Optional<Output<Integer>> managedOutboundIpv6Count() {
+        return Optional.ofNullable(this.managedOutboundIpv6Count);
+    }
+
+    /**
      * The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
      * 
      */
@@ -113,6 +128,7 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfileArgs extend
         this.effectiveOutboundIps = $.effectiveOutboundIps;
         this.idleTimeoutInMinutes = $.idleTimeoutInMinutes;
         this.managedOutboundIpCount = $.managedOutboundIpCount;
+        this.managedOutboundIpv6Count = $.managedOutboundIpv6Count;
         this.outboundIpAddressIds = $.outboundIpAddressIds;
         this.outboundIpPrefixIds = $.outboundIpPrefixIds;
         this.outboundPortsAllocated = $.outboundPortsAllocated;
@@ -207,6 +223,27 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfileArgs extend
          */
         public Builder managedOutboundIpCount(Integer managedOutboundIpCount) {
             return managedOutboundIpCount(Output.of(managedOutboundIpCount));
+        }
+
+        /**
+         * @param managedOutboundIpv6Count The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedOutboundIpv6Count(@Nullable Output<Integer> managedOutboundIpv6Count) {
+            $.managedOutboundIpv6Count = managedOutboundIpv6Count;
+            return this;
+        }
+
+        /**
+         * @param managedOutboundIpv6Count The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedOutboundIpv6Count(Integer managedOutboundIpv6Count) {
+            return managedOutboundIpv6Count(Output.of(managedOutboundIpv6Count));
         }
 
         /**

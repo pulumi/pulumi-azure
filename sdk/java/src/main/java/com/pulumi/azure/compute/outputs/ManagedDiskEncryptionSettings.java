@@ -19,10 +19,12 @@ public final class ManagedDiskEncryptionSettings {
      */
     private @Nullable ManagedDiskEncryptionSettingsDiskEncryptionKey diskEncryptionKey;
     /**
-     * @return Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
+     * @deprecated
+     * Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
      * 
      */
-    private Boolean enabled;
+    @Deprecated /* Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block` */
+    private @Nullable Boolean enabled;
     /**
      * @return A `key_encryption_key` block as defined below.
      * 
@@ -38,11 +40,13 @@ public final class ManagedDiskEncryptionSettings {
         return Optional.ofNullable(this.diskEncryptionKey);
     }
     /**
-     * @return Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
+     * @deprecated
+     * Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
      * 
      */
-    public Boolean enabled() {
-        return this.enabled;
+    @Deprecated /* Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block` */
+    public Optional<Boolean> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
     /**
      * @return A `key_encryption_key` block as defined below.
@@ -62,7 +66,7 @@ public final class ManagedDiskEncryptionSettings {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable ManagedDiskEncryptionSettingsDiskEncryptionKey diskEncryptionKey;
-        private Boolean enabled;
+        private @Nullable Boolean enabled;
         private @Nullable ManagedDiskEncryptionSettingsKeyEncryptionKey keyEncryptionKey;
         public Builder() {}
         public Builder(ManagedDiskEncryptionSettings defaults) {
@@ -78,8 +82,8 @@ public final class ManagedDiskEncryptionSettings {
             return this;
         }
         @CustomType.Setter
-        public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+        public Builder enabled(@Nullable Boolean enabled) {
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter

@@ -4,6 +4,7 @@
 package com.pulumi.azure.inputs;
 
 import com.pulumi.azure.inputs.ProviderFeaturesApiManagementArgs;
+import com.pulumi.azure.inputs.ProviderFeaturesAppConfigurationArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesApplicationInsightsArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesCognitiveAccountArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesKeyVaultArgs;
@@ -29,6 +30,13 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
 
     public Optional<Output<ProviderFeaturesApiManagementArgs>> apiManagement() {
         return Optional.ofNullable(this.apiManagement);
+    }
+
+    @Import(name="appConfiguration")
+    private @Nullable Output<ProviderFeaturesAppConfigurationArgs> appConfiguration;
+
+    public Optional<Output<ProviderFeaturesAppConfigurationArgs>> appConfiguration() {
+        return Optional.ofNullable(this.appConfiguration);
     }
 
     @Import(name="applicationInsights")
@@ -98,6 +106,7 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
 
     private ProviderFeaturesArgs(ProviderFeaturesArgs $) {
         this.apiManagement = $.apiManagement;
+        this.appConfiguration = $.appConfiguration;
         this.applicationInsights = $.applicationInsights;
         this.cognitiveAccount = $.cognitiveAccount;
         this.keyVault = $.keyVault;
@@ -134,6 +143,15 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
 
         public Builder apiManagement(ProviderFeaturesApiManagementArgs apiManagement) {
             return apiManagement(Output.of(apiManagement));
+        }
+
+        public Builder appConfiguration(@Nullable Output<ProviderFeaturesAppConfigurationArgs> appConfiguration) {
+            $.appConfiguration = appConfiguration;
+            return this;
+        }
+
+        public Builder appConfiguration(ProviderFeaturesAppConfigurationArgs appConfiguration) {
+            return appConfiguration(Output.of(appConfiguration));
         }
 
         public Builder applicationInsights(@Nullable Output<ProviderFeaturesApplicationInsightsArgs> applicationInsights) {

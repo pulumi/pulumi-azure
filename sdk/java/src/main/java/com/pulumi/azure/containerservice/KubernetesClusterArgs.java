@@ -633,6 +633,21 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.windowsProfile);
     }
 
+    /**
+     * Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
+     * 
+     */
+    @Import(name="workloadIdentityEnabled")
+    private @Nullable Output<Boolean> workloadIdentityEnabled;
+
+    /**
+     * @return Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> workloadIdentityEnabled() {
+        return Optional.ofNullable(this.workloadIdentityEnabled);
+    }
+
     private KubernetesClusterArgs() {}
 
     private KubernetesClusterArgs(KubernetesClusterArgs $) {
@@ -677,6 +692,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         this.skuTier = $.skuTier;
         this.tags = $.tags;
         this.windowsProfile = $.windowsProfile;
+        this.workloadIdentityEnabled = $.workloadIdentityEnabled;
     }
 
     public static Builder builder() {
@@ -1542,6 +1558,27 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder windowsProfile(KubernetesClusterWindowsProfileArgs windowsProfile) {
             return windowsProfile(Output.of(windowsProfile));
+        }
+
+        /**
+         * @param workloadIdentityEnabled Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workloadIdentityEnabled(@Nullable Output<Boolean> workloadIdentityEnabled) {
+            $.workloadIdentityEnabled = workloadIdentityEnabled;
+            return this;
+        }
+
+        /**
+         * @param workloadIdentityEnabled Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workloadIdentityEnabled(Boolean workloadIdentityEnabled) {
+            return workloadIdentityEnabled(Output.of(workloadIdentityEnabled));
         }
 
         public KubernetesClusterArgs build() {

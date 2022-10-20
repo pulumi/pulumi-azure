@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.batch.inputs;
 
+import com.pulumi.azure.batch.inputs.PoolStartTaskContainerArgs;
 import com.pulumi.azure.batch.inputs.PoolStartTaskResourceFileArgs;
 import com.pulumi.azure.batch.inputs.PoolStartTaskUserIdentityArgs;
 import com.pulumi.core.Output;
@@ -49,6 +50,21 @@ public final class PoolStartTaskArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Map<String,String>>> commonEnvironmentProperties() {
         return Optional.ofNullable(this.commonEnvironmentProperties);
+    }
+
+    /**
+     * A `container` block is the settings for the container under which the start task runs. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
+     * 
+     */
+    @Import(name="containers")
+    private @Nullable Output<List<PoolStartTaskContainerArgs>> containers;
+
+    /**
+     * @return A `container` block is the settings for the container under which the start task runs. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
+     * 
+     */
+    public Optional<Output<List<PoolStartTaskContainerArgs>>> containers() {
+        return Optional.ofNullable(this.containers);
     }
 
     /**
@@ -116,6 +132,7 @@ public final class PoolStartTaskArgs extends com.pulumi.resources.ResourceArgs {
     private PoolStartTaskArgs(PoolStartTaskArgs $) {
         this.commandLine = $.commandLine;
         this.commonEnvironmentProperties = $.commonEnvironmentProperties;
+        this.containers = $.containers;
         this.resourceFiles = $.resourceFiles;
         this.taskRetryMaximum = $.taskRetryMaximum;
         this.userIdentity = $.userIdentity;
@@ -180,6 +197,37 @@ public final class PoolStartTaskArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder commonEnvironmentProperties(Map<String,String> commonEnvironmentProperties) {
             return commonEnvironmentProperties(Output.of(commonEnvironmentProperties));
+        }
+
+        /**
+         * @param containers A `container` block is the settings for the container under which the start task runs. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder containers(@Nullable Output<List<PoolStartTaskContainerArgs>> containers) {
+            $.containers = containers;
+            return this;
+        }
+
+        /**
+         * @param containers A `container` block is the settings for the container under which the start task runs. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder containers(List<PoolStartTaskContainerArgs> containers) {
+            return containers(Output.of(containers));
+        }
+
+        /**
+         * @param containers A `container` block is the settings for the container under which the start task runs. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder containers(PoolStartTaskContainerArgs... containers) {
+            return containers(List.of(containers));
         }
 
         /**

@@ -4,14 +4,16 @@
 package com.pulumi.azure.cdn;
 
 import com.pulumi.azure.Utilities;
-import com.pulumi.azure.cdn.FrontdoorCustomEndpointArgs;
-import com.pulumi.azure.cdn.inputs.FrontdoorCustomEndpointState;
-import com.pulumi.azure.cdn.outputs.FrontdoorCustomEndpointTls;
+import com.pulumi.azure.cdn.FrontdoorCustomDomainArgs;
+import com.pulumi.azure.cdn.inputs.FrontdoorCustomDomainState;
+import com.pulumi.azure.cdn.outputs.FrontdoorCustomDomainTls;
+import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -29,9 +31,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.dns.ZoneArgs;
  * import com.pulumi.azure.cdn.FrontdoorProfile;
  * import com.pulumi.azure.cdn.FrontdoorProfileArgs;
- * import com.pulumi.azure.cdn.FrontdoorCustomEndpoint;
- * import com.pulumi.azure.cdn.FrontdoorCustomEndpointArgs;
- * import com.pulumi.azure.cdn.inputs.FrontdoorCustomEndpointTlsArgs;
+ * import com.pulumi.azure.cdn.FrontdoorCustomDomain;
+ * import com.pulumi.azure.cdn.FrontdoorCustomDomainArgs;
+ * import com.pulumi.azure.cdn.inputs.FrontdoorCustomDomainTlsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -55,14 +57,14 @@ import javax.annotation.Nullable;
  * 
  *         var exampleFrontdoorProfile = new FrontdoorProfile(&#34;exampleFrontdoorProfile&#34;, FrontdoorProfileArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
+ *             .skuName(&#34;Standard_AzureFrontDoor&#34;)
  *             .build());
  * 
- *         var exampleFrontdoorCustomEndpoint = new FrontdoorCustomEndpoint(&#34;exampleFrontdoorCustomEndpoint&#34;, FrontdoorCustomEndpointArgs.builder()        
+ *         var exampleFrontdoorCustomDomain = new FrontdoorCustomDomain(&#34;exampleFrontdoorCustomDomain&#34;, FrontdoorCustomDomainArgs.builder()        
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .dnsZoneId(exampleZone.id())
  *             .hostName(&#34;contoso.com&#34;)
- *             .associateWithCdnFrontdoorRouteId(azurerm_cdn_frontdoor_route.example().id())
- *             .tls(FrontdoorCustomEndpointTlsArgs.builder()
+ *             .tls(FrontdoorCustomDomainTlsArgs.builder()
  *                 .certificateType(&#34;ManagedCertificate&#34;)
  *                 .minimumTlsVersion(&#34;TLS12&#34;)
  *                 .build())
@@ -116,26 +118,12 @@ import javax.annotation.Nullable;
  * CDN FrontDoor Custom Domains can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:cdn/frontdoorCustomEndpoint:FrontdoorCustomEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/customDomains/customDomain1
+ *  $ pulumi import azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/customDomains/customDomain1
  * ```
  * 
  */
-@ResourceType(type="azure:cdn/frontdoorCustomEndpoint:FrontdoorCustomEndpoint")
-public class FrontdoorCustomEndpoint extends com.pulumi.resources.CustomResource {
-    /**
-     * The resource ID of the CDN FrontDoor Route this Custom Domain should be associated with.
-     * 
-     */
-    @Export(name="associateWithCdnFrontdoorRouteId", type=String.class, parameters={})
-    private Output</* @Nullable */ String> associateWithCdnFrontdoorRouteId;
-
-    /**
-     * @return The resource ID of the CDN FrontDoor Route this Custom Domain should be associated with.
-     * 
-     */
-    public Output<Optional<String>> associateWithCdnFrontdoorRouteId() {
-        return Codegen.optional(this.associateWithCdnFrontdoorRouteId);
-    }
+@ResourceType(type="azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain")
+public class FrontdoorCustomDomain extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Frontdoor Profile. Changing this forces a new Frontdoor Profile to be created.
      * 
@@ -210,14 +198,14 @@ public class FrontdoorCustomEndpoint extends com.pulumi.resources.CustomResource
      * A `tls` block as defined below.
      * 
      */
-    @Export(name="tls", type=FrontdoorCustomEndpointTls.class, parameters={})
-    private Output<FrontdoorCustomEndpointTls> tls;
+    @Export(name="tls", type=FrontdoorCustomDomainTls.class, parameters={})
+    private Output<FrontdoorCustomDomainTls> tls;
 
     /**
      * @return A `tls` block as defined below.
      * 
      */
-    public Output<FrontdoorCustomEndpointTls> tls() {
+    public Output<FrontdoorCustomDomainTls> tls() {
         return this.tls;
     }
     /**
@@ -239,15 +227,15 @@ public class FrontdoorCustomEndpoint extends com.pulumi.resources.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FrontdoorCustomEndpoint(String name) {
-        this(name, FrontdoorCustomEndpointArgs.Empty);
+    public FrontdoorCustomDomain(String name) {
+        this(name, FrontdoorCustomDomainArgs.Empty);
     }
     /**
      *
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FrontdoorCustomEndpoint(String name, FrontdoorCustomEndpointArgs args) {
+    public FrontdoorCustomDomain(String name, FrontdoorCustomDomainArgs args) {
         this(name, args, null);
     }
     /**
@@ -256,17 +244,20 @@ public class FrontdoorCustomEndpoint extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FrontdoorCustomEndpoint(String name, FrontdoorCustomEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cdn/frontdoorCustomEndpoint:FrontdoorCustomEndpoint", name, args == null ? FrontdoorCustomEndpointArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public FrontdoorCustomDomain(String name, FrontdoorCustomDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain", name, args == null ? FrontdoorCustomDomainArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 
-    private FrontdoorCustomEndpoint(String name, Output<String> id, @Nullable FrontdoorCustomEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cdn/frontdoorCustomEndpoint:FrontdoorCustomEndpoint", name, state, makeResourceOptions(options, id));
+    private FrontdoorCustomDomain(String name, Output<String> id, @Nullable FrontdoorCustomDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain", name, state, makeResourceOptions(options, id));
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .aliases(List.of(
+                Output.of(Alias.builder().type("azure:cdn/frontdoorCustomEndpoint:FrontdoorCustomEndpoint").build())
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }
@@ -280,7 +271,7 @@ public class FrontdoorCustomEndpoint extends com.pulumi.resources.CustomResource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FrontdoorCustomEndpoint get(String name, Output<String> id, @Nullable FrontdoorCustomEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        return new FrontdoorCustomEndpoint(name, id, state, options);
+    public static FrontdoorCustomDomain get(String name, Output<String> id, @Nullable FrontdoorCustomDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        return new FrontdoorCustomDomain(name, id, state, options);
     }
 }

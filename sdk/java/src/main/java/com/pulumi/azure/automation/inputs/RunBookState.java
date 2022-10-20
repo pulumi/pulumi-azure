@@ -3,11 +3,13 @@
 
 package com.pulumi.azure.automation.inputs;
 
+import com.pulumi.azure.automation.inputs.RunBookDraftArgs;
 import com.pulumi.azure.automation.inputs.RunBookJobScheduleArgs;
 import com.pulumi.azure.automation.inputs.RunBookPublishContentLinkArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -65,6 +67,21 @@ public final class RunBookState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * A `draft` block as defined below .
+     * 
+     */
+    @Import(name="draft")
+    private @Nullable Output<RunBookDraftArgs> draft;
+
+    /**
+     * @return A `draft` block as defined below .
+     * 
+     */
+    public Optional<Output<RunBookDraftArgs>> draft() {
+        return Optional.ofNullable(this.draft);
+    }
+
     @Import(name="jobSchedules")
     private @Nullable Output<List<RunBookJobScheduleArgs>> jobSchedules;
 
@@ -85,6 +102,23 @@ public final class RunBookState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> location() {
         return Optional.ofNullable(this.location);
+    }
+
+    /**
+     * Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
+     * Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+     * 
+     */
+    @Import(name="logActivityTraceLevel")
+    private @Nullable Output<Integer> logActivityTraceLevel;
+
+    /**
+     * @return Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
+     * Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+     * 
+     */
+    public Optional<Output<Integer>> logActivityTraceLevel() {
+        return Optional.ofNullable(this.logActivityTraceLevel);
     }
 
     /**
@@ -198,8 +232,10 @@ public final class RunBookState extends com.pulumi.resources.ResourceArgs {
         this.automationAccountName = $.automationAccountName;
         this.content = $.content;
         this.description = $.description;
+        this.draft = $.draft;
         this.jobSchedules = $.jobSchedules;
         this.location = $.location;
+        this.logActivityTraceLevel = $.logActivityTraceLevel;
         this.logProgress = $.logProgress;
         this.logVerbose = $.logVerbose;
         this.name = $.name;
@@ -290,6 +326,27 @@ public final class RunBookState extends com.pulumi.resources.ResourceArgs {
             return description(Output.of(description));
         }
 
+        /**
+         * @param draft A `draft` block as defined below .
+         * 
+         * @return builder
+         * 
+         */
+        public Builder draft(@Nullable Output<RunBookDraftArgs> draft) {
+            $.draft = draft;
+            return this;
+        }
+
+        /**
+         * @param draft A `draft` block as defined below .
+         * 
+         * @return builder
+         * 
+         */
+        public Builder draft(RunBookDraftArgs draft) {
+            return draft(Output.of(draft));
+        }
+
         public Builder jobSchedules(@Nullable Output<List<RunBookJobScheduleArgs>> jobSchedules) {
             $.jobSchedules = jobSchedules;
             return this;
@@ -322,6 +379,29 @@ public final class RunBookState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder location(String location) {
             return location(Output.of(location));
+        }
+
+        /**
+         * @param logActivityTraceLevel Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
+         * Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logActivityTraceLevel(@Nullable Output<Integer> logActivityTraceLevel) {
+            $.logActivityTraceLevel = logActivityTraceLevel;
+            return this;
+        }
+
+        /**
+         * @param logActivityTraceLevel Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
+         * Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logActivityTraceLevel(Integer logActivityTraceLevel) {
+            return logActivityTraceLevel(Output.of(logActivityTraceLevel));
         }
 
         /**

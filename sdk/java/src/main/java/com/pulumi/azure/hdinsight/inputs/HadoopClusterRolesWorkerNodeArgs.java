@@ -4,6 +4,7 @@
 package com.pulumi.azure.hdinsight.inputs;
 
 import com.pulumi.azure.hdinsight.inputs.HadoopClusterRolesWorkerNodeAutoscaleArgs;
+import com.pulumi.azure.hdinsight.inputs.HadoopClusterRolesWorkerNodeScriptActionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
@@ -46,6 +47,21 @@ public final class HadoopClusterRolesWorkerNodeArgs extends com.pulumi.resources
      */
     public Optional<Output<String>> password() {
         return Optional.ofNullable(this.password);
+    }
+
+    /**
+     * The script action which will run on the cluster.
+     * 
+     */
+    @Import(name="scriptActions")
+    private @Nullable Output<List<HadoopClusterRolesWorkerNodeScriptActionArgs>> scriptActions;
+
+    /**
+     * @return The script action which will run on the cluster.
+     * 
+     */
+    public Optional<Output<List<HadoopClusterRolesWorkerNodeScriptActionArgs>>> scriptActions() {
+        return Optional.ofNullable(this.scriptActions);
     }
 
     /**
@@ -143,6 +159,7 @@ public final class HadoopClusterRolesWorkerNodeArgs extends com.pulumi.resources
     private HadoopClusterRolesWorkerNodeArgs(HadoopClusterRolesWorkerNodeArgs $) {
         this.autoscale = $.autoscale;
         this.password = $.password;
+        this.scriptActions = $.scriptActions;
         this.sshKeys = $.sshKeys;
         this.subnetId = $.subnetId;
         this.targetInstanceCount = $.targetInstanceCount;
@@ -209,6 +226,37 @@ public final class HadoopClusterRolesWorkerNodeArgs extends com.pulumi.resources
          */
         public Builder password(String password) {
             return password(Output.of(password));
+        }
+
+        /**
+         * @param scriptActions The script action which will run on the cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scriptActions(@Nullable Output<List<HadoopClusterRolesWorkerNodeScriptActionArgs>> scriptActions) {
+            $.scriptActions = scriptActions;
+            return this;
+        }
+
+        /**
+         * @param scriptActions The script action which will run on the cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scriptActions(List<HadoopClusterRolesWorkerNodeScriptActionArgs> scriptActions) {
+            return scriptActions(Output.of(scriptActions));
+        }
+
+        /**
+         * @param scriptActions The script action which will run on the cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scriptActions(HadoopClusterRolesWorkerNodeScriptActionArgs... scriptActions) {
+            return scriptActions(List.of(scriptActions));
         }
 
         /**

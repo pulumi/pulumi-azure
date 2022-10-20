@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.hdinsight.inputs;
 
+import com.pulumi.azure.hdinsight.inputs.HBaseClusterRolesHeadNodeScriptActionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -29,6 +30,21 @@ public final class HBaseClusterRolesHeadNodeArgs extends com.pulumi.resources.Re
      */
     public Optional<Output<String>> password() {
         return Optional.ofNullable(this.password);
+    }
+
+    /**
+     * The script action which will run on the cluster.
+     * 
+     */
+    @Import(name="scriptActions")
+    private @Nullable Output<List<HBaseClusterRolesHeadNodeScriptActionArgs>> scriptActions;
+
+    /**
+     * @return The script action which will run on the cluster.
+     * 
+     */
+    public Optional<Output<List<HBaseClusterRolesHeadNodeScriptActionArgs>>> scriptActions() {
+        return Optional.ofNullable(this.scriptActions);
     }
 
     /**
@@ -110,6 +126,7 @@ public final class HBaseClusterRolesHeadNodeArgs extends com.pulumi.resources.Re
 
     private HBaseClusterRolesHeadNodeArgs(HBaseClusterRolesHeadNodeArgs $) {
         this.password = $.password;
+        this.scriptActions = $.scriptActions;
         this.sshKeys = $.sshKeys;
         this.subnetId = $.subnetId;
         this.username = $.username;
@@ -154,6 +171,37 @@ public final class HBaseClusterRolesHeadNodeArgs extends com.pulumi.resources.Re
          */
         public Builder password(String password) {
             return password(Output.of(password));
+        }
+
+        /**
+         * @param scriptActions The script action which will run on the cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scriptActions(@Nullable Output<List<HBaseClusterRolesHeadNodeScriptActionArgs>> scriptActions) {
+            $.scriptActions = scriptActions;
+            return this;
+        }
+
+        /**
+         * @param scriptActions The script action which will run on the cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scriptActions(List<HBaseClusterRolesHeadNodeScriptActionArgs> scriptActions) {
+            return scriptActions(Output.of(scriptActions));
+        }
+
+        /**
+         * @param scriptActions The script action which will run on the cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scriptActions(HBaseClusterRolesHeadNodeScriptActionArgs... scriptActions) {
+            return scriptActions(List.of(scriptActions));
         }
 
         /**

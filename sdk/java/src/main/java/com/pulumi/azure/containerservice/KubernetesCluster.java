@@ -786,6 +786,20 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
     public Output<KubernetesClusterWindowsProfile> windowsProfile() {
         return this.windowsProfile;
     }
+    /**
+     * Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
+     * 
+     */
+    @Export(name="workloadIdentityEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> workloadIdentityEnabled;
+
+    /**
+     * @return Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> workloadIdentityEnabled() {
+        return Codegen.optional(this.workloadIdentityEnabled);
+    }
 
     /**
      *

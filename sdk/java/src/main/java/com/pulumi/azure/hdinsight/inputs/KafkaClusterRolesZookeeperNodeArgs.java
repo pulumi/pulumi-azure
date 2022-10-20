@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.hdinsight.inputs;
 
+import com.pulumi.azure.hdinsight.inputs.KafkaClusterRolesZookeeperNodeScriptActionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -29,6 +30,13 @@ public final class KafkaClusterRolesZookeeperNodeArgs extends com.pulumi.resourc
      */
     public Optional<Output<String>> password() {
         return Optional.ofNullable(this.password);
+    }
+
+    @Import(name="scriptActions")
+    private @Nullable Output<List<KafkaClusterRolesZookeeperNodeScriptActionArgs>> scriptActions;
+
+    public Optional<Output<List<KafkaClusterRolesZookeeperNodeScriptActionArgs>>> scriptActions() {
+        return Optional.ofNullable(this.scriptActions);
     }
 
     /**
@@ -110,6 +118,7 @@ public final class KafkaClusterRolesZookeeperNodeArgs extends com.pulumi.resourc
 
     private KafkaClusterRolesZookeeperNodeArgs(KafkaClusterRolesZookeeperNodeArgs $) {
         this.password = $.password;
+        this.scriptActions = $.scriptActions;
         this.sshKeys = $.sshKeys;
         this.subnetId = $.subnetId;
         this.username = $.username;
@@ -154,6 +163,19 @@ public final class KafkaClusterRolesZookeeperNodeArgs extends com.pulumi.resourc
          */
         public Builder password(String password) {
             return password(Output.of(password));
+        }
+
+        public Builder scriptActions(@Nullable Output<List<KafkaClusterRolesZookeeperNodeScriptActionArgs>> scriptActions) {
+            $.scriptActions = scriptActions;
+            return this;
+        }
+
+        public Builder scriptActions(List<KafkaClusterRolesZookeeperNodeScriptActionArgs> scriptActions) {
+            return scriptActions(Output.of(scriptActions));
+        }
+
+        public Builder scriptActions(KafkaClusterRolesZookeeperNodeScriptActionArgs... scriptActions) {
+            return scriptActions(List.of(scriptActions));
         }
 
         /**

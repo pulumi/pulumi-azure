@@ -14,6 +14,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PoolNetworkConfiguration {
     /**
+     * @return The scope of dynamic vnet assignment. Allowed values: `none`, `job`.
+     * 
+     */
+    private @Nullable String dynamicVnetAssignmentScope;
+    /**
      * @return A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
      * 
      */
@@ -35,6 +40,13 @@ public final class PoolNetworkConfiguration {
     private String subnetId;
 
     private PoolNetworkConfiguration() {}
+    /**
+     * @return The scope of dynamic vnet assignment. Allowed values: `none`, `job`.
+     * 
+     */
+    public Optional<String> dynamicVnetAssignmentScope() {
+        return Optional.ofNullable(this.dynamicVnetAssignmentScope);
+    }
     /**
      * @return A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
      * 
@@ -73,6 +85,7 @@ public final class PoolNetworkConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String dynamicVnetAssignmentScope;
         private @Nullable List<PoolNetworkConfigurationEndpointConfiguration> endpointConfigurations;
         private @Nullable String publicAddressProvisioningType;
         private @Nullable List<String> publicIps;
@@ -80,12 +93,18 @@ public final class PoolNetworkConfiguration {
         public Builder() {}
         public Builder(PoolNetworkConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.dynamicVnetAssignmentScope = defaults.dynamicVnetAssignmentScope;
     	      this.endpointConfigurations = defaults.endpointConfigurations;
     	      this.publicAddressProvisioningType = defaults.publicAddressProvisioningType;
     	      this.publicIps = defaults.publicIps;
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
+        public Builder dynamicVnetAssignmentScope(@Nullable String dynamicVnetAssignmentScope) {
+            this.dynamicVnetAssignmentScope = dynamicVnetAssignmentScope;
+            return this;
+        }
         @CustomType.Setter
         public Builder endpointConfigurations(@Nullable List<PoolNetworkConfigurationEndpointConfiguration> endpointConfigurations) {
             this.endpointConfigurations = endpointConfigurations;
@@ -114,6 +133,7 @@ public final class PoolNetworkConfiguration {
         }
         public PoolNetworkConfiguration build() {
             final var o = new PoolNetworkConfiguration();
+            o.dynamicVnetAssignmentScope = dynamicVnetAssignmentScope;
             o.endpointConfigurations = endpointConfigurations;
             o.publicAddressProvisioningType = publicAddressProvisioningType;
             o.publicIps = publicIps;

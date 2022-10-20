@@ -3,11 +3,15 @@
 
 package com.pulumi.azure.appconfiguration.outputs;
 
+import com.pulumi.azure.appconfiguration.outputs.GetConfigurationStoreEncryption;
+import com.pulumi.azure.appconfiguration.outputs.GetConfigurationStoreIdentity;
 import com.pulumi.azure.appconfiguration.outputs.GetConfigurationStorePrimaryReadKey;
 import com.pulumi.azure.appconfiguration.outputs.GetConfigurationStorePrimaryWriteKey;
 import com.pulumi.azure.appconfiguration.outputs.GetConfigurationStoreSecondaryReadKey;
 import com.pulumi.azure.appconfiguration.outputs.GetConfigurationStoreSecondaryWriteKey;
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +19,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetConfigurationStoreResult {
+    private List<GetConfigurationStoreEncryption> encryptions;
     /**
      * @return The Endpoint used to access this App Configuration.
      * 
@@ -25,6 +30,12 @@ public final class GetConfigurationStoreResult {
      * 
      */
     private String id;
+    private List<GetConfigurationStoreIdentity> identities;
+    /**
+     * @return Whether local authentication methods is enabled.
+     * 
+     */
+    private Boolean localAuthEnabled;
     /**
      * @return The Azure Region where the App Configuration exists.
      * 
@@ -46,6 +57,12 @@ public final class GetConfigurationStoreResult {
      * 
      */
     private String publicNetworkAccess;
+    private Boolean publicNetworkAccessEnabled;
+    /**
+     * @return Whether Purge Protection is enabled.
+     * 
+     */
+    private Boolean purgeProtectionEnabled;
     private String resourceGroupName;
     /**
      * @return A `secondary_read_key` block as defined below containing the secondary read access key.
@@ -63,12 +80,20 @@ public final class GetConfigurationStoreResult {
      */
     private String sku;
     /**
+     * @return The number of days that items should be retained for once soft-deleted.
+     * 
+     */
+    private Integer softDeleteRetentionDays;
+    /**
      * @return A mapping of tags assigned to the App Configuration.
      * 
      */
     private Map<String,String> tags;
 
     private GetConfigurationStoreResult() {}
+    public List<GetConfigurationStoreEncryption> encryptions() {
+        return this.encryptions;
+    }
     /**
      * @return The Endpoint used to access this App Configuration.
      * 
@@ -82,6 +107,16 @@ public final class GetConfigurationStoreResult {
      */
     public String id() {
         return this.id;
+    }
+    public List<GetConfigurationStoreIdentity> identities() {
+        return this.identities;
+    }
+    /**
+     * @return Whether local authentication methods is enabled.
+     * 
+     */
+    public Boolean localAuthEnabled() {
+        return this.localAuthEnabled;
     }
     /**
      * @return The Azure Region where the App Configuration exists.
@@ -114,6 +149,16 @@ public final class GetConfigurationStoreResult {
     public String publicNetworkAccess() {
         return this.publicNetworkAccess;
     }
+    public Boolean publicNetworkAccessEnabled() {
+        return this.publicNetworkAccessEnabled;
+    }
+    /**
+     * @return Whether Purge Protection is enabled.
+     * 
+     */
+    public Boolean purgeProtectionEnabled() {
+        return this.purgeProtectionEnabled;
+    }
     public String resourceGroupName() {
         return this.resourceGroupName;
     }
@@ -139,6 +184,13 @@ public final class GetConfigurationStoreResult {
         return this.sku;
     }
     /**
+     * @return The number of days that items should be retained for once soft-deleted.
+     * 
+     */
+    public Integer softDeleteRetentionDays() {
+        return this.softDeleteRetentionDays;
+    }
+    /**
      * @return A mapping of tags assigned to the App Configuration.
      * 
      */
@@ -155,35 +207,55 @@ public final class GetConfigurationStoreResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<GetConfigurationStoreEncryption> encryptions;
         private String endpoint;
         private String id;
+        private List<GetConfigurationStoreIdentity> identities;
+        private Boolean localAuthEnabled;
         private String location;
         private String name;
         private List<GetConfigurationStorePrimaryReadKey> primaryReadKeys;
         private List<GetConfigurationStorePrimaryWriteKey> primaryWriteKeys;
         private String publicNetworkAccess;
+        private Boolean publicNetworkAccessEnabled;
+        private Boolean purgeProtectionEnabled;
         private String resourceGroupName;
         private List<GetConfigurationStoreSecondaryReadKey> secondaryReadKeys;
         private List<GetConfigurationStoreSecondaryWriteKey> secondaryWriteKeys;
         private String sku;
+        private Integer softDeleteRetentionDays;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetConfigurationStoreResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.encryptions = defaults.encryptions;
     	      this.endpoint = defaults.endpoint;
     	      this.id = defaults.id;
+    	      this.identities = defaults.identities;
+    	      this.localAuthEnabled = defaults.localAuthEnabled;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
     	      this.primaryReadKeys = defaults.primaryReadKeys;
     	      this.primaryWriteKeys = defaults.primaryWriteKeys;
     	      this.publicNetworkAccess = defaults.publicNetworkAccess;
+    	      this.publicNetworkAccessEnabled = defaults.publicNetworkAccessEnabled;
+    	      this.purgeProtectionEnabled = defaults.purgeProtectionEnabled;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.secondaryReadKeys = defaults.secondaryReadKeys;
     	      this.secondaryWriteKeys = defaults.secondaryWriteKeys;
     	      this.sku = defaults.sku;
+    	      this.softDeleteRetentionDays = defaults.softDeleteRetentionDays;
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
+        public Builder encryptions(List<GetConfigurationStoreEncryption> encryptions) {
+            this.encryptions = Objects.requireNonNull(encryptions);
+            return this;
+        }
+        public Builder encryptions(GetConfigurationStoreEncryption... encryptions) {
+            return encryptions(List.of(encryptions));
+        }
         @CustomType.Setter
         public Builder endpoint(String endpoint) {
             this.endpoint = Objects.requireNonNull(endpoint);
@@ -192,6 +264,19 @@ public final class GetConfigurationStoreResult {
         @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder identities(List<GetConfigurationStoreIdentity> identities) {
+            this.identities = Objects.requireNonNull(identities);
+            return this;
+        }
+        public Builder identities(GetConfigurationStoreIdentity... identities) {
+            return identities(List.of(identities));
+        }
+        @CustomType.Setter
+        public Builder localAuthEnabled(Boolean localAuthEnabled) {
+            this.localAuthEnabled = Objects.requireNonNull(localAuthEnabled);
             return this;
         }
         @CustomType.Setter
@@ -226,6 +311,16 @@ public final class GetConfigurationStoreResult {
             return this;
         }
         @CustomType.Setter
+        public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
+            this.publicNetworkAccessEnabled = Objects.requireNonNull(publicNetworkAccessEnabled);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder purgeProtectionEnabled(Boolean purgeProtectionEnabled) {
+            this.purgeProtectionEnabled = Objects.requireNonNull(purgeProtectionEnabled);
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
@@ -252,23 +347,34 @@ public final class GetConfigurationStoreResult {
             return this;
         }
         @CustomType.Setter
+        public Builder softDeleteRetentionDays(Integer softDeleteRetentionDays) {
+            this.softDeleteRetentionDays = Objects.requireNonNull(softDeleteRetentionDays);
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
         public GetConfigurationStoreResult build() {
             final var o = new GetConfigurationStoreResult();
+            o.encryptions = encryptions;
             o.endpoint = endpoint;
             o.id = id;
+            o.identities = identities;
+            o.localAuthEnabled = localAuthEnabled;
             o.location = location;
             o.name = name;
             o.primaryReadKeys = primaryReadKeys;
             o.primaryWriteKeys = primaryWriteKeys;
             o.publicNetworkAccess = publicNetworkAccess;
+            o.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            o.purgeProtectionEnabled = purgeProtectionEnabled;
             o.resourceGroupName = resourceGroupName;
             o.secondaryReadKeys = secondaryReadKeys;
             o.secondaryWriteKeys = secondaryWriteKeys;
             o.sku = sku;
+            o.softDeleteRetentionDays = softDeleteRetentionDays;
             o.tags = tags;
             return o;
         }

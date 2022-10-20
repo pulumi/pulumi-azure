@@ -6,6 +6,7 @@ package com.pulumi.azure.loadtest;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.loadtest.LoadTestArgs;
 import com.pulumi.azure.loadtest.inputs.LoadTestState;
+import com.pulumi.azure.loadtest.outputs.LoadTestIdentity;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -16,69 +17,64 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a Load Test.
+ * &lt;!-- Note: This documentation is generated. Any manual changes will be overwritten --&gt;
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.loadtest.LoadTest;
- * import com.pulumi.azure.loadtest.LoadTestArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleLoadTest = new LoadTest(&#34;exampleLoadTest&#34;, LoadTestArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
- *             .build());
- * 
- *     }
- * }
- * ```
+ * Manages a Load Test Service.
  * 
  * ## Import
  * 
- * Load tests can be imported using the `resource id`, e.g.
+ * An existing Load Test can be imported into Terraform using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:loadtest/loadTest:LoadTest example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.LoadTestService/loadtests/example
+ *  $ pulumi import azure:loadtest/loadTest:LoadTest example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LoadTestService/loadTests/{loadTestName}
  * ```
+ * 
+ *  * Where `{subscriptionId}` is the ID of the Azure Subscription where the Load Test exists. For example `12345678-1234-9876-4563-123456789012`. * Where `{resourceGroupName}` is the name of Resource Group where this Load Test exists. For example `example-resource-group`. * Where `{loadTestName}` is the name of the Load Test. For example `loadTestValue`.
  * 
  */
 @ResourceType(type="azure:loadtest/loadTest:LoadTest")
 public class LoadTest extends com.pulumi.resources.CustomResource {
     /**
-     * Public URI of the Data Plane.
+     * Resource data plane URI.
      * 
      */
-    @Export(name="dataplaneUri", type=String.class, parameters={})
-    private Output<String> dataplaneUri;
+    @Export(name="dataPlaneUri", type=String.class, parameters={})
+    private Output<String> dataPlaneUri;
 
     /**
-     * @return Public URI of the Data Plane.
+     * @return Resource data plane URI.
      * 
      */
-    public Output<String> dataplaneUri() {
-        return this.dataplaneUri;
+    public Output<String> dataPlaneUri() {
+        return this.dataPlaneUri;
+    }
+    /**
+     * Description of the resource. Changing this forces a new Load Test to be created.
+     * 
+     */
+    @Export(name="description", type=String.class, parameters={})
+    private Output</* @Nullable */ String> description;
+
+    /**
+     * @return Description of the resource. Changing this forces a new Load Test to be created.
+     * 
+     */
+    public Output<Optional<String>> description() {
+        return Codegen.optional(this.description);
+    }
+    /**
+     * Specifies the Managed Identity which should be assigned to this Load Test.
+     * 
+     */
+    @Export(name="identity", type=LoadTestIdentity.class, parameters={})
+    private Output</* @Nullable */ LoadTestIdentity> identity;
+
+    /**
+     * @return Specifies the Managed Identity which should be assigned to this Load Test.
+     * 
+     */
+    public Output<Optional<LoadTestIdentity>> identity() {
+        return Codegen.optional(this.identity);
     }
     /**
      * The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
@@ -95,28 +91,28 @@ public class LoadTest extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * The name which should be used for this Load Test. Changing this forces a new Load Test to be created.
+     * Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this Load Test. Changing this forces a new Load Test to be created.
+     * @return Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The name of the Resource Group where the Load Test should exist. Changing this forces a new Load Test to be created.
+     * Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the Load Test should exist. Changing this forces a new Load Test to be created.
+     * @return Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
      * 
      */
     public Output<String> resourceGroupName() {

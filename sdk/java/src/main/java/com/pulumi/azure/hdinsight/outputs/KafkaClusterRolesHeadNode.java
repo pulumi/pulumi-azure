@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.hdinsight.outputs;
 
+import com.pulumi.azure.hdinsight.outputs.KafkaClusterRolesHeadNodeScriptAction;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
@@ -17,6 +18,7 @@ public final class KafkaClusterRolesHeadNode {
      * 
      */
     private @Nullable String password;
+    private @Nullable List<KafkaClusterRolesHeadNodeScriptAction> scriptActions;
     /**
      * @return A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
      * 
@@ -50,6 +52,9 @@ public final class KafkaClusterRolesHeadNode {
      */
     public Optional<String> password() {
         return Optional.ofNullable(this.password);
+    }
+    public List<KafkaClusterRolesHeadNodeScriptAction> scriptActions() {
+        return this.scriptActions == null ? List.of() : this.scriptActions;
     }
     /**
      * @return A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
@@ -97,6 +102,7 @@ public final class KafkaClusterRolesHeadNode {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String password;
+        private @Nullable List<KafkaClusterRolesHeadNodeScriptAction> scriptActions;
         private @Nullable List<String> sshKeys;
         private @Nullable String subnetId;
         private String username;
@@ -106,6 +112,7 @@ public final class KafkaClusterRolesHeadNode {
         public Builder(KafkaClusterRolesHeadNode defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.password = defaults.password;
+    	      this.scriptActions = defaults.scriptActions;
     	      this.sshKeys = defaults.sshKeys;
     	      this.subnetId = defaults.subnetId;
     	      this.username = defaults.username;
@@ -117,6 +124,14 @@ public final class KafkaClusterRolesHeadNode {
         public Builder password(@Nullable String password) {
             this.password = password;
             return this;
+        }
+        @CustomType.Setter
+        public Builder scriptActions(@Nullable List<KafkaClusterRolesHeadNodeScriptAction> scriptActions) {
+            this.scriptActions = scriptActions;
+            return this;
+        }
+        public Builder scriptActions(KafkaClusterRolesHeadNodeScriptAction... scriptActions) {
+            return scriptActions(List.of(scriptActions));
         }
         @CustomType.Setter
         public Builder sshKeys(@Nullable List<String> sshKeys) {
@@ -149,6 +164,7 @@ public final class KafkaClusterRolesHeadNode {
         public KafkaClusterRolesHeadNode build() {
             final var o = new KafkaClusterRolesHeadNode();
             o.password = password;
+            o.scriptActions = scriptActions;
             o.sshKeys = sshKeys;
             o.subnetId = subnetId;
             o.username = username;

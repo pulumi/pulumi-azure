@@ -18,7 +18,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a user assigned identity.
+ * &lt;!-- Note: This documentation is generated. Any manual changes will be overwritten --&gt;
+ * 
+ * Manages a User Assigned Identity.
  * 
  * ## Example Usage
  * ```java
@@ -27,8 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.authorization.UserAssignedIdentity;
  * import com.pulumi.azure.authorization.UserAssignedIdentityArgs;
  * import java.util.List;
@@ -44,13 +44,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *         var example = new UserAssignedIdentity(&#34;example&#34;, UserAssignedIdentityArgs.builder()        
+ *             .location(azurerm_resource_group.example().location())
+ *             .resourceGroupName(azurerm_resource_group.example().name())
  *             .build());
  * 
  *     }
@@ -59,114 +55,110 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * User Assigned Identities can be imported using the `resource id`, e.g.
+ * An existing User Assigned Identity can be imported into Terraform using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:authorization/userAssignedIdentity:UserAssignedIdentity exampleIdentity /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/acceptanceTestResourceGroup1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testIdentity
+ *  $ pulumi import azure:authorization/userAssignedIdentity:UserAssignedIdentity example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{resourceName}
  * ```
+ * 
+ *  * Where `{subscriptionId}` is the ID of the Azure Subscription where the User Assigned Identity exists. For example `12345678-1234-9876-4563-123456789012`. * Where `{resourceGroupName}` is the name of Resource Group where this User Assigned Identity exists. For example `example-resource-group`. * Where `{resourceName}` is the name of the Resource. For example `resourceValue`.
  * 
  */
 @ResourceType(type="azure:authorization/userAssignedIdentity:UserAssignedIdentity")
 public class UserAssignedIdentity extends com.pulumi.resources.CustomResource {
     /**
-     * Client ID associated with the user assigned identity.
+     * The ID of the app associated with the Identity.
      * 
      */
     @Export(name="clientId", type=String.class, parameters={})
     private Output<String> clientId;
 
     /**
-     * @return Client ID associated with the user assigned identity.
+     * @return The ID of the app associated with the Identity.
      * 
      */
     public Output<String> clientId() {
         return this.clientId;
     }
     /**
-     * The location/region where the user assigned identity is
-     * created.
+     * The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
      * 
      */
     @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
-     * @return The location/region where the user assigned identity is
-     * created.
+     * @return The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
      * 
      */
     public Output<String> location() {
         return this.location;
     }
     /**
-     * The name of the user assigned identity. Changing this forces a
-     * new identity to be created.
+     * Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the user assigned identity. Changing this forces a
-     * new identity to be created.
+     * @return Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Service Principal ID associated with the user assigned identity.
+     * The ID of the Service Principal object associated with the created Identity.
      * 
      */
     @Export(name="principalId", type=String.class, parameters={})
     private Output<String> principalId;
 
     /**
-     * @return Service Principal ID associated with the user assigned identity.
+     * @return The ID of the Service Principal object associated with the created Identity.
      * 
      */
     public Output<String> principalId() {
         return this.principalId;
     }
     /**
-     * The name of the resource group in which to
-     * create the user assigned identity.
+     * Specifies the name of the Resource Group within which this User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to
-     * create the user assigned identity.
+     * @return Specifies the name of the Resource Group within which this User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
      * 
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
     /**
-     * A mapping of tags to assign to the resource.
+     * A mapping of tags which should be assigned to the User Assigned Identity.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags to assign to the resource.
+     * @return A mapping of tags which should be assigned to the User Assigned Identity.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Tenant ID associated with the user assigned identity.
+     * The ID of the Tenant which the Identity belongs to.
      * 
      */
     @Export(name="tenantId", type=String.class, parameters={})
     private Output<String> tenantId;
 
     /**
-     * @return Tenant ID associated with the user assigned identity.
+     * @return The ID of the Tenant which the Identity belongs to.
      * 
      */
     public Output<String> tenantId() {

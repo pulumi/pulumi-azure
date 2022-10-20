@@ -16,9 +16,17 @@ public final class RunBookPublishContentLinkArgs extends com.pulumi.resources.Re
 
     public static final RunBookPublishContentLinkArgs Empty = new RunBookPublishContentLinkArgs();
 
+    /**
+     * A `hash` block as defined blow.
+     * 
+     */
     @Import(name="hash")
     private @Nullable Output<RunBookPublishContentLinkHashArgs> hash;
 
+    /**
+     * @return A `hash` block as defined blow.
+     * 
+     */
     public Optional<Output<RunBookPublishContentLinkHashArgs>> hash() {
         return Optional.ofNullable(this.hash);
     }
@@ -38,9 +46,17 @@ public final class RunBookPublishContentLinkArgs extends com.pulumi.resources.Re
         return this.uri;
     }
 
+    /**
+     * Specifies the version of the content
+     * 
+     */
     @Import(name="version")
     private @Nullable Output<String> version;
 
+    /**
+     * @return Specifies the version of the content
+     * 
+     */
     public Optional<Output<String>> version() {
         return Optional.ofNullable(this.version);
     }
@@ -71,11 +87,23 @@ public final class RunBookPublishContentLinkArgs extends com.pulumi.resources.Re
             $ = new RunBookPublishContentLinkArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param hash A `hash` block as defined blow.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hash(@Nullable Output<RunBookPublishContentLinkHashArgs> hash) {
             $.hash = hash;
             return this;
         }
 
+        /**
+         * @param hash A `hash` block as defined blow.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hash(RunBookPublishContentLinkHashArgs hash) {
             return hash(Output.of(hash));
         }
@@ -101,11 +129,23 @@ public final class RunBookPublishContentLinkArgs extends com.pulumi.resources.Re
             return uri(Output.of(uri));
         }
 
+        /**
+         * @param version Specifies the version of the content
+         * 
+         * @return builder
+         * 
+         */
         public Builder version(@Nullable Output<String> version) {
             $.version = version;
             return this;
         }
 
+        /**
+         * @param version Specifies the version of the content
+         * 
+         * @return builder
+         * 
+         */
         public Builder version(String version) {
             return version(Output.of(version));
         }

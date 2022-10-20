@@ -219,6 +219,21 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
     }
 
     /**
+     * A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="messageOfTheDay")
+    private @Nullable Output<String> messageOfTheDay;
+
+    /**
+     * @return A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> messageOfTheDay() {
+        return Optional.ofNullable(this.messageOfTheDay);
+    }
+
+    /**
      * The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`.
      * 
      */
@@ -594,6 +609,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         this.linuxOsConfig = $.linuxOsConfig;
         this.maxCount = $.maxCount;
         this.maxPods = $.maxPods;
+        this.messageOfTheDay = $.messageOfTheDay;
         this.minCount = $.minCount;
         this.mode = $.mode;
         this.name = $.name;
@@ -909,6 +925,27 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
          */
         public Builder maxPods(Integer maxPods) {
             return maxPods(Output.of(maxPods));
+        }
+
+        /**
+         * @param messageOfTheDay A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder messageOfTheDay(@Nullable Output<String> messageOfTheDay) {
+            $.messageOfTheDay = messageOfTheDay;
+            return this;
+        }
+
+        /**
+         * @param messageOfTheDay A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder messageOfTheDay(String messageOfTheDay) {
+            return messageOfTheDay(Output.of(messageOfTheDay));
         }
 
         /**

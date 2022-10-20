@@ -17,23 +17,51 @@ public final class SnapshotEncryptionSettingsArgs extends com.pulumi.resources.R
 
     public static final SnapshotEncryptionSettingsArgs Empty = new SnapshotEncryptionSettingsArgs();
 
+    /**
+     * A `disk_encryption_key` block as defined below.
+     * 
+     */
     @Import(name="diskEncryptionKey")
     private @Nullable Output<SnapshotEncryptionSettingsDiskEncryptionKeyArgs> diskEncryptionKey;
 
+    /**
+     * @return A `disk_encryption_key` block as defined below.
+     * 
+     */
     public Optional<Output<SnapshotEncryptionSettingsDiskEncryptionKeyArgs>> diskEncryptionKey() {
         return Optional.ofNullable(this.diskEncryptionKey);
     }
 
-    @Import(name="enabled", required=true)
-    private Output<Boolean> enabled;
+    /**
+     * @deprecated
+     * Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
+     * 
+     */
+    @Deprecated /* Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block` */
+    @Import(name="enabled")
+    private @Nullable Output<Boolean> enabled;
 
-    public Output<Boolean> enabled() {
-        return this.enabled;
+    /**
+     * @deprecated
+     * Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
+     * 
+     */
+    @Deprecated /* Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block` */
+    public Optional<Output<Boolean>> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
 
+    /**
+     * A `key_encryption_key` block as defined below.
+     * 
+     */
     @Import(name="keyEncryptionKey")
     private @Nullable Output<SnapshotEncryptionSettingsKeyEncryptionKeyArgs> keyEncryptionKey;
 
+    /**
+     * @return A `key_encryption_key` block as defined below.
+     * 
+     */
     public Optional<Output<SnapshotEncryptionSettingsKeyEncryptionKeyArgs>> keyEncryptionKey() {
         return Optional.ofNullable(this.keyEncryptionKey);
     }
@@ -64,35 +92,74 @@ public final class SnapshotEncryptionSettingsArgs extends com.pulumi.resources.R
             $ = new SnapshotEncryptionSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param diskEncryptionKey A `disk_encryption_key` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder diskEncryptionKey(@Nullable Output<SnapshotEncryptionSettingsDiskEncryptionKeyArgs> diskEncryptionKey) {
             $.diskEncryptionKey = diskEncryptionKey;
             return this;
         }
 
+        /**
+         * @param diskEncryptionKey A `disk_encryption_key` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder diskEncryptionKey(SnapshotEncryptionSettingsDiskEncryptionKeyArgs diskEncryptionKey) {
             return diskEncryptionKey(Output.of(diskEncryptionKey));
         }
 
-        public Builder enabled(Output<Boolean> enabled) {
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
+         * 
+         */
+        @Deprecated /* Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block` */
+        public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
+         * 
+         */
+        @Deprecated /* Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block` */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
+        /**
+         * @param keyEncryptionKey A `key_encryption_key` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyEncryptionKey(@Nullable Output<SnapshotEncryptionSettingsKeyEncryptionKeyArgs> keyEncryptionKey) {
             $.keyEncryptionKey = keyEncryptionKey;
             return this;
         }
 
+        /**
+         * @param keyEncryptionKey A `key_encryption_key` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyEncryptionKey(SnapshotEncryptionSettingsKeyEncryptionKeyArgs keyEncryptionKey) {
             return keyEncryptionKey(Output.of(keyEncryptionKey));
         }
 
         public SnapshotEncryptionSettingsArgs build() {
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
             return $;
         }
     }

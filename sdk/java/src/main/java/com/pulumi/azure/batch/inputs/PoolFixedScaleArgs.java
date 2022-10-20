@@ -17,6 +17,21 @@ public final class PoolFixedScaleArgs extends com.pulumi.resources.ResourceArgs 
     public static final PoolFixedScaleArgs Empty = new PoolFixedScaleArgs();
 
     /**
+     * It determines what to do with a node and its running task(s) if the pool size is decreasing. Values are `Requeue`, `RetainedData`, `TaskCompletion` and `Terminate`.
+     * 
+     */
+    @Import(name="nodeDeallocationMethod")
+    private @Nullable Output<String> nodeDeallocationMethod;
+
+    /**
+     * @return It determines what to do with a node and its running task(s) if the pool size is decreasing. Values are `Requeue`, `RetainedData`, `TaskCompletion` and `Terminate`.
+     * 
+     */
+    public Optional<Output<String>> nodeDeallocationMethod() {
+        return Optional.ofNullable(this.nodeDeallocationMethod);
+    }
+
+    /**
      * The timeout for resize operations. Defaults to `PT15M`.
      * 
      */
@@ -64,6 +79,7 @@ public final class PoolFixedScaleArgs extends com.pulumi.resources.ResourceArgs 
     private PoolFixedScaleArgs() {}
 
     private PoolFixedScaleArgs(PoolFixedScaleArgs $) {
+        this.nodeDeallocationMethod = $.nodeDeallocationMethod;
         this.resizeTimeout = $.resizeTimeout;
         this.targetDedicatedNodes = $.targetDedicatedNodes;
         this.targetLowPriorityNodes = $.targetLowPriorityNodes;
@@ -85,6 +101,27 @@ public final class PoolFixedScaleArgs extends com.pulumi.resources.ResourceArgs 
 
         public Builder(PoolFixedScaleArgs defaults) {
             $ = new PoolFixedScaleArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param nodeDeallocationMethod It determines what to do with a node and its running task(s) if the pool size is decreasing. Values are `Requeue`, `RetainedData`, `TaskCompletion` and `Terminate`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nodeDeallocationMethod(@Nullable Output<String> nodeDeallocationMethod) {
+            $.nodeDeallocationMethod = nodeDeallocationMethod;
+            return this;
+        }
+
+        /**
+         * @param nodeDeallocationMethod It determines what to do with a node and its running task(s) if the pool size is decreasing. Values are `Requeue`, `RetainedData`, `TaskCompletion` and `Terminate`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nodeDeallocationMethod(String nodeDeallocationMethod) {
+            return nodeDeallocationMethod(Output.of(nodeDeallocationMethod));
         }
 
         /**

@@ -6,6 +6,7 @@ package com.pulumi.azure.automation;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.automation.RunBookArgs;
 import com.pulumi.azure.automation.inputs.RunBookState;
+import com.pulumi.azure.automation.outputs.RunBookDraft;
 import com.pulumi.azure.automation.outputs.RunBookJobSchedule;
 import com.pulumi.azure.automation.outputs.RunBookPublishContentLink;
 import com.pulumi.core.Output;
@@ -13,6 +14,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -129,6 +131,20 @@ public class RunBook extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * A `draft` block as defined below .
+     * 
+     */
+    @Export(name="draft", type=RunBookDraft.class, parameters={})
+    private Output</* @Nullable */ RunBookDraft> draft;
+
+    /**
+     * @return A `draft` block as defined below .
+     * 
+     */
+    public Output<Optional<RunBookDraft>> draft() {
+        return Codegen.optional(this.draft);
+    }
     @Export(name="jobSchedules", type=List.class, parameters={RunBookJobSchedule.class})
     private Output<List<RunBookJobSchedule>> jobSchedules;
 
@@ -148,6 +164,22 @@ public class RunBook extends com.pulumi.resources.CustomResource {
      */
     public Output<String> location() {
         return this.location;
+    }
+    /**
+     * Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
+     * Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+     * 
+     */
+    @Export(name="logActivityTraceLevel", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> logActivityTraceLevel;
+
+    /**
+     * @return Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
+     * Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+     * 
+     */
+    public Output<Optional<Integer>> logActivityTraceLevel() {
+        return Codegen.optional(this.logActivityTraceLevel);
     }
     /**
      * Progress log option.

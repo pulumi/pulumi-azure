@@ -109,9 +109,17 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
     public Output<Integer> diskSizeGb() {
         return this.diskSizeGb;
     }
+    /**
+     * A `encryption_settings` block as defined below.
+     * 
+     */
     @Export(name="encryptionSettings", type=SnapshotEncryptionSettings.class, parameters={})
     private Output</* @Nullable */ SnapshotEncryptionSettings> encryptionSettings;
 
+    /**
+     * @return A `encryption_settings` block as defined below.
+     * 
+     */
     public Output<Optional<SnapshotEncryptionSettings>> encryptionSettings() {
         return Codegen.optional(this.encryptionSettings);
     }

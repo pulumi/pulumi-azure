@@ -184,6 +184,21 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
     }
 
     /**
+     * A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="podCidrs")
+    private @Nullable Output<List<String>> podCidrs;
+
+    /**
+     * @return A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<List<String>>> podCidrs() {
+        return Optional.ofNullable(this.podCidrs);
+    }
+
+    /**
      * The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
      * 
      */
@@ -196,6 +211,21 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
      */
     public Optional<Output<String>> serviceCidr() {
         return Optional.ofNullable(this.serviceCidr);
+    }
+
+    /**
+     * A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="serviceCidrs")
+    private @Nullable Output<List<String>> serviceCidrs;
+
+    /**
+     * @return A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<List<String>>> serviceCidrs() {
+        return Optional.ofNullable(this.serviceCidrs);
     }
 
     private KubernetesClusterNetworkProfileArgs() {}
@@ -212,7 +242,9 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         this.networkPolicy = $.networkPolicy;
         this.outboundType = $.outboundType;
         this.podCidr = $.podCidr;
+        this.podCidrs = $.podCidrs;
         this.serviceCidr = $.serviceCidr;
+        this.serviceCidrs = $.serviceCidrs;
     }
 
     public static Builder builder() {
@@ -475,6 +507,37 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         }
 
         /**
+         * @param podCidrs A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder podCidrs(@Nullable Output<List<String>> podCidrs) {
+            $.podCidrs = podCidrs;
+            return this;
+        }
+
+        /**
+         * @param podCidrs A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder podCidrs(List<String> podCidrs) {
+            return podCidrs(Output.of(podCidrs));
+        }
+
+        /**
+         * @param podCidrs A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder podCidrs(String... podCidrs) {
+            return podCidrs(List.of(podCidrs));
+        }
+
+        /**
          * @param serviceCidr The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -493,6 +556,37 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
          */
         public Builder serviceCidr(String serviceCidr) {
             return serviceCidr(Output.of(serviceCidr));
+        }
+
+        /**
+         * @param serviceCidrs A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceCidrs(@Nullable Output<List<String>> serviceCidrs) {
+            $.serviceCidrs = serviceCidrs;
+            return this;
+        }
+
+        /**
+         * @param serviceCidrs A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceCidrs(List<String> serviceCidrs) {
+            return serviceCidrs(Output.of(serviceCidrs));
+        }
+
+        /**
+         * @param serviceCidrs A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceCidrs(String... serviceCidrs) {
+            return serviceCidrs(List.of(serviceCidrs));
         }
 
         public KubernetesClusterNetworkProfileArgs build() {

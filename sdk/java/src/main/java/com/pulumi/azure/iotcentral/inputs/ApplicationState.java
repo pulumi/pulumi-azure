@@ -109,14 +109,14 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
+     * A `sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1`
      * 
      */
     @Import(name="sku")
     private @Nullable Output<String> sku;
 
     /**
-     * @return A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
+     * @return A `sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1`
      * 
      */
     public Optional<Output<String>> sku() {
@@ -154,14 +154,14 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `template` name. IoT Central application template name. Default is a custom application.
+     * A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="template")
     private @Nullable Output<String> template;
 
     /**
-     * @return A `template` name. IoT Central application template name. Default is a custom application.
+     * @return A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> template() {
@@ -328,7 +328,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
+         * @param sku A `sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1`
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
+         * @param sku A `sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1`
          * 
          * @return builder
          * 
@@ -391,7 +391,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param template A `template` name. IoT Central application template name. Default is a custom application.
+         * @param template A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -402,7 +402,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param template A `template` name. IoT Central application template name. Default is a custom application.
+         * @param template A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

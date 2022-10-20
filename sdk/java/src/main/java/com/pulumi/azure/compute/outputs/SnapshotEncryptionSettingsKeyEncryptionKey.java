@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class SnapshotEncryptionSettingsKeyEncryptionKey {
+    /**
+     * @return The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `azure.keyvault.Key` resource.
+     * 
+     */
     private String keyUrl;
+    /**
+     * @return The ID of the source Key Vault. This can be found as `id` on the `azure.keyvault.KeyVault` resource.
+     * 
+     */
     private String sourceVaultId;
 
     private SnapshotEncryptionSettingsKeyEncryptionKey() {}
+    /**
+     * @return The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `azure.keyvault.Key` resource.
+     * 
+     */
     public String keyUrl() {
         return this.keyUrl;
     }
+    /**
+     * @return The ID of the source Key Vault. This can be found as `id` on the `azure.keyvault.KeyVault` resource.
+     * 
+     */
     public String sourceVaultId() {
         return this.sourceVaultId;
     }

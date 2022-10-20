@@ -10,7 +10,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
-public final class FrontdoorCustomEndpointTls {
+public final class FrontdoorCustomDomainTls {
     /**
      * @return Resource ID of the Frontdoor Secrect.
      * 
@@ -27,7 +27,7 @@ public final class FrontdoorCustomEndpointTls {
      */
     private @Nullable String minimumTlsVersion;
 
-    private FrontdoorCustomEndpointTls() {}
+    private FrontdoorCustomDomainTls() {}
     /**
      * @return Resource ID of the Frontdoor Secrect.
      * 
@@ -54,7 +54,7 @@ public final class FrontdoorCustomEndpointTls {
         return new Builder();
     }
 
-    public static Builder builder(FrontdoorCustomEndpointTls defaults) {
+    public static Builder builder(FrontdoorCustomDomainTls defaults) {
         return new Builder(defaults);
     }
     @CustomType.Builder
@@ -63,7 +63,7 @@ public final class FrontdoorCustomEndpointTls {
         private @Nullable String certificateType;
         private @Nullable String minimumTlsVersion;
         public Builder() {}
-        public Builder(FrontdoorCustomEndpointTls defaults) {
+        public Builder(FrontdoorCustomDomainTls defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cdnFrontdoorSecretId = defaults.cdnFrontdoorSecretId;
     	      this.certificateType = defaults.certificateType;
@@ -85,8 +85,8 @@ public final class FrontdoorCustomEndpointTls {
             this.minimumTlsVersion = minimumTlsVersion;
             return this;
         }
-        public FrontdoorCustomEndpointTls build() {
-            final var o = new FrontdoorCustomEndpointTls();
+        public FrontdoorCustomDomainTls build() {
+            final var o = new FrontdoorCustomDomainTls();
             o.cdnFrontdoorSecretId = cdnFrontdoorSecretId;
             o.certificateType = certificateType;
             o.minimumTlsVersion = minimumTlsVersion;

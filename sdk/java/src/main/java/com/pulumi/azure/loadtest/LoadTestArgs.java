@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.loadtest;
 
+import com.pulumi.azure.loadtest.inputs.LoadTestIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -15,6 +16,36 @@ import javax.annotation.Nullable;
 public final class LoadTestArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final LoadTestArgs Empty = new LoadTestArgs();
+
+    /**
+     * Description of the resource. Changing this forces a new Load Test to be created.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return Description of the resource. Changing this forces a new Load Test to be created.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
+
+    /**
+     * Specifies the Managed Identity which should be assigned to this Load Test.
+     * 
+     */
+    @Import(name="identity")
+    private @Nullable Output<LoadTestIdentityArgs> identity;
+
+    /**
+     * @return Specifies the Managed Identity which should be assigned to this Load Test.
+     * 
+     */
+    public Optional<Output<LoadTestIdentityArgs>> identity() {
+        return Optional.ofNullable(this.identity);
+    }
 
     /**
      * The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
@@ -32,14 +63,14 @@ public final class LoadTestArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name which should be used for this Load Test. Changing this forces a new Load Test to be created.
+     * Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Load Test. Changing this forces a new Load Test to be created.
+     * @return Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -47,14 +78,14 @@ public final class LoadTestArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Resource Group where the Load Test should exist. Changing this forces a new Load Test to be created.
+     * Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the Load Test should exist. Changing this forces a new Load Test to be created.
+     * @return Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -79,6 +110,8 @@ public final class LoadTestArgs extends com.pulumi.resources.ResourceArgs {
     private LoadTestArgs() {}
 
     private LoadTestArgs(LoadTestArgs $) {
+        this.description = $.description;
+        this.identity = $.identity;
         this.location = $.location;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
@@ -104,6 +137,48 @@ public final class LoadTestArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param description Description of the resource. Changing this forces a new Load Test to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description Description of the resource. Changing this forces a new Load Test to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
+        }
+
+        /**
+         * @param identity Specifies the Managed Identity which should be assigned to this Load Test.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(@Nullable Output<LoadTestIdentityArgs> identity) {
+            $.identity = identity;
+            return this;
+        }
+
+        /**
+         * @param identity Specifies the Managed Identity which should be assigned to this Load Test.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(LoadTestIdentityArgs identity) {
+            return identity(Output.of(identity));
+        }
+
+        /**
          * @param location The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
          * 
          * @return builder
@@ -125,7 +200,7 @@ public final class LoadTestArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name which should be used for this Load Test. Changing this forces a new Load Test to be created.
+         * @param name Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
          * 
          * @return builder
          * 
@@ -136,7 +211,7 @@ public final class LoadTestArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name which should be used for this Load Test. Changing this forces a new Load Test to be created.
+         * @param name Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
          * 
          * @return builder
          * 
@@ -146,7 +221,7 @@ public final class LoadTestArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the Load Test should exist. Changing this forces a new Load Test to be created.
+         * @param resourceGroupName Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
          * 
          * @return builder
          * 
@@ -157,7 +232,7 @@ public final class LoadTestArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the Load Test should exist. Changing this forces a new Load Test to be created.
+         * @param resourceGroupName Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
          * 
          * @return builder
          * 

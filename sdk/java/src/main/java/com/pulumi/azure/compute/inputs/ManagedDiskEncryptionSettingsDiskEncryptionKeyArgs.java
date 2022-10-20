@@ -29,14 +29,14 @@ public final class ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs extends co
     }
 
     /**
-     * The ID of the source Key Vault.
+     * The ID of the source Key Vault. This can be found as `id` on the `azure.keyvault.KeyVault` resource.
      * 
      */
     @Import(name="sourceVaultId", required=true)
     private Output<String> sourceVaultId;
 
     /**
-     * @return The ID of the source Key Vault.
+     * @return The ID of the source Key Vault. This can be found as `id` on the `azure.keyvault.KeyVault` resource.
      * 
      */
     public Output<String> sourceVaultId() {
@@ -90,7 +90,7 @@ public final class ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs extends co
         }
 
         /**
-         * @param sourceVaultId The ID of the source Key Vault.
+         * @param sourceVaultId The ID of the source Key Vault. This can be found as `id` on the `azure.keyvault.KeyVault` resource.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs extends co
         }
 
         /**
-         * @param sourceVaultId The ID of the source Key Vault.
+         * @param sourceVaultId The ID of the source Key Vault. This can be found as `id` on the `azure.keyvault.KeyVault` resource.
          * 
          * @return builder
          * 

@@ -11,9 +11,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 
-public final class FrontdoorCustomEndpointTlsArgs extends com.pulumi.resources.ResourceArgs {
+public final class FrontdoorCustomDomainTlsArgs extends com.pulumi.resources.ResourceArgs {
 
-    public static final FrontdoorCustomEndpointTlsArgs Empty = new FrontdoorCustomEndpointTlsArgs();
+    public static final FrontdoorCustomDomainTlsArgs Empty = new FrontdoorCustomDomainTlsArgs();
 
     /**
      * Resource ID of the Frontdoor Secrect.
@@ -60,9 +60,9 @@ public final class FrontdoorCustomEndpointTlsArgs extends com.pulumi.resources.R
         return Optional.ofNullable(this.minimumTlsVersion);
     }
 
-    private FrontdoorCustomEndpointTlsArgs() {}
+    private FrontdoorCustomDomainTlsArgs() {}
 
-    private FrontdoorCustomEndpointTlsArgs(FrontdoorCustomEndpointTlsArgs $) {
+    private FrontdoorCustomDomainTlsArgs(FrontdoorCustomDomainTlsArgs $) {
         this.cdnFrontdoorSecretId = $.cdnFrontdoorSecretId;
         this.certificateType = $.certificateType;
         this.minimumTlsVersion = $.minimumTlsVersion;
@@ -71,19 +71,19 @@ public final class FrontdoorCustomEndpointTlsArgs extends com.pulumi.resources.R
     public static Builder builder() {
         return new Builder();
     }
-    public static Builder builder(FrontdoorCustomEndpointTlsArgs defaults) {
+    public static Builder builder(FrontdoorCustomDomainTlsArgs defaults) {
         return new Builder(defaults);
     }
 
     public static final class Builder {
-        private FrontdoorCustomEndpointTlsArgs $;
+        private FrontdoorCustomDomainTlsArgs $;
 
         public Builder() {
-            $ = new FrontdoorCustomEndpointTlsArgs();
+            $ = new FrontdoorCustomDomainTlsArgs();
         }
 
-        public Builder(FrontdoorCustomEndpointTlsArgs defaults) {
-            $ = new FrontdoorCustomEndpointTlsArgs(Objects.requireNonNull(defaults));
+        public Builder(FrontdoorCustomDomainTlsArgs defaults) {
+            $ = new FrontdoorCustomDomainTlsArgs(Objects.requireNonNull(defaults));
         }
 
         /**
@@ -149,7 +149,7 @@ public final class FrontdoorCustomEndpointTlsArgs extends com.pulumi.resources.R
             return minimumTlsVersion(Output.of(minimumTlsVersion));
         }
 
-        public FrontdoorCustomEndpointTlsArgs build() {
+        public FrontdoorCustomDomainTlsArgs build() {
             return $;
         }
     }

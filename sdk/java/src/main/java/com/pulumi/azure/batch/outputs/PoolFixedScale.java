@@ -13,6 +13,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PoolFixedScale {
     /**
+     * @return It determines what to do with a node and its running task(s) if the pool size is decreasing. Values are `Requeue`, `RetainedData`, `TaskCompletion` and `Terminate`.
+     * 
+     */
+    private @Nullable String nodeDeallocationMethod;
+    /**
      * @return The timeout for resize operations. Defaults to `PT15M`.
      * 
      */
@@ -29,6 +34,13 @@ public final class PoolFixedScale {
     private @Nullable Integer targetLowPriorityNodes;
 
     private PoolFixedScale() {}
+    /**
+     * @return It determines what to do with a node and its running task(s) if the pool size is decreasing. Values are `Requeue`, `RetainedData`, `TaskCompletion` and `Terminate`.
+     * 
+     */
+    public Optional<String> nodeDeallocationMethod() {
+        return Optional.ofNullable(this.nodeDeallocationMethod);
+    }
     /**
      * @return The timeout for resize operations. Defaults to `PT15M`.
      * 
@@ -60,17 +72,24 @@ public final class PoolFixedScale {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String nodeDeallocationMethod;
         private @Nullable String resizeTimeout;
         private @Nullable Integer targetDedicatedNodes;
         private @Nullable Integer targetLowPriorityNodes;
         public Builder() {}
         public Builder(PoolFixedScale defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.nodeDeallocationMethod = defaults.nodeDeallocationMethod;
     	      this.resizeTimeout = defaults.resizeTimeout;
     	      this.targetDedicatedNodes = defaults.targetDedicatedNodes;
     	      this.targetLowPriorityNodes = defaults.targetLowPriorityNodes;
         }
 
+        @CustomType.Setter
+        public Builder nodeDeallocationMethod(@Nullable String nodeDeallocationMethod) {
+            this.nodeDeallocationMethod = nodeDeallocationMethod;
+            return this;
+        }
         @CustomType.Setter
         public Builder resizeTimeout(@Nullable String resizeTimeout) {
             this.resizeTimeout = resizeTimeout;
@@ -88,6 +107,7 @@ public final class PoolFixedScale {
         }
         public PoolFixedScale build() {
             final var o = new PoolFixedScale();
+            o.nodeDeallocationMethod = nodeDeallocationMethod;
             o.resizeTimeout = resizeTimeout;
             o.targetDedicatedNodes = targetDedicatedNodes;
             o.targetLowPriorityNodes = targetLowPriorityNodes;

@@ -34,6 +34,21 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+     * 
+     */
+    @Import(name="cdnFrontdoorCustomDomainIds")
+    private @Nullable Output<List<String>> cdnFrontdoorCustomDomainIds;
+
+    /**
+     * @return The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+     * 
+     */
+    public Optional<Output<List<String>>> cdnFrontdoorCustomDomainIds() {
+        return Optional.ofNullable(this.cdnFrontdoorCustomDomainIds);
+    }
+
+    /**
      * The resource ID of the CDN FrontDoor Endpoint where this CDN FrontDoor Route should exist. Changing this forces a new Frontdoor Route to be created.
      * 
      */
@@ -154,14 +169,29 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hypens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+     * Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+     * 
+     */
+    @Import(name="linkToDefaultDomain")
+    private @Nullable Output<Boolean> linkToDefaultDomain;
+
+    /**
+     * @return Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> linkToDefaultDomain() {
+        return Optional.ofNullable(this.linkToDefaultDomain);
+    }
+
+    /**
+     * The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hypens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+     * @return The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -202,6 +232,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
 
     private FrontdoorRouteState(FrontdoorRouteState $) {
         this.cache = $.cache;
+        this.cdnFrontdoorCustomDomainIds = $.cdnFrontdoorCustomDomainIds;
         this.cdnFrontdoorEndpointId = $.cdnFrontdoorEndpointId;
         this.cdnFrontdoorOriginGroupId = $.cdnFrontdoorOriginGroupId;
         this.cdnFrontdoorOriginIds = $.cdnFrontdoorOriginIds;
@@ -210,6 +241,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         this.enabled = $.enabled;
         this.forwardingProtocol = $.forwardingProtocol;
         this.httpsRedirectEnabled = $.httpsRedirectEnabled;
+        this.linkToDefaultDomain = $.linkToDefaultDomain;
         this.name = $.name;
         this.patternsToMatches = $.patternsToMatches;
         this.supportedProtocols = $.supportedProtocols;
@@ -252,6 +284,37 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
          */
         public Builder cache(FrontdoorRouteCacheArgs cache) {
             return cache(Output.of(cache));
+        }
+
+        /**
+         * @param cdnFrontdoorCustomDomainIds The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cdnFrontdoorCustomDomainIds(@Nullable Output<List<String>> cdnFrontdoorCustomDomainIds) {
+            $.cdnFrontdoorCustomDomainIds = cdnFrontdoorCustomDomainIds;
+            return this;
+        }
+
+        /**
+         * @param cdnFrontdoorCustomDomainIds The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cdnFrontdoorCustomDomainIds(List<String> cdnFrontdoorCustomDomainIds) {
+            return cdnFrontdoorCustomDomainIds(Output.of(cdnFrontdoorCustomDomainIds));
+        }
+
+        /**
+         * @param cdnFrontdoorCustomDomainIds The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cdnFrontdoorCustomDomainIds(String... cdnFrontdoorCustomDomainIds) {
+            return cdnFrontdoorCustomDomainIds(List.of(cdnFrontdoorCustomDomainIds));
         }
 
         /**
@@ -443,7 +506,28 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hypens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+         * @param linkToDefaultDomain Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder linkToDefaultDomain(@Nullable Output<Boolean> linkToDefaultDomain) {
+            $.linkToDefaultDomain = linkToDefaultDomain;
+            return this;
+        }
+
+        /**
+         * @param linkToDefaultDomain Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder linkToDefaultDomain(Boolean linkToDefaultDomain) {
+            return linkToDefaultDomain(Output.of(linkToDefaultDomain));
+        }
+
+        /**
+         * @param name The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
          * 
          * @return builder
          * 
@@ -454,7 +538,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hypens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+         * @param name The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
          * 
          * @return builder
          * 

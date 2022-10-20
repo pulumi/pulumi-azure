@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *                     .tags()
  *                     .build(),
  *                 RegistryGeoreplicationArgs.builder()
- *                     .location(&#34;westeurope&#34;)
+ *                     .location(&#34;North Europe&#34;)
  *                     .zoneRedundancyEnabled(true)
  *                     .tags()
  *                     .build())

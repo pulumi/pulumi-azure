@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.hdinsight.outputs;
 
+import com.pulumi.azure.hdinsight.outputs.SparkClusterRolesHeadNodeScriptAction;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
@@ -17,6 +18,11 @@ public final class SparkClusterRolesHeadNode {
      * 
      */
     private @Nullable String password;
+    /**
+     * @return The script action which will run on the cluster.
+     * 
+     */
+    private @Nullable List<SparkClusterRolesHeadNodeScriptAction> scriptActions;
     /**
      * @return A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
      * 
@@ -50,6 +56,13 @@ public final class SparkClusterRolesHeadNode {
      */
     public Optional<String> password() {
         return Optional.ofNullable(this.password);
+    }
+    /**
+     * @return The script action which will run on the cluster.
+     * 
+     */
+    public List<SparkClusterRolesHeadNodeScriptAction> scriptActions() {
+        return this.scriptActions == null ? List.of() : this.scriptActions;
     }
     /**
      * @return A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
@@ -97,6 +110,7 @@ public final class SparkClusterRolesHeadNode {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String password;
+        private @Nullable List<SparkClusterRolesHeadNodeScriptAction> scriptActions;
         private @Nullable List<String> sshKeys;
         private @Nullable String subnetId;
         private String username;
@@ -106,6 +120,7 @@ public final class SparkClusterRolesHeadNode {
         public Builder(SparkClusterRolesHeadNode defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.password = defaults.password;
+    	      this.scriptActions = defaults.scriptActions;
     	      this.sshKeys = defaults.sshKeys;
     	      this.subnetId = defaults.subnetId;
     	      this.username = defaults.username;
@@ -117,6 +132,14 @@ public final class SparkClusterRolesHeadNode {
         public Builder password(@Nullable String password) {
             this.password = password;
             return this;
+        }
+        @CustomType.Setter
+        public Builder scriptActions(@Nullable List<SparkClusterRolesHeadNodeScriptAction> scriptActions) {
+            this.scriptActions = scriptActions;
+            return this;
+        }
+        public Builder scriptActions(SparkClusterRolesHeadNodeScriptAction... scriptActions) {
+            return scriptActions(List.of(scriptActions));
         }
         @CustomType.Setter
         public Builder sshKeys(@Nullable List<String> sshKeys) {
@@ -149,6 +172,7 @@ public final class SparkClusterRolesHeadNode {
         public SparkClusterRolesHeadNode build() {
             final var o = new SparkClusterRolesHeadNode();
             o.password = password;
+            o.scriptActions = scriptActions;
             o.sshKeys = sshKeys;
             o.subnetId = subnetId;
             o.username = username;

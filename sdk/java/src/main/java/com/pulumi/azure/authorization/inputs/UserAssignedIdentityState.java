@@ -17,14 +17,14 @@ public final class UserAssignedIdentityState extends com.pulumi.resources.Resour
     public static final UserAssignedIdentityState Empty = new UserAssignedIdentityState();
 
     /**
-     * Client ID associated with the user assigned identity.
+     * The ID of the app associated with the Identity.
      * 
      */
     @Import(name="clientId")
     private @Nullable Output<String> clientId;
 
     /**
-     * @return Client ID associated with the user assigned identity.
+     * @return The ID of the app associated with the Identity.
      * 
      */
     public Optional<Output<String>> clientId() {
@@ -32,16 +32,14 @@ public final class UserAssignedIdentityState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The location/region where the user assigned identity is
-     * created.
+     * The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return The location/region where the user assigned identity is
-     * created.
+     * @return The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
      * 
      */
     public Optional<Output<String>> location() {
@@ -49,16 +47,14 @@ public final class UserAssignedIdentityState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The name of the user assigned identity. Changing this forces a
-     * new identity to be created.
+     * Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the user assigned identity. Changing this forces a
-     * new identity to be created.
+     * @return Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -66,14 +62,14 @@ public final class UserAssignedIdentityState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Service Principal ID associated with the user assigned identity.
+     * The ID of the Service Principal object associated with the created Identity.
      * 
      */
     @Import(name="principalId")
     private @Nullable Output<String> principalId;
 
     /**
-     * @return Service Principal ID associated with the user assigned identity.
+     * @return The ID of the Service Principal object associated with the created Identity.
      * 
      */
     public Optional<Output<String>> principalId() {
@@ -81,16 +77,14 @@ public final class UserAssignedIdentityState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The name of the resource group in which to
-     * create the user assigned identity.
+     * Specifies the name of the Resource Group within which this User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to
-     * create the user assigned identity.
+     * @return Specifies the name of the Resource Group within which this User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -98,14 +92,14 @@ public final class UserAssignedIdentityState extends com.pulumi.resources.Resour
     }
 
     /**
-     * A mapping of tags to assign to the resource.
+     * A mapping of tags which should be assigned to the User Assigned Identity.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags to assign to the resource.
+     * @return A mapping of tags which should be assigned to the User Assigned Identity.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -113,14 +107,14 @@ public final class UserAssignedIdentityState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Tenant ID associated with the user assigned identity.
+     * The ID of the Tenant which the Identity belongs to.
      * 
      */
     @Import(name="tenantId")
     private @Nullable Output<String> tenantId;
 
     /**
-     * @return Tenant ID associated with the user assigned identity.
+     * @return The ID of the Tenant which the Identity belongs to.
      * 
      */
     public Optional<Output<String>> tenantId() {
@@ -158,7 +152,7 @@ public final class UserAssignedIdentityState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param clientId Client ID associated with the user assigned identity.
+         * @param clientId The ID of the app associated with the Identity.
          * 
          * @return builder
          * 
@@ -169,7 +163,7 @@ public final class UserAssignedIdentityState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param clientId Client ID associated with the user assigned identity.
+         * @param clientId The ID of the app associated with the Identity.
          * 
          * @return builder
          * 
@@ -179,8 +173,7 @@ public final class UserAssignedIdentityState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param location The location/region where the user assigned identity is
-         * created.
+         * @param location The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
          * 
          * @return builder
          * 
@@ -191,8 +184,7 @@ public final class UserAssignedIdentityState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param location The location/region where the user assigned identity is
-         * created.
+         * @param location The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
          * 
          * @return builder
          * 
@@ -202,8 +194,7 @@ public final class UserAssignedIdentityState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The name of the user assigned identity. Changing this forces a
-         * new identity to be created.
+         * @param name Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created.
          * 
          * @return builder
          * 
@@ -214,8 +205,7 @@ public final class UserAssignedIdentityState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The name of the user assigned identity. Changing this forces a
-         * new identity to be created.
+         * @param name Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created.
          * 
          * @return builder
          * 
@@ -225,7 +215,7 @@ public final class UserAssignedIdentityState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param principalId Service Principal ID associated with the user assigned identity.
+         * @param principalId The ID of the Service Principal object associated with the created Identity.
          * 
          * @return builder
          * 
@@ -236,7 +226,7 @@ public final class UserAssignedIdentityState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param principalId Service Principal ID associated with the user assigned identity.
+         * @param principalId The ID of the Service Principal object associated with the created Identity.
          * 
          * @return builder
          * 
@@ -246,8 +236,7 @@ public final class UserAssignedIdentityState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to
-         * create the user assigned identity.
+         * @param resourceGroupName Specifies the name of the Resource Group within which this User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
          * 
          * @return builder
          * 
@@ -258,8 +247,7 @@ public final class UserAssignedIdentityState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to
-         * create the user assigned identity.
+         * @param resourceGroupName Specifies the name of the Resource Group within which this User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
          * 
          * @return builder
          * 
@@ -269,7 +257,7 @@ public final class UserAssignedIdentityState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tags A mapping of tags to assign to the resource.
+         * @param tags A mapping of tags which should be assigned to the User Assigned Identity.
          * 
          * @return builder
          * 
@@ -280,7 +268,7 @@ public final class UserAssignedIdentityState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tags A mapping of tags to assign to the resource.
+         * @param tags A mapping of tags which should be assigned to the User Assigned Identity.
          * 
          * @return builder
          * 
@@ -290,7 +278,7 @@ public final class UserAssignedIdentityState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tenantId Tenant ID associated with the user assigned identity.
+         * @param tenantId The ID of the Tenant which the Identity belongs to.
          * 
          * @return builder
          * 
@@ -301,7 +289,7 @@ public final class UserAssignedIdentityState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tenantId Tenant ID associated with the user assigned identity.
+         * @param tenantId The ID of the Tenant which the Identity belongs to.
          * 
          * @return builder
          * 

@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class RunBookPublishContentLinkHash {
+    /**
+     * @return Specifies the hash algorithm used to hash the content.
+     * 
+     */
     private String algorithm;
+    /**
+     * @return Specifies the expected hash value of the content.
+     * 
+     */
     private String value;
 
     private RunBookPublishContentLinkHash() {}
+    /**
+     * @return Specifies the hash algorithm used to hash the content.
+     * 
+     */
     public String algorithm() {
         return this.algorithm;
     }
+    /**
+     * @return Specifies the expected hash value of the content.
+     * 
+     */
     public String value() {
         return this.value;
     }

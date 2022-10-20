@@ -10,9 +10,15 @@ import com.pulumi.azure.cosmosdb.inputs.GetMongoDatabaseArgs;
 import com.pulumi.azure.cosmosdb.inputs.GetMongoDatabasePlainArgs;
 import com.pulumi.azure.cosmosdb.inputs.GetRestorableDatabaseAccountsArgs;
 import com.pulumi.azure.cosmosdb.inputs.GetRestorableDatabaseAccountsPlainArgs;
+import com.pulumi.azure.cosmosdb.inputs.GetSqlDatabaseArgs;
+import com.pulumi.azure.cosmosdb.inputs.GetSqlDatabasePlainArgs;
+import com.pulumi.azure.cosmosdb.inputs.GetSqlRoleDefinitionArgs;
+import com.pulumi.azure.cosmosdb.inputs.GetSqlRoleDefinitionPlainArgs;
 import com.pulumi.azure.cosmosdb.outputs.GetAccountResult;
 import com.pulumi.azure.cosmosdb.outputs.GetMongoDatabaseResult;
 import com.pulumi.azure.cosmosdb.outputs.GetRestorableDatabaseAccountsResult;
+import com.pulumi.azure.cosmosdb.outputs.GetSqlDatabaseResult;
+import com.pulumi.azure.cosmosdb.outputs.GetSqlRoleDefinitionResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -491,5 +497,317 @@ public final class CosmosdbFunctions {
      */
     public static CompletableFuture<GetRestorableDatabaseAccountsResult> getRestorableDatabaseAccountsPlain(GetRestorableDatabaseAccountsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:cosmosdb/getRestorableDatabaseAccounts:getRestorableDatabaseAccounts", TypeShape.of(GetRestorableDatabaseAccountsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing CosmosDB SQL Database.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
+     * import com.pulumi.azure.cosmosdb.inputs.GetSqlDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CosmosdbFunctions.getSqlDatabase(GetSqlDatabaseArgs.builder()
+     *             .accountName(&#34;tfex-cosmosdb-sql-database-account-name&#34;)
+     *             .name(&#34;tfex-cosmosdb-sql-database&#34;)
+     *             .resourceGroupName(&#34;tfex-cosmosdb-sql-database-rg&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetSqlDatabaseResult> getSqlDatabase(GetSqlDatabaseArgs args) {
+        return getSqlDatabase(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing CosmosDB SQL Database.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
+     * import com.pulumi.azure.cosmosdb.inputs.GetSqlDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CosmosdbFunctions.getSqlDatabase(GetSqlDatabaseArgs.builder()
+     *             .accountName(&#34;tfex-cosmosdb-sql-database-account-name&#34;)
+     *             .name(&#34;tfex-cosmosdb-sql-database&#34;)
+     *             .resourceGroupName(&#34;tfex-cosmosdb-sql-database-rg&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetSqlDatabaseResult> getSqlDatabasePlain(GetSqlDatabasePlainArgs args) {
+        return getSqlDatabasePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing CosmosDB SQL Database.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
+     * import com.pulumi.azure.cosmosdb.inputs.GetSqlDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CosmosdbFunctions.getSqlDatabase(GetSqlDatabaseArgs.builder()
+     *             .accountName(&#34;tfex-cosmosdb-sql-database-account-name&#34;)
+     *             .name(&#34;tfex-cosmosdb-sql-database&#34;)
+     *             .resourceGroupName(&#34;tfex-cosmosdb-sql-database-rg&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetSqlDatabaseResult> getSqlDatabase(GetSqlDatabaseArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:cosmosdb/getSqlDatabase:getSqlDatabase", TypeShape.of(GetSqlDatabaseResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing CosmosDB SQL Database.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
+     * import com.pulumi.azure.cosmosdb.inputs.GetSqlDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CosmosdbFunctions.getSqlDatabase(GetSqlDatabaseArgs.builder()
+     *             .accountName(&#34;tfex-cosmosdb-sql-database-account-name&#34;)
+     *             .name(&#34;tfex-cosmosdb-sql-database&#34;)
+     *             .resourceGroupName(&#34;tfex-cosmosdb-sql-database-rg&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetSqlDatabaseResult> getSqlDatabasePlain(GetSqlDatabasePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:cosmosdb/getSqlDatabase:getSqlDatabase", TypeShape.of(GetSqlDatabaseResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Cosmos DB SQL Role Definition.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
+     * import com.pulumi.azure.cosmosdb.inputs.GetSqlRoleDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CosmosdbFunctions.getSqlRoleDefinition(GetSqlRoleDefinitionArgs.builder()
+     *             .accountName(&#34;tfex-cosmosdb-sql-role-definition-account-name&#34;)
+     *             .name(&#34;tfex-cosmosdb-sql-role-definition&#34;)
+     *             .resourceGroupName(&#34;tfex-cosmosdb-sql-role-definition-rg&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetSqlRoleDefinitionResult> getSqlRoleDefinition(GetSqlRoleDefinitionArgs args) {
+        return getSqlRoleDefinition(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Cosmos DB SQL Role Definition.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
+     * import com.pulumi.azure.cosmosdb.inputs.GetSqlRoleDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CosmosdbFunctions.getSqlRoleDefinition(GetSqlRoleDefinitionArgs.builder()
+     *             .accountName(&#34;tfex-cosmosdb-sql-role-definition-account-name&#34;)
+     *             .name(&#34;tfex-cosmosdb-sql-role-definition&#34;)
+     *             .resourceGroupName(&#34;tfex-cosmosdb-sql-role-definition-rg&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetSqlRoleDefinitionResult> getSqlRoleDefinitionPlain(GetSqlRoleDefinitionPlainArgs args) {
+        return getSqlRoleDefinitionPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Cosmos DB SQL Role Definition.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
+     * import com.pulumi.azure.cosmosdb.inputs.GetSqlRoleDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CosmosdbFunctions.getSqlRoleDefinition(GetSqlRoleDefinitionArgs.builder()
+     *             .accountName(&#34;tfex-cosmosdb-sql-role-definition-account-name&#34;)
+     *             .name(&#34;tfex-cosmosdb-sql-role-definition&#34;)
+     *             .resourceGroupName(&#34;tfex-cosmosdb-sql-role-definition-rg&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetSqlRoleDefinitionResult> getSqlRoleDefinition(GetSqlRoleDefinitionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:cosmosdb/getSqlRoleDefinition:getSqlRoleDefinition", TypeShape.of(GetSqlRoleDefinitionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Cosmos DB SQL Role Definition.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
+     * import com.pulumi.azure.cosmosdb.inputs.GetSqlRoleDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CosmosdbFunctions.getSqlRoleDefinition(GetSqlRoleDefinitionArgs.builder()
+     *             .accountName(&#34;tfex-cosmosdb-sql-role-definition-account-name&#34;)
+     *             .name(&#34;tfex-cosmosdb-sql-role-definition&#34;)
+     *             .resourceGroupName(&#34;tfex-cosmosdb-sql-role-definition-rg&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetSqlRoleDefinitionResult> getSqlRoleDefinitionPlain(GetSqlRoleDefinitionPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:cosmosdb/getSqlRoleDefinition:getSqlRoleDefinition", TypeShape.of(GetSqlRoleDefinitionResult.class), args, Utilities.withVersion(options));
     }
 }

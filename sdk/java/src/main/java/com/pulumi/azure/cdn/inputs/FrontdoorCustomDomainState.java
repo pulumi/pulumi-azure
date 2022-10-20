@@ -3,7 +3,7 @@
 
 package com.pulumi.azure.cdn.inputs;
 
-import com.pulumi.azure.cdn.inputs.FrontdoorCustomEndpointTlsArgs;
+import com.pulumi.azure.cdn.inputs.FrontdoorCustomDomainTlsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -12,24 +12,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 
-public final class FrontdoorCustomEndpointState extends com.pulumi.resources.ResourceArgs {
+public final class FrontdoorCustomDomainState extends com.pulumi.resources.ResourceArgs {
 
-    public static final FrontdoorCustomEndpointState Empty = new FrontdoorCustomEndpointState();
-
-    /**
-     * The resource ID of the CDN FrontDoor Route this Custom Domain should be associated with.
-     * 
-     */
-    @Import(name="associateWithCdnFrontdoorRouteId")
-    private @Nullable Output<String> associateWithCdnFrontdoorRouteId;
-
-    /**
-     * @return The resource ID of the CDN FrontDoor Route this Custom Domain should be associated with.
-     * 
-     */
-    public Optional<Output<String>> associateWithCdnFrontdoorRouteId() {
-        return Optional.ofNullable(this.associateWithCdnFrontdoorRouteId);
-    }
+    public static final FrontdoorCustomDomainState Empty = new FrontdoorCustomDomainState();
 
     /**
      * The ID of the Frontdoor Profile. Changing this forces a new Frontdoor Profile to be created.
@@ -111,13 +96,13 @@ public final class FrontdoorCustomEndpointState extends com.pulumi.resources.Res
      * 
      */
     @Import(name="tls")
-    private @Nullable Output<FrontdoorCustomEndpointTlsArgs> tls;
+    private @Nullable Output<FrontdoorCustomDomainTlsArgs> tls;
 
     /**
      * @return A `tls` block as defined below.
      * 
      */
-    public Optional<Output<FrontdoorCustomEndpointTlsArgs>> tls() {
+    public Optional<Output<FrontdoorCustomDomainTlsArgs>> tls() {
         return Optional.ofNullable(this.tls);
     }
 
@@ -136,10 +121,9 @@ public final class FrontdoorCustomEndpointState extends com.pulumi.resources.Res
         return Optional.ofNullable(this.validationToken);
     }
 
-    private FrontdoorCustomEndpointState() {}
+    private FrontdoorCustomDomainState() {}
 
-    private FrontdoorCustomEndpointState(FrontdoorCustomEndpointState $) {
-        this.associateWithCdnFrontdoorRouteId = $.associateWithCdnFrontdoorRouteId;
+    private FrontdoorCustomDomainState(FrontdoorCustomDomainState $) {
         this.cdnFrontdoorProfileId = $.cdnFrontdoorProfileId;
         this.dnsZoneId = $.dnsZoneId;
         this.expirationDate = $.expirationDate;
@@ -152,40 +136,19 @@ public final class FrontdoorCustomEndpointState extends com.pulumi.resources.Res
     public static Builder builder() {
         return new Builder();
     }
-    public static Builder builder(FrontdoorCustomEndpointState defaults) {
+    public static Builder builder(FrontdoorCustomDomainState defaults) {
         return new Builder(defaults);
     }
 
     public static final class Builder {
-        private FrontdoorCustomEndpointState $;
+        private FrontdoorCustomDomainState $;
 
         public Builder() {
-            $ = new FrontdoorCustomEndpointState();
+            $ = new FrontdoorCustomDomainState();
         }
 
-        public Builder(FrontdoorCustomEndpointState defaults) {
-            $ = new FrontdoorCustomEndpointState(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param associateWithCdnFrontdoorRouteId The resource ID of the CDN FrontDoor Route this Custom Domain should be associated with.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder associateWithCdnFrontdoorRouteId(@Nullable Output<String> associateWithCdnFrontdoorRouteId) {
-            $.associateWithCdnFrontdoorRouteId = associateWithCdnFrontdoorRouteId;
-            return this;
-        }
-
-        /**
-         * @param associateWithCdnFrontdoorRouteId The resource ID of the CDN FrontDoor Route this Custom Domain should be associated with.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder associateWithCdnFrontdoorRouteId(String associateWithCdnFrontdoorRouteId) {
-            return associateWithCdnFrontdoorRouteId(Output.of(associateWithCdnFrontdoorRouteId));
+        public Builder(FrontdoorCustomDomainState defaults) {
+            $ = new FrontdoorCustomDomainState(Objects.requireNonNull(defaults));
         }
 
         /**
@@ -299,7 +262,7 @@ public final class FrontdoorCustomEndpointState extends com.pulumi.resources.Res
          * @return builder
          * 
          */
-        public Builder tls(@Nullable Output<FrontdoorCustomEndpointTlsArgs> tls) {
+        public Builder tls(@Nullable Output<FrontdoorCustomDomainTlsArgs> tls) {
             $.tls = tls;
             return this;
         }
@@ -310,7 +273,7 @@ public final class FrontdoorCustomEndpointState extends com.pulumi.resources.Res
          * @return builder
          * 
          */
-        public Builder tls(FrontdoorCustomEndpointTlsArgs tls) {
+        public Builder tls(FrontdoorCustomDomainTlsArgs tls) {
             return tls(Output.of(tls));
         }
 
@@ -335,7 +298,7 @@ public final class FrontdoorCustomEndpointState extends com.pulumi.resources.Res
             return validationToken(Output.of(validationToken));
         }
 
-        public FrontdoorCustomEndpointState build() {
+        public FrontdoorCustomDomainState build() {
             return $;
         }
     }

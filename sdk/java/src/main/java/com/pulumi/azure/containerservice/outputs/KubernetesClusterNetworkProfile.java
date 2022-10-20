@@ -70,10 +70,20 @@ public final class KubernetesClusterNetworkProfile {
      */
     private @Nullable String podCidr;
     /**
+     * @return A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+     * 
+     */
+    private @Nullable List<String> podCidrs;
+    /**
      * @return The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String serviceCidr;
+    /**
+     * @return A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+     * 
+     */
+    private @Nullable List<String> serviceCidrs;
 
     private KubernetesClusterNetworkProfile() {}
     /**
@@ -154,11 +164,25 @@ public final class KubernetesClusterNetworkProfile {
         return Optional.ofNullable(this.podCidr);
     }
     /**
+     * @return A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+     * 
+     */
+    public List<String> podCidrs() {
+        return this.podCidrs == null ? List.of() : this.podCidrs;
+    }
+    /**
      * @return The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> serviceCidr() {
         return Optional.ofNullable(this.serviceCidr);
+    }
+    /**
+     * @return A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+     * 
+     */
+    public List<String> serviceCidrs() {
+        return this.serviceCidrs == null ? List.of() : this.serviceCidrs;
     }
 
     public static Builder builder() {
@@ -181,7 +205,9 @@ public final class KubernetesClusterNetworkProfile {
         private @Nullable String networkPolicy;
         private @Nullable String outboundType;
         private @Nullable String podCidr;
+        private @Nullable List<String> podCidrs;
         private @Nullable String serviceCidr;
+        private @Nullable List<String> serviceCidrs;
         public Builder() {}
         public Builder(KubernetesClusterNetworkProfile defaults) {
     	      Objects.requireNonNull(defaults);
@@ -196,7 +222,9 @@ public final class KubernetesClusterNetworkProfile {
     	      this.networkPolicy = defaults.networkPolicy;
     	      this.outboundType = defaults.outboundType;
     	      this.podCidr = defaults.podCidr;
+    	      this.podCidrs = defaults.podCidrs;
     	      this.serviceCidr = defaults.serviceCidr;
+    	      this.serviceCidrs = defaults.serviceCidrs;
         }
 
         @CustomType.Setter
@@ -258,9 +286,25 @@ public final class KubernetesClusterNetworkProfile {
             return this;
         }
         @CustomType.Setter
+        public Builder podCidrs(@Nullable List<String> podCidrs) {
+            this.podCidrs = podCidrs;
+            return this;
+        }
+        public Builder podCidrs(String... podCidrs) {
+            return podCidrs(List.of(podCidrs));
+        }
+        @CustomType.Setter
         public Builder serviceCidr(@Nullable String serviceCidr) {
             this.serviceCidr = serviceCidr;
             return this;
+        }
+        @CustomType.Setter
+        public Builder serviceCidrs(@Nullable List<String> serviceCidrs) {
+            this.serviceCidrs = serviceCidrs;
+            return this;
+        }
+        public Builder serviceCidrs(String... serviceCidrs) {
+            return serviceCidrs(List.of(serviceCidrs));
         }
         public KubernetesClusterNetworkProfile build() {
             final var o = new KubernetesClusterNetworkProfile();
@@ -275,7 +319,9 @@ public final class KubernetesClusterNetworkProfile {
             o.networkPolicy = networkPolicy;
             o.outboundType = outboundType;
             o.podCidr = podCidr;
+            o.podCidrs = podCidrs;
             o.serviceCidr = serviceCidr;
+            o.serviceCidrs = serviceCidrs;
             return o;
         }
     }

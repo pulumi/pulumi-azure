@@ -15,7 +15,7 @@ public final class ManagedDiskEncryptionSettingsKeyEncryptionKey {
      */
     private String keyUrl;
     /**
-     * @return The ID of the source Key Vault.
+     * @return The ID of the source Key Vault. This can be found as `id` on the `azure.keyvault.KeyVault` resource.
      * 
      */
     private String sourceVaultId;
@@ -29,7 +29,7 @@ public final class ManagedDiskEncryptionSettingsKeyEncryptionKey {
         return this.keyUrl;
     }
     /**
-     * @return The ID of the source Key Vault.
+     * @return The ID of the source Key Vault. This can be found as `id` on the `azure.keyvault.KeyVault` resource.
      * 
      */
     public String sourceVaultId() {

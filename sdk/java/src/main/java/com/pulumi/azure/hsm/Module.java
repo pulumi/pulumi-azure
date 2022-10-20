@@ -6,6 +6,7 @@ package com.pulumi.azure.hsm;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.hsm.ModuleArgs;
 import com.pulumi.azure.hsm.inputs.ModuleState;
+import com.pulumi.azure.hsm.outputs.ModuleManagementNetworkProfile;
 import com.pulumi.azure.hsm.outputs.ModuleNetworkProfile;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -46,6 +47,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.inputs.VirtualNetworkGatewayIpConfigurationArgs;
  * import com.pulumi.azure.hsm.Module;
  * import com.pulumi.azure.hsm.ModuleArgs;
+ * import com.pulumi.azure.hsm.inputs.ModuleManagementNetworkProfileArgs;
  * import com.pulumi.azure.hsm.inputs.ModuleNetworkProfileArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
@@ -120,7 +122,11 @@ import javax.annotation.Nullable;
  *         var exampleModule = new Module(&#34;exampleModule&#34;, ModuleArgs.builder()        
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .skuName(&#34;SafeNet Luna Network HSM A790&#34;)
+ *             .skuName(&#34;payShield10K_LMK1_CPS60&#34;)
+ *             .managementNetworkProfile(ModuleManagementNetworkProfileArgs.builder()
+ *                 .networkInterfacePrivateIpAddresses(&#34;10.2.1.7&#34;)
+ *                 .subnetId(example2.id())
+ *                 .build())
  *             .networkProfile(ModuleNetworkProfileArgs.builder()
  *                 .networkInterfacePrivateIpAddresses(&#34;10.2.1.8&#34;)
  *                 .subnetId(example2.id())
@@ -159,6 +165,20 @@ public class Module extends com.pulumi.resources.CustomResource {
      */
     public Output<String> location() {
         return this.location;
+    }
+    /**
+     * A `management_network_profile` block as defined below.
+     * 
+     */
+    @Export(name="managementNetworkProfile", type=ModuleManagementNetworkProfile.class, parameters={})
+    private Output</* @Nullable */ ModuleManagementNetworkProfile> managementNetworkProfile;
+
+    /**
+     * @return A `management_network_profile` block as defined below.
+     * 
+     */
+    public Output<Optional<ModuleManagementNetworkProfile>> managementNetworkProfile() {
+        return Codegen.optional(this.managementNetworkProfile);
     }
     /**
      * The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created.
@@ -203,14 +223,14 @@ public class Module extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * The SKU name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
+     * The SKU name of the dedicated hardware security module. Possible values are `payShield10K_LMK1_CPS60`,`payShield10K_LMK1_CPS250`,`payShield10K_LMK1_CPS2500`,`payShield10K_LMK2_CPS60`,`payShield10K_LMK2_CPS250`,`payShield10K_LMK2_CPS2500` and `SafeNet Luna Network HSM A790`. Changing this forces a new Dedicated Hardware Security Module to be created.
      * 
      */
     @Export(name="skuName", type=String.class, parameters={})
     private Output<String> skuName;
 
     /**
-     * @return The SKU name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
+     * @return The SKU name of the dedicated hardware security module. Possible values are `payShield10K_LMK1_CPS60`,`payShield10K_LMK1_CPS250`,`payShield10K_LMK1_CPS2500`,`payShield10K_LMK2_CPS60`,`payShield10K_LMK2_CPS250`,`payShield10K_LMK2_CPS2500` and `SafeNet Luna Network HSM A790`. Changing this forces a new Dedicated Hardware Security Module to be created.
      * 
      */
     public Output<String> skuName() {

@@ -46,6 +46,20 @@ public class FrontdoorRoute extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.cache);
     }
     /**
+     * The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+     * 
+     */
+    @Export(name="cdnFrontdoorCustomDomainIds", type=List.class, parameters={String.class})
+    private Output</* @Nullable */ List<String>> cdnFrontdoorCustomDomainIds;
+
+    /**
+     * @return The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+     * 
+     */
+    public Output<Optional<List<String>>> cdnFrontdoorCustomDomainIds() {
+        return Codegen.optional(this.cdnFrontdoorCustomDomainIds);
+    }
+    /**
      * The resource ID of the CDN FrontDoor Endpoint where this CDN FrontDoor Route should exist. Changing this forces a new Frontdoor Route to be created.
      * 
      */
@@ -158,14 +172,28 @@ public class FrontdoorRoute extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.httpsRedirectEnabled);
     }
     /**
-     * The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hypens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+     * Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+     * 
+     */
+    @Export(name="linkToDefaultDomain", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> linkToDefaultDomain;
+
+    /**
+     * @return Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> linkToDefaultDomain() {
+        return Codegen.optional(this.linkToDefaultDomain);
+    }
+    /**
+     * The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hypens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+     * @return The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
      * 
      */
     public Output<String> name() {

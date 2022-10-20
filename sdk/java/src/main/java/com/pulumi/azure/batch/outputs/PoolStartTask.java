@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.batch.outputs;
 
+import com.pulumi.azure.batch.outputs.PoolStartTaskContainer;
 import com.pulumi.azure.batch.outputs.PoolStartTaskResourceFile;
 import com.pulumi.azure.batch.outputs.PoolStartTaskUserIdentity;
 import com.pulumi.core.annotations.CustomType;
@@ -27,6 +28,11 @@ public final class PoolStartTask {
      * 
      */
     private @Nullable Map<String,String> commonEnvironmentProperties;
+    /**
+     * @return A `container` block is the settings for the container under which the start task runs. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
+     * 
+     */
+    private @Nullable List<PoolStartTaskContainer> containers;
     /**
      * @return One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
      * 
@@ -62,6 +68,13 @@ public final class PoolStartTask {
      */
     public Map<String,String> commonEnvironmentProperties() {
         return this.commonEnvironmentProperties == null ? Map.of() : this.commonEnvironmentProperties;
+    }
+    /**
+     * @return A `container` block is the settings for the container under which the start task runs. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
+     * 
+     */
+    public List<PoolStartTaskContainer> containers() {
+        return this.containers == null ? List.of() : this.containers;
     }
     /**
      * @return One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
@@ -103,6 +116,7 @@ public final class PoolStartTask {
     public static final class Builder {
         private String commandLine;
         private @Nullable Map<String,String> commonEnvironmentProperties;
+        private @Nullable List<PoolStartTaskContainer> containers;
         private @Nullable List<PoolStartTaskResourceFile> resourceFiles;
         private @Nullable Integer taskRetryMaximum;
         private PoolStartTaskUserIdentity userIdentity;
@@ -112,6 +126,7 @@ public final class PoolStartTask {
     	      Objects.requireNonNull(defaults);
     	      this.commandLine = defaults.commandLine;
     	      this.commonEnvironmentProperties = defaults.commonEnvironmentProperties;
+    	      this.containers = defaults.containers;
     	      this.resourceFiles = defaults.resourceFiles;
     	      this.taskRetryMaximum = defaults.taskRetryMaximum;
     	      this.userIdentity = defaults.userIdentity;
@@ -127,6 +142,14 @@ public final class PoolStartTask {
         public Builder commonEnvironmentProperties(@Nullable Map<String,String> commonEnvironmentProperties) {
             this.commonEnvironmentProperties = commonEnvironmentProperties;
             return this;
+        }
+        @CustomType.Setter
+        public Builder containers(@Nullable List<PoolStartTaskContainer> containers) {
+            this.containers = containers;
+            return this;
+        }
+        public Builder containers(PoolStartTaskContainer... containers) {
+            return containers(List.of(containers));
         }
         @CustomType.Setter
         public Builder resourceFiles(@Nullable List<PoolStartTaskResourceFile> resourceFiles) {
@@ -155,6 +178,7 @@ public final class PoolStartTask {
             final var o = new PoolStartTask();
             o.commandLine = commandLine;
             o.commonEnvironmentProperties = commonEnvironmentProperties;
+            o.containers = containers;
             o.resourceFiles = resourceFiles;
             o.taskRetryMaximum = taskRetryMaximum;
             o.userIdentity = userIdentity;
