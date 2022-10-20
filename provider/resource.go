@@ -120,6 +120,7 @@ const (
 	azureMySQL                 = "MySql"                 // MySql
 	azureNetapp                = "NetApp"                // NetApp
 	azureNetwork               = "Network"               // Networking
+	azureNginx                 = "Nginx"                 // Nginx
 	azureNotificationHub       = "NotificationHub"       // Notification Hub
 	azureOperationalInsights   = "OperationalInsights"   // Operational Insights
 	azureOrbital               = "Orbital"               //Orbital
@@ -190,6 +191,10 @@ func azureResource(mod string, res string) tokens.Type {
 // boolRef returns a reference to the bool argument.
 func boolRef(b bool) *bool {
 	return &b
+}
+
+func strRef(s string) *string {
+	return &s
 }
 
 type cloudShellProfile struct {
@@ -950,7 +955,8 @@ func Provider() tfbridge.ProviderInfo {
 					}),
 				},
 			},
-			"azurerm_cdn_frontdoor_custom_domain":                        {Tok: azureResource(azureCDN, "FrontdoorCustomEndpoint")},
+			"azurerm_cdn_frontdoor_custom_domain":                        {Tok: azureResource(azureCDN, "FrontdoorCustomDomain"), Aliases: []tfbridge.AliasInfo{{Type: strRef("azure:cdn/frontdoorCustomEndpoint:FrontdoorCustomEndpoint")}}},
+			"azurerm_cdn_frontdoor_custom_domain_association":            {Tok: azureResource(azureCDN, "FrontdoorCustomDomainAssociation")},
 			"azurerm_cdn_frontdoor_endpoint":                             {Tok: azureResource(azureCDN, "FrontdoorEndpoint")},
 			"azurerm_cdn_frontdoor_firewall_policy":                      {Tok: azureResource(azureCDN, "FrontdoorFirewallPolicy")},
 			"azurerm_cdn_frontdoor_origin_group":                         {Tok: azureResource(azureCDN, "FrontdoorOriginGroup")},
@@ -2185,6 +2191,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_netapp_snapshot":        {Tok: azureResource(azureNetapp, "Snapshot")},
 			"azurerm_netapp_snapshot_policy": {Tok: azureResource(azureNetapp, "SnapshotPolicy")},
 
+			// Nginx
+			"azurerm_nginx_deployment": {Tok: azureResource(azureNginx, "Deployment")},
+
 			//AppConfiguration
 			"azurerm_app_configuration":         {Tok: azureResource(azureAppConfiguration, "ConfigurationStore")},
 			"azurerm_app_configuration_key":     {Tok: azureResource(azureAppConfiguration, "ConfigurationKey")},
@@ -2220,7 +2229,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_database_migration_service": {Tok: azureResource(azureDatabaseMigration, "Service")},
 
 			// IoT Central
-			"azurerm_iotcentral_application": {Tok: azureResource(azureIotCentral, "Application")},
+			"azurerm_iotcentral_application":                  {Tok: azureResource(azureIotCentral, "Application")},
+			"azurerm_iotcentral_application_network_rule_set": {Tok: azureResource(azureIotCentral, "ApplicationNetworkRuleSet")},
 
 			// HPC
 			"azurerm_hpc_cache":                 {Tok: azureResource(azureHpc, "Cache")},
@@ -2282,6 +2292,9 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_sentinel_data_connector_office_365": {
 				Tok: azureResource(azureSentinel, "DataConnectorOffice365"),
+			},
+			"azurerm_sentinel_data_connector_office_atp": {
+				Tok: azureResource(azureSentinel, "DataConnectorOfficeAtp"),
 			},
 			"azurerm_sentinel_data_connector_threat_intelligence": {
 				Tok: azureResource(azureSentinel, "DataConnectorThreatIntelligence"),
@@ -2439,6 +2452,7 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "spacecraft.html.markdown",
 				},
 			},
+			"azurerm_orbital_contact_profile": {Tok: azureResource(azureOrbital, "ContactProfile")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_aadb2c_directory": {Tok: azureDataSource(aadb2c, "getDirectory")},
@@ -2507,6 +2521,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_cosmosdb_account":                      {Tok: azureDataSource(azureCosmosDB, "getAccount")},
 			"azurerm_cosmosdb_mongo_database":               {Tok: azureDataSource(azureCosmosDB, "getMongoDatabase")},
 			"azurerm_cosmosdb_restorable_database_accounts": {Tok: azureDataSource(azureCosmosDB, "getRestorableDatabaseAccounts")},
+			"azurerm_cosmosdb_sql_database":                 {Tok: azureDataSource(azureCosmosDB, "getSqlDatabase")},
+			"azurerm_cosmosdb_sql_role_definition":          {Tok: azureDataSource(azureCosmosDB, "getSqlRoleDefinition")},
 			"azurerm_data_protection_backup_vault":          {Tok: azureDataSource(azureDataProtection, "getBackupVault")},
 			"azurerm_data_share_account":                    {Tok: azureDataSource(azureDataShare, "getAccount")},
 			"azurerm_data_share":                            {Tok: azureDataSource(azureDataShare, "getShare")},
