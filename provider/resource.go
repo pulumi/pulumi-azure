@@ -955,6 +955,7 @@ func Provider() tfbridge.ProviderInfo {
 					}),
 				},
 			},
+			// Alias added due to first release of this resource being mapped to the wrong name
 			"azurerm_cdn_frontdoor_custom_domain":                        {Tok: azureResource(azureCDN, "FrontdoorCustomDomain"), Aliases: []tfbridge.AliasInfo{{Type: strRef("azure:cdn/frontdoorCustomEndpoint:FrontdoorCustomEndpoint")}}},
 			"azurerm_cdn_frontdoor_custom_domain_association":            {Tok: azureResource(azureCDN, "FrontdoorCustomDomainAssociation")},
 			"azurerm_cdn_frontdoor_endpoint":                             {Tok: azureResource(azureCDN, "FrontdoorEndpoint")},
