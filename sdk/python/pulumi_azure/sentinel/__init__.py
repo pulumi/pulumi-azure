@@ -20,6 +20,7 @@ from .data_connector_azure_security_center import *
 from .data_connector_microsoft_cloud_app_security import *
 from .data_connector_microsoft_defender_advanced_threat_protection import *
 from .data_connector_office365 import *
+from .data_connector_office_atp import *
 from .data_connector_threat_intelligence import *
 from .get_alert_rule import *
 from .get_alert_rule_template import *

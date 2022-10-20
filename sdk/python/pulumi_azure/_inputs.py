@@ -12,6 +12,7 @@ from . import _utilities
 __all__ = [
     'ProviderFeaturesArgs',
     'ProviderFeaturesApiManagementArgs',
+    'ProviderFeaturesAppConfigurationArgs',
     'ProviderFeaturesApplicationInsightsArgs',
     'ProviderFeaturesCognitiveAccountArgs',
     'ProviderFeaturesKeyVaultArgs',
@@ -27,6 +28,7 @@ __all__ = [
 class ProviderFeaturesArgs:
     def __init__(__self__, *,
                  api_management: Optional[pulumi.Input['ProviderFeaturesApiManagementArgs']] = None,
+                 app_configuration: Optional[pulumi.Input['ProviderFeaturesAppConfigurationArgs']] = None,
                  application_insights: Optional[pulumi.Input['ProviderFeaturesApplicationInsightsArgs']] = None,
                  cognitive_account: Optional[pulumi.Input['ProviderFeaturesCognitiveAccountArgs']] = None,
                  key_vault: Optional[pulumi.Input['ProviderFeaturesKeyVaultArgs']] = None,
@@ -38,6 +40,8 @@ class ProviderFeaturesArgs:
                  virtual_machine_scale_set: Optional[pulumi.Input['ProviderFeaturesVirtualMachineScaleSetArgs']] = None):
         if api_management is not None:
             pulumi.set(__self__, "api_management", api_management)
+        if app_configuration is not None:
+            pulumi.set(__self__, "app_configuration", app_configuration)
         if application_insights is not None:
             pulumi.set(__self__, "application_insights", application_insights)
         if cognitive_account is not None:
@@ -65,6 +69,15 @@ class ProviderFeaturesArgs:
     @api_management.setter
     def api_management(self, value: Optional[pulumi.Input['ProviderFeaturesApiManagementArgs']]):
         pulumi.set(self, "api_management", value)
+
+    @property
+    @pulumi.getter(name="appConfiguration")
+    def app_configuration(self) -> Optional[pulumi.Input['ProviderFeaturesAppConfigurationArgs']]:
+        return pulumi.get(self, "app_configuration")
+
+    @app_configuration.setter
+    def app_configuration(self, value: Optional[pulumi.Input['ProviderFeaturesAppConfigurationArgs']]):
+        pulumi.set(self, "app_configuration", value)
 
     @property
     @pulumi.getter(name="applicationInsights")
@@ -150,6 +163,35 @@ class ProviderFeaturesArgs:
 
 @pulumi.input_type
 class ProviderFeaturesApiManagementArgs:
+    def __init__(__self__, *,
+                 purge_soft_delete_on_destroy: Optional[pulumi.Input[bool]] = None,
+                 recover_soft_deleted: Optional[pulumi.Input[bool]] = None):
+        if purge_soft_delete_on_destroy is not None:
+            pulumi.set(__self__, "purge_soft_delete_on_destroy", purge_soft_delete_on_destroy)
+        if recover_soft_deleted is not None:
+            pulumi.set(__self__, "recover_soft_deleted", recover_soft_deleted)
+
+    @property
+    @pulumi.getter(name="purgeSoftDeleteOnDestroy")
+    def purge_soft_delete_on_destroy(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "purge_soft_delete_on_destroy")
+
+    @purge_soft_delete_on_destroy.setter
+    def purge_soft_delete_on_destroy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "purge_soft_delete_on_destroy", value)
+
+    @property
+    @pulumi.getter(name="recoverSoftDeleted")
+    def recover_soft_deleted(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "recover_soft_deleted")
+
+    @recover_soft_deleted.setter
+    def recover_soft_deleted(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "recover_soft_deleted", value)
+
+
+@pulumi.input_type
+class ProviderFeaturesAppConfigurationArgs:
     def __init__(__self__, *,
                  purge_soft_delete_on_destroy: Optional[pulumi.Input[bool]] = None,
                  recover_soft_deleted: Optional[pulumi.Input[bool]] = None):

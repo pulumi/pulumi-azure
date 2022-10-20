@@ -233,7 +233,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
                  trusted_services_allowed: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Manages a ServiceBus Namespace Network Rule Set Set.
+        Manages a ServiceBus Namespace Network Rule Set.
 
         ## Example Usage
 
@@ -295,7 +295,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
                  args: NamespaceNetworkRuleSetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a ServiceBus Namespace Network Rule Set Set.
+        Manages a ServiceBus Namespace Network Rule Set.
 
         ## Example Usage
 

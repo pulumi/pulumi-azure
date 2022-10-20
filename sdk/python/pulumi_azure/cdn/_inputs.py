@@ -42,7 +42,7 @@ __all__ = [
     'EndpointGlobalDeliveryRuleUrlRedirectActionArgs',
     'EndpointGlobalDeliveryRuleUrlRewriteActionArgs',
     'EndpointOriginArgs',
-    'FrontdoorCustomEndpointTlsArgs',
+    'FrontdoorCustomDomainTlsArgs',
     'FrontdoorFirewallPolicyCustomRuleArgs',
     'FrontdoorFirewallPolicyCustomRuleMatchConditionArgs',
     'FrontdoorFirewallPolicyManagedRuleArgs',
@@ -2401,7 +2401,7 @@ class EndpointOriginArgs:
 
 
 @pulumi.input_type
-class FrontdoorCustomEndpointTlsArgs:
+class FrontdoorCustomDomainTlsArgs:
     def __init__(__self__, *,
                  cdn_frontdoor_secret_id: Optional[pulumi.Input[str]] = None,
                  certificate_type: Optional[pulumi.Input[str]] = None,

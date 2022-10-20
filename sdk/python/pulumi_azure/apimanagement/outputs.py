@@ -11,6 +11,7 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'ApiContact',
     'ApiDiagnosticBackendRequest',
     'ApiDiagnosticBackendRequestDataMasking',
     'ApiDiagnosticBackendRequestDataMaskingHeader',
@@ -29,6 +30,7 @@ __all__ = [
     'ApiDiagnosticFrontendResponseDataMaskingQueryParam',
     'ApiImport',
     'ApiImportWsdlSelector',
+    'ApiLicense',
     'ApiOauth2Authorization',
     'ApiOpenidAuthentication',
     'ApiOperationRequest',
@@ -111,6 +113,49 @@ __all__ = [
     'GetServiceHostnameConfigurationScmResult',
     'GetServiceIdentityResult',
 ]
+
+@pulumi.output_type
+class ApiContact(dict):
+    def __init__(__self__, *,
+                 email: Optional[str] = None,
+                 name: Optional[str] = None,
+                 url: Optional[str] = None):
+        """
+        :param str email: The email address of the contact person/organization.
+        :param str name: The name of the contact person/organization.
+        :param str url: Absolute URL of the contact information.
+        """
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def email(self) -> Optional[str]:
+        """
+        The email address of the contact person/organization.
+        """
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the contact person/organization.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[str]:
+        """
+        Absolute URL of the contact information.
+        """
+        return pulumi.get(self, "url")
+
 
 @pulumi.output_type
 class ApiDiagnosticBackendRequest(dict):
@@ -900,6 +945,37 @@ class ApiImportWsdlSelector(dict):
         The name of service to import from WSDL.
         """
         return pulumi.get(self, "service_name")
+
+
+@pulumi.output_type
+class ApiLicense(dict):
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 url: Optional[str] = None):
+        """
+        :param str name: The name of the license .
+        :param str url: Absolute URL of the license.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the license .
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[str]:
+        """
+        Absolute URL of the license.
+        """
+        return pulumi.get(self, "url")
 
 
 @pulumi.output_type

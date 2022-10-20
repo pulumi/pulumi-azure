@@ -11,6 +11,7 @@ from .. import _utilities
 
 __all__ = [
     'ApplicationIdentityArgs',
+    'ApplicationNetworkRuleSetIpRuleArgs',
 ]
 
 @pulumi.input_type
@@ -65,5 +66,42 @@ class ApplicationIdentityArgs:
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class ApplicationNetworkRuleSetIpRuleArgs:
+    def __init__(__self__, *,
+                 ip_mask: pulumi.Input[str],
+                 name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] ip_mask: The IP address range in CIDR notation for the IP Rule.
+        :param pulumi.Input[str] name: The name of the IP Rule
+        """
+        pulumi.set(__self__, "ip_mask", ip_mask)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="ipMask")
+    def ip_mask(self) -> pulumi.Input[str]:
+        """
+        The IP address range in CIDR notation for the IP Rule.
+        """
+        return pulumi.get(self, "ip_mask")
+
+    @ip_mask.setter
+    def ip_mask(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ip_mask", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the IP Rule
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
 

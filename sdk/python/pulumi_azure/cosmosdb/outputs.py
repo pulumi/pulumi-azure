@@ -59,6 +59,8 @@ __all__ = [
     'GetAccountVirtualNetworkRuleResult',
     'GetRestorableDatabaseAccountsAccountResult',
     'GetRestorableDatabaseAccountsAccountRestorableLocationResult',
+    'GetSqlDatabaseAutoscaleSettingResult',
+    'GetSqlRoleDefinitionPermissionResult',
 ]
 
 @pulumi.output_type
@@ -2063,5 +2065,41 @@ class GetRestorableDatabaseAccountsAccountRestorableLocationResult(dict):
         The instance ID of the regional Cosmos DB Restorable Database Account.
         """
         return pulumi.get(self, "regional_database_account_instance_id")
+
+
+@pulumi.output_type
+class GetSqlDatabaseAutoscaleSettingResult(dict):
+    def __init__(__self__, *,
+                 max_throughput: int):
+        """
+        :param int max_throughput: The maximum throughput of the SQL database (RU/s).
+        """
+        pulumi.set(__self__, "max_throughput", max_throughput)
+
+    @property
+    @pulumi.getter(name="maxThroughput")
+    def max_throughput(self) -> int:
+        """
+        The maximum throughput of the SQL database (RU/s).
+        """
+        return pulumi.get(self, "max_throughput")
+
+
+@pulumi.output_type
+class GetSqlRoleDefinitionPermissionResult(dict):
+    def __init__(__self__, *,
+                 data_actions: Sequence[str]):
+        """
+        :param Sequence[str] data_actions: A list of data actions that are allowed for the Cosmos DB SQL Role Definition.
+        """
+        pulumi.set(__self__, "data_actions", data_actions)
+
+    @property
+    @pulumi.getter(name="dataActions")
+    def data_actions(self) -> Sequence[str]:
+        """
+        A list of data actions that are allowed for the Cosmos DB SQL Role Definition.
+        """
+        return pulumi.get(self, "data_actions")
 
 

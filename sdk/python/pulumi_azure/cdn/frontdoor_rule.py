@@ -249,7 +249,7 @@ class FrontdoorRule(pulumi.CustomResource):
         """
         Manages a Frontdoor Rule.
 
-        !>**IMPORTANT:** The Rules resource **must** include a `depends_on` meta-argument which references the `cdn.FrontdoorOrigin`, `cdn.FrontdoorOriginGroup` and the `cdn.FrontdoorRoute` that are associated with the Rule resource. The `cdn.FrontdoorRoute` definition has been excluded from the below `Example Usage`, for brevity, but has been included in the `depends_on` meta-argument as an example of the correct way to define the `cdn.FrontdoorRule` resource.
+        !>**IMPORTANT:** The Rules resource **must** include a `depends_on` meta-argument which references the `cdn.FrontdoorOrigin` and the `cdn.FrontdoorOriginGroup`.
 
         ## Specifying IP Address Ranges
 
@@ -398,7 +398,7 @@ class FrontdoorRule(pulumi.CustomResource):
         """
         Manages a Frontdoor Rule.
 
-        !>**IMPORTANT:** The Rules resource **must** include a `depends_on` meta-argument which references the `cdn.FrontdoorOrigin`, `cdn.FrontdoorOriginGroup` and the `cdn.FrontdoorRoute` that are associated with the Rule resource. The `cdn.FrontdoorRoute` definition has been excluded from the below `Example Usage`, for brevity, but has been included in the `depends_on` meta-argument as an example of the correct way to define the `cdn.FrontdoorRule` resource.
+        !>**IMPORTANT:** The Rules resource **must** include a `depends_on` meta-argument which references the `cdn.FrontdoorOrigin` and the `cdn.FrontdoorOriginGroup`.
 
         ## Specifying IP Address Ranges
 

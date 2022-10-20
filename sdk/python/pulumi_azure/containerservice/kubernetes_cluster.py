@@ -56,7 +56,8 @@ class KubernetesClusterArgs:
                  service_principal: Optional[pulumi.Input['KubernetesClusterServicePrincipalArgs']] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 windows_profile: Optional[pulumi.Input['KubernetesClusterWindowsProfileArgs']] = None):
+                 windows_profile: Optional[pulumi.Input['KubernetesClusterWindowsProfileArgs']] = None,
+                 workload_identity_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a KubernetesCluster resource.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolArgs'] default_node_pool: A `default_node_pool` block as defined below.
@@ -98,6 +99,7 @@ class KubernetesClusterArgs:
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['KubernetesClusterWindowsProfileArgs'] windows_profile: A `windows_profile` block as defined below.
+        :param pulumi.Input[bool] workload_identity_enabled: Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
         """
         pulumi.set(__self__, "default_node_pool", default_node_pool)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -179,6 +181,8 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "tags", tags)
         if windows_profile is not None:
             pulumi.set(__self__, "windows_profile", windows_profile)
+        if workload_identity_enabled is not None:
+            pulumi.set(__self__, "workload_identity_enabled", workload_identity_enabled)
 
     @property
     @pulumi.getter(name="defaultNodePool")
@@ -666,6 +670,18 @@ class KubernetesClusterArgs:
     def windows_profile(self, value: Optional[pulumi.Input['KubernetesClusterWindowsProfileArgs']]):
         pulumi.set(self, "windows_profile", value)
 
+    @property
+    @pulumi.getter(name="workloadIdentityEnabled")
+    def workload_identity_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
+        """
+        return pulumi.get(self, "workload_identity_enabled")
+
+    @workload_identity_enabled.setter
+    def workload_identity_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "workload_identity_enabled", value)
+
 
 @pulumi.input_type
 class _KubernetesClusterState:
@@ -719,7 +735,8 @@ class _KubernetesClusterState:
                  service_principal: Optional[pulumi.Input['KubernetesClusterServicePrincipalArgs']] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 windows_profile: Optional[pulumi.Input['KubernetesClusterWindowsProfileArgs']] = None):
+                 windows_profile: Optional[pulumi.Input['KubernetesClusterWindowsProfileArgs']] = None,
+                 workload_identity_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering KubernetesCluster resources.
         :param pulumi.Input['KubernetesClusterAciConnectorLinuxArgs'] aci_connector_linux: A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
@@ -770,6 +787,7 @@ class _KubernetesClusterState:
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['KubernetesClusterWindowsProfileArgs'] windows_profile: A `windows_profile` block as defined below.
+        :param pulumi.Input[bool] workload_identity_enabled: Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
         """
         if aci_connector_linux is not None:
             pulumi.set(__self__, "aci_connector_linux", aci_connector_linux)
@@ -871,6 +889,8 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "tags", tags)
         if windows_profile is not None:
             pulumi.set(__self__, "windows_profile", windows_profile)
+        if workload_identity_enabled is not None:
+            pulumi.set(__self__, "workload_identity_enabled", workload_identity_enabled)
 
     @property
     @pulumi.getter(name="aciConnectorLinux")
@@ -1466,6 +1486,18 @@ class _KubernetesClusterState:
     def windows_profile(self, value: Optional[pulumi.Input['KubernetesClusterWindowsProfileArgs']]):
         pulumi.set(self, "windows_profile", value)
 
+    @property
+    @pulumi.getter(name="workloadIdentityEnabled")
+    def workload_identity_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
+        """
+        return pulumi.get(self, "workload_identity_enabled")
+
+    @workload_identity_enabled.setter
+    def workload_identity_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "workload_identity_enabled", value)
+
 
 class KubernetesCluster(pulumi.CustomResource):
     @overload
@@ -1513,6 +1545,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  windows_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArgs']]] = None,
+                 workload_identity_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         Manages a Managed Kubernetes Cluster (also known as AKS / Azure Kubernetes Service)
@@ -1594,6 +1627,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArgs']] windows_profile: A `windows_profile` block as defined below.
+        :param pulumi.Input[bool] workload_identity_enabled: Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
         """
         ...
     @overload
@@ -1696,6 +1730,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  windows_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArgs']]] = None,
+                 workload_identity_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1750,6 +1785,7 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["sku_tier"] = sku_tier
             __props__.__dict__["tags"] = tags
             __props__.__dict__["windows_profile"] = windows_profile
+            __props__.__dict__["workload_identity_enabled"] = workload_identity_enabled
             __props__.__dict__["fqdn"] = None
             __props__.__dict__["http_application_routing_zone_name"] = None
             __props__.__dict__["kube_admin_config_raw"] = None
@@ -1818,7 +1854,8 @@ class KubernetesCluster(pulumi.CustomResource):
             service_principal: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']]] = None,
             sku_tier: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            windows_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArgs']]] = None) -> 'KubernetesCluster':
+            windows_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArgs']]] = None,
+            workload_identity_enabled: Optional[pulumi.Input[bool]] = None) -> 'KubernetesCluster':
         """
         Get an existing KubernetesCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1874,6 +1911,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArgs']] windows_profile: A `windows_profile` block as defined below.
+        :param pulumi.Input[bool] workload_identity_enabled: Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1929,6 +1967,7 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["sku_tier"] = sku_tier
         __props__.__dict__["tags"] = tags
         __props__.__dict__["windows_profile"] = windows_profile
+        __props__.__dict__["workload_identity_enabled"] = workload_identity_enabled
         return KubernetesCluster(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -2324,4 +2363,12 @@ class KubernetesCluster(pulumi.CustomResource):
         A `windows_profile` block as defined below.
         """
         return pulumi.get(self, "windows_profile")
+
+    @property
+    @pulumi.getter(name="workloadIdentityEnabled")
+    def workload_identity_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
+        """
+        return pulumi.get(self, "workload_identity_enabled")
 

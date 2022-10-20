@@ -12094,7 +12094,7 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
         :param str java_version: The Version of Java to use. Supported versions of Java vary depending on the `java_server` and `java_server_version`, as well as security and fixes to major versions. Please see Azure documentation for the latest information.
         :param str node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, and `16-lts`. This property conflicts with `java_version`.
         :param str php_version: The version of PHP to run. Possible values include `7.4`, and `8.0`.
-        :param str python_version: The version of Python to run. Possible values include `3.7`, `3.8`, and `3.9`.
+        :param str python_version: The version of Python to run. Possible values include `3.7`, `3.8`, `3.9` and `3.10`.
         :param str ruby_version: Te version of Ruby to run. Possible values include `2.6` and `2.7`.
         """
         if docker_image is not None:
@@ -12186,7 +12186,7 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="pythonVersion")
     def python_version(self) -> Optional[str]:
         """
-        The version of Python to run. Possible values include `3.7`, `3.8`, and `3.9`.
+        The version of Python to run. Possible values include `3.7`, `3.8`, `3.9` and `3.10`.
         """
         return pulumi.get(self, "python_version")
 
@@ -14797,7 +14797,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
         :param str java_version: The Version of Java to use. Supported versions of Java vary depending on the `java_server` and `java_server_version`, as well as security and fixes to major versions. Please see Azure documentation for the latest information.
         :param str node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, and `16-lts`. This property conflicts with `java_version`.
         :param str php_version: The version of PHP to run. Possible values include `7.4`, and `8.0`.
-        :param str python_version: The version of Python to run. Possible values include `3.7`, `3.8`, and `3.9`.
+        :param str python_version: The version of Python to run. Possible values include `3.7`, `3.8`, `3.9` and `3.10`.
         :param str ruby_version: Te version of Ruby to run. Possible values include `2.6` and `2.7`.
         """
         if docker_image is not None:
@@ -14889,7 +14889,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="pythonVersion")
     def python_version(self) -> Optional[str]:
         """
-        The version of Python to run. Possible values include `3.7`, `3.8`, and `3.9`.
+        The version of Python to run. Possible values include `3.7`, `3.8`, `3.9` and `3.10`.
         """
         return pulumi.get(self, "python_version")
 
@@ -28518,8 +28518,8 @@ class WindowsWebAppStickySettings(dict):
                  app_setting_names: Optional[Sequence[str]] = None,
                  connection_string_names: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] app_setting_names: A list of `app_setting` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
-        :param Sequence[str] connection_string_names: A list of `connection_string` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+        :param Sequence[str] app_setting_names: A list of `app_setting` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
+        :param Sequence[str] connection_string_names: A list of `connection_string` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
         """
         if app_setting_names is not None:
             pulumi.set(__self__, "app_setting_names", app_setting_names)
@@ -28530,7 +28530,7 @@ class WindowsWebAppStickySettings(dict):
     @pulumi.getter(name="appSettingNames")
     def app_setting_names(self) -> Optional[Sequence[str]]:
         """
-        A list of `app_setting` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+        A list of `app_setting` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
         """
         return pulumi.get(self, "app_setting_names")
 
@@ -28538,7 +28538,7 @@ class WindowsWebAppStickySettings(dict):
     @pulumi.getter(name="connectionStringNames")
     def connection_string_names(self) -> Optional[Sequence[str]]:
         """
-        A list of `connection_string` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+        A list of `connection_string` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
         """
         return pulumi.get(self, "connection_string_names")
 

@@ -22,13 +22,22 @@ class GetConfigurationStoreResult:
     """
     A collection of values returned by getConfigurationStore.
     """
-    def __init__(__self__, endpoint=None, id=None, location=None, name=None, primary_read_keys=None, primary_write_keys=None, public_network_access=None, resource_group_name=None, secondary_read_keys=None, secondary_write_keys=None, sku=None, tags=None):
+    def __init__(__self__, encryptions=None, endpoint=None, id=None, identities=None, local_auth_enabled=None, location=None, name=None, primary_read_keys=None, primary_write_keys=None, public_network_access=None, public_network_access_enabled=None, purge_protection_enabled=None, resource_group_name=None, secondary_read_keys=None, secondary_write_keys=None, sku=None, soft_delete_retention_days=None, tags=None):
+        if encryptions and not isinstance(encryptions, list):
+            raise TypeError("Expected argument 'encryptions' to be a list")
+        pulumi.set(__self__, "encryptions", encryptions)
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identities and not isinstance(identities, list):
+            raise TypeError("Expected argument 'identities' to be a list")
+        pulumi.set(__self__, "identities", identities)
+        if local_auth_enabled and not isinstance(local_auth_enabled, bool):
+            raise TypeError("Expected argument 'local_auth_enabled' to be a bool")
+        pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -44,6 +53,12 @@ class GetConfigurationStoreResult:
         if public_network_access and not isinstance(public_network_access, str):
             raise TypeError("Expected argument 'public_network_access' to be a str")
         pulumi.set(__self__, "public_network_access", public_network_access)
+        if public_network_access_enabled and not isinstance(public_network_access_enabled, bool):
+            raise TypeError("Expected argument 'public_network_access_enabled' to be a bool")
+        pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+        if purge_protection_enabled and not isinstance(purge_protection_enabled, bool):
+            raise TypeError("Expected argument 'purge_protection_enabled' to be a bool")
+        pulumi.set(__self__, "purge_protection_enabled", purge_protection_enabled)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -56,9 +71,17 @@ class GetConfigurationStoreResult:
         if sku and not isinstance(sku, str):
             raise TypeError("Expected argument 'sku' to be a str")
         pulumi.set(__self__, "sku", sku)
+        if soft_delete_retention_days and not isinstance(soft_delete_retention_days, int):
+            raise TypeError("Expected argument 'soft_delete_retention_days' to be a int")
+        pulumi.set(__self__, "soft_delete_retention_days", soft_delete_retention_days)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def encryptions(self) -> Sequence['outputs.GetConfigurationStoreEncryptionResult']:
+        return pulumi.get(self, "encryptions")
 
     @property
     @pulumi.getter
@@ -75,6 +98,19 @@ class GetConfigurationStoreResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identities(self) -> Sequence['outputs.GetConfigurationStoreIdentityResult']:
+        return pulumi.get(self, "identities")
+
+    @property
+    @pulumi.getter(name="localAuthEnabled")
+    def local_auth_enabled(self) -> bool:
+        """
+        Whether local authentication methods is enabled.
+        """
+        return pulumi.get(self, "local_auth_enabled")
 
     @property
     @pulumi.getter
@@ -114,6 +150,19 @@ class GetConfigurationStoreResult:
         return pulumi.get(self, "public_network_access")
 
     @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> bool:
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @property
+    @pulumi.getter(name="purgeProtectionEnabled")
+    def purge_protection_enabled(self) -> bool:
+        """
+        Whether Purge Protection is enabled.
+        """
+        return pulumi.get(self, "purge_protection_enabled")
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> str:
         return pulumi.get(self, "resource_group_name")
@@ -143,6 +192,14 @@ class GetConfigurationStoreResult:
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="softDeleteRetentionDays")
+    def soft_delete_retention_days(self) -> int:
+        """
+        The number of days that items should be retained for once soft-deleted.
+        """
+        return pulumi.get(self, "soft_delete_retention_days")
+
+    @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
@@ -157,17 +214,23 @@ class AwaitableGetConfigurationStoreResult(GetConfigurationStoreResult):
         if False:
             yield self
         return GetConfigurationStoreResult(
+            encryptions=self.encryptions,
             endpoint=self.endpoint,
             id=self.id,
+            identities=self.identities,
+            local_auth_enabled=self.local_auth_enabled,
             location=self.location,
             name=self.name,
             primary_read_keys=self.primary_read_keys,
             primary_write_keys=self.primary_write_keys,
             public_network_access=self.public_network_access,
+            public_network_access_enabled=self.public_network_access_enabled,
+            purge_protection_enabled=self.purge_protection_enabled,
             resource_group_name=self.resource_group_name,
             secondary_read_keys=self.secondary_read_keys,
             secondary_write_keys=self.secondary_write_keys,
             sku=self.sku,
+            soft_delete_retention_days=self.soft_delete_retention_days,
             tags=self.tags)
 
 
@@ -199,17 +262,23 @@ def get_configuration_store(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:appconfiguration/getConfigurationStore:getConfigurationStore', __args__, opts=opts, typ=GetConfigurationStoreResult).value
 
     return AwaitableGetConfigurationStoreResult(
+        encryptions=__ret__.encryptions,
         endpoint=__ret__.endpoint,
         id=__ret__.id,
+        identities=__ret__.identities,
+        local_auth_enabled=__ret__.local_auth_enabled,
         location=__ret__.location,
         name=__ret__.name,
         primary_read_keys=__ret__.primary_read_keys,
         primary_write_keys=__ret__.primary_write_keys,
         public_network_access=__ret__.public_network_access,
+        public_network_access_enabled=__ret__.public_network_access_enabled,
+        purge_protection_enabled=__ret__.purge_protection_enabled,
         resource_group_name=__ret__.resource_group_name,
         secondary_read_keys=__ret__.secondary_read_keys,
         secondary_write_keys=__ret__.secondary_write_keys,
         sku=__ret__.sku,
+        soft_delete_retention_days=__ret__.soft_delete_retention_days,
         tags=__ret__.tags)
 
 

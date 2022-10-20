@@ -33,6 +33,8 @@ __all__ = [
     'PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule',
     'PoolNodePlacement',
     'PoolStartTask',
+    'PoolStartTaskContainer',
+    'PoolStartTaskContainerRegistry',
     'PoolStartTaskResourceFile',
     'PoolStartTaskUserIdentity',
     'PoolStartTaskUserIdentityAutoUser',
@@ -62,6 +64,8 @@ __all__ = [
     'GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleResult',
     'GetPoolNodePlacementResult',
     'GetPoolStartTaskResult',
+    'GetPoolStartTaskContainerResult',
+    'GetPoolStartTaskContainerRegistryResult',
     'GetPoolStartTaskResourceFileResult',
     'GetPoolStartTaskUserIdentityResult',
     'GetPoolStartTaskUserIdentityAutoUserResult',
@@ -705,7 +709,9 @@ class PoolFixedScale(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "resizeTimeout":
+        if key == "nodeDeallocationMethod":
+            suggest = "node_deallocation_method"
+        elif key == "resizeTimeout":
             suggest = "resize_timeout"
         elif key == "targetDedicatedNodes":
             suggest = "target_dedicated_nodes"
@@ -724,20 +730,32 @@ class PoolFixedScale(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 node_deallocation_method: Optional[str] = None,
                  resize_timeout: Optional[str] = None,
                  target_dedicated_nodes: Optional[int] = None,
                  target_low_priority_nodes: Optional[int] = None):
         """
+        :param str node_deallocation_method: It determines what to do with a node and its running task(s) if the pool size is decreasing. Values are `Requeue`, `RetainedData`, `TaskCompletion` and `Terminate`.
         :param str resize_timeout: The timeout for resize operations. Defaults to `PT15M`.
         :param int target_dedicated_nodes: The number of nodes in the Batch pool. Defaults to `1`.
         :param int target_low_priority_nodes: The number of low priority nodes in the Batch pool. Defaults to `0`.
         """
+        if node_deallocation_method is not None:
+            pulumi.set(__self__, "node_deallocation_method", node_deallocation_method)
         if resize_timeout is not None:
             pulumi.set(__self__, "resize_timeout", resize_timeout)
         if target_dedicated_nodes is not None:
             pulumi.set(__self__, "target_dedicated_nodes", target_dedicated_nodes)
         if target_low_priority_nodes is not None:
             pulumi.set(__self__, "target_low_priority_nodes", target_low_priority_nodes)
+
+    @property
+    @pulumi.getter(name="nodeDeallocationMethod")
+    def node_deallocation_method(self) -> Optional[str]:
+        """
+        It determines what to do with a node and its running task(s) if the pool size is decreasing. Values are `Requeue`, `RetainedData`, `TaskCompletion` and `Terminate`.
+        """
+        return pulumi.get(self, "node_deallocation_method")
 
     @property
     @pulumi.getter(name="resizeTimeout")
@@ -1244,6 +1262,8 @@ class PoolNetworkConfiguration(dict):
         suggest = None
         if key == "subnetId":
             suggest = "subnet_id"
+        elif key == "dynamicVnetAssignmentScope":
+            suggest = "dynamic_vnet_assignment_scope"
         elif key == "endpointConfigurations":
             suggest = "endpoint_configurations"
         elif key == "publicAddressProvisioningType":
@@ -1264,16 +1284,20 @@ class PoolNetworkConfiguration(dict):
 
     def __init__(__self__, *,
                  subnet_id: str,
+                 dynamic_vnet_assignment_scope: Optional[str] = None,
                  endpoint_configurations: Optional[Sequence['outputs.PoolNetworkConfigurationEndpointConfiguration']] = None,
                  public_address_provisioning_type: Optional[str] = None,
                  public_ips: Optional[Sequence[str]] = None):
         """
         :param str subnet_id: The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
+        :param str dynamic_vnet_assignment_scope: The scope of dynamic vnet assignment. Allowed values: `none`, `job`.
         :param Sequence['PoolNetworkConfigurationEndpointConfigurationArgs'] endpoint_configurations: A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
         :param str public_address_provisioning_type: Type of public IP address provisioning. Supported values are `BatchManaged`, `UserManaged` and `NoPublicIPAddresses`.
         :param Sequence[str] public_ips: A list of public IP ids that will be allocated to nodes. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
+        if dynamic_vnet_assignment_scope is not None:
+            pulumi.set(__self__, "dynamic_vnet_assignment_scope", dynamic_vnet_assignment_scope)
         if endpoint_configurations is not None:
             pulumi.set(__self__, "endpoint_configurations", endpoint_configurations)
         if public_address_provisioning_type is not None:
@@ -1288,6 +1312,14 @@ class PoolNetworkConfiguration(dict):
         The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
+
+    @property
+    @pulumi.getter(name="dynamicVnetAssignmentScope")
+    def dynamic_vnet_assignment_scope(self) -> Optional[str]:
+        """
+        The scope of dynamic vnet assignment. Allowed values: `none`, `job`.
+        """
+        return pulumi.get(self, "dynamic_vnet_assignment_scope")
 
     @property
     @pulumi.getter(name="endpointConfigurations")
@@ -1405,6 +1437,8 @@ class PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule(dict
         suggest = None
         if key == "sourceAddressPrefix":
             suggest = "source_address_prefix"
+        elif key == "sourcePortRanges":
+            suggest = "source_port_ranges"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule. Access the value via the '{suggest}' property getter instead.")
@@ -1420,15 +1454,19 @@ class PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule(dict
     def __init__(__self__, *,
                  access: str,
                  priority: int,
-                 source_address_prefix: str):
+                 source_address_prefix: str,
+                 source_port_ranges: Optional[Sequence[str]] = None):
         """
         :param str access: The action that should be taken for a specified IP address, subnet range or tag. Acceptable values are `Allow` and `Deny`. Changing this forces a new resource to be created.
         :param int priority: The priority for this rule. The value must be at least `150`. Changing this forces a new resource to be created.
         :param str source_address_prefix: The source address prefix or tag to match for the rule. Changing this forces a new resource to be created.
+        :param Sequence[str] source_port_ranges: The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can't overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`.
         """
         pulumi.set(__self__, "access", access)
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "source_address_prefix", source_address_prefix)
+        if source_port_ranges is not None:
+            pulumi.set(__self__, "source_port_ranges", source_port_ranges)
 
     @property
     @pulumi.getter
@@ -1453,6 +1491,14 @@ class PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule(dict
         The source address prefix or tag to match for the rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_address_prefix")
+
+    @property
+    @pulumi.getter(name="sourcePortRanges")
+    def source_port_ranges(self) -> Optional[Sequence[str]]:
+        """
+        The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can't overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`.
+        """
+        return pulumi.get(self, "source_port_ranges")
 
 
 @pulumi.output_type
@@ -1507,6 +1553,7 @@ class PoolStartTask(dict):
                  command_line: str,
                  user_identity: 'outputs.PoolStartTaskUserIdentity',
                  common_environment_properties: Optional[Mapping[str, str]] = None,
+                 containers: Optional[Sequence['outputs.PoolStartTaskContainer']] = None,
                  resource_files: Optional[Sequence['outputs.PoolStartTaskResourceFile']] = None,
                  task_retry_maximum: Optional[int] = None,
                  wait_for_success: Optional[bool] = None):
@@ -1514,6 +1561,7 @@ class PoolStartTask(dict):
         :param str command_line: The command line executed by the start task.
         :param 'PoolStartTaskUserIdentityArgs' user_identity: A `user_identity` block that describes the user identity under which the start task runs.
         :param Mapping[str, str] common_environment_properties: A map of strings (key,value) that represents the environment variables to set in the start task.
+        :param Sequence['PoolStartTaskContainerArgs'] containers: A `container` block is the settings for the container under which the start task runs. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
         :param Sequence['PoolStartTaskResourceFileArgs'] resource_files: One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
         :param int task_retry_maximum: The number of retry count. Defaults to `1`.
         :param bool wait_for_success: A flag that indicates if the Batch pool should wait for the start task to be completed. Default to `false`.
@@ -1522,6 +1570,8 @@ class PoolStartTask(dict):
         pulumi.set(__self__, "user_identity", user_identity)
         if common_environment_properties is not None:
             pulumi.set(__self__, "common_environment_properties", common_environment_properties)
+        if containers is not None:
+            pulumi.set(__self__, "containers", containers)
         if resource_files is not None:
             pulumi.set(__self__, "resource_files", resource_files)
         if task_retry_maximum is not None:
@@ -1554,6 +1604,14 @@ class PoolStartTask(dict):
         return pulumi.get(self, "common_environment_properties")
 
     @property
+    @pulumi.getter
+    def containers(self) -> Optional[Sequence['outputs.PoolStartTaskContainer']]:
+        """
+        A `container` block is the settings for the container under which the start task runs. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
+        """
+        return pulumi.get(self, "containers")
+
+    @property
     @pulumi.getter(name="resourceFiles")
     def resource_files(self) -> Optional[Sequence['outputs.PoolStartTaskResourceFile']]:
         """
@@ -1576,6 +1634,156 @@ class PoolStartTask(dict):
         A flag that indicates if the Batch pool should wait for the start task to be completed. Default to `false`.
         """
         return pulumi.get(self, "wait_for_success")
+
+
+@pulumi.output_type
+class PoolStartTaskContainer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageName":
+            suggest = "image_name"
+        elif key == "runOptions":
+            suggest = "run_options"
+        elif key == "workingDirectory":
+            suggest = "working_directory"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PoolStartTaskContainer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PoolStartTaskContainer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PoolStartTaskContainer.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image_name: str,
+                 registries: Optional[Sequence['outputs.PoolStartTaskContainerRegistry']] = None,
+                 run_options: Optional[str] = None,
+                 working_directory: Optional[str] = None):
+        """
+        :param str image_name: The image to use to create the container in which the task will run. This is the full image reference, as would be specified to "docker pull". If no tag is provided as part of the image name, the tag ":latest" is used as a default.
+        :param Sequence['PoolStartTaskContainerRegistryArgs'] registries: The same reference as `container_registries` block defined as follows.
+        :param str run_options: Additional options to the container create command. These additional options are supplied as arguments to the "docker create" command, in addition to those controlled by the Batch Service.
+        :param str working_directory: A flag to indicate where the container task working directory is. The default is `TaskWorkingDirectory`, an alternative value is `ContainerImageDefault`.
+        """
+        pulumi.set(__self__, "image_name", image_name)
+        if registries is not None:
+            pulumi.set(__self__, "registries", registries)
+        if run_options is not None:
+            pulumi.set(__self__, "run_options", run_options)
+        if working_directory is not None:
+            pulumi.set(__self__, "working_directory", working_directory)
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> str:
+        """
+        The image to use to create the container in which the task will run. This is the full image reference, as would be specified to "docker pull". If no tag is provided as part of the image name, the tag ":latest" is used as a default.
+        """
+        return pulumi.get(self, "image_name")
+
+    @property
+    @pulumi.getter
+    def registries(self) -> Optional[Sequence['outputs.PoolStartTaskContainerRegistry']]:
+        """
+        The same reference as `container_registries` block defined as follows.
+        """
+        return pulumi.get(self, "registries")
+
+    @property
+    @pulumi.getter(name="runOptions")
+    def run_options(self) -> Optional[str]:
+        """
+        Additional options to the container create command. These additional options are supplied as arguments to the "docker create" command, in addition to those controlled by the Batch Service.
+        """
+        return pulumi.get(self, "run_options")
+
+    @property
+    @pulumi.getter(name="workingDirectory")
+    def working_directory(self) -> Optional[str]:
+        """
+        A flag to indicate where the container task working directory is. The default is `TaskWorkingDirectory`, an alternative value is `ContainerImageDefault`.
+        """
+        return pulumi.get(self, "working_directory")
+
+
+@pulumi.output_type
+class PoolStartTaskContainerRegistry(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "registryServer":
+            suggest = "registry_server"
+        elif key == "userAssignedIdentityId":
+            suggest = "user_assigned_identity_id"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PoolStartTaskContainerRegistry. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PoolStartTaskContainerRegistry.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PoolStartTaskContainerRegistry.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 registry_server: str,
+                 password: Optional[str] = None,
+                 user_assigned_identity_id: Optional[str] = None,
+                 user_name: Optional[str] = None):
+        """
+        :param str registry_server: The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
+        :param str password: The password to log into the registry server. Changing this forces a new resource to be created.
+        :param str user_assigned_identity_id: An identity reference from pool's user assigned managed identity list.
+        :param str user_name: The username to be used by the Batch pool start task.
+        """
+        pulumi.set(__self__, "registry_server", registry_server)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="registryServer")
+    def registry_server(self) -> str:
+        """
+        The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "registry_server")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        The password to log into the registry server. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[str]:
+        """
+        An identity reference from pool's user assigned managed identity list.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[str]:
+        """
+        The username to be used by the Batch pool start task.
+        """
+        return pulumi.get(self, "user_name")
 
 
 @pulumi.output_type
@@ -2837,18 +3045,31 @@ class GetPoolMountNfsMountResult(dict):
 @pulumi.output_type
 class GetPoolNetworkConfigurationResult(dict):
     def __init__(__self__, *,
+                 dynamic_vnet_assignment_scope: str,
                  endpoint_configurations: Sequence['outputs.GetPoolNetworkConfigurationEndpointConfigurationResult'],
                  public_address_provisioning_type: str,
                  public_ips: Sequence[str],
                  subnet_id: str):
         """
+        :param str dynamic_vnet_assignment_scope: The scope of dynamic vnet assignment.
         :param Sequence['GetPoolNetworkConfigurationEndpointConfigurationArgs'] endpoint_configurations: The inbound NAT pools that are used to address specific ports on the individual compute node externally.
+        :param str public_address_provisioning_type: Type of public IP address provisioning.
+        :param Sequence[str] public_ips: A list of public IP ids that will be allocated to nodes.
         :param str subnet_id: The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
         """
+        pulumi.set(__self__, "dynamic_vnet_assignment_scope", dynamic_vnet_assignment_scope)
         pulumi.set(__self__, "endpoint_configurations", endpoint_configurations)
         pulumi.set(__self__, "public_address_provisioning_type", public_address_provisioning_type)
         pulumi.set(__self__, "public_ips", public_ips)
         pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="dynamicVnetAssignmentScope")
+    def dynamic_vnet_assignment_scope(self) -> str:
+        """
+        The scope of dynamic vnet assignment.
+        """
+        return pulumi.get(self, "dynamic_vnet_assignment_scope")
 
     @property
     @pulumi.getter(name="endpointConfigurations")
@@ -2861,11 +3082,17 @@ class GetPoolNetworkConfigurationResult(dict):
     @property
     @pulumi.getter(name="publicAddressProvisioningType")
     def public_address_provisioning_type(self) -> str:
+        """
+        Type of public IP address provisioning.
+        """
         return pulumi.get(self, "public_address_provisioning_type")
 
     @property
     @pulumi.getter(name="publicIps")
     def public_ips(self) -> Sequence[str]:
+        """
+        A list of public IP ids that will be allocated to nodes.
+        """
         return pulumi.get(self, "public_ips")
 
     @property
@@ -2944,15 +3171,18 @@ class GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleRe
     def __init__(__self__, *,
                  access: str,
                  priority: int,
-                 source_address_prefix: str):
+                 source_address_prefix: str,
+                 source_port_ranges: Sequence[str]):
         """
         :param str access: The action that should be taken for a specified IP address, subnet range or tag.
         :param int priority: The priority for this rule.
         :param str source_address_prefix: The source address prefix or tag to match for the rule.
+        :param Sequence[str] source_port_ranges: The source port ranges to match for the rule.
         """
         pulumi.set(__self__, "access", access)
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "source_address_prefix", source_address_prefix)
+        pulumi.set(__self__, "source_port_ranges", source_port_ranges)
 
     @property
     @pulumi.getter
@@ -2978,6 +3208,14 @@ class GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleRe
         """
         return pulumi.get(self, "source_address_prefix")
 
+    @property
+    @pulumi.getter(name="sourcePortRanges")
+    def source_port_ranges(self) -> Sequence[str]:
+        """
+        The source port ranges to match for the rule.
+        """
+        return pulumi.get(self, "source_port_ranges")
+
 
 @pulumi.output_type
 class GetPoolNodePlacementResult(dict):
@@ -3001,6 +3239,7 @@ class GetPoolNodePlacementResult(dict):
 class GetPoolStartTaskResult(dict):
     def __init__(__self__, *,
                  command_line: str,
+                 containers: Sequence['outputs.GetPoolStartTaskContainerResult'],
                  resource_files: Sequence['outputs.GetPoolStartTaskResourceFileResult'],
                  task_retry_maximum: int,
                  user_identities: Sequence['outputs.GetPoolStartTaskUserIdentityResult'],
@@ -3008,6 +3247,7 @@ class GetPoolStartTaskResult(dict):
                  common_environment_properties: Optional[Mapping[str, str]] = None):
         """
         :param str command_line: The command line executed by the start task.
+        :param Sequence['GetPoolStartTaskContainerArgs'] containers: The settings for the container under which the start task runs.
         :param Sequence['GetPoolStartTaskResourceFileArgs'] resource_files: One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
         :param int task_retry_maximum: The number of retry count
         :param Sequence['GetPoolStartTaskUserIdentityArgs'] user_identities: A `user_identity` block that describes the user identity under which the start task runs.
@@ -3015,6 +3255,7 @@ class GetPoolStartTaskResult(dict):
         :param Mapping[str, str] common_environment_properties: A map of strings (key,value) that represents the environment variables to set in the start task.
         """
         pulumi.set(__self__, "command_line", command_line)
+        pulumi.set(__self__, "containers", containers)
         pulumi.set(__self__, "resource_files", resource_files)
         pulumi.set(__self__, "task_retry_maximum", task_retry_maximum)
         pulumi.set(__self__, "user_identities", user_identities)
@@ -3029,6 +3270,14 @@ class GetPoolStartTaskResult(dict):
         The command line executed by the start task.
         """
         return pulumi.get(self, "command_line")
+
+    @property
+    @pulumi.getter
+    def containers(self) -> Sequence['outputs.GetPoolStartTaskContainerResult']:
+        """
+        The settings for the container under which the start task runs.
+        """
+        return pulumi.get(self, "containers")
 
     @property
     @pulumi.getter(name="resourceFiles")
@@ -3069,6 +3318,108 @@ class GetPoolStartTaskResult(dict):
         A map of strings (key,value) that represents the environment variables to set in the start task.
         """
         return pulumi.get(self, "common_environment_properties")
+
+
+@pulumi.output_type
+class GetPoolStartTaskContainerResult(dict):
+    def __init__(__self__, *,
+                 image_name: str,
+                 registries: Sequence['outputs.GetPoolStartTaskContainerRegistryResult'],
+                 run_options: str,
+                 working_directory: str):
+        """
+        :param str image_name: The image to use to create the container in which the task will run.
+        :param Sequence['GetPoolStartTaskContainerRegistryArgs'] registries: The same reference as `container_registries` block defined as follows.
+        :param str run_options: Additional options to the container create command.
+        :param str working_directory: A flag to indicate where the container task working directory is.
+        """
+        pulumi.set(__self__, "image_name", image_name)
+        pulumi.set(__self__, "registries", registries)
+        pulumi.set(__self__, "run_options", run_options)
+        pulumi.set(__self__, "working_directory", working_directory)
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> str:
+        """
+        The image to use to create the container in which the task will run.
+        """
+        return pulumi.get(self, "image_name")
+
+    @property
+    @pulumi.getter
+    def registries(self) -> Sequence['outputs.GetPoolStartTaskContainerRegistryResult']:
+        """
+        The same reference as `container_registries` block defined as follows.
+        """
+        return pulumi.get(self, "registries")
+
+    @property
+    @pulumi.getter(name="runOptions")
+    def run_options(self) -> str:
+        """
+        Additional options to the container create command.
+        """
+        return pulumi.get(self, "run_options")
+
+    @property
+    @pulumi.getter(name="workingDirectory")
+    def working_directory(self) -> str:
+        """
+        A flag to indicate where the container task working directory is.
+        """
+        return pulumi.get(self, "working_directory")
+
+
+@pulumi.output_type
+class GetPoolStartTaskContainerRegistryResult(dict):
+    def __init__(__self__, *,
+                 password: str,
+                 registry_server: str,
+                 user_assigned_identity_id: str,
+                 user_name: str):
+        """
+        :param str password: The password for the user account.
+        :param str registry_server: The container registry URL. The default is "docker.io".
+        :param str user_assigned_identity_id: The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password.
+        :param str user_name: The user to use for authentication against the CIFS file system.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "registry_server", registry_server)
+        pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+        pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        """
+        The password for the user account.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="registryServer")
+    def registry_server(self) -> str:
+        """
+        The container registry URL. The default is "docker.io".
+        """
+        return pulumi.get(self, "registry_server")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> str:
+        """
+        The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> str:
+        """
+        The user to use for authentication against the CIFS file system.
+        """
+        return pulumi.get(self, "user_name")
 
 
 @pulumi.output_type

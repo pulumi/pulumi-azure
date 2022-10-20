@@ -13,6 +13,7 @@ __all__ = [
     'ConfigurationFeatureTargetingFilterArgs',
     'ConfigurationFeatureTargetingFilterGroupArgs',
     'ConfigurationFeatureTimewindowFilterArgs',
+    'ConfigurationStoreEncryptionArgs',
     'ConfigurationStoreIdentityArgs',
     'ConfigurationStorePrimaryReadKeyArgs',
     'ConfigurationStorePrimaryWriteKeyArgs',
@@ -148,6 +149,45 @@ class ConfigurationFeatureTimewindowFilterArgs:
     @start.setter
     def start(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "start", value)
+
+
+@pulumi.input_type
+class ConfigurationStoreEncryptionArgs:
+    def __init__(__self__, *,
+                 identity_client_id: Optional[pulumi.Input[str]] = None,
+                 key_vault_key_identifier: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] identity_client_id: Specifies the client id of the identity which will be used to access key vault.
+        :param pulumi.Input[str] key_vault_key_identifier: Specifies the URI of the key vault key used to encrypt data.
+        """
+        if identity_client_id is not None:
+            pulumi.set(__self__, "identity_client_id", identity_client_id)
+        if key_vault_key_identifier is not None:
+            pulumi.set(__self__, "key_vault_key_identifier", key_vault_key_identifier)
+
+    @property
+    @pulumi.getter(name="identityClientId")
+    def identity_client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the client id of the identity which will be used to access key vault.
+        """
+        return pulumi.get(self, "identity_client_id")
+
+    @identity_client_id.setter
+    def identity_client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_client_id", value)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyIdentifier")
+    def key_vault_key_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the URI of the key vault key used to encrypt data.
+        """
+        return pulumi.get(self, "key_vault_key_identifier")
+
+    @key_vault_key_identifier.setter
+    def key_vault_key_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_key_identifier", value)
 
 
 @pulumi.input_type

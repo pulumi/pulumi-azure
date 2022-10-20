@@ -30,6 +30,7 @@ class KubernetesClusterNodePoolArgs:
                  linux_os_config: Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs']] = None,
                  max_count: Optional[pulumi.Input[int]] = None,
                  max_pods: Optional[pulumi.Input[int]] = None,
+                 message_of_the_day: Optional[pulumi.Input[str]] = None,
                  min_count: Optional[pulumi.Input[int]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -69,6 +70,7 @@ class KubernetesClusterNodePoolArgs:
         :param pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs'] linux_os_config: A `linux_os_config` block as defined below.
         :param pulumi.Input[int] max_count: The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] message_of_the_day: A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
         :param pulumi.Input[int] min_count: The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`.
         :param pulumi.Input[str] mode: Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
         :param pulumi.Input[str] name: The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
@@ -119,6 +121,8 @@ class KubernetesClusterNodePoolArgs:
             pulumi.set(__self__, "max_count", max_count)
         if max_pods is not None:
             pulumi.set(__self__, "max_pods", max_pods)
+        if message_of_the_day is not None:
+            pulumi.set(__self__, "message_of_the_day", message_of_the_day)
         if min_count is not None:
             pulumi.set(__self__, "min_count", min_count)
         if mode is not None:
@@ -333,6 +337,18 @@ class KubernetesClusterNodePoolArgs:
     @max_pods.setter
     def max_pods(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_pods", value)
+
+    @property
+    @pulumi.getter(name="messageOfTheDay")
+    def message_of_the_day(self) -> Optional[pulumi.Input[str]]:
+        """
+        A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "message_of_the_day")
+
+    @message_of_the_day.setter
+    def message_of_the_day(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "message_of_the_day", value)
 
     @property
     @pulumi.getter(name="minCount")
@@ -627,6 +643,7 @@ class _KubernetesClusterNodePoolState:
                  linux_os_config: Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs']] = None,
                  max_count: Optional[pulumi.Input[int]] = None,
                  max_pods: Optional[pulumi.Input[int]] = None,
+                 message_of_the_day: Optional[pulumi.Input[str]] = None,
                  min_count: Optional[pulumi.Input[int]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -666,6 +683,7 @@ class _KubernetesClusterNodePoolState:
         :param pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs'] linux_os_config: A `linux_os_config` block as defined below.
         :param pulumi.Input[int] max_count: The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] message_of_the_day: A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
         :param pulumi.Input[int] min_count: The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`.
         :param pulumi.Input[str] mode: Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
         :param pulumi.Input[str] name: The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
@@ -717,6 +735,8 @@ class _KubernetesClusterNodePoolState:
             pulumi.set(__self__, "max_count", max_count)
         if max_pods is not None:
             pulumi.set(__self__, "max_pods", max_pods)
+        if message_of_the_day is not None:
+            pulumi.set(__self__, "message_of_the_day", message_of_the_day)
         if min_count is not None:
             pulumi.set(__self__, "min_count", min_count)
         if mode is not None:
@@ -921,6 +941,18 @@ class _KubernetesClusterNodePoolState:
     @max_pods.setter
     def max_pods(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_pods", value)
+
+    @property
+    @pulumi.getter(name="messageOfTheDay")
+    def message_of_the_day(self) -> Optional[pulumi.Input[str]]:
+        """
+        A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "message_of_the_day")
+
+    @message_of_the_day.setter
+    def message_of_the_day(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "message_of_the_day", value)
 
     @property
     @pulumi.getter(name="minCount")
@@ -1229,6 +1261,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  linux_os_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolLinuxOsConfigArgs']]] = None,
                  max_count: Optional[pulumi.Input[int]] = None,
                  max_pods: Optional[pulumi.Input[int]] = None,
+                 message_of_the_day: Optional[pulumi.Input[str]] = None,
                  min_count: Optional[pulumi.Input[int]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -1313,6 +1346,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolLinuxOsConfigArgs']] linux_os_config: A `linux_os_config` block as defined below.
         :param pulumi.Input[int] max_count: The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] message_of_the_day: A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
         :param pulumi.Input[int] min_count: The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`.
         :param pulumi.Input[str] mode: Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
         :param pulumi.Input[str] name: The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
@@ -1416,6 +1450,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  linux_os_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolLinuxOsConfigArgs']]] = None,
                  max_count: Optional[pulumi.Input[int]] = None,
                  max_pods: Optional[pulumi.Input[int]] = None,
+                 message_of_the_day: Optional[pulumi.Input[str]] = None,
                  min_count: Optional[pulumi.Input[int]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -1464,6 +1499,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             __props__.__dict__["linux_os_config"] = linux_os_config
             __props__.__dict__["max_count"] = max_count
             __props__.__dict__["max_pods"] = max_pods
+            __props__.__dict__["message_of_the_day"] = message_of_the_day
             __props__.__dict__["min_count"] = min_count
             __props__.__dict__["mode"] = mode
             __props__.__dict__["name"] = name
@@ -1513,6 +1549,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             linux_os_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolLinuxOsConfigArgs']]] = None,
             max_count: Optional[pulumi.Input[int]] = None,
             max_pods: Optional[pulumi.Input[int]] = None,
+            message_of_the_day: Optional[pulumi.Input[str]] = None,
             min_count: Optional[pulumi.Input[int]] = None,
             mode: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -1557,6 +1594,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolLinuxOsConfigArgs']] linux_os_config: A `linux_os_config` block as defined below.
         :param pulumi.Input[int] max_count: The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] message_of_the_day: A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
         :param pulumi.Input[int] min_count: The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`.
         :param pulumi.Input[str] mode: Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
         :param pulumi.Input[str] name: The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
@@ -1599,6 +1637,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         __props__.__dict__["linux_os_config"] = linux_os_config
         __props__.__dict__["max_count"] = max_count
         __props__.__dict__["max_pods"] = max_pods
+        __props__.__dict__["message_of_the_day"] = message_of_the_day
         __props__.__dict__["min_count"] = min_count
         __props__.__dict__["mode"] = mode
         __props__.__dict__["name"] = name
@@ -1728,6 +1767,14 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "max_pods")
+
+    @property
+    @pulumi.getter(name="messageOfTheDay")
+    def message_of_the_day(self) -> pulumi.Output[Optional[str]]:
+        """
+        A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "message_of_the_day")
 
     @property
     @pulumi.getter(name="minCount")

@@ -13,6 +13,8 @@ from .cassandra_table import *
 from .get_account import *
 from .get_mongo_database import *
 from .get_restorable_database_accounts import *
+from .get_sql_database import *
+from .get_sql_role_definition import *
 from .gremlin_database import *
 from .gremlin_graph import *
 from .mongo_collection import *

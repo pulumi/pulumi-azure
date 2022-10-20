@@ -35,9 +35,9 @@ class ApplicationArgs:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the IoT Central Application. Defaults to `true`.
-        :param pulumi.Input[str] sku: A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
+        :param pulumi.Input[str] sku: A `sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] template: A `template` name. IoT Central application template name. Default is a custom application.
+        :param pulumi.Input[str] template: A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sub_domain", sub_domain)
@@ -146,7 +146,7 @@ class ApplicationArgs:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
-        A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
+        A `sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1`
         """
         return pulumi.get(self, "sku")
 
@@ -170,7 +170,7 @@ class ApplicationArgs:
     @pulumi.getter
     def template(self) -> Optional[pulumi.Input[str]]:
         """
-        A `template` name. IoT Central application template name. Default is a custom application.
+        A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "template")
 
@@ -200,10 +200,10 @@ class _ApplicationState:
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the IoT Central Application. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku: A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
+        :param pulumi.Input[str] sku: A `sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1`
         :param pulumi.Input[str] sub_domain: A `sub_domain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] template: A `template` name. IoT Central application template name. Default is a custom application.
+        :param pulumi.Input[str] template: A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
         """
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
@@ -302,7 +302,7 @@ class _ApplicationState:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
-        A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
+        A `sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1`
         """
         return pulumi.get(self, "sku")
 
@@ -338,7 +338,7 @@ class _ApplicationState:
     @pulumi.getter
     def template(self) -> Optional[pulumi.Input[str]]:
         """
-        A `template` name. IoT Central application template name. Default is a custom application.
+        A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "template")
 
@@ -401,10 +401,10 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the IoT Central Application. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku: A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
+        :param pulumi.Input[str] sku: A `sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1`
         :param pulumi.Input[str] sub_domain: A `sub_domain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] template: A `template` name. IoT Central application template name. Default is a custom application.
+        :param pulumi.Input[str] template: A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -523,10 +523,10 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the IoT Central Application. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku: A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
+        :param pulumi.Input[str] sku: A `sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1`
         :param pulumi.Input[str] sub_domain: A `sub_domain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] template: A `template` name. IoT Central application template name. Default is a custom application.
+        :param pulumi.Input[str] template: A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -596,7 +596,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional[str]]:
         """
-        A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
+        A `sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1`
         """
         return pulumi.get(self, "sku")
 
@@ -620,7 +620,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter
     def template(self) -> pulumi.Output[str]:
         """
-        A `template` name. IoT Central application template name. Default is a custom application.
+        A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "template")
 

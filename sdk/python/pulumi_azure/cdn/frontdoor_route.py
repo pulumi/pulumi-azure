@@ -22,11 +22,13 @@ class FrontdoorRouteArgs:
                  patterns_to_matches: pulumi.Input[Sequence[pulumi.Input[str]]],
                  supported_protocols: pulumi.Input[Sequence[pulumi.Input[str]]],
                  cache: Optional[pulumi.Input['FrontdoorRouteCacheArgs']] = None,
+                 cdn_frontdoor_custom_domain_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cdn_frontdoor_origin_path: Optional[pulumi.Input[str]] = None,
                  cdn_frontdoor_rule_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  forwarding_protocol: Optional[pulumi.Input[str]] = None,
                  https_redirect_enabled: Optional[pulumi.Input[bool]] = None,
+                 link_to_default_domain: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FrontdoorRoute resource.
@@ -36,12 +38,14 @@ class FrontdoorRouteArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] patterns_to_matches: The route patterns of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_protocols: One or more Protocols supported by this Frontdoor Route. Possible values are `Http` or `Https`.
         :param pulumi.Input['FrontdoorRouteCacheArgs'] cache: A `cache` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cdn_frontdoor_custom_domain_ids: The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
         :param pulumi.Input[str] cdn_frontdoor_origin_path: A directory path on the origin that Frontdoor can use to retrieve content from (e.g. `contoso.cloudapp.net/originpath`).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cdn_frontdoor_rule_set_ids: A list of the CDN FrontDoor Rule Set IDs which should be assigned to this CDN FrontDoor Route.
         :param pulumi.Input[bool] enabled: Is this Frontdoor Route enabled? Possible values are `true` or `false`. Defaults to `true`.
         :param pulumi.Input[str] forwarding_protocol: The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
         :param pulumi.Input[bool] https_redirect_enabled: Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
-        :param pulumi.Input[str] name: The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hypens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+        :param pulumi.Input[bool] link_to_default_domain: Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+        :param pulumi.Input[str] name: The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
         """
         pulumi.set(__self__, "cdn_frontdoor_endpoint_id", cdn_frontdoor_endpoint_id)
         pulumi.set(__self__, "cdn_frontdoor_origin_group_id", cdn_frontdoor_origin_group_id)
@@ -50,6 +54,8 @@ class FrontdoorRouteArgs:
         pulumi.set(__self__, "supported_protocols", supported_protocols)
         if cache is not None:
             pulumi.set(__self__, "cache", cache)
+        if cdn_frontdoor_custom_domain_ids is not None:
+            pulumi.set(__self__, "cdn_frontdoor_custom_domain_ids", cdn_frontdoor_custom_domain_ids)
         if cdn_frontdoor_origin_path is not None:
             pulumi.set(__self__, "cdn_frontdoor_origin_path", cdn_frontdoor_origin_path)
         if cdn_frontdoor_rule_set_ids is not None:
@@ -60,6 +66,8 @@ class FrontdoorRouteArgs:
             pulumi.set(__self__, "forwarding_protocol", forwarding_protocol)
         if https_redirect_enabled is not None:
             pulumi.set(__self__, "https_redirect_enabled", https_redirect_enabled)
+        if link_to_default_domain is not None:
+            pulumi.set(__self__, "link_to_default_domain", link_to_default_domain)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -136,6 +144,18 @@ class FrontdoorRouteArgs:
         pulumi.set(self, "cache", value)
 
     @property
+    @pulumi.getter(name="cdnFrontdoorCustomDomainIds")
+    def cdn_frontdoor_custom_domain_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+        """
+        return pulumi.get(self, "cdn_frontdoor_custom_domain_ids")
+
+    @cdn_frontdoor_custom_domain_ids.setter
+    def cdn_frontdoor_custom_domain_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "cdn_frontdoor_custom_domain_ids", value)
+
+    @property
     @pulumi.getter(name="cdnFrontdoorOriginPath")
     def cdn_frontdoor_origin_path(self) -> Optional[pulumi.Input[str]]:
         """
@@ -196,10 +216,22 @@ class FrontdoorRouteArgs:
         pulumi.set(self, "https_redirect_enabled", value)
 
     @property
+    @pulumi.getter(name="linkToDefaultDomain")
+    def link_to_default_domain(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+        """
+        return pulumi.get(self, "link_to_default_domain")
+
+    @link_to_default_domain.setter
+    def link_to_default_domain(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "link_to_default_domain", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hypens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+        The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
         """
         return pulumi.get(self, "name")
 
@@ -212,6 +244,7 @@ class FrontdoorRouteArgs:
 class _FrontdoorRouteState:
     def __init__(__self__, *,
                  cache: Optional[pulumi.Input['FrontdoorRouteCacheArgs']] = None,
+                 cdn_frontdoor_custom_domain_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cdn_frontdoor_endpoint_id: Optional[pulumi.Input[str]] = None,
                  cdn_frontdoor_origin_group_id: Optional[pulumi.Input[str]] = None,
                  cdn_frontdoor_origin_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -220,12 +253,14 @@ class _FrontdoorRouteState:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  forwarding_protocol: Optional[pulumi.Input[str]] = None,
                  https_redirect_enabled: Optional[pulumi.Input[bool]] = None,
+                 link_to_default_domain: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  patterns_to_matches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  supported_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering FrontdoorRoute resources.
         :param pulumi.Input['FrontdoorRouteCacheArgs'] cache: A `cache` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cdn_frontdoor_custom_domain_ids: The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
         :param pulumi.Input[str] cdn_frontdoor_endpoint_id: The resource ID of the CDN FrontDoor Endpoint where this CDN FrontDoor Route should exist. Changing this forces a new Frontdoor Route to be created.
         :param pulumi.Input[str] cdn_frontdoor_origin_group_id: The resource ID of the CDN FrontDoor Origin Group where this CDN FrontDoor Route should be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cdn_frontdoor_origin_ids: One or more Frontdoor Origin resource IDs that this Frontdoor Route will link to.
@@ -234,12 +269,15 @@ class _FrontdoorRouteState:
         :param pulumi.Input[bool] enabled: Is this Frontdoor Route enabled? Possible values are `true` or `false`. Defaults to `true`.
         :param pulumi.Input[str] forwarding_protocol: The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
         :param pulumi.Input[bool] https_redirect_enabled: Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
-        :param pulumi.Input[str] name: The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hypens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+        :param pulumi.Input[bool] link_to_default_domain: Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+        :param pulumi.Input[str] name: The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] patterns_to_matches: The route patterns of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_protocols: One or more Protocols supported by this Frontdoor Route. Possible values are `Http` or `Https`.
         """
         if cache is not None:
             pulumi.set(__self__, "cache", cache)
+        if cdn_frontdoor_custom_domain_ids is not None:
+            pulumi.set(__self__, "cdn_frontdoor_custom_domain_ids", cdn_frontdoor_custom_domain_ids)
         if cdn_frontdoor_endpoint_id is not None:
             pulumi.set(__self__, "cdn_frontdoor_endpoint_id", cdn_frontdoor_endpoint_id)
         if cdn_frontdoor_origin_group_id is not None:
@@ -256,6 +294,8 @@ class _FrontdoorRouteState:
             pulumi.set(__self__, "forwarding_protocol", forwarding_protocol)
         if https_redirect_enabled is not None:
             pulumi.set(__self__, "https_redirect_enabled", https_redirect_enabled)
+        if link_to_default_domain is not None:
+            pulumi.set(__self__, "link_to_default_domain", link_to_default_domain)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if patterns_to_matches is not None:
@@ -274,6 +314,18 @@ class _FrontdoorRouteState:
     @cache.setter
     def cache(self, value: Optional[pulumi.Input['FrontdoorRouteCacheArgs']]):
         pulumi.set(self, "cache", value)
+
+    @property
+    @pulumi.getter(name="cdnFrontdoorCustomDomainIds")
+    def cdn_frontdoor_custom_domain_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+        """
+        return pulumi.get(self, "cdn_frontdoor_custom_domain_ids")
+
+    @cdn_frontdoor_custom_domain_ids.setter
+    def cdn_frontdoor_custom_domain_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "cdn_frontdoor_custom_domain_ids", value)
 
     @property
     @pulumi.getter(name="cdnFrontdoorEndpointId")
@@ -372,10 +424,22 @@ class _FrontdoorRouteState:
         pulumi.set(self, "https_redirect_enabled", value)
 
     @property
+    @pulumi.getter(name="linkToDefaultDomain")
+    def link_to_default_domain(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+        """
+        return pulumi.get(self, "link_to_default_domain")
+
+    @link_to_default_domain.setter
+    def link_to_default_domain(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "link_to_default_domain", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hypens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+        The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
         """
         return pulumi.get(self, "name")
 
@@ -414,6 +478,7 @@ class FrontdoorRoute(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache: Optional[pulumi.Input[pulumi.InputType['FrontdoorRouteCacheArgs']]] = None,
+                 cdn_frontdoor_custom_domain_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cdn_frontdoor_endpoint_id: Optional[pulumi.Input[str]] = None,
                  cdn_frontdoor_origin_group_id: Optional[pulumi.Input[str]] = None,
                  cdn_frontdoor_origin_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -422,6 +487,7 @@ class FrontdoorRoute(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  forwarding_protocol: Optional[pulumi.Input[str]] = None,
                  https_redirect_enabled: Optional[pulumi.Input[bool]] = None,
+                 link_to_default_domain: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  patterns_to_matches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  supported_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -440,6 +506,7 @@ class FrontdoorRoute(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['FrontdoorRouteCacheArgs']] cache: A `cache` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cdn_frontdoor_custom_domain_ids: The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
         :param pulumi.Input[str] cdn_frontdoor_endpoint_id: The resource ID of the CDN FrontDoor Endpoint where this CDN FrontDoor Route should exist. Changing this forces a new Frontdoor Route to be created.
         :param pulumi.Input[str] cdn_frontdoor_origin_group_id: The resource ID of the CDN FrontDoor Origin Group where this CDN FrontDoor Route should be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cdn_frontdoor_origin_ids: One or more Frontdoor Origin resource IDs that this Frontdoor Route will link to.
@@ -448,7 +515,8 @@ class FrontdoorRoute(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Is this Frontdoor Route enabled? Possible values are `true` or `false`. Defaults to `true`.
         :param pulumi.Input[str] forwarding_protocol: The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
         :param pulumi.Input[bool] https_redirect_enabled: Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
-        :param pulumi.Input[str] name: The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hypens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+        :param pulumi.Input[bool] link_to_default_domain: Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+        :param pulumi.Input[str] name: The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] patterns_to_matches: The route patterns of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_protocols: One or more Protocols supported by this Frontdoor Route. Possible values are `Http` or `Https`.
         """
@@ -485,6 +553,7 @@ class FrontdoorRoute(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache: Optional[pulumi.Input[pulumi.InputType['FrontdoorRouteCacheArgs']]] = None,
+                 cdn_frontdoor_custom_domain_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cdn_frontdoor_endpoint_id: Optional[pulumi.Input[str]] = None,
                  cdn_frontdoor_origin_group_id: Optional[pulumi.Input[str]] = None,
                  cdn_frontdoor_origin_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -493,6 +562,7 @@ class FrontdoorRoute(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  forwarding_protocol: Optional[pulumi.Input[str]] = None,
                  https_redirect_enabled: Optional[pulumi.Input[bool]] = None,
+                 link_to_default_domain: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  patterns_to_matches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  supported_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -506,6 +576,7 @@ class FrontdoorRoute(pulumi.CustomResource):
             __props__ = FrontdoorRouteArgs.__new__(FrontdoorRouteArgs)
 
             __props__.__dict__["cache"] = cache
+            __props__.__dict__["cdn_frontdoor_custom_domain_ids"] = cdn_frontdoor_custom_domain_ids
             if cdn_frontdoor_endpoint_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cdn_frontdoor_endpoint_id'")
             __props__.__dict__["cdn_frontdoor_endpoint_id"] = cdn_frontdoor_endpoint_id
@@ -520,6 +591,7 @@ class FrontdoorRoute(pulumi.CustomResource):
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["forwarding_protocol"] = forwarding_protocol
             __props__.__dict__["https_redirect_enabled"] = https_redirect_enabled
+            __props__.__dict__["link_to_default_domain"] = link_to_default_domain
             __props__.__dict__["name"] = name
             if patterns_to_matches is None and not opts.urn:
                 raise TypeError("Missing required property 'patterns_to_matches'")
@@ -538,6 +610,7 @@ class FrontdoorRoute(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             cache: Optional[pulumi.Input[pulumi.InputType['FrontdoorRouteCacheArgs']]] = None,
+            cdn_frontdoor_custom_domain_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             cdn_frontdoor_endpoint_id: Optional[pulumi.Input[str]] = None,
             cdn_frontdoor_origin_group_id: Optional[pulumi.Input[str]] = None,
             cdn_frontdoor_origin_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -546,6 +619,7 @@ class FrontdoorRoute(pulumi.CustomResource):
             enabled: Optional[pulumi.Input[bool]] = None,
             forwarding_protocol: Optional[pulumi.Input[str]] = None,
             https_redirect_enabled: Optional[pulumi.Input[bool]] = None,
+            link_to_default_domain: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             patterns_to_matches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             supported_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'FrontdoorRoute':
@@ -557,6 +631,7 @@ class FrontdoorRoute(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['FrontdoorRouteCacheArgs']] cache: A `cache` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cdn_frontdoor_custom_domain_ids: The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
         :param pulumi.Input[str] cdn_frontdoor_endpoint_id: The resource ID of the CDN FrontDoor Endpoint where this CDN FrontDoor Route should exist. Changing this forces a new Frontdoor Route to be created.
         :param pulumi.Input[str] cdn_frontdoor_origin_group_id: The resource ID of the CDN FrontDoor Origin Group where this CDN FrontDoor Route should be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cdn_frontdoor_origin_ids: One or more Frontdoor Origin resource IDs that this Frontdoor Route will link to.
@@ -565,7 +640,8 @@ class FrontdoorRoute(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Is this Frontdoor Route enabled? Possible values are `true` or `false`. Defaults to `true`.
         :param pulumi.Input[str] forwarding_protocol: The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
         :param pulumi.Input[bool] https_redirect_enabled: Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
-        :param pulumi.Input[str] name: The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hypens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+        :param pulumi.Input[bool] link_to_default_domain: Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+        :param pulumi.Input[str] name: The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] patterns_to_matches: The route patterns of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_protocols: One or more Protocols supported by this Frontdoor Route. Possible values are `Http` or `Https`.
         """
@@ -574,6 +650,7 @@ class FrontdoorRoute(pulumi.CustomResource):
         __props__ = _FrontdoorRouteState.__new__(_FrontdoorRouteState)
 
         __props__.__dict__["cache"] = cache
+        __props__.__dict__["cdn_frontdoor_custom_domain_ids"] = cdn_frontdoor_custom_domain_ids
         __props__.__dict__["cdn_frontdoor_endpoint_id"] = cdn_frontdoor_endpoint_id
         __props__.__dict__["cdn_frontdoor_origin_group_id"] = cdn_frontdoor_origin_group_id
         __props__.__dict__["cdn_frontdoor_origin_ids"] = cdn_frontdoor_origin_ids
@@ -582,6 +659,7 @@ class FrontdoorRoute(pulumi.CustomResource):
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["forwarding_protocol"] = forwarding_protocol
         __props__.__dict__["https_redirect_enabled"] = https_redirect_enabled
+        __props__.__dict__["link_to_default_domain"] = link_to_default_domain
         __props__.__dict__["name"] = name
         __props__.__dict__["patterns_to_matches"] = patterns_to_matches
         __props__.__dict__["supported_protocols"] = supported_protocols
@@ -594,6 +672,14 @@ class FrontdoorRoute(pulumi.CustomResource):
         A `cache` block as defined below.
         """
         return pulumi.get(self, "cache")
+
+    @property
+    @pulumi.getter(name="cdnFrontdoorCustomDomainIds")
+    def cdn_frontdoor_custom_domain_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+        """
+        return pulumi.get(self, "cdn_frontdoor_custom_domain_ids")
 
     @property
     @pulumi.getter(name="cdnFrontdoorEndpointId")
@@ -660,10 +746,18 @@ class FrontdoorRoute(pulumi.CustomResource):
         return pulumi.get(self, "https_redirect_enabled")
 
     @property
+    @pulumi.getter(name="linkToDefaultDomain")
+    def link_to_default_domain(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+        """
+        return pulumi.get(self, "link_to_default_domain")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hypens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+        The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
         """
         return pulumi.get(self, "name")
 

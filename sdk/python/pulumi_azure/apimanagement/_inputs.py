@@ -10,6 +10,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'ApiContactArgs',
     'ApiDiagnosticBackendRequestArgs',
     'ApiDiagnosticBackendRequestDataMaskingArgs',
     'ApiDiagnosticBackendRequestDataMaskingHeaderArgs',
@@ -28,6 +29,7 @@ __all__ = [
     'ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs',
     'ApiImportArgs',
     'ApiImportWsdlSelectorArgs',
+    'ApiLicenseArgs',
     'ApiOauth2AuthorizationArgs',
     'ApiOpenidAuthenticationArgs',
     'ApiOperationRequestArgs',
@@ -100,6 +102,61 @@ __all__ = [
     'ServiceTenantAccessArgs',
     'ServiceVirtualNetworkConfigurationArgs',
 ]
+
+@pulumi.input_type
+class ApiContactArgs:
+    def __init__(__self__, *,
+                 email: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 url: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] email: The email address of the contact person/organization.
+        :param pulumi.Input[str] name: The name of the contact person/organization.
+        :param pulumi.Input[str] url: Absolute URL of the contact information.
+        """
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def email(self) -> Optional[pulumi.Input[str]]:
+        """
+        The email address of the contact person/organization.
+        """
+        return pulumi.get(self, "email")
+
+    @email.setter
+    def email(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "email", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the contact person/organization.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Absolute URL of the contact information.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
+
 
 @pulumi.input_type
 class ApiDiagnosticBackendRequestArgs:
@@ -861,6 +918,45 @@ class ApiImportWsdlSelectorArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "service_name", value)
+
+
+@pulumi.input_type
+class ApiLicenseArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 url: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the license .
+        :param pulumi.Input[str] url: Absolute URL of the license.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the license .
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Absolute URL of the license.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
 
 
 @pulumi.input_type

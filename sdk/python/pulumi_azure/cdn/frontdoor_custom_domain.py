@@ -11,31 +11,27 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['FrontdoorCustomEndpointArgs', 'FrontdoorCustomEndpoint']
+__all__ = ['FrontdoorCustomDomainArgs', 'FrontdoorCustomDomain']
 
 @pulumi.input_type
-class FrontdoorCustomEndpointArgs:
+class FrontdoorCustomDomainArgs:
     def __init__(__self__, *,
                  cdn_frontdoor_profile_id: pulumi.Input[str],
                  host_name: pulumi.Input[str],
-                 tls: pulumi.Input['FrontdoorCustomEndpointTlsArgs'],
-                 associate_with_cdn_frontdoor_route_id: Optional[pulumi.Input[str]] = None,
+                 tls: pulumi.Input['FrontdoorCustomDomainTlsArgs'],
                  dns_zone_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
-        The set of arguments for constructing a FrontdoorCustomEndpoint resource.
+        The set of arguments for constructing a FrontdoorCustomDomain resource.
         :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the Frontdoor Profile. Changing this forces a new Frontdoor Profile to be created.
         :param pulumi.Input[str] host_name: The host name of the domain. Changing this forces a new CDN FrontDoor Custom Domain to be created.
-        :param pulumi.Input['FrontdoorCustomEndpointTlsArgs'] tls: A `tls` block as defined below.
-        :param pulumi.Input[str] associate_with_cdn_frontdoor_route_id: The resource ID of the CDN FrontDoor Route this Custom Domain should be associated with.
+        :param pulumi.Input['FrontdoorCustomDomainTlsArgs'] tls: A `tls` block as defined below.
         :param pulumi.Input[str] dns_zone_id: The ID of the DNS Zone which should be used for this FrontDoor Custom Domain.
         :param pulumi.Input[str] name: The name which should be used for this CDN FrontDoor Custom Domain. Possible values must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number and contain only letters, numbers and hyphens. Changing this forces a new CDN FrontDoor Custom Domain to be created.
         """
         pulumi.set(__self__, "cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
         pulumi.set(__self__, "host_name", host_name)
         pulumi.set(__self__, "tls", tls)
-        if associate_with_cdn_frontdoor_route_id is not None:
-            pulumi.set(__self__, "associate_with_cdn_frontdoor_route_id", associate_with_cdn_frontdoor_route_id)
         if dns_zone_id is not None:
             pulumi.set(__self__, "dns_zone_id", dns_zone_id)
         if name is not None:
@@ -67,27 +63,15 @@ class FrontdoorCustomEndpointArgs:
 
     @property
     @pulumi.getter
-    def tls(self) -> pulumi.Input['FrontdoorCustomEndpointTlsArgs']:
+    def tls(self) -> pulumi.Input['FrontdoorCustomDomainTlsArgs']:
         """
         A `tls` block as defined below.
         """
         return pulumi.get(self, "tls")
 
     @tls.setter
-    def tls(self, value: pulumi.Input['FrontdoorCustomEndpointTlsArgs']):
+    def tls(self, value: pulumi.Input['FrontdoorCustomDomainTlsArgs']):
         pulumi.set(self, "tls", value)
-
-    @property
-    @pulumi.getter(name="associateWithCdnFrontdoorRouteId")
-    def associate_with_cdn_frontdoor_route_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The resource ID of the CDN FrontDoor Route this Custom Domain should be associated with.
-        """
-        return pulumi.get(self, "associate_with_cdn_frontdoor_route_id")
-
-    @associate_with_cdn_frontdoor_route_id.setter
-    def associate_with_cdn_frontdoor_route_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "associate_with_cdn_frontdoor_route_id", value)
 
     @property
     @pulumi.getter(name="dnsZoneId")
@@ -115,29 +99,25 @@ class FrontdoorCustomEndpointArgs:
 
 
 @pulumi.input_type
-class _FrontdoorCustomEndpointState:
+class _FrontdoorCustomDomainState:
     def __init__(__self__, *,
-                 associate_with_cdn_frontdoor_route_id: Optional[pulumi.Input[str]] = None,
                  cdn_frontdoor_profile_id: Optional[pulumi.Input[str]] = None,
                  dns_zone_id: Optional[pulumi.Input[str]] = None,
                  expiration_date: Optional[pulumi.Input[str]] = None,
                  host_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tls: Optional[pulumi.Input['FrontdoorCustomEndpointTlsArgs']] = None,
+                 tls: Optional[pulumi.Input['FrontdoorCustomDomainTlsArgs']] = None,
                  validation_token: Optional[pulumi.Input[str]] = None):
         """
-        Input properties used for looking up and filtering FrontdoorCustomEndpoint resources.
-        :param pulumi.Input[str] associate_with_cdn_frontdoor_route_id: The resource ID of the CDN FrontDoor Route this Custom Domain should be associated with.
+        Input properties used for looking up and filtering FrontdoorCustomDomain resources.
         :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the Frontdoor Profile. Changing this forces a new Frontdoor Profile to be created.
         :param pulumi.Input[str] dns_zone_id: The ID of the DNS Zone which should be used for this FrontDoor Custom Domain.
         :param pulumi.Input[str] expiration_date: The date time that the token expires.
         :param pulumi.Input[str] host_name: The host name of the domain. Changing this forces a new CDN FrontDoor Custom Domain to be created.
         :param pulumi.Input[str] name: The name which should be used for this CDN FrontDoor Custom Domain. Possible values must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number and contain only letters, numbers and hyphens. Changing this forces a new CDN FrontDoor Custom Domain to be created.
-        :param pulumi.Input['FrontdoorCustomEndpointTlsArgs'] tls: A `tls` block as defined below.
+        :param pulumi.Input['FrontdoorCustomDomainTlsArgs'] tls: A `tls` block as defined below.
         :param pulumi.Input[str] validation_token: Challenge used for DNS TXT record or file based validation.
         """
-        if associate_with_cdn_frontdoor_route_id is not None:
-            pulumi.set(__self__, "associate_with_cdn_frontdoor_route_id", associate_with_cdn_frontdoor_route_id)
         if cdn_frontdoor_profile_id is not None:
             pulumi.set(__self__, "cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
         if dns_zone_id is not None:
@@ -152,18 +132,6 @@ class _FrontdoorCustomEndpointState:
             pulumi.set(__self__, "tls", tls)
         if validation_token is not None:
             pulumi.set(__self__, "validation_token", validation_token)
-
-    @property
-    @pulumi.getter(name="associateWithCdnFrontdoorRouteId")
-    def associate_with_cdn_frontdoor_route_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The resource ID of the CDN FrontDoor Route this Custom Domain should be associated with.
-        """
-        return pulumi.get(self, "associate_with_cdn_frontdoor_route_id")
-
-    @associate_with_cdn_frontdoor_route_id.setter
-    def associate_with_cdn_frontdoor_route_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "associate_with_cdn_frontdoor_route_id", value)
 
     @property
     @pulumi.getter(name="cdnFrontdoorProfileId")
@@ -227,14 +195,14 @@ class _FrontdoorCustomEndpointState:
 
     @property
     @pulumi.getter
-    def tls(self) -> Optional[pulumi.Input['FrontdoorCustomEndpointTlsArgs']]:
+    def tls(self) -> Optional[pulumi.Input['FrontdoorCustomDomainTlsArgs']]:
         """
         A `tls` block as defined below.
         """
         return pulumi.get(self, "tls")
 
     @tls.setter
-    def tls(self, value: Optional[pulumi.Input['FrontdoorCustomEndpointTlsArgs']]):
+    def tls(self, value: Optional[pulumi.Input['FrontdoorCustomDomainTlsArgs']]):
         pulumi.set(self, "tls", value)
 
     @property
@@ -250,17 +218,16 @@ class _FrontdoorCustomEndpointState:
         pulumi.set(self, "validation_token", value)
 
 
-class FrontdoorCustomEndpoint(pulumi.CustomResource):
+class FrontdoorCustomDomain(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associate_with_cdn_frontdoor_route_id: Optional[pulumi.Input[str]] = None,
                  cdn_frontdoor_profile_id: Optional[pulumi.Input[str]] = None,
                  dns_zone_id: Optional[pulumi.Input[str]] = None,
                  host_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tls: Optional[pulumi.Input[pulumi.InputType['FrontdoorCustomEndpointTlsArgs']]] = None,
+                 tls: Optional[pulumi.Input[pulumi.InputType['FrontdoorCustomDomainTlsArgs']]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -271,13 +238,14 @@ class FrontdoorCustomEndpoint(pulumi.CustomResource):
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_zone = azure.dns.Zone("exampleZone", resource_group_name=azurerm_resource_group["test"]["name"])
-        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile", resource_group_name=example_resource_group.name)
-        example_frontdoor_custom_endpoint = azure.cdn.FrontdoorCustomEndpoint("exampleFrontdoorCustomEndpoint",
+        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
+            resource_group_name=example_resource_group.name,
+            sku_name="Standard_AzureFrontDoor")
+        example_frontdoor_custom_domain = azure.cdn.FrontdoorCustomDomain("exampleFrontdoorCustomDomain",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             dns_zone_id=example_zone.id,
             host_name="contoso.com",
-            associate_with_cdn_frontdoor_route_id=azurerm_cdn_frontdoor_route["example"]["id"],
-            tls=azure.cdn.FrontdoorCustomEndpointTlsArgs(
+            tls=azure.cdn.FrontdoorCustomDomainTlsArgs(
                 certificate_type="ManagedCertificate",
                 minimum_tls_version="TLS12",
             ))
@@ -306,23 +274,22 @@ class FrontdoorCustomEndpoint(pulumi.CustomResource):
         CDN FrontDoor Custom Domains can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:cdn/frontdoorCustomEndpoint:FrontdoorCustomEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/customDomains/customDomain1
+         $ pulumi import azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/customDomains/customDomain1
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] associate_with_cdn_frontdoor_route_id: The resource ID of the CDN FrontDoor Route this Custom Domain should be associated with.
         :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the Frontdoor Profile. Changing this forces a new Frontdoor Profile to be created.
         :param pulumi.Input[str] dns_zone_id: The ID of the DNS Zone which should be used for this FrontDoor Custom Domain.
         :param pulumi.Input[str] host_name: The host name of the domain. Changing this forces a new CDN FrontDoor Custom Domain to be created.
         :param pulumi.Input[str] name: The name which should be used for this CDN FrontDoor Custom Domain. Possible values must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number and contain only letters, numbers and hyphens. Changing this forces a new CDN FrontDoor Custom Domain to be created.
-        :param pulumi.Input[pulumi.InputType['FrontdoorCustomEndpointTlsArgs']] tls: A `tls` block as defined below.
+        :param pulumi.Input[pulumi.InputType['FrontdoorCustomDomainTlsArgs']] tls: A `tls` block as defined below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FrontdoorCustomEndpointArgs,
+                 args: FrontdoorCustomDomainArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
@@ -333,13 +300,14 @@ class FrontdoorCustomEndpoint(pulumi.CustomResource):
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_zone = azure.dns.Zone("exampleZone", resource_group_name=azurerm_resource_group["test"]["name"])
-        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile", resource_group_name=example_resource_group.name)
-        example_frontdoor_custom_endpoint = azure.cdn.FrontdoorCustomEndpoint("exampleFrontdoorCustomEndpoint",
+        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
+            resource_group_name=example_resource_group.name,
+            sku_name="Standard_AzureFrontDoor")
+        example_frontdoor_custom_domain = azure.cdn.FrontdoorCustomDomain("exampleFrontdoorCustomDomain",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             dns_zone_id=example_zone.id,
             host_name="contoso.com",
-            associate_with_cdn_frontdoor_route_id=azurerm_cdn_frontdoor_route["example"]["id"],
-            tls=azure.cdn.FrontdoorCustomEndpointTlsArgs(
+            tls=azure.cdn.FrontdoorCustomDomainTlsArgs(
                 certificate_type="ManagedCertificate",
                 minimum_tls_version="TLS12",
             ))
@@ -368,16 +336,16 @@ class FrontdoorCustomEndpoint(pulumi.CustomResource):
         CDN FrontDoor Custom Domains can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:cdn/frontdoorCustomEndpoint:FrontdoorCustomEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/customDomains/customDomain1
+         $ pulumi import azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/customDomains/customDomain1
         ```
 
         :param str resource_name: The name of the resource.
-        :param FrontdoorCustomEndpointArgs args: The arguments to use to populate this resource's properties.
+        :param FrontdoorCustomDomainArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FrontdoorCustomEndpointArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FrontdoorCustomDomainArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -386,12 +354,11 @@ class FrontdoorCustomEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associate_with_cdn_frontdoor_route_id: Optional[pulumi.Input[str]] = None,
                  cdn_frontdoor_profile_id: Optional[pulumi.Input[str]] = None,
                  dns_zone_id: Optional[pulumi.Input[str]] = None,
                  host_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tls: Optional[pulumi.Input[pulumi.InputType['FrontdoorCustomEndpointTlsArgs']]] = None,
+                 tls: Optional[pulumi.Input[pulumi.InputType['FrontdoorCustomDomainTlsArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -399,9 +366,8 @@ class FrontdoorCustomEndpoint(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FrontdoorCustomEndpointArgs.__new__(FrontdoorCustomEndpointArgs)
+            __props__ = FrontdoorCustomDomainArgs.__new__(FrontdoorCustomDomainArgs)
 
-            __props__.__dict__["associate_with_cdn_frontdoor_route_id"] = associate_with_cdn_frontdoor_route_id
             if cdn_frontdoor_profile_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cdn_frontdoor_profile_id'")
             __props__.__dict__["cdn_frontdoor_profile_id"] = cdn_frontdoor_profile_id
@@ -415,8 +381,10 @@ class FrontdoorCustomEndpoint(pulumi.CustomResource):
             __props__.__dict__["tls"] = tls
             __props__.__dict__["expiration_date"] = None
             __props__.__dict__["validation_token"] = None
-        super(FrontdoorCustomEndpoint, __self__).__init__(
-            'azure:cdn/frontdoorCustomEndpoint:FrontdoorCustomEndpoint',
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:cdn/frontdoorCustomEndpoint:FrontdoorCustomEndpoint")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
+        super(FrontdoorCustomDomain, __self__).__init__(
+            'azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain',
             resource_name,
             __props__,
             opts)
@@ -425,35 +393,32 @@ class FrontdoorCustomEndpoint(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            associate_with_cdn_frontdoor_route_id: Optional[pulumi.Input[str]] = None,
             cdn_frontdoor_profile_id: Optional[pulumi.Input[str]] = None,
             dns_zone_id: Optional[pulumi.Input[str]] = None,
             expiration_date: Optional[pulumi.Input[str]] = None,
             host_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            tls: Optional[pulumi.Input[pulumi.InputType['FrontdoorCustomEndpointTlsArgs']]] = None,
-            validation_token: Optional[pulumi.Input[str]] = None) -> 'FrontdoorCustomEndpoint':
+            tls: Optional[pulumi.Input[pulumi.InputType['FrontdoorCustomDomainTlsArgs']]] = None,
+            validation_token: Optional[pulumi.Input[str]] = None) -> 'FrontdoorCustomDomain':
         """
-        Get an existing FrontdoorCustomEndpoint resource's state with the given name, id, and optional extra
+        Get an existing FrontdoorCustomDomain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] associate_with_cdn_frontdoor_route_id: The resource ID of the CDN FrontDoor Route this Custom Domain should be associated with.
         :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the Frontdoor Profile. Changing this forces a new Frontdoor Profile to be created.
         :param pulumi.Input[str] dns_zone_id: The ID of the DNS Zone which should be used for this FrontDoor Custom Domain.
         :param pulumi.Input[str] expiration_date: The date time that the token expires.
         :param pulumi.Input[str] host_name: The host name of the domain. Changing this forces a new CDN FrontDoor Custom Domain to be created.
         :param pulumi.Input[str] name: The name which should be used for this CDN FrontDoor Custom Domain. Possible values must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number and contain only letters, numbers and hyphens. Changing this forces a new CDN FrontDoor Custom Domain to be created.
-        :param pulumi.Input[pulumi.InputType['FrontdoorCustomEndpointTlsArgs']] tls: A `tls` block as defined below.
+        :param pulumi.Input[pulumi.InputType['FrontdoorCustomDomainTlsArgs']] tls: A `tls` block as defined below.
         :param pulumi.Input[str] validation_token: Challenge used for DNS TXT record or file based validation.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = _FrontdoorCustomEndpointState.__new__(_FrontdoorCustomEndpointState)
+        __props__ = _FrontdoorCustomDomainState.__new__(_FrontdoorCustomDomainState)
 
-        __props__.__dict__["associate_with_cdn_frontdoor_route_id"] = associate_with_cdn_frontdoor_route_id
         __props__.__dict__["cdn_frontdoor_profile_id"] = cdn_frontdoor_profile_id
         __props__.__dict__["dns_zone_id"] = dns_zone_id
         __props__.__dict__["expiration_date"] = expiration_date
@@ -461,15 +426,7 @@ class FrontdoorCustomEndpoint(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["tls"] = tls
         __props__.__dict__["validation_token"] = validation_token
-        return FrontdoorCustomEndpoint(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="associateWithCdnFrontdoorRouteId")
-    def associate_with_cdn_frontdoor_route_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The resource ID of the CDN FrontDoor Route this Custom Domain should be associated with.
-        """
-        return pulumi.get(self, "associate_with_cdn_frontdoor_route_id")
+        return FrontdoorCustomDomain(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="cdnFrontdoorProfileId")
@@ -513,7 +470,7 @@ class FrontdoorCustomEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tls(self) -> pulumi.Output['outputs.FrontdoorCustomEndpointTls']:
+    def tls(self) -> pulumi.Output['outputs.FrontdoorCustomDomainTls']:
         """
         A `tls` block as defined below.
         """

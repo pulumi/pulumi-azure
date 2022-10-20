@@ -2148,6 +2148,7 @@ class KubernetesClusterDefaultNodePoolArgs:
                  linux_os_config: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigArgs']] = None,
                  max_count: Optional[pulumi.Input[int]] = None,
                  max_pods: Optional[pulumi.Input[int]] = None,
+                 message_of_the_day: Optional[pulumi.Input[str]] = None,
                  min_count: Optional[pulumi.Input[int]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
                  node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -2160,11 +2161,13 @@ class KubernetesClusterDefaultNodePoolArgs:
                  os_sku: Optional[pulumi.Input[str]] = None,
                  pod_subnet_id: Optional[pulumi.Input[str]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+                 scale_down_mode: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None,
                  upgrade_settings: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolUpgradeSettingsArgs']] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None,
+                 workload_runtime: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] name: The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
@@ -2179,6 +2182,7 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigArgs'] linux_os_config: A `linux_os_config` block as defined below.
         :param pulumi.Input[int] max_count: The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] message_of_the_day: A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
         :param pulumi.Input[int] min_count: The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
         :param pulumi.Input[int] node_count: The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
@@ -2189,11 +2193,13 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input[str] os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_sku: OsSKU to be used to specify Linux OSType. Not applicable to Windows OSType. Possible values include: `Ubuntu`, `CBLMariner`. Defaults to `Ubuntu`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pod_subnet_id: The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] scale_down_mode: Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to 'ScaleDownModeDelete'. Possible values include 'ScaleDownModeDelete' and 'ScaleDownModeDeallocate'. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Node Pool.
         :param pulumi.Input[str] type: The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
         :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolUpgradeSettingsArgs'] upgrade_settings: A `upgrade_settings` block as documented below.
         :param pulumi.Input[str] vnet_subnet_id: The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] workload_runtime: Specifies the workload runtime used by the node pool. Possible values are `OCIContainer`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
         """
         pulumi.set(__self__, "name", name)
@@ -2220,6 +2226,8 @@ class KubernetesClusterDefaultNodePoolArgs:
             pulumi.set(__self__, "max_count", max_count)
         if max_pods is not None:
             pulumi.set(__self__, "max_pods", max_pods)
+        if message_of_the_day is not None:
+            pulumi.set(__self__, "message_of_the_day", message_of_the_day)
         if min_count is not None:
             pulumi.set(__self__, "min_count", min_count)
         if node_count is not None:
@@ -2244,6 +2252,8 @@ class KubernetesClusterDefaultNodePoolArgs:
             pulumi.set(__self__, "pod_subnet_id", pod_subnet_id)
         if proximity_placement_group_id is not None:
             pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
+        if scale_down_mode is not None:
+            pulumi.set(__self__, "scale_down_mode", scale_down_mode)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if type is not None:
@@ -2254,6 +2264,8 @@ class KubernetesClusterDefaultNodePoolArgs:
             pulumi.set(__self__, "upgrade_settings", upgrade_settings)
         if vnet_subnet_id is not None:
             pulumi.set(__self__, "vnet_subnet_id", vnet_subnet_id)
+        if workload_runtime is not None:
+            pulumi.set(__self__, "workload_runtime", workload_runtime)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
 
@@ -2411,6 +2423,18 @@ class KubernetesClusterDefaultNodePoolArgs:
         pulumi.set(self, "max_pods", value)
 
     @property
+    @pulumi.getter(name="messageOfTheDay")
+    def message_of_the_day(self) -> Optional[pulumi.Input[str]]:
+        """
+        A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "message_of_the_day")
+
+    @message_of_the_day.setter
+    def message_of_the_day(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "message_of_the_day", value)
+
+    @property
     @pulumi.getter(name="minCount")
     def min_count(self) -> Optional[pulumi.Input[int]]:
         """
@@ -2549,6 +2573,18 @@ class KubernetesClusterDefaultNodePoolArgs:
         pulumi.set(self, "proximity_placement_group_id", value)
 
     @property
+    @pulumi.getter(name="scaleDownMode")
+    def scale_down_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to 'ScaleDownModeDelete'. Possible values include 'ScaleDownModeDelete' and 'ScaleDownModeDeallocate'. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "scale_down_mode")
+
+    @scale_down_mode.setter
+    def scale_down_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scale_down_mode", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -2607,6 +2643,18 @@ class KubernetesClusterDefaultNodePoolArgs:
     @vnet_subnet_id.setter
     def vnet_subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vnet_subnet_id", value)
+
+    @property
+    @pulumi.getter(name="workloadRuntime")
+    def workload_runtime(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the workload runtime used by the node pool. Possible values are `OCIContainer`.
+        """
+        return pulumi.get(self, "workload_runtime")
+
+    @workload_runtime.setter
+    def workload_runtime(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workload_runtime", value)
 
     @property
     @pulumi.getter
@@ -4230,7 +4278,9 @@ class KubernetesClusterNetworkProfileArgs:
                  network_policy: Optional[pulumi.Input[str]] = None,
                  outbound_type: Optional[pulumi.Input[str]] = None,
                  pod_cidr: Optional[pulumi.Input[str]] = None,
-                 service_cidr: Optional[pulumi.Input[str]] = None):
+                 pod_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 service_cidr: Optional[pulumi.Input[str]] = None,
+                 service_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] network_plugin: Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_service_ip: IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
@@ -4243,7 +4293,9 @@ class KubernetesClusterNetworkProfileArgs:
         :param pulumi.Input[str] network_policy: Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] outbound_type: The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`.
         :param pulumi.Input[str] pod_cidr: The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] pod_cidrs: A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_cidr: The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] service_cidrs: A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "network_plugin", network_plugin)
         if dns_service_ip is not None:
@@ -4266,8 +4318,12 @@ class KubernetesClusterNetworkProfileArgs:
             pulumi.set(__self__, "outbound_type", outbound_type)
         if pod_cidr is not None:
             pulumi.set(__self__, "pod_cidr", pod_cidr)
+        if pod_cidrs is not None:
+            pulumi.set(__self__, "pod_cidrs", pod_cidrs)
         if service_cidr is not None:
             pulumi.set(__self__, "service_cidr", service_cidr)
+        if service_cidrs is not None:
+            pulumi.set(__self__, "service_cidrs", service_cidrs)
 
     @property
     @pulumi.getter(name="networkPlugin")
@@ -4402,6 +4458,18 @@ class KubernetesClusterNetworkProfileArgs:
         pulumi.set(self, "pod_cidr", value)
 
     @property
+    @pulumi.getter(name="podCidrs")
+    def pod_cidrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "pod_cidrs")
+
+    @pod_cidrs.setter
+    def pod_cidrs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "pod_cidrs", value)
+
+    @property
     @pulumi.getter(name="serviceCidr")
     def service_cidr(self) -> Optional[pulumi.Input[str]]:
         """
@@ -4413,6 +4481,18 @@ class KubernetesClusterNetworkProfileArgs:
     def service_cidr(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service_cidr", value)
 
+    @property
+    @pulumi.getter(name="serviceCidrs")
+    def service_cidrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "service_cidrs")
+
+    @service_cidrs.setter
+    def service_cidrs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "service_cidrs", value)
+
 
 @pulumi.input_type
 class KubernetesClusterNetworkProfileLoadBalancerProfileArgs:
@@ -4420,6 +4500,7 @@ class KubernetesClusterNetworkProfileLoadBalancerProfileArgs:
                  effective_outbound_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  managed_outbound_ip_count: Optional[pulumi.Input[int]] = None,
+                 managed_outbound_ipv6_count: Optional[pulumi.Input[int]] = None,
                  outbound_ip_address_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  outbound_ip_prefix_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  outbound_ports_allocated: Optional[pulumi.Input[int]] = None):
@@ -4427,6 +4508,7 @@ class KubernetesClusterNetworkProfileLoadBalancerProfileArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] effective_outbound_ips: The outcome (resource IDs) of the specified arguments.
         :param pulumi.Input[int] idle_timeout_in_minutes: Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `30`.
         :param pulumi.Input[int] managed_outbound_ip_count: Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
+        :param pulumi.Input[int] managed_outbound_ipv6_count: The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_address_ids: The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_prefix_ids: The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
         :param pulumi.Input[int] outbound_ports_allocated: Number of desired SNAT port for each VM in the clusters load balancer. Must be between `0` and `64000` inclusive. Defaults to `0`.
@@ -4437,6 +4519,8 @@ class KubernetesClusterNetworkProfileLoadBalancerProfileArgs:
             pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
         if managed_outbound_ip_count is not None:
             pulumi.set(__self__, "managed_outbound_ip_count", managed_outbound_ip_count)
+        if managed_outbound_ipv6_count is not None:
+            pulumi.set(__self__, "managed_outbound_ipv6_count", managed_outbound_ipv6_count)
         if outbound_ip_address_ids is not None:
             pulumi.set(__self__, "outbound_ip_address_ids", outbound_ip_address_ids)
         if outbound_ip_prefix_ids is not None:
@@ -4479,6 +4563,18 @@ class KubernetesClusterNetworkProfileLoadBalancerProfileArgs:
     @managed_outbound_ip_count.setter
     def managed_outbound_ip_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "managed_outbound_ip_count", value)
+
+    @property
+    @pulumi.getter(name="managedOutboundIpv6Count")
+    def managed_outbound_ipv6_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
+        """
+        return pulumi.get(self, "managed_outbound_ipv6_count")
+
+    @managed_outbound_ipv6_count.setter
+    def managed_outbound_ipv6_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "managed_outbound_ipv6_count", value)
 
     @property
     @pulumi.getter(name="outboundIpAddressIds")

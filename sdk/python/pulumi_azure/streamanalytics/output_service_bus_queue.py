@@ -23,6 +23,7 @@ class OutputServiceBusQueueArgs:
                  shared_access_policy_key: pulumi.Input[str],
                  shared_access_policy_name: pulumi.Input[str],
                  stream_analytics_job_name: pulumi.Input[str],
+                 authentication_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  system_property_columns: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -35,6 +36,7 @@ class OutputServiceBusQueueArgs:
         :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy.
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_columns: A list of property columns to add to the Service Bus Queue output.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] system_property_columns: A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
@@ -46,6 +48,8 @@ class OutputServiceBusQueueArgs:
         pulumi.set(__self__, "shared_access_policy_key", shared_access_policy_key)
         pulumi.set(__self__, "shared_access_policy_name", shared_access_policy_name)
         pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
+        if authentication_mode is not None:
+            pulumi.set(__self__, "authentication_mode", authentication_mode)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if property_columns is not None:
@@ -138,6 +142,18 @@ class OutputServiceBusQueueArgs:
         pulumi.set(self, "stream_analytics_job_name", value)
 
     @property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+        """
+        return pulumi.get(self, "authentication_mode")
+
+    @authentication_mode.setter
+    def authentication_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authentication_mode", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -177,6 +193,7 @@ class OutputServiceBusQueueArgs:
 @pulumi.input_type
 class _OutputServiceBusQueueState:
     def __init__(__self__, *,
+                 authentication_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  queue_name: Optional[pulumi.Input[str]] = None,
@@ -189,6 +206,7 @@ class _OutputServiceBusQueueState:
                  system_property_columns: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering OutputServiceBusQueue resources.
+        :param pulumi.Input[str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_columns: A list of property columns to add to the Service Bus Queue output.
         :param pulumi.Input[str] queue_name: The name of the Service Bus Queue.
@@ -200,6 +218,8 @@ class _OutputServiceBusQueueState:
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] system_property_columns: A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
         """
+        if authentication_mode is not None:
+            pulumi.set(__self__, "authentication_mode", authentication_mode)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if property_columns is not None:
@@ -220,6 +240,18 @@ class _OutputServiceBusQueueState:
             pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
         if system_property_columns is not None:
             pulumi.set(__self__, "system_property_columns", system_property_columns)
+
+    @property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+        """
+        return pulumi.get(self, "authentication_mode")
+
+    @authentication_mode.setter
+    def authentication_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authentication_mode", value)
 
     @property
     @pulumi.getter
@@ -347,6 +379,7 @@ class OutputServiceBusQueue(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 authentication_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  queue_name: Optional[pulumi.Input[str]] = None,
@@ -400,6 +433,7 @@ class OutputServiceBusQueue(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_columns: A list of property columns to add to the Service Bus Queue output.
         :param pulumi.Input[str] queue_name: The name of the Service Bus Queue.
@@ -472,6 +506,7 @@ class OutputServiceBusQueue(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 authentication_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  queue_name: Optional[pulumi.Input[str]] = None,
@@ -491,6 +526,7 @@ class OutputServiceBusQueue(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OutputServiceBusQueueArgs.__new__(OutputServiceBusQueueArgs)
 
+            __props__.__dict__["authentication_mode"] = authentication_mode
             __props__.__dict__["name"] = name
             __props__.__dict__["property_columns"] = property_columns
             if queue_name is None and not opts.urn:
@@ -525,6 +561,7 @@ class OutputServiceBusQueue(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            authentication_mode: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             queue_name: Optional[pulumi.Input[str]] = None,
@@ -542,6 +579,7 @@ class OutputServiceBusQueue(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_columns: A list of property columns to add to the Service Bus Queue output.
         :param pulumi.Input[str] queue_name: The name of the Service Bus Queue.
@@ -557,6 +595,7 @@ class OutputServiceBusQueue(pulumi.CustomResource):
 
         __props__ = _OutputServiceBusQueueState.__new__(_OutputServiceBusQueueState)
 
+        __props__.__dict__["authentication_mode"] = authentication_mode
         __props__.__dict__["name"] = name
         __props__.__dict__["property_columns"] = property_columns
         __props__.__dict__["queue_name"] = queue_name
@@ -568,6 +607,14 @@ class OutputServiceBusQueue(pulumi.CustomResource):
         __props__.__dict__["stream_analytics_job_name"] = stream_analytics_job_name
         __props__.__dict__["system_property_columns"] = system_property_columns
         return OutputServiceBusQueue(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+        """
+        return pulumi.get(self, "authentication_mode")
 
     @property
     @pulumi.getter

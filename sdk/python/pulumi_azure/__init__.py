@@ -164,6 +164,8 @@ if typing.TYPE_CHECKING:
     netapp = __netapp
     import pulumi_azure.network as __network
     network = __network
+    import pulumi_azure.nginx as __nginx
+    nginx = __nginx
     import pulumi_azure.notificationhub as __notificationhub
     notificationhub = __notificationhub
     import pulumi_azure.operationalinsights as __operationalinsights
@@ -304,6 +306,7 @@ else:
     mysql = _utilities.lazy_import('pulumi_azure.mysql')
     netapp = _utilities.lazy_import('pulumi_azure.netapp')
     network = _utilities.lazy_import('pulumi_azure.network')
+    nginx = _utilities.lazy_import('pulumi_azure.nginx')
     notificationhub = _utilities.lazy_import('pulumi_azure.notificationhub')
     operationalinsights = _utilities.lazy_import('pulumi_azure.operationalinsights')
     orbital = _utilities.lazy_import('pulumi_azure.orbital')
@@ -1765,10 +1768,18 @@ _utilities.register(
  },
  {
   "pkg": "azure",
-  "mod": "cdn/frontdoorCustomEndpoint",
+  "mod": "cdn/frontdoorCustomDomain",
   "fqn": "pulumi_azure.cdn",
   "classes": {
-   "azure:cdn/frontdoorCustomEndpoint:FrontdoorCustomEndpoint": "FrontdoorCustomEndpoint"
+   "azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain": "FrontdoorCustomDomain"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "cdn/frontdoorCustomDomainAssociation",
+  "fqn": "pulumi_azure.cdn",
+  "classes": {
+   "azure:cdn/frontdoorCustomDomainAssociation:FrontdoorCustomDomainAssociation": "FrontdoorCustomDomainAssociation"
   }
  },
  {
@@ -4005,6 +4016,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "iotcentral/applicationNetworkRuleSet",
+  "fqn": "pulumi_azure.iotcentral",
+  "classes": {
+   "azure:iotcentral/applicationNetworkRuleSet:ApplicationNetworkRuleSet": "ApplicationNetworkRuleSet"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "keyvault/accessPolicy",
   "fqn": "pulumi_azure.keyvault",
   "classes": {
@@ -5877,6 +5896,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "nginx/deployment",
+  "fqn": "pulumi_azure.nginx",
+  "classes": {
+   "azure:nginx/deployment:Deployment": "Deployment"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "notificationhub/authorizationRule",
   "fqn": "pulumi_azure.notificationhub",
   "classes": {
@@ -5921,6 +5948,14 @@ _utilities.register(
   "fqn": "pulumi_azure.operationalinsights",
   "classes": {
    "azure:operationalinsights/queryPackQuery:QueryPackQuery": "QueryPackQuery"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "orbital/contactProfile",
+  "fqn": "pulumi_azure.orbital",
+  "classes": {
+   "azure:orbital/contactProfile:ContactProfile": "ContactProfile"
   }
  },
  {
@@ -6489,6 +6524,14 @@ _utilities.register(
   "fqn": "pulumi_azure.sentinel",
   "classes": {
    "azure:sentinel/dataConnectorOffice365:DataConnectorOffice365": "DataConnectorOffice365"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "sentinel/dataConnectorOfficeAtp",
+  "fqn": "pulumi_azure.sentinel",
+  "classes": {
+   "azure:sentinel/dataConnectorOfficeAtp:DataConnectorOfficeAtp": "DataConnectorOfficeAtp"
   }
  },
  {

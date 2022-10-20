@@ -730,7 +730,7 @@ class Registry(pulumi.CustomResource):
                     tags={},
                 ),
                 azure.containerservice.RegistryGeoreplicationArgs(
-                    location="westeurope",
+                    location="North Europe",
                     zone_redundancy_enabled=True,
                     tags={},
                 ),
@@ -853,7 +853,7 @@ class Registry(pulumi.CustomResource):
                     tags={},
                 ),
                 azure.containerservice.RegistryGeoreplicationArgs(
-                    location="westeurope",
+                    location="North Europe",
                     zone_redundancy_enabled=True,
                     tags={},
                 ),
