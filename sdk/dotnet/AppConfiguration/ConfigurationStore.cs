@@ -46,6 +46,9 @@ namespace Pulumi.Azure.AppConfiguration
     [AzureResourceType("azure:appconfiguration/configurationStore:ConfigurationStore")]
     public partial class ConfigurationStore : global::Pulumi.CustomResource
     {
+        [Output("encryption")]
+        public Output<Outputs.ConfigurationStoreEncryption?> Encryption { get; private set; } = null!;
+
         /// <summary>
         /// The URL of the App Configuration.
         /// </summary>
@@ -57,6 +60,12 @@ namespace Pulumi.Azure.AppConfiguration
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ConfigurationStoreIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether local authentication methods is enabled. Defaults to `true`.
+        /// </summary>
+        [Output("localAuthEnabled")]
+        public Output<bool?> LocalAuthEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -83,10 +92,16 @@ namespace Pulumi.Azure.AppConfiguration
         public Output<ImmutableArray<Outputs.ConfigurationStorePrimaryWriteKey>> PrimaryWriteKeys { get; private set; } = null!;
 
         /// <summary>
-        /// The Public Network Access setting of this App Configuration.
+        /// The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
         /// </summary>
         [Output("publicNetworkAccess")]
         public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
+        /// </summary>
+        [Output("purgeProtectionEnabled")]
+        public Output<bool?> PurgeProtectionEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
@@ -111,6 +126,12 @@ namespace Pulumi.Azure.AppConfiguration
         /// </summary>
         [Output("sku")]
         public Output<string?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("softDeleteRetentionDays")]
+        public Output<int?> SoftDeleteRetentionDays { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -164,11 +185,20 @@ namespace Pulumi.Azure.AppConfiguration
 
     public sealed class ConfigurationStoreArgs : global::Pulumi.ResourceArgs
     {
+        [Input("encryption")]
+        public Input<Inputs.ConfigurationStoreEncryptionArgs>? Encryption { get; set; }
+
         /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ConfigurationStoreIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// Whether local authentication methods is enabled. Defaults to `true`.
+        /// </summary>
+        [Input("localAuthEnabled")]
+        public Input<bool>? LocalAuthEnabled { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -183,10 +213,16 @@ namespace Pulumi.Azure.AppConfiguration
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The Public Network Access setting of this App Configuration.
+        /// The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
         /// </summary>
         [Input("publicNetworkAccess")]
         public Input<string>? PublicNetworkAccess { get; set; }
+
+        /// <summary>
+        /// Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
+        /// </summary>
+        [Input("purgeProtectionEnabled")]
+        public Input<bool>? PurgeProtectionEnabled { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
@@ -199,6 +235,12 @@ namespace Pulumi.Azure.AppConfiguration
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
+
+        /// <summary>
+        /// The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("softDeleteRetentionDays")]
+        public Input<int>? SoftDeleteRetentionDays { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -220,6 +262,9 @@ namespace Pulumi.Azure.AppConfiguration
 
     public sealed class ConfigurationStoreState : global::Pulumi.ResourceArgs
     {
+        [Input("encryption")]
+        public Input<Inputs.ConfigurationStoreEncryptionGetArgs>? Encryption { get; set; }
+
         /// <summary>
         /// The URL of the App Configuration.
         /// </summary>
@@ -231,6 +276,12 @@ namespace Pulumi.Azure.AppConfiguration
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ConfigurationStoreIdentityGetArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// Whether local authentication methods is enabled. Defaults to `true`.
+        /// </summary>
+        [Input("localAuthEnabled")]
+        public Input<bool>? LocalAuthEnabled { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -269,10 +320,16 @@ namespace Pulumi.Azure.AppConfiguration
         }
 
         /// <summary>
-        /// The Public Network Access setting of this App Configuration.
+        /// The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
         /// </summary>
         [Input("publicNetworkAccess")]
         public Input<string>? PublicNetworkAccess { get; set; }
+
+        /// <summary>
+        /// Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
+        /// </summary>
+        [Input("purgeProtectionEnabled")]
+        public Input<bool>? PurgeProtectionEnabled { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
@@ -309,6 +366,12 @@ namespace Pulumi.Azure.AppConfiguration
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
+
+        /// <summary>
+        /// The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("softDeleteRetentionDays")]
+        public Input<int>? SoftDeleteRetentionDays { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

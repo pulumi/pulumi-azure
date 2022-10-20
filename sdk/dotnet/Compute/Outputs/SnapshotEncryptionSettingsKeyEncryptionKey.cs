@@ -13,7 +13,13 @@ namespace Pulumi.Azure.Compute.Outputs
     [OutputType]
     public sealed class SnapshotEncryptionSettingsKeyEncryptionKey
     {
+        /// <summary>
+        /// The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `azure.keyvault.Key` resource.
+        /// </summary>
         public readonly string KeyUrl;
+        /// <summary>
+        /// The ID of the source Key Vault. This can be found as `id` on the `azure.keyvault.KeyVault` resource.
+        /// </summary>
         public readonly string SourceVaultId;
 
         [OutputConstructor]

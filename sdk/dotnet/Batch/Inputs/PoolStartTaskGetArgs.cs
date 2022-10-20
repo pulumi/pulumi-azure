@@ -30,6 +30,18 @@ namespace Pulumi.Azure.Batch.Inputs
             set => _commonEnvironmentProperties = value;
         }
 
+        [Input("containers")]
+        private InputList<Inputs.PoolStartTaskContainerGetArgs>? _containers;
+
+        /// <summary>
+        /// A `container` block is the settings for the container under which the start task runs. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
+        /// </summary>
+        public InputList<Inputs.PoolStartTaskContainerGetArgs> Containers
+        {
+            get => _containers ?? (_containers = new InputList<Inputs.PoolStartTaskContainerGetArgs>());
+            set => _containers = value;
+        }
+
         [Input("resourceFiles")]
         private InputList<Inputs.PoolStartTaskResourceFileGetArgs>? _resourceFiles;
 

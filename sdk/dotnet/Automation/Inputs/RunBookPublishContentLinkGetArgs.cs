@@ -12,6 +12,9 @@ namespace Pulumi.Azure.Automation.Inputs
 
     public sealed class RunBookPublishContentLinkGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `hash` block as defined blow.
+        /// </summary>
         [Input("hash")]
         public Input<Inputs.RunBookPublishContentLinkHashGetArgs>? Hash { get; set; }
 
@@ -21,6 +24,9 @@ namespace Pulumi.Azure.Automation.Inputs
         [Input("uri", required: true)]
         public Input<string> Uri { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the version of the content
+        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 

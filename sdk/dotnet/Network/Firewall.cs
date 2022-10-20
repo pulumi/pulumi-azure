@@ -140,7 +140,7 @@ namespace Pulumi.Azure.Network
         public Output<string> SkuName { get; private set; } = null!;
 
         /// <summary>
-        /// SKU tier of the Firewall. Possible values are `Premium` and `Standard`.
+        /// SKU tier of the Firewall. Possible values are `Premium`, `Standard` and `Basic`.
         /// </summary>
         [Output("skuTier")]
         public Output<string> SkuTier { get; private set; } = null!;
@@ -288,7 +288,7 @@ namespace Pulumi.Azure.Network
         public Input<string> SkuName { get; set; } = null!;
 
         /// <summary>
-        /// SKU tier of the Firewall. Possible values are `Premium` and `Standard`.
+        /// SKU tier of the Firewall. Possible values are `Premium`, `Standard` and `Basic`.
         /// </summary>
         [Input("skuTier", required: true)]
         public Input<string> SkuTier { get; set; } = null!;
@@ -410,7 +410,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? SkuName { get; set; }
 
         /// <summary>
-        /// SKU tier of the Firewall. Possible values are `Premium` and `Standard`.
+        /// SKU tier of the Firewall. Possible values are `Premium`, `Standard` and `Basic`.
         /// </summary>
         [Input("skuTier")]
         public Input<string>? SkuTier { get; set; }

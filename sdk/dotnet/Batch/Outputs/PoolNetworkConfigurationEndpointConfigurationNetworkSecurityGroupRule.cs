@@ -25,6 +25,10 @@ namespace Pulumi.Azure.Batch.Outputs
         /// The source address prefix or tag to match for the rule. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string SourceAddressPrefix;
+        /// <summary>
+        /// The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can't overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`.
+        /// </summary>
+        public readonly ImmutableArray<string> SourcePortRanges;
 
         [OutputConstructor]
         private PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule(
@@ -32,11 +36,14 @@ namespace Pulumi.Azure.Batch.Outputs
 
             int priority,
 
-            string sourceAddressPrefix)
+            string sourceAddressPrefix,
+
+            ImmutableArray<string> sourcePortRanges)
         {
             Access = access;
             Priority = priority;
             SourceAddressPrefix = sourceAddressPrefix;
+            SourcePortRanges = sourcePortRanges;
         }
     }
 }

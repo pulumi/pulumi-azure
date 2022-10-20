@@ -24,6 +24,18 @@ namespace Pulumi.Azure.HDInsight.Inputs
         [Input("password")]
         public Input<string>? Password { get; set; }
 
+        [Input("scriptActions")]
+        private InputList<Inputs.HadoopClusterRolesWorkerNodeScriptActionGetArgs>? _scriptActions;
+
+        /// <summary>
+        /// The script action which will run on the cluster.
+        /// </summary>
+        public InputList<Inputs.HadoopClusterRolesWorkerNodeScriptActionGetArgs> ScriptActions
+        {
+            get => _scriptActions ?? (_scriptActions = new InputList<Inputs.HadoopClusterRolesWorkerNodeScriptActionGetArgs>());
+            set => _scriptActions = value;
+        }
+
         [Input("sshKeys")]
         private InputList<string>? _sshKeys;
 

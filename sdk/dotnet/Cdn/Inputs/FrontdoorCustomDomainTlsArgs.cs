@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cdn.Inputs
 {
 
-    public sealed class FrontdoorCustomEndpointTlsArgs : global::Pulumi.ResourceArgs
+    public sealed class FrontdoorCustomDomainTlsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID of the Frontdoor Secrect.
@@ -30,9 +30,9 @@ namespace Pulumi.Azure.Cdn.Inputs
         [Input("minimumTlsVersion")]
         public Input<string>? MinimumTlsVersion { get; set; }
 
-        public FrontdoorCustomEndpointTlsArgs()
+        public FrontdoorCustomDomainTlsArgs()
         {
         }
-        public static new FrontdoorCustomEndpointTlsArgs Empty => new FrontdoorCustomEndpointTlsArgs();
+        public static new FrontdoorCustomDomainTlsArgs Empty => new FrontdoorCustomDomainTlsArgs();
     }
 }

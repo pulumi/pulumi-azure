@@ -14,10 +14,20 @@ namespace Pulumi.Azure.Batch.Outputs
     public sealed class GetPoolNetworkConfigurationResult
     {
         /// <summary>
+        /// The scope of dynamic vnet assignment.
+        /// </summary>
+        public readonly string DynamicVnetAssignmentScope;
+        /// <summary>
         /// The inbound NAT pools that are used to address specific ports on the individual compute node externally.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPoolNetworkConfigurationEndpointConfigurationResult> EndpointConfigurations;
+        /// <summary>
+        /// Type of public IP address provisioning.
+        /// </summary>
         public readonly string PublicAddressProvisioningType;
+        /// <summary>
+        /// A list of public IP ids that will be allocated to nodes.
+        /// </summary>
         public readonly ImmutableArray<string> PublicIps;
         /// <summary>
         /// The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
@@ -26,6 +36,8 @@ namespace Pulumi.Azure.Batch.Outputs
 
         [OutputConstructor]
         private GetPoolNetworkConfigurationResult(
+            string dynamicVnetAssignmentScope,
+
             ImmutableArray<Outputs.GetPoolNetworkConfigurationEndpointConfigurationResult> endpointConfigurations,
 
             string publicAddressProvisioningType,
@@ -34,6 +46,7 @@ namespace Pulumi.Azure.Batch.Outputs
 
             string subnetId)
         {
+            DynamicVnetAssignmentScope = dynamicVnetAssignmentScope;
             EndpointConfigurations = endpointConfigurations;
             PublicAddressProvisioningType = publicAddressProvisioningType;
             PublicIps = publicIps;

@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Batch.Outputs
     public sealed class PoolFixedScale
     {
         /// <summary>
+        /// It determines what to do with a node and its running task(s) if the pool size is decreasing. Values are `Requeue`, `RetainedData`, `TaskCompletion` and `Terminate`.
+        /// </summary>
+        public readonly string? NodeDeallocationMethod;
+        /// <summary>
         /// The timeout for resize operations. Defaults to `PT15M`.
         /// </summary>
         public readonly string? ResizeTimeout;
@@ -28,12 +32,15 @@ namespace Pulumi.Azure.Batch.Outputs
 
         [OutputConstructor]
         private PoolFixedScale(
+            string? nodeDeallocationMethod,
+
             string? resizeTimeout,
 
             int? targetDedicatedNodes,
 
             int? targetLowPriorityNodes)
         {
+            NodeDeallocationMethod = nodeDeallocationMethod;
             ResizeTimeout = resizeTimeout;
             TargetDedicatedNodes = targetDedicatedNodes;
             TargetLowPriorityNodes = targetLowPriorityNodes;

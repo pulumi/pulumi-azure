@@ -121,6 +121,7 @@ namespace Pulumi.Azure.AppConfiguration
     [OutputType]
     public sealed class GetConfigurationStoreResult
     {
+        public readonly ImmutableArray<Outputs.GetConfigurationStoreEncryptionResult> Encryptions;
         /// <summary>
         /// The Endpoint used to access this App Configuration.
         /// </summary>
@@ -129,6 +130,11 @@ namespace Pulumi.Azure.AppConfiguration
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly ImmutableArray<Outputs.GetConfigurationStoreIdentityResult> Identities;
+        /// <summary>
+        /// Whether local authentication methods is enabled.
+        /// </summary>
+        public readonly bool LocalAuthEnabled;
         /// <summary>
         /// The Azure Region where the App Configuration exists.
         /// </summary>
@@ -146,6 +152,11 @@ namespace Pulumi.Azure.AppConfiguration
         /// The Public Network Access setting of this App Configuration.
         /// </summary>
         public readonly string PublicNetworkAccess;
+        public readonly bool PublicNetworkAccessEnabled;
+        /// <summary>
+        /// Whether Purge Protection is enabled.
+        /// </summary>
+        public readonly bool PurgeProtectionEnabled;
         public readonly string ResourceGroupName;
         /// <summary>
         /// A `secondary_read_key` block as defined below containing the secondary read access key.
@@ -160,15 +171,25 @@ namespace Pulumi.Azure.AppConfiguration
         /// </summary>
         public readonly string Sku;
         /// <summary>
+        /// The number of days that items should be retained for once soft-deleted.
+        /// </summary>
+        public readonly int SoftDeleteRetentionDays;
+        /// <summary>
         /// A mapping of tags assigned to the App Configuration.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetConfigurationStoreResult(
+            ImmutableArray<Outputs.GetConfigurationStoreEncryptionResult> encryptions,
+
             string endpoint,
 
             string id,
+
+            ImmutableArray<Outputs.GetConfigurationStoreIdentityResult> identities,
+
+            bool localAuthEnabled,
 
             string location,
 
@@ -180,6 +201,10 @@ namespace Pulumi.Azure.AppConfiguration
 
             string publicNetworkAccess,
 
+            bool publicNetworkAccessEnabled,
+
+            bool purgeProtectionEnabled,
+
             string resourceGroupName,
 
             ImmutableArray<Outputs.GetConfigurationStoreSecondaryReadKeyResult> secondaryReadKeys,
@@ -188,19 +213,27 @@ namespace Pulumi.Azure.AppConfiguration
 
             string sku,
 
+            int softDeleteRetentionDays,
+
             ImmutableDictionary<string, string> tags)
         {
+            Encryptions = encryptions;
             Endpoint = endpoint;
             Id = id;
+            Identities = identities;
+            LocalAuthEnabled = localAuthEnabled;
             Location = location;
             Name = name;
             PrimaryReadKeys = primaryReadKeys;
             PrimaryWriteKeys = primaryWriteKeys;
             PublicNetworkAccess = publicNetworkAccess;
+            PublicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            PurgeProtectionEnabled = purgeProtectionEnabled;
             ResourceGroupName = resourceGroupName;
             SecondaryReadKeys = secondaryReadKeys;
             SecondaryWriteKeys = secondaryWriteKeys;
             Sku = sku;
+            SoftDeleteRetentionDays = softDeleteRetentionDays;
             Tags = tags;
         }
     }

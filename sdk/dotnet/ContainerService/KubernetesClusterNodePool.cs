@@ -152,6 +152,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<int> MaxPods { get; private set; } = null!;
 
         /// <summary>
+        /// A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("messageOfTheDay")]
+        public Output<string?> MessageOfTheDay { get; private set; } = null!;
+
+        /// <summary>
         /// The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`.
         /// </summary>
         [Output("minCount")]
@@ -420,6 +426,12 @@ namespace Pulumi.Azure.ContainerService
         public Input<int>? MaxPods { get; set; }
 
         /// <summary>
+        /// A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("messageOfTheDay")]
+        public Input<string>? MessageOfTheDay { get; set; }
+
+        /// <summary>
         /// The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`.
         /// </summary>
         [Input("minCount")]
@@ -672,6 +684,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("maxPods")]
         public Input<int>? MaxPods { get; set; }
+
+        /// <summary>
+        /// A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("messageOfTheDay")]
+        public Input<string>? MessageOfTheDay { get; set; }
 
         /// <summary>
         /// The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`.

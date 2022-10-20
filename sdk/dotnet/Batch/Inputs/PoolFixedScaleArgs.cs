@@ -13,6 +13,12 @@ namespace Pulumi.Azure.Batch.Inputs
     public sealed class PoolFixedScaleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// It determines what to do with a node and its running task(s) if the pool size is decreasing. Values are `Requeue`, `RetainedData`, `TaskCompletion` and `Terminate`.
+        /// </summary>
+        [Input("nodeDeallocationMethod")]
+        public Input<string>? NodeDeallocationMethod { get; set; }
+
+        /// <summary>
         /// The timeout for resize operations. Defaults to `PT15M`.
         /// </summary>
         [Input("resizeTimeout")]

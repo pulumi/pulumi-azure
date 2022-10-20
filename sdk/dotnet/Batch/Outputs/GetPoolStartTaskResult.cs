@@ -22,6 +22,10 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? CommonEnvironmentProperties;
         /// <summary>
+        /// The settings for the container under which the start task runs.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetPoolStartTaskContainerResult> Containers;
+        /// <summary>
         /// One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPoolStartTaskResourceFileResult> ResourceFiles;
@@ -44,6 +48,8 @@ namespace Pulumi.Azure.Batch.Outputs
 
             ImmutableDictionary<string, string>? commonEnvironmentProperties,
 
+            ImmutableArray<Outputs.GetPoolStartTaskContainerResult> containers,
+
             ImmutableArray<Outputs.GetPoolStartTaskResourceFileResult> resourceFiles,
 
             int taskRetryMaximum,
@@ -54,6 +60,7 @@ namespace Pulumi.Azure.Batch.Outputs
         {
             CommandLine = commandLine;
             CommonEnvironmentProperties = commonEnvironmentProperties;
+            Containers = containers;
             ResourceFiles = resourceFiles;
             TaskRetryMaximum = taskRetryMaximum;
             UserIdentities = userIdentities;

@@ -76,6 +76,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<int>? MaxPods { get; set; }
 
         /// <summary>
+        /// A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("messageOfTheDay")]
+        public Input<string>? MessageOfTheDay { get; set; }
+
+        /// <summary>
         /// The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
         /// </summary>
         [Input("minCount")]
@@ -158,6 +164,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("proximityPlacementGroupId")]
         public Input<string>? ProximityPlacementGroupId { get; set; }
 
+        /// <summary>
+        /// Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to 'ScaleDownModeDelete'. Possible values include 'ScaleDownModeDelete' and 'ScaleDownModeDeallocate'. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("scaleDownMode")]
+        public Input<string>? ScaleDownMode { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -199,6 +211,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         /// </summary>
         [Input("vnetSubnetId")]
         public Input<string>? VnetSubnetId { get; set; }
+
+        /// <summary>
+        /// Specifies the workload runtime used by the node pool. Possible values are `OCIContainer`.
+        /// </summary>
+        [Input("workloadRuntime")]
+        public Input<string>? WorkloadRuntime { get; set; }
 
         [Input("zones")]
         private InputList<string>? _zones;

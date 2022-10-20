@@ -21,6 +21,7 @@ namespace Pulumi.Azure.HDInsight.Outputs
         /// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? Password;
+        public readonly ImmutableArray<Outputs.KafkaClusterRolesWorkerNodeScriptAction> ScriptActions;
         /// <summary>
         /// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
         /// </summary>
@@ -52,6 +53,8 @@ namespace Pulumi.Azure.HDInsight.Outputs
 
             string? password,
 
+            ImmutableArray<Outputs.KafkaClusterRolesWorkerNodeScriptAction> scriptActions,
+
             ImmutableArray<string> sshKeys,
 
             string? subnetId,
@@ -66,6 +69,7 @@ namespace Pulumi.Azure.HDInsight.Outputs
         {
             NumberOfDisksPerNode = numberOfDisksPerNode;
             Password = password;
+            ScriptActions = scriptActions;
             SshKeys = sshKeys;
             SubnetId = subnetId;
             TargetInstanceCount = targetInstanceCount;

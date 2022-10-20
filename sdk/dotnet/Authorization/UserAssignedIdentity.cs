@@ -10,7 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Authorization
 {
     /// <summary>
-    /// Manages a user assigned identity.
+    /// &lt;!-- Note: This documentation is generated. Any manual changes will be overwritten --&gt;
+    /// 
+    /// Manages a User Assigned Identity.
     /// 
     /// ## Example Usage
     /// 
@@ -21,15 +23,10 @@ namespace Pulumi.Azure.Authorization
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Authorization.UserAssignedIdentity("example", new()
     ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Location = azurerm_resource_group.Example.Location,
+    ///         ResourceGroupName = azurerm_resource_group.Example.Name,
     ///     });
     /// 
     /// });
@@ -37,56 +34,55 @@ namespace Pulumi.Azure.Authorization
     /// 
     /// ## Import
     /// 
-    /// User Assigned Identities can be imported using the `resource id`, e.g.
+    /// An existing User Assigned Identity can be imported into Terraform using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:authorization/userAssignedIdentity:UserAssignedIdentity exampleIdentity /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/acceptanceTestResourceGroup1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testIdentity
+    ///  $ pulumi import azure:authorization/userAssignedIdentity:UserAssignedIdentity example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{resourceName}
     /// ```
+    /// 
+    ///  * Where `{subscriptionId}` is the ID of the Azure Subscription where the User Assigned Identity exists. For example `12345678-1234-9876-4563-123456789012`. * Where `{resourceGroupName}` is the name of Resource Group where this User Assigned Identity exists. For example `example-resource-group`. * Where `{resourceName}` is the name of the Resource. For example `resourceValue`.
     /// </summary>
     [AzureResourceType("azure:authorization/userAssignedIdentity:UserAssignedIdentity")]
     public partial class UserAssignedIdentity : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Client ID associated with the user assigned identity.
+        /// The ID of the app associated with the Identity.
         /// </summary>
         [Output("clientId")]
         public Output<string> ClientId { get; private set; } = null!;
 
         /// <summary>
-        /// The location/region where the user assigned identity is
-        /// created.
+        /// The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the user assigned identity. Changing this forces a
-        /// new identity to be created.
+        /// Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Service Principal ID associated with the user assigned identity.
+        /// The ID of the Service Principal object associated with the created Identity.
         /// </summary>
         [Output("principalId")]
         public Output<string> PrincipalId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the user assigned identity.
+        /// Specifies the name of the Resource Group within which this User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A mapping of tags which should be assigned to the User Assigned Identity.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Tenant ID associated with the user assigned identity.
+        /// The ID of the Tenant which the Identity belongs to.
         /// </summary>
         [Output("tenantId")]
         public Output<string> TenantId { get; private set; } = null!;
@@ -142,22 +138,19 @@ namespace Pulumi.Azure.Authorization
     public sealed class UserAssignedIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The location/region where the user assigned identity is
-        /// created.
+        /// The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the user assigned identity. Changing this forces a
-        /// new identity to be created.
+        /// Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the user assigned identity.
+        /// Specifies the name of the Resource Group within which this User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -166,7 +159,7 @@ namespace Pulumi.Azure.Authorization
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A mapping of tags which should be assigned to the User Assigned Identity.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -183,34 +176,31 @@ namespace Pulumi.Azure.Authorization
     public sealed class UserAssignedIdentityState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Client ID associated with the user assigned identity.
+        /// The ID of the app associated with the Identity.
         /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
         /// <summary>
-        /// The location/region where the user assigned identity is
-        /// created.
+        /// The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the user assigned identity. Changing this forces a
-        /// new identity to be created.
+        /// Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Service Principal ID associated with the user assigned identity.
+        /// The ID of the Service Principal object associated with the created Identity.
         /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the user assigned identity.
+        /// Specifies the name of the Resource Group within which this User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
@@ -219,7 +209,7 @@ namespace Pulumi.Azure.Authorization
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A mapping of tags which should be assigned to the User Assigned Identity.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -228,7 +218,7 @@ namespace Pulumi.Azure.Authorization
         }
 
         /// <summary>
-        /// Tenant ID associated with the user assigned identity.
+        /// The ID of the Tenant which the Identity belongs to.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }

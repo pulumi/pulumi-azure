@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string> KeyUrl { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the source Key Vault.
+        /// The ID of the source Key Vault. This can be found as `id` on the `azure.keyvault.KeyVault` resource.
         /// </summary>
         [Input("sourceVaultId", required: true)]
         public Input<string> SourceVaultId { get; set; } = null!;

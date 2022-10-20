@@ -7,32 +7,36 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Cdn.Inputs
+namespace Pulumi.Azure.Cdn.Outputs
 {
 
-    public sealed class FrontdoorCustomEndpointTlsGetArgs : global::Pulumi.ResourceArgs
+    [OutputType]
+    public sealed class FrontdoorCustomDomainTls
     {
         /// <summary>
         /// Resource ID of the Frontdoor Secrect.
         /// </summary>
-        [Input("cdnFrontdoorSecretId")]
-        public Input<string>? CdnFrontdoorSecretId { get; set; }
-
+        public readonly string? CdnFrontdoorSecretId;
         /// <summary>
         /// Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
         /// </summary>
-        [Input("certificateType")]
-        public Input<string>? CertificateType { get; set; }
-
+        public readonly string? CertificateType;
         /// <summary>
         /// TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
         /// </summary>
-        [Input("minimumTlsVersion")]
-        public Input<string>? MinimumTlsVersion { get; set; }
+        public readonly string? MinimumTlsVersion;
 
-        public FrontdoorCustomEndpointTlsGetArgs()
+        [OutputConstructor]
+        private FrontdoorCustomDomainTls(
+            string? cdnFrontdoorSecretId,
+
+            string? certificateType,
+
+            string? minimumTlsVersion)
         {
+            CdnFrontdoorSecretId = cdnFrontdoorSecretId;
+            CertificateType = certificateType;
+            MinimumTlsVersion = minimumTlsVersion;
         }
-        public static new FrontdoorCustomEndpointTlsGetArgs Empty => new FrontdoorCustomEndpointTlsGetArgs();
     }
 }

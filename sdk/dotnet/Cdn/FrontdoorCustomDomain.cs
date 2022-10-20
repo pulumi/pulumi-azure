@@ -32,15 +32,15 @@ namespace Pulumi.Azure.Cdn
     ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile("exampleFrontdoorProfile", new()
     ///     {
     ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Standard_AzureFrontDoor",
     ///     });
     /// 
-    ///     var exampleFrontdoorCustomEndpoint = new Azure.Cdn.FrontdoorCustomEndpoint("exampleFrontdoorCustomEndpoint", new()
+    ///     var exampleFrontdoorCustomDomain = new Azure.Cdn.FrontdoorCustomDomain("exampleFrontdoorCustomDomain", new()
     ///     {
     ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
     ///         DnsZoneId = exampleZone.Id,
     ///         HostName = "contoso.com",
-    ///         AssociateWithCdnFrontdoorRouteId = azurerm_cdn_frontdoor_route.Example.Id,
-    ///         Tls = new Azure.Cdn.Inputs.FrontdoorCustomEndpointTlsArgs
+    ///         Tls = new Azure.Cdn.Inputs.FrontdoorCustomDomainTlsArgs
     ///         {
     ///             CertificateType = "ManagedCertificate",
     ///             MinimumTlsVersion = "TLS12",
@@ -83,18 +83,12 @@ namespace Pulumi.Azure.Cdn
     /// CDN FrontDoor Custom Domains can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:cdn/frontdoorCustomEndpoint:FrontdoorCustomEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/customDomains/customDomain1
+    ///  $ pulumi import azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/customDomains/customDomain1
     /// ```
     /// </summary>
-    [AzureResourceType("azure:cdn/frontdoorCustomEndpoint:FrontdoorCustomEndpoint")]
-    public partial class FrontdoorCustomEndpoint : global::Pulumi.CustomResource
+    [AzureResourceType("azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain")]
+    public partial class FrontdoorCustomDomain : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The resource ID of the CDN FrontDoor Route this Custom Domain should be associated with.
-        /// </summary>
-        [Output("associateWithCdnFrontdoorRouteId")]
-        public Output<string?> AssociateWithCdnFrontdoorRouteId { get; private set; } = null!;
-
         /// <summary>
         /// The ID of the Frontdoor Profile. Changing this forces a new Frontdoor Profile to be created.
         /// </summary>
@@ -129,7 +123,7 @@ namespace Pulumi.Azure.Cdn
         /// A `tls` block as defined below.
         /// </summary>
         [Output("tls")]
-        public Output<Outputs.FrontdoorCustomEndpointTls> Tls { get; private set; } = null!;
+        public Output<Outputs.FrontdoorCustomDomainTls> Tls { get; private set; } = null!;
 
         /// <summary>
         /// Challenge used for DNS TXT record or file based validation.
@@ -139,19 +133,19 @@ namespace Pulumi.Azure.Cdn
 
 
         /// <summary>
-        /// Create a FrontdoorCustomEndpoint resource with the given unique name, arguments, and options.
+        /// Create a FrontdoorCustomDomain resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public FrontdoorCustomEndpoint(string name, FrontdoorCustomEndpointArgs args, CustomResourceOptions? options = null)
-            : base("azure:cdn/frontdoorCustomEndpoint:FrontdoorCustomEndpoint", name, args ?? new FrontdoorCustomEndpointArgs(), MakeResourceOptions(options, ""))
+        public FrontdoorCustomDomain(string name, FrontdoorCustomDomainArgs args, CustomResourceOptions? options = null)
+            : base("azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain", name, args ?? new FrontdoorCustomDomainArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private FrontdoorCustomEndpoint(string name, Input<string> id, FrontdoorCustomEndpointState? state = null, CustomResourceOptions? options = null)
-            : base("azure:cdn/frontdoorCustomEndpoint:FrontdoorCustomEndpoint", name, state, MakeResourceOptions(options, id))
+        private FrontdoorCustomDomain(string name, Input<string> id, FrontdoorCustomDomainState? state = null, CustomResourceOptions? options = null)
+            : base("azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain", name, state, MakeResourceOptions(options, id))
         {
         }
 
@@ -160,6 +154,10 @@ namespace Pulumi.Azure.Cdn
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new global::Pulumi.Alias { Type = "azure:cdn/frontdoorCustomEndpoint:FrontdoorCustomEndpoint"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -167,7 +165,7 @@ namespace Pulumi.Azure.Cdn
             return merged;
         }
         /// <summary>
-        /// Get an existing FrontdoorCustomEndpoint resource's state with the given name, ID, and optional extra
+        /// Get an existing FrontdoorCustomDomain resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
@@ -175,20 +173,14 @@ namespace Pulumi.Azure.Cdn
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static FrontdoorCustomEndpoint Get(string name, Input<string> id, FrontdoorCustomEndpointState? state = null, CustomResourceOptions? options = null)
+        public static FrontdoorCustomDomain Get(string name, Input<string> id, FrontdoorCustomDomainState? state = null, CustomResourceOptions? options = null)
         {
-            return new FrontdoorCustomEndpoint(name, id, state, options);
+            return new FrontdoorCustomDomain(name, id, state, options);
         }
     }
 
-    public sealed class FrontdoorCustomEndpointArgs : global::Pulumi.ResourceArgs
+    public sealed class FrontdoorCustomDomainArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The resource ID of the CDN FrontDoor Route this Custom Domain should be associated with.
-        /// </summary>
-        [Input("associateWithCdnFrontdoorRouteId")]
-        public Input<string>? AssociateWithCdnFrontdoorRouteId { get; set; }
-
         /// <summary>
         /// The ID of the Frontdoor Profile. Changing this forces a new Frontdoor Profile to be created.
         /// </summary>
@@ -217,22 +209,16 @@ namespace Pulumi.Azure.Cdn
         /// A `tls` block as defined below.
         /// </summary>
         [Input("tls", required: true)]
-        public Input<Inputs.FrontdoorCustomEndpointTlsArgs> Tls { get; set; } = null!;
+        public Input<Inputs.FrontdoorCustomDomainTlsArgs> Tls { get; set; } = null!;
 
-        public FrontdoorCustomEndpointArgs()
+        public FrontdoorCustomDomainArgs()
         {
         }
-        public static new FrontdoorCustomEndpointArgs Empty => new FrontdoorCustomEndpointArgs();
+        public static new FrontdoorCustomDomainArgs Empty => new FrontdoorCustomDomainArgs();
     }
 
-    public sealed class FrontdoorCustomEndpointState : global::Pulumi.ResourceArgs
+    public sealed class FrontdoorCustomDomainState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The resource ID of the CDN FrontDoor Route this Custom Domain should be associated with.
-        /// </summary>
-        [Input("associateWithCdnFrontdoorRouteId")]
-        public Input<string>? AssociateWithCdnFrontdoorRouteId { get; set; }
-
         /// <summary>
         /// The ID of the Frontdoor Profile. Changing this forces a new Frontdoor Profile to be created.
         /// </summary>
@@ -267,7 +253,7 @@ namespace Pulumi.Azure.Cdn
         /// A `tls` block as defined below.
         /// </summary>
         [Input("tls")]
-        public Input<Inputs.FrontdoorCustomEndpointTlsGetArgs>? Tls { get; set; }
+        public Input<Inputs.FrontdoorCustomDomainTlsGetArgs>? Tls { get; set; }
 
         /// <summary>
         /// Challenge used for DNS TXT record or file based validation.
@@ -275,9 +261,9 @@ namespace Pulumi.Azure.Cdn
         [Input("validationToken")]
         public Input<string>? ValidationToken { get; set; }
 
-        public FrontdoorCustomEndpointState()
+        public FrontdoorCustomDomainState()
         {
         }
-        public static new FrontdoorCustomEndpointState Empty => new FrontdoorCustomEndpointState();
+        public static new FrontdoorCustomDomainState Empty => new FrontdoorCustomDomainState();
     }
 }

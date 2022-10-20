@@ -22,6 +22,10 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? CommonEnvironmentProperties;
         /// <summary>
+        /// A `container` block is the settings for the container under which the start task runs. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PoolStartTaskContainer> Containers;
+        /// <summary>
         /// One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
         /// </summary>
         public readonly ImmutableArray<Outputs.PoolStartTaskResourceFile> ResourceFiles;
@@ -44,6 +48,8 @@ namespace Pulumi.Azure.Batch.Outputs
 
             ImmutableDictionary<string, string>? commonEnvironmentProperties,
 
+            ImmutableArray<Outputs.PoolStartTaskContainer> containers,
+
             ImmutableArray<Outputs.PoolStartTaskResourceFile> resourceFiles,
 
             int? taskRetryMaximum,
@@ -54,6 +60,7 @@ namespace Pulumi.Azure.Batch.Outputs
         {
             CommandLine = commandLine;
             CommonEnvironmentProperties = commonEnvironmentProperties;
+            Containers = containers;
             ResourceFiles = resourceFiles;
             TaskRetryMaximum = taskRetryMaximum;
             UserIdentity = userIdentity;

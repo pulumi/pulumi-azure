@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Batch.Outputs
     public sealed class PoolNetworkConfiguration
     {
         /// <summary>
+        /// The scope of dynamic vnet assignment. Allowed values: `none`, `job`.
+        /// </summary>
+        public readonly string? DynamicVnetAssignmentScope;
+        /// <summary>
         /// A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<Outputs.PoolNetworkConfigurationEndpointConfiguration> EndpointConfigurations;
@@ -32,6 +36,8 @@ namespace Pulumi.Azure.Batch.Outputs
 
         [OutputConstructor]
         private PoolNetworkConfiguration(
+            string? dynamicVnetAssignmentScope,
+
             ImmutableArray<Outputs.PoolNetworkConfigurationEndpointConfiguration> endpointConfigurations,
 
             string? publicAddressProvisioningType,
@@ -40,6 +46,7 @@ namespace Pulumi.Azure.Batch.Outputs
 
             string subnetId)
         {
+            DynamicVnetAssignmentScope = dynamicVnetAssignmentScope;
             EndpointConfigurations = endpointConfigurations;
             PublicAddressProvisioningType = publicAddressProvisioningType;
             PublicIps = publicIps;

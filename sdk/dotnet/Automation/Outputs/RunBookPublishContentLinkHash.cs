@@ -13,7 +13,13 @@ namespace Pulumi.Azure.Automation.Outputs
     [OutputType]
     public sealed class RunBookPublishContentLinkHash
     {
+        /// <summary>
+        /// Specifies the hash algorithm used to hash the content.
+        /// </summary>
         public readonly string Algorithm;
+        /// <summary>
+        /// Specifies the expected hash value of the content.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

@@ -84,11 +84,35 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("podCidr")]
         public Input<string>? PodCidr { get; set; }
 
+        [Input("podCidrs")]
+        private InputList<string>? _podCidrs;
+
+        /// <summary>
+        /// A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+        /// </summary>
+        public InputList<string> PodCidrs
+        {
+            get => _podCidrs ?? (_podCidrs = new InputList<string>());
+            set => _podCidrs = value;
+        }
+
         /// <summary>
         /// The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
         /// </summary>
         [Input("serviceCidr")]
         public Input<string>? ServiceCidr { get; set; }
+
+        [Input("serviceCidrs")]
+        private InputList<string>? _serviceCidrs;
+
+        /// <summary>
+        /// A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+        /// </summary>
+        public InputList<string> ServiceCidrs
+        {
+            get => _serviceCidrs ?? (_serviceCidrs = new InputList<string>());
+            set => _serviceCidrs = value;
+        }
 
         public KubernetesClusterNetworkProfileGetArgs()
         {
