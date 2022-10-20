@@ -10,6 +10,162 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ModuleManagementNetworkProfile struct {
+	// The private IPv4 address of the network interface. Changing this forces a new Dedicated Hardware Security Module to be created.
+	NetworkInterfacePrivateIpAddresses []string `pulumi:"networkInterfacePrivateIpAddresses"`
+	// The ID of the subnet. Changing this forces a new Dedicated Hardware Security Module to be created.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// ModuleManagementNetworkProfileInput is an input type that accepts ModuleManagementNetworkProfileArgs and ModuleManagementNetworkProfileOutput values.
+// You can construct a concrete instance of `ModuleManagementNetworkProfileInput` via:
+//
+//	ModuleManagementNetworkProfileArgs{...}
+type ModuleManagementNetworkProfileInput interface {
+	pulumi.Input
+
+	ToModuleManagementNetworkProfileOutput() ModuleManagementNetworkProfileOutput
+	ToModuleManagementNetworkProfileOutputWithContext(context.Context) ModuleManagementNetworkProfileOutput
+}
+
+type ModuleManagementNetworkProfileArgs struct {
+	// The private IPv4 address of the network interface. Changing this forces a new Dedicated Hardware Security Module to be created.
+	NetworkInterfacePrivateIpAddresses pulumi.StringArrayInput `pulumi:"networkInterfacePrivateIpAddresses"`
+	// The ID of the subnet. Changing this forces a new Dedicated Hardware Security Module to be created.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (ModuleManagementNetworkProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModuleManagementNetworkProfile)(nil)).Elem()
+}
+
+func (i ModuleManagementNetworkProfileArgs) ToModuleManagementNetworkProfileOutput() ModuleManagementNetworkProfileOutput {
+	return i.ToModuleManagementNetworkProfileOutputWithContext(context.Background())
+}
+
+func (i ModuleManagementNetworkProfileArgs) ToModuleManagementNetworkProfileOutputWithContext(ctx context.Context) ModuleManagementNetworkProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModuleManagementNetworkProfileOutput)
+}
+
+func (i ModuleManagementNetworkProfileArgs) ToModuleManagementNetworkProfilePtrOutput() ModuleManagementNetworkProfilePtrOutput {
+	return i.ToModuleManagementNetworkProfilePtrOutputWithContext(context.Background())
+}
+
+func (i ModuleManagementNetworkProfileArgs) ToModuleManagementNetworkProfilePtrOutputWithContext(ctx context.Context) ModuleManagementNetworkProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModuleManagementNetworkProfileOutput).ToModuleManagementNetworkProfilePtrOutputWithContext(ctx)
+}
+
+// ModuleManagementNetworkProfilePtrInput is an input type that accepts ModuleManagementNetworkProfileArgs, ModuleManagementNetworkProfilePtr and ModuleManagementNetworkProfilePtrOutput values.
+// You can construct a concrete instance of `ModuleManagementNetworkProfilePtrInput` via:
+//
+//	        ModuleManagementNetworkProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModuleManagementNetworkProfilePtrInput interface {
+	pulumi.Input
+
+	ToModuleManagementNetworkProfilePtrOutput() ModuleManagementNetworkProfilePtrOutput
+	ToModuleManagementNetworkProfilePtrOutputWithContext(context.Context) ModuleManagementNetworkProfilePtrOutput
+}
+
+type moduleManagementNetworkProfilePtrType ModuleManagementNetworkProfileArgs
+
+func ModuleManagementNetworkProfilePtr(v *ModuleManagementNetworkProfileArgs) ModuleManagementNetworkProfilePtrInput {
+	return (*moduleManagementNetworkProfilePtrType)(v)
+}
+
+func (*moduleManagementNetworkProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModuleManagementNetworkProfile)(nil)).Elem()
+}
+
+func (i *moduleManagementNetworkProfilePtrType) ToModuleManagementNetworkProfilePtrOutput() ModuleManagementNetworkProfilePtrOutput {
+	return i.ToModuleManagementNetworkProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *moduleManagementNetworkProfilePtrType) ToModuleManagementNetworkProfilePtrOutputWithContext(ctx context.Context) ModuleManagementNetworkProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModuleManagementNetworkProfilePtrOutput)
+}
+
+type ModuleManagementNetworkProfileOutput struct{ *pulumi.OutputState }
+
+func (ModuleManagementNetworkProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModuleManagementNetworkProfile)(nil)).Elem()
+}
+
+func (o ModuleManagementNetworkProfileOutput) ToModuleManagementNetworkProfileOutput() ModuleManagementNetworkProfileOutput {
+	return o
+}
+
+func (o ModuleManagementNetworkProfileOutput) ToModuleManagementNetworkProfileOutputWithContext(ctx context.Context) ModuleManagementNetworkProfileOutput {
+	return o
+}
+
+func (o ModuleManagementNetworkProfileOutput) ToModuleManagementNetworkProfilePtrOutput() ModuleManagementNetworkProfilePtrOutput {
+	return o.ToModuleManagementNetworkProfilePtrOutputWithContext(context.Background())
+}
+
+func (o ModuleManagementNetworkProfileOutput) ToModuleManagementNetworkProfilePtrOutputWithContext(ctx context.Context) ModuleManagementNetworkProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModuleManagementNetworkProfile) *ModuleManagementNetworkProfile {
+		return &v
+	}).(ModuleManagementNetworkProfilePtrOutput)
+}
+
+// The private IPv4 address of the network interface. Changing this forces a new Dedicated Hardware Security Module to be created.
+func (o ModuleManagementNetworkProfileOutput) NetworkInterfacePrivateIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ModuleManagementNetworkProfile) []string { return v.NetworkInterfacePrivateIpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the subnet. Changing this forces a new Dedicated Hardware Security Module to be created.
+func (o ModuleManagementNetworkProfileOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v ModuleManagementNetworkProfile) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type ModuleManagementNetworkProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (ModuleManagementNetworkProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModuleManagementNetworkProfile)(nil)).Elem()
+}
+
+func (o ModuleManagementNetworkProfilePtrOutput) ToModuleManagementNetworkProfilePtrOutput() ModuleManagementNetworkProfilePtrOutput {
+	return o
+}
+
+func (o ModuleManagementNetworkProfilePtrOutput) ToModuleManagementNetworkProfilePtrOutputWithContext(ctx context.Context) ModuleManagementNetworkProfilePtrOutput {
+	return o
+}
+
+func (o ModuleManagementNetworkProfilePtrOutput) Elem() ModuleManagementNetworkProfileOutput {
+	return o.ApplyT(func(v *ModuleManagementNetworkProfile) ModuleManagementNetworkProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ModuleManagementNetworkProfile
+		return ret
+	}).(ModuleManagementNetworkProfileOutput)
+}
+
+// The private IPv4 address of the network interface. Changing this forces a new Dedicated Hardware Security Module to be created.
+func (o ModuleManagementNetworkProfilePtrOutput) NetworkInterfacePrivateIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ModuleManagementNetworkProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkInterfacePrivateIpAddresses
+	}).(pulumi.StringArrayOutput)
+}
+
+// The ID of the subnet. Changing this forces a new Dedicated Hardware Security Module to be created.
+func (o ModuleManagementNetworkProfilePtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModuleManagementNetworkProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
 type ModuleNetworkProfile struct {
 	// The private IPv4 address of the network interface. Changing this forces a new Dedicated Hardware Security Module to be created.
 	NetworkInterfacePrivateIpAddresses []string `pulumi:"networkInterfacePrivateIpAddresses"`
@@ -167,8 +323,12 @@ func (o ModuleNetworkProfilePtrOutput) SubnetId() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ModuleManagementNetworkProfileInput)(nil)).Elem(), ModuleManagementNetworkProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModuleManagementNetworkProfilePtrInput)(nil)).Elem(), ModuleManagementNetworkProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModuleNetworkProfileInput)(nil)).Elem(), ModuleNetworkProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModuleNetworkProfilePtrInput)(nil)).Elem(), ModuleNetworkProfileArgs{})
+	pulumi.RegisterOutputType(ModuleManagementNetworkProfileOutput{})
+	pulumi.RegisterOutputType(ModuleManagementNetworkProfilePtrOutput{})
 	pulumi.RegisterOutputType(ModuleNetworkProfileOutput{})
 	pulumi.RegisterOutputType(ModuleNetworkProfilePtrOutput{})
 }

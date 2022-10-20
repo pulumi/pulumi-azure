@@ -83,6 +83,8 @@ type Api struct {
 	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
 	// Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
 	ApiType pulumi.StringOutput `pulumi:"apiType"`
+	// A `contact` block as documented below.
+	Contact ApiContactPtrOutput `pulumi:"contact"`
 	// A description of the API Management API, which may include HTML formatting tags.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The display name of the API.
@@ -93,6 +95,8 @@ type Api struct {
 	IsCurrent pulumi.BoolOutput `pulumi:"isCurrent"`
 	// Is this API Revision online/accessible via the Gateway?
 	IsOnline pulumi.BoolOutput `pulumi:"isOnline"`
+	// A `license` block as documented below.
+	License ApiLicensePtrOutput `pulumi:"license"`
 	// The name of the API Management API. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// An `oauth2Authorization` block as documented below.
@@ -121,6 +125,8 @@ type Api struct {
 	SubscriptionKeyParameterNames ApiSubscriptionKeyParameterNamesOutput `pulumi:"subscriptionKeyParameterNames"`
 	// Should this API require a subscription key?
 	SubscriptionRequired pulumi.BoolPtrOutput `pulumi:"subscriptionRequired"`
+	// Absolute URL of the Terms of Service for the API.
+	TermsOfServiceUrl pulumi.StringPtrOutput `pulumi:"termsOfServiceUrl"`
 	// The Version number of this API, if this API is versioned.
 	Version pulumi.StringOutput `pulumi:"version"`
 	// The description of the API Version of the API Management API.
@@ -171,6 +177,8 @@ type apiState struct {
 	ApiManagementName *string `pulumi:"apiManagementName"`
 	// Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
 	ApiType *string `pulumi:"apiType"`
+	// A `contact` block as documented below.
+	Contact *ApiContact `pulumi:"contact"`
 	// A description of the API Management API, which may include HTML formatting tags.
 	Description *string `pulumi:"description"`
 	// The display name of the API.
@@ -181,6 +189,8 @@ type apiState struct {
 	IsCurrent *bool `pulumi:"isCurrent"`
 	// Is this API Revision online/accessible via the Gateway?
 	IsOnline *bool `pulumi:"isOnline"`
+	// A `license` block as documented below.
+	License *ApiLicense `pulumi:"license"`
 	// The name of the API Management API. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// An `oauth2Authorization` block as documented below.
@@ -209,6 +219,8 @@ type apiState struct {
 	SubscriptionKeyParameterNames *ApiSubscriptionKeyParameterNames `pulumi:"subscriptionKeyParameterNames"`
 	// Should this API require a subscription key?
 	SubscriptionRequired *bool `pulumi:"subscriptionRequired"`
+	// Absolute URL of the Terms of Service for the API.
+	TermsOfServiceUrl *string `pulumi:"termsOfServiceUrl"`
 	// The Version number of this API, if this API is versioned.
 	Version *string `pulumi:"version"`
 	// The description of the API Version of the API Management API.
@@ -222,6 +234,8 @@ type ApiState struct {
 	ApiManagementName pulumi.StringPtrInput
 	// Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
 	ApiType pulumi.StringPtrInput
+	// A `contact` block as documented below.
+	Contact ApiContactPtrInput
 	// A description of the API Management API, which may include HTML formatting tags.
 	Description pulumi.StringPtrInput
 	// The display name of the API.
@@ -232,6 +246,8 @@ type ApiState struct {
 	IsCurrent pulumi.BoolPtrInput
 	// Is this API Revision online/accessible via the Gateway?
 	IsOnline pulumi.BoolPtrInput
+	// A `license` block as documented below.
+	License ApiLicensePtrInput
 	// The name of the API Management API. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// An `oauth2Authorization` block as documented below.
@@ -260,6 +276,8 @@ type ApiState struct {
 	SubscriptionKeyParameterNames ApiSubscriptionKeyParameterNamesPtrInput
 	// Should this API require a subscription key?
 	SubscriptionRequired pulumi.BoolPtrInput
+	// Absolute URL of the Terms of Service for the API.
+	TermsOfServiceUrl pulumi.StringPtrInput
 	// The Version number of this API, if this API is versioned.
 	Version pulumi.StringPtrInput
 	// The description of the API Version of the API Management API.
@@ -277,12 +295,16 @@ type apiArgs struct {
 	ApiManagementName string `pulumi:"apiManagementName"`
 	// Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
 	ApiType *string `pulumi:"apiType"`
+	// A `contact` block as documented below.
+	Contact *ApiContact `pulumi:"contact"`
 	// A description of the API Management API, which may include HTML formatting tags.
 	Description *string `pulumi:"description"`
 	// The display name of the API.
 	DisplayName *string `pulumi:"displayName"`
 	// A `import` block as documented below.
 	Import *ApiImport `pulumi:"import"`
+	// A `license` block as documented below.
+	License *ApiLicense `pulumi:"license"`
 	// The name of the API Management API. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// An `oauth2Authorization` block as documented below.
@@ -311,6 +333,8 @@ type apiArgs struct {
 	SubscriptionKeyParameterNames *ApiSubscriptionKeyParameterNames `pulumi:"subscriptionKeyParameterNames"`
 	// Should this API require a subscription key?
 	SubscriptionRequired *bool `pulumi:"subscriptionRequired"`
+	// Absolute URL of the Terms of Service for the API.
+	TermsOfServiceUrl *string `pulumi:"termsOfServiceUrl"`
 	// The Version number of this API, if this API is versioned.
 	Version *string `pulumi:"version"`
 	// The description of the API Version of the API Management API.
@@ -325,12 +349,16 @@ type ApiArgs struct {
 	ApiManagementName pulumi.StringInput
 	// Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
 	ApiType pulumi.StringPtrInput
+	// A `contact` block as documented below.
+	Contact ApiContactPtrInput
 	// A description of the API Management API, which may include HTML formatting tags.
 	Description pulumi.StringPtrInput
 	// The display name of the API.
 	DisplayName pulumi.StringPtrInput
 	// A `import` block as documented below.
 	Import ApiImportPtrInput
+	// A `license` block as documented below.
+	License ApiLicensePtrInput
 	// The name of the API Management API. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// An `oauth2Authorization` block as documented below.
@@ -359,6 +387,8 @@ type ApiArgs struct {
 	SubscriptionKeyParameterNames ApiSubscriptionKeyParameterNamesPtrInput
 	// Should this API require a subscription key?
 	SubscriptionRequired pulumi.BoolPtrInput
+	// Absolute URL of the Terms of Service for the API.
+	TermsOfServiceUrl pulumi.StringPtrInput
 	// The Version number of this API, if this API is versioned.
 	Version pulumi.StringPtrInput
 	// The description of the API Version of the API Management API.
@@ -464,6 +494,11 @@ func (o ApiOutput) ApiType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringOutput { return v.ApiType }).(pulumi.StringOutput)
 }
 
+// A `contact` block as documented below.
+func (o ApiOutput) Contact() ApiContactPtrOutput {
+	return o.ApplyT(func(v *Api) ApiContactPtrOutput { return v.Contact }).(ApiContactPtrOutput)
+}
+
 // A description of the API Management API, which may include HTML formatting tags.
 func (o ApiOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
@@ -487,6 +522,11 @@ func (o ApiOutput) IsCurrent() pulumi.BoolOutput {
 // Is this API Revision online/accessible via the Gateway?
 func (o ApiOutput) IsOnline() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Api) pulumi.BoolOutput { return v.IsOnline }).(pulumi.BoolOutput)
+}
+
+// A `license` block as documented below.
+func (o ApiOutput) License() ApiLicensePtrOutput {
+	return o.ApplyT(func(v *Api) ApiLicensePtrOutput { return v.License }).(ApiLicensePtrOutput)
 }
 
 // The name of the API Management API. Changing this forces a new resource to be created.
@@ -554,6 +594,11 @@ func (o ApiOutput) SubscriptionKeyParameterNames() ApiSubscriptionKeyParameterNa
 // Should this API require a subscription key?
 func (o ApiOutput) SubscriptionRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Api) pulumi.BoolPtrOutput { return v.SubscriptionRequired }).(pulumi.BoolPtrOutput)
+}
+
+// Absolute URL of the Terms of Service for the API.
+func (o ApiOutput) TermsOfServiceUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Api) pulumi.StringPtrOutput { return v.TermsOfServiceUrl }).(pulumi.StringPtrOutput)
 }
 
 // The Version number of this API, if this API is versioned.

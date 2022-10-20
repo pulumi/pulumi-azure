@@ -12,6 +12,7 @@ import (
 
 type Features struct {
 	ApiManagement          *FeaturesApiManagement          `pulumi:"apiManagement"`
+	AppConfiguration       *FeaturesAppConfiguration       `pulumi:"appConfiguration"`
 	ApplicationInsights    *FeaturesApplicationInsights    `pulumi:"applicationInsights"`
 	CognitiveAccount       *FeaturesCognitiveAccount       `pulumi:"cognitiveAccount"`
 	KeyVault               *FeaturesKeyVault               `pulumi:"keyVault"`
@@ -36,6 +37,7 @@ type FeaturesInput interface {
 
 type FeaturesArgs struct {
 	ApiManagement          FeaturesApiManagementPtrInput          `pulumi:"apiManagement"`
+	AppConfiguration       FeaturesAppConfigurationPtrInput       `pulumi:"appConfiguration"`
 	ApplicationInsights    FeaturesApplicationInsightsPtrInput    `pulumi:"applicationInsights"`
 	CognitiveAccount       FeaturesCognitiveAccountPtrInput       `pulumi:"cognitiveAccount"`
 	KeyVault               FeaturesKeyVaultPtrInput               `pulumi:"keyVault"`
@@ -75,6 +77,10 @@ func (o FeaturesOutput) ToFeaturesOutputWithContext(ctx context.Context) Feature
 
 func (o FeaturesOutput) ApiManagement() FeaturesApiManagementPtrOutput {
 	return o.ApplyT(func(v Features) *FeaturesApiManagement { return v.ApiManagement }).(FeaturesApiManagementPtrOutput)
+}
+
+func (o FeaturesOutput) AppConfiguration() FeaturesAppConfigurationPtrOutput {
+	return o.ApplyT(func(v Features) *FeaturesAppConfiguration { return v.AppConfiguration }).(FeaturesAppConfigurationPtrOutput)
 }
 
 func (o FeaturesOutput) ApplicationInsights() FeaturesApplicationInsightsPtrOutput {
@@ -254,6 +260,154 @@ func (o FeaturesApiManagementPtrOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPt
 
 func (o FeaturesApiManagementPtrOutput) RecoverSoftDeleted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FeaturesApiManagement) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RecoverSoftDeleted
+	}).(pulumi.BoolPtrOutput)
+}
+
+type FeaturesAppConfiguration struct {
+	PurgeSoftDeleteOnDestroy *bool `pulumi:"purgeSoftDeleteOnDestroy"`
+	RecoverSoftDeleted       *bool `pulumi:"recoverSoftDeleted"`
+}
+
+// FeaturesAppConfigurationInput is an input type that accepts FeaturesAppConfigurationArgs and FeaturesAppConfigurationOutput values.
+// You can construct a concrete instance of `FeaturesAppConfigurationInput` via:
+//
+//	FeaturesAppConfigurationArgs{...}
+type FeaturesAppConfigurationInput interface {
+	pulumi.Input
+
+	ToFeaturesAppConfigurationOutput() FeaturesAppConfigurationOutput
+	ToFeaturesAppConfigurationOutputWithContext(context.Context) FeaturesAppConfigurationOutput
+}
+
+type FeaturesAppConfigurationArgs struct {
+	PurgeSoftDeleteOnDestroy pulumi.BoolPtrInput `pulumi:"purgeSoftDeleteOnDestroy"`
+	RecoverSoftDeleted       pulumi.BoolPtrInput `pulumi:"recoverSoftDeleted"`
+}
+
+func (FeaturesAppConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesAppConfiguration)(nil)).Elem()
+}
+
+func (i FeaturesAppConfigurationArgs) ToFeaturesAppConfigurationOutput() FeaturesAppConfigurationOutput {
+	return i.ToFeaturesAppConfigurationOutputWithContext(context.Background())
+}
+
+func (i FeaturesAppConfigurationArgs) ToFeaturesAppConfigurationOutputWithContext(ctx context.Context) FeaturesAppConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesAppConfigurationOutput)
+}
+
+func (i FeaturesAppConfigurationArgs) ToFeaturesAppConfigurationPtrOutput() FeaturesAppConfigurationPtrOutput {
+	return i.ToFeaturesAppConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FeaturesAppConfigurationArgs) ToFeaturesAppConfigurationPtrOutputWithContext(ctx context.Context) FeaturesAppConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesAppConfigurationOutput).ToFeaturesAppConfigurationPtrOutputWithContext(ctx)
+}
+
+// FeaturesAppConfigurationPtrInput is an input type that accepts FeaturesAppConfigurationArgs, FeaturesAppConfigurationPtr and FeaturesAppConfigurationPtrOutput values.
+// You can construct a concrete instance of `FeaturesAppConfigurationPtrInput` via:
+//
+//	        FeaturesAppConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FeaturesAppConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFeaturesAppConfigurationPtrOutput() FeaturesAppConfigurationPtrOutput
+	ToFeaturesAppConfigurationPtrOutputWithContext(context.Context) FeaturesAppConfigurationPtrOutput
+}
+
+type featuresAppConfigurationPtrType FeaturesAppConfigurationArgs
+
+func FeaturesAppConfigurationPtr(v *FeaturesAppConfigurationArgs) FeaturesAppConfigurationPtrInput {
+	return (*featuresAppConfigurationPtrType)(v)
+}
+
+func (*featuresAppConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesAppConfiguration)(nil)).Elem()
+}
+
+func (i *featuresAppConfigurationPtrType) ToFeaturesAppConfigurationPtrOutput() FeaturesAppConfigurationPtrOutput {
+	return i.ToFeaturesAppConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *featuresAppConfigurationPtrType) ToFeaturesAppConfigurationPtrOutputWithContext(ctx context.Context) FeaturesAppConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesAppConfigurationPtrOutput)
+}
+
+type FeaturesAppConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FeaturesAppConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesAppConfiguration)(nil)).Elem()
+}
+
+func (o FeaturesAppConfigurationOutput) ToFeaturesAppConfigurationOutput() FeaturesAppConfigurationOutput {
+	return o
+}
+
+func (o FeaturesAppConfigurationOutput) ToFeaturesAppConfigurationOutputWithContext(ctx context.Context) FeaturesAppConfigurationOutput {
+	return o
+}
+
+func (o FeaturesAppConfigurationOutput) ToFeaturesAppConfigurationPtrOutput() FeaturesAppConfigurationPtrOutput {
+	return o.ToFeaturesAppConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FeaturesAppConfigurationOutput) ToFeaturesAppConfigurationPtrOutputWithContext(ctx context.Context) FeaturesAppConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesAppConfiguration) *FeaturesAppConfiguration {
+		return &v
+	}).(FeaturesAppConfigurationPtrOutput)
+}
+
+func (o FeaturesAppConfigurationOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FeaturesAppConfiguration) *bool { return v.PurgeSoftDeleteOnDestroy }).(pulumi.BoolPtrOutput)
+}
+
+func (o FeaturesAppConfigurationOutput) RecoverSoftDeleted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FeaturesAppConfiguration) *bool { return v.RecoverSoftDeleted }).(pulumi.BoolPtrOutput)
+}
+
+type FeaturesAppConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FeaturesAppConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesAppConfiguration)(nil)).Elem()
+}
+
+func (o FeaturesAppConfigurationPtrOutput) ToFeaturesAppConfigurationPtrOutput() FeaturesAppConfigurationPtrOutput {
+	return o
+}
+
+func (o FeaturesAppConfigurationPtrOutput) ToFeaturesAppConfigurationPtrOutputWithContext(ctx context.Context) FeaturesAppConfigurationPtrOutput {
+	return o
+}
+
+func (o FeaturesAppConfigurationPtrOutput) Elem() FeaturesAppConfigurationOutput {
+	return o.ApplyT(func(v *FeaturesAppConfiguration) FeaturesAppConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FeaturesAppConfiguration
+		return ret
+	}).(FeaturesAppConfigurationOutput)
+}
+
+func (o FeaturesAppConfigurationPtrOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FeaturesAppConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PurgeSoftDeleteOnDestroy
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o FeaturesAppConfigurationPtrOutput) RecoverSoftDeleted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FeaturesAppConfiguration) *bool {
 		if v == nil {
 			return nil
 		}
@@ -1642,6 +1796,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesInput)(nil)).Elem(), FeaturesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesApiManagementInput)(nil)).Elem(), FeaturesApiManagementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesApiManagementPtrInput)(nil)).Elem(), FeaturesApiManagementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesAppConfigurationInput)(nil)).Elem(), FeaturesAppConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesAppConfigurationPtrInput)(nil)).Elem(), FeaturesAppConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesApplicationInsightsInput)(nil)).Elem(), FeaturesApplicationInsightsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesApplicationInsightsPtrInput)(nil)).Elem(), FeaturesApplicationInsightsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesCognitiveAccountInput)(nil)).Elem(), FeaturesCognitiveAccountArgs{})
@@ -1663,6 +1819,8 @@ func init() {
 	pulumi.RegisterOutputType(FeaturesOutput{})
 	pulumi.RegisterOutputType(FeaturesApiManagementOutput{})
 	pulumi.RegisterOutputType(FeaturesApiManagementPtrOutput{})
+	pulumi.RegisterOutputType(FeaturesAppConfigurationOutput{})
+	pulumi.RegisterOutputType(FeaturesAppConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FeaturesApplicationInsightsOutput{})
 	pulumi.RegisterOutputType(FeaturesApplicationInsightsPtrOutput{})
 	pulumi.RegisterOutputType(FeaturesCognitiveAccountOutput{})

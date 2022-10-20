@@ -119,7 +119,13 @@ import (
 //			_, err = hsm.NewModule(ctx, "exampleModule", &hsm.ModuleArgs{
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
-//				SkuName:           pulumi.String("SafeNet Luna Network HSM A790"),
+//				SkuName:           pulumi.String("payShield10K_LMK1_CPS60"),
+//				ManagementNetworkProfile: &hsm.ModuleManagementNetworkProfileArgs{
+//					NetworkInterfacePrivateIpAddresses: pulumi.StringArray{
+//						pulumi.String("10.2.1.7"),
+//					},
+//					SubnetId: example2.ID(),
+//				},
 //				NetworkProfile: &hsm.ModuleNetworkProfileArgs{
 //					NetworkInterfacePrivateIpAddresses: pulumi.StringArray{
 //						pulumi.String("10.2.1.8"),
@@ -156,13 +162,15 @@ type Module struct {
 
 	// The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// A `managementNetworkProfile` block as defined below.
+	ManagementNetworkProfile ModuleManagementNetworkProfilePtrOutput `pulumi:"managementNetworkProfile"`
 	// The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `networkProfile` block as defined below.
 	NetworkProfile ModuleNetworkProfileOutput `pulumi:"networkProfile"`
 	// The name of the Resource Group where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The SKU name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
+	// The SKU name of the dedicated hardware security module. Possible values are `payShield10K_LMK1_CPS60`,`payShield10K_LMK1_CPS250`,`payShield10K_LMK1_CPS2500`,`payShield10K_LMK2_CPS60`,`payShield10K_LMK2_CPS250`,`payShield10K_LMK2_CPS2500` and `SafeNet Luna Network HSM A790`. Changing this forces a new Dedicated Hardware Security Module to be created.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
 	StampId pulumi.StringPtrOutput `pulumi:"stampId"`
@@ -212,13 +220,15 @@ func GetModule(ctx *pulumi.Context,
 type moduleState struct {
 	// The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
 	Location *string `pulumi:"location"`
+	// A `managementNetworkProfile` block as defined below.
+	ManagementNetworkProfile *ModuleManagementNetworkProfile `pulumi:"managementNetworkProfile"`
 	// The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created.
 	Name *string `pulumi:"name"`
 	// A `networkProfile` block as defined below.
 	NetworkProfile *ModuleNetworkProfile `pulumi:"networkProfile"`
 	// The name of the Resource Group where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The SKU name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
+	// The SKU name of the dedicated hardware security module. Possible values are `payShield10K_LMK1_CPS60`,`payShield10K_LMK1_CPS250`,`payShield10K_LMK1_CPS2500`,`payShield10K_LMK2_CPS60`,`payShield10K_LMK2_CPS250`,`payShield10K_LMK2_CPS2500` and `SafeNet Luna Network HSM A790`. Changing this forces a new Dedicated Hardware Security Module to be created.
 	SkuName *string `pulumi:"skuName"`
 	// The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
 	StampId *string `pulumi:"stampId"`
@@ -231,13 +241,15 @@ type moduleState struct {
 type ModuleState struct {
 	// The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
 	Location pulumi.StringPtrInput
+	// A `managementNetworkProfile` block as defined below.
+	ManagementNetworkProfile ModuleManagementNetworkProfilePtrInput
 	// The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created.
 	Name pulumi.StringPtrInput
 	// A `networkProfile` block as defined below.
 	NetworkProfile ModuleNetworkProfilePtrInput
 	// The name of the Resource Group where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The SKU name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
+	// The SKU name of the dedicated hardware security module. Possible values are `payShield10K_LMK1_CPS60`,`payShield10K_LMK1_CPS250`,`payShield10K_LMK1_CPS2500`,`payShield10K_LMK2_CPS60`,`payShield10K_LMK2_CPS250`,`payShield10K_LMK2_CPS2500` and `SafeNet Luna Network HSM A790`. Changing this forces a new Dedicated Hardware Security Module to be created.
 	SkuName pulumi.StringPtrInput
 	// The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
 	StampId pulumi.StringPtrInput
@@ -254,13 +266,15 @@ func (ModuleState) ElementType() reflect.Type {
 type moduleArgs struct {
 	// The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
 	Location *string `pulumi:"location"`
+	// A `managementNetworkProfile` block as defined below.
+	ManagementNetworkProfile *ModuleManagementNetworkProfile `pulumi:"managementNetworkProfile"`
 	// The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created.
 	Name *string `pulumi:"name"`
 	// A `networkProfile` block as defined below.
 	NetworkProfile ModuleNetworkProfile `pulumi:"networkProfile"`
 	// The name of the Resource Group where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
+	// The SKU name of the dedicated hardware security module. Possible values are `payShield10K_LMK1_CPS60`,`payShield10K_LMK1_CPS250`,`payShield10K_LMK1_CPS2500`,`payShield10K_LMK2_CPS60`,`payShield10K_LMK2_CPS250`,`payShield10K_LMK2_CPS2500` and `SafeNet Luna Network HSM A790`. Changing this forces a new Dedicated Hardware Security Module to be created.
 	SkuName string `pulumi:"skuName"`
 	// The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
 	StampId *string `pulumi:"stampId"`
@@ -274,13 +288,15 @@ type moduleArgs struct {
 type ModuleArgs struct {
 	// The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
 	Location pulumi.StringPtrInput
+	// A `managementNetworkProfile` block as defined below.
+	ManagementNetworkProfile ModuleManagementNetworkProfilePtrInput
 	// The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created.
 	Name pulumi.StringPtrInput
 	// A `networkProfile` block as defined below.
 	NetworkProfile ModuleNetworkProfileInput
 	// The name of the Resource Group where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
 	ResourceGroupName pulumi.StringInput
-	// The SKU name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
+	// The SKU name of the dedicated hardware security module. Possible values are `payShield10K_LMK1_CPS60`,`payShield10K_LMK1_CPS250`,`payShield10K_LMK1_CPS2500`,`payShield10K_LMK2_CPS60`,`payShield10K_LMK2_CPS250`,`payShield10K_LMK2_CPS2500` and `SafeNet Luna Network HSM A790`. Changing this forces a new Dedicated Hardware Security Module to be created.
 	SkuName pulumi.StringInput
 	// The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
 	StampId pulumi.StringPtrInput
@@ -382,6 +398,11 @@ func (o ModuleOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Module) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
+// A `managementNetworkProfile` block as defined below.
+func (o ModuleOutput) ManagementNetworkProfile() ModuleManagementNetworkProfilePtrOutput {
+	return o.ApplyT(func(v *Module) ModuleManagementNetworkProfilePtrOutput { return v.ManagementNetworkProfile }).(ModuleManagementNetworkProfilePtrOutput)
+}
+
 // The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created.
 func (o ModuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Module) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
@@ -397,7 +418,7 @@ func (o ModuleOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Module) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The SKU name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
+// The SKU name of the dedicated hardware security module. Possible values are `payShield10K_LMK1_CPS60`,`payShield10K_LMK1_CPS250`,`payShield10K_LMK1_CPS2500`,`payShield10K_LMK2_CPS60`,`payShield10K_LMK2_CPS250`,`payShield10K_LMK2_CPS2500` and `SafeNet Luna Network HSM A790`. Changing this forces a new Dedicated Hardware Security Module to be created.
 func (o ModuleOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Module) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }

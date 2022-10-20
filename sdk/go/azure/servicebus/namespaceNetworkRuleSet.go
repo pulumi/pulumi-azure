@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a ServiceBus Namespace Network Rule Set Set.
+// Manages a ServiceBus Namespace Network Rule Set.
 //
 // ## Example Usage
 //

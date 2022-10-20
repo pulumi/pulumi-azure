@@ -58,10 +58,14 @@ type LookupConfigurationStoreArgs struct {
 
 // A collection of values returned by getConfigurationStore.
 type LookupConfigurationStoreResult struct {
+	Encryptions []GetConfigurationStoreEncryption `pulumi:"encryptions"`
 	// The Endpoint used to access this App Configuration.
 	Endpoint string `pulumi:"endpoint"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id         string                          `pulumi:"id"`
+	Identities []GetConfigurationStoreIdentity `pulumi:"identities"`
+	// Whether local authentication methods is enabled.
+	LocalAuthEnabled bool `pulumi:"localAuthEnabled"`
 	// The Azure Region where the App Configuration exists.
 	Location string `pulumi:"location"`
 	Name     string `pulumi:"name"`
@@ -70,14 +74,19 @@ type LookupConfigurationStoreResult struct {
 	// A `primaryWriteKey` block as defined below containing the primary write access key.
 	PrimaryWriteKeys []GetConfigurationStorePrimaryWriteKey `pulumi:"primaryWriteKeys"`
 	// The Public Network Access setting of this App Configuration.
-	PublicNetworkAccess string `pulumi:"publicNetworkAccess"`
-	ResourceGroupName   string `pulumi:"resourceGroupName"`
+	PublicNetworkAccess        string `pulumi:"publicNetworkAccess"`
+	PublicNetworkAccessEnabled bool   `pulumi:"publicNetworkAccessEnabled"`
+	// Whether Purge Protection is enabled.
+	PurgeProtectionEnabled bool   `pulumi:"purgeProtectionEnabled"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
 	// A `secondaryReadKey` block as defined below containing the secondary read access key.
 	SecondaryReadKeys []GetConfigurationStoreSecondaryReadKey `pulumi:"secondaryReadKeys"`
 	// A `secondaryWriteKey` block as defined below containing the secondary write access key.
 	SecondaryWriteKeys []GetConfigurationStoreSecondaryWriteKey `pulumi:"secondaryWriteKeys"`
 	// The name of the SKU used for this App Configuration.
 	Sku string `pulumi:"sku"`
+	// The number of days that items should be retained for once soft-deleted.
+	SoftDeleteRetentionDays int `pulumi:"softDeleteRetentionDays"`
 	// A mapping of tags assigned to the App Configuration.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -122,6 +131,10 @@ func (o LookupConfigurationStoreResultOutput) ToLookupConfigurationStoreResultOu
 	return o
 }
 
+func (o LookupConfigurationStoreResultOutput) Encryptions() GetConfigurationStoreEncryptionArrayOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) []GetConfigurationStoreEncryption { return v.Encryptions }).(GetConfigurationStoreEncryptionArrayOutput)
+}
+
 // The Endpoint used to access this App Configuration.
 func (o LookupConfigurationStoreResultOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationStoreResult) string { return v.Endpoint }).(pulumi.StringOutput)
@@ -130,6 +143,15 @@ func (o LookupConfigurationStoreResultOutput) Endpoint() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupConfigurationStoreResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationStoreResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupConfigurationStoreResultOutput) Identities() GetConfigurationStoreIdentityArrayOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) []GetConfigurationStoreIdentity { return v.Identities }).(GetConfigurationStoreIdentityArrayOutput)
+}
+
+// Whether local authentication methods is enabled.
+func (o LookupConfigurationStoreResultOutput) LocalAuthEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) bool { return v.LocalAuthEnabled }).(pulumi.BoolOutput)
 }
 
 // The Azure Region where the App Configuration exists.
@@ -158,6 +180,15 @@ func (o LookupConfigurationStoreResultOutput) PublicNetworkAccess() pulumi.Strin
 	return o.ApplyT(func(v LookupConfigurationStoreResult) string { return v.PublicNetworkAccess }).(pulumi.StringOutput)
 }
 
+func (o LookupConfigurationStoreResultOutput) PublicNetworkAccessEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) bool { return v.PublicNetworkAccessEnabled }).(pulumi.BoolOutput)
+}
+
+// Whether Purge Protection is enabled.
+func (o LookupConfigurationStoreResultOutput) PurgeProtectionEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) bool { return v.PurgeProtectionEnabled }).(pulumi.BoolOutput)
+}
+
 func (o LookupConfigurationStoreResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationStoreResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
@@ -179,6 +210,11 @@ func (o LookupConfigurationStoreResultOutput) SecondaryWriteKeys() GetConfigurat
 // The name of the SKU used for this App Configuration.
 func (o LookupConfigurationStoreResultOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationStoreResult) string { return v.Sku }).(pulumi.StringOutput)
+}
+
+// The number of days that items should be retained for once soft-deleted.
+func (o LookupConfigurationStoreResultOutput) SoftDeleteRetentionDays() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) int { return v.SoftDeleteRetentionDays }).(pulumi.IntOutput)
 }
 
 // A mapping of tags assigned to the App Configuration.

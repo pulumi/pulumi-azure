@@ -59,10 +59,13 @@ import (
 type ConfigurationStore struct {
 	pulumi.CustomResourceState
 
+	Encryption ConfigurationStoreEncryptionPtrOutput `pulumi:"encryption"`
 	// The URL of the App Configuration.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// An `identity` block as defined below.
 	Identity ConfigurationStoreIdentityPtrOutput `pulumi:"identity"`
+	// Whether local authentication methods is enabled. Defaults to `true`.
+	LocalAuthEnabled pulumi.BoolPtrOutput `pulumi:"localAuthEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the App Configuration. Changing this forces a new resource to be created.
@@ -71,8 +74,10 @@ type ConfigurationStore struct {
 	PrimaryReadKeys ConfigurationStorePrimaryReadKeyArrayOutput `pulumi:"primaryReadKeys"`
 	// A `primaryWriteKey` block as defined below containing the primary write access key.
 	PrimaryWriteKeys ConfigurationStorePrimaryWriteKeyArrayOutput `pulumi:"primaryWriteKeys"`
-	// The Public Network Access setting of this App Configuration.
+	// The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
 	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
+	// Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
+	PurgeProtectionEnabled pulumi.BoolPtrOutput `pulumi:"purgeProtectionEnabled"`
 	// The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `secondaryReadKey` block as defined below containing the secondary read access key.
@@ -81,6 +86,8 @@ type ConfigurationStore struct {
 	SecondaryWriteKeys ConfigurationStoreSecondaryWriteKeyArrayOutput `pulumi:"secondaryWriteKeys"`
 	// The SKU name of the App Configuration. Possible values are `free` and `standard`.
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
+	// The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
+	SoftDeleteRetentionDays pulumi.IntPtrOutput `pulumi:"softDeleteRetentionDays"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -117,10 +124,13 @@ func GetConfigurationStore(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConfigurationStore resources.
 type configurationStoreState struct {
+	Encryption *ConfigurationStoreEncryption `pulumi:"encryption"`
 	// The URL of the App Configuration.
 	Endpoint *string `pulumi:"endpoint"`
 	// An `identity` block as defined below.
 	Identity *ConfigurationStoreIdentity `pulumi:"identity"`
+	// Whether local authentication methods is enabled. Defaults to `true`.
+	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the App Configuration. Changing this forces a new resource to be created.
@@ -129,8 +139,10 @@ type configurationStoreState struct {
 	PrimaryReadKeys []ConfigurationStorePrimaryReadKey `pulumi:"primaryReadKeys"`
 	// A `primaryWriteKey` block as defined below containing the primary write access key.
 	PrimaryWriteKeys []ConfigurationStorePrimaryWriteKey `pulumi:"primaryWriteKeys"`
-	// The Public Network Access setting of this App Configuration.
+	// The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+	// Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
+	PurgeProtectionEnabled *bool `pulumi:"purgeProtectionEnabled"`
 	// The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `secondaryReadKey` block as defined below containing the secondary read access key.
@@ -139,15 +151,20 @@ type configurationStoreState struct {
 	SecondaryWriteKeys []ConfigurationStoreSecondaryWriteKey `pulumi:"secondaryWriteKeys"`
 	// The SKU name of the App Configuration. Possible values are `free` and `standard`.
 	Sku *string `pulumi:"sku"`
+	// The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
+	SoftDeleteRetentionDays *int `pulumi:"softDeleteRetentionDays"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 type ConfigurationStoreState struct {
+	Encryption ConfigurationStoreEncryptionPtrInput
 	// The URL of the App Configuration.
 	Endpoint pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity ConfigurationStoreIdentityPtrInput
+	// Whether local authentication methods is enabled. Defaults to `true`.
+	LocalAuthEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the App Configuration. Changing this forces a new resource to be created.
@@ -156,8 +173,10 @@ type ConfigurationStoreState struct {
 	PrimaryReadKeys ConfigurationStorePrimaryReadKeyArrayInput
 	// A `primaryWriteKey` block as defined below containing the primary write access key.
 	PrimaryWriteKeys ConfigurationStorePrimaryWriteKeyArrayInput
-	// The Public Network Access setting of this App Configuration.
+	// The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
 	PublicNetworkAccess pulumi.StringPtrInput
+	// Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
+	PurgeProtectionEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `secondaryReadKey` block as defined below containing the secondary read access key.
@@ -166,6 +185,8 @@ type ConfigurationStoreState struct {
 	SecondaryWriteKeys ConfigurationStoreSecondaryWriteKeyArrayInput
 	// The SKU name of the App Configuration. Possible values are `free` and `standard`.
 	Sku pulumi.StringPtrInput
+	// The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
+	SoftDeleteRetentionDays pulumi.IntPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
@@ -175,36 +196,50 @@ func (ConfigurationStoreState) ElementType() reflect.Type {
 }
 
 type configurationStoreArgs struct {
+	Encryption *ConfigurationStoreEncryption `pulumi:"encryption"`
 	// An `identity` block as defined below.
 	Identity *ConfigurationStoreIdentity `pulumi:"identity"`
+	// Whether local authentication methods is enabled. Defaults to `true`.
+	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the App Configuration. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The Public Network Access setting of this App Configuration.
+	// The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+	// Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
+	PurgeProtectionEnabled *bool `pulumi:"purgeProtectionEnabled"`
 	// The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU name of the App Configuration. Possible values are `free` and `standard`.
 	Sku *string `pulumi:"sku"`
+	// The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
+	SoftDeleteRetentionDays *int `pulumi:"softDeleteRetentionDays"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ConfigurationStore resource.
 type ConfigurationStoreArgs struct {
+	Encryption ConfigurationStoreEncryptionPtrInput
 	// An `identity` block as defined below.
 	Identity ConfigurationStoreIdentityPtrInput
+	// Whether local authentication methods is enabled. Defaults to `true`.
+	LocalAuthEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the App Configuration. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The Public Network Access setting of this App Configuration.
+	// The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
 	PublicNetworkAccess pulumi.StringPtrInput
+	// Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
+	PurgeProtectionEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The SKU name of the App Configuration. Possible values are `free` and `standard`.
 	Sku pulumi.StringPtrInput
+	// The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
+	SoftDeleteRetentionDays pulumi.IntPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
@@ -296,6 +331,10 @@ func (o ConfigurationStoreOutput) ToConfigurationStoreOutputWithContext(ctx cont
 	return o
 }
 
+func (o ConfigurationStoreOutput) Encryption() ConfigurationStoreEncryptionPtrOutput {
+	return o.ApplyT(func(v *ConfigurationStore) ConfigurationStoreEncryptionPtrOutput { return v.Encryption }).(ConfigurationStoreEncryptionPtrOutput)
+}
+
 // The URL of the App Configuration.
 func (o ConfigurationStoreOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationStore) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
@@ -304,6 +343,11 @@ func (o ConfigurationStoreOutput) Endpoint() pulumi.StringOutput {
 // An `identity` block as defined below.
 func (o ConfigurationStoreOutput) Identity() ConfigurationStoreIdentityPtrOutput {
 	return o.ApplyT(func(v *ConfigurationStore) ConfigurationStoreIdentityPtrOutput { return v.Identity }).(ConfigurationStoreIdentityPtrOutput)
+}
+
+// Whether local authentication methods is enabled. Defaults to `true`.
+func (o ConfigurationStoreOutput) LocalAuthEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConfigurationStore) pulumi.BoolPtrOutput { return v.LocalAuthEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -326,9 +370,14 @@ func (o ConfigurationStoreOutput) PrimaryWriteKeys() ConfigurationStorePrimaryWr
 	return o.ApplyT(func(v *ConfigurationStore) ConfigurationStorePrimaryWriteKeyArrayOutput { return v.PrimaryWriteKeys }).(ConfigurationStorePrimaryWriteKeyArrayOutput)
 }
 
-// The Public Network Access setting of this App Configuration.
+// The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
 func (o ConfigurationStoreOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationStore) pulumi.StringPtrOutput { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
+func (o ConfigurationStoreOutput) PurgeProtectionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConfigurationStore) pulumi.BoolPtrOutput { return v.PurgeProtectionEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
@@ -351,6 +400,11 @@ func (o ConfigurationStoreOutput) SecondaryWriteKeys() ConfigurationStoreSeconda
 // The SKU name of the App Configuration. Possible values are `free` and `standard`.
 func (o ConfigurationStoreOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationStore) pulumi.StringPtrOutput { return v.Sku }).(pulumi.StringPtrOutput)
+}
+
+// The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
+func (o ConfigurationStoreOutput) SoftDeleteRetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ConfigurationStore) pulumi.IntPtrOutput { return v.SoftDeleteRetentionDays }).(pulumi.IntPtrOutput)
 }
 
 // A mapping of tags to assign to the resource.

@@ -46,7 +46,7 @@ import (
 //						Tags:                  nil,
 //					},
 //					&containerservice.RegistryGeoreplicationArgs{
-//						Location:              pulumi.String("westeurope"),
+//						Location:              pulumi.String("North Europe"),
 //						ZoneRedundancyEnabled: pulumi.Bool(true),
 //						Tags:                  nil,
 //					},

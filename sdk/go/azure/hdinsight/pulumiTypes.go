@@ -1830,6 +1830,8 @@ func (o HBaseClusterRolesPtrOutput) ZookeeperNode() HBaseClusterRolesZookeeperNo
 type HBaseClusterRolesHeadNode struct {
 	// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
+	// The script action which will run on the cluster.
+	ScriptActions []HBaseClusterRolesHeadNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	SshKeys []string `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -1856,6 +1858,8 @@ type HBaseClusterRolesHeadNodeInput interface {
 type HBaseClusterRolesHeadNodeArgs struct {
 	// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The script action which will run on the cluster.
+	ScriptActions HBaseClusterRolesHeadNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -1950,6 +1954,11 @@ func (o HBaseClusterRolesHeadNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HBaseClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
+// The script action which will run on the cluster.
+func (o HBaseClusterRolesHeadNodeOutput) ScriptActions() HBaseClusterRolesHeadNodeScriptActionArrayOutput {
+	return o.ApplyT(func(v HBaseClusterRolesHeadNode) []HBaseClusterRolesHeadNodeScriptAction { return v.ScriptActions }).(HBaseClusterRolesHeadNodeScriptActionArrayOutput)
+}
+
 // A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 func (o HBaseClusterRolesHeadNodeOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v HBaseClusterRolesHeadNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
@@ -2009,6 +2018,16 @@ func (o HBaseClusterRolesHeadNodePtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The script action which will run on the cluster.
+func (o HBaseClusterRolesHeadNodePtrOutput) ScriptActions() HBaseClusterRolesHeadNodeScriptActionArrayOutput {
+	return o.ApplyT(func(v *HBaseClusterRolesHeadNode) []HBaseClusterRolesHeadNodeScriptAction {
+		if v == nil {
+			return nil
+		}
+		return v.ScriptActions
+	}).(HBaseClusterRolesHeadNodeScriptActionArrayOutput)
+}
+
 // A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 func (o HBaseClusterRolesHeadNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *HBaseClusterRolesHeadNode) []string {
@@ -2059,11 +2078,128 @@ func (o HBaseClusterRolesHeadNodePtrOutput) VmSize() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type HBaseClusterRolesHeadNodeScriptAction struct {
+	// Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// The parameters for the script provided.
+	Parameters *string `pulumi:"parameters"`
+	// The URI to the script.
+	Uri string `pulumi:"uri"`
+}
+
+// HBaseClusterRolesHeadNodeScriptActionInput is an input type that accepts HBaseClusterRolesHeadNodeScriptActionArgs and HBaseClusterRolesHeadNodeScriptActionOutput values.
+// You can construct a concrete instance of `HBaseClusterRolesHeadNodeScriptActionInput` via:
+//
+//	HBaseClusterRolesHeadNodeScriptActionArgs{...}
+type HBaseClusterRolesHeadNodeScriptActionInput interface {
+	pulumi.Input
+
+	ToHBaseClusterRolesHeadNodeScriptActionOutput() HBaseClusterRolesHeadNodeScriptActionOutput
+	ToHBaseClusterRolesHeadNodeScriptActionOutputWithContext(context.Context) HBaseClusterRolesHeadNodeScriptActionOutput
+}
+
+type HBaseClusterRolesHeadNodeScriptActionArgs struct {
+	// Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The parameters for the script provided.
+	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
+	// The URI to the script.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (HBaseClusterRolesHeadNodeScriptActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HBaseClusterRolesHeadNodeScriptAction)(nil)).Elem()
+}
+
+func (i HBaseClusterRolesHeadNodeScriptActionArgs) ToHBaseClusterRolesHeadNodeScriptActionOutput() HBaseClusterRolesHeadNodeScriptActionOutput {
+	return i.ToHBaseClusterRolesHeadNodeScriptActionOutputWithContext(context.Background())
+}
+
+func (i HBaseClusterRolesHeadNodeScriptActionArgs) ToHBaseClusterRolesHeadNodeScriptActionOutputWithContext(ctx context.Context) HBaseClusterRolesHeadNodeScriptActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesHeadNodeScriptActionOutput)
+}
+
+// HBaseClusterRolesHeadNodeScriptActionArrayInput is an input type that accepts HBaseClusterRolesHeadNodeScriptActionArray and HBaseClusterRolesHeadNodeScriptActionArrayOutput values.
+// You can construct a concrete instance of `HBaseClusterRolesHeadNodeScriptActionArrayInput` via:
+//
+//	HBaseClusterRolesHeadNodeScriptActionArray{ HBaseClusterRolesHeadNodeScriptActionArgs{...} }
+type HBaseClusterRolesHeadNodeScriptActionArrayInput interface {
+	pulumi.Input
+
+	ToHBaseClusterRolesHeadNodeScriptActionArrayOutput() HBaseClusterRolesHeadNodeScriptActionArrayOutput
+	ToHBaseClusterRolesHeadNodeScriptActionArrayOutputWithContext(context.Context) HBaseClusterRolesHeadNodeScriptActionArrayOutput
+}
+
+type HBaseClusterRolesHeadNodeScriptActionArray []HBaseClusterRolesHeadNodeScriptActionInput
+
+func (HBaseClusterRolesHeadNodeScriptActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HBaseClusterRolesHeadNodeScriptAction)(nil)).Elem()
+}
+
+func (i HBaseClusterRolesHeadNodeScriptActionArray) ToHBaseClusterRolesHeadNodeScriptActionArrayOutput() HBaseClusterRolesHeadNodeScriptActionArrayOutput {
+	return i.ToHBaseClusterRolesHeadNodeScriptActionArrayOutputWithContext(context.Background())
+}
+
+func (i HBaseClusterRolesHeadNodeScriptActionArray) ToHBaseClusterRolesHeadNodeScriptActionArrayOutputWithContext(ctx context.Context) HBaseClusterRolesHeadNodeScriptActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesHeadNodeScriptActionArrayOutput)
+}
+
+type HBaseClusterRolesHeadNodeScriptActionOutput struct{ *pulumi.OutputState }
+
+func (HBaseClusterRolesHeadNodeScriptActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HBaseClusterRolesHeadNodeScriptAction)(nil)).Elem()
+}
+
+func (o HBaseClusterRolesHeadNodeScriptActionOutput) ToHBaseClusterRolesHeadNodeScriptActionOutput() HBaseClusterRolesHeadNodeScriptActionOutput {
+	return o
+}
+
+func (o HBaseClusterRolesHeadNodeScriptActionOutput) ToHBaseClusterRolesHeadNodeScriptActionOutputWithContext(ctx context.Context) HBaseClusterRolesHeadNodeScriptActionOutput {
+	return o
+}
+
+// Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+func (o HBaseClusterRolesHeadNodeScriptActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v HBaseClusterRolesHeadNodeScriptAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The parameters for the script provided.
+func (o HBaseClusterRolesHeadNodeScriptActionOutput) Parameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HBaseClusterRolesHeadNodeScriptAction) *string { return v.Parameters }).(pulumi.StringPtrOutput)
+}
+
+// The URI to the script.
+func (o HBaseClusterRolesHeadNodeScriptActionOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v HBaseClusterRolesHeadNodeScriptAction) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type HBaseClusterRolesHeadNodeScriptActionArrayOutput struct{ *pulumi.OutputState }
+
+func (HBaseClusterRolesHeadNodeScriptActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HBaseClusterRolesHeadNodeScriptAction)(nil)).Elem()
+}
+
+func (o HBaseClusterRolesHeadNodeScriptActionArrayOutput) ToHBaseClusterRolesHeadNodeScriptActionArrayOutput() HBaseClusterRolesHeadNodeScriptActionArrayOutput {
+	return o
+}
+
+func (o HBaseClusterRolesHeadNodeScriptActionArrayOutput) ToHBaseClusterRolesHeadNodeScriptActionArrayOutputWithContext(ctx context.Context) HBaseClusterRolesHeadNodeScriptActionArrayOutput {
+	return o
+}
+
+func (o HBaseClusterRolesHeadNodeScriptActionArrayOutput) Index(i pulumi.IntInput) HBaseClusterRolesHeadNodeScriptActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HBaseClusterRolesHeadNodeScriptAction {
+		return vs[0].([]HBaseClusterRolesHeadNodeScriptAction)[vs[1].(int)]
+	}).(HBaseClusterRolesHeadNodeScriptActionOutput)
+}
+
 type HBaseClusterRolesWorkerNode struct {
 	// A `autoscale` block as defined below.
 	Autoscale *HBaseClusterRolesWorkerNodeAutoscale `pulumi:"autoscale"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
+	// The script action which will run on the cluster.
+	ScriptActions []HBaseClusterRolesWorkerNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	SshKeys []string `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -2094,6 +2230,8 @@ type HBaseClusterRolesWorkerNodeArgs struct {
 	Autoscale HBaseClusterRolesWorkerNodeAutoscalePtrInput `pulumi:"autoscale"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The script action which will run on the cluster.
+	ScriptActions HBaseClusterRolesWorkerNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -2195,6 +2333,11 @@ func (o HBaseClusterRolesWorkerNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HBaseClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
+// The script action which will run on the cluster.
+func (o HBaseClusterRolesWorkerNodeOutput) ScriptActions() HBaseClusterRolesWorkerNodeScriptActionArrayOutput {
+	return o.ApplyT(func(v HBaseClusterRolesWorkerNode) []HBaseClusterRolesWorkerNodeScriptAction { return v.ScriptActions }).(HBaseClusterRolesWorkerNodeScriptActionArrayOutput)
+}
+
 // A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 func (o HBaseClusterRolesWorkerNodeOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v HBaseClusterRolesWorkerNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
@@ -2267,6 +2410,16 @@ func (o HBaseClusterRolesWorkerNodePtrOutput) Password() pulumi.StringPtrOutput 
 		}
 		return v.Password
 	}).(pulumi.StringPtrOutput)
+}
+
+// The script action which will run on the cluster.
+func (o HBaseClusterRolesWorkerNodePtrOutput) ScriptActions() HBaseClusterRolesWorkerNodeScriptActionArrayOutput {
+	return o.ApplyT(func(v *HBaseClusterRolesWorkerNode) []HBaseClusterRolesWorkerNodeScriptAction {
+		if v == nil {
+			return nil
+		}
+		return v.ScriptActions
+	}).(HBaseClusterRolesWorkerNodeScriptActionArrayOutput)
 }
 
 // A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
@@ -2741,9 +2894,126 @@ func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) Index
 	}).(HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput)
 }
 
+type HBaseClusterRolesWorkerNodeScriptAction struct {
+	// Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// The parameters for the script provided.
+	Parameters *string `pulumi:"parameters"`
+	// The URI to the script.
+	Uri string `pulumi:"uri"`
+}
+
+// HBaseClusterRolesWorkerNodeScriptActionInput is an input type that accepts HBaseClusterRolesWorkerNodeScriptActionArgs and HBaseClusterRolesWorkerNodeScriptActionOutput values.
+// You can construct a concrete instance of `HBaseClusterRolesWorkerNodeScriptActionInput` via:
+//
+//	HBaseClusterRolesWorkerNodeScriptActionArgs{...}
+type HBaseClusterRolesWorkerNodeScriptActionInput interface {
+	pulumi.Input
+
+	ToHBaseClusterRolesWorkerNodeScriptActionOutput() HBaseClusterRolesWorkerNodeScriptActionOutput
+	ToHBaseClusterRolesWorkerNodeScriptActionOutputWithContext(context.Context) HBaseClusterRolesWorkerNodeScriptActionOutput
+}
+
+type HBaseClusterRolesWorkerNodeScriptActionArgs struct {
+	// Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The parameters for the script provided.
+	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
+	// The URI to the script.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (HBaseClusterRolesWorkerNodeScriptActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HBaseClusterRolesWorkerNodeScriptAction)(nil)).Elem()
+}
+
+func (i HBaseClusterRolesWorkerNodeScriptActionArgs) ToHBaseClusterRolesWorkerNodeScriptActionOutput() HBaseClusterRolesWorkerNodeScriptActionOutput {
+	return i.ToHBaseClusterRolesWorkerNodeScriptActionOutputWithContext(context.Background())
+}
+
+func (i HBaseClusterRolesWorkerNodeScriptActionArgs) ToHBaseClusterRolesWorkerNodeScriptActionOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodeScriptActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesWorkerNodeScriptActionOutput)
+}
+
+// HBaseClusterRolesWorkerNodeScriptActionArrayInput is an input type that accepts HBaseClusterRolesWorkerNodeScriptActionArray and HBaseClusterRolesWorkerNodeScriptActionArrayOutput values.
+// You can construct a concrete instance of `HBaseClusterRolesWorkerNodeScriptActionArrayInput` via:
+//
+//	HBaseClusterRolesWorkerNodeScriptActionArray{ HBaseClusterRolesWorkerNodeScriptActionArgs{...} }
+type HBaseClusterRolesWorkerNodeScriptActionArrayInput interface {
+	pulumi.Input
+
+	ToHBaseClusterRolesWorkerNodeScriptActionArrayOutput() HBaseClusterRolesWorkerNodeScriptActionArrayOutput
+	ToHBaseClusterRolesWorkerNodeScriptActionArrayOutputWithContext(context.Context) HBaseClusterRolesWorkerNodeScriptActionArrayOutput
+}
+
+type HBaseClusterRolesWorkerNodeScriptActionArray []HBaseClusterRolesWorkerNodeScriptActionInput
+
+func (HBaseClusterRolesWorkerNodeScriptActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HBaseClusterRolesWorkerNodeScriptAction)(nil)).Elem()
+}
+
+func (i HBaseClusterRolesWorkerNodeScriptActionArray) ToHBaseClusterRolesWorkerNodeScriptActionArrayOutput() HBaseClusterRolesWorkerNodeScriptActionArrayOutput {
+	return i.ToHBaseClusterRolesWorkerNodeScriptActionArrayOutputWithContext(context.Background())
+}
+
+func (i HBaseClusterRolesWorkerNodeScriptActionArray) ToHBaseClusterRolesWorkerNodeScriptActionArrayOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodeScriptActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesWorkerNodeScriptActionArrayOutput)
+}
+
+type HBaseClusterRolesWorkerNodeScriptActionOutput struct{ *pulumi.OutputState }
+
+func (HBaseClusterRolesWorkerNodeScriptActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HBaseClusterRolesWorkerNodeScriptAction)(nil)).Elem()
+}
+
+func (o HBaseClusterRolesWorkerNodeScriptActionOutput) ToHBaseClusterRolesWorkerNodeScriptActionOutput() HBaseClusterRolesWorkerNodeScriptActionOutput {
+	return o
+}
+
+func (o HBaseClusterRolesWorkerNodeScriptActionOutput) ToHBaseClusterRolesWorkerNodeScriptActionOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodeScriptActionOutput {
+	return o
+}
+
+// Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+func (o HBaseClusterRolesWorkerNodeScriptActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v HBaseClusterRolesWorkerNodeScriptAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The parameters for the script provided.
+func (o HBaseClusterRolesWorkerNodeScriptActionOutput) Parameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HBaseClusterRolesWorkerNodeScriptAction) *string { return v.Parameters }).(pulumi.StringPtrOutput)
+}
+
+// The URI to the script.
+func (o HBaseClusterRolesWorkerNodeScriptActionOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v HBaseClusterRolesWorkerNodeScriptAction) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type HBaseClusterRolesWorkerNodeScriptActionArrayOutput struct{ *pulumi.OutputState }
+
+func (HBaseClusterRolesWorkerNodeScriptActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HBaseClusterRolesWorkerNodeScriptAction)(nil)).Elem()
+}
+
+func (o HBaseClusterRolesWorkerNodeScriptActionArrayOutput) ToHBaseClusterRolesWorkerNodeScriptActionArrayOutput() HBaseClusterRolesWorkerNodeScriptActionArrayOutput {
+	return o
+}
+
+func (o HBaseClusterRolesWorkerNodeScriptActionArrayOutput) ToHBaseClusterRolesWorkerNodeScriptActionArrayOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodeScriptActionArrayOutput {
+	return o
+}
+
+func (o HBaseClusterRolesWorkerNodeScriptActionArrayOutput) Index(i pulumi.IntInput) HBaseClusterRolesWorkerNodeScriptActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HBaseClusterRolesWorkerNodeScriptAction {
+		return vs[0].([]HBaseClusterRolesWorkerNodeScriptAction)[vs[1].(int)]
+	}).(HBaseClusterRolesWorkerNodeScriptActionOutput)
+}
+
 type HBaseClusterRolesZookeeperNode struct {
 	// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
+	// The script action which will run on the cluster.
+	ScriptActions []HBaseClusterRolesZookeeperNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	SshKeys []string `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -2770,6 +3040,8 @@ type HBaseClusterRolesZookeeperNodeInput interface {
 type HBaseClusterRolesZookeeperNodeArgs struct {
 	// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The script action which will run on the cluster.
+	ScriptActions HBaseClusterRolesZookeeperNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -2864,6 +3136,13 @@ func (o HBaseClusterRolesZookeeperNodeOutput) Password() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v HBaseClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
+// The script action which will run on the cluster.
+func (o HBaseClusterRolesZookeeperNodeOutput) ScriptActions() HBaseClusterRolesZookeeperNodeScriptActionArrayOutput {
+	return o.ApplyT(func(v HBaseClusterRolesZookeeperNode) []HBaseClusterRolesZookeeperNodeScriptAction {
+		return v.ScriptActions
+	}).(HBaseClusterRolesZookeeperNodeScriptActionArrayOutput)
+}
+
 // A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 func (o HBaseClusterRolesZookeeperNodeOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v HBaseClusterRolesZookeeperNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
@@ -2923,6 +3202,16 @@ func (o HBaseClusterRolesZookeeperNodePtrOutput) Password() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The script action which will run on the cluster.
+func (o HBaseClusterRolesZookeeperNodePtrOutput) ScriptActions() HBaseClusterRolesZookeeperNodeScriptActionArrayOutput {
+	return o.ApplyT(func(v *HBaseClusterRolesZookeeperNode) []HBaseClusterRolesZookeeperNodeScriptAction {
+		if v == nil {
+			return nil
+		}
+		return v.ScriptActions
+	}).(HBaseClusterRolesZookeeperNodeScriptActionArrayOutput)
+}
+
 // A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 func (o HBaseClusterRolesZookeeperNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *HBaseClusterRolesZookeeperNode) []string {
@@ -2971,6 +3260,121 @@ func (o HBaseClusterRolesZookeeperNodePtrOutput) VmSize() pulumi.StringPtrOutput
 		}
 		return &v.VmSize
 	}).(pulumi.StringPtrOutput)
+}
+
+type HBaseClusterRolesZookeeperNodeScriptAction struct {
+	// Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// The parameters for the script provided.
+	Parameters *string `pulumi:"parameters"`
+	// The URI to the script.
+	Uri string `pulumi:"uri"`
+}
+
+// HBaseClusterRolesZookeeperNodeScriptActionInput is an input type that accepts HBaseClusterRolesZookeeperNodeScriptActionArgs and HBaseClusterRolesZookeeperNodeScriptActionOutput values.
+// You can construct a concrete instance of `HBaseClusterRolesZookeeperNodeScriptActionInput` via:
+//
+//	HBaseClusterRolesZookeeperNodeScriptActionArgs{...}
+type HBaseClusterRolesZookeeperNodeScriptActionInput interface {
+	pulumi.Input
+
+	ToHBaseClusterRolesZookeeperNodeScriptActionOutput() HBaseClusterRolesZookeeperNodeScriptActionOutput
+	ToHBaseClusterRolesZookeeperNodeScriptActionOutputWithContext(context.Context) HBaseClusterRolesZookeeperNodeScriptActionOutput
+}
+
+type HBaseClusterRolesZookeeperNodeScriptActionArgs struct {
+	// Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The parameters for the script provided.
+	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
+	// The URI to the script.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (HBaseClusterRolesZookeeperNodeScriptActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HBaseClusterRolesZookeeperNodeScriptAction)(nil)).Elem()
+}
+
+func (i HBaseClusterRolesZookeeperNodeScriptActionArgs) ToHBaseClusterRolesZookeeperNodeScriptActionOutput() HBaseClusterRolesZookeeperNodeScriptActionOutput {
+	return i.ToHBaseClusterRolesZookeeperNodeScriptActionOutputWithContext(context.Background())
+}
+
+func (i HBaseClusterRolesZookeeperNodeScriptActionArgs) ToHBaseClusterRolesZookeeperNodeScriptActionOutputWithContext(ctx context.Context) HBaseClusterRolesZookeeperNodeScriptActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesZookeeperNodeScriptActionOutput)
+}
+
+// HBaseClusterRolesZookeeperNodeScriptActionArrayInput is an input type that accepts HBaseClusterRolesZookeeperNodeScriptActionArray and HBaseClusterRolesZookeeperNodeScriptActionArrayOutput values.
+// You can construct a concrete instance of `HBaseClusterRolesZookeeperNodeScriptActionArrayInput` via:
+//
+//	HBaseClusterRolesZookeeperNodeScriptActionArray{ HBaseClusterRolesZookeeperNodeScriptActionArgs{...} }
+type HBaseClusterRolesZookeeperNodeScriptActionArrayInput interface {
+	pulumi.Input
+
+	ToHBaseClusterRolesZookeeperNodeScriptActionArrayOutput() HBaseClusterRolesZookeeperNodeScriptActionArrayOutput
+	ToHBaseClusterRolesZookeeperNodeScriptActionArrayOutputWithContext(context.Context) HBaseClusterRolesZookeeperNodeScriptActionArrayOutput
+}
+
+type HBaseClusterRolesZookeeperNodeScriptActionArray []HBaseClusterRolesZookeeperNodeScriptActionInput
+
+func (HBaseClusterRolesZookeeperNodeScriptActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HBaseClusterRolesZookeeperNodeScriptAction)(nil)).Elem()
+}
+
+func (i HBaseClusterRolesZookeeperNodeScriptActionArray) ToHBaseClusterRolesZookeeperNodeScriptActionArrayOutput() HBaseClusterRolesZookeeperNodeScriptActionArrayOutput {
+	return i.ToHBaseClusterRolesZookeeperNodeScriptActionArrayOutputWithContext(context.Background())
+}
+
+func (i HBaseClusterRolesZookeeperNodeScriptActionArray) ToHBaseClusterRolesZookeeperNodeScriptActionArrayOutputWithContext(ctx context.Context) HBaseClusterRolesZookeeperNodeScriptActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesZookeeperNodeScriptActionArrayOutput)
+}
+
+type HBaseClusterRolesZookeeperNodeScriptActionOutput struct{ *pulumi.OutputState }
+
+func (HBaseClusterRolesZookeeperNodeScriptActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HBaseClusterRolesZookeeperNodeScriptAction)(nil)).Elem()
+}
+
+func (o HBaseClusterRolesZookeeperNodeScriptActionOutput) ToHBaseClusterRolesZookeeperNodeScriptActionOutput() HBaseClusterRolesZookeeperNodeScriptActionOutput {
+	return o
+}
+
+func (o HBaseClusterRolesZookeeperNodeScriptActionOutput) ToHBaseClusterRolesZookeeperNodeScriptActionOutputWithContext(ctx context.Context) HBaseClusterRolesZookeeperNodeScriptActionOutput {
+	return o
+}
+
+// Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+func (o HBaseClusterRolesZookeeperNodeScriptActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v HBaseClusterRolesZookeeperNodeScriptAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The parameters for the script provided.
+func (o HBaseClusterRolesZookeeperNodeScriptActionOutput) Parameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HBaseClusterRolesZookeeperNodeScriptAction) *string { return v.Parameters }).(pulumi.StringPtrOutput)
+}
+
+// The URI to the script.
+func (o HBaseClusterRolesZookeeperNodeScriptActionOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v HBaseClusterRolesZookeeperNodeScriptAction) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type HBaseClusterRolesZookeeperNodeScriptActionArrayOutput struct{ *pulumi.OutputState }
+
+func (HBaseClusterRolesZookeeperNodeScriptActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HBaseClusterRolesZookeeperNodeScriptAction)(nil)).Elem()
+}
+
+func (o HBaseClusterRolesZookeeperNodeScriptActionArrayOutput) ToHBaseClusterRolesZookeeperNodeScriptActionArrayOutput() HBaseClusterRolesZookeeperNodeScriptActionArrayOutput {
+	return o
+}
+
+func (o HBaseClusterRolesZookeeperNodeScriptActionArrayOutput) ToHBaseClusterRolesZookeeperNodeScriptActionArrayOutputWithContext(ctx context.Context) HBaseClusterRolesZookeeperNodeScriptActionArrayOutput {
+	return o
+}
+
+func (o HBaseClusterRolesZookeeperNodeScriptActionArrayOutput) Index(i pulumi.IntInput) HBaseClusterRolesZookeeperNodeScriptActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HBaseClusterRolesZookeeperNodeScriptAction {
+		return vs[0].([]HBaseClusterRolesZookeeperNodeScriptAction)[vs[1].(int)]
+	}).(HBaseClusterRolesZookeeperNodeScriptActionOutput)
 }
 
 type HBaseClusterSecurityProfile struct {
@@ -5953,6 +6357,8 @@ func (o HadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutput) Index(i pulu
 type HadoopClusterRolesHeadNode struct {
 	// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
+	// The script action which will run on the cluster.
+	ScriptActions []HadoopClusterRolesHeadNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	SshKeys []string `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -5979,6 +6385,8 @@ type HadoopClusterRolesHeadNodeInput interface {
 type HadoopClusterRolesHeadNodeArgs struct {
 	// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The script action which will run on the cluster.
+	ScriptActions HadoopClusterRolesHeadNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -6073,6 +6481,11 @@ func (o HadoopClusterRolesHeadNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HadoopClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
+// The script action which will run on the cluster.
+func (o HadoopClusterRolesHeadNodeOutput) ScriptActions() HadoopClusterRolesHeadNodeScriptActionArrayOutput {
+	return o.ApplyT(func(v HadoopClusterRolesHeadNode) []HadoopClusterRolesHeadNodeScriptAction { return v.ScriptActions }).(HadoopClusterRolesHeadNodeScriptActionArrayOutput)
+}
+
 // A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 func (o HadoopClusterRolesHeadNodeOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v HadoopClusterRolesHeadNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
@@ -6132,6 +6545,16 @@ func (o HadoopClusterRolesHeadNodePtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The script action which will run on the cluster.
+func (o HadoopClusterRolesHeadNodePtrOutput) ScriptActions() HadoopClusterRolesHeadNodeScriptActionArrayOutput {
+	return o.ApplyT(func(v *HadoopClusterRolesHeadNode) []HadoopClusterRolesHeadNodeScriptAction {
+		if v == nil {
+			return nil
+		}
+		return v.ScriptActions
+	}).(HadoopClusterRolesHeadNodeScriptActionArrayOutput)
+}
+
 // A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 func (o HadoopClusterRolesHeadNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *HadoopClusterRolesHeadNode) []string {
@@ -6182,11 +6605,128 @@ func (o HadoopClusterRolesHeadNodePtrOutput) VmSize() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type HadoopClusterRolesHeadNodeScriptAction struct {
+	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// The parameters for the script provided.
+	Parameters *string `pulumi:"parameters"`
+	// The URI to the script.
+	Uri string `pulumi:"uri"`
+}
+
+// HadoopClusterRolesHeadNodeScriptActionInput is an input type that accepts HadoopClusterRolesHeadNodeScriptActionArgs and HadoopClusterRolesHeadNodeScriptActionOutput values.
+// You can construct a concrete instance of `HadoopClusterRolesHeadNodeScriptActionInput` via:
+//
+//	HadoopClusterRolesHeadNodeScriptActionArgs{...}
+type HadoopClusterRolesHeadNodeScriptActionInput interface {
+	pulumi.Input
+
+	ToHadoopClusterRolesHeadNodeScriptActionOutput() HadoopClusterRolesHeadNodeScriptActionOutput
+	ToHadoopClusterRolesHeadNodeScriptActionOutputWithContext(context.Context) HadoopClusterRolesHeadNodeScriptActionOutput
+}
+
+type HadoopClusterRolesHeadNodeScriptActionArgs struct {
+	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The parameters for the script provided.
+	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
+	// The URI to the script.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (HadoopClusterRolesHeadNodeScriptActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterRolesHeadNodeScriptAction)(nil)).Elem()
+}
+
+func (i HadoopClusterRolesHeadNodeScriptActionArgs) ToHadoopClusterRolesHeadNodeScriptActionOutput() HadoopClusterRolesHeadNodeScriptActionOutput {
+	return i.ToHadoopClusterRolesHeadNodeScriptActionOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterRolesHeadNodeScriptActionArgs) ToHadoopClusterRolesHeadNodeScriptActionOutputWithContext(ctx context.Context) HadoopClusterRolesHeadNodeScriptActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesHeadNodeScriptActionOutput)
+}
+
+// HadoopClusterRolesHeadNodeScriptActionArrayInput is an input type that accepts HadoopClusterRolesHeadNodeScriptActionArray and HadoopClusterRolesHeadNodeScriptActionArrayOutput values.
+// You can construct a concrete instance of `HadoopClusterRolesHeadNodeScriptActionArrayInput` via:
+//
+//	HadoopClusterRolesHeadNodeScriptActionArray{ HadoopClusterRolesHeadNodeScriptActionArgs{...} }
+type HadoopClusterRolesHeadNodeScriptActionArrayInput interface {
+	pulumi.Input
+
+	ToHadoopClusterRolesHeadNodeScriptActionArrayOutput() HadoopClusterRolesHeadNodeScriptActionArrayOutput
+	ToHadoopClusterRolesHeadNodeScriptActionArrayOutputWithContext(context.Context) HadoopClusterRolesHeadNodeScriptActionArrayOutput
+}
+
+type HadoopClusterRolesHeadNodeScriptActionArray []HadoopClusterRolesHeadNodeScriptActionInput
+
+func (HadoopClusterRolesHeadNodeScriptActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HadoopClusterRolesHeadNodeScriptAction)(nil)).Elem()
+}
+
+func (i HadoopClusterRolesHeadNodeScriptActionArray) ToHadoopClusterRolesHeadNodeScriptActionArrayOutput() HadoopClusterRolesHeadNodeScriptActionArrayOutput {
+	return i.ToHadoopClusterRolesHeadNodeScriptActionArrayOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterRolesHeadNodeScriptActionArray) ToHadoopClusterRolesHeadNodeScriptActionArrayOutputWithContext(ctx context.Context) HadoopClusterRolesHeadNodeScriptActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesHeadNodeScriptActionArrayOutput)
+}
+
+type HadoopClusterRolesHeadNodeScriptActionOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterRolesHeadNodeScriptActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterRolesHeadNodeScriptAction)(nil)).Elem()
+}
+
+func (o HadoopClusterRolesHeadNodeScriptActionOutput) ToHadoopClusterRolesHeadNodeScriptActionOutput() HadoopClusterRolesHeadNodeScriptActionOutput {
+	return o
+}
+
+func (o HadoopClusterRolesHeadNodeScriptActionOutput) ToHadoopClusterRolesHeadNodeScriptActionOutputWithContext(ctx context.Context) HadoopClusterRolesHeadNodeScriptActionOutput {
+	return o
+}
+
+// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+func (o HadoopClusterRolesHeadNodeScriptActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterRolesHeadNodeScriptAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The parameters for the script provided.
+func (o HadoopClusterRolesHeadNodeScriptActionOutput) Parameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HadoopClusterRolesHeadNodeScriptAction) *string { return v.Parameters }).(pulumi.StringPtrOutput)
+}
+
+// The URI to the script.
+func (o HadoopClusterRolesHeadNodeScriptActionOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterRolesHeadNodeScriptAction) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type HadoopClusterRolesHeadNodeScriptActionArrayOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterRolesHeadNodeScriptActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HadoopClusterRolesHeadNodeScriptAction)(nil)).Elem()
+}
+
+func (o HadoopClusterRolesHeadNodeScriptActionArrayOutput) ToHadoopClusterRolesHeadNodeScriptActionArrayOutput() HadoopClusterRolesHeadNodeScriptActionArrayOutput {
+	return o
+}
+
+func (o HadoopClusterRolesHeadNodeScriptActionArrayOutput) ToHadoopClusterRolesHeadNodeScriptActionArrayOutputWithContext(ctx context.Context) HadoopClusterRolesHeadNodeScriptActionArrayOutput {
+	return o
+}
+
+func (o HadoopClusterRolesHeadNodeScriptActionArrayOutput) Index(i pulumi.IntInput) HadoopClusterRolesHeadNodeScriptActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HadoopClusterRolesHeadNodeScriptAction {
+		return vs[0].([]HadoopClusterRolesHeadNodeScriptAction)[vs[1].(int)]
+	}).(HadoopClusterRolesHeadNodeScriptActionOutput)
+}
+
 type HadoopClusterRolesWorkerNode struct {
 	// A `autoscale` block as defined below.
 	Autoscale *HadoopClusterRolesWorkerNodeAutoscale `pulumi:"autoscale"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
+	// The script action which will run on the cluster.
+	ScriptActions []HadoopClusterRolesWorkerNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	SshKeys []string `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -6217,6 +6757,8 @@ type HadoopClusterRolesWorkerNodeArgs struct {
 	Autoscale HadoopClusterRolesWorkerNodeAutoscalePtrInput `pulumi:"autoscale"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The script action which will run on the cluster.
+	ScriptActions HadoopClusterRolesWorkerNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -6318,6 +6860,13 @@ func (o HadoopClusterRolesWorkerNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HadoopClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
+// The script action which will run on the cluster.
+func (o HadoopClusterRolesWorkerNodeOutput) ScriptActions() HadoopClusterRolesWorkerNodeScriptActionArrayOutput {
+	return o.ApplyT(func(v HadoopClusterRolesWorkerNode) []HadoopClusterRolesWorkerNodeScriptAction {
+		return v.ScriptActions
+	}).(HadoopClusterRolesWorkerNodeScriptActionArrayOutput)
+}
+
 // A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 func (o HadoopClusterRolesWorkerNodeOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v HadoopClusterRolesWorkerNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
@@ -6390,6 +6939,16 @@ func (o HadoopClusterRolesWorkerNodePtrOutput) Password() pulumi.StringPtrOutput
 		}
 		return v.Password
 	}).(pulumi.StringPtrOutput)
+}
+
+// The script action which will run on the cluster.
+func (o HadoopClusterRolesWorkerNodePtrOutput) ScriptActions() HadoopClusterRolesWorkerNodeScriptActionArrayOutput {
+	return o.ApplyT(func(v *HadoopClusterRolesWorkerNode) []HadoopClusterRolesWorkerNodeScriptAction {
+		if v == nil {
+			return nil
+		}
+		return v.ScriptActions
+	}).(HadoopClusterRolesWorkerNodeScriptActionArrayOutput)
 }
 
 // A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
@@ -7041,9 +7600,126 @@ func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) Inde
 	}).(HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput)
 }
 
+type HadoopClusterRolesWorkerNodeScriptAction struct {
+	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// The parameters for the script provided.
+	Parameters *string `pulumi:"parameters"`
+	// The URI to the script.
+	Uri string `pulumi:"uri"`
+}
+
+// HadoopClusterRolesWorkerNodeScriptActionInput is an input type that accepts HadoopClusterRolesWorkerNodeScriptActionArgs and HadoopClusterRolesWorkerNodeScriptActionOutput values.
+// You can construct a concrete instance of `HadoopClusterRolesWorkerNodeScriptActionInput` via:
+//
+//	HadoopClusterRolesWorkerNodeScriptActionArgs{...}
+type HadoopClusterRolesWorkerNodeScriptActionInput interface {
+	pulumi.Input
+
+	ToHadoopClusterRolesWorkerNodeScriptActionOutput() HadoopClusterRolesWorkerNodeScriptActionOutput
+	ToHadoopClusterRolesWorkerNodeScriptActionOutputWithContext(context.Context) HadoopClusterRolesWorkerNodeScriptActionOutput
+}
+
+type HadoopClusterRolesWorkerNodeScriptActionArgs struct {
+	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The parameters for the script provided.
+	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
+	// The URI to the script.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (HadoopClusterRolesWorkerNodeScriptActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterRolesWorkerNodeScriptAction)(nil)).Elem()
+}
+
+func (i HadoopClusterRolesWorkerNodeScriptActionArgs) ToHadoopClusterRolesWorkerNodeScriptActionOutput() HadoopClusterRolesWorkerNodeScriptActionOutput {
+	return i.ToHadoopClusterRolesWorkerNodeScriptActionOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterRolesWorkerNodeScriptActionArgs) ToHadoopClusterRolesWorkerNodeScriptActionOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeScriptActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesWorkerNodeScriptActionOutput)
+}
+
+// HadoopClusterRolesWorkerNodeScriptActionArrayInput is an input type that accepts HadoopClusterRolesWorkerNodeScriptActionArray and HadoopClusterRolesWorkerNodeScriptActionArrayOutput values.
+// You can construct a concrete instance of `HadoopClusterRolesWorkerNodeScriptActionArrayInput` via:
+//
+//	HadoopClusterRolesWorkerNodeScriptActionArray{ HadoopClusterRolesWorkerNodeScriptActionArgs{...} }
+type HadoopClusterRolesWorkerNodeScriptActionArrayInput interface {
+	pulumi.Input
+
+	ToHadoopClusterRolesWorkerNodeScriptActionArrayOutput() HadoopClusterRolesWorkerNodeScriptActionArrayOutput
+	ToHadoopClusterRolesWorkerNodeScriptActionArrayOutputWithContext(context.Context) HadoopClusterRolesWorkerNodeScriptActionArrayOutput
+}
+
+type HadoopClusterRolesWorkerNodeScriptActionArray []HadoopClusterRolesWorkerNodeScriptActionInput
+
+func (HadoopClusterRolesWorkerNodeScriptActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HadoopClusterRolesWorkerNodeScriptAction)(nil)).Elem()
+}
+
+func (i HadoopClusterRolesWorkerNodeScriptActionArray) ToHadoopClusterRolesWorkerNodeScriptActionArrayOutput() HadoopClusterRolesWorkerNodeScriptActionArrayOutput {
+	return i.ToHadoopClusterRolesWorkerNodeScriptActionArrayOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterRolesWorkerNodeScriptActionArray) ToHadoopClusterRolesWorkerNodeScriptActionArrayOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeScriptActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesWorkerNodeScriptActionArrayOutput)
+}
+
+type HadoopClusterRolesWorkerNodeScriptActionOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterRolesWorkerNodeScriptActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterRolesWorkerNodeScriptAction)(nil)).Elem()
+}
+
+func (o HadoopClusterRolesWorkerNodeScriptActionOutput) ToHadoopClusterRolesWorkerNodeScriptActionOutput() HadoopClusterRolesWorkerNodeScriptActionOutput {
+	return o
+}
+
+func (o HadoopClusterRolesWorkerNodeScriptActionOutput) ToHadoopClusterRolesWorkerNodeScriptActionOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeScriptActionOutput {
+	return o
+}
+
+// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+func (o HadoopClusterRolesWorkerNodeScriptActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterRolesWorkerNodeScriptAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The parameters for the script provided.
+func (o HadoopClusterRolesWorkerNodeScriptActionOutput) Parameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HadoopClusterRolesWorkerNodeScriptAction) *string { return v.Parameters }).(pulumi.StringPtrOutput)
+}
+
+// The URI to the script.
+func (o HadoopClusterRolesWorkerNodeScriptActionOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterRolesWorkerNodeScriptAction) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type HadoopClusterRolesWorkerNodeScriptActionArrayOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterRolesWorkerNodeScriptActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HadoopClusterRolesWorkerNodeScriptAction)(nil)).Elem()
+}
+
+func (o HadoopClusterRolesWorkerNodeScriptActionArrayOutput) ToHadoopClusterRolesWorkerNodeScriptActionArrayOutput() HadoopClusterRolesWorkerNodeScriptActionArrayOutput {
+	return o
+}
+
+func (o HadoopClusterRolesWorkerNodeScriptActionArrayOutput) ToHadoopClusterRolesWorkerNodeScriptActionArrayOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeScriptActionArrayOutput {
+	return o
+}
+
+func (o HadoopClusterRolesWorkerNodeScriptActionArrayOutput) Index(i pulumi.IntInput) HadoopClusterRolesWorkerNodeScriptActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HadoopClusterRolesWorkerNodeScriptAction {
+		return vs[0].([]HadoopClusterRolesWorkerNodeScriptAction)[vs[1].(int)]
+	}).(HadoopClusterRolesWorkerNodeScriptActionOutput)
+}
+
 type HadoopClusterRolesZookeeperNode struct {
 	// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
+	// The script action which will run on the cluster.
+	ScriptActions []HadoopClusterRolesZookeeperNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	SshKeys []string `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -7070,6 +7746,8 @@ type HadoopClusterRolesZookeeperNodeInput interface {
 type HadoopClusterRolesZookeeperNodeArgs struct {
 	// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The script action which will run on the cluster.
+	ScriptActions HadoopClusterRolesZookeeperNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -7164,6 +7842,13 @@ func (o HadoopClusterRolesZookeeperNodeOutput) Password() pulumi.StringPtrOutput
 	return o.ApplyT(func(v HadoopClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
+// The script action which will run on the cluster.
+func (o HadoopClusterRolesZookeeperNodeOutput) ScriptActions() HadoopClusterRolesZookeeperNodeScriptActionArrayOutput {
+	return o.ApplyT(func(v HadoopClusterRolesZookeeperNode) []HadoopClusterRolesZookeeperNodeScriptAction {
+		return v.ScriptActions
+	}).(HadoopClusterRolesZookeeperNodeScriptActionArrayOutput)
+}
+
 // A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 func (o HadoopClusterRolesZookeeperNodeOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v HadoopClusterRolesZookeeperNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
@@ -7223,6 +7908,16 @@ func (o HadoopClusterRolesZookeeperNodePtrOutput) Password() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The script action which will run on the cluster.
+func (o HadoopClusterRolesZookeeperNodePtrOutput) ScriptActions() HadoopClusterRolesZookeeperNodeScriptActionArrayOutput {
+	return o.ApplyT(func(v *HadoopClusterRolesZookeeperNode) []HadoopClusterRolesZookeeperNodeScriptAction {
+		if v == nil {
+			return nil
+		}
+		return v.ScriptActions
+	}).(HadoopClusterRolesZookeeperNodeScriptActionArrayOutput)
+}
+
 // A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 func (o HadoopClusterRolesZookeeperNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *HadoopClusterRolesZookeeperNode) []string {
@@ -7271,6 +7966,121 @@ func (o HadoopClusterRolesZookeeperNodePtrOutput) VmSize() pulumi.StringPtrOutpu
 		}
 		return &v.VmSize
 	}).(pulumi.StringPtrOutput)
+}
+
+type HadoopClusterRolesZookeeperNodeScriptAction struct {
+	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// The parameters for the script provided.
+	Parameters *string `pulumi:"parameters"`
+	// The URI to the script.
+	Uri string `pulumi:"uri"`
+}
+
+// HadoopClusterRolesZookeeperNodeScriptActionInput is an input type that accepts HadoopClusterRolesZookeeperNodeScriptActionArgs and HadoopClusterRolesZookeeperNodeScriptActionOutput values.
+// You can construct a concrete instance of `HadoopClusterRolesZookeeperNodeScriptActionInput` via:
+//
+//	HadoopClusterRolesZookeeperNodeScriptActionArgs{...}
+type HadoopClusterRolesZookeeperNodeScriptActionInput interface {
+	pulumi.Input
+
+	ToHadoopClusterRolesZookeeperNodeScriptActionOutput() HadoopClusterRolesZookeeperNodeScriptActionOutput
+	ToHadoopClusterRolesZookeeperNodeScriptActionOutputWithContext(context.Context) HadoopClusterRolesZookeeperNodeScriptActionOutput
+}
+
+type HadoopClusterRolesZookeeperNodeScriptActionArgs struct {
+	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The parameters for the script provided.
+	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
+	// The URI to the script.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (HadoopClusterRolesZookeeperNodeScriptActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterRolesZookeeperNodeScriptAction)(nil)).Elem()
+}
+
+func (i HadoopClusterRolesZookeeperNodeScriptActionArgs) ToHadoopClusterRolesZookeeperNodeScriptActionOutput() HadoopClusterRolesZookeeperNodeScriptActionOutput {
+	return i.ToHadoopClusterRolesZookeeperNodeScriptActionOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterRolesZookeeperNodeScriptActionArgs) ToHadoopClusterRolesZookeeperNodeScriptActionOutputWithContext(ctx context.Context) HadoopClusterRolesZookeeperNodeScriptActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesZookeeperNodeScriptActionOutput)
+}
+
+// HadoopClusterRolesZookeeperNodeScriptActionArrayInput is an input type that accepts HadoopClusterRolesZookeeperNodeScriptActionArray and HadoopClusterRolesZookeeperNodeScriptActionArrayOutput values.
+// You can construct a concrete instance of `HadoopClusterRolesZookeeperNodeScriptActionArrayInput` via:
+//
+//	HadoopClusterRolesZookeeperNodeScriptActionArray{ HadoopClusterRolesZookeeperNodeScriptActionArgs{...} }
+type HadoopClusterRolesZookeeperNodeScriptActionArrayInput interface {
+	pulumi.Input
+
+	ToHadoopClusterRolesZookeeperNodeScriptActionArrayOutput() HadoopClusterRolesZookeeperNodeScriptActionArrayOutput
+	ToHadoopClusterRolesZookeeperNodeScriptActionArrayOutputWithContext(context.Context) HadoopClusterRolesZookeeperNodeScriptActionArrayOutput
+}
+
+type HadoopClusterRolesZookeeperNodeScriptActionArray []HadoopClusterRolesZookeeperNodeScriptActionInput
+
+func (HadoopClusterRolesZookeeperNodeScriptActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HadoopClusterRolesZookeeperNodeScriptAction)(nil)).Elem()
+}
+
+func (i HadoopClusterRolesZookeeperNodeScriptActionArray) ToHadoopClusterRolesZookeeperNodeScriptActionArrayOutput() HadoopClusterRolesZookeeperNodeScriptActionArrayOutput {
+	return i.ToHadoopClusterRolesZookeeperNodeScriptActionArrayOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterRolesZookeeperNodeScriptActionArray) ToHadoopClusterRolesZookeeperNodeScriptActionArrayOutputWithContext(ctx context.Context) HadoopClusterRolesZookeeperNodeScriptActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesZookeeperNodeScriptActionArrayOutput)
+}
+
+type HadoopClusterRolesZookeeperNodeScriptActionOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterRolesZookeeperNodeScriptActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterRolesZookeeperNodeScriptAction)(nil)).Elem()
+}
+
+func (o HadoopClusterRolesZookeeperNodeScriptActionOutput) ToHadoopClusterRolesZookeeperNodeScriptActionOutput() HadoopClusterRolesZookeeperNodeScriptActionOutput {
+	return o
+}
+
+func (o HadoopClusterRolesZookeeperNodeScriptActionOutput) ToHadoopClusterRolesZookeeperNodeScriptActionOutputWithContext(ctx context.Context) HadoopClusterRolesZookeeperNodeScriptActionOutput {
+	return o
+}
+
+// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+func (o HadoopClusterRolesZookeeperNodeScriptActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterRolesZookeeperNodeScriptAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The parameters for the script provided.
+func (o HadoopClusterRolesZookeeperNodeScriptActionOutput) Parameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HadoopClusterRolesZookeeperNodeScriptAction) *string { return v.Parameters }).(pulumi.StringPtrOutput)
+}
+
+// The URI to the script.
+func (o HadoopClusterRolesZookeeperNodeScriptActionOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterRolesZookeeperNodeScriptAction) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type HadoopClusterRolesZookeeperNodeScriptActionArrayOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterRolesZookeeperNodeScriptActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HadoopClusterRolesZookeeperNodeScriptAction)(nil)).Elem()
+}
+
+func (o HadoopClusterRolesZookeeperNodeScriptActionArrayOutput) ToHadoopClusterRolesZookeeperNodeScriptActionArrayOutput() HadoopClusterRolesZookeeperNodeScriptActionArrayOutput {
+	return o
+}
+
+func (o HadoopClusterRolesZookeeperNodeScriptActionArrayOutput) ToHadoopClusterRolesZookeeperNodeScriptActionArrayOutputWithContext(ctx context.Context) HadoopClusterRolesZookeeperNodeScriptActionArrayOutput {
+	return o
+}
+
+func (o HadoopClusterRolesZookeeperNodeScriptActionArrayOutput) Index(i pulumi.IntInput) HadoopClusterRolesZookeeperNodeScriptActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HadoopClusterRolesZookeeperNodeScriptAction {
+		return vs[0].([]HadoopClusterRolesZookeeperNodeScriptAction)[vs[1].(int)]
+	}).(HadoopClusterRolesZookeeperNodeScriptActionOutput)
 }
 
 type HadoopClusterSecurityProfile struct {
@@ -9658,6 +10468,8 @@ func (o InteractiveQueryClusterRolesPtrOutput) ZookeeperNode() InteractiveQueryC
 type InteractiveQueryClusterRolesHeadNode struct {
 	// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
+	// The script action which will run on the cluster.
+	ScriptActions []InteractiveQueryClusterRolesHeadNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	SshKeys []string `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -9684,6 +10496,8 @@ type InteractiveQueryClusterRolesHeadNodeInput interface {
 type InteractiveQueryClusterRolesHeadNodeArgs struct {
 	// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The script action which will run on the cluster.
+	ScriptActions InteractiveQueryClusterRolesHeadNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -9778,6 +10592,13 @@ func (o InteractiveQueryClusterRolesHeadNodeOutput) Password() pulumi.StringPtrO
 	return o.ApplyT(func(v InteractiveQueryClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
+// The script action which will run on the cluster.
+func (o InteractiveQueryClusterRolesHeadNodeOutput) ScriptActions() InteractiveQueryClusterRolesHeadNodeScriptActionArrayOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterRolesHeadNode) []InteractiveQueryClusterRolesHeadNodeScriptAction {
+		return v.ScriptActions
+	}).(InteractiveQueryClusterRolesHeadNodeScriptActionArrayOutput)
+}
+
 // A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterRolesHeadNodeOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterRolesHeadNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
@@ -9837,6 +10658,16 @@ func (o InteractiveQueryClusterRolesHeadNodePtrOutput) Password() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The script action which will run on the cluster.
+func (o InteractiveQueryClusterRolesHeadNodePtrOutput) ScriptActions() InteractiveQueryClusterRolesHeadNodeScriptActionArrayOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterRolesHeadNode) []InteractiveQueryClusterRolesHeadNodeScriptAction {
+		if v == nil {
+			return nil
+		}
+		return v.ScriptActions
+	}).(InteractiveQueryClusterRolesHeadNodeScriptActionArrayOutput)
+}
+
 // A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterRolesHeadNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterRolesHeadNode) []string {
@@ -9887,11 +10718,128 @@ func (o InteractiveQueryClusterRolesHeadNodePtrOutput) VmSize() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+type InteractiveQueryClusterRolesHeadNodeScriptAction struct {
+	// Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// The parameters for the script provided.
+	Parameters *string `pulumi:"parameters"`
+	// The URI to the script.
+	Uri string `pulumi:"uri"`
+}
+
+// InteractiveQueryClusterRolesHeadNodeScriptActionInput is an input type that accepts InteractiveQueryClusterRolesHeadNodeScriptActionArgs and InteractiveQueryClusterRolesHeadNodeScriptActionOutput values.
+// You can construct a concrete instance of `InteractiveQueryClusterRolesHeadNodeScriptActionInput` via:
+//
+//	InteractiveQueryClusterRolesHeadNodeScriptActionArgs{...}
+type InteractiveQueryClusterRolesHeadNodeScriptActionInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterRolesHeadNodeScriptActionOutput() InteractiveQueryClusterRolesHeadNodeScriptActionOutput
+	ToInteractiveQueryClusterRolesHeadNodeScriptActionOutputWithContext(context.Context) InteractiveQueryClusterRolesHeadNodeScriptActionOutput
+}
+
+type InteractiveQueryClusterRolesHeadNodeScriptActionArgs struct {
+	// Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The parameters for the script provided.
+	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
+	// The URI to the script.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (InteractiveQueryClusterRolesHeadNodeScriptActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InteractiveQueryClusterRolesHeadNodeScriptAction)(nil)).Elem()
+}
+
+func (i InteractiveQueryClusterRolesHeadNodeScriptActionArgs) ToInteractiveQueryClusterRolesHeadNodeScriptActionOutput() InteractiveQueryClusterRolesHeadNodeScriptActionOutput {
+	return i.ToInteractiveQueryClusterRolesHeadNodeScriptActionOutputWithContext(context.Background())
+}
+
+func (i InteractiveQueryClusterRolesHeadNodeScriptActionArgs) ToInteractiveQueryClusterRolesHeadNodeScriptActionOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesHeadNodeScriptActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesHeadNodeScriptActionOutput)
+}
+
+// InteractiveQueryClusterRolesHeadNodeScriptActionArrayInput is an input type that accepts InteractiveQueryClusterRolesHeadNodeScriptActionArray and InteractiveQueryClusterRolesHeadNodeScriptActionArrayOutput values.
+// You can construct a concrete instance of `InteractiveQueryClusterRolesHeadNodeScriptActionArrayInput` via:
+//
+//	InteractiveQueryClusterRolesHeadNodeScriptActionArray{ InteractiveQueryClusterRolesHeadNodeScriptActionArgs{...} }
+type InteractiveQueryClusterRolesHeadNodeScriptActionArrayInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterRolesHeadNodeScriptActionArrayOutput() InteractiveQueryClusterRolesHeadNodeScriptActionArrayOutput
+	ToInteractiveQueryClusterRolesHeadNodeScriptActionArrayOutputWithContext(context.Context) InteractiveQueryClusterRolesHeadNodeScriptActionArrayOutput
+}
+
+type InteractiveQueryClusterRolesHeadNodeScriptActionArray []InteractiveQueryClusterRolesHeadNodeScriptActionInput
+
+func (InteractiveQueryClusterRolesHeadNodeScriptActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InteractiveQueryClusterRolesHeadNodeScriptAction)(nil)).Elem()
+}
+
+func (i InteractiveQueryClusterRolesHeadNodeScriptActionArray) ToInteractiveQueryClusterRolesHeadNodeScriptActionArrayOutput() InteractiveQueryClusterRolesHeadNodeScriptActionArrayOutput {
+	return i.ToInteractiveQueryClusterRolesHeadNodeScriptActionArrayOutputWithContext(context.Background())
+}
+
+func (i InteractiveQueryClusterRolesHeadNodeScriptActionArray) ToInteractiveQueryClusterRolesHeadNodeScriptActionArrayOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesHeadNodeScriptActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesHeadNodeScriptActionArrayOutput)
+}
+
+type InteractiveQueryClusterRolesHeadNodeScriptActionOutput struct{ *pulumi.OutputState }
+
+func (InteractiveQueryClusterRolesHeadNodeScriptActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InteractiveQueryClusterRolesHeadNodeScriptAction)(nil)).Elem()
+}
+
+func (o InteractiveQueryClusterRolesHeadNodeScriptActionOutput) ToInteractiveQueryClusterRolesHeadNodeScriptActionOutput() InteractiveQueryClusterRolesHeadNodeScriptActionOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterRolesHeadNodeScriptActionOutput) ToInteractiveQueryClusterRolesHeadNodeScriptActionOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesHeadNodeScriptActionOutput {
+	return o
+}
+
+// Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+func (o InteractiveQueryClusterRolesHeadNodeScriptActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterRolesHeadNodeScriptAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The parameters for the script provided.
+func (o InteractiveQueryClusterRolesHeadNodeScriptActionOutput) Parameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterRolesHeadNodeScriptAction) *string { return v.Parameters }).(pulumi.StringPtrOutput)
+}
+
+// The URI to the script.
+func (o InteractiveQueryClusterRolesHeadNodeScriptActionOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterRolesHeadNodeScriptAction) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type InteractiveQueryClusterRolesHeadNodeScriptActionArrayOutput struct{ *pulumi.OutputState }
+
+func (InteractiveQueryClusterRolesHeadNodeScriptActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InteractiveQueryClusterRolesHeadNodeScriptAction)(nil)).Elem()
+}
+
+func (o InteractiveQueryClusterRolesHeadNodeScriptActionArrayOutput) ToInteractiveQueryClusterRolesHeadNodeScriptActionArrayOutput() InteractiveQueryClusterRolesHeadNodeScriptActionArrayOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterRolesHeadNodeScriptActionArrayOutput) ToInteractiveQueryClusterRolesHeadNodeScriptActionArrayOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesHeadNodeScriptActionArrayOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterRolesHeadNodeScriptActionArrayOutput) Index(i pulumi.IntInput) InteractiveQueryClusterRolesHeadNodeScriptActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InteractiveQueryClusterRolesHeadNodeScriptAction {
+		return vs[0].([]InteractiveQueryClusterRolesHeadNodeScriptAction)[vs[1].(int)]
+	}).(InteractiveQueryClusterRolesHeadNodeScriptActionOutput)
+}
+
 type InteractiveQueryClusterRolesWorkerNode struct {
 	// A `autoscale` block as defined below.
 	Autoscale *InteractiveQueryClusterRolesWorkerNodeAutoscale `pulumi:"autoscale"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
+	// The script action which will run on the cluster.
+	ScriptActions []InteractiveQueryClusterRolesWorkerNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	SshKeys []string `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -9922,6 +10870,8 @@ type InteractiveQueryClusterRolesWorkerNodeArgs struct {
 	Autoscale InteractiveQueryClusterRolesWorkerNodeAutoscalePtrInput `pulumi:"autoscale"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The script action which will run on the cluster.
+	ScriptActions InteractiveQueryClusterRolesWorkerNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -10025,6 +10975,13 @@ func (o InteractiveQueryClusterRolesWorkerNodeOutput) Password() pulumi.StringPt
 	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
+// The script action which will run on the cluster.
+func (o InteractiveQueryClusterRolesWorkerNodeOutput) ScriptActions() InteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNode) []InteractiveQueryClusterRolesWorkerNodeScriptAction {
+		return v.ScriptActions
+	}).(InteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutput)
+}
+
 // A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterRolesWorkerNodeOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
@@ -10097,6 +11054,16 @@ func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) Password() pulumi.Strin
 		}
 		return v.Password
 	}).(pulumi.StringPtrOutput)
+}
+
+// The script action which will run on the cluster.
+func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) ScriptActions() InteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNode) []InteractiveQueryClusterRolesWorkerNodeScriptAction {
+		if v == nil {
+			return nil
+		}
+		return v.ScriptActions
+	}).(InteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutput)
 }
 
 // A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
@@ -10750,9 +11717,126 @@ func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOu
 	}).(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput)
 }
 
+type InteractiveQueryClusterRolesWorkerNodeScriptAction struct {
+	// Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// The parameters for the script provided.
+	Parameters *string `pulumi:"parameters"`
+	// The URI to the script.
+	Uri string `pulumi:"uri"`
+}
+
+// InteractiveQueryClusterRolesWorkerNodeScriptActionInput is an input type that accepts InteractiveQueryClusterRolesWorkerNodeScriptActionArgs and InteractiveQueryClusterRolesWorkerNodeScriptActionOutput values.
+// You can construct a concrete instance of `InteractiveQueryClusterRolesWorkerNodeScriptActionInput` via:
+//
+//	InteractiveQueryClusterRolesWorkerNodeScriptActionArgs{...}
+type InteractiveQueryClusterRolesWorkerNodeScriptActionInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterRolesWorkerNodeScriptActionOutput() InteractiveQueryClusterRolesWorkerNodeScriptActionOutput
+	ToInteractiveQueryClusterRolesWorkerNodeScriptActionOutputWithContext(context.Context) InteractiveQueryClusterRolesWorkerNodeScriptActionOutput
+}
+
+type InteractiveQueryClusterRolesWorkerNodeScriptActionArgs struct {
+	// Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The parameters for the script provided.
+	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
+	// The URI to the script.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (InteractiveQueryClusterRolesWorkerNodeScriptActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodeScriptAction)(nil)).Elem()
+}
+
+func (i InteractiveQueryClusterRolesWorkerNodeScriptActionArgs) ToInteractiveQueryClusterRolesWorkerNodeScriptActionOutput() InteractiveQueryClusterRolesWorkerNodeScriptActionOutput {
+	return i.ToInteractiveQueryClusterRolesWorkerNodeScriptActionOutputWithContext(context.Background())
+}
+
+func (i InteractiveQueryClusterRolesWorkerNodeScriptActionArgs) ToInteractiveQueryClusterRolesWorkerNodeScriptActionOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeScriptActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesWorkerNodeScriptActionOutput)
+}
+
+// InteractiveQueryClusterRolesWorkerNodeScriptActionArrayInput is an input type that accepts InteractiveQueryClusterRolesWorkerNodeScriptActionArray and InteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutput values.
+// You can construct a concrete instance of `InteractiveQueryClusterRolesWorkerNodeScriptActionArrayInput` via:
+//
+//	InteractiveQueryClusterRolesWorkerNodeScriptActionArray{ InteractiveQueryClusterRolesWorkerNodeScriptActionArgs{...} }
+type InteractiveQueryClusterRolesWorkerNodeScriptActionArrayInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutput() InteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutput
+	ToInteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutputWithContext(context.Context) InteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutput
+}
+
+type InteractiveQueryClusterRolesWorkerNodeScriptActionArray []InteractiveQueryClusterRolesWorkerNodeScriptActionInput
+
+func (InteractiveQueryClusterRolesWorkerNodeScriptActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InteractiveQueryClusterRolesWorkerNodeScriptAction)(nil)).Elem()
+}
+
+func (i InteractiveQueryClusterRolesWorkerNodeScriptActionArray) ToInteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutput() InteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutput {
+	return i.ToInteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutputWithContext(context.Background())
+}
+
+func (i InteractiveQueryClusterRolesWorkerNodeScriptActionArray) ToInteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutput)
+}
+
+type InteractiveQueryClusterRolesWorkerNodeScriptActionOutput struct{ *pulumi.OutputState }
+
+func (InteractiveQueryClusterRolesWorkerNodeScriptActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodeScriptAction)(nil)).Elem()
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeScriptActionOutput) ToInteractiveQueryClusterRolesWorkerNodeScriptActionOutput() InteractiveQueryClusterRolesWorkerNodeScriptActionOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeScriptActionOutput) ToInteractiveQueryClusterRolesWorkerNodeScriptActionOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeScriptActionOutput {
+	return o
+}
+
+// Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+func (o InteractiveQueryClusterRolesWorkerNodeScriptActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNodeScriptAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The parameters for the script provided.
+func (o InteractiveQueryClusterRolesWorkerNodeScriptActionOutput) Parameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNodeScriptAction) *string { return v.Parameters }).(pulumi.StringPtrOutput)
+}
+
+// The URI to the script.
+func (o InteractiveQueryClusterRolesWorkerNodeScriptActionOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNodeScriptAction) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type InteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutput struct{ *pulumi.OutputState }
+
+func (InteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InteractiveQueryClusterRolesWorkerNodeScriptAction)(nil)).Elem()
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutput) ToInteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutput() InteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutput) ToInteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutput) Index(i pulumi.IntInput) InteractiveQueryClusterRolesWorkerNodeScriptActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InteractiveQueryClusterRolesWorkerNodeScriptAction {
+		return vs[0].([]InteractiveQueryClusterRolesWorkerNodeScriptAction)[vs[1].(int)]
+	}).(InteractiveQueryClusterRolesWorkerNodeScriptActionOutput)
+}
+
 type InteractiveQueryClusterRolesZookeeperNode struct {
 	// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
+	// The script action which will run on the cluster.
+	ScriptActions []InteractiveQueryClusterRolesZookeeperNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	SshKeys []string `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -10779,6 +11863,8 @@ type InteractiveQueryClusterRolesZookeeperNodeInput interface {
 type InteractiveQueryClusterRolesZookeeperNodeArgs struct {
 	// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The script action which will run on the cluster.
+	ScriptActions InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -10873,6 +11959,13 @@ func (o InteractiveQueryClusterRolesZookeeperNodeOutput) Password() pulumi.Strin
 	return o.ApplyT(func(v InteractiveQueryClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
+// The script action which will run on the cluster.
+func (o InteractiveQueryClusterRolesZookeeperNodeOutput) ScriptActions() InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterRolesZookeeperNode) []InteractiveQueryClusterRolesZookeeperNodeScriptAction {
+		return v.ScriptActions
+	}).(InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutput)
+}
+
 // A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterRolesZookeeperNodeOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterRolesZookeeperNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
@@ -10932,6 +12025,16 @@ func (o InteractiveQueryClusterRolesZookeeperNodePtrOutput) Password() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// The script action which will run on the cluster.
+func (o InteractiveQueryClusterRolesZookeeperNodePtrOutput) ScriptActions() InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterRolesZookeeperNode) []InteractiveQueryClusterRolesZookeeperNodeScriptAction {
+		if v == nil {
+			return nil
+		}
+		return v.ScriptActions
+	}).(InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutput)
+}
+
 // A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterRolesZookeeperNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterRolesZookeeperNode) []string {
@@ -10980,6 +12083,121 @@ func (o InteractiveQueryClusterRolesZookeeperNodePtrOutput) VmSize() pulumi.Stri
 		}
 		return &v.VmSize
 	}).(pulumi.StringPtrOutput)
+}
+
+type InteractiveQueryClusterRolesZookeeperNodeScriptAction struct {
+	// Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// The parameters for the script provided.
+	Parameters *string `pulumi:"parameters"`
+	// The URI to the script.
+	Uri string `pulumi:"uri"`
+}
+
+// InteractiveQueryClusterRolesZookeeperNodeScriptActionInput is an input type that accepts InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs and InteractiveQueryClusterRolesZookeeperNodeScriptActionOutput values.
+// You can construct a concrete instance of `InteractiveQueryClusterRolesZookeeperNodeScriptActionInput` via:
+//
+//	InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs{...}
+type InteractiveQueryClusterRolesZookeeperNodeScriptActionInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterRolesZookeeperNodeScriptActionOutput() InteractiveQueryClusterRolesZookeeperNodeScriptActionOutput
+	ToInteractiveQueryClusterRolesZookeeperNodeScriptActionOutputWithContext(context.Context) InteractiveQueryClusterRolesZookeeperNodeScriptActionOutput
+}
+
+type InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs struct {
+	// Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The parameters for the script provided.
+	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
+	// The URI to the script.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InteractiveQueryClusterRolesZookeeperNodeScriptAction)(nil)).Elem()
+}
+
+func (i InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs) ToInteractiveQueryClusterRolesZookeeperNodeScriptActionOutput() InteractiveQueryClusterRolesZookeeperNodeScriptActionOutput {
+	return i.ToInteractiveQueryClusterRolesZookeeperNodeScriptActionOutputWithContext(context.Background())
+}
+
+func (i InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs) ToInteractiveQueryClusterRolesZookeeperNodeScriptActionOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesZookeeperNodeScriptActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesZookeeperNodeScriptActionOutput)
+}
+
+// InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayInput is an input type that accepts InteractiveQueryClusterRolesZookeeperNodeScriptActionArray and InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutput values.
+// You can construct a concrete instance of `InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayInput` via:
+//
+//	InteractiveQueryClusterRolesZookeeperNodeScriptActionArray{ InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs{...} }
+type InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutput() InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutput
+	ToInteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutputWithContext(context.Context) InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutput
+}
+
+type InteractiveQueryClusterRolesZookeeperNodeScriptActionArray []InteractiveQueryClusterRolesZookeeperNodeScriptActionInput
+
+func (InteractiveQueryClusterRolesZookeeperNodeScriptActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InteractiveQueryClusterRolesZookeeperNodeScriptAction)(nil)).Elem()
+}
+
+func (i InteractiveQueryClusterRolesZookeeperNodeScriptActionArray) ToInteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutput() InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutput {
+	return i.ToInteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutputWithContext(context.Background())
+}
+
+func (i InteractiveQueryClusterRolesZookeeperNodeScriptActionArray) ToInteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutput)
+}
+
+type InteractiveQueryClusterRolesZookeeperNodeScriptActionOutput struct{ *pulumi.OutputState }
+
+func (InteractiveQueryClusterRolesZookeeperNodeScriptActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InteractiveQueryClusterRolesZookeeperNodeScriptAction)(nil)).Elem()
+}
+
+func (o InteractiveQueryClusterRolesZookeeperNodeScriptActionOutput) ToInteractiveQueryClusterRolesZookeeperNodeScriptActionOutput() InteractiveQueryClusterRolesZookeeperNodeScriptActionOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterRolesZookeeperNodeScriptActionOutput) ToInteractiveQueryClusterRolesZookeeperNodeScriptActionOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesZookeeperNodeScriptActionOutput {
+	return o
+}
+
+// Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+func (o InteractiveQueryClusterRolesZookeeperNodeScriptActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterRolesZookeeperNodeScriptAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The parameters for the script provided.
+func (o InteractiveQueryClusterRolesZookeeperNodeScriptActionOutput) Parameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterRolesZookeeperNodeScriptAction) *string { return v.Parameters }).(pulumi.StringPtrOutput)
+}
+
+// The URI to the script.
+func (o InteractiveQueryClusterRolesZookeeperNodeScriptActionOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterRolesZookeeperNodeScriptAction) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutput struct{ *pulumi.OutputState }
+
+func (InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InteractiveQueryClusterRolesZookeeperNodeScriptAction)(nil)).Elem()
+}
+
+func (o InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutput) ToInteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutput() InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutput) ToInteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutput) Index(i pulumi.IntInput) InteractiveQueryClusterRolesZookeeperNodeScriptActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InteractiveQueryClusterRolesZookeeperNodeScriptAction {
+		return vs[0].([]InteractiveQueryClusterRolesZookeeperNodeScriptAction)[vs[1].(int)]
+	}).(InteractiveQueryClusterRolesZookeeperNodeScriptActionOutput)
 }
 
 type InteractiveQueryClusterSecurityProfile struct {
@@ -13545,7 +14763,8 @@ func (o KafkaClusterRolesPtrOutput) ZookeeperNode() KafkaClusterRolesZookeeperNo
 
 type KafkaClusterRolesHeadNode struct {
 	// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-	Password *string `pulumi:"password"`
+	Password      *string                                 `pulumi:"password"`
+	ScriptActions []KafkaClusterRolesHeadNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	SshKeys []string `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -13571,7 +14790,8 @@ type KafkaClusterRolesHeadNodeInput interface {
 
 type KafkaClusterRolesHeadNodeArgs struct {
 	// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-	Password pulumi.StringPtrInput `pulumi:"password"`
+	Password      pulumi.StringPtrInput                           `pulumi:"password"`
+	ScriptActions KafkaClusterRolesHeadNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -13666,6 +14886,10 @@ func (o KafkaClusterRolesHeadNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KafkaClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
+func (o KafkaClusterRolesHeadNodeOutput) ScriptActions() KafkaClusterRolesHeadNodeScriptActionArrayOutput {
+	return o.ApplyT(func(v KafkaClusterRolesHeadNode) []KafkaClusterRolesHeadNodeScriptAction { return v.ScriptActions }).(KafkaClusterRolesHeadNodeScriptActionArrayOutput)
+}
+
 // A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 func (o KafkaClusterRolesHeadNodeOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KafkaClusterRolesHeadNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
@@ -13725,6 +14949,15 @@ func (o KafkaClusterRolesHeadNodePtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o KafkaClusterRolesHeadNodePtrOutput) ScriptActions() KafkaClusterRolesHeadNodeScriptActionArrayOutput {
+	return o.ApplyT(func(v *KafkaClusterRolesHeadNode) []KafkaClusterRolesHeadNodeScriptAction {
+		if v == nil {
+			return nil
+		}
+		return v.ScriptActions
+	}).(KafkaClusterRolesHeadNodeScriptActionArrayOutput)
+}
+
 // A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 func (o KafkaClusterRolesHeadNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KafkaClusterRolesHeadNode) []string {
@@ -13775,9 +15008,119 @@ func (o KafkaClusterRolesHeadNodePtrOutput) VmSize() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type KafkaClusterRolesHeadNodeScriptAction struct {
+	// Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+	Name       string  `pulumi:"name"`
+	Parameters *string `pulumi:"parameters"`
+	Uri        string  `pulumi:"uri"`
+}
+
+// KafkaClusterRolesHeadNodeScriptActionInput is an input type that accepts KafkaClusterRolesHeadNodeScriptActionArgs and KafkaClusterRolesHeadNodeScriptActionOutput values.
+// You can construct a concrete instance of `KafkaClusterRolesHeadNodeScriptActionInput` via:
+//
+//	KafkaClusterRolesHeadNodeScriptActionArgs{...}
+type KafkaClusterRolesHeadNodeScriptActionInput interface {
+	pulumi.Input
+
+	ToKafkaClusterRolesHeadNodeScriptActionOutput() KafkaClusterRolesHeadNodeScriptActionOutput
+	ToKafkaClusterRolesHeadNodeScriptActionOutputWithContext(context.Context) KafkaClusterRolesHeadNodeScriptActionOutput
+}
+
+type KafkaClusterRolesHeadNodeScriptActionArgs struct {
+	// Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+	Name       pulumi.StringInput    `pulumi:"name"`
+	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
+	Uri        pulumi.StringInput    `pulumi:"uri"`
+}
+
+func (KafkaClusterRolesHeadNodeScriptActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterRolesHeadNodeScriptAction)(nil)).Elem()
+}
+
+func (i KafkaClusterRolesHeadNodeScriptActionArgs) ToKafkaClusterRolesHeadNodeScriptActionOutput() KafkaClusterRolesHeadNodeScriptActionOutput {
+	return i.ToKafkaClusterRolesHeadNodeScriptActionOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterRolesHeadNodeScriptActionArgs) ToKafkaClusterRolesHeadNodeScriptActionOutputWithContext(ctx context.Context) KafkaClusterRolesHeadNodeScriptActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesHeadNodeScriptActionOutput)
+}
+
+// KafkaClusterRolesHeadNodeScriptActionArrayInput is an input type that accepts KafkaClusterRolesHeadNodeScriptActionArray and KafkaClusterRolesHeadNodeScriptActionArrayOutput values.
+// You can construct a concrete instance of `KafkaClusterRolesHeadNodeScriptActionArrayInput` via:
+//
+//	KafkaClusterRolesHeadNodeScriptActionArray{ KafkaClusterRolesHeadNodeScriptActionArgs{...} }
+type KafkaClusterRolesHeadNodeScriptActionArrayInput interface {
+	pulumi.Input
+
+	ToKafkaClusterRolesHeadNodeScriptActionArrayOutput() KafkaClusterRolesHeadNodeScriptActionArrayOutput
+	ToKafkaClusterRolesHeadNodeScriptActionArrayOutputWithContext(context.Context) KafkaClusterRolesHeadNodeScriptActionArrayOutput
+}
+
+type KafkaClusterRolesHeadNodeScriptActionArray []KafkaClusterRolesHeadNodeScriptActionInput
+
+func (KafkaClusterRolesHeadNodeScriptActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KafkaClusterRolesHeadNodeScriptAction)(nil)).Elem()
+}
+
+func (i KafkaClusterRolesHeadNodeScriptActionArray) ToKafkaClusterRolesHeadNodeScriptActionArrayOutput() KafkaClusterRolesHeadNodeScriptActionArrayOutput {
+	return i.ToKafkaClusterRolesHeadNodeScriptActionArrayOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterRolesHeadNodeScriptActionArray) ToKafkaClusterRolesHeadNodeScriptActionArrayOutputWithContext(ctx context.Context) KafkaClusterRolesHeadNodeScriptActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesHeadNodeScriptActionArrayOutput)
+}
+
+type KafkaClusterRolesHeadNodeScriptActionOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterRolesHeadNodeScriptActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterRolesHeadNodeScriptAction)(nil)).Elem()
+}
+
+func (o KafkaClusterRolesHeadNodeScriptActionOutput) ToKafkaClusterRolesHeadNodeScriptActionOutput() KafkaClusterRolesHeadNodeScriptActionOutput {
+	return o
+}
+
+func (o KafkaClusterRolesHeadNodeScriptActionOutput) ToKafkaClusterRolesHeadNodeScriptActionOutputWithContext(ctx context.Context) KafkaClusterRolesHeadNodeScriptActionOutput {
+	return o
+}
+
+// Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+func (o KafkaClusterRolesHeadNodeScriptActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaClusterRolesHeadNodeScriptAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o KafkaClusterRolesHeadNodeScriptActionOutput) Parameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KafkaClusterRolesHeadNodeScriptAction) *string { return v.Parameters }).(pulumi.StringPtrOutput)
+}
+
+func (o KafkaClusterRolesHeadNodeScriptActionOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaClusterRolesHeadNodeScriptAction) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type KafkaClusterRolesHeadNodeScriptActionArrayOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterRolesHeadNodeScriptActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KafkaClusterRolesHeadNodeScriptAction)(nil)).Elem()
+}
+
+func (o KafkaClusterRolesHeadNodeScriptActionArrayOutput) ToKafkaClusterRolesHeadNodeScriptActionArrayOutput() KafkaClusterRolesHeadNodeScriptActionArrayOutput {
+	return o
+}
+
+func (o KafkaClusterRolesHeadNodeScriptActionArrayOutput) ToKafkaClusterRolesHeadNodeScriptActionArrayOutputWithContext(ctx context.Context) KafkaClusterRolesHeadNodeScriptActionArrayOutput {
+	return o
+}
+
+func (o KafkaClusterRolesHeadNodeScriptActionArrayOutput) Index(i pulumi.IntInput) KafkaClusterRolesHeadNodeScriptActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KafkaClusterRolesHeadNodeScriptAction {
+		return vs[0].([]KafkaClusterRolesHeadNodeScriptAction)[vs[1].(int)]
+	}).(KafkaClusterRolesHeadNodeScriptActionOutput)
+}
+
 type KafkaClusterRolesKafkaManagementNode struct {
 	// The Password associated with the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
-	Password *string `pulumi:"password"`
+	Password      *string                                            `pulumi:"password"`
+	ScriptActions []KafkaClusterRolesKafkaManagementNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
 	SshKeys []string `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -13803,7 +15146,8 @@ type KafkaClusterRolesKafkaManagementNodeInput interface {
 
 type KafkaClusterRolesKafkaManagementNodeArgs struct {
 	// The Password associated with the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
-	Password pulumi.StringPtrInput `pulumi:"password"`
+	Password      pulumi.StringPtrInput                                      `pulumi:"password"`
+	ScriptActions KafkaClusterRolesKafkaManagementNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -13898,6 +15242,12 @@ func (o KafkaClusterRolesKafkaManagementNodeOutput) Password() pulumi.StringPtrO
 	return o.ApplyT(func(v KafkaClusterRolesKafkaManagementNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
+func (o KafkaClusterRolesKafkaManagementNodeOutput) ScriptActions() KafkaClusterRolesKafkaManagementNodeScriptActionArrayOutput {
+	return o.ApplyT(func(v KafkaClusterRolesKafkaManagementNode) []KafkaClusterRolesKafkaManagementNodeScriptAction {
+		return v.ScriptActions
+	}).(KafkaClusterRolesKafkaManagementNodeScriptActionArrayOutput)
+}
+
 // A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
 func (o KafkaClusterRolesKafkaManagementNodeOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KafkaClusterRolesKafkaManagementNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
@@ -13957,6 +15307,15 @@ func (o KafkaClusterRolesKafkaManagementNodePtrOutput) Password() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o KafkaClusterRolesKafkaManagementNodePtrOutput) ScriptActions() KafkaClusterRolesKafkaManagementNodeScriptActionArrayOutput {
+	return o.ApplyT(func(v *KafkaClusterRolesKafkaManagementNode) []KafkaClusterRolesKafkaManagementNodeScriptAction {
+		if v == nil {
+			return nil
+		}
+		return v.ScriptActions
+	}).(KafkaClusterRolesKafkaManagementNodeScriptActionArrayOutput)
+}
+
 // A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
 func (o KafkaClusterRolesKafkaManagementNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KafkaClusterRolesKafkaManagementNode) []string {
@@ -14007,11 +15366,121 @@ func (o KafkaClusterRolesKafkaManagementNodePtrOutput) VmSize() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+type KafkaClusterRolesKafkaManagementNodeScriptAction struct {
+	// Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+	Name       string  `pulumi:"name"`
+	Parameters *string `pulumi:"parameters"`
+	Uri        string  `pulumi:"uri"`
+}
+
+// KafkaClusterRolesKafkaManagementNodeScriptActionInput is an input type that accepts KafkaClusterRolesKafkaManagementNodeScriptActionArgs and KafkaClusterRolesKafkaManagementNodeScriptActionOutput values.
+// You can construct a concrete instance of `KafkaClusterRolesKafkaManagementNodeScriptActionInput` via:
+//
+//	KafkaClusterRolesKafkaManagementNodeScriptActionArgs{...}
+type KafkaClusterRolesKafkaManagementNodeScriptActionInput interface {
+	pulumi.Input
+
+	ToKafkaClusterRolesKafkaManagementNodeScriptActionOutput() KafkaClusterRolesKafkaManagementNodeScriptActionOutput
+	ToKafkaClusterRolesKafkaManagementNodeScriptActionOutputWithContext(context.Context) KafkaClusterRolesKafkaManagementNodeScriptActionOutput
+}
+
+type KafkaClusterRolesKafkaManagementNodeScriptActionArgs struct {
+	// Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+	Name       pulumi.StringInput    `pulumi:"name"`
+	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
+	Uri        pulumi.StringInput    `pulumi:"uri"`
+}
+
+func (KafkaClusterRolesKafkaManagementNodeScriptActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterRolesKafkaManagementNodeScriptAction)(nil)).Elem()
+}
+
+func (i KafkaClusterRolesKafkaManagementNodeScriptActionArgs) ToKafkaClusterRolesKafkaManagementNodeScriptActionOutput() KafkaClusterRolesKafkaManagementNodeScriptActionOutput {
+	return i.ToKafkaClusterRolesKafkaManagementNodeScriptActionOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterRolesKafkaManagementNodeScriptActionArgs) ToKafkaClusterRolesKafkaManagementNodeScriptActionOutputWithContext(ctx context.Context) KafkaClusterRolesKafkaManagementNodeScriptActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesKafkaManagementNodeScriptActionOutput)
+}
+
+// KafkaClusterRolesKafkaManagementNodeScriptActionArrayInput is an input type that accepts KafkaClusterRolesKafkaManagementNodeScriptActionArray and KafkaClusterRolesKafkaManagementNodeScriptActionArrayOutput values.
+// You can construct a concrete instance of `KafkaClusterRolesKafkaManagementNodeScriptActionArrayInput` via:
+//
+//	KafkaClusterRolesKafkaManagementNodeScriptActionArray{ KafkaClusterRolesKafkaManagementNodeScriptActionArgs{...} }
+type KafkaClusterRolesKafkaManagementNodeScriptActionArrayInput interface {
+	pulumi.Input
+
+	ToKafkaClusterRolesKafkaManagementNodeScriptActionArrayOutput() KafkaClusterRolesKafkaManagementNodeScriptActionArrayOutput
+	ToKafkaClusterRolesKafkaManagementNodeScriptActionArrayOutputWithContext(context.Context) KafkaClusterRolesKafkaManagementNodeScriptActionArrayOutput
+}
+
+type KafkaClusterRolesKafkaManagementNodeScriptActionArray []KafkaClusterRolesKafkaManagementNodeScriptActionInput
+
+func (KafkaClusterRolesKafkaManagementNodeScriptActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KafkaClusterRolesKafkaManagementNodeScriptAction)(nil)).Elem()
+}
+
+func (i KafkaClusterRolesKafkaManagementNodeScriptActionArray) ToKafkaClusterRolesKafkaManagementNodeScriptActionArrayOutput() KafkaClusterRolesKafkaManagementNodeScriptActionArrayOutput {
+	return i.ToKafkaClusterRolesKafkaManagementNodeScriptActionArrayOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterRolesKafkaManagementNodeScriptActionArray) ToKafkaClusterRolesKafkaManagementNodeScriptActionArrayOutputWithContext(ctx context.Context) KafkaClusterRolesKafkaManagementNodeScriptActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesKafkaManagementNodeScriptActionArrayOutput)
+}
+
+type KafkaClusterRolesKafkaManagementNodeScriptActionOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterRolesKafkaManagementNodeScriptActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterRolesKafkaManagementNodeScriptAction)(nil)).Elem()
+}
+
+func (o KafkaClusterRolesKafkaManagementNodeScriptActionOutput) ToKafkaClusterRolesKafkaManagementNodeScriptActionOutput() KafkaClusterRolesKafkaManagementNodeScriptActionOutput {
+	return o
+}
+
+func (o KafkaClusterRolesKafkaManagementNodeScriptActionOutput) ToKafkaClusterRolesKafkaManagementNodeScriptActionOutputWithContext(ctx context.Context) KafkaClusterRolesKafkaManagementNodeScriptActionOutput {
+	return o
+}
+
+// Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+func (o KafkaClusterRolesKafkaManagementNodeScriptActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaClusterRolesKafkaManagementNodeScriptAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o KafkaClusterRolesKafkaManagementNodeScriptActionOutput) Parameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KafkaClusterRolesKafkaManagementNodeScriptAction) *string { return v.Parameters }).(pulumi.StringPtrOutput)
+}
+
+func (o KafkaClusterRolesKafkaManagementNodeScriptActionOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaClusterRolesKafkaManagementNodeScriptAction) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type KafkaClusterRolesKafkaManagementNodeScriptActionArrayOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterRolesKafkaManagementNodeScriptActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KafkaClusterRolesKafkaManagementNodeScriptAction)(nil)).Elem()
+}
+
+func (o KafkaClusterRolesKafkaManagementNodeScriptActionArrayOutput) ToKafkaClusterRolesKafkaManagementNodeScriptActionArrayOutput() KafkaClusterRolesKafkaManagementNodeScriptActionArrayOutput {
+	return o
+}
+
+func (o KafkaClusterRolesKafkaManagementNodeScriptActionArrayOutput) ToKafkaClusterRolesKafkaManagementNodeScriptActionArrayOutputWithContext(ctx context.Context) KafkaClusterRolesKafkaManagementNodeScriptActionArrayOutput {
+	return o
+}
+
+func (o KafkaClusterRolesKafkaManagementNodeScriptActionArrayOutput) Index(i pulumi.IntInput) KafkaClusterRolesKafkaManagementNodeScriptActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KafkaClusterRolesKafkaManagementNodeScriptAction {
+		return vs[0].([]KafkaClusterRolesKafkaManagementNodeScriptAction)[vs[1].(int)]
+	}).(KafkaClusterRolesKafkaManagementNodeScriptActionOutput)
+}
+
 type KafkaClusterRolesWorkerNode struct {
 	// The number of Data Disks which should be assigned to each Worker Node, which can be between 1 and 8. Changing this forces a new resource to be created.
 	NumberOfDisksPerNode int `pulumi:"numberOfDisksPerNode"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-	Password *string `pulumi:"password"`
+	Password      *string                                   `pulumi:"password"`
+	ScriptActions []KafkaClusterRolesWorkerNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	SshKeys []string `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -14041,7 +15510,8 @@ type KafkaClusterRolesWorkerNodeArgs struct {
 	// The number of Data Disks which should be assigned to each Worker Node, which can be between 1 and 8. Changing this forces a new resource to be created.
 	NumberOfDisksPerNode pulumi.IntInput `pulumi:"numberOfDisksPerNode"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-	Password pulumi.StringPtrInput `pulumi:"password"`
+	Password      pulumi.StringPtrInput                             `pulumi:"password"`
+	ScriptActions KafkaClusterRolesWorkerNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -14143,6 +15613,10 @@ func (o KafkaClusterRolesWorkerNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KafkaClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
+func (o KafkaClusterRolesWorkerNodeOutput) ScriptActions() KafkaClusterRolesWorkerNodeScriptActionArrayOutput {
+	return o.ApplyT(func(v KafkaClusterRolesWorkerNode) []KafkaClusterRolesWorkerNodeScriptAction { return v.ScriptActions }).(KafkaClusterRolesWorkerNodeScriptActionArrayOutput)
+}
+
 // A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 func (o KafkaClusterRolesWorkerNodeOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KafkaClusterRolesWorkerNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
@@ -14217,6 +15691,15 @@ func (o KafkaClusterRolesWorkerNodePtrOutput) Password() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o KafkaClusterRolesWorkerNodePtrOutput) ScriptActions() KafkaClusterRolesWorkerNodeScriptActionArrayOutput {
+	return o.ApplyT(func(v *KafkaClusterRolesWorkerNode) []KafkaClusterRolesWorkerNodeScriptAction {
+		if v == nil {
+			return nil
+		}
+		return v.ScriptActions
+	}).(KafkaClusterRolesWorkerNodeScriptActionArrayOutput)
+}
+
 // A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 func (o KafkaClusterRolesWorkerNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KafkaClusterRolesWorkerNode) []string {
@@ -14277,9 +15760,119 @@ func (o KafkaClusterRolesWorkerNodePtrOutput) VmSize() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type KafkaClusterRolesWorkerNodeScriptAction struct {
+	// Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+	Name       string  `pulumi:"name"`
+	Parameters *string `pulumi:"parameters"`
+	Uri        string  `pulumi:"uri"`
+}
+
+// KafkaClusterRolesWorkerNodeScriptActionInput is an input type that accepts KafkaClusterRolesWorkerNodeScriptActionArgs and KafkaClusterRolesWorkerNodeScriptActionOutput values.
+// You can construct a concrete instance of `KafkaClusterRolesWorkerNodeScriptActionInput` via:
+//
+//	KafkaClusterRolesWorkerNodeScriptActionArgs{...}
+type KafkaClusterRolesWorkerNodeScriptActionInput interface {
+	pulumi.Input
+
+	ToKafkaClusterRolesWorkerNodeScriptActionOutput() KafkaClusterRolesWorkerNodeScriptActionOutput
+	ToKafkaClusterRolesWorkerNodeScriptActionOutputWithContext(context.Context) KafkaClusterRolesWorkerNodeScriptActionOutput
+}
+
+type KafkaClusterRolesWorkerNodeScriptActionArgs struct {
+	// Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+	Name       pulumi.StringInput    `pulumi:"name"`
+	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
+	Uri        pulumi.StringInput    `pulumi:"uri"`
+}
+
+func (KafkaClusterRolesWorkerNodeScriptActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterRolesWorkerNodeScriptAction)(nil)).Elem()
+}
+
+func (i KafkaClusterRolesWorkerNodeScriptActionArgs) ToKafkaClusterRolesWorkerNodeScriptActionOutput() KafkaClusterRolesWorkerNodeScriptActionOutput {
+	return i.ToKafkaClusterRolesWorkerNodeScriptActionOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterRolesWorkerNodeScriptActionArgs) ToKafkaClusterRolesWorkerNodeScriptActionOutputWithContext(ctx context.Context) KafkaClusterRolesWorkerNodeScriptActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesWorkerNodeScriptActionOutput)
+}
+
+// KafkaClusterRolesWorkerNodeScriptActionArrayInput is an input type that accepts KafkaClusterRolesWorkerNodeScriptActionArray and KafkaClusterRolesWorkerNodeScriptActionArrayOutput values.
+// You can construct a concrete instance of `KafkaClusterRolesWorkerNodeScriptActionArrayInput` via:
+//
+//	KafkaClusterRolesWorkerNodeScriptActionArray{ KafkaClusterRolesWorkerNodeScriptActionArgs{...} }
+type KafkaClusterRolesWorkerNodeScriptActionArrayInput interface {
+	pulumi.Input
+
+	ToKafkaClusterRolesWorkerNodeScriptActionArrayOutput() KafkaClusterRolesWorkerNodeScriptActionArrayOutput
+	ToKafkaClusterRolesWorkerNodeScriptActionArrayOutputWithContext(context.Context) KafkaClusterRolesWorkerNodeScriptActionArrayOutput
+}
+
+type KafkaClusterRolesWorkerNodeScriptActionArray []KafkaClusterRolesWorkerNodeScriptActionInput
+
+func (KafkaClusterRolesWorkerNodeScriptActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KafkaClusterRolesWorkerNodeScriptAction)(nil)).Elem()
+}
+
+func (i KafkaClusterRolesWorkerNodeScriptActionArray) ToKafkaClusterRolesWorkerNodeScriptActionArrayOutput() KafkaClusterRolesWorkerNodeScriptActionArrayOutput {
+	return i.ToKafkaClusterRolesWorkerNodeScriptActionArrayOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterRolesWorkerNodeScriptActionArray) ToKafkaClusterRolesWorkerNodeScriptActionArrayOutputWithContext(ctx context.Context) KafkaClusterRolesWorkerNodeScriptActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesWorkerNodeScriptActionArrayOutput)
+}
+
+type KafkaClusterRolesWorkerNodeScriptActionOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterRolesWorkerNodeScriptActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterRolesWorkerNodeScriptAction)(nil)).Elem()
+}
+
+func (o KafkaClusterRolesWorkerNodeScriptActionOutput) ToKafkaClusterRolesWorkerNodeScriptActionOutput() KafkaClusterRolesWorkerNodeScriptActionOutput {
+	return o
+}
+
+func (o KafkaClusterRolesWorkerNodeScriptActionOutput) ToKafkaClusterRolesWorkerNodeScriptActionOutputWithContext(ctx context.Context) KafkaClusterRolesWorkerNodeScriptActionOutput {
+	return o
+}
+
+// Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+func (o KafkaClusterRolesWorkerNodeScriptActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaClusterRolesWorkerNodeScriptAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o KafkaClusterRolesWorkerNodeScriptActionOutput) Parameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KafkaClusterRolesWorkerNodeScriptAction) *string { return v.Parameters }).(pulumi.StringPtrOutput)
+}
+
+func (o KafkaClusterRolesWorkerNodeScriptActionOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaClusterRolesWorkerNodeScriptAction) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type KafkaClusterRolesWorkerNodeScriptActionArrayOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterRolesWorkerNodeScriptActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KafkaClusterRolesWorkerNodeScriptAction)(nil)).Elem()
+}
+
+func (o KafkaClusterRolesWorkerNodeScriptActionArrayOutput) ToKafkaClusterRolesWorkerNodeScriptActionArrayOutput() KafkaClusterRolesWorkerNodeScriptActionArrayOutput {
+	return o
+}
+
+func (o KafkaClusterRolesWorkerNodeScriptActionArrayOutput) ToKafkaClusterRolesWorkerNodeScriptActionArrayOutputWithContext(ctx context.Context) KafkaClusterRolesWorkerNodeScriptActionArrayOutput {
+	return o
+}
+
+func (o KafkaClusterRolesWorkerNodeScriptActionArrayOutput) Index(i pulumi.IntInput) KafkaClusterRolesWorkerNodeScriptActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KafkaClusterRolesWorkerNodeScriptAction {
+		return vs[0].([]KafkaClusterRolesWorkerNodeScriptAction)[vs[1].(int)]
+	}).(KafkaClusterRolesWorkerNodeScriptActionOutput)
+}
+
 type KafkaClusterRolesZookeeperNode struct {
 	// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-	Password *string `pulumi:"password"`
+	Password      *string                                      `pulumi:"password"`
+	ScriptActions []KafkaClusterRolesZookeeperNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	SshKeys []string `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -14305,7 +15898,8 @@ type KafkaClusterRolesZookeeperNodeInput interface {
 
 type KafkaClusterRolesZookeeperNodeArgs struct {
 	// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-	Password pulumi.StringPtrInput `pulumi:"password"`
+	Password      pulumi.StringPtrInput                                `pulumi:"password"`
+	ScriptActions KafkaClusterRolesZookeeperNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -14400,6 +15994,12 @@ func (o KafkaClusterRolesZookeeperNodeOutput) Password() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v KafkaClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
+func (o KafkaClusterRolesZookeeperNodeOutput) ScriptActions() KafkaClusterRolesZookeeperNodeScriptActionArrayOutput {
+	return o.ApplyT(func(v KafkaClusterRolesZookeeperNode) []KafkaClusterRolesZookeeperNodeScriptAction {
+		return v.ScriptActions
+	}).(KafkaClusterRolesZookeeperNodeScriptActionArrayOutput)
+}
+
 // A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 func (o KafkaClusterRolesZookeeperNodeOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KafkaClusterRolesZookeeperNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
@@ -14459,6 +16059,15 @@ func (o KafkaClusterRolesZookeeperNodePtrOutput) Password() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o KafkaClusterRolesZookeeperNodePtrOutput) ScriptActions() KafkaClusterRolesZookeeperNodeScriptActionArrayOutput {
+	return o.ApplyT(func(v *KafkaClusterRolesZookeeperNode) []KafkaClusterRolesZookeeperNodeScriptAction {
+		if v == nil {
+			return nil
+		}
+		return v.ScriptActions
+	}).(KafkaClusterRolesZookeeperNodeScriptActionArrayOutput)
+}
+
 // A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 func (o KafkaClusterRolesZookeeperNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KafkaClusterRolesZookeeperNode) []string {
@@ -14507,6 +16116,115 @@ func (o KafkaClusterRolesZookeeperNodePtrOutput) VmSize() pulumi.StringPtrOutput
 		}
 		return &v.VmSize
 	}).(pulumi.StringPtrOutput)
+}
+
+type KafkaClusterRolesZookeeperNodeScriptAction struct {
+	// Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+	Name       string  `pulumi:"name"`
+	Parameters *string `pulumi:"parameters"`
+	Uri        string  `pulumi:"uri"`
+}
+
+// KafkaClusterRolesZookeeperNodeScriptActionInput is an input type that accepts KafkaClusterRolesZookeeperNodeScriptActionArgs and KafkaClusterRolesZookeeperNodeScriptActionOutput values.
+// You can construct a concrete instance of `KafkaClusterRolesZookeeperNodeScriptActionInput` via:
+//
+//	KafkaClusterRolesZookeeperNodeScriptActionArgs{...}
+type KafkaClusterRolesZookeeperNodeScriptActionInput interface {
+	pulumi.Input
+
+	ToKafkaClusterRolesZookeeperNodeScriptActionOutput() KafkaClusterRolesZookeeperNodeScriptActionOutput
+	ToKafkaClusterRolesZookeeperNodeScriptActionOutputWithContext(context.Context) KafkaClusterRolesZookeeperNodeScriptActionOutput
+}
+
+type KafkaClusterRolesZookeeperNodeScriptActionArgs struct {
+	// Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+	Name       pulumi.StringInput    `pulumi:"name"`
+	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
+	Uri        pulumi.StringInput    `pulumi:"uri"`
+}
+
+func (KafkaClusterRolesZookeeperNodeScriptActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterRolesZookeeperNodeScriptAction)(nil)).Elem()
+}
+
+func (i KafkaClusterRolesZookeeperNodeScriptActionArgs) ToKafkaClusterRolesZookeeperNodeScriptActionOutput() KafkaClusterRolesZookeeperNodeScriptActionOutput {
+	return i.ToKafkaClusterRolesZookeeperNodeScriptActionOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterRolesZookeeperNodeScriptActionArgs) ToKafkaClusterRolesZookeeperNodeScriptActionOutputWithContext(ctx context.Context) KafkaClusterRolesZookeeperNodeScriptActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesZookeeperNodeScriptActionOutput)
+}
+
+// KafkaClusterRolesZookeeperNodeScriptActionArrayInput is an input type that accepts KafkaClusterRolesZookeeperNodeScriptActionArray and KafkaClusterRolesZookeeperNodeScriptActionArrayOutput values.
+// You can construct a concrete instance of `KafkaClusterRolesZookeeperNodeScriptActionArrayInput` via:
+//
+//	KafkaClusterRolesZookeeperNodeScriptActionArray{ KafkaClusterRolesZookeeperNodeScriptActionArgs{...} }
+type KafkaClusterRolesZookeeperNodeScriptActionArrayInput interface {
+	pulumi.Input
+
+	ToKafkaClusterRolesZookeeperNodeScriptActionArrayOutput() KafkaClusterRolesZookeeperNodeScriptActionArrayOutput
+	ToKafkaClusterRolesZookeeperNodeScriptActionArrayOutputWithContext(context.Context) KafkaClusterRolesZookeeperNodeScriptActionArrayOutput
+}
+
+type KafkaClusterRolesZookeeperNodeScriptActionArray []KafkaClusterRolesZookeeperNodeScriptActionInput
+
+func (KafkaClusterRolesZookeeperNodeScriptActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KafkaClusterRolesZookeeperNodeScriptAction)(nil)).Elem()
+}
+
+func (i KafkaClusterRolesZookeeperNodeScriptActionArray) ToKafkaClusterRolesZookeeperNodeScriptActionArrayOutput() KafkaClusterRolesZookeeperNodeScriptActionArrayOutput {
+	return i.ToKafkaClusterRolesZookeeperNodeScriptActionArrayOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterRolesZookeeperNodeScriptActionArray) ToKafkaClusterRolesZookeeperNodeScriptActionArrayOutputWithContext(ctx context.Context) KafkaClusterRolesZookeeperNodeScriptActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesZookeeperNodeScriptActionArrayOutput)
+}
+
+type KafkaClusterRolesZookeeperNodeScriptActionOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterRolesZookeeperNodeScriptActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterRolesZookeeperNodeScriptAction)(nil)).Elem()
+}
+
+func (o KafkaClusterRolesZookeeperNodeScriptActionOutput) ToKafkaClusterRolesZookeeperNodeScriptActionOutput() KafkaClusterRolesZookeeperNodeScriptActionOutput {
+	return o
+}
+
+func (o KafkaClusterRolesZookeeperNodeScriptActionOutput) ToKafkaClusterRolesZookeeperNodeScriptActionOutputWithContext(ctx context.Context) KafkaClusterRolesZookeeperNodeScriptActionOutput {
+	return o
+}
+
+// Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+func (o KafkaClusterRolesZookeeperNodeScriptActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaClusterRolesZookeeperNodeScriptAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o KafkaClusterRolesZookeeperNodeScriptActionOutput) Parameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KafkaClusterRolesZookeeperNodeScriptAction) *string { return v.Parameters }).(pulumi.StringPtrOutput)
+}
+
+func (o KafkaClusterRolesZookeeperNodeScriptActionOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaClusterRolesZookeeperNodeScriptAction) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type KafkaClusterRolesZookeeperNodeScriptActionArrayOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterRolesZookeeperNodeScriptActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KafkaClusterRolesZookeeperNodeScriptAction)(nil)).Elem()
+}
+
+func (o KafkaClusterRolesZookeeperNodeScriptActionArrayOutput) ToKafkaClusterRolesZookeeperNodeScriptActionArrayOutput() KafkaClusterRolesZookeeperNodeScriptActionArrayOutput {
+	return o
+}
+
+func (o KafkaClusterRolesZookeeperNodeScriptActionArrayOutput) ToKafkaClusterRolesZookeeperNodeScriptActionArrayOutputWithContext(ctx context.Context) KafkaClusterRolesZookeeperNodeScriptActionArrayOutput {
+	return o
+}
+
+func (o KafkaClusterRolesZookeeperNodeScriptActionArrayOutput) Index(i pulumi.IntInput) KafkaClusterRolesZookeeperNodeScriptActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KafkaClusterRolesZookeeperNodeScriptAction {
+		return vs[0].([]KafkaClusterRolesZookeeperNodeScriptAction)[vs[1].(int)]
+	}).(KafkaClusterRolesZookeeperNodeScriptActionOutput)
 }
 
 type KafkaClusterSecurityProfile struct {
@@ -16898,6 +18616,8 @@ func (o SparkClusterRolesPtrOutput) ZookeeperNode() SparkClusterRolesZookeeperNo
 type SparkClusterRolesHeadNode struct {
 	// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
+	// The script action which will run on the cluster.
+	ScriptActions []SparkClusterRolesHeadNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	SshKeys []string `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -16924,6 +18644,8 @@ type SparkClusterRolesHeadNodeInput interface {
 type SparkClusterRolesHeadNodeArgs struct {
 	// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The script action which will run on the cluster.
+	ScriptActions SparkClusterRolesHeadNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -17018,6 +18740,11 @@ func (o SparkClusterRolesHeadNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SparkClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
+// The script action which will run on the cluster.
+func (o SparkClusterRolesHeadNodeOutput) ScriptActions() SparkClusterRolesHeadNodeScriptActionArrayOutput {
+	return o.ApplyT(func(v SparkClusterRolesHeadNode) []SparkClusterRolesHeadNodeScriptAction { return v.ScriptActions }).(SparkClusterRolesHeadNodeScriptActionArrayOutput)
+}
+
 // A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 func (o SparkClusterRolesHeadNodeOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SparkClusterRolesHeadNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
@@ -17077,6 +18804,16 @@ func (o SparkClusterRolesHeadNodePtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The script action which will run on the cluster.
+func (o SparkClusterRolesHeadNodePtrOutput) ScriptActions() SparkClusterRolesHeadNodeScriptActionArrayOutput {
+	return o.ApplyT(func(v *SparkClusterRolesHeadNode) []SparkClusterRolesHeadNodeScriptAction {
+		if v == nil {
+			return nil
+		}
+		return v.ScriptActions
+	}).(SparkClusterRolesHeadNodeScriptActionArrayOutput)
+}
+
 // A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 func (o SparkClusterRolesHeadNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SparkClusterRolesHeadNode) []string {
@@ -17127,11 +18864,128 @@ func (o SparkClusterRolesHeadNodePtrOutput) VmSize() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type SparkClusterRolesHeadNodeScriptAction struct {
+	// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// The parameters for the script provided.
+	Parameters *string `pulumi:"parameters"`
+	// The URI to the script.
+	Uri string `pulumi:"uri"`
+}
+
+// SparkClusterRolesHeadNodeScriptActionInput is an input type that accepts SparkClusterRolesHeadNodeScriptActionArgs and SparkClusterRolesHeadNodeScriptActionOutput values.
+// You can construct a concrete instance of `SparkClusterRolesHeadNodeScriptActionInput` via:
+//
+//	SparkClusterRolesHeadNodeScriptActionArgs{...}
+type SparkClusterRolesHeadNodeScriptActionInput interface {
+	pulumi.Input
+
+	ToSparkClusterRolesHeadNodeScriptActionOutput() SparkClusterRolesHeadNodeScriptActionOutput
+	ToSparkClusterRolesHeadNodeScriptActionOutputWithContext(context.Context) SparkClusterRolesHeadNodeScriptActionOutput
+}
+
+type SparkClusterRolesHeadNodeScriptActionArgs struct {
+	// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The parameters for the script provided.
+	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
+	// The URI to the script.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (SparkClusterRolesHeadNodeScriptActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkClusterRolesHeadNodeScriptAction)(nil)).Elem()
+}
+
+func (i SparkClusterRolesHeadNodeScriptActionArgs) ToSparkClusterRolesHeadNodeScriptActionOutput() SparkClusterRolesHeadNodeScriptActionOutput {
+	return i.ToSparkClusterRolesHeadNodeScriptActionOutputWithContext(context.Background())
+}
+
+func (i SparkClusterRolesHeadNodeScriptActionArgs) ToSparkClusterRolesHeadNodeScriptActionOutputWithContext(ctx context.Context) SparkClusterRolesHeadNodeScriptActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesHeadNodeScriptActionOutput)
+}
+
+// SparkClusterRolesHeadNodeScriptActionArrayInput is an input type that accepts SparkClusterRolesHeadNodeScriptActionArray and SparkClusterRolesHeadNodeScriptActionArrayOutput values.
+// You can construct a concrete instance of `SparkClusterRolesHeadNodeScriptActionArrayInput` via:
+//
+//	SparkClusterRolesHeadNodeScriptActionArray{ SparkClusterRolesHeadNodeScriptActionArgs{...} }
+type SparkClusterRolesHeadNodeScriptActionArrayInput interface {
+	pulumi.Input
+
+	ToSparkClusterRolesHeadNodeScriptActionArrayOutput() SparkClusterRolesHeadNodeScriptActionArrayOutput
+	ToSparkClusterRolesHeadNodeScriptActionArrayOutputWithContext(context.Context) SparkClusterRolesHeadNodeScriptActionArrayOutput
+}
+
+type SparkClusterRolesHeadNodeScriptActionArray []SparkClusterRolesHeadNodeScriptActionInput
+
+func (SparkClusterRolesHeadNodeScriptActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SparkClusterRolesHeadNodeScriptAction)(nil)).Elem()
+}
+
+func (i SparkClusterRolesHeadNodeScriptActionArray) ToSparkClusterRolesHeadNodeScriptActionArrayOutput() SparkClusterRolesHeadNodeScriptActionArrayOutput {
+	return i.ToSparkClusterRolesHeadNodeScriptActionArrayOutputWithContext(context.Background())
+}
+
+func (i SparkClusterRolesHeadNodeScriptActionArray) ToSparkClusterRolesHeadNodeScriptActionArrayOutputWithContext(ctx context.Context) SparkClusterRolesHeadNodeScriptActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesHeadNodeScriptActionArrayOutput)
+}
+
+type SparkClusterRolesHeadNodeScriptActionOutput struct{ *pulumi.OutputState }
+
+func (SparkClusterRolesHeadNodeScriptActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkClusterRolesHeadNodeScriptAction)(nil)).Elem()
+}
+
+func (o SparkClusterRolesHeadNodeScriptActionOutput) ToSparkClusterRolesHeadNodeScriptActionOutput() SparkClusterRolesHeadNodeScriptActionOutput {
+	return o
+}
+
+func (o SparkClusterRolesHeadNodeScriptActionOutput) ToSparkClusterRolesHeadNodeScriptActionOutputWithContext(ctx context.Context) SparkClusterRolesHeadNodeScriptActionOutput {
+	return o
+}
+
+// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+func (o SparkClusterRolesHeadNodeScriptActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SparkClusterRolesHeadNodeScriptAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The parameters for the script provided.
+func (o SparkClusterRolesHeadNodeScriptActionOutput) Parameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SparkClusterRolesHeadNodeScriptAction) *string { return v.Parameters }).(pulumi.StringPtrOutput)
+}
+
+// The URI to the script.
+func (o SparkClusterRolesHeadNodeScriptActionOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v SparkClusterRolesHeadNodeScriptAction) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type SparkClusterRolesHeadNodeScriptActionArrayOutput struct{ *pulumi.OutputState }
+
+func (SparkClusterRolesHeadNodeScriptActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SparkClusterRolesHeadNodeScriptAction)(nil)).Elem()
+}
+
+func (o SparkClusterRolesHeadNodeScriptActionArrayOutput) ToSparkClusterRolesHeadNodeScriptActionArrayOutput() SparkClusterRolesHeadNodeScriptActionArrayOutput {
+	return o
+}
+
+func (o SparkClusterRolesHeadNodeScriptActionArrayOutput) ToSparkClusterRolesHeadNodeScriptActionArrayOutputWithContext(ctx context.Context) SparkClusterRolesHeadNodeScriptActionArrayOutput {
+	return o
+}
+
+func (o SparkClusterRolesHeadNodeScriptActionArrayOutput) Index(i pulumi.IntInput) SparkClusterRolesHeadNodeScriptActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SparkClusterRolesHeadNodeScriptAction {
+		return vs[0].([]SparkClusterRolesHeadNodeScriptAction)[vs[1].(int)]
+	}).(SparkClusterRolesHeadNodeScriptActionOutput)
+}
+
 type SparkClusterRolesWorkerNode struct {
 	// A `autoscale` block as defined below.
 	Autoscale *SparkClusterRolesWorkerNodeAutoscale `pulumi:"autoscale"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
+	// The script action which will run on the cluster.
+	ScriptActions []SparkClusterRolesWorkerNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	SshKeys []string `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -17162,6 +19016,8 @@ type SparkClusterRolesWorkerNodeArgs struct {
 	Autoscale SparkClusterRolesWorkerNodeAutoscalePtrInput `pulumi:"autoscale"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The script action which will run on the cluster.
+	ScriptActions SparkClusterRolesWorkerNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -17263,6 +19119,11 @@ func (o SparkClusterRolesWorkerNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SparkClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
+// The script action which will run on the cluster.
+func (o SparkClusterRolesWorkerNodeOutput) ScriptActions() SparkClusterRolesWorkerNodeScriptActionArrayOutput {
+	return o.ApplyT(func(v SparkClusterRolesWorkerNode) []SparkClusterRolesWorkerNodeScriptAction { return v.ScriptActions }).(SparkClusterRolesWorkerNodeScriptActionArrayOutput)
+}
+
 // A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 func (o SparkClusterRolesWorkerNodeOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SparkClusterRolesWorkerNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
@@ -17335,6 +19196,16 @@ func (o SparkClusterRolesWorkerNodePtrOutput) Password() pulumi.StringPtrOutput 
 		}
 		return v.Password
 	}).(pulumi.StringPtrOutput)
+}
+
+// The script action which will run on the cluster.
+func (o SparkClusterRolesWorkerNodePtrOutput) ScriptActions() SparkClusterRolesWorkerNodeScriptActionArrayOutput {
+	return o.ApplyT(func(v *SparkClusterRolesWorkerNode) []SparkClusterRolesWorkerNodeScriptAction {
+		if v == nil {
+			return nil
+		}
+		return v.ScriptActions
+	}).(SparkClusterRolesWorkerNodeScriptActionArrayOutput)
 }
 
 // A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
@@ -17986,9 +19857,126 @@ func (o SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) Index
 	}).(SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput)
 }
 
+type SparkClusterRolesWorkerNodeScriptAction struct {
+	// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// The parameters for the script provided.
+	Parameters *string `pulumi:"parameters"`
+	// The URI to the script.
+	Uri string `pulumi:"uri"`
+}
+
+// SparkClusterRolesWorkerNodeScriptActionInput is an input type that accepts SparkClusterRolesWorkerNodeScriptActionArgs and SparkClusterRolesWorkerNodeScriptActionOutput values.
+// You can construct a concrete instance of `SparkClusterRolesWorkerNodeScriptActionInput` via:
+//
+//	SparkClusterRolesWorkerNodeScriptActionArgs{...}
+type SparkClusterRolesWorkerNodeScriptActionInput interface {
+	pulumi.Input
+
+	ToSparkClusterRolesWorkerNodeScriptActionOutput() SparkClusterRolesWorkerNodeScriptActionOutput
+	ToSparkClusterRolesWorkerNodeScriptActionOutputWithContext(context.Context) SparkClusterRolesWorkerNodeScriptActionOutput
+}
+
+type SparkClusterRolesWorkerNodeScriptActionArgs struct {
+	// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The parameters for the script provided.
+	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
+	// The URI to the script.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (SparkClusterRolesWorkerNodeScriptActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkClusterRolesWorkerNodeScriptAction)(nil)).Elem()
+}
+
+func (i SparkClusterRolesWorkerNodeScriptActionArgs) ToSparkClusterRolesWorkerNodeScriptActionOutput() SparkClusterRolesWorkerNodeScriptActionOutput {
+	return i.ToSparkClusterRolesWorkerNodeScriptActionOutputWithContext(context.Background())
+}
+
+func (i SparkClusterRolesWorkerNodeScriptActionArgs) ToSparkClusterRolesWorkerNodeScriptActionOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeScriptActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesWorkerNodeScriptActionOutput)
+}
+
+// SparkClusterRolesWorkerNodeScriptActionArrayInput is an input type that accepts SparkClusterRolesWorkerNodeScriptActionArray and SparkClusterRolesWorkerNodeScriptActionArrayOutput values.
+// You can construct a concrete instance of `SparkClusterRolesWorkerNodeScriptActionArrayInput` via:
+//
+//	SparkClusterRolesWorkerNodeScriptActionArray{ SparkClusterRolesWorkerNodeScriptActionArgs{...} }
+type SparkClusterRolesWorkerNodeScriptActionArrayInput interface {
+	pulumi.Input
+
+	ToSparkClusterRolesWorkerNodeScriptActionArrayOutput() SparkClusterRolesWorkerNodeScriptActionArrayOutput
+	ToSparkClusterRolesWorkerNodeScriptActionArrayOutputWithContext(context.Context) SparkClusterRolesWorkerNodeScriptActionArrayOutput
+}
+
+type SparkClusterRolesWorkerNodeScriptActionArray []SparkClusterRolesWorkerNodeScriptActionInput
+
+func (SparkClusterRolesWorkerNodeScriptActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SparkClusterRolesWorkerNodeScriptAction)(nil)).Elem()
+}
+
+func (i SparkClusterRolesWorkerNodeScriptActionArray) ToSparkClusterRolesWorkerNodeScriptActionArrayOutput() SparkClusterRolesWorkerNodeScriptActionArrayOutput {
+	return i.ToSparkClusterRolesWorkerNodeScriptActionArrayOutputWithContext(context.Background())
+}
+
+func (i SparkClusterRolesWorkerNodeScriptActionArray) ToSparkClusterRolesWorkerNodeScriptActionArrayOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeScriptActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesWorkerNodeScriptActionArrayOutput)
+}
+
+type SparkClusterRolesWorkerNodeScriptActionOutput struct{ *pulumi.OutputState }
+
+func (SparkClusterRolesWorkerNodeScriptActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkClusterRolesWorkerNodeScriptAction)(nil)).Elem()
+}
+
+func (o SparkClusterRolesWorkerNodeScriptActionOutput) ToSparkClusterRolesWorkerNodeScriptActionOutput() SparkClusterRolesWorkerNodeScriptActionOutput {
+	return o
+}
+
+func (o SparkClusterRolesWorkerNodeScriptActionOutput) ToSparkClusterRolesWorkerNodeScriptActionOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeScriptActionOutput {
+	return o
+}
+
+// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+func (o SparkClusterRolesWorkerNodeScriptActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SparkClusterRolesWorkerNodeScriptAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The parameters for the script provided.
+func (o SparkClusterRolesWorkerNodeScriptActionOutput) Parameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SparkClusterRolesWorkerNodeScriptAction) *string { return v.Parameters }).(pulumi.StringPtrOutput)
+}
+
+// The URI to the script.
+func (o SparkClusterRolesWorkerNodeScriptActionOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v SparkClusterRolesWorkerNodeScriptAction) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type SparkClusterRolesWorkerNodeScriptActionArrayOutput struct{ *pulumi.OutputState }
+
+func (SparkClusterRolesWorkerNodeScriptActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SparkClusterRolesWorkerNodeScriptAction)(nil)).Elem()
+}
+
+func (o SparkClusterRolesWorkerNodeScriptActionArrayOutput) ToSparkClusterRolesWorkerNodeScriptActionArrayOutput() SparkClusterRolesWorkerNodeScriptActionArrayOutput {
+	return o
+}
+
+func (o SparkClusterRolesWorkerNodeScriptActionArrayOutput) ToSparkClusterRolesWorkerNodeScriptActionArrayOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeScriptActionArrayOutput {
+	return o
+}
+
+func (o SparkClusterRolesWorkerNodeScriptActionArrayOutput) Index(i pulumi.IntInput) SparkClusterRolesWorkerNodeScriptActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SparkClusterRolesWorkerNodeScriptAction {
+		return vs[0].([]SparkClusterRolesWorkerNodeScriptAction)[vs[1].(int)]
+	}).(SparkClusterRolesWorkerNodeScriptActionOutput)
+}
+
 type SparkClusterRolesZookeeperNode struct {
 	// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
+	// The script action which will run on the cluster.
+	ScriptActions []SparkClusterRolesZookeeperNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	SshKeys []string `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -18015,6 +20003,8 @@ type SparkClusterRolesZookeeperNodeInput interface {
 type SparkClusterRolesZookeeperNodeArgs struct {
 	// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The script action which will run on the cluster.
+	ScriptActions SparkClusterRolesZookeeperNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -18109,6 +20099,13 @@ func (o SparkClusterRolesZookeeperNodeOutput) Password() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v SparkClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
+// The script action which will run on the cluster.
+func (o SparkClusterRolesZookeeperNodeOutput) ScriptActions() SparkClusterRolesZookeeperNodeScriptActionArrayOutput {
+	return o.ApplyT(func(v SparkClusterRolesZookeeperNode) []SparkClusterRolesZookeeperNodeScriptAction {
+		return v.ScriptActions
+	}).(SparkClusterRolesZookeeperNodeScriptActionArrayOutput)
+}
+
 // A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 func (o SparkClusterRolesZookeeperNodeOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SparkClusterRolesZookeeperNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
@@ -18168,6 +20165,16 @@ func (o SparkClusterRolesZookeeperNodePtrOutput) Password() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The script action which will run on the cluster.
+func (o SparkClusterRolesZookeeperNodePtrOutput) ScriptActions() SparkClusterRolesZookeeperNodeScriptActionArrayOutput {
+	return o.ApplyT(func(v *SparkClusterRolesZookeeperNode) []SparkClusterRolesZookeeperNodeScriptAction {
+		if v == nil {
+			return nil
+		}
+		return v.ScriptActions
+	}).(SparkClusterRolesZookeeperNodeScriptActionArrayOutput)
+}
+
 // A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 func (o SparkClusterRolesZookeeperNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SparkClusterRolesZookeeperNode) []string {
@@ -18216,6 +20223,121 @@ func (o SparkClusterRolesZookeeperNodePtrOutput) VmSize() pulumi.StringPtrOutput
 		}
 		return &v.VmSize
 	}).(pulumi.StringPtrOutput)
+}
+
+type SparkClusterRolesZookeeperNodeScriptAction struct {
+	// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// The parameters for the script provided.
+	Parameters *string `pulumi:"parameters"`
+	// The URI to the script.
+	Uri string `pulumi:"uri"`
+}
+
+// SparkClusterRolesZookeeperNodeScriptActionInput is an input type that accepts SparkClusterRolesZookeeperNodeScriptActionArgs and SparkClusterRolesZookeeperNodeScriptActionOutput values.
+// You can construct a concrete instance of `SparkClusterRolesZookeeperNodeScriptActionInput` via:
+//
+//	SparkClusterRolesZookeeperNodeScriptActionArgs{...}
+type SparkClusterRolesZookeeperNodeScriptActionInput interface {
+	pulumi.Input
+
+	ToSparkClusterRolesZookeeperNodeScriptActionOutput() SparkClusterRolesZookeeperNodeScriptActionOutput
+	ToSparkClusterRolesZookeeperNodeScriptActionOutputWithContext(context.Context) SparkClusterRolesZookeeperNodeScriptActionOutput
+}
+
+type SparkClusterRolesZookeeperNodeScriptActionArgs struct {
+	// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The parameters for the script provided.
+	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
+	// The URI to the script.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (SparkClusterRolesZookeeperNodeScriptActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkClusterRolesZookeeperNodeScriptAction)(nil)).Elem()
+}
+
+func (i SparkClusterRolesZookeeperNodeScriptActionArgs) ToSparkClusterRolesZookeeperNodeScriptActionOutput() SparkClusterRolesZookeeperNodeScriptActionOutput {
+	return i.ToSparkClusterRolesZookeeperNodeScriptActionOutputWithContext(context.Background())
+}
+
+func (i SparkClusterRolesZookeeperNodeScriptActionArgs) ToSparkClusterRolesZookeeperNodeScriptActionOutputWithContext(ctx context.Context) SparkClusterRolesZookeeperNodeScriptActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesZookeeperNodeScriptActionOutput)
+}
+
+// SparkClusterRolesZookeeperNodeScriptActionArrayInput is an input type that accepts SparkClusterRolesZookeeperNodeScriptActionArray and SparkClusterRolesZookeeperNodeScriptActionArrayOutput values.
+// You can construct a concrete instance of `SparkClusterRolesZookeeperNodeScriptActionArrayInput` via:
+//
+//	SparkClusterRolesZookeeperNodeScriptActionArray{ SparkClusterRolesZookeeperNodeScriptActionArgs{...} }
+type SparkClusterRolesZookeeperNodeScriptActionArrayInput interface {
+	pulumi.Input
+
+	ToSparkClusterRolesZookeeperNodeScriptActionArrayOutput() SparkClusterRolesZookeeperNodeScriptActionArrayOutput
+	ToSparkClusterRolesZookeeperNodeScriptActionArrayOutputWithContext(context.Context) SparkClusterRolesZookeeperNodeScriptActionArrayOutput
+}
+
+type SparkClusterRolesZookeeperNodeScriptActionArray []SparkClusterRolesZookeeperNodeScriptActionInput
+
+func (SparkClusterRolesZookeeperNodeScriptActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SparkClusterRolesZookeeperNodeScriptAction)(nil)).Elem()
+}
+
+func (i SparkClusterRolesZookeeperNodeScriptActionArray) ToSparkClusterRolesZookeeperNodeScriptActionArrayOutput() SparkClusterRolesZookeeperNodeScriptActionArrayOutput {
+	return i.ToSparkClusterRolesZookeeperNodeScriptActionArrayOutputWithContext(context.Background())
+}
+
+func (i SparkClusterRolesZookeeperNodeScriptActionArray) ToSparkClusterRolesZookeeperNodeScriptActionArrayOutputWithContext(ctx context.Context) SparkClusterRolesZookeeperNodeScriptActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesZookeeperNodeScriptActionArrayOutput)
+}
+
+type SparkClusterRolesZookeeperNodeScriptActionOutput struct{ *pulumi.OutputState }
+
+func (SparkClusterRolesZookeeperNodeScriptActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkClusterRolesZookeeperNodeScriptAction)(nil)).Elem()
+}
+
+func (o SparkClusterRolesZookeeperNodeScriptActionOutput) ToSparkClusterRolesZookeeperNodeScriptActionOutput() SparkClusterRolesZookeeperNodeScriptActionOutput {
+	return o
+}
+
+func (o SparkClusterRolesZookeeperNodeScriptActionOutput) ToSparkClusterRolesZookeeperNodeScriptActionOutputWithContext(ctx context.Context) SparkClusterRolesZookeeperNodeScriptActionOutput {
+	return o
+}
+
+// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+func (o SparkClusterRolesZookeeperNodeScriptActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SparkClusterRolesZookeeperNodeScriptAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The parameters for the script provided.
+func (o SparkClusterRolesZookeeperNodeScriptActionOutput) Parameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SparkClusterRolesZookeeperNodeScriptAction) *string { return v.Parameters }).(pulumi.StringPtrOutput)
+}
+
+// The URI to the script.
+func (o SparkClusterRolesZookeeperNodeScriptActionOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v SparkClusterRolesZookeeperNodeScriptAction) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type SparkClusterRolesZookeeperNodeScriptActionArrayOutput struct{ *pulumi.OutputState }
+
+func (SparkClusterRolesZookeeperNodeScriptActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SparkClusterRolesZookeeperNodeScriptAction)(nil)).Elem()
+}
+
+func (o SparkClusterRolesZookeeperNodeScriptActionArrayOutput) ToSparkClusterRolesZookeeperNodeScriptActionArrayOutput() SparkClusterRolesZookeeperNodeScriptActionArrayOutput {
+	return o
+}
+
+func (o SparkClusterRolesZookeeperNodeScriptActionArrayOutput) ToSparkClusterRolesZookeeperNodeScriptActionArrayOutputWithContext(ctx context.Context) SparkClusterRolesZookeeperNodeScriptActionArrayOutput {
+	return o
+}
+
+func (o SparkClusterRolesZookeeperNodeScriptActionArrayOutput) Index(i pulumi.IntInput) SparkClusterRolesZookeeperNodeScriptActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SparkClusterRolesZookeeperNodeScriptAction {
+		return vs[0].([]SparkClusterRolesZookeeperNodeScriptAction)[vs[1].(int)]
+	}).(SparkClusterRolesZookeeperNodeScriptActionOutput)
 }
 
 type SparkClusterSecurityProfile struct {
@@ -18927,6 +21049,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesPtrInput)(nil)).Elem(), HBaseClusterRolesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesHeadNodeInput)(nil)).Elem(), HBaseClusterRolesHeadNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesHeadNodePtrInput)(nil)).Elem(), HBaseClusterRolesHeadNodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesHeadNodeScriptActionInput)(nil)).Elem(), HBaseClusterRolesHeadNodeScriptActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesHeadNodeScriptActionArrayInput)(nil)).Elem(), HBaseClusterRolesHeadNodeScriptActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesWorkerNodeInput)(nil)).Elem(), HBaseClusterRolesWorkerNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesWorkerNodePtrInput)(nil)).Elem(), HBaseClusterRolesWorkerNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesWorkerNodeAutoscaleInput)(nil)).Elem(), HBaseClusterRolesWorkerNodeAutoscaleArgs{})
@@ -18935,8 +21059,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrInput)(nil)).Elem(), HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput)(nil)).Elem(), HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput)(nil)).Elem(), HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesWorkerNodeScriptActionInput)(nil)).Elem(), HBaseClusterRolesWorkerNodeScriptActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesWorkerNodeScriptActionArrayInput)(nil)).Elem(), HBaseClusterRolesWorkerNodeScriptActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesZookeeperNodeInput)(nil)).Elem(), HBaseClusterRolesZookeeperNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesZookeeperNodePtrInput)(nil)).Elem(), HBaseClusterRolesZookeeperNodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesZookeeperNodeScriptActionInput)(nil)).Elem(), HBaseClusterRolesZookeeperNodeScriptActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesZookeeperNodeScriptActionArrayInput)(nil)).Elem(), HBaseClusterRolesZookeeperNodeScriptActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterSecurityProfileInput)(nil)).Elem(), HBaseClusterSecurityProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterSecurityProfilePtrInput)(nil)).Elem(), HBaseClusterSecurityProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterStorageAccountInput)(nil)).Elem(), HBaseClusterStorageAccountArgs{})
@@ -18975,6 +21103,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesEdgeNodeUninstallScriptActionArrayInput)(nil)).Elem(), HadoopClusterRolesEdgeNodeUninstallScriptActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesHeadNodeInput)(nil)).Elem(), HadoopClusterRolesHeadNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesHeadNodePtrInput)(nil)).Elem(), HadoopClusterRolesHeadNodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesHeadNodeScriptActionInput)(nil)).Elem(), HadoopClusterRolesHeadNodeScriptActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesHeadNodeScriptActionArrayInput)(nil)).Elem(), HadoopClusterRolesHeadNodeScriptActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesWorkerNodeInput)(nil)).Elem(), HadoopClusterRolesWorkerNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesWorkerNodePtrInput)(nil)).Elem(), HadoopClusterRolesWorkerNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesWorkerNodeAutoscaleInput)(nil)).Elem(), HadoopClusterRolesWorkerNodeAutoscaleArgs{})
@@ -18985,8 +21115,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrInput)(nil)).Elem(), HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput)(nil)).Elem(), HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput)(nil)).Elem(), HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesWorkerNodeScriptActionInput)(nil)).Elem(), HadoopClusterRolesWorkerNodeScriptActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesWorkerNodeScriptActionArrayInput)(nil)).Elem(), HadoopClusterRolesWorkerNodeScriptActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesZookeeperNodeInput)(nil)).Elem(), HadoopClusterRolesZookeeperNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesZookeeperNodePtrInput)(nil)).Elem(), HadoopClusterRolesZookeeperNodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesZookeeperNodeScriptActionInput)(nil)).Elem(), HadoopClusterRolesZookeeperNodeScriptActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesZookeeperNodeScriptActionArrayInput)(nil)).Elem(), HadoopClusterRolesZookeeperNodeScriptActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterSecurityProfileInput)(nil)).Elem(), HadoopClusterSecurityProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterSecurityProfilePtrInput)(nil)).Elem(), HadoopClusterSecurityProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterStorageAccountInput)(nil)).Elem(), HadoopClusterStorageAccountArgs{})
@@ -19017,6 +21151,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesPtrInput)(nil)).Elem(), InteractiveQueryClusterRolesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesHeadNodeInput)(nil)).Elem(), InteractiveQueryClusterRolesHeadNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesHeadNodePtrInput)(nil)).Elem(), InteractiveQueryClusterRolesHeadNodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesHeadNodeScriptActionInput)(nil)).Elem(), InteractiveQueryClusterRolesHeadNodeScriptActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesHeadNodeScriptActionArrayInput)(nil)).Elem(), InteractiveQueryClusterRolesHeadNodeScriptActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodeInput)(nil)).Elem(), InteractiveQueryClusterRolesWorkerNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodePtrInput)(nil)).Elem(), InteractiveQueryClusterRolesWorkerNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodeAutoscaleInput)(nil)).Elem(), InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs{})
@@ -19027,8 +21163,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrInput)(nil)).Elem(), InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput)(nil)).Elem(), InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput)(nil)).Elem(), InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodeScriptActionInput)(nil)).Elem(), InteractiveQueryClusterRolesWorkerNodeScriptActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodeScriptActionArrayInput)(nil)).Elem(), InteractiveQueryClusterRolesWorkerNodeScriptActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesZookeeperNodeInput)(nil)).Elem(), InteractiveQueryClusterRolesZookeeperNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesZookeeperNodePtrInput)(nil)).Elem(), InteractiveQueryClusterRolesZookeeperNodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesZookeeperNodeScriptActionInput)(nil)).Elem(), InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayInput)(nil)).Elem(), InteractiveQueryClusterRolesZookeeperNodeScriptActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterSecurityProfileInput)(nil)).Elem(), InteractiveQueryClusterSecurityProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterSecurityProfilePtrInput)(nil)).Elem(), InteractiveQueryClusterSecurityProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterStorageAccountInput)(nil)).Elem(), InteractiveQueryClusterStorageAccountArgs{})
@@ -19061,12 +21201,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRolesPtrInput)(nil)).Elem(), KafkaClusterRolesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRolesHeadNodeInput)(nil)).Elem(), KafkaClusterRolesHeadNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRolesHeadNodePtrInput)(nil)).Elem(), KafkaClusterRolesHeadNodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRolesHeadNodeScriptActionInput)(nil)).Elem(), KafkaClusterRolesHeadNodeScriptActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRolesHeadNodeScriptActionArrayInput)(nil)).Elem(), KafkaClusterRolesHeadNodeScriptActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRolesKafkaManagementNodeInput)(nil)).Elem(), KafkaClusterRolesKafkaManagementNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRolesKafkaManagementNodePtrInput)(nil)).Elem(), KafkaClusterRolesKafkaManagementNodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRolesKafkaManagementNodeScriptActionInput)(nil)).Elem(), KafkaClusterRolesKafkaManagementNodeScriptActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRolesKafkaManagementNodeScriptActionArrayInput)(nil)).Elem(), KafkaClusterRolesKafkaManagementNodeScriptActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRolesWorkerNodeInput)(nil)).Elem(), KafkaClusterRolesWorkerNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRolesWorkerNodePtrInput)(nil)).Elem(), KafkaClusterRolesWorkerNodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRolesWorkerNodeScriptActionInput)(nil)).Elem(), KafkaClusterRolesWorkerNodeScriptActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRolesWorkerNodeScriptActionArrayInput)(nil)).Elem(), KafkaClusterRolesWorkerNodeScriptActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRolesZookeeperNodeInput)(nil)).Elem(), KafkaClusterRolesZookeeperNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRolesZookeeperNodePtrInput)(nil)).Elem(), KafkaClusterRolesZookeeperNodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRolesZookeeperNodeScriptActionInput)(nil)).Elem(), KafkaClusterRolesZookeeperNodeScriptActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRolesZookeeperNodeScriptActionArrayInput)(nil)).Elem(), KafkaClusterRolesZookeeperNodeScriptActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterSecurityProfileInput)(nil)).Elem(), KafkaClusterSecurityProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterSecurityProfilePtrInput)(nil)).Elem(), KafkaClusterSecurityProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterStorageAccountInput)(nil)).Elem(), KafkaClusterStorageAccountArgs{})
@@ -19097,6 +21245,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterRolesPtrInput)(nil)).Elem(), SparkClusterRolesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterRolesHeadNodeInput)(nil)).Elem(), SparkClusterRolesHeadNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterRolesHeadNodePtrInput)(nil)).Elem(), SparkClusterRolesHeadNodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterRolesHeadNodeScriptActionInput)(nil)).Elem(), SparkClusterRolesHeadNodeScriptActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterRolesHeadNodeScriptActionArrayInput)(nil)).Elem(), SparkClusterRolesHeadNodeScriptActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterRolesWorkerNodeInput)(nil)).Elem(), SparkClusterRolesWorkerNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterRolesWorkerNodePtrInput)(nil)).Elem(), SparkClusterRolesWorkerNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterRolesWorkerNodeAutoscaleInput)(nil)).Elem(), SparkClusterRolesWorkerNodeAutoscaleArgs{})
@@ -19107,8 +21257,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrInput)(nil)).Elem(), SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput)(nil)).Elem(), SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput)(nil)).Elem(), SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterRolesWorkerNodeScriptActionInput)(nil)).Elem(), SparkClusterRolesWorkerNodeScriptActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterRolesWorkerNodeScriptActionArrayInput)(nil)).Elem(), SparkClusterRolesWorkerNodeScriptActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterRolesZookeeperNodeInput)(nil)).Elem(), SparkClusterRolesZookeeperNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterRolesZookeeperNodePtrInput)(nil)).Elem(), SparkClusterRolesZookeeperNodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterRolesZookeeperNodeScriptActionInput)(nil)).Elem(), SparkClusterRolesZookeeperNodeScriptActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterRolesZookeeperNodeScriptActionArrayInput)(nil)).Elem(), SparkClusterRolesZookeeperNodeScriptActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterSecurityProfileInput)(nil)).Elem(), SparkClusterSecurityProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterSecurityProfilePtrInput)(nil)).Elem(), SparkClusterSecurityProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterStorageAccountInput)(nil)).Elem(), SparkClusterStorageAccountArgs{})
@@ -19141,6 +21295,8 @@ func init() {
 	pulumi.RegisterOutputType(HBaseClusterRolesPtrOutput{})
 	pulumi.RegisterOutputType(HBaseClusterRolesHeadNodeOutput{})
 	pulumi.RegisterOutputType(HBaseClusterRolesHeadNodePtrOutput{})
+	pulumi.RegisterOutputType(HBaseClusterRolesHeadNodeScriptActionOutput{})
+	pulumi.RegisterOutputType(HBaseClusterRolesHeadNodeScriptActionArrayOutput{})
 	pulumi.RegisterOutputType(HBaseClusterRolesWorkerNodeOutput{})
 	pulumi.RegisterOutputType(HBaseClusterRolesWorkerNodePtrOutput{})
 	pulumi.RegisterOutputType(HBaseClusterRolesWorkerNodeAutoscaleOutput{})
@@ -19149,8 +21305,12 @@ func init() {
 	pulumi.RegisterOutputType(HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput{})
 	pulumi.RegisterOutputType(HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput{})
 	pulumi.RegisterOutputType(HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput{})
+	pulumi.RegisterOutputType(HBaseClusterRolesWorkerNodeScriptActionOutput{})
+	pulumi.RegisterOutputType(HBaseClusterRolesWorkerNodeScriptActionArrayOutput{})
 	pulumi.RegisterOutputType(HBaseClusterRolesZookeeperNodeOutput{})
 	pulumi.RegisterOutputType(HBaseClusterRolesZookeeperNodePtrOutput{})
+	pulumi.RegisterOutputType(HBaseClusterRolesZookeeperNodeScriptActionOutput{})
+	pulumi.RegisterOutputType(HBaseClusterRolesZookeeperNodeScriptActionArrayOutput{})
 	pulumi.RegisterOutputType(HBaseClusterSecurityProfileOutput{})
 	pulumi.RegisterOutputType(HBaseClusterSecurityProfilePtrOutput{})
 	pulumi.RegisterOutputType(HBaseClusterStorageAccountOutput{})
@@ -19189,6 +21349,8 @@ func init() {
 	pulumi.RegisterOutputType(HadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesHeadNodeOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesHeadNodePtrOutput{})
+	pulumi.RegisterOutputType(HadoopClusterRolesHeadNodeScriptActionOutput{})
+	pulumi.RegisterOutputType(HadoopClusterRolesHeadNodeScriptActionArrayOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesWorkerNodeOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesWorkerNodePtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesWorkerNodeAutoscaleOutput{})
@@ -19199,8 +21361,12 @@ func init() {
 	pulumi.RegisterOutputType(HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput{})
+	pulumi.RegisterOutputType(HadoopClusterRolesWorkerNodeScriptActionOutput{})
+	pulumi.RegisterOutputType(HadoopClusterRolesWorkerNodeScriptActionArrayOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesZookeeperNodeOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesZookeeperNodePtrOutput{})
+	pulumi.RegisterOutputType(HadoopClusterRolesZookeeperNodeScriptActionOutput{})
+	pulumi.RegisterOutputType(HadoopClusterRolesZookeeperNodeScriptActionArrayOutput{})
 	pulumi.RegisterOutputType(HadoopClusterSecurityProfileOutput{})
 	pulumi.RegisterOutputType(HadoopClusterSecurityProfilePtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterStorageAccountOutput{})
@@ -19231,6 +21397,8 @@ func init() {
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesPtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesHeadNodeOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesHeadNodePtrOutput{})
+	pulumi.RegisterOutputType(InteractiveQueryClusterRolesHeadNodeScriptActionOutput{})
+	pulumi.RegisterOutputType(InteractiveQueryClusterRolesHeadNodeScriptActionArrayOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodeOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodePtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput{})
@@ -19241,8 +21409,12 @@ func init() {
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput{})
+	pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodeScriptActionOutput{})
+	pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesZookeeperNodeOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesZookeeperNodePtrOutput{})
+	pulumi.RegisterOutputType(InteractiveQueryClusterRolesZookeeperNodeScriptActionOutput{})
+	pulumi.RegisterOutputType(InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterSecurityProfileOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterSecurityProfilePtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterStorageAccountOutput{})
@@ -19275,12 +21447,20 @@ func init() {
 	pulumi.RegisterOutputType(KafkaClusterRolesPtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterRolesHeadNodeOutput{})
 	pulumi.RegisterOutputType(KafkaClusterRolesHeadNodePtrOutput{})
+	pulumi.RegisterOutputType(KafkaClusterRolesHeadNodeScriptActionOutput{})
+	pulumi.RegisterOutputType(KafkaClusterRolesHeadNodeScriptActionArrayOutput{})
 	pulumi.RegisterOutputType(KafkaClusterRolesKafkaManagementNodeOutput{})
 	pulumi.RegisterOutputType(KafkaClusterRolesKafkaManagementNodePtrOutput{})
+	pulumi.RegisterOutputType(KafkaClusterRolesKafkaManagementNodeScriptActionOutput{})
+	pulumi.RegisterOutputType(KafkaClusterRolesKafkaManagementNodeScriptActionArrayOutput{})
 	pulumi.RegisterOutputType(KafkaClusterRolesWorkerNodeOutput{})
 	pulumi.RegisterOutputType(KafkaClusterRolesWorkerNodePtrOutput{})
+	pulumi.RegisterOutputType(KafkaClusterRolesWorkerNodeScriptActionOutput{})
+	pulumi.RegisterOutputType(KafkaClusterRolesWorkerNodeScriptActionArrayOutput{})
 	pulumi.RegisterOutputType(KafkaClusterRolesZookeeperNodeOutput{})
 	pulumi.RegisterOutputType(KafkaClusterRolesZookeeperNodePtrOutput{})
+	pulumi.RegisterOutputType(KafkaClusterRolesZookeeperNodeScriptActionOutput{})
+	pulumi.RegisterOutputType(KafkaClusterRolesZookeeperNodeScriptActionArrayOutput{})
 	pulumi.RegisterOutputType(KafkaClusterSecurityProfileOutput{})
 	pulumi.RegisterOutputType(KafkaClusterSecurityProfilePtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterStorageAccountOutput{})
@@ -19311,6 +21491,8 @@ func init() {
 	pulumi.RegisterOutputType(SparkClusterRolesPtrOutput{})
 	pulumi.RegisterOutputType(SparkClusterRolesHeadNodeOutput{})
 	pulumi.RegisterOutputType(SparkClusterRolesHeadNodePtrOutput{})
+	pulumi.RegisterOutputType(SparkClusterRolesHeadNodeScriptActionOutput{})
+	pulumi.RegisterOutputType(SparkClusterRolesHeadNodeScriptActionArrayOutput{})
 	pulumi.RegisterOutputType(SparkClusterRolesWorkerNodeOutput{})
 	pulumi.RegisterOutputType(SparkClusterRolesWorkerNodePtrOutput{})
 	pulumi.RegisterOutputType(SparkClusterRolesWorkerNodeAutoscaleOutput{})
@@ -19321,8 +21503,12 @@ func init() {
 	pulumi.RegisterOutputType(SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput{})
 	pulumi.RegisterOutputType(SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput{})
 	pulumi.RegisterOutputType(SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput{})
+	pulumi.RegisterOutputType(SparkClusterRolesWorkerNodeScriptActionOutput{})
+	pulumi.RegisterOutputType(SparkClusterRolesWorkerNodeScriptActionArrayOutput{})
 	pulumi.RegisterOutputType(SparkClusterRolesZookeeperNodeOutput{})
 	pulumi.RegisterOutputType(SparkClusterRolesZookeeperNodePtrOutput{})
+	pulumi.RegisterOutputType(SparkClusterRolesZookeeperNodeScriptActionOutput{})
+	pulumi.RegisterOutputType(SparkClusterRolesZookeeperNodeScriptActionArrayOutput{})
 	pulumi.RegisterOutputType(SparkClusterSecurityProfileOutput{})
 	pulumi.RegisterOutputType(SparkClusterSecurityProfilePtrOutput{})
 	pulumi.RegisterOutputType(SparkClusterStorageAccountOutput{})

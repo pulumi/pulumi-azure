@@ -11,61 +11,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Load Test.
+// <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/loadtest"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = loadtest.NewLoadTest(ctx, "exampleLoadTest", &loadtest.LoadTestArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
+// Manages a Load Test Service.
 //
 // ## Import
 //
-// Load tests can be imported using the `resource id`, e.g.
+// An existing Load Test can be imported into Terraform using the `resource id`, e.g.
 //
 // ```sh
 //
-//	$ pulumi import azure:loadtest/loadTest:LoadTest example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.LoadTestService/loadtests/example
+//	$ pulumi import azure:loadtest/loadTest:LoadTest example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LoadTestService/loadTests/{loadTestName}
 //
 // ```
+//
+//   - Where `{subscriptionId}` is the ID of the Azure Subscription where the Load Test exists. For example `12345678-1234-9876-4563-123456789012`. * Where `{resourceGroupName}` is the name of Resource Group where this Load Test exists. For example `example-resource-group`. * Where `{loadTestName}` is the name of the Load Test. For example `loadTestValue`.
 type LoadTest struct {
 	pulumi.CustomResourceState
 
-	// Public URI of the Data Plane.
-	DataplaneUri pulumi.StringOutput `pulumi:"dataplaneUri"`
+	// Resource data plane URI.
+	DataPlaneUri pulumi.StringOutput `pulumi:"dataPlaneUri"`
+	// Description of the resource. Changing this forces a new Load Test to be created.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Specifies the Managed Identity which should be assigned to this Load Test.
+	Identity LoadTestIdentityPtrOutput `pulumi:"identity"`
 	// The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The name which should be used for this Load Test. Changing this forces a new Load Test to be created.
+	// Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the Resource Group where the Load Test should exist. Changing this forces a new Load Test to be created.
+	// Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags which should be assigned to the Load Test.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -103,26 +77,34 @@ func GetLoadTest(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LoadTest resources.
 type loadTestState struct {
-	// Public URI of the Data Plane.
-	DataplaneUri *string `pulumi:"dataplaneUri"`
+	// Resource data plane URI.
+	DataPlaneUri *string `pulumi:"dataPlaneUri"`
+	// Description of the resource. Changing this forces a new Load Test to be created.
+	Description *string `pulumi:"description"`
+	// Specifies the Managed Identity which should be assigned to this Load Test.
+	Identity *LoadTestIdentity `pulumi:"identity"`
 	// The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
 	Location *string `pulumi:"location"`
-	// The name which should be used for this Load Test. Changing this forces a new Load Test to be created.
+	// Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
 	Name *string `pulumi:"name"`
-	// The name of the Resource Group where the Load Test should exist. Changing this forces a new Load Test to be created.
+	// Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags which should be assigned to the Load Test.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 type LoadTestState struct {
-	// Public URI of the Data Plane.
-	DataplaneUri pulumi.StringPtrInput
+	// Resource data plane URI.
+	DataPlaneUri pulumi.StringPtrInput
+	// Description of the resource. Changing this forces a new Load Test to be created.
+	Description pulumi.StringPtrInput
+	// Specifies the Managed Identity which should be assigned to this Load Test.
+	Identity LoadTestIdentityPtrInput
 	// The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
 	Location pulumi.StringPtrInput
-	// The name which should be used for this Load Test. Changing this forces a new Load Test to be created.
+	// Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
 	Name pulumi.StringPtrInput
-	// The name of the Resource Group where the Load Test should exist. Changing this forces a new Load Test to be created.
+	// Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Load Test.
 	Tags pulumi.StringMapInput
@@ -133,11 +115,15 @@ func (LoadTestState) ElementType() reflect.Type {
 }
 
 type loadTestArgs struct {
+	// Description of the resource. Changing this forces a new Load Test to be created.
+	Description *string `pulumi:"description"`
+	// Specifies the Managed Identity which should be assigned to this Load Test.
+	Identity *LoadTestIdentity `pulumi:"identity"`
 	// The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
 	Location *string `pulumi:"location"`
-	// The name which should be used for this Load Test. Changing this forces a new Load Test to be created.
+	// Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
 	Name *string `pulumi:"name"`
-	// The name of the Resource Group where the Load Test should exist. Changing this forces a new Load Test to be created.
+	// Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags which should be assigned to the Load Test.
 	Tags map[string]string `pulumi:"tags"`
@@ -145,11 +131,15 @@ type loadTestArgs struct {
 
 // The set of arguments for constructing a LoadTest resource.
 type LoadTestArgs struct {
+	// Description of the resource. Changing this forces a new Load Test to be created.
+	Description pulumi.StringPtrInput
+	// Specifies the Managed Identity which should be assigned to this Load Test.
+	Identity LoadTestIdentityPtrInput
 	// The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
 	Location pulumi.StringPtrInput
-	// The name which should be used for this Load Test. Changing this forces a new Load Test to be created.
+	// Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
 	Name pulumi.StringPtrInput
-	// The name of the Resource Group where the Load Test should exist. Changing this forces a new Load Test to be created.
+	// Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags which should be assigned to the Load Test.
 	Tags pulumi.StringMapInput
@@ -242,9 +232,19 @@ func (o LoadTestOutput) ToLoadTestOutputWithContext(ctx context.Context) LoadTes
 	return o
 }
 
-// Public URI of the Data Plane.
-func (o LoadTestOutput) DataplaneUri() pulumi.StringOutput {
-	return o.ApplyT(func(v *LoadTest) pulumi.StringOutput { return v.DataplaneUri }).(pulumi.StringOutput)
+// Resource data plane URI.
+func (o LoadTestOutput) DataPlaneUri() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadTest) pulumi.StringOutput { return v.DataPlaneUri }).(pulumi.StringOutput)
+}
+
+// Description of the resource. Changing this forces a new Load Test to be created.
+func (o LoadTestOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadTest) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Managed Identity which should be assigned to this Load Test.
+func (o LoadTestOutput) Identity() LoadTestIdentityPtrOutput {
+	return o.ApplyT(func(v *LoadTest) LoadTestIdentityPtrOutput { return v.Identity }).(LoadTestIdentityPtrOutput)
 }
 
 // The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
@@ -252,12 +252,12 @@ func (o LoadTestOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadTest) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The name which should be used for this Load Test. Changing this forces a new Load Test to be created.
+// Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
 func (o LoadTestOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadTest) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the Resource Group where the Load Test should exist. Changing this forces a new Load Test to be created.
+// Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
 func (o LoadTestOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadTest) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

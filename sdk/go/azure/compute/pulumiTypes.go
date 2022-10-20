@@ -7021,8 +7021,8 @@ func (o LinuxVirtualMachineTerminationNotificationPtrOutput) Timeout() pulumi.St
 type ManagedDiskEncryptionSettings struct {
 	// A `diskEncryptionKey` block as defined above.
 	DiskEncryptionKey *ManagedDiskEncryptionSettingsDiskEncryptionKey `pulumi:"diskEncryptionKey"`
-	// Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
-	Enabled bool `pulumi:"enabled"`
+	// Deprecated: Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
+	Enabled *bool `pulumi:"enabled"`
 	// A `keyEncryptionKey` block as defined below.
 	KeyEncryptionKey *ManagedDiskEncryptionSettingsKeyEncryptionKey `pulumi:"keyEncryptionKey"`
 }
@@ -7041,8 +7041,8 @@ type ManagedDiskEncryptionSettingsInput interface {
 type ManagedDiskEncryptionSettingsArgs struct {
 	// A `diskEncryptionKey` block as defined above.
 	DiskEncryptionKey ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrInput `pulumi:"diskEncryptionKey"`
-	// Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Deprecated: Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// A `keyEncryptionKey` block as defined below.
 	KeyEncryptionKey ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrInput `pulumi:"keyEncryptionKey"`
 }
@@ -7131,9 +7131,9 @@ func (o ManagedDiskEncryptionSettingsOutput) DiskEncryptionKey() ManagedDiskEncr
 	}).(ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput)
 }
 
-// Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
-func (o ManagedDiskEncryptionSettingsOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v ManagedDiskEncryptionSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
+// Deprecated: Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
+func (o ManagedDiskEncryptionSettingsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedDiskEncryptionSettings) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // A `keyEncryptionKey` block as defined below.
@@ -7177,13 +7177,13 @@ func (o ManagedDiskEncryptionSettingsPtrOutput) DiskEncryptionKey() ManagedDiskE
 	}).(ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput)
 }
 
-// Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
+// Deprecated: Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
 func (o ManagedDiskEncryptionSettingsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedDiskEncryptionSettings) *bool {
 		if v == nil {
 			return nil
 		}
-		return &v.Enabled
+		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -7200,7 +7200,7 @@ func (o ManagedDiskEncryptionSettingsPtrOutput) KeyEncryptionKey() ManagedDiskEn
 type ManagedDiskEncryptionSettingsDiskEncryptionKey struct {
 	// The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `keyvault.Secret` resource.
 	SecretUrl string `pulumi:"secretUrl"`
-	// The ID of the source Key Vault.
+	// The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
 	SourceVaultId string `pulumi:"sourceVaultId"`
 }
 
@@ -7218,7 +7218,7 @@ type ManagedDiskEncryptionSettingsDiskEncryptionKeyInput interface {
 type ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs struct {
 	// The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `keyvault.Secret` resource.
 	SecretUrl pulumi.StringInput `pulumi:"secretUrl"`
-	// The ID of the source Key Vault.
+	// The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
 	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
 }
 
@@ -7304,7 +7304,7 @@ func (o ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput) SecretUrl() pulumi
 	return o.ApplyT(func(v ManagedDiskEncryptionSettingsDiskEncryptionKey) string { return v.SecretUrl }).(pulumi.StringOutput)
 }
 
-// The ID of the source Key Vault.
+// The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
 func (o ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput) SourceVaultId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedDiskEncryptionSettingsDiskEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
 }
@@ -7343,7 +7343,7 @@ func (o ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput) SecretUrl() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the source Key Vault.
+// The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
 func (o ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput) SourceVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedDiskEncryptionSettingsDiskEncryptionKey) *string {
 		if v == nil {
@@ -7356,7 +7356,7 @@ func (o ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput) SourceVaultId()
 type ManagedDiskEncryptionSettingsKeyEncryptionKey struct {
 	// The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `keyvault.Key` resource.
 	KeyUrl string `pulumi:"keyUrl"`
-	// The ID of the source Key Vault.
+	// The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
 	SourceVaultId string `pulumi:"sourceVaultId"`
 }
 
@@ -7374,7 +7374,7 @@ type ManagedDiskEncryptionSettingsKeyEncryptionKeyInput interface {
 type ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs struct {
 	// The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `keyvault.Key` resource.
 	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
-	// The ID of the source Key Vault.
+	// The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
 	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
 }
 
@@ -7460,7 +7460,7 @@ func (o ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput) KeyUrl() pulumi.Str
 	return o.ApplyT(func(v ManagedDiskEncryptionSettingsKeyEncryptionKey) string { return v.KeyUrl }).(pulumi.StringOutput)
 }
 
-// The ID of the source Key Vault.
+// The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
 func (o ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput) SourceVaultId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedDiskEncryptionSettingsKeyEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
 }
@@ -7499,7 +7499,7 @@ func (o ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput) KeyUrl() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the source Key Vault.
+// The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
 func (o ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput) SourceVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedDiskEncryptionSettingsKeyEncryptionKey) *string {
 		if v == nil {
@@ -14984,9 +14984,12 @@ func (o SharedImageVersionTargetRegionArrayOutput) Index(i pulumi.IntInput) Shar
 }
 
 type SnapshotEncryptionSettings struct {
+	// A `diskEncryptionKey` block as defined below.
 	DiskEncryptionKey *SnapshotEncryptionSettingsDiskEncryptionKey `pulumi:"diskEncryptionKey"`
-	Enabled           bool                                         `pulumi:"enabled"`
-	KeyEncryptionKey  *SnapshotEncryptionSettingsKeyEncryptionKey  `pulumi:"keyEncryptionKey"`
+	// Deprecated: Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
+	Enabled *bool `pulumi:"enabled"`
+	// A `keyEncryptionKey` block as defined below.
+	KeyEncryptionKey *SnapshotEncryptionSettingsKeyEncryptionKey `pulumi:"keyEncryptionKey"`
 }
 
 // SnapshotEncryptionSettingsInput is an input type that accepts SnapshotEncryptionSettingsArgs and SnapshotEncryptionSettingsOutput values.
@@ -15001,9 +15004,12 @@ type SnapshotEncryptionSettingsInput interface {
 }
 
 type SnapshotEncryptionSettingsArgs struct {
+	// A `diskEncryptionKey` block as defined below.
 	DiskEncryptionKey SnapshotEncryptionSettingsDiskEncryptionKeyPtrInput `pulumi:"diskEncryptionKey"`
-	Enabled           pulumi.BoolInput                                    `pulumi:"enabled"`
-	KeyEncryptionKey  SnapshotEncryptionSettingsKeyEncryptionKeyPtrInput  `pulumi:"keyEncryptionKey"`
+	// Deprecated: Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// A `keyEncryptionKey` block as defined below.
+	KeyEncryptionKey SnapshotEncryptionSettingsKeyEncryptionKeyPtrInput `pulumi:"keyEncryptionKey"`
 }
 
 func (SnapshotEncryptionSettingsArgs) ElementType() reflect.Type {
@@ -15083,16 +15089,19 @@ func (o SnapshotEncryptionSettingsOutput) ToSnapshotEncryptionSettingsPtrOutputW
 	}).(SnapshotEncryptionSettingsPtrOutput)
 }
 
+// A `diskEncryptionKey` block as defined below.
 func (o SnapshotEncryptionSettingsOutput) DiskEncryptionKey() SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput {
 	return o.ApplyT(func(v SnapshotEncryptionSettings) *SnapshotEncryptionSettingsDiskEncryptionKey {
 		return v.DiskEncryptionKey
 	}).(SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput)
 }
 
-func (o SnapshotEncryptionSettingsOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v SnapshotEncryptionSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
+// Deprecated: Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
+func (o SnapshotEncryptionSettingsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SnapshotEncryptionSettings) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// A `keyEncryptionKey` block as defined below.
 func (o SnapshotEncryptionSettingsOutput) KeyEncryptionKey() SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput {
 	return o.ApplyT(func(v SnapshotEncryptionSettings) *SnapshotEncryptionSettingsKeyEncryptionKey {
 		return v.KeyEncryptionKey
@@ -15123,6 +15132,7 @@ func (o SnapshotEncryptionSettingsPtrOutput) Elem() SnapshotEncryptionSettingsOu
 	}).(SnapshotEncryptionSettingsOutput)
 }
 
+// A `diskEncryptionKey` block as defined below.
 func (o SnapshotEncryptionSettingsPtrOutput) DiskEncryptionKey() SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput {
 	return o.ApplyT(func(v *SnapshotEncryptionSettings) *SnapshotEncryptionSettingsDiskEncryptionKey {
 		if v == nil {
@@ -15132,15 +15142,17 @@ func (o SnapshotEncryptionSettingsPtrOutput) DiskEncryptionKey() SnapshotEncrypt
 	}).(SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput)
 }
 
+// Deprecated: Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
 func (o SnapshotEncryptionSettingsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SnapshotEncryptionSettings) *bool {
 		if v == nil {
 			return nil
 		}
-		return &v.Enabled
+		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A `keyEncryptionKey` block as defined below.
 func (o SnapshotEncryptionSettingsPtrOutput) KeyEncryptionKey() SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput {
 	return o.ApplyT(func(v *SnapshotEncryptionSettings) *SnapshotEncryptionSettingsKeyEncryptionKey {
 		if v == nil {
@@ -15151,7 +15163,9 @@ func (o SnapshotEncryptionSettingsPtrOutput) KeyEncryptionKey() SnapshotEncrypti
 }
 
 type SnapshotEncryptionSettingsDiskEncryptionKey struct {
-	SecretUrl     string `pulumi:"secretUrl"`
+	// The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `keyvault.Secret` resource.
+	SecretUrl string `pulumi:"secretUrl"`
+	// The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
 	SourceVaultId string `pulumi:"sourceVaultId"`
 }
 
@@ -15167,7 +15181,9 @@ type SnapshotEncryptionSettingsDiskEncryptionKeyInput interface {
 }
 
 type SnapshotEncryptionSettingsDiskEncryptionKeyArgs struct {
-	SecretUrl     pulumi.StringInput `pulumi:"secretUrl"`
+	// The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `keyvault.Secret` resource.
+	SecretUrl pulumi.StringInput `pulumi:"secretUrl"`
+	// The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
 	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
 }
 
@@ -15248,10 +15264,12 @@ func (o SnapshotEncryptionSettingsDiskEncryptionKeyOutput) ToSnapshotEncryptionS
 	}).(SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput)
 }
 
+// The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `keyvault.Secret` resource.
 func (o SnapshotEncryptionSettingsDiskEncryptionKeyOutput) SecretUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v SnapshotEncryptionSettingsDiskEncryptionKey) string { return v.SecretUrl }).(pulumi.StringOutput)
 }
 
+// The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
 func (o SnapshotEncryptionSettingsDiskEncryptionKeyOutput) SourceVaultId() pulumi.StringOutput {
 	return o.ApplyT(func(v SnapshotEncryptionSettingsDiskEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
 }
@@ -15280,6 +15298,7 @@ func (o SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput) Elem() SnapshotEnc
 	}).(SnapshotEncryptionSettingsDiskEncryptionKeyOutput)
 }
 
+// The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `keyvault.Secret` resource.
 func (o SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput) SecretUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotEncryptionSettingsDiskEncryptionKey) *string {
 		if v == nil {
@@ -15289,6 +15308,7 @@ func (o SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput) SecretUrl() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
 func (o SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput) SourceVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotEncryptionSettingsDiskEncryptionKey) *string {
 		if v == nil {
@@ -15299,7 +15319,9 @@ func (o SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput) SourceVaultId() pu
 }
 
 type SnapshotEncryptionSettingsKeyEncryptionKey struct {
-	KeyUrl        string `pulumi:"keyUrl"`
+	// The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `keyvault.Key` resource.
+	KeyUrl string `pulumi:"keyUrl"`
+	// The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
 	SourceVaultId string `pulumi:"sourceVaultId"`
 }
 
@@ -15315,7 +15337,9 @@ type SnapshotEncryptionSettingsKeyEncryptionKeyInput interface {
 }
 
 type SnapshotEncryptionSettingsKeyEncryptionKeyArgs struct {
-	KeyUrl        pulumi.StringInput `pulumi:"keyUrl"`
+	// The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `keyvault.Key` resource.
+	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
+	// The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
 	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
 }
 
@@ -15396,10 +15420,12 @@ func (o SnapshotEncryptionSettingsKeyEncryptionKeyOutput) ToSnapshotEncryptionSe
 	}).(SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput)
 }
 
+// The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `keyvault.Key` resource.
 func (o SnapshotEncryptionSettingsKeyEncryptionKeyOutput) KeyUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v SnapshotEncryptionSettingsKeyEncryptionKey) string { return v.KeyUrl }).(pulumi.StringOutput)
 }
 
+// The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
 func (o SnapshotEncryptionSettingsKeyEncryptionKeyOutput) SourceVaultId() pulumi.StringOutput {
 	return o.ApplyT(func(v SnapshotEncryptionSettingsKeyEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
 }
@@ -15428,6 +15454,7 @@ func (o SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput) Elem() SnapshotEncr
 	}).(SnapshotEncryptionSettingsKeyEncryptionKeyOutput)
 }
 
+// The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `keyvault.Key` resource.
 func (o SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput) KeyUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotEncryptionSettingsKeyEncryptionKey) *string {
 		if v == nil {
@@ -15437,6 +15464,7 @@ func (o SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput) KeyUrl() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
 func (o SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput) SourceVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotEncryptionSettingsKeyEncryptionKey) *string {
 		if v == nil {
@@ -26452,7 +26480,8 @@ type GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration struct {
 	PublicIpAddresses []GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress `pulumi:"publicIpAddresses"`
 	// The the identifier of the subnet.
 	SubnetId string `pulumi:"subnetId"`
-	Version  string `pulumi:"version"`
+	// The Internet Protocol Version of the public IP address.
+	Version string `pulumi:"version"`
 }
 
 // GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput is an input type that accepts GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs and GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput values.
@@ -26483,7 +26512,8 @@ type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs struct {
 	PublicIpAddresses GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput `pulumi:"publicIpAddresses"`
 	// The the identifier of the subnet.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
-	Version  pulumi.StringInput `pulumi:"version"`
+	// The Internet Protocol Version of the public IP address.
+	Version pulumi.StringInput `pulumi:"version"`
 }
 
 func (GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs) ElementType() reflect.Type {
@@ -26587,6 +26617,7 @@ func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) SubnetId
 	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
 }
 
+// The Internet Protocol Version of the public IP address.
 func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -26622,6 +26653,8 @@ type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress str
 	Name string `pulumi:"name"`
 	// The ID of the public IP prefix.
 	PublicIpPrefixId string `pulumi:"publicIpPrefixId"`
+	// The Internet Protocol Version of the public IP address.
+	Version string `pulumi:"version"`
 }
 
 // GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInput is an input type that accepts GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs and GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput values.
@@ -26646,6 +26679,8 @@ type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs
 	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of the public IP prefix.
 	PublicIpPrefixId pulumi.StringInput `pulumi:"publicIpPrefixId"`
+	// The Internet Protocol Version of the public IP address.
+	Version pulumi.StringInput `pulumi:"version"`
 }
 
 func (GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs) ElementType() reflect.Type {
@@ -26729,6 +26764,13 @@ func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressO
 func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) PublicIpPrefixId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) string {
 		return v.PublicIpPrefixId
+	}).(pulumi.StringOutput)
+}
+
+// The Internet Protocol Version of the public IP address.
+func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) string {
+		return v.Version
 	}).(pulumi.StringOutput)
 }
 

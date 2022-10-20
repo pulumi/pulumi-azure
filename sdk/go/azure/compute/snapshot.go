@@ -74,7 +74,8 @@ type Snapshot struct {
 	// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
 	CreateOption pulumi.StringOutput `pulumi:"createOption"`
 	// The size of the Snapshotted Disk in GB.
-	DiskSizeGb         pulumi.IntOutput                    `pulumi:"diskSizeGb"`
+	DiskSizeGb pulumi.IntOutput `pulumi:"diskSizeGb"`
+	// A `encryptionSettings` block as defined below.
 	EncryptionSettings SnapshotEncryptionSettingsPtrOutput `pulumi:"encryptionSettings"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -132,7 +133,8 @@ type snapshotState struct {
 	// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
 	CreateOption *string `pulumi:"createOption"`
 	// The size of the Snapshotted Disk in GB.
-	DiskSizeGb         *int                        `pulumi:"diskSizeGb"`
+	DiskSizeGb *int `pulumi:"diskSizeGb"`
+	// A `encryptionSettings` block as defined below.
 	EncryptionSettings *SnapshotEncryptionSettings `pulumi:"encryptionSettings"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -156,7 +158,8 @@ type SnapshotState struct {
 	// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
 	CreateOption pulumi.StringPtrInput
 	// The size of the Snapshotted Disk in GB.
-	DiskSizeGb         pulumi.IntPtrInput
+	DiskSizeGb pulumi.IntPtrInput
+	// A `encryptionSettings` block as defined below.
 	EncryptionSettings SnapshotEncryptionSettingsPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -184,7 +187,8 @@ type snapshotArgs struct {
 	// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
 	CreateOption string `pulumi:"createOption"`
 	// The size of the Snapshotted Disk in GB.
-	DiskSizeGb         *int                        `pulumi:"diskSizeGb"`
+	DiskSizeGb *int `pulumi:"diskSizeGb"`
+	// A `encryptionSettings` block as defined below.
 	EncryptionSettings *SnapshotEncryptionSettings `pulumi:"encryptionSettings"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -207,7 +211,8 @@ type SnapshotArgs struct {
 	// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
 	CreateOption pulumi.StringInput
 	// The size of the Snapshotted Disk in GB.
-	DiskSizeGb         pulumi.IntPtrInput
+	DiskSizeGb pulumi.IntPtrInput
+	// A `encryptionSettings` block as defined below.
 	EncryptionSettings SnapshotEncryptionSettingsPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -322,6 +327,7 @@ func (o SnapshotOutput) DiskSizeGb() pulumi.IntOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.IntOutput { return v.DiskSizeGb }).(pulumi.IntOutput)
 }
 
+// A `encryptionSettings` block as defined below.
 func (o SnapshotOutput) EncryptionSettings() SnapshotEncryptionSettingsPtrOutput {
 	return o.ApplyT(func(v *Snapshot) SnapshotEncryptionSettingsPtrOutput { return v.EncryptionSettings }).(SnapshotEncryptionSettingsPtrOutput)
 }

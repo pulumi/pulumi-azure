@@ -91,7 +91,7 @@ type Database struct {
 	AutoPauseDelayInMinutes pulumi.IntOutput `pulumi:"autoPauseDelayInMinutes"`
 	// Specifies the collation of the database. Changing this forces a new resource to be created.
 	Collation pulumi.StringOutput `pulumi:"collation"`
-	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`.
 	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
 	// The ID of the source database from which to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
 	CreationSourceDatabaseId pulumi.StringOutput `pulumi:"creationSourceDatabaseId"`
@@ -99,6 +99,8 @@ type Database struct {
 	ElasticPoolId pulumi.StringPtrOutput `pulumi:"elasticPoolId"`
 	// A boolean that specifies if the Geo Backup Policy is enabled.
 	GeoBackupEnabled pulumi.BoolPtrOutput `pulumi:"geoBackupEnabled"`
+	// A Database Import block as documented below. Mutually exclusive with `createMode`.
+	Import DatabaseImportPtrOutput `pulumi:"import"`
 	// A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
 	LedgerEnabled pulumi.BoolOutput `pulumi:"ledgerEnabled"`
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
@@ -179,7 +181,7 @@ type databaseState struct {
 	AutoPauseDelayInMinutes *int `pulumi:"autoPauseDelayInMinutes"`
 	// Specifies the collation of the database. Changing this forces a new resource to be created.
 	Collation *string `pulumi:"collation"`
-	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`.
 	CreateMode *string `pulumi:"createMode"`
 	// The ID of the source database from which to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
 	CreationSourceDatabaseId *string `pulumi:"creationSourceDatabaseId"`
@@ -187,6 +189,8 @@ type databaseState struct {
 	ElasticPoolId *string `pulumi:"elasticPoolId"`
 	// A boolean that specifies if the Geo Backup Policy is enabled.
 	GeoBackupEnabled *bool `pulumi:"geoBackupEnabled"`
+	// A Database Import block as documented below. Mutually exclusive with `createMode`.
+	Import *DatabaseImport `pulumi:"import"`
 	// A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
 	LedgerEnabled *bool `pulumi:"ledgerEnabled"`
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
@@ -236,7 +240,7 @@ type DatabaseState struct {
 	AutoPauseDelayInMinutes pulumi.IntPtrInput
 	// Specifies the collation of the database. Changing this forces a new resource to be created.
 	Collation pulumi.StringPtrInput
-	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`.
 	CreateMode pulumi.StringPtrInput
 	// The ID of the source database from which to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
 	CreationSourceDatabaseId pulumi.StringPtrInput
@@ -244,6 +248,8 @@ type DatabaseState struct {
 	ElasticPoolId pulumi.StringPtrInput
 	// A boolean that specifies if the Geo Backup Policy is enabled.
 	GeoBackupEnabled pulumi.BoolPtrInput
+	// A Database Import block as documented below. Mutually exclusive with `createMode`.
+	Import DatabaseImportPtrInput
 	// A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
 	LedgerEnabled pulumi.BoolPtrInput
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
@@ -297,7 +303,7 @@ type databaseArgs struct {
 	AutoPauseDelayInMinutes *int `pulumi:"autoPauseDelayInMinutes"`
 	// Specifies the collation of the database. Changing this forces a new resource to be created.
 	Collation *string `pulumi:"collation"`
-	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`.
 	CreateMode *string `pulumi:"createMode"`
 	// The ID of the source database from which to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
 	CreationSourceDatabaseId *string `pulumi:"creationSourceDatabaseId"`
@@ -305,6 +311,8 @@ type databaseArgs struct {
 	ElasticPoolId *string `pulumi:"elasticPoolId"`
 	// A boolean that specifies if the Geo Backup Policy is enabled.
 	GeoBackupEnabled *bool `pulumi:"geoBackupEnabled"`
+	// A Database Import block as documented below. Mutually exclusive with `createMode`.
+	Import *DatabaseImport `pulumi:"import"`
 	// A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
 	LedgerEnabled *bool `pulumi:"ledgerEnabled"`
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
@@ -355,7 +363,7 @@ type DatabaseArgs struct {
 	AutoPauseDelayInMinutes pulumi.IntPtrInput
 	// Specifies the collation of the database. Changing this forces a new resource to be created.
 	Collation pulumi.StringPtrInput
-	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`.
 	CreateMode pulumi.StringPtrInput
 	// The ID of the source database from which to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
 	CreationSourceDatabaseId pulumi.StringPtrInput
@@ -363,6 +371,8 @@ type DatabaseArgs struct {
 	ElasticPoolId pulumi.StringPtrInput
 	// A boolean that specifies if the Geo Backup Policy is enabled.
 	GeoBackupEnabled pulumi.BoolPtrInput
+	// A Database Import block as documented below. Mutually exclusive with `createMode`.
+	Import DatabaseImportPtrInput
 	// A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
 	LedgerEnabled pulumi.BoolPtrInput
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
@@ -504,7 +514,7 @@ func (o DatabaseOutput) Collation() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Collation }).(pulumi.StringOutput)
 }
 
-// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`.
 func (o DatabaseOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
@@ -522,6 +532,11 @@ func (o DatabaseOutput) ElasticPoolId() pulumi.StringPtrOutput {
 // A boolean that specifies if the Geo Backup Policy is enabled.
 func (o DatabaseOutput) GeoBackupEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Database) pulumi.BoolPtrOutput { return v.GeoBackupEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// A Database Import block as documented below. Mutually exclusive with `createMode`.
+func (o DatabaseOutput) Import() DatabaseImportPtrOutput {
+	return o.ApplyT(func(v *Database) DatabaseImportPtrOutput { return v.Import }).(DatabaseImportPtrOutput)
 }
 
 // A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.

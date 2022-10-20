@@ -4959,7 +4959,7 @@ func (o EndpointOriginArrayOutput) Index(i pulumi.IntInput) EndpointOriginOutput
 	}).(EndpointOriginOutput)
 }
 
-type FrontdoorCustomEndpointTls struct {
+type FrontdoorCustomDomainTls struct {
 	// Resource ID of the Frontdoor Secrect.
 	CdnFrontdoorSecretId *string `pulumi:"cdnFrontdoorSecretId"`
 	// Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
@@ -4968,18 +4968,18 @@ type FrontdoorCustomEndpointTls struct {
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 }
 
-// FrontdoorCustomEndpointTlsInput is an input type that accepts FrontdoorCustomEndpointTlsArgs and FrontdoorCustomEndpointTlsOutput values.
-// You can construct a concrete instance of `FrontdoorCustomEndpointTlsInput` via:
+// FrontdoorCustomDomainTlsInput is an input type that accepts FrontdoorCustomDomainTlsArgs and FrontdoorCustomDomainTlsOutput values.
+// You can construct a concrete instance of `FrontdoorCustomDomainTlsInput` via:
 //
-//	FrontdoorCustomEndpointTlsArgs{...}
-type FrontdoorCustomEndpointTlsInput interface {
+//	FrontdoorCustomDomainTlsArgs{...}
+type FrontdoorCustomDomainTlsInput interface {
 	pulumi.Input
 
-	ToFrontdoorCustomEndpointTlsOutput() FrontdoorCustomEndpointTlsOutput
-	ToFrontdoorCustomEndpointTlsOutputWithContext(context.Context) FrontdoorCustomEndpointTlsOutput
+	ToFrontdoorCustomDomainTlsOutput() FrontdoorCustomDomainTlsOutput
+	ToFrontdoorCustomDomainTlsOutputWithContext(context.Context) FrontdoorCustomDomainTlsOutput
 }
 
-type FrontdoorCustomEndpointTlsArgs struct {
+type FrontdoorCustomDomainTlsArgs struct {
 	// Resource ID of the Frontdoor Secrect.
 	CdnFrontdoorSecretId pulumi.StringPtrInput `pulumi:"cdnFrontdoorSecretId"`
 	// Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
@@ -4988,125 +4988,125 @@ type FrontdoorCustomEndpointTlsArgs struct {
 	MinimumTlsVersion pulumi.StringPtrInput `pulumi:"minimumTlsVersion"`
 }
 
-func (FrontdoorCustomEndpointTlsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FrontdoorCustomEndpointTls)(nil)).Elem()
+func (FrontdoorCustomDomainTlsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorCustomDomainTls)(nil)).Elem()
 }
 
-func (i FrontdoorCustomEndpointTlsArgs) ToFrontdoorCustomEndpointTlsOutput() FrontdoorCustomEndpointTlsOutput {
-	return i.ToFrontdoorCustomEndpointTlsOutputWithContext(context.Background())
+func (i FrontdoorCustomDomainTlsArgs) ToFrontdoorCustomDomainTlsOutput() FrontdoorCustomDomainTlsOutput {
+	return i.ToFrontdoorCustomDomainTlsOutputWithContext(context.Background())
 }
 
-func (i FrontdoorCustomEndpointTlsArgs) ToFrontdoorCustomEndpointTlsOutputWithContext(ctx context.Context) FrontdoorCustomEndpointTlsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorCustomEndpointTlsOutput)
+func (i FrontdoorCustomDomainTlsArgs) ToFrontdoorCustomDomainTlsOutputWithContext(ctx context.Context) FrontdoorCustomDomainTlsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorCustomDomainTlsOutput)
 }
 
-func (i FrontdoorCustomEndpointTlsArgs) ToFrontdoorCustomEndpointTlsPtrOutput() FrontdoorCustomEndpointTlsPtrOutput {
-	return i.ToFrontdoorCustomEndpointTlsPtrOutputWithContext(context.Background())
+func (i FrontdoorCustomDomainTlsArgs) ToFrontdoorCustomDomainTlsPtrOutput() FrontdoorCustomDomainTlsPtrOutput {
+	return i.ToFrontdoorCustomDomainTlsPtrOutputWithContext(context.Background())
 }
 
-func (i FrontdoorCustomEndpointTlsArgs) ToFrontdoorCustomEndpointTlsPtrOutputWithContext(ctx context.Context) FrontdoorCustomEndpointTlsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorCustomEndpointTlsOutput).ToFrontdoorCustomEndpointTlsPtrOutputWithContext(ctx)
+func (i FrontdoorCustomDomainTlsArgs) ToFrontdoorCustomDomainTlsPtrOutputWithContext(ctx context.Context) FrontdoorCustomDomainTlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorCustomDomainTlsOutput).ToFrontdoorCustomDomainTlsPtrOutputWithContext(ctx)
 }
 
-// FrontdoorCustomEndpointTlsPtrInput is an input type that accepts FrontdoorCustomEndpointTlsArgs, FrontdoorCustomEndpointTlsPtr and FrontdoorCustomEndpointTlsPtrOutput values.
-// You can construct a concrete instance of `FrontdoorCustomEndpointTlsPtrInput` via:
+// FrontdoorCustomDomainTlsPtrInput is an input type that accepts FrontdoorCustomDomainTlsArgs, FrontdoorCustomDomainTlsPtr and FrontdoorCustomDomainTlsPtrOutput values.
+// You can construct a concrete instance of `FrontdoorCustomDomainTlsPtrInput` via:
 //
-//	        FrontdoorCustomEndpointTlsArgs{...}
+//	        FrontdoorCustomDomainTlsArgs{...}
 //
 //	or:
 //
 //	        nil
-type FrontdoorCustomEndpointTlsPtrInput interface {
+type FrontdoorCustomDomainTlsPtrInput interface {
 	pulumi.Input
 
-	ToFrontdoorCustomEndpointTlsPtrOutput() FrontdoorCustomEndpointTlsPtrOutput
-	ToFrontdoorCustomEndpointTlsPtrOutputWithContext(context.Context) FrontdoorCustomEndpointTlsPtrOutput
+	ToFrontdoorCustomDomainTlsPtrOutput() FrontdoorCustomDomainTlsPtrOutput
+	ToFrontdoorCustomDomainTlsPtrOutputWithContext(context.Context) FrontdoorCustomDomainTlsPtrOutput
 }
 
-type frontdoorCustomEndpointTlsPtrType FrontdoorCustomEndpointTlsArgs
+type frontdoorCustomDomainTlsPtrType FrontdoorCustomDomainTlsArgs
 
-func FrontdoorCustomEndpointTlsPtr(v *FrontdoorCustomEndpointTlsArgs) FrontdoorCustomEndpointTlsPtrInput {
-	return (*frontdoorCustomEndpointTlsPtrType)(v)
+func FrontdoorCustomDomainTlsPtr(v *FrontdoorCustomDomainTlsArgs) FrontdoorCustomDomainTlsPtrInput {
+	return (*frontdoorCustomDomainTlsPtrType)(v)
 }
 
-func (*frontdoorCustomEndpointTlsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FrontdoorCustomEndpointTls)(nil)).Elem()
+func (*frontdoorCustomDomainTlsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorCustomDomainTls)(nil)).Elem()
 }
 
-func (i *frontdoorCustomEndpointTlsPtrType) ToFrontdoorCustomEndpointTlsPtrOutput() FrontdoorCustomEndpointTlsPtrOutput {
-	return i.ToFrontdoorCustomEndpointTlsPtrOutputWithContext(context.Background())
+func (i *frontdoorCustomDomainTlsPtrType) ToFrontdoorCustomDomainTlsPtrOutput() FrontdoorCustomDomainTlsPtrOutput {
+	return i.ToFrontdoorCustomDomainTlsPtrOutputWithContext(context.Background())
 }
 
-func (i *frontdoorCustomEndpointTlsPtrType) ToFrontdoorCustomEndpointTlsPtrOutputWithContext(ctx context.Context) FrontdoorCustomEndpointTlsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorCustomEndpointTlsPtrOutput)
+func (i *frontdoorCustomDomainTlsPtrType) ToFrontdoorCustomDomainTlsPtrOutputWithContext(ctx context.Context) FrontdoorCustomDomainTlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorCustomDomainTlsPtrOutput)
 }
 
-type FrontdoorCustomEndpointTlsOutput struct{ *pulumi.OutputState }
+type FrontdoorCustomDomainTlsOutput struct{ *pulumi.OutputState }
 
-func (FrontdoorCustomEndpointTlsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FrontdoorCustomEndpointTls)(nil)).Elem()
+func (FrontdoorCustomDomainTlsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorCustomDomainTls)(nil)).Elem()
 }
 
-func (o FrontdoorCustomEndpointTlsOutput) ToFrontdoorCustomEndpointTlsOutput() FrontdoorCustomEndpointTlsOutput {
+func (o FrontdoorCustomDomainTlsOutput) ToFrontdoorCustomDomainTlsOutput() FrontdoorCustomDomainTlsOutput {
 	return o
 }
 
-func (o FrontdoorCustomEndpointTlsOutput) ToFrontdoorCustomEndpointTlsOutputWithContext(ctx context.Context) FrontdoorCustomEndpointTlsOutput {
+func (o FrontdoorCustomDomainTlsOutput) ToFrontdoorCustomDomainTlsOutputWithContext(ctx context.Context) FrontdoorCustomDomainTlsOutput {
 	return o
 }
 
-func (o FrontdoorCustomEndpointTlsOutput) ToFrontdoorCustomEndpointTlsPtrOutput() FrontdoorCustomEndpointTlsPtrOutput {
-	return o.ToFrontdoorCustomEndpointTlsPtrOutputWithContext(context.Background())
+func (o FrontdoorCustomDomainTlsOutput) ToFrontdoorCustomDomainTlsPtrOutput() FrontdoorCustomDomainTlsPtrOutput {
+	return o.ToFrontdoorCustomDomainTlsPtrOutputWithContext(context.Background())
 }
 
-func (o FrontdoorCustomEndpointTlsOutput) ToFrontdoorCustomEndpointTlsPtrOutputWithContext(ctx context.Context) FrontdoorCustomEndpointTlsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontdoorCustomEndpointTls) *FrontdoorCustomEndpointTls {
+func (o FrontdoorCustomDomainTlsOutput) ToFrontdoorCustomDomainTlsPtrOutputWithContext(ctx context.Context) FrontdoorCustomDomainTlsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontdoorCustomDomainTls) *FrontdoorCustomDomainTls {
 		return &v
-	}).(FrontdoorCustomEndpointTlsPtrOutput)
+	}).(FrontdoorCustomDomainTlsPtrOutput)
 }
 
 // Resource ID of the Frontdoor Secrect.
-func (o FrontdoorCustomEndpointTlsOutput) CdnFrontdoorSecretId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontdoorCustomEndpointTls) *string { return v.CdnFrontdoorSecretId }).(pulumi.StringPtrOutput)
+func (o FrontdoorCustomDomainTlsOutput) CdnFrontdoorSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorCustomDomainTls) *string { return v.CdnFrontdoorSecretId }).(pulumi.StringPtrOutput)
 }
 
 // Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
-func (o FrontdoorCustomEndpointTlsOutput) CertificateType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontdoorCustomEndpointTls) *string { return v.CertificateType }).(pulumi.StringPtrOutput)
+func (o FrontdoorCustomDomainTlsOutput) CertificateType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorCustomDomainTls) *string { return v.CertificateType }).(pulumi.StringPtrOutput)
 }
 
 // TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
-func (o FrontdoorCustomEndpointTlsOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontdoorCustomEndpointTls) *string { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
+func (o FrontdoorCustomDomainTlsOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorCustomDomainTls) *string { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
 }
 
-type FrontdoorCustomEndpointTlsPtrOutput struct{ *pulumi.OutputState }
+type FrontdoorCustomDomainTlsPtrOutput struct{ *pulumi.OutputState }
 
-func (FrontdoorCustomEndpointTlsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FrontdoorCustomEndpointTls)(nil)).Elem()
+func (FrontdoorCustomDomainTlsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorCustomDomainTls)(nil)).Elem()
 }
 
-func (o FrontdoorCustomEndpointTlsPtrOutput) ToFrontdoorCustomEndpointTlsPtrOutput() FrontdoorCustomEndpointTlsPtrOutput {
+func (o FrontdoorCustomDomainTlsPtrOutput) ToFrontdoorCustomDomainTlsPtrOutput() FrontdoorCustomDomainTlsPtrOutput {
 	return o
 }
 
-func (o FrontdoorCustomEndpointTlsPtrOutput) ToFrontdoorCustomEndpointTlsPtrOutputWithContext(ctx context.Context) FrontdoorCustomEndpointTlsPtrOutput {
+func (o FrontdoorCustomDomainTlsPtrOutput) ToFrontdoorCustomDomainTlsPtrOutputWithContext(ctx context.Context) FrontdoorCustomDomainTlsPtrOutput {
 	return o
 }
 
-func (o FrontdoorCustomEndpointTlsPtrOutput) Elem() FrontdoorCustomEndpointTlsOutput {
-	return o.ApplyT(func(v *FrontdoorCustomEndpointTls) FrontdoorCustomEndpointTls {
+func (o FrontdoorCustomDomainTlsPtrOutput) Elem() FrontdoorCustomDomainTlsOutput {
+	return o.ApplyT(func(v *FrontdoorCustomDomainTls) FrontdoorCustomDomainTls {
 		if v != nil {
 			return *v
 		}
-		var ret FrontdoorCustomEndpointTls
+		var ret FrontdoorCustomDomainTls
 		return ret
-	}).(FrontdoorCustomEndpointTlsOutput)
+	}).(FrontdoorCustomDomainTlsOutput)
 }
 
 // Resource ID of the Frontdoor Secrect.
-func (o FrontdoorCustomEndpointTlsPtrOutput) CdnFrontdoorSecretId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FrontdoorCustomEndpointTls) *string {
+func (o FrontdoorCustomDomainTlsPtrOutput) CdnFrontdoorSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorCustomDomainTls) *string {
 		if v == nil {
 			return nil
 		}
@@ -5115,8 +5115,8 @@ func (o FrontdoorCustomEndpointTlsPtrOutput) CdnFrontdoorSecretId() pulumi.Strin
 }
 
 // Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
-func (o FrontdoorCustomEndpointTlsPtrOutput) CertificateType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FrontdoorCustomEndpointTls) *string {
+func (o FrontdoorCustomDomainTlsPtrOutput) CertificateType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorCustomDomainTls) *string {
 		if v == nil {
 			return nil
 		}
@@ -5125,8 +5125,8 @@ func (o FrontdoorCustomEndpointTlsPtrOutput) CertificateType() pulumi.StringPtrO
 }
 
 // TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
-func (o FrontdoorCustomEndpointTlsPtrOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FrontdoorCustomEndpointTls) *string {
+func (o FrontdoorCustomDomainTlsPtrOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorCustomDomainTls) *string {
 		if v == nil {
 			return nil
 		}
@@ -11958,8 +11958,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointGlobalDeliveryRuleUrlRewriteActionPtrInput)(nil)).Elem(), EndpointGlobalDeliveryRuleUrlRewriteActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointOriginInput)(nil)).Elem(), EndpointOriginArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointOriginArrayInput)(nil)).Elem(), EndpointOriginArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorCustomEndpointTlsInput)(nil)).Elem(), FrontdoorCustomEndpointTlsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorCustomEndpointTlsPtrInput)(nil)).Elem(), FrontdoorCustomEndpointTlsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorCustomDomainTlsInput)(nil)).Elem(), FrontdoorCustomDomainTlsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorCustomDomainTlsPtrInput)(nil)).Elem(), FrontdoorCustomDomainTlsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyCustomRuleInput)(nil)).Elem(), FrontdoorFirewallPolicyCustomRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyCustomRuleArrayInput)(nil)).Elem(), FrontdoorFirewallPolicyCustomRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyCustomRuleMatchConditionInput)(nil)).Elem(), FrontdoorFirewallPolicyCustomRuleMatchConditionArgs{})
@@ -12116,8 +12116,8 @@ func init() {
 	pulumi.RegisterOutputType(EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput{})
 	pulumi.RegisterOutputType(EndpointOriginOutput{})
 	pulumi.RegisterOutputType(EndpointOriginArrayOutput{})
-	pulumi.RegisterOutputType(FrontdoorCustomEndpointTlsOutput{})
-	pulumi.RegisterOutputType(FrontdoorCustomEndpointTlsPtrOutput{})
+	pulumi.RegisterOutputType(FrontdoorCustomDomainTlsOutput{})
+	pulumi.RegisterOutputType(FrontdoorCustomDomainTlsPtrOutput{})
 	pulumi.RegisterOutputType(FrontdoorFirewallPolicyCustomRuleOutput{})
 	pulumi.RegisterOutputType(FrontdoorFirewallPolicyCustomRuleArrayOutput{})
 	pulumi.RegisterOutputType(FrontdoorFirewallPolicyCustomRuleMatchConditionOutput{})

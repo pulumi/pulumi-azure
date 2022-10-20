@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:iotcentral/application:Application":
 		r = &Application{}
+	case "azure:iotcentral/applicationNetworkRuleSet:ApplicationNetworkRuleSet":
+		r = &ApplicationNetworkRuleSet{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"iotcentral/application",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"iotcentral/applicationNetworkRuleSet",
 		&module{version},
 	)
 }
