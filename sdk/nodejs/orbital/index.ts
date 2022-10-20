@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ContactProfileArgs, ContactProfileState } from "./contactProfile";
+export type ContactProfile = import("./contactProfile").ContactProfile;
+export const ContactProfile: typeof import("./contactProfile").ContactProfile = null as any;
+utilities.lazyLoad(exports, ["ContactProfile"], () => require("./contactProfile"));
+
 export { SpacecraftArgs, SpacecraftState } from "./spacecraft";
 export type Spacecraft = import("./spacecraft").Spacecraft;
 export const Spacecraft: typeof import("./spacecraft").Spacecraft = null as any;
@@ -15,6 +20,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:orbital/contactProfile:ContactProfile":
+                return new ContactProfile(name, <any>undefined, { urn })
             case "azure:orbital/spacecraft:Spacecraft":
                 return new Spacecraft(name, <any>undefined, { urn })
             default:
@@ -22,4 +29,5 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "orbital/contactProfile", _module)
 pulumi.runtime.registerResourceModule("azure", "orbital/spacecraft", _module)

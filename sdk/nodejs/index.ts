@@ -91,6 +91,7 @@ import * as mssql from "./mssql";
 import * as mysql from "./mysql";
 import * as netapp from "./netapp";
 import * as network from "./network";
+import * as nginx from "./nginx";
 import * as notificationhub from "./notificationhub";
 import * as operationalinsights from "./operationalinsights";
 import * as orbital from "./orbital";
@@ -202,6 +203,7 @@ export {
     mysql,
     netapp,
     network,
+    nginx,
     notificationhub,
     operationalinsights,
     orbital,

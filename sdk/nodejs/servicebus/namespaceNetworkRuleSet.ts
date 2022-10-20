@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a ServiceBus Namespace Network Rule Set Set.
+ * Manages a ServiceBus Namespace Network Rule Set.
  *
  * ## Example Usage
  *

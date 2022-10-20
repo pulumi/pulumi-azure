@@ -50,6 +50,10 @@ export class FrontdoorRoute extends pulumi.CustomResource {
      */
     public readonly cache!: pulumi.Output<outputs.cdn.FrontdoorRouteCache | undefined>;
     /**
+     * The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+     */
+    public readonly cdnFrontdoorCustomDomainIds!: pulumi.Output<string[] | undefined>;
+    /**
      * The resource ID of the CDN FrontDoor Endpoint where this CDN FrontDoor Route should exist. Changing this forces a new Frontdoor Route to be created.
      */
     public readonly cdnFrontdoorEndpointId!: pulumi.Output<string>;
@@ -82,7 +86,11 @@ export class FrontdoorRoute extends pulumi.CustomResource {
      */
     public readonly httpsRedirectEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hypens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+     * Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+     */
+    public readonly linkToDefaultDomain!: pulumi.Output<boolean | undefined>;
+    /**
+     * The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -108,6 +116,7 @@ export class FrontdoorRoute extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as FrontdoorRouteState | undefined;
             resourceInputs["cache"] = state ? state.cache : undefined;
+            resourceInputs["cdnFrontdoorCustomDomainIds"] = state ? state.cdnFrontdoorCustomDomainIds : undefined;
             resourceInputs["cdnFrontdoorEndpointId"] = state ? state.cdnFrontdoorEndpointId : undefined;
             resourceInputs["cdnFrontdoorOriginGroupId"] = state ? state.cdnFrontdoorOriginGroupId : undefined;
             resourceInputs["cdnFrontdoorOriginIds"] = state ? state.cdnFrontdoorOriginIds : undefined;
@@ -116,6 +125,7 @@ export class FrontdoorRoute extends pulumi.CustomResource {
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["forwardingProtocol"] = state ? state.forwardingProtocol : undefined;
             resourceInputs["httpsRedirectEnabled"] = state ? state.httpsRedirectEnabled : undefined;
+            resourceInputs["linkToDefaultDomain"] = state ? state.linkToDefaultDomain : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["patternsToMatches"] = state ? state.patternsToMatches : undefined;
             resourceInputs["supportedProtocols"] = state ? state.supportedProtocols : undefined;
@@ -137,6 +147,7 @@ export class FrontdoorRoute extends pulumi.CustomResource {
                 throw new Error("Missing required property 'supportedProtocols'");
             }
             resourceInputs["cache"] = args ? args.cache : undefined;
+            resourceInputs["cdnFrontdoorCustomDomainIds"] = args ? args.cdnFrontdoorCustomDomainIds : undefined;
             resourceInputs["cdnFrontdoorEndpointId"] = args ? args.cdnFrontdoorEndpointId : undefined;
             resourceInputs["cdnFrontdoorOriginGroupId"] = args ? args.cdnFrontdoorOriginGroupId : undefined;
             resourceInputs["cdnFrontdoorOriginIds"] = args ? args.cdnFrontdoorOriginIds : undefined;
@@ -145,6 +156,7 @@ export class FrontdoorRoute extends pulumi.CustomResource {
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["forwardingProtocol"] = args ? args.forwardingProtocol : undefined;
             resourceInputs["httpsRedirectEnabled"] = args ? args.httpsRedirectEnabled : undefined;
+            resourceInputs["linkToDefaultDomain"] = args ? args.linkToDefaultDomain : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["patternsToMatches"] = args ? args.patternsToMatches : undefined;
             resourceInputs["supportedProtocols"] = args ? args.supportedProtocols : undefined;
@@ -162,6 +174,10 @@ export interface FrontdoorRouteState {
      * A `cache` block as defined below.
      */
     cache?: pulumi.Input<inputs.cdn.FrontdoorRouteCache>;
+    /**
+     * The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+     */
+    cdnFrontdoorCustomDomainIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The resource ID of the CDN FrontDoor Endpoint where this CDN FrontDoor Route should exist. Changing this forces a new Frontdoor Route to be created.
      */
@@ -195,7 +211,11 @@ export interface FrontdoorRouteState {
      */
     httpsRedirectEnabled?: pulumi.Input<boolean>;
     /**
-     * The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hypens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+     * Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+     */
+    linkToDefaultDomain?: pulumi.Input<boolean>;
+    /**
+     * The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -216,6 +236,10 @@ export interface FrontdoorRouteArgs {
      * A `cache` block as defined below.
      */
     cache?: pulumi.Input<inputs.cdn.FrontdoorRouteCache>;
+    /**
+     * The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+     */
+    cdnFrontdoorCustomDomainIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The resource ID of the CDN FrontDoor Endpoint where this CDN FrontDoor Route should exist. Changing this forces a new Frontdoor Route to be created.
      */
@@ -249,7 +273,11 @@ export interface FrontdoorRouteArgs {
      */
     httpsRedirectEnabled?: pulumi.Input<boolean>;
     /**
-     * The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hypens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+     * Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+     */
+    linkToDefaultDomain?: pulumi.Input<boolean>;
+    /**
+     * The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
      */
     name?: pulumi.Input<string>;
     /**

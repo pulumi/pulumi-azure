@@ -80,6 +80,11 @@ export type DataConnectorOffice365 = import("./dataConnectorOffice365").DataConn
 export const DataConnectorOffice365: typeof import("./dataConnectorOffice365").DataConnectorOffice365 = null as any;
 utilities.lazyLoad(exports, ["DataConnectorOffice365"], () => require("./dataConnectorOffice365"));
 
+export { DataConnectorOfficeAtpArgs, DataConnectorOfficeAtpState } from "./dataConnectorOfficeAtp";
+export type DataConnectorOfficeAtp = import("./dataConnectorOfficeAtp").DataConnectorOfficeAtp;
+export const DataConnectorOfficeAtp: typeof import("./dataConnectorOfficeAtp").DataConnectorOfficeAtp = null as any;
+utilities.lazyLoad(exports, ["DataConnectorOfficeAtp"], () => require("./dataConnectorOfficeAtp"));
+
 export { DataConnectorThreatIntelligenceArgs, DataConnectorThreatIntelligenceState } from "./dataConnectorThreatIntelligence";
 export type DataConnectorThreatIntelligence = import("./dataConnectorThreatIntelligence").DataConnectorThreatIntelligence;
 export const DataConnectorThreatIntelligence: typeof import("./dataConnectorThreatIntelligence").DataConnectorThreatIntelligence = null as any;
@@ -140,6 +145,8 @@ const _module = {
                 return new DataConnectorMicrosoftDefenderAdvancedThreatProtection(name, <any>undefined, { urn })
             case "azure:sentinel/dataConnectorOffice365:DataConnectorOffice365":
                 return new DataConnectorOffice365(name, <any>undefined, { urn })
+            case "azure:sentinel/dataConnectorOfficeAtp:DataConnectorOfficeAtp":
+                return new DataConnectorOfficeAtp(name, <any>undefined, { urn })
             case "azure:sentinel/dataConnectorThreatIntelligence:DataConnectorThreatIntelligence":
                 return new DataConnectorThreatIntelligence(name, <any>undefined, { urn })
             case "azure:sentinel/watchlist:Watchlist":
@@ -166,6 +173,7 @@ pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorAzureSecur
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorMicrosoftCloudAppSecurity", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorMicrosoftDefenderAdvancedThreatProtection", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorOffice365", _module)
+pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorOfficeAtp", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorThreatIntelligence", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/watchlist", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/watchlistItem", _module)

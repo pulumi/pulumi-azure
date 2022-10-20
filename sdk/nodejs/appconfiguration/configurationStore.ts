@@ -58,6 +58,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConfigurationStore.__pulumiType;
     }
 
+    public readonly encryption!: pulumi.Output<outputs.appconfiguration.ConfigurationStoreEncryption | undefined>;
     /**
      * The URL of the App Configuration.
      */
@@ -66,6 +67,10 @@ export class ConfigurationStore extends pulumi.CustomResource {
      * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.appconfiguration.ConfigurationStoreIdentity | undefined>;
+    /**
+     * Whether local authentication methods is enabled. Defaults to `true`.
+     */
+    public readonly localAuthEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -83,9 +88,13 @@ export class ConfigurationStore extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryWriteKeys!: pulumi.Output<outputs.appconfiguration.ConfigurationStorePrimaryWriteKey[]>;
     /**
-     * The Public Network Access setting of this App Configuration.
+     * The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
      */
     public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    /**
+     * Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
+     */
+    public readonly purgeProtectionEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
      */
@@ -102,6 +111,10 @@ export class ConfigurationStore extends pulumi.CustomResource {
      * The SKU name of the App Configuration. Possible values are `free` and `standard`.
      */
     public readonly sku!: pulumi.Output<string | undefined>;
+    /**
+     * The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
+     */
+    public readonly softDeleteRetentionDays!: pulumi.Output<number | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -120,29 +133,37 @@ export class ConfigurationStore extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConfigurationStoreState | undefined;
+            resourceInputs["encryption"] = state ? state.encryption : undefined;
             resourceInputs["endpoint"] = state ? state.endpoint : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["localAuthEnabled"] = state ? state.localAuthEnabled : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["primaryReadKeys"] = state ? state.primaryReadKeys : undefined;
             resourceInputs["primaryWriteKeys"] = state ? state.primaryWriteKeys : undefined;
             resourceInputs["publicNetworkAccess"] = state ? state.publicNetworkAccess : undefined;
+            resourceInputs["purgeProtectionEnabled"] = state ? state.purgeProtectionEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["secondaryReadKeys"] = state ? state.secondaryReadKeys : undefined;
             resourceInputs["secondaryWriteKeys"] = state ? state.secondaryWriteKeys : undefined;
             resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["softDeleteRetentionDays"] = state ? state.softDeleteRetentionDays : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ConfigurationStoreArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["encryption"] = args ? args.encryption : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["localAuthEnabled"] = args ? args.localAuthEnabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
+            resourceInputs["purgeProtectionEnabled"] = args ? args.purgeProtectionEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["softDeleteRetentionDays"] = args ? args.softDeleteRetentionDays : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["primaryReadKeys"] = undefined /*out*/;
@@ -159,6 +180,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ConfigurationStore resources.
  */
 export interface ConfigurationStoreState {
+    encryption?: pulumi.Input<inputs.appconfiguration.ConfigurationStoreEncryption>;
     /**
      * The URL of the App Configuration.
      */
@@ -167,6 +189,10 @@ export interface ConfigurationStoreState {
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.appconfiguration.ConfigurationStoreIdentity>;
+    /**
+     * Whether local authentication methods is enabled. Defaults to `true`.
+     */
+    localAuthEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -184,9 +210,13 @@ export interface ConfigurationStoreState {
      */
     primaryWriteKeys?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationStorePrimaryWriteKey>[]>;
     /**
-     * The Public Network Access setting of this App Configuration.
+     * The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
      */
     publicNetworkAccess?: pulumi.Input<string>;
+    /**
+     * Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
+     */
+    purgeProtectionEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
      */
@@ -204,6 +234,10 @@ export interface ConfigurationStoreState {
      */
     sku?: pulumi.Input<string>;
     /**
+     * The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
+     */
+    softDeleteRetentionDays?: pulumi.Input<number>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -213,10 +247,15 @@ export interface ConfigurationStoreState {
  * The set of arguments for constructing a ConfigurationStore resource.
  */
 export interface ConfigurationStoreArgs {
+    encryption?: pulumi.Input<inputs.appconfiguration.ConfigurationStoreEncryption>;
     /**
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.appconfiguration.ConfigurationStoreIdentity>;
+    /**
+     * Whether local authentication methods is enabled. Defaults to `true`.
+     */
+    localAuthEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -226,9 +265,13 @@ export interface ConfigurationStoreArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The Public Network Access setting of this App Configuration.
+     * The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
      */
     publicNetworkAccess?: pulumi.Input<string>;
+    /**
+     * Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
+     */
+    purgeProtectionEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
      */
@@ -237,6 +280,10 @@ export interface ConfigurationStoreArgs {
      * The SKU name of the App Configuration. Possible values are `free` and `standard`.
      */
     sku?: pulumi.Input<string>;
+    /**
+     * The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
+     */
+    softDeleteRetentionDays?: pulumi.Input<number>;
     /**
      * A mapping of tags to assign to the resource.
      */

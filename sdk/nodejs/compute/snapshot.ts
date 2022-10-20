@@ -75,6 +75,9 @@ export class Snapshot extends pulumi.CustomResource {
      * The size of the Snapshotted Disk in GB.
      */
     public readonly diskSizeGb!: pulumi.Output<number>;
+    /**
+     * A `encryptionSettings` block as defined below.
+     */
     public readonly encryptionSettings!: pulumi.Output<outputs.compute.SnapshotEncryptionSettings | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -170,6 +173,9 @@ export interface SnapshotState {
      * The size of the Snapshotted Disk in GB.
      */
     diskSizeGb?: pulumi.Input<number>;
+    /**
+     * A `encryptionSettings` block as defined below.
+     */
     encryptionSettings?: pulumi.Input<inputs.compute.SnapshotEncryptionSettings>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -217,6 +223,9 @@ export interface SnapshotArgs {
      * The size of the Snapshotted Disk in GB.
      */
     diskSizeGb?: pulumi.Input<number>;
+    /**
+     * A `encryptionSettings` block as defined below.
+     */
     encryptionSettings?: pulumi.Input<inputs.compute.SnapshotEncryptionSettings>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

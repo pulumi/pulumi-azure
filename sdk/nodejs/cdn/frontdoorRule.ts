@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a Frontdoor Rule.
  *
- * !>**IMPORTANT:** The Rules resource **must** include a `dependsOn` meta-argument which references the `azure.cdn.FrontdoorOrigin`, `azure.cdn.FrontdoorOriginGroup` and the `azure.cdn.FrontdoorRoute` that are associated with the Rule resource. The `azure.cdn.FrontdoorRoute` definition has been excluded from the below `Example Usage`, for brevity, but has been included in the `dependsOn` meta-argument as an example of the correct way to define the `azure.cdn.FrontdoorRule` resource.
+ * !>**IMPORTANT:** The Rules resource **must** include a `dependsOn` meta-argument which references the `azure.cdn.FrontdoorOrigin` and the `azure.cdn.FrontdoorOriginGroup`.
  *
  * ## Specifying IP Address Ranges
  *

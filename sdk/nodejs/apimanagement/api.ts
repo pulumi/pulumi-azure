@@ -82,6 +82,10 @@ export class Api extends pulumi.CustomResource {
      */
     public readonly apiType!: pulumi.Output<string>;
     /**
+     * A `contact` block as documented below.
+     */
+    public readonly contact!: pulumi.Output<outputs.apimanagement.ApiContact | undefined>;
+    /**
      * A description of the API Management API, which may include HTML formatting tags.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -101,6 +105,10 @@ export class Api extends pulumi.CustomResource {
      * Is this API Revision online/accessible via the Gateway?
      */
     public /*out*/ readonly isOnline!: pulumi.Output<boolean>;
+    /**
+     * A `license` block as documented below.
+     */
+    public readonly license!: pulumi.Output<outputs.apimanagement.ApiLicense | undefined>;
     /**
      * The name of the API Management API. Changing this forces a new resource to be created.
      */
@@ -156,6 +164,10 @@ export class Api extends pulumi.CustomResource {
      */
     public readonly subscriptionRequired!: pulumi.Output<boolean | undefined>;
     /**
+     * Absolute URL of the Terms of Service for the API.
+     */
+    public readonly termsOfServiceUrl!: pulumi.Output<string | undefined>;
+    /**
      * The Version number of this API, if this API is versioned.
      */
     public readonly version!: pulumi.Output<string>;
@@ -183,11 +195,13 @@ export class Api extends pulumi.CustomResource {
             const state = argsOrState as ApiState | undefined;
             resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             resourceInputs["apiType"] = state ? state.apiType : undefined;
+            resourceInputs["contact"] = state ? state.contact : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
             resourceInputs["import"] = state ? state.import : undefined;
             resourceInputs["isCurrent"] = state ? state.isCurrent : undefined;
             resourceInputs["isOnline"] = state ? state.isOnline : undefined;
+            resourceInputs["license"] = state ? state.license : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["oauth2Authorization"] = state ? state.oauth2Authorization : undefined;
             resourceInputs["openidAuthentication"] = state ? state.openidAuthentication : undefined;
@@ -201,6 +215,7 @@ export class Api extends pulumi.CustomResource {
             resourceInputs["sourceApiId"] = state ? state.sourceApiId : undefined;
             resourceInputs["subscriptionKeyParameterNames"] = state ? state.subscriptionKeyParameterNames : undefined;
             resourceInputs["subscriptionRequired"] = state ? state.subscriptionRequired : undefined;
+            resourceInputs["termsOfServiceUrl"] = state ? state.termsOfServiceUrl : undefined;
             resourceInputs["version"] = state ? state.version : undefined;
             resourceInputs["versionDescription"] = state ? state.versionDescription : undefined;
             resourceInputs["versionSetId"] = state ? state.versionSetId : undefined;
@@ -217,9 +232,11 @@ export class Api extends pulumi.CustomResource {
             }
             resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
             resourceInputs["apiType"] = args ? args.apiType : undefined;
+            resourceInputs["contact"] = args ? args.contact : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["import"] = args ? args.import : undefined;
+            resourceInputs["license"] = args ? args.license : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["oauth2Authorization"] = args ? args.oauth2Authorization : undefined;
             resourceInputs["openidAuthentication"] = args ? args.openidAuthentication : undefined;
@@ -233,6 +250,7 @@ export class Api extends pulumi.CustomResource {
             resourceInputs["sourceApiId"] = args ? args.sourceApiId : undefined;
             resourceInputs["subscriptionKeyParameterNames"] = args ? args.subscriptionKeyParameterNames : undefined;
             resourceInputs["subscriptionRequired"] = args ? args.subscriptionRequired : undefined;
+            resourceInputs["termsOfServiceUrl"] = args ? args.termsOfServiceUrl : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["versionDescription"] = args ? args.versionDescription : undefined;
             resourceInputs["versionSetId"] = args ? args.versionSetId : undefined;
@@ -257,6 +275,10 @@ export interface ApiState {
      */
     apiType?: pulumi.Input<string>;
     /**
+     * A `contact` block as documented below.
+     */
+    contact?: pulumi.Input<inputs.apimanagement.ApiContact>;
+    /**
      * A description of the API Management API, which may include HTML formatting tags.
      */
     description?: pulumi.Input<string>;
@@ -276,6 +298,10 @@ export interface ApiState {
      * Is this API Revision online/accessible via the Gateway?
      */
     isOnline?: pulumi.Input<boolean>;
+    /**
+     * A `license` block as documented below.
+     */
+    license?: pulumi.Input<inputs.apimanagement.ApiLicense>;
     /**
      * The name of the API Management API. Changing this forces a new resource to be created.
      */
@@ -331,6 +357,10 @@ export interface ApiState {
      */
     subscriptionRequired?: pulumi.Input<boolean>;
     /**
+     * Absolute URL of the Terms of Service for the API.
+     */
+    termsOfServiceUrl?: pulumi.Input<string>;
+    /**
      * The Version number of this API, if this API is versioned.
      */
     version?: pulumi.Input<string>;
@@ -357,6 +387,10 @@ export interface ApiArgs {
      */
     apiType?: pulumi.Input<string>;
     /**
+     * A `contact` block as documented below.
+     */
+    contact?: pulumi.Input<inputs.apimanagement.ApiContact>;
+    /**
      * A description of the API Management API, which may include HTML formatting tags.
      */
     description?: pulumi.Input<string>;
@@ -368,6 +402,10 @@ export interface ApiArgs {
      * A `import` block as documented below.
      */
     import?: pulumi.Input<inputs.apimanagement.ApiImport>;
+    /**
+     * A `license` block as documented below.
+     */
+    license?: pulumi.Input<inputs.apimanagement.ApiLicense>;
     /**
      * The name of the API Management API. Changing this forces a new resource to be created.
      */
@@ -422,6 +460,10 @@ export interface ApiArgs {
      * Should this API require a subscription key?
      */
     subscriptionRequired?: pulumi.Input<boolean>;
+    /**
+     * Absolute URL of the Terms of Service for the API.
+     */
+    termsOfServiceUrl?: pulumi.Input<string>;
     /**
      * The Version number of this API, if this API is versioned.
      */

@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *             tags: {},
  *         },
  *         {
- *             location: "westeurope",
+ *             location: "North Europe",
  *             zoneRedundancyEnabled: true,
  *             tags: {},
  *         },

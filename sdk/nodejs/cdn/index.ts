@@ -15,10 +15,15 @@ export type EndpointCustomDomain = import("./endpointCustomDomain").EndpointCust
 export const EndpointCustomDomain: typeof import("./endpointCustomDomain").EndpointCustomDomain = null as any;
 utilities.lazyLoad(exports, ["EndpointCustomDomain"], () => require("./endpointCustomDomain"));
 
-export { FrontdoorCustomEndpointArgs, FrontdoorCustomEndpointState } from "./frontdoorCustomEndpoint";
-export type FrontdoorCustomEndpoint = import("./frontdoorCustomEndpoint").FrontdoorCustomEndpoint;
-export const FrontdoorCustomEndpoint: typeof import("./frontdoorCustomEndpoint").FrontdoorCustomEndpoint = null as any;
-utilities.lazyLoad(exports, ["FrontdoorCustomEndpoint"], () => require("./frontdoorCustomEndpoint"));
+export { FrontdoorCustomDomainArgs, FrontdoorCustomDomainState } from "./frontdoorCustomDomain";
+export type FrontdoorCustomDomain = import("./frontdoorCustomDomain").FrontdoorCustomDomain;
+export const FrontdoorCustomDomain: typeof import("./frontdoorCustomDomain").FrontdoorCustomDomain = null as any;
+utilities.lazyLoad(exports, ["FrontdoorCustomDomain"], () => require("./frontdoorCustomDomain"));
+
+export { FrontdoorCustomDomainAssociationArgs, FrontdoorCustomDomainAssociationState } from "./frontdoorCustomDomainAssociation";
+export type FrontdoorCustomDomainAssociation = import("./frontdoorCustomDomainAssociation").FrontdoorCustomDomainAssociation;
+export const FrontdoorCustomDomainAssociation: typeof import("./frontdoorCustomDomainAssociation").FrontdoorCustomDomainAssociation = null as any;
+utilities.lazyLoad(exports, ["FrontdoorCustomDomainAssociation"], () => require("./frontdoorCustomDomainAssociation"));
 
 export { FrontdoorEndpointArgs, FrontdoorEndpointState } from "./frontdoorEndpoint";
 export type FrontdoorEndpoint = import("./frontdoorEndpoint").FrontdoorEndpoint;
@@ -114,8 +119,10 @@ const _module = {
                 return new Endpoint(name, <any>undefined, { urn })
             case "azure:cdn/endpointCustomDomain:EndpointCustomDomain":
                 return new EndpointCustomDomain(name, <any>undefined, { urn })
-            case "azure:cdn/frontdoorCustomEndpoint:FrontdoorCustomEndpoint":
-                return new FrontdoorCustomEndpoint(name, <any>undefined, { urn })
+            case "azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain":
+                return new FrontdoorCustomDomain(name, <any>undefined, { urn })
+            case "azure:cdn/frontdoorCustomDomainAssociation:FrontdoorCustomDomainAssociation":
+                return new FrontdoorCustomDomainAssociation(name, <any>undefined, { urn })
             case "azure:cdn/frontdoorEndpoint:FrontdoorEndpoint":
                 return new FrontdoorEndpoint(name, <any>undefined, { urn })
             case "azure:cdn/frontdoorFirewallPolicy:FrontdoorFirewallPolicy":
@@ -147,7 +154,8 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "cdn/endpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/endpointCustomDomain", _module)
-pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorCustomEndpoint", _module)
+pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorCustomDomain", _module)
+pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorCustomDomainAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorFirewallPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorOrigin", _module)

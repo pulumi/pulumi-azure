@@ -2,31 +2,24 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Load Test.
+ * <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleLoadTest = new azure.loadtest.LoadTest("exampleLoadTest", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- * });
- * ```
+ * Manages a Load Test Service.
  *
  * ## Import
  *
- * Load tests can be imported using the `resource id`, e.g.
+ * An existing Load Test can be imported into Terraform using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:loadtest/loadTest:LoadTest example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.LoadTestService/loadtests/example
+ *  $ pulumi import azure:loadtest/loadTest:LoadTest example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LoadTestService/loadTests/{loadTestName}
  * ```
+ *
+ *  * Where `{subscriptionId}` is the ID of the Azure Subscription where the Load Test exists. For example `12345678-1234-9876-4563-123456789012`. * Where `{resourceGroupName}` is the name of Resource Group where this Load Test exists. For example `example-resource-group`. * Where `{loadTestName}` is the name of the Load Test. For example `loadTestValue`.
  */
 export class LoadTest extends pulumi.CustomResource {
     /**
@@ -57,19 +50,27 @@ export class LoadTest extends pulumi.CustomResource {
     }
 
     /**
-     * Public URI of the Data Plane.
+     * Resource data plane URI.
      */
-    public /*out*/ readonly dataplaneUri!: pulumi.Output<string>;
+    public /*out*/ readonly dataPlaneUri!: pulumi.Output<string>;
+    /**
+     * Description of the resource. Changing this forces a new Load Test to be created.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the Managed Identity which should be assigned to this Load Test.
+     */
+    public readonly identity!: pulumi.Output<outputs.loadtest.LoadTestIdentity | undefined>;
     /**
      * The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The name which should be used for this Load Test. Changing this forces a new Load Test to be created.
+     * Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the Resource Group where the Load Test should exist. Changing this forces a new Load Test to be created.
+     * Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -90,7 +91,9 @@ export class LoadTest extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LoadTestState | undefined;
-            resourceInputs["dataplaneUri"] = state ? state.dataplaneUri : undefined;
+            resourceInputs["dataPlaneUri"] = state ? state.dataPlaneUri : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -100,11 +103,13 @@ export class LoadTest extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["dataplaneUri"] = undefined /*out*/;
+            resourceInputs["dataPlaneUri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LoadTest.__pulumiType, name, resourceInputs, opts);
@@ -116,19 +121,27 @@ export class LoadTest extends pulumi.CustomResource {
  */
 export interface LoadTestState {
     /**
-     * Public URI of the Data Plane.
+     * Resource data plane URI.
      */
-    dataplaneUri?: pulumi.Input<string>;
+    dataPlaneUri?: pulumi.Input<string>;
+    /**
+     * Description of the resource. Changing this forces a new Load Test to be created.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * Specifies the Managed Identity which should be assigned to this Load Test.
+     */
+    identity?: pulumi.Input<inputs.loadtest.LoadTestIdentity>;
     /**
      * The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
      */
     location?: pulumi.Input<string>;
     /**
-     * The name which should be used for this Load Test. Changing this forces a new Load Test to be created.
+     * Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the Resource Group where the Load Test should exist. Changing this forces a new Load Test to be created.
+     * Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -142,15 +155,23 @@ export interface LoadTestState {
  */
 export interface LoadTestArgs {
     /**
+     * Description of the resource. Changing this forces a new Load Test to be created.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * Specifies the Managed Identity which should be assigned to this Load Test.
+     */
+    identity?: pulumi.Input<inputs.loadtest.LoadTestIdentity>;
+    /**
      * The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
      */
     location?: pulumi.Input<string>;
     /**
-     * The name which should be used for this Load Test. Changing this forces a new Load Test to be created.
+     * Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the Resource Group where the Load Test should exist. Changing this forces a new Load Test to be created.
+     * Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

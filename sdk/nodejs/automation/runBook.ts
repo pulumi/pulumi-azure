@@ -83,11 +83,20 @@ export class RunBook extends pulumi.CustomResource {
      * A description for this credential.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * A `draft` block as defined below .
+     */
+    public readonly draft!: pulumi.Output<outputs.automation.RunBookDraft | undefined>;
     public readonly jobSchedules!: pulumi.Output<outputs.automation.RunBookJobSchedule[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. 
+     * Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+     */
+    public readonly logActivityTraceLevel!: pulumi.Output<number | undefined>;
     /**
      * Progress log option.
      */
@@ -133,8 +142,10 @@ export class RunBook extends pulumi.CustomResource {
             resourceInputs["automationAccountName"] = state ? state.automationAccountName : undefined;
             resourceInputs["content"] = state ? state.content : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["draft"] = state ? state.draft : undefined;
             resourceInputs["jobSchedules"] = state ? state.jobSchedules : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["logActivityTraceLevel"] = state ? state.logActivityTraceLevel : undefined;
             resourceInputs["logProgress"] = state ? state.logProgress : undefined;
             resourceInputs["logVerbose"] = state ? state.logVerbose : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -162,8 +173,10 @@ export class RunBook extends pulumi.CustomResource {
             resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
             resourceInputs["content"] = args ? args.content : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["draft"] = args ? args.draft : undefined;
             resourceInputs["jobSchedules"] = args ? args.jobSchedules : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["logActivityTraceLevel"] = args ? args.logActivityTraceLevel : undefined;
             resourceInputs["logProgress"] = args ? args.logProgress : undefined;
             resourceInputs["logVerbose"] = args ? args.logVerbose : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -193,11 +206,20 @@ export interface RunBookState {
      * A description for this credential.
      */
     description?: pulumi.Input<string>;
+    /**
+     * A `draft` block as defined below .
+     */
+    draft?: pulumi.Input<inputs.automation.RunBookDraft>;
     jobSchedules?: pulumi.Input<pulumi.Input<inputs.automation.RunBookJobSchedule>[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. 
+     * Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+     */
+    logActivityTraceLevel?: pulumi.Input<number>;
     /**
      * Progress log option.
      */
@@ -244,11 +266,20 @@ export interface RunBookArgs {
      * A description for this credential.
      */
     description?: pulumi.Input<string>;
+    /**
+     * A `draft` block as defined below .
+     */
+    draft?: pulumi.Input<inputs.automation.RunBookDraft>;
     jobSchedules?: pulumi.Input<pulumi.Input<inputs.automation.RunBookJobSchedule>[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. 
+     * Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+     */
+    logActivityTraceLevel?: pulumi.Input<number>;
     /**
      * Progress log option.
      */

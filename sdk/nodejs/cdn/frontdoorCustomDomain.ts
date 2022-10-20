@@ -15,12 +15,14 @@ import * as utilities from "../utilities";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleZone = new azure.dns.Zone("exampleZone", {resourceGroupName: azurerm_resource_group.test.name});
- * const exampleFrontdoorProfile = new azure.cdn.FrontdoorProfile("exampleFrontdoorProfile", {resourceGroupName: exampleResourceGroup.name});
- * const exampleFrontdoorCustomEndpoint = new azure.cdn.FrontdoorCustomEndpoint("exampleFrontdoorCustomEndpoint", {
+ * const exampleFrontdoorProfile = new azure.cdn.FrontdoorProfile("exampleFrontdoorProfile", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "Standard_AzureFrontDoor",
+ * });
+ * const exampleFrontdoorCustomDomain = new azure.cdn.FrontdoorCustomDomain("exampleFrontdoorCustomDomain", {
  *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
  *     dnsZoneId: exampleZone.id,
  *     hostName: "contoso.com",
- *     associateWithCdnFrontdoorRouteId: azurerm_cdn_frontdoor_route.example.id,
  *     tls: {
  *         certificateType: "ManagedCertificate",
  *         minimumTlsVersion: "TLS12",
@@ -53,12 +55,12 @@ import * as utilities from "../utilities";
  * CDN FrontDoor Custom Domains can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:cdn/frontdoorCustomEndpoint:FrontdoorCustomEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/customDomains/customDomain1
+ *  $ pulumi import azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/customDomains/customDomain1
  * ```
  */
-export class FrontdoorCustomEndpoint extends pulumi.CustomResource {
+export class FrontdoorCustomDomain extends pulumi.CustomResource {
     /**
-     * Get an existing FrontdoorCustomEndpoint resource's state with the given name, ID, and optional extra
+     * Get an existing FrontdoorCustomDomain resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
@@ -66,28 +68,24 @@ export class FrontdoorCustomEndpoint extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: FrontdoorCustomEndpointState, opts?: pulumi.CustomResourceOptions): FrontdoorCustomEndpoint {
-        return new FrontdoorCustomEndpoint(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: FrontdoorCustomDomainState, opts?: pulumi.CustomResourceOptions): FrontdoorCustomDomain {
+        return new FrontdoorCustomDomain(name, <any>state, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure:cdn/frontdoorCustomEndpoint:FrontdoorCustomEndpoint';
+    public static readonly __pulumiType = 'azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain';
 
     /**
-     * Returns true if the given object is an instance of FrontdoorCustomEndpoint.  This is designed to work even
+     * Returns true if the given object is an instance of FrontdoorCustomDomain.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is FrontdoorCustomEndpoint {
+    public static isInstance(obj: any): obj is FrontdoorCustomDomain {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === FrontdoorCustomEndpoint.__pulumiType;
+        return obj['__pulumiType'] === FrontdoorCustomDomain.__pulumiType;
     }
 
-    /**
-     * The resource ID of the CDN FrontDoor Route this Custom Domain should be associated with.
-     */
-    public readonly associateWithCdnFrontdoorRouteId!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Frontdoor Profile. Changing this forces a new Frontdoor Profile to be created.
      */
@@ -111,26 +109,25 @@ export class FrontdoorCustomEndpoint extends pulumi.CustomResource {
     /**
      * A `tls` block as defined below.
      */
-    public readonly tls!: pulumi.Output<outputs.cdn.FrontdoorCustomEndpointTls>;
+    public readonly tls!: pulumi.Output<outputs.cdn.FrontdoorCustomDomainTls>;
     /**
      * Challenge used for DNS TXT record or file based validation.
      */
     public /*out*/ readonly validationToken!: pulumi.Output<string>;
 
     /**
-     * Create a FrontdoorCustomEndpoint resource with the given unique name, arguments, and options.
+     * Create a FrontdoorCustomDomain resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: FrontdoorCustomEndpointArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: FrontdoorCustomEndpointArgs | FrontdoorCustomEndpointState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: FrontdoorCustomDomainArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: FrontdoorCustomDomainArgs | FrontdoorCustomDomainState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
-            const state = argsOrState as FrontdoorCustomEndpointState | undefined;
-            resourceInputs["associateWithCdnFrontdoorRouteId"] = state ? state.associateWithCdnFrontdoorRouteId : undefined;
+            const state = argsOrState as FrontdoorCustomDomainState | undefined;
             resourceInputs["cdnFrontdoorProfileId"] = state ? state.cdnFrontdoorProfileId : undefined;
             resourceInputs["dnsZoneId"] = state ? state.dnsZoneId : undefined;
             resourceInputs["expirationDate"] = state ? state.expirationDate : undefined;
@@ -139,7 +136,7 @@ export class FrontdoorCustomEndpoint extends pulumi.CustomResource {
             resourceInputs["tls"] = state ? state.tls : undefined;
             resourceInputs["validationToken"] = state ? state.validationToken : undefined;
         } else {
-            const args = argsOrState as FrontdoorCustomEndpointArgs | undefined;
+            const args = argsOrState as FrontdoorCustomDomainArgs | undefined;
             if ((!args || args.cdnFrontdoorProfileId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cdnFrontdoorProfileId'");
             }
@@ -149,7 +146,6 @@ export class FrontdoorCustomEndpoint extends pulumi.CustomResource {
             if ((!args || args.tls === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tls'");
             }
-            resourceInputs["associateWithCdnFrontdoorRouteId"] = args ? args.associateWithCdnFrontdoorRouteId : undefined;
             resourceInputs["cdnFrontdoorProfileId"] = args ? args.cdnFrontdoorProfileId : undefined;
             resourceInputs["dnsZoneId"] = args ? args.dnsZoneId : undefined;
             resourceInputs["hostName"] = args ? args.hostName : undefined;
@@ -159,18 +155,16 @@ export class FrontdoorCustomEndpoint extends pulumi.CustomResource {
             resourceInputs["validationToken"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FrontdoorCustomEndpoint.__pulumiType, name, resourceInputs, opts);
+        const aliasOpts = { aliases: [{ type: "azure:cdn/frontdoorCustomEndpoint:FrontdoorCustomEndpoint" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
+        super(FrontdoorCustomDomain.__pulumiType, name, resourceInputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering FrontdoorCustomEndpoint resources.
+ * Input properties used for looking up and filtering FrontdoorCustomDomain resources.
  */
-export interface FrontdoorCustomEndpointState {
-    /**
-     * The resource ID of the CDN FrontDoor Route this Custom Domain should be associated with.
-     */
-    associateWithCdnFrontdoorRouteId?: pulumi.Input<string>;
+export interface FrontdoorCustomDomainState {
     /**
      * The ID of the Frontdoor Profile. Changing this forces a new Frontdoor Profile to be created.
      */
@@ -194,7 +188,7 @@ export interface FrontdoorCustomEndpointState {
     /**
      * A `tls` block as defined below.
      */
-    tls?: pulumi.Input<inputs.cdn.FrontdoorCustomEndpointTls>;
+    tls?: pulumi.Input<inputs.cdn.FrontdoorCustomDomainTls>;
     /**
      * Challenge used for DNS TXT record or file based validation.
      */
@@ -202,13 +196,9 @@ export interface FrontdoorCustomEndpointState {
 }
 
 /**
- * The set of arguments for constructing a FrontdoorCustomEndpoint resource.
+ * The set of arguments for constructing a FrontdoorCustomDomain resource.
  */
-export interface FrontdoorCustomEndpointArgs {
-    /**
-     * The resource ID of the CDN FrontDoor Route this Custom Domain should be associated with.
-     */
-    associateWithCdnFrontdoorRouteId?: pulumi.Input<string>;
+export interface FrontdoorCustomDomainArgs {
     /**
      * The ID of the Frontdoor Profile. Changing this forces a new Frontdoor Profile to be created.
      */
@@ -228,5 +218,5 @@ export interface FrontdoorCustomEndpointArgs {
     /**
      * A `tls` block as defined below.
      */
-    tls: pulumi.Input<inputs.cdn.FrontdoorCustomEndpointTls>;
+    tls: pulumi.Input<inputs.cdn.FrontdoorCustomDomainTls>;
 }

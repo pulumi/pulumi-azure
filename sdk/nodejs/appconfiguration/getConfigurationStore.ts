@@ -52,6 +52,7 @@ export interface GetConfigurationStoreArgs {
  * A collection of values returned by getConfigurationStore.
  */
 export interface GetConfigurationStoreResult {
+    readonly encryptions: outputs.appconfiguration.GetConfigurationStoreEncryption[];
     /**
      * The Endpoint used to access this App Configuration.
      */
@@ -60,6 +61,11 @@ export interface GetConfigurationStoreResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly identities: outputs.appconfiguration.GetConfigurationStoreIdentity[];
+    /**
+     * Whether local authentication methods is enabled.
+     */
+    readonly localAuthEnabled: boolean;
     /**
      * The Azure Region where the App Configuration exists.
      */
@@ -77,6 +83,11 @@ export interface GetConfigurationStoreResult {
      * The Public Network Access setting of this App Configuration.
      */
     readonly publicNetworkAccess: string;
+    readonly publicNetworkAccessEnabled: boolean;
+    /**
+     * Whether Purge Protection is enabled.
+     */
+    readonly purgeProtectionEnabled: boolean;
     readonly resourceGroupName: string;
     /**
      * A `secondaryReadKey` block as defined below containing the secondary read access key.
@@ -90,6 +101,10 @@ export interface GetConfigurationStoreResult {
      * The name of the SKU used for this App Configuration.
      */
     readonly sku: string;
+    /**
+     * The number of days that items should be retained for once soft-deleted.
+     */
+    readonly softDeleteRetentionDays: number;
     /**
      * A mapping of tags assigned to the App Configuration.
      */

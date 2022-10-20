@@ -90,7 +90,7 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
+     * A `sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1`
      */
     public readonly sku!: pulumi.Output<string | undefined>;
     /**
@@ -102,7 +102,7 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A `template` name. IoT Central application template name. Default is a custom application.
+     * A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
      */
     public readonly template!: pulumi.Output<string>;
 
@@ -182,7 +182,7 @@ export interface ApplicationState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
+     * A `sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1`
      */
     sku?: pulumi.Input<string>;
     /**
@@ -194,7 +194,7 @@ export interface ApplicationState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A `template` name. IoT Central application template name. Default is a custom application.
+     * A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
      */
     template?: pulumi.Input<string>;
 }
@@ -228,7 +228,7 @@ export interface ApplicationArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
+     * A `sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1`
      */
     sku?: pulumi.Input<string>;
     /**
@@ -240,7 +240,7 @@ export interface ApplicationArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A `template` name. IoT Central application template name. Default is a custom application.
+     * A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
      */
     template?: pulumi.Input<string>;
 }
