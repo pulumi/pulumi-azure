@@ -124,7 +124,10 @@ class _ServerState:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  orderer_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 primary_key: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 secondary_key: Optional[pulumi.Input[str]] = None,
+                 service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -135,7 +138,10 @@ class _ServerState:
         :param pulumi.Input[str] location: The Azure Region where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
         :param pulumi.Input[str] name: The name which should be used for this Fluid Relay Server. Changing this forces a new Fluid Relay Server to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] orderer_endpoints: An array of the Fluid Relay Orderer endpoints.
+        :param pulumi.Input[str] primary_key: The primary key for this server.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
+        :param pulumi.Input[str] secondary_key: The secondary key for this server.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] service_endpoints: An array of service endpoints for this Fluid Relay Server.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_endpoints: An array of storage endpoints for this Fluid Relay Server.
         :param pulumi.Input[str] storage_sku: Sku of the storage associated with the resource, Possible values are `standard` and `basic`. Changing this forces a new Fluid Relay Server to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Fluid Relay Server.
@@ -150,8 +156,14 @@ class _ServerState:
             pulumi.set(__self__, "name", name)
         if orderer_endpoints is not None:
             pulumi.set(__self__, "orderer_endpoints", orderer_endpoints)
+        if primary_key is not None:
+            pulumi.set(__self__, "primary_key", primary_key)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if secondary_key is not None:
+            pulumi.set(__self__, "secondary_key", secondary_key)
+        if service_endpoints is not None:
+            pulumi.set(__self__, "service_endpoints", service_endpoints)
         if storage_endpoints is not None:
             pulumi.set(__self__, "storage_endpoints", storage_endpoints)
         if storage_sku is not None:
@@ -220,6 +232,18 @@ class _ServerState:
         pulumi.set(self, "orderer_endpoints", value)
 
     @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The primary key for this server.
+        """
+        return pulumi.get(self, "primary_key")
+
+    @primary_key.setter
+    def primary_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_key", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -230,6 +254,30 @@ class _ServerState:
     @resource_group_name.setter
     def resource_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="secondaryKey")
+    def secondary_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The secondary key for this server.
+        """
+        return pulumi.get(self, "secondary_key")
+
+    @secondary_key.setter
+    def secondary_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_key", value)
+
+    @property
+    @pulumi.getter(name="serviceEndpoints")
+    def service_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An array of service endpoints for this Fluid Relay Server.
+        """
+        return pulumi.get(self, "service_endpoints")
+
+    @service_endpoints.setter
+    def service_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "service_endpoints", value)
 
     @property
     @pulumi.getter(name="storageEndpoints")
@@ -381,6 +429,9 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["frs_tenant_id"] = None
             __props__.__dict__["orderer_endpoints"] = None
+            __props__.__dict__["primary_key"] = None
+            __props__.__dict__["secondary_key"] = None
+            __props__.__dict__["service_endpoints"] = None
             __props__.__dict__["storage_endpoints"] = None
         super(Server, __self__).__init__(
             'azure:fluidrelay/server:Server',
@@ -397,7 +448,10 @@ class Server(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             orderer_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            primary_key: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            secondary_key: Optional[pulumi.Input[str]] = None,
+            service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             storage_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             storage_sku: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Server':
@@ -413,7 +467,10 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
         :param pulumi.Input[str] name: The name which should be used for this Fluid Relay Server. Changing this forces a new Fluid Relay Server to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] orderer_endpoints: An array of the Fluid Relay Orderer endpoints.
+        :param pulumi.Input[str] primary_key: The primary key for this server.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
+        :param pulumi.Input[str] secondary_key: The secondary key for this server.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] service_endpoints: An array of service endpoints for this Fluid Relay Server.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_endpoints: An array of storage endpoints for this Fluid Relay Server.
         :param pulumi.Input[str] storage_sku: Sku of the storage associated with the resource, Possible values are `standard` and `basic`. Changing this forces a new Fluid Relay Server to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Fluid Relay Server.
@@ -427,7 +484,10 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["orderer_endpoints"] = orderer_endpoints
+        __props__.__dict__["primary_key"] = primary_key
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["secondary_key"] = secondary_key
+        __props__.__dict__["service_endpoints"] = service_endpoints
         __props__.__dict__["storage_endpoints"] = storage_endpoints
         __props__.__dict__["storage_sku"] = storage_sku
         __props__.__dict__["tags"] = tags
@@ -474,12 +534,36 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "orderer_endpoints")
 
     @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> pulumi.Output[str]:
+        """
+        The primary key for this server.
+        """
+        return pulumi.get(self, "primary_key")
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="secondaryKey")
+    def secondary_key(self) -> pulumi.Output[str]:
+        """
+        The secondary key for this server.
+        """
+        return pulumi.get(self, "secondary_key")
+
+    @property
+    @pulumi.getter(name="serviceEndpoints")
+    def service_endpoints(self) -> pulumi.Output[Sequence[str]]:
+        """
+        An array of service endpoints for this Fluid Relay Server.
+        """
+        return pulumi.get(self, "service_endpoints")
 
     @property
     @pulumi.getter(name="storageEndpoints")

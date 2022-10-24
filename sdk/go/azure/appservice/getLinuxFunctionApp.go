@@ -68,6 +68,8 @@ type LookupLinuxFunctionAppResult struct {
 	BuiltinLoggingEnabled bool `pulumi:"builtinLoggingEnabled"`
 	// Are Client Certificates enabled?
 	ClientCertificateEnabled bool `pulumi:"clientCertificateEnabled"`
+	// Paths to exclude when using client certificates, separated by ;
+	ClientCertificateExclusionPaths string `pulumi:"clientCertificateExclusionPaths"`
 	// The mode of the Function App's client certificates requirement for incoming requests.
 	ClientCertificateMode string `pulumi:"clientCertificateMode"`
 	// A `connectionString` blocks as defined below.
@@ -190,6 +192,11 @@ func (o LookupLinuxFunctionAppResultOutput) BuiltinLoggingEnabled() pulumi.BoolO
 // Are Client Certificates enabled?
 func (o LookupLinuxFunctionAppResultOutput) ClientCertificateEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupLinuxFunctionAppResult) bool { return v.ClientCertificateEnabled }).(pulumi.BoolOutput)
+}
+
+// Paths to exclude when using client certificates, separated by ;
+func (o LookupLinuxFunctionAppResultOutput) ClientCertificateExclusionPaths() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinuxFunctionAppResult) string { return v.ClientCertificateExclusionPaths }).(pulumi.StringOutput)
 }
 
 // The mode of the Function App's client certificates requirement for incoming requests.

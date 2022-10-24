@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Cdn.Inputs
     public sealed class FrontdoorSecretSecretCustomerCertificateGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The key vault certificate resources ID attribute. Changing this forces a new Frontdoor Secret to be created.
+        /// The ID of the Key Vault certificate resource to use. Changing this forces a new Frontdoor Secret to be created.
         /// </summary>
         [Input("keyVaultCertificateId", required: true)]
         public Input<string> KeyVaultCertificateId { get; set; } = null!;

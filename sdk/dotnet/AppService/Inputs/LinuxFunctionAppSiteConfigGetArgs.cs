@@ -175,7 +175,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<bool>? RemoteDebuggingEnabled { get; set; }
 
         /// <summary>
-        /// The Remote Debugging Version. Possible values include `VS2017` and `VS2019`.
+        /// The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`.
         /// </summary>
         [Input("remoteDebuggingVersion")]
         public Input<string>? RemoteDebuggingVersion { get; set; }

@@ -222,9 +222,17 @@ public class GroupTemplateDeployment extends com.pulumi.resources.CustomResource
     public Output<String> location() {
         return this.location;
     }
+    /**
+     * The ID of the Management Group to apply the Deployment Template to.
+     * 
+     */
     @Export(name="managementGroupId", type=String.class, parameters={})
     private Output<String> managementGroupId;
 
+    /**
+     * @return The ID of the Management Group to apply the Deployment Template to.
+     * 
+     */
     public Output<String> managementGroupId() {
         return this.managementGroupId;
     }

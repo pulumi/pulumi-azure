@@ -99,6 +99,8 @@ type LinuxFunctionAppSlot struct {
 	BuiltinLoggingEnabled pulumi.BoolPtrOutput `pulumi:"builtinLoggingEnabled"`
 	// Should the Function App Slot use Client Certificates.
 	ClientCertificateEnabled pulumi.BoolPtrOutput `pulumi:"clientCertificateEnabled"`
+	// Paths to exclude when using client certificates, separated by ;
+	ClientCertificateExclusionPaths pulumi.StringPtrOutput `pulumi:"clientCertificateExclusionPaths"`
 	// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
 	ClientCertificateMode pulumi.StringPtrOutput `pulumi:"clientCertificateMode"`
 	// a `connectionString` block as detailed below.
@@ -198,6 +200,8 @@ type linuxFunctionAppSlotState struct {
 	BuiltinLoggingEnabled *bool `pulumi:"builtinLoggingEnabled"`
 	// Should the Function App Slot use Client Certificates.
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
+	// Paths to exclude when using client certificates, separated by ;
+	ClientCertificateExclusionPaths *string `pulumi:"clientCertificateExclusionPaths"`
 	// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
 	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
 	// a `connectionString` block as detailed below.
@@ -263,6 +267,8 @@ type LinuxFunctionAppSlotState struct {
 	BuiltinLoggingEnabled pulumi.BoolPtrInput
 	// Should the Function App Slot use Client Certificates.
 	ClientCertificateEnabled pulumi.BoolPtrInput
+	// Paths to exclude when using client certificates, separated by ;
+	ClientCertificateExclusionPaths pulumi.StringPtrInput
 	// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
 	ClientCertificateMode pulumi.StringPtrInput
 	// a `connectionString` block as detailed below.
@@ -332,6 +338,8 @@ type linuxFunctionAppSlotArgs struct {
 	BuiltinLoggingEnabled *bool `pulumi:"builtinLoggingEnabled"`
 	// Should the Function App Slot use Client Certificates.
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
+	// Paths to exclude when using client certificates, separated by ;
+	ClientCertificateExclusionPaths *string `pulumi:"clientCertificateExclusionPaths"`
 	// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
 	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
 	// a `connectionString` block as detailed below.
@@ -382,6 +390,8 @@ type LinuxFunctionAppSlotArgs struct {
 	BuiltinLoggingEnabled pulumi.BoolPtrInput
 	// Should the Function App Slot use Client Certificates.
 	ClientCertificateEnabled pulumi.BoolPtrInput
+	// Paths to exclude when using client certificates, separated by ;
+	ClientCertificateExclusionPaths pulumi.StringPtrInput
 	// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
 	ClientCertificateMode pulumi.StringPtrInput
 	// a `connectionString` block as detailed below.
@@ -530,6 +540,11 @@ func (o LinuxFunctionAppSlotOutput) BuiltinLoggingEnabled() pulumi.BoolPtrOutput
 // Should the Function App Slot use Client Certificates.
 func (o LinuxFunctionAppSlotOutput) ClientCertificateEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.BoolPtrOutput { return v.ClientCertificateEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Paths to exclude when using client certificates, separated by ;
+func (o LinuxFunctionAppSlotOutput) ClientCertificateExclusionPaths() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.StringPtrOutput { return v.ClientCertificateExclusionPaths }).(pulumi.StringPtrOutput)
 }
 
 // The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.

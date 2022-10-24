@@ -8,6 +8,7 @@ import com.pulumi.azure.storage.inputs.AccountBlobPropertiesArgs;
 import com.pulumi.azure.storage.inputs.AccountCustomDomainArgs;
 import com.pulumi.azure.storage.inputs.AccountCustomerManagedKeyArgs;
 import com.pulumi.azure.storage.inputs.AccountIdentityArgs;
+import com.pulumi.azure.storage.inputs.AccountImmutabilityPolicyArgs;
 import com.pulumi.azure.storage.inputs.AccountNetworkRulesArgs;
 import com.pulumi.azure.storage.inputs.AccountQueuePropertiesArgs;
 import com.pulumi.azure.storage.inputs.AccountRoutingArgs;
@@ -237,6 +238,21 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<AccountIdentityArgs>> identity() {
         return Optional.ofNullable(this.identity);
+    }
+
+    /**
+     * An `immutability_policy` block as defined below.
+     * 
+     */
+    @Import(name="immutabilityPolicy")
+    private @Nullable Output<AccountImmutabilityPolicyArgs> immutabilityPolicy;
+
+    /**
+     * @return An `immutability_policy` block as defined below.
+     * 
+     */
+    public Optional<Output<AccountImmutabilityPolicyArgs>> immutabilityPolicy() {
+        return Optional.ofNullable(this.immutabilityPolicy);
     }
 
     /**
@@ -1006,6 +1022,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.edgeZone = $.edgeZone;
         this.enableHttpsTrafficOnly = $.enableHttpsTrafficOnly;
         this.identity = $.identity;
+        this.immutabilityPolicy = $.immutabilityPolicy;
         this.infrastructureEncryptionEnabled = $.infrastructureEncryptionEnabled;
         this.isHnsEnabled = $.isHnsEnabled;
         this.largeFileShareEnabled = $.largeFileShareEnabled;
@@ -1370,6 +1387,27 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder identity(AccountIdentityArgs identity) {
             return identity(Output.of(identity));
+        }
+
+        /**
+         * @param immutabilityPolicy An `immutability_policy` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder immutabilityPolicy(@Nullable Output<AccountImmutabilityPolicyArgs> immutabilityPolicy) {
+            $.immutabilityPolicy = immutabilityPolicy;
+            return this;
+        }
+
+        /**
+         * @param immutabilityPolicy An `immutability_policy` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder immutabilityPolicy(AccountImmutabilityPolicyArgs immutabilityPolicy) {
+            return immutabilityPolicy(Output.of(immutabilityPolicy));
         }
 
         /**

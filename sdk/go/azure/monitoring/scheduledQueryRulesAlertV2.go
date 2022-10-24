@@ -65,7 +65,7 @@ type ScheduledQueryRulesAlertV2 struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is `Microsoft.Compute/virtualMachines`, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria.
 	TargetResourceTypes pulumi.StringArrayOutput `pulumi:"targetResourceTypes"`
-	// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size).
+	// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
 	WindowDuration pulumi.StringOutput `pulumi:"windowDuration"`
 	// Specifies the flag which indicates whether this scheduled query rule check if storage is configured. Value should be `true` or `false`. The default is `false`.
 	WorkspaceAlertsStorageEnabled pulumi.BoolPtrOutput `pulumi:"workspaceAlertsStorageEnabled"`
@@ -155,7 +155,7 @@ type scheduledQueryRulesAlertV2State struct {
 	Tags map[string]string `pulumi:"tags"`
 	// List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is `Microsoft.Compute/virtualMachines`, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria.
 	TargetResourceTypes []string `pulumi:"targetResourceTypes"`
-	// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size).
+	// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
 	WindowDuration *string `pulumi:"windowDuration"`
 	// Specifies the flag which indicates whether this scheduled query rule check if storage is configured. Value should be `true` or `false`. The default is `false`.
 	WorkspaceAlertsStorageEnabled *bool `pulumi:"workspaceAlertsStorageEnabled"`
@@ -202,7 +202,7 @@ type ScheduledQueryRulesAlertV2State struct {
 	Tags pulumi.StringMapInput
 	// List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is `Microsoft.Compute/virtualMachines`, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria.
 	TargetResourceTypes pulumi.StringArrayInput
-	// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size).
+	// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
 	WindowDuration pulumi.StringPtrInput
 	// Specifies the flag which indicates whether this scheduled query rule check if storage is configured. Value should be `true` or `false`. The default is `false`.
 	WorkspaceAlertsStorageEnabled pulumi.BoolPtrInput
@@ -247,7 +247,7 @@ type scheduledQueryRulesAlertV2Args struct {
 	Tags map[string]string `pulumi:"tags"`
 	// List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is `Microsoft.Compute/virtualMachines`, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria.
 	TargetResourceTypes []string `pulumi:"targetResourceTypes"`
-	// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size).
+	// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
 	WindowDuration string `pulumi:"windowDuration"`
 	// Specifies the flag which indicates whether this scheduled query rule check if storage is configured. Value should be `true` or `false`. The default is `false`.
 	WorkspaceAlertsStorageEnabled *bool `pulumi:"workspaceAlertsStorageEnabled"`
@@ -289,7 +289,7 @@ type ScheduledQueryRulesAlertV2Args struct {
 	Tags pulumi.StringMapInput
 	// List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is `Microsoft.Compute/virtualMachines`, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria.
 	TargetResourceTypes pulumi.StringArrayInput
-	// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size).
+	// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
 	WindowDuration pulumi.StringInput
 	// Specifies the flag which indicates whether this scheduled query rule check if storage is configured. Value should be `true` or `false`. The default is `false`.
 	WorkspaceAlertsStorageEnabled pulumi.BoolPtrInput
@@ -482,7 +482,7 @@ func (o ScheduledQueryRulesAlertV2Output) TargetResourceTypes() pulumi.StringArr
 	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2) pulumi.StringArrayOutput { return v.TargetResourceTypes }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size).
+// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
 func (o ScheduledQueryRulesAlertV2Output) WindowDuration() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2) pulumi.StringOutput { return v.WindowDuration }).(pulumi.StringOutput)
 }

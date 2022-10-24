@@ -11,6 +11,34 @@ import (
 )
 
 // Use this data source to access information about an existing Cosmos DB SQL Role Definition.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cosmosdb.LookupSqlRoleDefinition(ctx, &cosmosdb.LookupSqlRoleDefinitionArgs{
+//				AccountName:       "tfex-cosmosdb-sql-role-definition-account-name",
+//				ResourceGroupName: "tfex-cosmosdb-sql-role-definition-rg",
+//				RoleDefinitionId:  "00000000-0000-0000-0000-000000000000",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupSqlRoleDefinition(ctx *pulumi.Context, args *LookupSqlRoleDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupSqlRoleDefinitionResult, error) {
 	var rv LookupSqlRoleDefinitionResult
 	err := ctx.Invoke("azure:cosmosdb/getSqlRoleDefinition:getSqlRoleDefinition", args, &rv, opts...)
@@ -36,7 +64,8 @@ type LookupSqlRoleDefinitionResult struct {
 	// A list of fully qualified scopes at or below which Role Assignments may be created using this Cosmos DB SQL Role Definition.
 	AssignableScopes []string `pulumi:"assignableScopes"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// The role name of the Cosmos DB SQL Role Definition.
 	Name string `pulumi:"name"`
 	// A `permissions` block as defined below.
 	Permissions       []GetSqlRoleDefinitionPermission `pulumi:"permissions"`
@@ -102,6 +131,7 @@ func (o LookupSqlRoleDefinitionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSqlRoleDefinitionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The role name of the Cosmos DB SQL Role Definition.
 func (o LookupSqlRoleDefinitionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSqlRoleDefinitionResult) string { return v.Name }).(pulumi.StringOutput)
 }

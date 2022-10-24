@@ -31,6 +31,12 @@ namespace Pulumi.Azure.Storage.Inputs
         public Input<int>? TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan { get; set; }
 
         /// <summary>
+        /// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+        /// </summary>
+        [Input("tierToArchiveAfterDaysSinceLastTierChangeGreaterThan")]
+        public Input<int>? TierToArchiveAfterDaysSinceLastTierChangeGreaterThan { get; set; }
+
+        /// <summary>
         /// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
         /// </summary>
         [Input("tierToArchiveAfterDaysSinceModificationGreaterThan")]

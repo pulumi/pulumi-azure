@@ -46,9 +46,17 @@ public final class GroupTemplateDeploymentArgs extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.location);
     }
 
+    /**
+     * The ID of the Management Group to apply the Deployment Template to.
+     * 
+     */
     @Import(name="managementGroupId", required=true)
     private Output<String> managementGroupId;
 
+    /**
+     * @return The ID of the Management Group to apply the Deployment Template to.
+     * 
+     */
     public Output<String> managementGroupId() {
         return this.managementGroupId;
     }
@@ -201,11 +209,23 @@ public final class GroupTemplateDeploymentArgs extends com.pulumi.resources.Reso
             return location(Output.of(location));
         }
 
+        /**
+         * @param managementGroupId The ID of the Management Group to apply the Deployment Template to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder managementGroupId(Output<String> managementGroupId) {
             $.managementGroupId = managementGroupId;
             return this;
         }
 
+        /**
+         * @param managementGroupId The ID of the Management Group to apply the Deployment Template to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder managementGroupId(String managementGroupId) {
             return managementGroupId(Output.of(managementGroupId));
         }

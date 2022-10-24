@@ -17,10 +17,15 @@ from .data_connector_aws_s3 import *
 from .data_connector_azure_active_directory import *
 from .data_connector_azure_advanced_thread_protection import *
 from .data_connector_azure_security_center import *
+from .data_connector_dynamics365 import *
+from .data_connector_iot import *
 from .data_connector_microsoft_cloud_app_security import *
 from .data_connector_microsoft_defender_advanced_threat_protection import *
 from .data_connector_office365 import *
+from .data_connector_office365_project import *
 from .data_connector_office_atp import *
+from .data_connector_office_irm import *
+from .data_connector_office_power_bi import *
 from .data_connector_threat_intelligence import *
 from .get_alert_rule import *
 from .get_alert_rule_template import *

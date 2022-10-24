@@ -87,6 +87,12 @@ namespace Pulumi.Azure.AppService
         public Output<bool?> ClientCertificateEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// Paths to exclude when using client certificates, separated by ;
+        /// </summary>
+        [Output("clientCertificateExclusionPaths")]
+        public Output<string?> ClientCertificateExclusionPaths { get; private set; } = null!;
+
+        /// <summary>
         /// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`
         /// </summary>
         [Output("clientCertificateMode")]
@@ -319,6 +325,12 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? ClientCertificateEnabled { get; set; }
 
         /// <summary>
+        /// Paths to exclude when using client certificates, separated by ;
+        /// </summary>
+        [Input("clientCertificateExclusionPaths")]
+        public Input<string>? ClientCertificateExclusionPaths { get; set; }
+
+        /// <summary>
         /// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`
         /// </summary>
         [Input("clientCertificateMode")]
@@ -481,6 +493,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("clientCertificateEnabled")]
         public Input<bool>? ClientCertificateEnabled { get; set; }
+
+        /// <summary>
+        /// Paths to exclude when using client certificates, separated by ;
+        /// </summary>
+        [Input("clientCertificateExclusionPaths")]
+        public Input<string>? ClientCertificateExclusionPaths { get; set; }
 
         /// <summary>
         /// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`

@@ -160,6 +160,20 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.clientCertificateEnabled);
     }
     /**
+     * Paths to exclude when using client certificates, separated by ;
+     * 
+     */
+    @Export(name="clientCertificateExclusionPaths", type=String.class, parameters={})
+    private Output</* @Nullable */ String> clientCertificateExclusionPaths;
+
+    /**
+     * @return Paths to exclude when using client certificates, separated by ;
+     * 
+     */
+    public Output<Optional<String>> clientCertificateExclusionPaths() {
+        return Codegen.optional(this.clientCertificateExclusionPaths);
+    }
+    /**
      * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`
      * 
      */

@@ -47,6 +47,11 @@ public final class GetWindowsWebAppResult {
      */
     private Boolean clientCertificateEnabled;
     /**
+     * @return Paths to exclude when using client certificates, separated by ;
+     * 
+     */
+    private String clientCertificateExclusionPaths;
+    /**
      * @return The Client Certificate mode.
      * 
      */
@@ -198,6 +203,13 @@ public final class GetWindowsWebAppResult {
      */
     public Boolean clientCertificateEnabled() {
         return this.clientCertificateEnabled;
+    }
+    /**
+     * @return Paths to exclude when using client certificates, separated by ;
+     * 
+     */
+    public String clientCertificateExclusionPaths() {
+        return this.clientCertificateExclusionPaths;
     }
     /**
      * @return The Client Certificate mode.
@@ -378,6 +390,7 @@ public final class GetWindowsWebAppResult {
         private List<GetWindowsWebAppBackup> backups;
         private Boolean clientAffinityEnabled;
         private Boolean clientCertificateEnabled;
+        private String clientCertificateExclusionPaths;
         private String clientCertificateMode;
         private List<GetWindowsWebAppConnectionString> connectionStrings;
         private String customDomainVerificationId;
@@ -410,6 +423,7 @@ public final class GetWindowsWebAppResult {
     	      this.backups = defaults.backups;
     	      this.clientAffinityEnabled = defaults.clientAffinityEnabled;
     	      this.clientCertificateEnabled = defaults.clientCertificateEnabled;
+    	      this.clientCertificateExclusionPaths = defaults.clientCertificateExclusionPaths;
     	      this.clientCertificateMode = defaults.clientCertificateMode;
     	      this.connectionStrings = defaults.connectionStrings;
     	      this.customDomainVerificationId = defaults.customDomainVerificationId;
@@ -465,6 +479,11 @@ public final class GetWindowsWebAppResult {
         @CustomType.Setter
         public Builder clientCertificateEnabled(Boolean clientCertificateEnabled) {
             this.clientCertificateEnabled = Objects.requireNonNull(clientCertificateEnabled);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder clientCertificateExclusionPaths(String clientCertificateExclusionPaths) {
+            this.clientCertificateExclusionPaths = Objects.requireNonNull(clientCertificateExclusionPaths);
             return this;
         }
         @CustomType.Setter
@@ -621,6 +640,7 @@ public final class GetWindowsWebAppResult {
             o.backups = backups;
             o.clientAffinityEnabled = clientAffinityEnabled;
             o.clientCertificateEnabled = clientCertificateEnabled;
+            o.clientCertificateExclusionPaths = clientCertificateExclusionPaths;
             o.clientCertificateMode = clientCertificateMode;
             o.connectionStrings = connectionStrings;
             o.customDomainVerificationId = customDomainVerificationId;

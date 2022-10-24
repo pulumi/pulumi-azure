@@ -2664,6 +2664,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "databricks/accessConnector",
+  "fqn": "pulumi_azure.databricks",
+  "classes": {
+   "azure:databricks/accessConnector:AccessConnector": "AccessConnector"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "databricks/workspace",
   "fqn": "pulumi_azure.databricks",
   "classes": {
@@ -6504,6 +6512,22 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "sentinel/dataConnectorDynamics365",
+  "fqn": "pulumi_azure.sentinel",
+  "classes": {
+   "azure:sentinel/dataConnectorDynamics365:DataConnectorDynamics365": "DataConnectorDynamics365"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "sentinel/dataConnectorIot",
+  "fqn": "pulumi_azure.sentinel",
+  "classes": {
+   "azure:sentinel/dataConnectorIot:DataConnectorIot": "DataConnectorIot"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "sentinel/dataConnectorMicrosoftCloudAppSecurity",
   "fqn": "pulumi_azure.sentinel",
   "classes": {
@@ -6528,10 +6552,34 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "sentinel/dataConnectorOffice365Project",
+  "fqn": "pulumi_azure.sentinel",
+  "classes": {
+   "azure:sentinel/dataConnectorOffice365Project:DataConnectorOffice365Project": "DataConnectorOffice365Project"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "sentinel/dataConnectorOfficeAtp",
   "fqn": "pulumi_azure.sentinel",
   "classes": {
    "azure:sentinel/dataConnectorOfficeAtp:DataConnectorOfficeAtp": "DataConnectorOfficeAtp"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "sentinel/dataConnectorOfficeIrm",
+  "fqn": "pulumi_azure.sentinel",
+  "classes": {
+   "azure:sentinel/dataConnectorOfficeIrm:DataConnectorOfficeIrm": "DataConnectorOfficeIrm"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "sentinel/dataConnectorOfficePowerBi",
+  "fqn": "pulumi_azure.sentinel",
+  "classes": {
+   "azure:sentinel/dataConnectorOfficePowerBi:DataConnectorOfficePowerBi": "DataConnectorOfficePowerBi"
   }
  },
  {

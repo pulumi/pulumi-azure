@@ -95,6 +95,10 @@ export class WindowsWebAppSlot extends pulumi.CustomResource {
      */
     public readonly clientCertificateEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Paths to exclude when using client certificates, separated by ;
+     */
+    public readonly clientCertificateExclusionPaths!: pulumi.Output<string | undefined>;
+    /**
      * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`
      */
     public readonly clientCertificateMode!: pulumi.Output<string | undefined>;
@@ -198,6 +202,7 @@ export class WindowsWebAppSlot extends pulumi.CustomResource {
             resourceInputs["backup"] = state ? state.backup : undefined;
             resourceInputs["clientAffinityEnabled"] = state ? state.clientAffinityEnabled : undefined;
             resourceInputs["clientCertificateEnabled"] = state ? state.clientCertificateEnabled : undefined;
+            resourceInputs["clientCertificateExclusionPaths"] = state ? state.clientCertificateExclusionPaths : undefined;
             resourceInputs["clientCertificateMode"] = state ? state.clientCertificateMode : undefined;
             resourceInputs["connectionStrings"] = state ? state.connectionStrings : undefined;
             resourceInputs["customDomainVerificationId"] = state ? state.customDomainVerificationId : undefined;
@@ -233,6 +238,7 @@ export class WindowsWebAppSlot extends pulumi.CustomResource {
             resourceInputs["backup"] = args ? args.backup : undefined;
             resourceInputs["clientAffinityEnabled"] = args ? args.clientAffinityEnabled : undefined;
             resourceInputs["clientCertificateEnabled"] = args ? args.clientCertificateEnabled : undefined;
+            resourceInputs["clientCertificateExclusionPaths"] = args ? args.clientCertificateExclusionPaths : undefined;
             resourceInputs["clientCertificateMode"] = args ? args.clientCertificateMode : undefined;
             resourceInputs["connectionStrings"] = args ? args.connectionStrings : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
@@ -288,6 +294,10 @@ export interface WindowsWebAppSlotState {
      * Should Client Certificates be enabled?
      */
     clientCertificateEnabled?: pulumi.Input<boolean>;
+    /**
+     * Paths to exclude when using client certificates, separated by ;
+     */
+    clientCertificateExclusionPaths?: pulumi.Input<string>;
     /**
      * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`
      */
@@ -402,6 +412,10 @@ export interface WindowsWebAppSlotArgs {
      * Should Client Certificates be enabled?
      */
     clientCertificateEnabled?: pulumi.Input<boolean>;
+    /**
+     * Paths to exclude when using client certificates, separated by ;
+     */
+    clientCertificateExclusionPaths?: pulumi.Input<string>;
     /**
      * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`
      */

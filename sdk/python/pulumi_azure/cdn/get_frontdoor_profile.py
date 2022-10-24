@@ -66,7 +66,7 @@ class GetFrontdoorProfileResult:
     @pulumi.getter(name="resourceGuid")
     def resource_guid(self) -> str:
         """
-        The UUID of this CDN FrontDoor Profile.
+        The UUID of this CDN FrontDoor Profile. This is the value that is used for the `X-Azure-FDID` attribute in the HTTP header.
         """
         return pulumi.get(self, "resource_guid")
 

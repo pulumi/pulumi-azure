@@ -11,11 +11,11 @@ import (
 )
 
 type CacheIdentity struct {
-	// A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
+	// A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
 	IdentityIds []string `pulumi:"identityIds"`
 	PrincipalId *string  `pulumi:"principalId"`
 	TenantId    *string  `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+	// Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type string `pulumi:"type"`
 }
 
@@ -31,11 +31,11 @@ type CacheIdentityInput interface {
 }
 
 type CacheIdentityArgs struct {
-	// A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
+	// A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
 	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+	// Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -116,7 +116,7 @@ func (o CacheIdentityOutput) ToCacheIdentityPtrOutputWithContext(ctx context.Con
 	}).(CacheIdentityPtrOutput)
 }
 
-// A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
+// A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
 func (o CacheIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CacheIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -129,7 +129,7 @@ func (o CacheIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+// Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o CacheIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -158,7 +158,7 @@ func (o CacheIdentityPtrOutput) Elem() CacheIdentityOutput {
 	}).(CacheIdentityOutput)
 }
 
-// A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
+// A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
 func (o CacheIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CacheIdentity) []string {
 		if v == nil {
@@ -186,7 +186,7 @@ func (o CacheIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+// Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o CacheIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheIdentity) *string {
 		if v == nil {

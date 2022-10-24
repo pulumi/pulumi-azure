@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure:databricks/accessConnector:AccessConnector":
+		r = &AccessConnector{}
 	case "azure:databricks/workspace:Workspace":
 		r = &Workspace{}
 	case "azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey":
@@ -38,6 +40,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"azure",
+		"databricks/accessConnector",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"azure",
 		"databricks/workspace",

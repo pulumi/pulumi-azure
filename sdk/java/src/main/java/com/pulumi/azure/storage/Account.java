@@ -11,6 +11,7 @@ import com.pulumi.azure.storage.outputs.AccountBlobProperties;
 import com.pulumi.azure.storage.outputs.AccountCustomDomain;
 import com.pulumi.azure.storage.outputs.AccountCustomerManagedKey;
 import com.pulumi.azure.storage.outputs.AccountIdentity;
+import com.pulumi.azure.storage.outputs.AccountImmutabilityPolicy;
 import com.pulumi.azure.storage.outputs.AccountNetworkRules;
 import com.pulumi.azure.storage.outputs.AccountQueueProperties;
 import com.pulumi.azure.storage.outputs.AccountRouting;
@@ -341,6 +342,20 @@ public class Account extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<AccountIdentity>> identity() {
         return Codegen.optional(this.identity);
+    }
+    /**
+     * An `immutability_policy` block as defined below.
+     * 
+     */
+    @Export(name="immutabilityPolicy", type=AccountImmutabilityPolicy.class, parameters={})
+    private Output</* @Nullable */ AccountImmutabilityPolicy> immutabilityPolicy;
+
+    /**
+     * @return An `immutability_policy` block as defined below.
+     * 
+     */
+    public Output<Optional<AccountImmutabilityPolicy>> immutabilityPolicy() {
+        return Codegen.optional(this.immutabilityPolicy);
     }
     /**
      * Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.

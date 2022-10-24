@@ -478,6 +478,20 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.primaryReadonlyKey);
     }
 
+    @Import(name="primaryReadonlySqlConnectionString")
+    private @Nullable Output<String> primaryReadonlySqlConnectionString;
+
+    public Optional<Output<String>> primaryReadonlySqlConnectionString() {
+        return Optional.ofNullable(this.primaryReadonlySqlConnectionString);
+    }
+
+    @Import(name="primarySqlConnectionString")
+    private @Nullable Output<String> primarySqlConnectionString;
+
+    public Optional<Output<String>> primarySqlConnectionString() {
+        return Optional.ofNullable(this.primarySqlConnectionString);
+    }
+
     /**
      * Whether or not public network access is allowed for this CosmosDB account.
      * 
@@ -568,6 +582,20 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.secondaryReadonlyKey);
     }
 
+    @Import(name="secondaryReadonlySqlConnectionString")
+    private @Nullable Output<String> secondaryReadonlySqlConnectionString;
+
+    public Optional<Output<String>> secondaryReadonlySqlConnectionString() {
+        return Optional.ofNullable(this.secondaryReadonlySqlConnectionString);
+    }
+
+    @Import(name="secondarySqlConnectionString")
+    private @Nullable Output<String> secondarySqlConnectionString;
+
+    public Optional<Output<String>> secondarySqlConnectionString() {
+        return Optional.ofNullable(this.secondarySqlConnectionString);
+    }
+
     /**
      * A mapping of tags to assign to the resource.
      * 
@@ -646,12 +674,16 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.offerType = $.offerType;
         this.primaryKey = $.primaryKey;
         this.primaryReadonlyKey = $.primaryReadonlyKey;
+        this.primaryReadonlySqlConnectionString = $.primaryReadonlySqlConnectionString;
+        this.primarySqlConnectionString = $.primarySqlConnectionString;
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.readEndpoints = $.readEndpoints;
         this.resourceGroupName = $.resourceGroupName;
         this.restore = $.restore;
         this.secondaryKey = $.secondaryKey;
         this.secondaryReadonlyKey = $.secondaryReadonlyKey;
+        this.secondaryReadonlySqlConnectionString = $.secondaryReadonlySqlConnectionString;
+        this.secondarySqlConnectionString = $.secondarySqlConnectionString;
         this.tags = $.tags;
         this.virtualNetworkRules = $.virtualNetworkRules;
         this.writeEndpoints = $.writeEndpoints;
@@ -1345,6 +1377,24 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
             return primaryReadonlyKey(Output.of(primaryReadonlyKey));
         }
 
+        public Builder primaryReadonlySqlConnectionString(@Nullable Output<String> primaryReadonlySqlConnectionString) {
+            $.primaryReadonlySqlConnectionString = primaryReadonlySqlConnectionString;
+            return this;
+        }
+
+        public Builder primaryReadonlySqlConnectionString(String primaryReadonlySqlConnectionString) {
+            return primaryReadonlySqlConnectionString(Output.of(primaryReadonlySqlConnectionString));
+        }
+
+        public Builder primarySqlConnectionString(@Nullable Output<String> primarySqlConnectionString) {
+            $.primarySqlConnectionString = primarySqlConnectionString;
+            return this;
+        }
+
+        public Builder primarySqlConnectionString(String primarySqlConnectionString) {
+            return primarySqlConnectionString(Output.of(primarySqlConnectionString));
+        }
+
         /**
          * @param publicNetworkAccessEnabled Whether or not public network access is allowed for this CosmosDB account.
          * 
@@ -1479,6 +1529,24 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder secondaryReadonlyKey(String secondaryReadonlyKey) {
             return secondaryReadonlyKey(Output.of(secondaryReadonlyKey));
+        }
+
+        public Builder secondaryReadonlySqlConnectionString(@Nullable Output<String> secondaryReadonlySqlConnectionString) {
+            $.secondaryReadonlySqlConnectionString = secondaryReadonlySqlConnectionString;
+            return this;
+        }
+
+        public Builder secondaryReadonlySqlConnectionString(String secondaryReadonlySqlConnectionString) {
+            return secondaryReadonlySqlConnectionString(Output.of(secondaryReadonlySqlConnectionString));
+        }
+
+        public Builder secondarySqlConnectionString(@Nullable Output<String> secondarySqlConnectionString) {
+            $.secondarySqlConnectionString = secondarySqlConnectionString;
+            return this;
+        }
+
+        public Builder secondarySqlConnectionString(String secondarySqlConnectionString) {
+            return secondarySqlConnectionString(Output.of(secondarySqlConnectionString));
         }
 
         /**

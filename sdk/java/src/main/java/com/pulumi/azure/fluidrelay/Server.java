@@ -139,6 +139,20 @@ public class Server extends com.pulumi.resources.CustomResource {
         return this.ordererEndpoints;
     }
     /**
+     * The primary key for this server.
+     * 
+     */
+    @Export(name="primaryKey", type=String.class, parameters={})
+    private Output<String> primaryKey;
+
+    /**
+     * @return The primary key for this server.
+     * 
+     */
+    public Output<String> primaryKey() {
+        return this.primaryKey;
+    }
+    /**
      * The name of the Resource Group where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
      * 
      */
@@ -151,6 +165,34 @@ public class Server extends com.pulumi.resources.CustomResource {
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
+    }
+    /**
+     * The secondary key for this server.
+     * 
+     */
+    @Export(name="secondaryKey", type=String.class, parameters={})
+    private Output<String> secondaryKey;
+
+    /**
+     * @return The secondary key for this server.
+     * 
+     */
+    public Output<String> secondaryKey() {
+        return this.secondaryKey;
+    }
+    /**
+     * An array of service endpoints for this Fluid Relay Server.
+     * 
+     */
+    @Export(name="serviceEndpoints", type=List.class, parameters={String.class})
+    private Output<List<String>> serviceEndpoints;
+
+    /**
+     * @return An array of service endpoints for this Fluid Relay Server.
+     * 
+     */
+    public Output<List<String>> serviceEndpoints() {
+        return this.serviceEndpoints;
     }
     /**
      * An array of storage endpoints for this Fluid Relay Server.

@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DestinationIpGroups;
         /// <summary>
-        /// Specifies a list of destination ports.
+        /// Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
         /// </summary>
         public readonly ImmutableArray<string> DestinationPorts;
         /// <summary>

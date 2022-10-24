@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Cdn.Inputs
     public sealed class FrontdoorCustomDomainTlsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Resource ID of the Frontdoor Secrect.
+        /// Resource ID of the Frontdoor Secret.
         /// </summary>
         [Input("cdnFrontdoorSecretId")]
         public Input<string>? CdnFrontdoorSecretId { get; set; }

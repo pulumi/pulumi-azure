@@ -140,7 +140,7 @@ public final class WindowsFunctionAppSlotSiteConfig {
      */
     private @Nullable Boolean remoteDebuggingEnabled;
     /**
-     * @return The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+     * @return The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`
      * 
      */
     private @Nullable String remoteDebuggingVersion;
@@ -365,7 +365,7 @@ public final class WindowsFunctionAppSlotSiteConfig {
         return Optional.ofNullable(this.remoteDebuggingEnabled);
     }
     /**
-     * @return The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+     * @return The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`
      * 
      */
     public Optional<String> remoteDebuggingVersion() {

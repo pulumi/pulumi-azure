@@ -165,6 +165,8 @@ type Account struct {
 	EnableHttpsTrafficOnly pulumi.BoolPtrOutput `pulumi:"enableHttpsTrafficOnly"`
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrOutput `pulumi:"identity"`
+	// An `immutabilityPolicy` block as defined below.
+	ImmutabilityPolicy AccountImmutabilityPolicyPtrOutput `pulumi:"immutabilityPolicy"`
 	// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
 	InfrastructureEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"infrastructureEncryptionEnabled"`
 	// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
@@ -334,6 +336,8 @@ type accountState struct {
 	EnableHttpsTrafficOnly *bool `pulumi:"enableHttpsTrafficOnly"`
 	// An `identity` block as defined below.
 	Identity *AccountIdentity `pulumi:"identity"`
+	// An `immutabilityPolicy` block as defined below.
+	ImmutabilityPolicy *AccountImmutabilityPolicy `pulumi:"immutabilityPolicy"`
 	// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
 	InfrastructureEncryptionEnabled *bool `pulumi:"infrastructureEncryptionEnabled"`
 	// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
@@ -466,6 +470,8 @@ type AccountState struct {
 	EnableHttpsTrafficOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrInput
+	// An `immutabilityPolicy` block as defined below.
+	ImmutabilityPolicy AccountImmutabilityPolicyPtrInput
 	// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
 	InfrastructureEncryptionEnabled pulumi.BoolPtrInput
 	// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
@@ -602,6 +608,8 @@ type accountArgs struct {
 	EnableHttpsTrafficOnly *bool `pulumi:"enableHttpsTrafficOnly"`
 	// An `identity` block as defined below.
 	Identity *AccountIdentity `pulumi:"identity"`
+	// An `immutabilityPolicy` block as defined below.
+	ImmutabilityPolicy *AccountImmutabilityPolicy `pulumi:"immutabilityPolicy"`
 	// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
 	InfrastructureEncryptionEnabled *bool `pulumi:"infrastructureEncryptionEnabled"`
 	// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
@@ -671,6 +679,8 @@ type AccountArgs struct {
 	EnableHttpsTrafficOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrInput
+	// An `immutabilityPolicy` block as defined below.
+	ImmutabilityPolicy AccountImmutabilityPolicyPtrInput
 	// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
 	InfrastructureEncryptionEnabled pulumi.BoolPtrInput
 	// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
@@ -865,6 +875,11 @@ func (o AccountOutput) EnableHttpsTrafficOnly() pulumi.BoolPtrOutput {
 // An `identity` block as defined below.
 func (o AccountOutput) Identity() AccountIdentityPtrOutput {
 	return o.ApplyT(func(v *Account) AccountIdentityPtrOutput { return v.Identity }).(AccountIdentityPtrOutput)
+}
+
+// An `immutabilityPolicy` block as defined below.
+func (o AccountOutput) ImmutabilityPolicy() AccountImmutabilityPolicyPtrOutput {
+	return o.ApplyT(func(v *Account) AccountImmutabilityPolicyPtrOutput { return v.ImmutabilityPolicy }).(AccountImmutabilityPolicyPtrOutput)
 }
 
 // Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.

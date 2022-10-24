@@ -73,6 +73,10 @@ export interface GetWindowsFunctionAppResult {
      */
     readonly clientCertificateEnabled: boolean;
     /**
+     * Paths to exclude when using client certificates, separated by ;
+     */
+    readonly clientCertificateExclusionPaths: string;
+    /**
      * The mode of the Function App's client certificates requirement for incoming requests.
      */
     readonly clientCertificateMode: string;

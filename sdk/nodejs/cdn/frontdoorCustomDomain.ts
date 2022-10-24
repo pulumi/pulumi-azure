@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * const exampleFrontdoorCustomDomain = new azure.cdn.FrontdoorCustomDomain("exampleFrontdoorCustomDomain", {
  *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
  *     dnsZoneId: exampleZone.id,
- *     hostName: "contoso.com",
+ *     hostName: "contoso.fabrikam.com",
  *     tls: {
  *         certificateType: "ManagedCertificate",
  *         minimumTlsVersion: "TLS12",
@@ -91,7 +91,7 @@ export class FrontdoorCustomDomain extends pulumi.CustomResource {
      */
     public readonly cdnFrontdoorProfileId!: pulumi.Output<string>;
     /**
-     * The ID of the DNS Zone which should be used for this FrontDoor Custom Domain.
+     * The ID of the Azure DNS Zone which should be used for this CDN FrontDoor Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the CDN FrontDoor Custom Domain by creating the DNS TXT records manually.
      */
     public readonly dnsZoneId!: pulumi.Output<string | undefined>;
     /**
@@ -99,7 +99,7 @@ export class FrontdoorCustomDomain extends pulumi.CustomResource {
      */
     public /*out*/ readonly expirationDate!: pulumi.Output<string>;
     /**
-     * The host name of the domain. Changing this forces a new CDN FrontDoor Custom Domain to be created.
+     * The host name of the domain. The `hostName` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new CDN FrontDoor Custom Domain to be created.
      */
     public readonly hostName!: pulumi.Output<string>;
     /**
@@ -170,7 +170,7 @@ export interface FrontdoorCustomDomainState {
      */
     cdnFrontdoorProfileId?: pulumi.Input<string>;
     /**
-     * The ID of the DNS Zone which should be used for this FrontDoor Custom Domain.
+     * The ID of the Azure DNS Zone which should be used for this CDN FrontDoor Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the CDN FrontDoor Custom Domain by creating the DNS TXT records manually.
      */
     dnsZoneId?: pulumi.Input<string>;
     /**
@@ -178,7 +178,7 @@ export interface FrontdoorCustomDomainState {
      */
     expirationDate?: pulumi.Input<string>;
     /**
-     * The host name of the domain. Changing this forces a new CDN FrontDoor Custom Domain to be created.
+     * The host name of the domain. The `hostName` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new CDN FrontDoor Custom Domain to be created.
      */
     hostName?: pulumi.Input<string>;
     /**
@@ -204,11 +204,11 @@ export interface FrontdoorCustomDomainArgs {
      */
     cdnFrontdoorProfileId: pulumi.Input<string>;
     /**
-     * The ID of the DNS Zone which should be used for this FrontDoor Custom Domain.
+     * The ID of the Azure DNS Zone which should be used for this CDN FrontDoor Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the CDN FrontDoor Custom Domain by creating the DNS TXT records manually.
      */
     dnsZoneId?: pulumi.Input<string>;
     /**
-     * The host name of the domain. Changing this forces a new CDN FrontDoor Custom Domain to be created.
+     * The host name of the domain. The `hostName` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new CDN FrontDoor Custom Domain to be created.
      */
     hostName: pulumi.Input<string>;
     /**

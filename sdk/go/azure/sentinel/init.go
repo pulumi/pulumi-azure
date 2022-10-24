@@ -45,14 +45,24 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DataConnectorAzureAdvancedThreadProtection{}
 	case "azure:sentinel/dataConnectorAzureSecurityCenter:DataConnectorAzureSecurityCenter":
 		r = &DataConnectorAzureSecurityCenter{}
+	case "azure:sentinel/dataConnectorDynamics365:DataConnectorDynamics365":
+		r = &DataConnectorDynamics365{}
+	case "azure:sentinel/dataConnectorIot:DataConnectorIot":
+		r = &DataConnectorIot{}
 	case "azure:sentinel/dataConnectorMicrosoftCloudAppSecurity:DataConnectorMicrosoftCloudAppSecurity":
 		r = &DataConnectorMicrosoftCloudAppSecurity{}
 	case "azure:sentinel/dataConnectorMicrosoftDefenderAdvancedThreatProtection:DataConnectorMicrosoftDefenderAdvancedThreatProtection":
 		r = &DataConnectorMicrosoftDefenderAdvancedThreatProtection{}
 	case "azure:sentinel/dataConnectorOffice365:DataConnectorOffice365":
 		r = &DataConnectorOffice365{}
+	case "azure:sentinel/dataConnectorOffice365Project:DataConnectorOffice365Project":
+		r = &DataConnectorOffice365Project{}
 	case "azure:sentinel/dataConnectorOfficeAtp:DataConnectorOfficeAtp":
 		r = &DataConnectorOfficeAtp{}
+	case "azure:sentinel/dataConnectorOfficeIrm:DataConnectorOfficeIrm":
+		r = &DataConnectorOfficeIrm{}
+	case "azure:sentinel/dataConnectorOfficePowerBi:DataConnectorOfficePowerBi":
+		r = &DataConnectorOfficePowerBi{}
 	case "azure:sentinel/dataConnectorThreatIntelligence:DataConnectorThreatIntelligence":
 		r = &DataConnectorThreatIntelligence{}
 	case "azure:sentinel/watchlist:Watchlist":
@@ -134,6 +144,16 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"sentinel/dataConnectorDynamics365",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"sentinel/dataConnectorIot",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"sentinel/dataConnectorMicrosoftCloudAppSecurity",
 		&module{version},
 	)
@@ -149,7 +169,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"sentinel/dataConnectorOffice365Project",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"sentinel/dataConnectorOfficeAtp",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"sentinel/dataConnectorOfficeIrm",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"sentinel/dataConnectorOfficePowerBi",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

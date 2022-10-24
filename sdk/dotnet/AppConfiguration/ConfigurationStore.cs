@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppConfiguration
 {
     /// <summary>
-    /// Manages an Azure App Configuration.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -30,6 +28,142 @@ namespace Pulumi.Azure.AppConfiguration
     ///     {
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Encryption)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "standard",
+    ///         SoftDeleteRetentionDays = 7,
+    ///         PurgeProtectionEnabled = true,
+    ///     });
+    /// 
+    ///     var server = new Azure.KeyVault.AccessPolicy("server", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         ObjectId = exampleUserAssignedIdentity.PrincipalId,
+    ///         KeyPermissions = new[]
+    ///         {
+    ///             "Get",
+    ///             "UnwrapKey",
+    ///             "WrapKey",
+    ///         },
+    ///         SecretPermissions = new[]
+    ///         {
+    ///             "Get",
+    ///         },
+    ///     });
+    /// 
+    ///     var client = new Azure.KeyVault.AccessPolicy("client", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         KeyPermissions = new[]
+    ///         {
+    ///             "Get",
+    ///             "Create",
+    ///             "Delete",
+    ///             "List",
+    ///             "Restore",
+    ///             "Recover",
+    ///             "UnwrapKey",
+    ///             "WrapKey",
+    ///             "Purge",
+    ///             "Encrypt",
+    ///             "Decrypt",
+    ///             "Sign",
+    ///             "Verify",
+    ///         },
+    ///         SecretPermissions = new[]
+    ///         {
+    ///             "Get",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleKey = new Azure.KeyVault.Key("exampleKey", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         KeyType = "RSA",
+    ///         KeySize = 2048,
+    ///         KeyOpts = new[]
+    ///         {
+    ///             "decrypt",
+    ///             "encrypt",
+    ///             "sign",
+    ///             "unwrapKey",
+    ///             "verify",
+    ///             "wrapKey",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             client,
+    ///             server,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleConfigurationStore = new Azure.AppConfiguration.ConfigurationStore("exampleConfigurationStore", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = "standard",
+    ///         LocalAuthEnabled = true,
+    ///         PublicNetworkAccess = "Enabled",
+    ///         PurgeProtectionEnabled = false,
+    ///         SoftDeleteRetentionDays = 1,
+    ///         Identity = new Azure.AppConfiguration.Inputs.ConfigurationStoreIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             IdentityIds = new[]
+    ///             {
+    ///                 exampleUserAssignedIdentity.Id,
+    ///             },
+    ///         },
+    ///         Encryption = new Azure.AppConfiguration.Inputs.ConfigurationStoreEncryptionArgs
+    ///         {
+    ///             KeyVaultKeyIdentifier = exampleKey.Id,
+    ///             IdentityClientId = exampleUserAssignedIdentity.ClientId,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "development" },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             client,
+    ///             server,
+    ///         },
     ///     });
     /// 
     /// });

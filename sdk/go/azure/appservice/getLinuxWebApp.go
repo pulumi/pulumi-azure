@@ -70,6 +70,8 @@ type LookupLinuxWebAppResult struct {
 	ClientAffinityEnabled bool `pulumi:"clientAffinityEnabled"`
 	// Are Client Certificates enabled?
 	ClientCertificateEnabled bool `pulumi:"clientCertificateEnabled"`
+	// Paths to exclude when using client certificates, separated by ;
+	ClientCertificateExclusionPaths string `pulumi:"clientCertificateExclusionPaths"`
 	// The Client Certificate mode.
 	ClientCertificateMode string `pulumi:"clientCertificateMode"`
 	// A `connectionString` block as defined below.
@@ -187,6 +189,11 @@ func (o LookupLinuxWebAppResultOutput) ClientAffinityEnabled() pulumi.BoolOutput
 // Are Client Certificates enabled?
 func (o LookupLinuxWebAppResultOutput) ClientCertificateEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupLinuxWebAppResult) bool { return v.ClientCertificateEnabled }).(pulumi.BoolOutput)
+}
+
+// Paths to exclude when using client certificates, separated by ;
+func (o LookupLinuxWebAppResultOutput) ClientCertificateExclusionPaths() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinuxWebAppResult) string { return v.ClientCertificateExclusionPaths }).(pulumi.StringOutput)
 }
 
 // The Client Certificate mode.

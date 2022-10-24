@@ -19,10 +19,10 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
      */
     private @Nullable String destinationAddress;
     /**
-     * @return Specifies a list of destination ports.
+     * @return Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
      * 
      */
-    private @Nullable List<String> destinationPorts;
+    private @Nullable String destinationPorts;
     /**
      * @return The name which should be used for this rule.
      * 
@@ -68,11 +68,11 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
         return Optional.ofNullable(this.destinationAddress);
     }
     /**
-     * @return Specifies a list of destination ports.
+     * @return Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
      * 
      */
-    public List<String> destinationPorts() {
-        return this.destinationPorts == null ? List.of() : this.destinationPorts;
+    public Optional<String> destinationPorts() {
+        return Optional.ofNullable(this.destinationPorts);
     }
     /**
      * @return The name which should be used for this rule.
@@ -134,7 +134,7 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String destinationAddress;
-        private @Nullable List<String> destinationPorts;
+        private @Nullable String destinationPorts;
         private String name;
         private List<String> protocols;
         private @Nullable List<String> sourceAddresses;
@@ -162,12 +162,9 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
             return this;
         }
         @CustomType.Setter
-        public Builder destinationPorts(@Nullable List<String> destinationPorts) {
+        public Builder destinationPorts(@Nullable String destinationPorts) {
             this.destinationPorts = destinationPorts;
             return this;
-        }
-        public Builder destinationPorts(String... destinationPorts) {
-            return destinationPorts(List.of(destinationPorts));
         }
         @CustomType.Setter
         public Builder name(String name) {

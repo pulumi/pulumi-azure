@@ -26,6 +26,10 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly int? TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan;
         /// <summary>
+        /// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+        /// </summary>
+        public readonly int? TierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
+        /// <summary>
         /// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
         /// </summary>
         public readonly int? TierToArchiveAfterDaysSinceModificationGreaterThan;
@@ -46,6 +50,8 @@ namespace Pulumi.Azure.Storage.Outputs
 
             int? tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan,
 
+            int? tierToArchiveAfterDaysSinceLastTierChangeGreaterThan,
+
             int? tierToArchiveAfterDaysSinceModificationGreaterThan,
 
             int? tierToCoolAfterDaysSinceLastAccessTimeGreaterThan,
@@ -55,6 +61,7 @@ namespace Pulumi.Azure.Storage.Outputs
             DeleteAfterDaysSinceLastAccessTimeGreaterThan = deleteAfterDaysSinceLastAccessTimeGreaterThan;
             DeleteAfterDaysSinceModificationGreaterThan = deleteAfterDaysSinceModificationGreaterThan;
             TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan = tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan;
+            TierToArchiveAfterDaysSinceLastTierChangeGreaterThan = tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
             TierToArchiveAfterDaysSinceModificationGreaterThan = tierToArchiveAfterDaysSinceModificationGreaterThan;
             TierToCoolAfterDaysSinceLastAccessTimeGreaterThan = tierToCoolAfterDaysSinceLastAccessTimeGreaterThan;
             TierToCoolAfterDaysSinceModificationGreaterThan = tierToCoolAfterDaysSinceModificationGreaterThan;

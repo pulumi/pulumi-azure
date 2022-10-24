@@ -93,7 +93,7 @@ type Server struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the MariaDB Server. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// When `createMode` is `PointInTimeRestore`, specifies the point in time to restore from `creationSourceServerId`.
+	// When `createMode` is `PointInTimeRestore`, specifies the point in time to restore from `creationSourceServerId`. It should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
 	RestorePointInTime pulumi.StringPtrOutput `pulumi:"restorePointInTime"`
 	// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#sku).
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
@@ -172,7 +172,7 @@ type serverState struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the MariaDB Server. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// When `createMode` is `PointInTimeRestore`, specifies the point in time to restore from `creationSourceServerId`.
+	// When `createMode` is `PointInTimeRestore`, specifies the point in time to restore from `creationSourceServerId`. It should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
 	RestorePointInTime *string `pulumi:"restorePointInTime"`
 	// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#sku).
 	SkuName *string `pulumi:"skuName"`
@@ -211,7 +211,7 @@ type ServerState struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the MariaDB Server. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// When `createMode` is `PointInTimeRestore`, specifies the point in time to restore from `creationSourceServerId`.
+	// When `createMode` is `PointInTimeRestore`, specifies the point in time to restore from `creationSourceServerId`. It should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
 	RestorePointInTime pulumi.StringPtrInput
 	// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#sku).
 	SkuName pulumi.StringPtrInput
@@ -252,7 +252,7 @@ type serverArgs struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the MariaDB Server. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// When `createMode` is `PointInTimeRestore`, specifies the point in time to restore from `creationSourceServerId`.
+	// When `createMode` is `PointInTimeRestore`, specifies the point in time to restore from `creationSourceServerId`. It should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
 	RestorePointInTime *string `pulumi:"restorePointInTime"`
 	// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#sku).
 	SkuName string `pulumi:"skuName"`
@@ -290,7 +290,7 @@ type ServerArgs struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the MariaDB Server. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// When `createMode` is `PointInTimeRestore`, specifies the point in time to restore from `creationSourceServerId`.
+	// When `createMode` is `PointInTimeRestore`, specifies the point in time to restore from `creationSourceServerId`. It should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
 	RestorePointInTime pulumi.StringPtrInput
 	// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#sku).
 	SkuName pulumi.StringInput
@@ -451,7 +451,7 @@ func (o ServerOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// When `createMode` is `PointInTimeRestore`, specifies the point in time to restore from `creationSourceServerId`.
+// When `createMode` is `PointInTimeRestore`, specifies the point in time to restore from `creationSourceServerId`. It should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
 func (o ServerOutput) RestorePointInTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.RestorePointInTime }).(pulumi.StringPtrOutput)
 }

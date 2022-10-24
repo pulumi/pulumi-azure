@@ -24,6 +24,7 @@ class LinuxFunctionAppArgs:
                  backup: Optional[pulumi.Input['LinuxFunctionAppBackupArgs']] = None,
                  builtin_logging_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
+                 client_certificate_exclusion_paths: Optional[pulumi.Input[str]] = None,
                  client_certificate_mode: Optional[pulumi.Input[str]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppConnectionStringArgs']]]] = None,
                  content_share_force_disabled: Optional[pulumi.Input[bool]] = None,
@@ -52,6 +53,7 @@ class LinuxFunctionAppArgs:
         :param pulumi.Input['LinuxFunctionAppBackupArgs'] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
         :param pulumi.Input[bool] client_certificate_enabled: Should the function app use Client Certificates.
+        :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
         :param pulumi.Input[str] client_certificate_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppConnectionStringArgs']]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[bool] content_share_force_disabled: Should the settings for linking the Function App to storage be suppressed.
@@ -84,6 +86,8 @@ class LinuxFunctionAppArgs:
             pulumi.set(__self__, "builtin_logging_enabled", builtin_logging_enabled)
         if client_certificate_enabled is not None:
             pulumi.set(__self__, "client_certificate_enabled", client_certificate_enabled)
+        if client_certificate_exclusion_paths is not None:
+            pulumi.set(__self__, "client_certificate_exclusion_paths", client_certificate_exclusion_paths)
         if client_certificate_mode is not None:
             pulumi.set(__self__, "client_certificate_mode", client_certificate_mode)
         if connection_strings is not None:
@@ -216,6 +220,18 @@ class LinuxFunctionAppArgs:
     @client_certificate_enabled.setter
     def client_certificate_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "client_certificate_enabled", value)
+
+    @property
+    @pulumi.getter(name="clientCertificateExclusionPaths")
+    def client_certificate_exclusion_paths(self) -> Optional[pulumi.Input[str]]:
+        """
+        Paths to exclude when using client certificates, separated by ;
+        """
+        return pulumi.get(self, "client_certificate_exclusion_paths")
+
+    @client_certificate_exclusion_paths.setter
+    def client_certificate_exclusion_paths(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_certificate_exclusion_paths", value)
 
     @property
     @pulumi.getter(name="clientCertificateMode")
@@ -442,6 +458,7 @@ class _LinuxFunctionAppState:
                  backup: Optional[pulumi.Input['LinuxFunctionAppBackupArgs']] = None,
                  builtin_logging_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
+                 client_certificate_exclusion_paths: Optional[pulumi.Input[str]] = None,
                  client_certificate_mode: Optional[pulumi.Input[str]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppConnectionStringArgs']]]] = None,
                  content_share_force_disabled: Optional[pulumi.Input[bool]] = None,
@@ -478,6 +495,7 @@ class _LinuxFunctionAppState:
         :param pulumi.Input['LinuxFunctionAppBackupArgs'] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
         :param pulumi.Input[bool] client_certificate_enabled: Should the function app use Client Certificates.
+        :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
         :param pulumi.Input[str] client_certificate_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppConnectionStringArgs']]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[bool] content_share_force_disabled: Should the settings for linking the Function App to storage be suppressed.
@@ -518,6 +536,8 @@ class _LinuxFunctionAppState:
             pulumi.set(__self__, "builtin_logging_enabled", builtin_logging_enabled)
         if client_certificate_enabled is not None:
             pulumi.set(__self__, "client_certificate_enabled", client_certificate_enabled)
+        if client_certificate_exclusion_paths is not None:
+            pulumi.set(__self__, "client_certificate_exclusion_paths", client_certificate_exclusion_paths)
         if client_certificate_mode is not None:
             pulumi.set(__self__, "client_certificate_mode", client_certificate_mode)
         if connection_strings is not None:
@@ -636,6 +656,18 @@ class _LinuxFunctionAppState:
     @client_certificate_enabled.setter
     def client_certificate_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "client_certificate_enabled", value)
+
+    @property
+    @pulumi.getter(name="clientCertificateExclusionPaths")
+    def client_certificate_exclusion_paths(self) -> Optional[pulumi.Input[str]]:
+        """
+        Paths to exclude when using client certificates, separated by ;
+        """
+        return pulumi.get(self, "client_certificate_exclusion_paths")
+
+    @client_certificate_exclusion_paths.setter
+    def client_certificate_exclusion_paths(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_certificate_exclusion_paths", value)
 
     @property
     @pulumi.getter(name="clientCertificateMode")
@@ -996,6 +1028,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
                  backup: Optional[pulumi.Input[pulumi.InputType['LinuxFunctionAppBackupArgs']]] = None,
                  builtin_logging_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
+                 client_certificate_exclusion_paths: Optional[pulumi.Input[str]] = None,
                  client_certificate_mode: Optional[pulumi.Input[str]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxFunctionAppConnectionStringArgs']]]]] = None,
                  content_share_force_disabled: Optional[pulumi.Input[bool]] = None,
@@ -1062,6 +1095,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LinuxFunctionAppBackupArgs']] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
         :param pulumi.Input[bool] client_certificate_enabled: Should the function app use Client Certificates.
+        :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
         :param pulumi.Input[str] client_certificate_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxFunctionAppConnectionStringArgs']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[bool] content_share_force_disabled: Should the settings for linking the Function App to storage be suppressed.
@@ -1147,6 +1181,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
                  backup: Optional[pulumi.Input[pulumi.InputType['LinuxFunctionAppBackupArgs']]] = None,
                  builtin_logging_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
+                 client_certificate_exclusion_paths: Optional[pulumi.Input[str]] = None,
                  client_certificate_mode: Optional[pulumi.Input[str]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxFunctionAppConnectionStringArgs']]]]] = None,
                  content_share_force_disabled: Optional[pulumi.Input[bool]] = None,
@@ -1182,6 +1217,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
             __props__.__dict__["backup"] = backup
             __props__.__dict__["builtin_logging_enabled"] = builtin_logging_enabled
             __props__.__dict__["client_certificate_enabled"] = client_certificate_enabled
+            __props__.__dict__["client_certificate_exclusion_paths"] = client_certificate_exclusion_paths
             __props__.__dict__["client_certificate_mode"] = client_certificate_mode
             __props__.__dict__["connection_strings"] = connection_strings
             __props__.__dict__["content_share_force_disabled"] = content_share_force_disabled
@@ -1232,6 +1268,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
             backup: Optional[pulumi.Input[pulumi.InputType['LinuxFunctionAppBackupArgs']]] = None,
             builtin_logging_enabled: Optional[pulumi.Input[bool]] = None,
             client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
+            client_certificate_exclusion_paths: Optional[pulumi.Input[str]] = None,
             client_certificate_mode: Optional[pulumi.Input[str]] = None,
             connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxFunctionAppConnectionStringArgs']]]]] = None,
             content_share_force_disabled: Optional[pulumi.Input[bool]] = None,
@@ -1273,6 +1310,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LinuxFunctionAppBackupArgs']] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
         :param pulumi.Input[bool] client_certificate_enabled: Should the function app use Client Certificates.
+        :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
         :param pulumi.Input[str] client_certificate_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxFunctionAppConnectionStringArgs']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[bool] content_share_force_disabled: Should the settings for linking the Function App to storage be suppressed.
@@ -1312,6 +1350,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
         __props__.__dict__["backup"] = backup
         __props__.__dict__["builtin_logging_enabled"] = builtin_logging_enabled
         __props__.__dict__["client_certificate_enabled"] = client_certificate_enabled
+        __props__.__dict__["client_certificate_exclusion_paths"] = client_certificate_exclusion_paths
         __props__.__dict__["client_certificate_mode"] = client_certificate_mode
         __props__.__dict__["connection_strings"] = connection_strings
         __props__.__dict__["content_share_force_disabled"] = content_share_force_disabled
@@ -1382,6 +1421,14 @@ class LinuxFunctionApp(pulumi.CustomResource):
         Should the function app use Client Certificates.
         """
         return pulumi.get(self, "client_certificate_enabled")
+
+    @property
+    @pulumi.getter(name="clientCertificateExclusionPaths")
+    def client_certificate_exclusion_paths(self) -> pulumi.Output[Optional[str]]:
+        """
+        Paths to exclude when using client certificates, separated by ;
+        """
+        return pulumi.get(self, "client_certificate_exclusion_paths")
 
     @property
     @pulumi.getter(name="clientCertificateMode")

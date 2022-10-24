@@ -120,7 +120,7 @@ namespace Pulumi.Azure.Cdn
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// The UUID of this CDN FrontDoor Profile.
+        /// The UUID of this CDN FrontDoor Profile. This is the value that is used for the `X-Azure-FDID` attribute in the HTTP header.
         /// </summary>
         public readonly string ResourceGuid;
         /// <summary>

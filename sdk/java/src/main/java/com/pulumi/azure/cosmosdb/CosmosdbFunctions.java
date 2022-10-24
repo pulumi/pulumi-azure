@@ -681,8 +681,8 @@ public final class CosmosdbFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = CosmosdbFunctions.getSqlRoleDefinition(GetSqlRoleDefinitionArgs.builder()
      *             .accountName(&#34;tfex-cosmosdb-sql-role-definition-account-name&#34;)
-     *             .name(&#34;tfex-cosmosdb-sql-role-definition&#34;)
      *             .resourceGroupName(&#34;tfex-cosmosdb-sql-role-definition-rg&#34;)
+     *             .roleDefinitionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
      *             .build());
      * 
      *     }
@@ -720,8 +720,8 @@ public final class CosmosdbFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = CosmosdbFunctions.getSqlRoleDefinition(GetSqlRoleDefinitionArgs.builder()
      *             .accountName(&#34;tfex-cosmosdb-sql-role-definition-account-name&#34;)
-     *             .name(&#34;tfex-cosmosdb-sql-role-definition&#34;)
      *             .resourceGroupName(&#34;tfex-cosmosdb-sql-role-definition-rg&#34;)
+     *             .roleDefinitionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
      *             .build());
      * 
      *     }
@@ -759,8 +759,8 @@ public final class CosmosdbFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = CosmosdbFunctions.getSqlRoleDefinition(GetSqlRoleDefinitionArgs.builder()
      *             .accountName(&#34;tfex-cosmosdb-sql-role-definition-account-name&#34;)
-     *             .name(&#34;tfex-cosmosdb-sql-role-definition&#34;)
      *             .resourceGroupName(&#34;tfex-cosmosdb-sql-role-definition-rg&#34;)
+     *             .roleDefinitionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
      *             .build());
      * 
      *     }
@@ -798,8 +798,8 @@ public final class CosmosdbFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = CosmosdbFunctions.getSqlRoleDefinition(GetSqlRoleDefinitionArgs.builder()
      *             .accountName(&#34;tfex-cosmosdb-sql-role-definition-account-name&#34;)
-     *             .name(&#34;tfex-cosmosdb-sql-role-definition&#34;)
      *             .resourceGroupName(&#34;tfex-cosmosdb-sql-role-definition-rg&#34;)
+     *             .roleDefinitionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
      *             .build());
      * 
      *     }

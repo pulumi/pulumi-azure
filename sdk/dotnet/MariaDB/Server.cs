@@ -129,7 +129,7 @@ namespace Pulumi.Azure.MariaDB
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// When `create_mode` is `PointInTimeRestore`, specifies the point in time to restore from `creation_source_server_id`.
+        /// When `create_mode` is `PointInTimeRestore`, specifies the point in time to restore from `creation_source_server_id`. It should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
         /// </summary>
         [Output("restorePointInTime")]
         public Output<string?> RestorePointInTime { get; private set; } = null!;
@@ -277,7 +277,7 @@ namespace Pulumi.Azure.MariaDB
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// When `create_mode` is `PointInTimeRestore`, specifies the point in time to restore from `creation_source_server_id`.
+        /// When `create_mode` is `PointInTimeRestore`, specifies the point in time to restore from `creation_source_server_id`. It should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
         /// </summary>
         [Input("restorePointInTime")]
         public Input<string>? RestorePointInTime { get; set; }
@@ -399,7 +399,7 @@ namespace Pulumi.Azure.MariaDB
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// When `create_mode` is `PointInTimeRestore`, specifies the point in time to restore from `creation_source_server_id`.
+        /// When `create_mode` is `PointInTimeRestore`, specifies the point in time to restore from `creation_source_server_id`. It should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
         /// </summary>
         [Input("restorePointInTime")]
         public Input<string>? RestorePointInTime { get; set; }

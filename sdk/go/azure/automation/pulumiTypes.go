@@ -2440,7 +2440,8 @@ type SoftwareUpdateConfigurationSchedule struct {
 	// Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
 	StartTime              *string  `pulumi:"startTime"`
 	StartTimeOffsetMinutes *float64 `pulumi:"startTimeOffsetMinutes"`
-	TimeZone               *string  `pulumi:"timeZone"`
+	// The timezone of the start time. Defaults to `UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
+	TimeZone *string `pulumi:"timeZone"`
 }
 
 // SoftwareUpdateConfigurationScheduleInput is an input type that accepts SoftwareUpdateConfigurationScheduleArgs and SoftwareUpdateConfigurationScheduleOutput values.
@@ -2479,7 +2480,8 @@ type SoftwareUpdateConfigurationScheduleArgs struct {
 	// Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
 	StartTime              pulumi.StringPtrInput  `pulumi:"startTime"`
 	StartTimeOffsetMinutes pulumi.Float64PtrInput `pulumi:"startTimeOffsetMinutes"`
-	TimeZone               pulumi.StringPtrInput  `pulumi:"timeZone"`
+	// The timezone of the start time. Defaults to `UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
+	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
 }
 
 func (SoftwareUpdateConfigurationScheduleArgs) ElementType() reflect.Type {
@@ -2604,6 +2606,7 @@ func (o SoftwareUpdateConfigurationScheduleOutput) StartTimeOffsetMinutes() pulu
 	return o.ApplyT(func(v SoftwareUpdateConfigurationSchedule) *float64 { return v.StartTimeOffsetMinutes }).(pulumi.Float64PtrOutput)
 }
 
+// The timezone of the start time. Defaults to `UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
 func (o SoftwareUpdateConfigurationScheduleOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SoftwareUpdateConfigurationSchedule) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
 }

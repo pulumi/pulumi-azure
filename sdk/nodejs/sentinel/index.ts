@@ -65,6 +65,16 @@ export type DataConnectorAzureSecurityCenter = import("./dataConnectorAzureSecur
 export const DataConnectorAzureSecurityCenter: typeof import("./dataConnectorAzureSecurityCenter").DataConnectorAzureSecurityCenter = null as any;
 utilities.lazyLoad(exports, ["DataConnectorAzureSecurityCenter"], () => require("./dataConnectorAzureSecurityCenter"));
 
+export { DataConnectorDynamics365Args, DataConnectorDynamics365State } from "./dataConnectorDynamics365";
+export type DataConnectorDynamics365 = import("./dataConnectorDynamics365").DataConnectorDynamics365;
+export const DataConnectorDynamics365: typeof import("./dataConnectorDynamics365").DataConnectorDynamics365 = null as any;
+utilities.lazyLoad(exports, ["DataConnectorDynamics365"], () => require("./dataConnectorDynamics365"));
+
+export { DataConnectorIotArgs, DataConnectorIotState } from "./dataConnectorIot";
+export type DataConnectorIot = import("./dataConnectorIot").DataConnectorIot;
+export const DataConnectorIot: typeof import("./dataConnectorIot").DataConnectorIot = null as any;
+utilities.lazyLoad(exports, ["DataConnectorIot"], () => require("./dataConnectorIot"));
+
 export { DataConnectorMicrosoftCloudAppSecurityArgs, DataConnectorMicrosoftCloudAppSecurityState } from "./dataConnectorMicrosoftCloudAppSecurity";
 export type DataConnectorMicrosoftCloudAppSecurity = import("./dataConnectorMicrosoftCloudAppSecurity").DataConnectorMicrosoftCloudAppSecurity;
 export const DataConnectorMicrosoftCloudAppSecurity: typeof import("./dataConnectorMicrosoftCloudAppSecurity").DataConnectorMicrosoftCloudAppSecurity = null as any;
@@ -80,10 +90,25 @@ export type DataConnectorOffice365 = import("./dataConnectorOffice365").DataConn
 export const DataConnectorOffice365: typeof import("./dataConnectorOffice365").DataConnectorOffice365 = null as any;
 utilities.lazyLoad(exports, ["DataConnectorOffice365"], () => require("./dataConnectorOffice365"));
 
+export { DataConnectorOffice365ProjectArgs, DataConnectorOffice365ProjectState } from "./dataConnectorOffice365Project";
+export type DataConnectorOffice365Project = import("./dataConnectorOffice365Project").DataConnectorOffice365Project;
+export const DataConnectorOffice365Project: typeof import("./dataConnectorOffice365Project").DataConnectorOffice365Project = null as any;
+utilities.lazyLoad(exports, ["DataConnectorOffice365Project"], () => require("./dataConnectorOffice365Project"));
+
 export { DataConnectorOfficeAtpArgs, DataConnectorOfficeAtpState } from "./dataConnectorOfficeAtp";
 export type DataConnectorOfficeAtp = import("./dataConnectorOfficeAtp").DataConnectorOfficeAtp;
 export const DataConnectorOfficeAtp: typeof import("./dataConnectorOfficeAtp").DataConnectorOfficeAtp = null as any;
 utilities.lazyLoad(exports, ["DataConnectorOfficeAtp"], () => require("./dataConnectorOfficeAtp"));
+
+export { DataConnectorOfficeIrmArgs, DataConnectorOfficeIrmState } from "./dataConnectorOfficeIrm";
+export type DataConnectorOfficeIrm = import("./dataConnectorOfficeIrm").DataConnectorOfficeIrm;
+export const DataConnectorOfficeIrm: typeof import("./dataConnectorOfficeIrm").DataConnectorOfficeIrm = null as any;
+utilities.lazyLoad(exports, ["DataConnectorOfficeIrm"], () => require("./dataConnectorOfficeIrm"));
+
+export { DataConnectorOfficePowerBiArgs, DataConnectorOfficePowerBiState } from "./dataConnectorOfficePowerBi";
+export type DataConnectorOfficePowerBi = import("./dataConnectorOfficePowerBi").DataConnectorOfficePowerBi;
+export const DataConnectorOfficePowerBi: typeof import("./dataConnectorOfficePowerBi").DataConnectorOfficePowerBi = null as any;
+utilities.lazyLoad(exports, ["DataConnectorOfficePowerBi"], () => require("./dataConnectorOfficePowerBi"));
 
 export { DataConnectorThreatIntelligenceArgs, DataConnectorThreatIntelligenceState } from "./dataConnectorThreatIntelligence";
 export type DataConnectorThreatIntelligence = import("./dataConnectorThreatIntelligence").DataConnectorThreatIntelligence;
@@ -139,14 +164,24 @@ const _module = {
                 return new DataConnectorAzureAdvancedThreadProtection(name, <any>undefined, { urn })
             case "azure:sentinel/dataConnectorAzureSecurityCenter:DataConnectorAzureSecurityCenter":
                 return new DataConnectorAzureSecurityCenter(name, <any>undefined, { urn })
+            case "azure:sentinel/dataConnectorDynamics365:DataConnectorDynamics365":
+                return new DataConnectorDynamics365(name, <any>undefined, { urn })
+            case "azure:sentinel/dataConnectorIot:DataConnectorIot":
+                return new DataConnectorIot(name, <any>undefined, { urn })
             case "azure:sentinel/dataConnectorMicrosoftCloudAppSecurity:DataConnectorMicrosoftCloudAppSecurity":
                 return new DataConnectorMicrosoftCloudAppSecurity(name, <any>undefined, { urn })
             case "azure:sentinel/dataConnectorMicrosoftDefenderAdvancedThreatProtection:DataConnectorMicrosoftDefenderAdvancedThreatProtection":
                 return new DataConnectorMicrosoftDefenderAdvancedThreatProtection(name, <any>undefined, { urn })
             case "azure:sentinel/dataConnectorOffice365:DataConnectorOffice365":
                 return new DataConnectorOffice365(name, <any>undefined, { urn })
+            case "azure:sentinel/dataConnectorOffice365Project:DataConnectorOffice365Project":
+                return new DataConnectorOffice365Project(name, <any>undefined, { urn })
             case "azure:sentinel/dataConnectorOfficeAtp:DataConnectorOfficeAtp":
                 return new DataConnectorOfficeAtp(name, <any>undefined, { urn })
+            case "azure:sentinel/dataConnectorOfficeIrm:DataConnectorOfficeIrm":
+                return new DataConnectorOfficeIrm(name, <any>undefined, { urn })
+            case "azure:sentinel/dataConnectorOfficePowerBi:DataConnectorOfficePowerBi":
+                return new DataConnectorOfficePowerBi(name, <any>undefined, { urn })
             case "azure:sentinel/dataConnectorThreatIntelligence:DataConnectorThreatIntelligence":
                 return new DataConnectorThreatIntelligence(name, <any>undefined, { urn })
             case "azure:sentinel/watchlist:Watchlist":
@@ -170,10 +205,15 @@ pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorAwsS3", _m
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorAzureActiveDirectory", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorAzureAdvancedThreadProtection", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorAzureSecurityCenter", _module)
+pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorDynamics365", _module)
+pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorIot", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorMicrosoftCloudAppSecurity", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorMicrosoftDefenderAdvancedThreatProtection", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorOffice365", _module)
+pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorOffice365Project", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorOfficeAtp", _module)
+pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorOfficeIrm", _module)
+pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorOfficePowerBi", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorThreatIntelligence", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/watchlist", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/watchlistItem", _module)

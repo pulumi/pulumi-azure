@@ -322,14 +322,14 @@ public final class ScheduledQueryRulesAlertV2State extends com.pulumi.resources.
     }
 
     /**
-     * Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size).
+     * Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
      * 
      */
     @Import(name="windowDuration")
     private @Nullable Output<String> windowDuration;
 
     /**
-     * @return Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size).
+     * @return Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
      * 
      */
     public Optional<Output<String>> windowDuration() {
@@ -837,7 +837,7 @@ public final class ScheduledQueryRulesAlertV2State extends com.pulumi.resources.
         }
 
         /**
-         * @param windowDuration Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size).
+         * @param windowDuration Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
          * 
          * @return builder
          * 
@@ -848,7 +848,7 @@ public final class ScheduledQueryRulesAlertV2State extends com.pulumi.resources.
         }
 
         /**
-         * @param windowDuration Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size).
+         * @param windowDuration Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
          * 
          * @return builder
          * 

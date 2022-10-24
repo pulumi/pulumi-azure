@@ -47,8 +47,8 @@ class CacheIdentity(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
-        :param Sequence[str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param Sequence[str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -62,7 +62,7 @@ class CacheIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         """
         return pulumi.get(self, "type")
 
@@ -70,7 +70,7 @@ class CacheIdentity(dict):
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
-        A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
+        A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
         """
         return pulumi.get(self, "identity_ids")
 

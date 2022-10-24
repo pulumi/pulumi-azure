@@ -146,6 +146,9 @@ export class GroupTemplateDeployment extends pulumi.CustomResource {
      * The Azure Region where the Template should exist. Changing this forces a new Template to be created.
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * The ID of the Management Group to apply the Deployment Template to.
+     */
     public readonly managementGroupId!: pulumi.Output<string>;
     /**
      * The name which should be used for this Template Deployment. Changing this forces a new Template Deployment to be created.
@@ -226,6 +229,9 @@ export interface GroupTemplateDeploymentState {
      * The Azure Region where the Template should exist. Changing this forces a new Template to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * The ID of the Management Group to apply the Deployment Template to.
+     */
     managementGroupId?: pulumi.Input<string>;
     /**
      * The name which should be used for this Template Deployment. Changing this forces a new Template Deployment to be created.
@@ -265,6 +271,9 @@ export interface GroupTemplateDeploymentArgs {
      * The Azure Region where the Template should exist. Changing this forces a new Template to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * The ID of the Management Group to apply the Deployment Template to.
+     */
     managementGroupId: pulumi.Input<string>;
     /**
      * The name which should be used for this Template Deployment. Changing this forces a new Template Deployment to be created.

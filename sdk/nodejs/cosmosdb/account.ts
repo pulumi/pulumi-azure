@@ -215,6 +215,8 @@ export class Account extends pulumi.CustomResource {
      * The Primary read-only Key for the CosmosDB Account.
      */
     public /*out*/ readonly primaryReadonlyKey!: pulumi.Output<string>;
+    public /*out*/ readonly primaryReadonlySqlConnectionString!: pulumi.Output<string>;
+    public /*out*/ readonly primarySqlConnectionString!: pulumi.Output<string>;
     /**
      * Whether or not public network access is allowed for this CosmosDB account.
      */
@@ -239,6 +241,8 @@ export class Account extends pulumi.CustomResource {
      * The Secondary read-only key for the CosmosDB Account.
      */
     public /*out*/ readonly secondaryReadonlyKey!: pulumi.Output<string>;
+    public /*out*/ readonly secondaryReadonlySqlConnectionString!: pulumi.Output<string>;
+    public /*out*/ readonly secondarySqlConnectionString!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -295,12 +299,16 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["offerType"] = state ? state.offerType : undefined;
             resourceInputs["primaryKey"] = state ? state.primaryKey : undefined;
             resourceInputs["primaryReadonlyKey"] = state ? state.primaryReadonlyKey : undefined;
+            resourceInputs["primaryReadonlySqlConnectionString"] = state ? state.primaryReadonlySqlConnectionString : undefined;
+            resourceInputs["primarySqlConnectionString"] = state ? state.primarySqlConnectionString : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["readEndpoints"] = state ? state.readEndpoints : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["restore"] = state ? state.restore : undefined;
             resourceInputs["secondaryKey"] = state ? state.secondaryKey : undefined;
             resourceInputs["secondaryReadonlyKey"] = state ? state.secondaryReadonlyKey : undefined;
+            resourceInputs["secondaryReadonlySqlConnectionString"] = state ? state.secondaryReadonlySqlConnectionString : undefined;
+            resourceInputs["secondarySqlConnectionString"] = state ? state.secondarySqlConnectionString : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["virtualNetworkRules"] = state ? state.virtualNetworkRules : undefined;
             resourceInputs["writeEndpoints"] = state ? state.writeEndpoints : undefined;
@@ -353,9 +361,13 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["primaryKey"] = undefined /*out*/;
             resourceInputs["primaryReadonlyKey"] = undefined /*out*/;
+            resourceInputs["primaryReadonlySqlConnectionString"] = undefined /*out*/;
+            resourceInputs["primarySqlConnectionString"] = undefined /*out*/;
             resourceInputs["readEndpoints"] = undefined /*out*/;
             resourceInputs["secondaryKey"] = undefined /*out*/;
             resourceInputs["secondaryReadonlyKey"] = undefined /*out*/;
+            resourceInputs["secondaryReadonlySqlConnectionString"] = undefined /*out*/;
+            resourceInputs["secondarySqlConnectionString"] = undefined /*out*/;
             resourceInputs["writeEndpoints"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -487,6 +499,8 @@ export interface AccountState {
      * The Primary read-only Key for the CosmosDB Account.
      */
     primaryReadonlyKey?: pulumi.Input<string>;
+    primaryReadonlySqlConnectionString?: pulumi.Input<string>;
+    primarySqlConnectionString?: pulumi.Input<string>;
     /**
      * Whether or not public network access is allowed for this CosmosDB account.
      */
@@ -511,6 +525,8 @@ export interface AccountState {
      * The Secondary read-only key for the CosmosDB Account.
      */
     secondaryReadonlyKey?: pulumi.Input<string>;
+    secondaryReadonlySqlConnectionString?: pulumi.Input<string>;
+    secondarySqlConnectionString?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

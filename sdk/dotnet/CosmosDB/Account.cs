@@ -274,6 +274,12 @@ namespace Pulumi.Azure.CosmosDB
         [Output("primaryReadonlyKey")]
         public Output<string> PrimaryReadonlyKey { get; private set; } = null!;
 
+        [Output("primaryReadonlySqlConnectionString")]
+        public Output<string> PrimaryReadonlySqlConnectionString { get; private set; } = null!;
+
+        [Output("primarySqlConnectionString")]
+        public Output<string> PrimarySqlConnectionString { get; private set; } = null!;
+
         /// <summary>
         /// Whether or not public network access is allowed for this CosmosDB account.
         /// </summary>
@@ -309,6 +315,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Output("secondaryReadonlyKey")]
         public Output<string> SecondaryReadonlyKey { get; private set; } = null!;
+
+        [Output("secondaryReadonlySqlConnectionString")]
+        public Output<string> SecondaryReadonlySqlConnectionString { get; private set; } = null!;
+
+        [Output("secondarySqlConnectionString")]
+        public Output<string> SecondarySqlConnectionString { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -802,6 +814,12 @@ namespace Pulumi.Azure.CosmosDB
         [Input("primaryReadonlyKey")]
         public Input<string>? PrimaryReadonlyKey { get; set; }
 
+        [Input("primaryReadonlySqlConnectionString")]
+        public Input<string>? PrimaryReadonlySqlConnectionString { get; set; }
+
+        [Input("primarySqlConnectionString")]
+        public Input<string>? PrimarySqlConnectionString { get; set; }
+
         /// <summary>
         /// Whether or not public network access is allowed for this CosmosDB account.
         /// </summary>
@@ -843,6 +861,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("secondaryReadonlyKey")]
         public Input<string>? SecondaryReadonlyKey { get; set; }
+
+        [Input("secondaryReadonlySqlConnectionString")]
+        public Input<string>? SecondaryReadonlySqlConnectionString { get; set; }
+
+        [Input("secondarySqlConnectionString")]
+        public Input<string>? SecondarySqlConnectionString { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

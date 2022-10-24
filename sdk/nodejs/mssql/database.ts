@@ -172,7 +172,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
-     * Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`.  The default value is `Geo`.
+     * Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
      */
     public readonly storageAccountType!: pulumi.Output<string | undefined>;
     /**
@@ -369,7 +369,7 @@ export interface DatabaseState {
      */
     skuName?: pulumi.Input<string>;
     /**
-     * Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`.  The default value is `Geo`.
+     * Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
      */
     storageAccountType?: pulumi.Input<string>;
     /**
@@ -487,7 +487,7 @@ export interface DatabaseArgs {
      */
     skuName?: pulumi.Input<string>;
     /**
-     * Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`.  The default value is `Geo`.
+     * Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
      */
     storageAccountType?: pulumi.Input<string>;
     /**

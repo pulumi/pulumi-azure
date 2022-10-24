@@ -79,9 +79,21 @@ export class Server extends pulumi.CustomResource {
      */
     public /*out*/ readonly ordererEndpoints!: pulumi.Output<string[]>;
     /**
+     * The primary key for this server.
+     */
+    public /*out*/ readonly primaryKey!: pulumi.Output<string>;
+    /**
      * The name of the Resource Group where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * The secondary key for this server.
+     */
+    public /*out*/ readonly secondaryKey!: pulumi.Output<string>;
+    /**
+     * An array of service endpoints for this Fluid Relay Server.
+     */
+    public /*out*/ readonly serviceEndpoints!: pulumi.Output<string[]>;
     /**
      * An array of storage endpoints for this Fluid Relay Server.
      */
@@ -113,7 +125,10 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["ordererEndpoints"] = state ? state.ordererEndpoints : undefined;
+            resourceInputs["primaryKey"] = state ? state.primaryKey : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["secondaryKey"] = state ? state.secondaryKey : undefined;
+            resourceInputs["serviceEndpoints"] = state ? state.serviceEndpoints : undefined;
             resourceInputs["storageEndpoints"] = state ? state.storageEndpoints : undefined;
             resourceInputs["storageSku"] = state ? state.storageSku : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -130,6 +145,9 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["frsTenantId"] = undefined /*out*/;
             resourceInputs["ordererEndpoints"] = undefined /*out*/;
+            resourceInputs["primaryKey"] = undefined /*out*/;
+            resourceInputs["secondaryKey"] = undefined /*out*/;
+            resourceInputs["serviceEndpoints"] = undefined /*out*/;
             resourceInputs["storageEndpoints"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -162,9 +180,21 @@ export interface ServerState {
      */
     ordererEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The primary key for this server.
+     */
+    primaryKey?: pulumi.Input<string>;
+    /**
      * The name of the Resource Group where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * The secondary key for this server.
+     */
+    secondaryKey?: pulumi.Input<string>;
+    /**
+     * An array of service endpoints for this Fluid Relay Server.
+     */
+    serviceEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * An array of storage endpoints for this Fluid Relay Server.
      */

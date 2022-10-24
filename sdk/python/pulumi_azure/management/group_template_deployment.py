@@ -24,6 +24,7 @@ class GroupTemplateDeploymentArgs:
                  template_spec_version_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a GroupTemplateDeployment resource.
+        :param pulumi.Input[str] management_group_id: The ID of the Management Group to apply the Deployment Template to.
         :param pulumi.Input[str] debug_level: The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
         :param pulumi.Input[str] location: The Azure Region where the Template should exist. Changing this forces a new Template to be created.
         :param pulumi.Input[str] name: The name which should be used for this Template Deployment. Changing this forces a new Template Deployment to be created.
@@ -51,6 +52,9 @@ class GroupTemplateDeploymentArgs:
     @property
     @pulumi.getter(name="managementGroupId")
     def management_group_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Management Group to apply the Deployment Template to.
+        """
         return pulumi.get(self, "management_group_id")
 
     @management_group_id.setter
@@ -158,6 +162,7 @@ class _GroupTemplateDeploymentState:
         Input properties used for looking up and filtering GroupTemplateDeployment resources.
         :param pulumi.Input[str] debug_level: The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
         :param pulumi.Input[str] location: The Azure Region where the Template should exist. Changing this forces a new Template to be created.
+        :param pulumi.Input[str] management_group_id: The ID of the Management Group to apply the Deployment Template to.
         :param pulumi.Input[str] name: The name which should be used for this Template Deployment. Changing this forces a new Template Deployment to be created.
         :param pulumi.Input[str] output_content: The JSON Content of the Outputs of the ARM Template Deployment.
         :param pulumi.Input[str] parameters_content: The contents of the ARM Template parameters file - containing a JSON list of parameters.
@@ -211,6 +216,9 @@ class _GroupTemplateDeploymentState:
     @property
     @pulumi.getter(name="managementGroupId")
     def management_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Management Group to apply the Deployment Template to.
+        """
         return pulumi.get(self, "management_group_id")
 
     @management_group_id.setter
@@ -402,6 +410,7 @@ class GroupTemplateDeployment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] debug_level: The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
         :param pulumi.Input[str] location: The Azure Region where the Template should exist. Changing this forces a new Template to be created.
+        :param pulumi.Input[str] management_group_id: The ID of the Management Group to apply the Deployment Template to.
         :param pulumi.Input[str] name: The name which should be used for this Template Deployment. Changing this forces a new Template Deployment to be created.
         :param pulumi.Input[str] parameters_content: The contents of the ARM Template parameters file - containing a JSON list of parameters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Template.
@@ -579,6 +588,7 @@ class GroupTemplateDeployment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] debug_level: The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
         :param pulumi.Input[str] location: The Azure Region where the Template should exist. Changing this forces a new Template to be created.
+        :param pulumi.Input[str] management_group_id: The ID of the Management Group to apply the Deployment Template to.
         :param pulumi.Input[str] name: The name which should be used for this Template Deployment. Changing this forces a new Template Deployment to be created.
         :param pulumi.Input[str] output_content: The JSON Content of the Outputs of the ARM Template Deployment.
         :param pulumi.Input[str] parameters_content: The contents of the ARM Template parameters file - containing a JSON list of parameters.
@@ -620,6 +630,9 @@ class GroupTemplateDeployment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="managementGroupId")
     def management_group_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Management Group to apply the Deployment Template to.
+        """
         return pulumi.get(self, "management_group_id")
 
     @property

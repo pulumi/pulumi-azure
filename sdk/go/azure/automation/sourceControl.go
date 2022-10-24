@@ -13,6 +13,40 @@ import (
 
 // Manages an Automation Source Control.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := automation.NewSourceControl(ctx, "example", &automation.SourceControlArgs{
+//				AutomationAccountId: pulumi.Any(azurerm_automation_account.Test.Id),
+//				FolderPath:          pulumi.String("runbook"),
+//				Security: &automation.SourceControlSecurityArgs{
+//					Token:     pulumi.String("ghp_xxx"),
+//					TokenType: pulumi.String("PersonalAccessToken"),
+//				},
+//				RepositoryUrl:     pulumi.String("https://github.com/foo/bat.git"),
+//				SourceControlType: pulumi.String("GitHub"),
+//				Branch:            pulumi.String("main"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Automations can be imported using the `resource id`, e.g.

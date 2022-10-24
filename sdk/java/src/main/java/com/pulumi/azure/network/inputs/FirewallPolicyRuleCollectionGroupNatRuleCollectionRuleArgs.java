@@ -33,17 +33,17 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs ex
     }
 
     /**
-     * Specifies a list of destination ports.
+     * Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
      * 
      */
     @Import(name="destinationPorts")
-    private @Nullable Output<List<String>> destinationPorts;
+    private @Nullable Output<String> destinationPorts;
 
     /**
-     * @return Specifies a list of destination ports.
+     * @return Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
      * 
      */
-    public Optional<Output<List<String>>> destinationPorts() {
+    public Optional<Output<String>> destinationPorts() {
         return Optional.ofNullable(this.destinationPorts);
     }
 
@@ -206,34 +206,24 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs ex
         }
 
         /**
-         * @param destinationPorts Specifies a list of destination ports.
+         * @param destinationPorts Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
          * 
          * @return builder
          * 
          */
-        public Builder destinationPorts(@Nullable Output<List<String>> destinationPorts) {
+        public Builder destinationPorts(@Nullable Output<String> destinationPorts) {
             $.destinationPorts = destinationPorts;
             return this;
         }
 
         /**
-         * @param destinationPorts Specifies a list of destination ports.
+         * @param destinationPorts Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
          * 
          * @return builder
          * 
          */
-        public Builder destinationPorts(List<String> destinationPorts) {
+        public Builder destinationPorts(String destinationPorts) {
             return destinationPorts(Output.of(destinationPorts));
-        }
-
-        /**
-         * @param destinationPorts Specifies a list of destination ports.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder destinationPorts(String... destinationPorts) {
-            return destinationPorts(List.of(destinationPorts));
         }
 
         /**

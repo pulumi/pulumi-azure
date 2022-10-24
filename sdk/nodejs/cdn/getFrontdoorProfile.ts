@@ -56,7 +56,7 @@ export interface GetFrontdoorProfileResult {
     readonly name: string;
     readonly resourceGroupName: string;
     /**
-     * The UUID of this CDN FrontDoor Profile.
+     * The UUID of this CDN FrontDoor Profile. This is the value that is used for the `X-Azure-FDID` attribute in the HTTP header.
      */
     readonly resourceGuid: string;
     /**

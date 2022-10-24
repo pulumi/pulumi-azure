@@ -19,7 +19,7 @@ public final class GetFrontdoorProfileResult {
     private String name;
     private String resourceGroupName;
     /**
-     * @return The UUID of this CDN FrontDoor Profile.
+     * @return The UUID of this CDN FrontDoor Profile. This is the value that is used for the `X-Azure-FDID` attribute in the HTTP header.
      * 
      */
     private String resourceGuid;
@@ -54,7 +54,7 @@ public final class GetFrontdoorProfileResult {
         return this.resourceGroupName;
     }
     /**
-     * @return The UUID of this CDN FrontDoor Profile.
+     * @return The UUID of this CDN FrontDoor Profile. This is the value that is used for the `X-Azure-FDID` attribute in the HTTP header.
      * 
      */
     public String resourceGuid() {

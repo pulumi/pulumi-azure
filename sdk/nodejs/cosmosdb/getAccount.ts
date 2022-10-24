@@ -104,11 +104,11 @@ export interface GetAccountResult {
      */
     readonly offerType: string;
     /**
-     * The Primary key for the CosmosDB Account.
+     * The primary key for the CosmosDB account.
      */
     readonly primaryKey: string;
     /**
-     * The Primary read-only Key for the CosmosDB Account.
+     * The primary read-only Key for the CosmosDB account.
      */
     readonly primaryReadonlyKey: string;
     /**
@@ -117,11 +117,11 @@ export interface GetAccountResult {
     readonly readEndpoints: string[];
     readonly resourceGroupName: string;
     /**
-     * The Secondary key for the CosmosDB Account.
+     * The secondary key for the CosmosDB account.
      */
     readonly secondaryKey: string;
     /**
-     * The Secondary read-only key for the CosmosDB Account.
+     * The secondary read-only key for the CosmosDB account.
      */
     readonly secondaryReadonlyKey: string;
     /**

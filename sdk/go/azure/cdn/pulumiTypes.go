@@ -4960,7 +4960,7 @@ func (o EndpointOriginArrayOutput) Index(i pulumi.IntInput) EndpointOriginOutput
 }
 
 type FrontdoorCustomDomainTls struct {
-	// Resource ID of the Frontdoor Secrect.
+	// Resource ID of the Frontdoor Secret.
 	CdnFrontdoorSecretId *string `pulumi:"cdnFrontdoorSecretId"`
 	// Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
 	CertificateType *string `pulumi:"certificateType"`
@@ -4980,7 +4980,7 @@ type FrontdoorCustomDomainTlsInput interface {
 }
 
 type FrontdoorCustomDomainTlsArgs struct {
-	// Resource ID of the Frontdoor Secrect.
+	// Resource ID of the Frontdoor Secret.
 	CdnFrontdoorSecretId pulumi.StringPtrInput `pulumi:"cdnFrontdoorSecretId"`
 	// Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
 	CertificateType pulumi.StringPtrInput `pulumi:"certificateType"`
@@ -5065,7 +5065,7 @@ func (o FrontdoorCustomDomainTlsOutput) ToFrontdoorCustomDomainTlsPtrOutputWithC
 	}).(FrontdoorCustomDomainTlsPtrOutput)
 }
 
-// Resource ID of the Frontdoor Secrect.
+// Resource ID of the Frontdoor Secret.
 func (o FrontdoorCustomDomainTlsOutput) CdnFrontdoorSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorCustomDomainTls) *string { return v.CdnFrontdoorSecretId }).(pulumi.StringPtrOutput)
 }
@@ -5104,7 +5104,7 @@ func (o FrontdoorCustomDomainTlsPtrOutput) Elem() FrontdoorCustomDomainTlsOutput
 	}).(FrontdoorCustomDomainTlsOutput)
 }
 
-// Resource ID of the Frontdoor Secrect.
+// Resource ID of the Frontdoor Secret.
 func (o FrontdoorCustomDomainTlsPtrOutput) CdnFrontdoorSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorCustomDomainTls) *string {
 		if v == nil {
@@ -5576,7 +5576,7 @@ func (o FrontdoorFirewallPolicyManagedRuleArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type FrontdoorFirewallPolicyManagedRuleExclusion struct {
-	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
 	MatchVariable string `pulumi:"matchVariable"`
 	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
 	Operator string `pulumi:"operator"`
@@ -5596,7 +5596,7 @@ type FrontdoorFirewallPolicyManagedRuleExclusionInput interface {
 }
 
 type FrontdoorFirewallPolicyManagedRuleExclusionArgs struct {
-	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
 	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
 	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
 	Operator pulumi.StringInput `pulumi:"operator"`
@@ -5655,7 +5655,7 @@ func (o FrontdoorFirewallPolicyManagedRuleExclusionOutput) ToFrontdoorFirewallPo
 	return o
 }
 
-// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
 func (o FrontdoorFirewallPolicyManagedRuleExclusionOutput) MatchVariable() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRuleExclusion) string { return v.MatchVariable }).(pulumi.StringOutput)
 }
@@ -5810,7 +5810,7 @@ func (o FrontdoorFirewallPolicyManagedRuleOverrideArrayOutput) Index(i pulumi.In
 }
 
 type FrontdoorFirewallPolicyManagedRuleOverrideExclusion struct {
-	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
 	MatchVariable string `pulumi:"matchVariable"`
 	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
 	Operator string `pulumi:"operator"`
@@ -5830,7 +5830,7 @@ type FrontdoorFirewallPolicyManagedRuleOverrideExclusionInput interface {
 }
 
 type FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs struct {
-	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
 	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
 	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
 	Operator pulumi.StringInput `pulumi:"operator"`
@@ -5889,7 +5889,7 @@ func (o FrontdoorFirewallPolicyManagedRuleOverrideExclusionOutput) ToFrontdoorFi
 	return o
 }
 
-// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
 func (o FrontdoorFirewallPolicyManagedRuleOverrideExclusionOutput) MatchVariable() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRuleOverrideExclusion) string { return v.MatchVariable }).(pulumi.StringOutput)
 }
@@ -6051,7 +6051,7 @@ func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleArrayOutput) Index(i pulum
 }
 
 type FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion struct {
-	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
 	MatchVariable string `pulumi:"matchVariable"`
 	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
 	Operator string `pulumi:"operator"`
@@ -6071,7 +6071,7 @@ type FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionInput interface {
 }
 
 type FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs struct {
-	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
 	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
 	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
 	Operator pulumi.StringInput `pulumi:"operator"`
@@ -6130,7 +6130,7 @@ func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutput) ToFrontdo
 	return o
 }
 
-// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
 func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutput) MatchVariable() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion) string { return v.MatchVariable }).(pulumi.StringOutput)
 }
@@ -10986,7 +10986,7 @@ func (o FrontdoorSecretSecretPtrOutput) CustomerCertificates() FrontdoorSecretSe
 }
 
 type FrontdoorSecretSecretCustomerCertificate struct {
-	// The key vault certificate resources ID attribute. Changing this forces a new Frontdoor Secret to be created.
+	// The ID of the Key Vault certificate resource to use. Changing this forces a new Frontdoor Secret to be created.
 	KeyVaultCertificateId string `pulumi:"keyVaultCertificateId"`
 	// One or more `subject alternative names` contained within the key vault certificate.
 	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
@@ -11004,7 +11004,7 @@ type FrontdoorSecretSecretCustomerCertificateInput interface {
 }
 
 type FrontdoorSecretSecretCustomerCertificateArgs struct {
-	// The key vault certificate resources ID attribute. Changing this forces a new Frontdoor Secret to be created.
+	// The ID of the Key Vault certificate resource to use. Changing this forces a new Frontdoor Secret to be created.
 	KeyVaultCertificateId pulumi.StringInput `pulumi:"keyVaultCertificateId"`
 	// One or more `subject alternative names` contained within the key vault certificate.
 	SubjectAlternativeNames pulumi.StringArrayInput `pulumi:"subjectAlternativeNames"`
@@ -11061,7 +11061,7 @@ func (o FrontdoorSecretSecretCustomerCertificateOutput) ToFrontdoorSecretSecretC
 	return o
 }
 
-// The key vault certificate resources ID attribute. Changing this forces a new Frontdoor Secret to be created.
+// The ID of the Key Vault certificate resource to use. Changing this forces a new Frontdoor Secret to be created.
 func (o FrontdoorSecretSecretCustomerCertificateOutput) KeyVaultCertificateId() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorSecretSecretCustomerCertificate) string { return v.KeyVaultCertificateId }).(pulumi.StringOutput)
 }
@@ -11893,6 +11893,211 @@ func (o GetFrontdoorOriginGroupLoadBalancingArrayOutput) Index(i pulumi.IntInput
 	}).(GetFrontdoorOriginGroupLoadBalancingOutput)
 }
 
+type GetFrontdoorSecretSecret struct {
+	// A `customerCertificate` block as defined below.
+	CustomerCertificates []GetFrontdoorSecretSecretCustomerCertificate `pulumi:"customerCertificates"`
+}
+
+// GetFrontdoorSecretSecretInput is an input type that accepts GetFrontdoorSecretSecretArgs and GetFrontdoorSecretSecretOutput values.
+// You can construct a concrete instance of `GetFrontdoorSecretSecretInput` via:
+//
+//	GetFrontdoorSecretSecretArgs{...}
+type GetFrontdoorSecretSecretInput interface {
+	pulumi.Input
+
+	ToGetFrontdoorSecretSecretOutput() GetFrontdoorSecretSecretOutput
+	ToGetFrontdoorSecretSecretOutputWithContext(context.Context) GetFrontdoorSecretSecretOutput
+}
+
+type GetFrontdoorSecretSecretArgs struct {
+	// A `customerCertificate` block as defined below.
+	CustomerCertificates GetFrontdoorSecretSecretCustomerCertificateArrayInput `pulumi:"customerCertificates"`
+}
+
+func (GetFrontdoorSecretSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFrontdoorSecretSecret)(nil)).Elem()
+}
+
+func (i GetFrontdoorSecretSecretArgs) ToGetFrontdoorSecretSecretOutput() GetFrontdoorSecretSecretOutput {
+	return i.ToGetFrontdoorSecretSecretOutputWithContext(context.Background())
+}
+
+func (i GetFrontdoorSecretSecretArgs) ToGetFrontdoorSecretSecretOutputWithContext(ctx context.Context) GetFrontdoorSecretSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFrontdoorSecretSecretOutput)
+}
+
+// GetFrontdoorSecretSecretArrayInput is an input type that accepts GetFrontdoorSecretSecretArray and GetFrontdoorSecretSecretArrayOutput values.
+// You can construct a concrete instance of `GetFrontdoorSecretSecretArrayInput` via:
+//
+//	GetFrontdoorSecretSecretArray{ GetFrontdoorSecretSecretArgs{...} }
+type GetFrontdoorSecretSecretArrayInput interface {
+	pulumi.Input
+
+	ToGetFrontdoorSecretSecretArrayOutput() GetFrontdoorSecretSecretArrayOutput
+	ToGetFrontdoorSecretSecretArrayOutputWithContext(context.Context) GetFrontdoorSecretSecretArrayOutput
+}
+
+type GetFrontdoorSecretSecretArray []GetFrontdoorSecretSecretInput
+
+func (GetFrontdoorSecretSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFrontdoorSecretSecret)(nil)).Elem()
+}
+
+func (i GetFrontdoorSecretSecretArray) ToGetFrontdoorSecretSecretArrayOutput() GetFrontdoorSecretSecretArrayOutput {
+	return i.ToGetFrontdoorSecretSecretArrayOutputWithContext(context.Background())
+}
+
+func (i GetFrontdoorSecretSecretArray) ToGetFrontdoorSecretSecretArrayOutputWithContext(ctx context.Context) GetFrontdoorSecretSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFrontdoorSecretSecretArrayOutput)
+}
+
+type GetFrontdoorSecretSecretOutput struct{ *pulumi.OutputState }
+
+func (GetFrontdoorSecretSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFrontdoorSecretSecret)(nil)).Elem()
+}
+
+func (o GetFrontdoorSecretSecretOutput) ToGetFrontdoorSecretSecretOutput() GetFrontdoorSecretSecretOutput {
+	return o
+}
+
+func (o GetFrontdoorSecretSecretOutput) ToGetFrontdoorSecretSecretOutputWithContext(ctx context.Context) GetFrontdoorSecretSecretOutput {
+	return o
+}
+
+// A `customerCertificate` block as defined below.
+func (o GetFrontdoorSecretSecretOutput) CustomerCertificates() GetFrontdoorSecretSecretCustomerCertificateArrayOutput {
+	return o.ApplyT(func(v GetFrontdoorSecretSecret) []GetFrontdoorSecretSecretCustomerCertificate {
+		return v.CustomerCertificates
+	}).(GetFrontdoorSecretSecretCustomerCertificateArrayOutput)
+}
+
+type GetFrontdoorSecretSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFrontdoorSecretSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFrontdoorSecretSecret)(nil)).Elem()
+}
+
+func (o GetFrontdoorSecretSecretArrayOutput) ToGetFrontdoorSecretSecretArrayOutput() GetFrontdoorSecretSecretArrayOutput {
+	return o
+}
+
+func (o GetFrontdoorSecretSecretArrayOutput) ToGetFrontdoorSecretSecretArrayOutputWithContext(ctx context.Context) GetFrontdoorSecretSecretArrayOutput {
+	return o
+}
+
+func (o GetFrontdoorSecretSecretArrayOutput) Index(i pulumi.IntInput) GetFrontdoorSecretSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFrontdoorSecretSecret {
+		return vs[0].([]GetFrontdoorSecretSecret)[vs[1].(int)]
+	}).(GetFrontdoorSecretSecretOutput)
+}
+
+type GetFrontdoorSecretSecretCustomerCertificate struct {
+	// The key vault certificate ID.
+	KeyVaultCertificateId string `pulumi:"keyVaultCertificateId"`
+	// One or more `subject alternative names` contained within the key vault certificate.
+	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
+}
+
+// GetFrontdoorSecretSecretCustomerCertificateInput is an input type that accepts GetFrontdoorSecretSecretCustomerCertificateArgs and GetFrontdoorSecretSecretCustomerCertificateOutput values.
+// You can construct a concrete instance of `GetFrontdoorSecretSecretCustomerCertificateInput` via:
+//
+//	GetFrontdoorSecretSecretCustomerCertificateArgs{...}
+type GetFrontdoorSecretSecretCustomerCertificateInput interface {
+	pulumi.Input
+
+	ToGetFrontdoorSecretSecretCustomerCertificateOutput() GetFrontdoorSecretSecretCustomerCertificateOutput
+	ToGetFrontdoorSecretSecretCustomerCertificateOutputWithContext(context.Context) GetFrontdoorSecretSecretCustomerCertificateOutput
+}
+
+type GetFrontdoorSecretSecretCustomerCertificateArgs struct {
+	// The key vault certificate ID.
+	KeyVaultCertificateId pulumi.StringInput `pulumi:"keyVaultCertificateId"`
+	// One or more `subject alternative names` contained within the key vault certificate.
+	SubjectAlternativeNames pulumi.StringArrayInput `pulumi:"subjectAlternativeNames"`
+}
+
+func (GetFrontdoorSecretSecretCustomerCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFrontdoorSecretSecretCustomerCertificate)(nil)).Elem()
+}
+
+func (i GetFrontdoorSecretSecretCustomerCertificateArgs) ToGetFrontdoorSecretSecretCustomerCertificateOutput() GetFrontdoorSecretSecretCustomerCertificateOutput {
+	return i.ToGetFrontdoorSecretSecretCustomerCertificateOutputWithContext(context.Background())
+}
+
+func (i GetFrontdoorSecretSecretCustomerCertificateArgs) ToGetFrontdoorSecretSecretCustomerCertificateOutputWithContext(ctx context.Context) GetFrontdoorSecretSecretCustomerCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFrontdoorSecretSecretCustomerCertificateOutput)
+}
+
+// GetFrontdoorSecretSecretCustomerCertificateArrayInput is an input type that accepts GetFrontdoorSecretSecretCustomerCertificateArray and GetFrontdoorSecretSecretCustomerCertificateArrayOutput values.
+// You can construct a concrete instance of `GetFrontdoorSecretSecretCustomerCertificateArrayInput` via:
+//
+//	GetFrontdoorSecretSecretCustomerCertificateArray{ GetFrontdoorSecretSecretCustomerCertificateArgs{...} }
+type GetFrontdoorSecretSecretCustomerCertificateArrayInput interface {
+	pulumi.Input
+
+	ToGetFrontdoorSecretSecretCustomerCertificateArrayOutput() GetFrontdoorSecretSecretCustomerCertificateArrayOutput
+	ToGetFrontdoorSecretSecretCustomerCertificateArrayOutputWithContext(context.Context) GetFrontdoorSecretSecretCustomerCertificateArrayOutput
+}
+
+type GetFrontdoorSecretSecretCustomerCertificateArray []GetFrontdoorSecretSecretCustomerCertificateInput
+
+func (GetFrontdoorSecretSecretCustomerCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFrontdoorSecretSecretCustomerCertificate)(nil)).Elem()
+}
+
+func (i GetFrontdoorSecretSecretCustomerCertificateArray) ToGetFrontdoorSecretSecretCustomerCertificateArrayOutput() GetFrontdoorSecretSecretCustomerCertificateArrayOutput {
+	return i.ToGetFrontdoorSecretSecretCustomerCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i GetFrontdoorSecretSecretCustomerCertificateArray) ToGetFrontdoorSecretSecretCustomerCertificateArrayOutputWithContext(ctx context.Context) GetFrontdoorSecretSecretCustomerCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFrontdoorSecretSecretCustomerCertificateArrayOutput)
+}
+
+type GetFrontdoorSecretSecretCustomerCertificateOutput struct{ *pulumi.OutputState }
+
+func (GetFrontdoorSecretSecretCustomerCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFrontdoorSecretSecretCustomerCertificate)(nil)).Elem()
+}
+
+func (o GetFrontdoorSecretSecretCustomerCertificateOutput) ToGetFrontdoorSecretSecretCustomerCertificateOutput() GetFrontdoorSecretSecretCustomerCertificateOutput {
+	return o
+}
+
+func (o GetFrontdoorSecretSecretCustomerCertificateOutput) ToGetFrontdoorSecretSecretCustomerCertificateOutputWithContext(ctx context.Context) GetFrontdoorSecretSecretCustomerCertificateOutput {
+	return o
+}
+
+// The key vault certificate ID.
+func (o GetFrontdoorSecretSecretCustomerCertificateOutput) KeyVaultCertificateId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFrontdoorSecretSecretCustomerCertificate) string { return v.KeyVaultCertificateId }).(pulumi.StringOutput)
+}
+
+// One or more `subject alternative names` contained within the key vault certificate.
+func (o GetFrontdoorSecretSecretCustomerCertificateOutput) SubjectAlternativeNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFrontdoorSecretSecretCustomerCertificate) []string { return v.SubjectAlternativeNames }).(pulumi.StringArrayOutput)
+}
+
+type GetFrontdoorSecretSecretCustomerCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFrontdoorSecretSecretCustomerCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFrontdoorSecretSecretCustomerCertificate)(nil)).Elem()
+}
+
+func (o GetFrontdoorSecretSecretCustomerCertificateArrayOutput) ToGetFrontdoorSecretSecretCustomerCertificateArrayOutput() GetFrontdoorSecretSecretCustomerCertificateArrayOutput {
+	return o
+}
+
+func (o GetFrontdoorSecretSecretCustomerCertificateArrayOutput) ToGetFrontdoorSecretSecretCustomerCertificateArrayOutputWithContext(ctx context.Context) GetFrontdoorSecretSecretCustomerCertificateArrayOutput {
+	return o
+}
+
+func (o GetFrontdoorSecretSecretCustomerCertificateArrayOutput) Index(i pulumi.IntInput) GetFrontdoorSecretSecretCustomerCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFrontdoorSecretSecretCustomerCertificate {
+		return vs[0].([]GetFrontdoorSecretSecretCustomerCertificate)[vs[1].(int)]
+	}).(GetFrontdoorSecretSecretCustomerCertificateOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointCustomDomainCdnManagedHttpsInput)(nil)).Elem(), EndpointCustomDomainCdnManagedHttpsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointCustomDomainCdnManagedHttpsPtrInput)(nil)).Elem(), EndpointCustomDomainCdnManagedHttpsArgs{})
@@ -12052,6 +12257,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorOriginGroupHealthProbeArrayInput)(nil)).Elem(), GetFrontdoorOriginGroupHealthProbeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorOriginGroupLoadBalancingInput)(nil)).Elem(), GetFrontdoorOriginGroupLoadBalancingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorOriginGroupLoadBalancingArrayInput)(nil)).Elem(), GetFrontdoorOriginGroupLoadBalancingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorSecretSecretInput)(nil)).Elem(), GetFrontdoorSecretSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorSecretSecretArrayInput)(nil)).Elem(), GetFrontdoorSecretSecretArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorSecretSecretCustomerCertificateInput)(nil)).Elem(), GetFrontdoorSecretSecretCustomerCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorSecretSecretCustomerCertificateArrayInput)(nil)).Elem(), GetFrontdoorSecretSecretCustomerCertificateArray{})
 	pulumi.RegisterOutputType(EndpointCustomDomainCdnManagedHttpsOutput{})
 	pulumi.RegisterOutputType(EndpointCustomDomainCdnManagedHttpsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointCustomDomainUserManagedHttpsOutput{})
@@ -12210,4 +12419,8 @@ func init() {
 	pulumi.RegisterOutputType(GetFrontdoorOriginGroupHealthProbeArrayOutput{})
 	pulumi.RegisterOutputType(GetFrontdoorOriginGroupLoadBalancingOutput{})
 	pulumi.RegisterOutputType(GetFrontdoorOriginGroupLoadBalancingArrayOutput{})
+	pulumi.RegisterOutputType(GetFrontdoorSecretSecretOutput{})
+	pulumi.RegisterOutputType(GetFrontdoorSecretSecretArrayOutput{})
+	pulumi.RegisterOutputType(GetFrontdoorSecretSecretCustomerCertificateOutput{})
+	pulumi.RegisterOutputType(GetFrontdoorSecretSecretCustomerCertificateArrayOutput{})
 }

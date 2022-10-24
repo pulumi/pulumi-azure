@@ -932,6 +932,7 @@ class SoftwareUpdateConfigurationSchedule(dict):
         :param bool is_enabled: Whether the schedule is enabled.
         :param Sequence['SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs'] monthly_occurrences: List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
         :param str start_time: Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
+        :param str time_zone: The timezone of the start time. Defaults to `UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
         """
         if advanced_month_days is not None:
             pulumi.set(__self__, "advanced_month_days", advanced_month_days)
@@ -1071,6 +1072,9 @@ class SoftwareUpdateConfigurationSchedule(dict):
     @property
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> Optional[str]:
+        """
+        The timezone of the start time. Defaults to `UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
+        """
         return pulumi.get(self, "time_zone")
 
 

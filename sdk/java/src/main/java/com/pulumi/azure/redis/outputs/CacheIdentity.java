@@ -13,21 +13,21 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CacheIdentity {
     /**
-     * @return A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
+     * @return A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
      * 
      */
     private @Nullable List<String> identityIds;
     private @Nullable String principalId;
     private @Nullable String tenantId;
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+     * @return Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
      * 
      */
     private String type;
 
     private CacheIdentity() {}
     /**
-     * @return A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
+     * @return A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
      * 
      */
     public List<String> identityIds() {
@@ -40,7 +40,7 @@ public final class CacheIdentity {
         return Optional.ofNullable(this.tenantId);
     }
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+     * @return Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
      * 
      */
     public String type() {

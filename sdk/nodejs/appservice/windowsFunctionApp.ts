@@ -95,6 +95,10 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
      */
     public readonly clientCertificateEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Paths to exclude when using client certificates, separated by ;
+     */
+    public readonly clientCertificateExclusionPaths!: pulumi.Output<string | undefined>;
+    /**
      * The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
      */
     public readonly clientCertificateMode!: pulumi.Output<string | undefined>;
@@ -229,6 +233,7 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
             resourceInputs["backup"] = state ? state.backup : undefined;
             resourceInputs["builtinLoggingEnabled"] = state ? state.builtinLoggingEnabled : undefined;
             resourceInputs["clientCertificateEnabled"] = state ? state.clientCertificateEnabled : undefined;
+            resourceInputs["clientCertificateExclusionPaths"] = state ? state.clientCertificateExclusionPaths : undefined;
             resourceInputs["clientCertificateMode"] = state ? state.clientCertificateMode : undefined;
             resourceInputs["connectionStrings"] = state ? state.connectionStrings : undefined;
             resourceInputs["contentShareForceDisabled"] = state ? state.contentShareForceDisabled : undefined;
@@ -274,6 +279,7 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
             resourceInputs["backup"] = args ? args.backup : undefined;
             resourceInputs["builtinLoggingEnabled"] = args ? args.builtinLoggingEnabled : undefined;
             resourceInputs["clientCertificateEnabled"] = args ? args.clientCertificateEnabled : undefined;
+            resourceInputs["clientCertificateExclusionPaths"] = args ? args.clientCertificateExclusionPaths : undefined;
             resourceInputs["clientCertificateMode"] = args ? args.clientCertificateMode : undefined;
             resourceInputs["connectionStrings"] = args ? args.connectionStrings : undefined;
             resourceInputs["contentShareForceDisabled"] = args ? args.contentShareForceDisabled : undefined;
@@ -333,6 +339,10 @@ export interface WindowsFunctionAppState {
      * Should the function app use Client Certificates.
      */
     clientCertificateEnabled?: pulumi.Input<boolean>;
+    /**
+     * Paths to exclude when using client certificates, separated by ;
+     */
+    clientCertificateExclusionPaths?: pulumi.Input<string>;
     /**
      * The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
      */
@@ -475,6 +485,10 @@ export interface WindowsFunctionAppArgs {
      * Should the function app use Client Certificates.
      */
     clientCertificateEnabled?: pulumi.Input<boolean>;
+    /**
+     * Paths to exclude when using client certificates, separated by ;
+     */
+    clientCertificateExclusionPaths?: pulumi.Input<string>;
     /**
      * The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
      */

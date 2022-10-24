@@ -170,6 +170,20 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.clientCertificateEnabled);
     }
     /**
+     * Paths to exclude when using client certificates, separated by ;
+     * 
+     */
+    @Export(name="clientCertificateExclusionPaths", type=String.class, parameters={})
+    private Output</* @Nullable */ String> clientCertificateExclusionPaths;
+
+    /**
+     * @return Paths to exclude when using client certificates, separated by ;
+     * 
+     */
+    public Output<Optional<String>> clientCertificateExclusionPaths() {
+        return Codegen.optional(this.clientCertificateExclusionPaths);
+    }
+    /**
      * The mode of the Function App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
      * 
      */

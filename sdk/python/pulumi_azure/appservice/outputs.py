@@ -6937,7 +6937,7 @@ class LinuxFunctionAppSiteConfig(dict):
         :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
         :param int pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on an Elastic Premium plan.
         :param bool remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
-        :param str remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`.
+        :param str remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`.
         :param bool runtime_scale_monitoring_enabled: Should Scale Monitoring of the Functions Runtime be enabled?
         :param Sequence['LinuxFunctionAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param str scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
@@ -7226,7 +7226,7 @@ class LinuxFunctionAppSiteConfig(dict):
     @pulumi.getter(name="remoteDebuggingVersion")
     def remote_debugging_version(self) -> Optional[str]:
         """
-        The Remote Debugging Version. Possible values include `VS2017` and `VS2019`.
+        The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`.
         """
         return pulumi.get(self, "remote_debugging_version")
 
@@ -9139,7 +9139,7 @@ class LinuxFunctionAppSlotSiteConfig(dict):
         :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
         :param int pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on an Elastic Premium plan.
         :param bool remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
-        :param str remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+        :param str remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`
         :param bool runtime_scale_monitoring_enabled: Should Functions Runtime Scale Monitoring be enabled.
         :param Sequence['LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: a `scm_ip_restriction` block as detailed below.
         :param str scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
@@ -9445,7 +9445,7 @@ class LinuxFunctionAppSlotSiteConfig(dict):
     @pulumi.getter(name="remoteDebuggingVersion")
     def remote_debugging_version(self) -> Optional[str]:
         """
-        The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+        The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`
         """
         return pulumi.get(self, "remote_debugging_version")
 
@@ -19492,7 +19492,7 @@ class WindowsFunctionAppSiteConfig(dict):
         :param str minimum_tls_version: Configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
         :param int pre_warmed_instance_count: The number of pre-warmed instances for this Windows Function App. Only affects apps on an Elastic Premium plan.
         :param bool remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
-        :param str remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`.
+        :param str remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`.
         :param bool runtime_scale_monitoring_enabled: Should Scale Monitoring of the Functions Runtime be enabled?
         :param Sequence['WindowsFunctionAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param str scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
@@ -19756,7 +19756,7 @@ class WindowsFunctionAppSiteConfig(dict):
     @pulumi.getter(name="remoteDebuggingVersion")
     def remote_debugging_version(self) -> Optional[str]:
         """
-        The Remote Debugging Version. Possible values include `VS2017` and `VS2019`.
+        The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`.
         """
         return pulumi.get(self, "remote_debugging_version")
 
@@ -21550,7 +21550,7 @@ class WindowsFunctionAppSlotSiteConfig(dict):
         :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
         :param int pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on an Elastic Premium plan.
         :param bool remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
-        :param str remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+        :param str remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`
         :param bool runtime_scale_monitoring_enabled: Should Scale Monitoring of the Functions Runtime be enabled?
         :param Sequence['WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: a `scm_ip_restriction` block as detailed below.
         :param str scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
@@ -21829,7 +21829,7 @@ class WindowsFunctionAppSlotSiteConfig(dict):
     @pulumi.getter(name="remoteDebuggingVersion")
     def remote_debugging_version(self) -> Optional[str]:
         """
-        The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+        The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`
         """
         return pulumi.get(self, "remote_debugging_version")
 
