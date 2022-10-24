@@ -1069,7 +1069,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_gallery_application_version": {Tok: azureResource(azureCompute, "GalleryApplicationVersion")},
 
 			// DataBricks
-			"azurerm_databricks_workspace": {Tok: azureResource(azureDataBricks, "Workspace")},
+			"azurerm_databricks_access_connector": {Tok: azureResource(azureDataBricks, "AccessConnector")},
+			"azurerm_databricks_workspace":        {Tok: azureResource(azureDataBricks, "Workspace")},
 			"azurerm_databricks_workspace_customer_managed_key": {
 				Tok: azureResource(azureDataBricks, "WorkspaceCustomerManagedKey"),
 			},
@@ -2291,20 +2292,35 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_sentinel_data_connector_azure_active_directory": {
 				Tok: azureResource(azureSentinel, "DataConnectorAzureActiveDirectory"),
 			},
-			"azurerm_sentinel_data_connector_office_365": {
-				Tok: azureResource(azureSentinel, "DataConnectorOffice365"),
-			},
-			"azurerm_sentinel_data_connector_office_atp": {
-				Tok: azureResource(azureSentinel, "DataConnectorOfficeAtp"),
-			},
-			"azurerm_sentinel_data_connector_threat_intelligence": {
-				Tok: azureResource(azureSentinel, "DataConnectorThreatIntelligence"),
-			},
 			"azurerm_sentinel_data_connector_azure_advanced_threat_protection": {
 				Tok: azureResource(azureSentinel, "DataConnectorAzureAdvancedThreadProtection"),
 			},
 			"azurerm_sentinel_data_connector_azure_security_center": {
 				Tok: azureResource(azureSentinel, "DataConnectorAzureSecurityCenter"),
+			},
+			"azurerm_sentinel_data_connector_dynamics_365": {
+				Tok: azureResource(azureSentinel, "DataConnectorDynamics365"),
+			},
+			"azurerm_sentinel_data_connector_iot": {
+				Tok: azureResource(azureSentinel, "DataConnectorIot"),
+			},
+			"azurerm_sentinel_data_connector_office_365": {
+				Tok: azureResource(azureSentinel, "DataConnectorOffice365"),
+			},
+			"azurerm_sentinel_data_connector_office_365_project": {
+				Tok: azureResource(azureSentinel, "DataConnectorOffice365Project"),
+			},
+			"azurerm_sentinel_data_connector_office_atp": {
+				Tok: azureResource(azureSentinel, "DataConnectorOfficeAtp"),
+			},
+			"azurerm_sentinel_data_connector_office_irm": {
+				Tok: azureResource(azureSentinel, "DataConnectorOfficeIrm"),
+			},
+			"azurerm_sentinel_data_connector_office_power_bi": {
+				Tok: azureResource(azureSentinel, "DataConnectorOfficePowerBi"),
+			},
+			"azurerm_sentinel_data_connector_threat_intelligence": {
+				Tok: azureResource(azureSentinel, "DataConnectorThreatIntelligence"),
 			},
 			"azurerm_sentinel_data_connector_microsoft_cloud_app_security": {
 				Tok: azureResource(azureSentinel, "DataConnectorMicrosoftCloudAppSecurity"),
@@ -2512,11 +2528,13 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_subscriptions":      {Tok: azureDataSource(azureCore, "getSubscriptions")},
 			"azurerm_extended_locations": {Tok: azureDataSource(azureCore, "getExtendedLocations")},
 
-			"azurerm_cdn_profile":                           {Tok: azureDataSource(azureCDN, "getProfile")},
-			"azurerm_cdn_frontdoor_endpoint":                {Tok: azureDataSource(azureCDN, "getFrontdoorEndpoint")},
-			"azurerm_cdn_frontdoor_profile":                 {Tok: azureDataSource(azureCDN, "getFrontdoorProfile")},
-			"azurerm_cdn_frontdoor_rule_set":                {Tok: azureDataSource(azureCDN, "getFrontdoorRuleSet")},
-			"azurerm_cdn_frontdoor_origin_group":            {Tok: azureDataSource(azureCDN, "getFrontdoorOriginGroup")},
+			"azurerm_cdn_profile":                {Tok: azureDataSource(azureCDN, "getProfile")},
+			"azurerm_cdn_frontdoor_endpoint":     {Tok: azureDataSource(azureCDN, "getFrontdoorEndpoint")},
+			"azurerm_cdn_frontdoor_profile":      {Tok: azureDataSource(azureCDN, "getFrontdoorProfile")},
+			"azurerm_cdn_frontdoor_rule_set":     {Tok: azureDataSource(azureCDN, "getFrontdoorRuleSet")},
+			"azurerm_cdn_frontdoor_origin_group": {Tok: azureDataSource(azureCDN, "getFrontdoorOriginGroup")},
+			"azurerm_cdn_frontdoor_secret":       {Tok: azureDataSource(azureCDN, "getFrontdoorSecret")},
+
 			"azurerm_client_config":                         {Tok: azureDataSource(azureCore, "getClientConfig")},
 			"azurerm_container_registry":                    {Tok: azureDataSource(azureContainerService, "getRegistry")},
 			"azurerm_cosmosdb_account":                      {Tok: azureDataSource(azureCosmosDB, "getAccount")},
