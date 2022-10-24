@@ -54,7 +54,7 @@ type Database struct {
 	RequestedServiceObjectiveName pulumi.StringOutput `pulumi:"requestedServiceObjectiveName"`
 	// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore` e.g. 2013-11-08T22:00:40Z
+	// The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore`, it should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
 	RestorePointInTime pulumi.StringOutput `pulumi:"restorePointInTime"`
 	// The name of the SQL Server on which to create the database.
 	ServerName pulumi.StringOutput `pulumi:"serverName"`
@@ -136,7 +136,7 @@ type databaseState struct {
 	RequestedServiceObjectiveName *string `pulumi:"requestedServiceObjectiveName"`
 	// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore` e.g. 2013-11-08T22:00:40Z
+	// The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore`, it should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
 	RestorePointInTime *string `pulumi:"restorePointInTime"`
 	// The name of the SQL Server on which to create the database.
 	ServerName *string `pulumi:"serverName"`
@@ -184,7 +184,7 @@ type DatabaseState struct {
 	RequestedServiceObjectiveName pulumi.StringPtrInput
 	// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
 	ResourceGroupName pulumi.StringPtrInput
-	// The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore` e.g. 2013-11-08T22:00:40Z
+	// The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore`, it should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
 	RestorePointInTime pulumi.StringPtrInput
 	// The name of the SQL Server on which to create the database.
 	ServerName pulumi.StringPtrInput
@@ -231,7 +231,7 @@ type databaseArgs struct {
 	RequestedServiceObjectiveName *string `pulumi:"requestedServiceObjectiveName"`
 	// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore` e.g. 2013-11-08T22:00:40Z
+	// The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore`, it should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
 	RestorePointInTime *string `pulumi:"restorePointInTime"`
 	// The name of the SQL Server on which to create the database.
 	ServerName string `pulumi:"serverName"`
@@ -275,7 +275,7 @@ type DatabaseArgs struct {
 	RequestedServiceObjectiveName pulumi.StringPtrInput
 	// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
 	ResourceGroupName pulumi.StringInput
-	// The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore` e.g. 2013-11-08T22:00:40Z
+	// The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore`, it should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
 	RestorePointInTime pulumi.StringPtrInput
 	// The name of the SQL Server on which to create the database.
 	ServerName pulumi.StringInput
@@ -457,7 +457,7 @@ func (o DatabaseOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore` e.g. 2013-11-08T22:00:40Z
+// The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore`, it should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
 func (o DatabaseOutput) RestorePointInTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.RestorePointInTime }).(pulumi.StringOutput)
 }

@@ -85,16 +85,16 @@ type LookupAccountResult struct {
 	Name     string `pulumi:"name"`
 	// The Offer Type to used by this CosmosDB Account.
 	OfferType string `pulumi:"offerType"`
-	// The Primary key for the CosmosDB Account.
+	// The primary key for the CosmosDB account.
 	PrimaryKey string `pulumi:"primaryKey"`
-	// The Primary read-only Key for the CosmosDB Account.
+	// The primary read-only Key for the CosmosDB account.
 	PrimaryReadonlyKey string `pulumi:"primaryReadonlyKey"`
 	// A list of read endpoints available for this CosmosDB account.
 	ReadEndpoints     []string `pulumi:"readEndpoints"`
 	ResourceGroupName string   `pulumi:"resourceGroupName"`
-	// The Secondary key for the CosmosDB Account.
+	// The secondary key for the CosmosDB account.
 	SecondaryKey string `pulumi:"secondaryKey"`
-	// The Secondary read-only key for the CosmosDB Account.
+	// The secondary read-only key for the CosmosDB account.
 	SecondaryReadonlyKey string `pulumi:"secondaryReadonlyKey"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -216,12 +216,12 @@ func (o LookupAccountResultOutput) OfferType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.OfferType }).(pulumi.StringOutput)
 }
 
-// The Primary key for the CosmosDB Account.
+// The primary key for the CosmosDB account.
 func (o LookupAccountResultOutput) PrimaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryKey }).(pulumi.StringOutput)
 }
 
-// The Primary read-only Key for the CosmosDB Account.
+// The primary read-only Key for the CosmosDB account.
 func (o LookupAccountResultOutput) PrimaryReadonlyKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryReadonlyKey }).(pulumi.StringOutput)
 }
@@ -235,12 +235,12 @@ func (o LookupAccountResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The Secondary key for the CosmosDB Account.
+// The secondary key for the CosmosDB account.
 func (o LookupAccountResultOutput) SecondaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryKey }).(pulumi.StringOutput)
 }
 
-// The Secondary read-only key for the CosmosDB Account.
+// The secondary read-only key for the CosmosDB account.
 func (o LookupAccountResultOutput) SecondaryReadonlyKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryReadonlyKey }).(pulumi.StringOutput)
 }

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Azure App Configuration.
-//
 // ## Example Usage
 //
 // ```go
@@ -38,6 +36,145 @@ import (
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Encryption)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appconfiguration"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+//				Location:                exampleResourceGroup.Location,
+//				ResourceGroupName:       exampleResourceGroup.Name,
+//				TenantId:                pulumi.String(current.TenantId),
+//				SkuName:                 pulumi.String("standard"),
+//				SoftDeleteRetentionDays: pulumi.Int(7),
+//				PurgeProtectionEnabled:  pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			server, err := keyvault.NewAccessPolicy(ctx, "server", &keyvault.AccessPolicyArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				TenantId:   pulumi.String(current.TenantId),
+//				ObjectId:   exampleUserAssignedIdentity.PrincipalId,
+//				KeyPermissions: pulumi.StringArray{
+//					pulumi.String("Get"),
+//					pulumi.String("UnwrapKey"),
+//					pulumi.String("WrapKey"),
+//				},
+//				SecretPermissions: pulumi.StringArray{
+//					pulumi.String("Get"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			client, err := keyvault.NewAccessPolicy(ctx, "client", &keyvault.AccessPolicyArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				TenantId:   pulumi.String(current.TenantId),
+//				ObjectId:   pulumi.String(current.ObjectId),
+//				KeyPermissions: pulumi.StringArray{
+//					pulumi.String("Get"),
+//					pulumi.String("Create"),
+//					pulumi.String("Delete"),
+//					pulumi.String("List"),
+//					pulumi.String("Restore"),
+//					pulumi.String("Recover"),
+//					pulumi.String("UnwrapKey"),
+//					pulumi.String("WrapKey"),
+//					pulumi.String("Purge"),
+//					pulumi.String("Encrypt"),
+//					pulumi.String("Decrypt"),
+//					pulumi.String("Sign"),
+//					pulumi.String("Verify"),
+//				},
+//				SecretPermissions: pulumi.StringArray{
+//					pulumi.String("Get"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKey, err := keyvault.NewKey(ctx, "exampleKey", &keyvault.KeyArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyType:    pulumi.String("RSA"),
+//				KeySize:    pulumi.Int(2048),
+//				KeyOpts: pulumi.StringArray{
+//					pulumi.String("decrypt"),
+//					pulumi.String("encrypt"),
+//					pulumi.String("sign"),
+//					pulumi.String("unwrapKey"),
+//					pulumi.String("verify"),
+//					pulumi.String("wrapKey"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				client,
+//				server,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appconfiguration.NewConfigurationStore(ctx, "exampleConfigurationStore", &appconfiguration.ConfigurationStoreArgs{
+//				ResourceGroupName:       exampleResourceGroup.Name,
+//				Location:                exampleResourceGroup.Location,
+//				Sku:                     pulumi.String("standard"),
+//				LocalAuthEnabled:        pulumi.Bool(true),
+//				PublicNetworkAccess:     pulumi.String("Enabled"),
+//				PurgeProtectionEnabled:  pulumi.Bool(false),
+//				SoftDeleteRetentionDays: pulumi.Int(1),
+//				Identity: &appconfiguration.ConfigurationStoreIdentityArgs{
+//					Type: pulumi.String("UserAssigned"),
+//					IdentityIds: pulumi.StringArray{
+//						exampleUserAssignedIdentity.ID(),
+//					},
+//				},
+//				Encryption: &appconfiguration.ConfigurationStoreEncryptionArgs{
+//					KeyVaultKeyIdentifier: exampleKey.ID(),
+//					IdentityClientId:      exampleUserAssignedIdentity.ClientId,
+//				},
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("development"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				client,
+//				server,
+//			}))
 //			if err != nil {
 //				return err
 //			}

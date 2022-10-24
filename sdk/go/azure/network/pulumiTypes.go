@@ -10345,8 +10345,8 @@ func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionArrayOutput) Index(i p
 type FirewallPolicyRuleCollectionGroupNatRuleCollectionRule struct {
 	// The destination IP address (including CIDR).
 	DestinationAddress *string `pulumi:"destinationAddress"`
-	// Specifies a list of destination ports.
-	DestinationPorts []string `pulumi:"destinationPorts"`
+	// Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
+	DestinationPorts *string `pulumi:"destinationPorts"`
 	// The name which should be used for this rule.
 	Name string `pulumi:"name"`
 	// Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
@@ -10377,8 +10377,8 @@ type FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleInput interface {
 type FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs struct {
 	// The destination IP address (including CIDR).
 	DestinationAddress pulumi.StringPtrInput `pulumi:"destinationAddress"`
-	// Specifies a list of destination ports.
-	DestinationPorts pulumi.StringArrayInput `pulumi:"destinationPorts"`
+	// Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
+	DestinationPorts pulumi.StringPtrInput `pulumi:"destinationPorts"`
 	// The name which should be used for this rule.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
@@ -10451,9 +10451,9 @@ func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) Destinatio
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollectionRule) *string { return v.DestinationAddress }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a list of destination ports.
-func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) DestinationPorts() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollectionRule) []string { return v.DestinationPorts }).(pulumi.StringArrayOutput)
+// Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
+func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) DestinationPorts() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollectionRule) *string { return v.DestinationPorts }).(pulumi.StringPtrOutput)
 }
 
 // The name which should be used for this rule.
@@ -10644,7 +10644,7 @@ type FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule struct {
 	DestinationFqdns []string `pulumi:"destinationFqdns"`
 	// Specifies a list of destination IP groups.
 	DestinationIpGroups []string `pulumi:"destinationIpGroups"`
-	// Specifies a list of destination ports.
+	// Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
 	DestinationPorts []string `pulumi:"destinationPorts"`
 	// The name which should be used for this rule.
 	Name string `pulumi:"name"`
@@ -10674,7 +10674,7 @@ type FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs struct {
 	DestinationFqdns pulumi.StringArrayInput `pulumi:"destinationFqdns"`
 	// Specifies a list of destination IP groups.
 	DestinationIpGroups pulumi.StringArrayInput `pulumi:"destinationIpGroups"`
-	// Specifies a list of destination ports.
+	// Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
 	DestinationPorts pulumi.StringArrayInput `pulumi:"destinationPorts"`
 	// The name which should be used for this rule.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -10756,7 +10756,7 @@ func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput) Destin
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies a list of destination ports.
+// Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
 func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput) DestinationPorts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule) []string { return v.DestinationPorts }).(pulumi.StringArrayOutput)
 }
@@ -15440,7 +15440,7 @@ func (o SubnetDelegationArrayOutput) Index(i pulumi.IntInput) SubnetDelegationOu
 type SubnetDelegationServiceDelegation struct {
 	// A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/publicIPAddresses/read`,`Microsoft.Network/virtualNetworks/read`,`Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
 	Actions []string `pulumi:"actions"`
-	// The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments` and `PaloAltoNetworks.Cloudngfw/firewalls`.
+	// The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.LabServices/labplans`,`Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments` and `PaloAltoNetworks.Cloudngfw/firewalls`.
 	Name string `pulumi:"name"`
 }
 
@@ -15458,7 +15458,7 @@ type SubnetDelegationServiceDelegationInput interface {
 type SubnetDelegationServiceDelegationArgs struct {
 	// A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/publicIPAddresses/read`,`Microsoft.Network/virtualNetworks/read`,`Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
 	Actions pulumi.StringArrayInput `pulumi:"actions"`
-	// The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments` and `PaloAltoNetworks.Cloudngfw/firewalls`.
+	// The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.LabServices/labplans`,`Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments` and `PaloAltoNetworks.Cloudngfw/firewalls`.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -15493,7 +15493,7 @@ func (o SubnetDelegationServiceDelegationOutput) Actions() pulumi.StringArrayOut
 	return o.ApplyT(func(v SubnetDelegationServiceDelegation) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
-// The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments` and `PaloAltoNetworks.Cloudngfw/firewalls`.
+// The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.LabServices/labplans`,`Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments` and `PaloAltoNetworks.Cloudngfw/firewalls`.
 func (o SubnetDelegationServiceDelegationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SubnetDelegationServiceDelegation) string { return v.Name }).(pulumi.StringOutput)
 }

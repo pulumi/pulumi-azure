@@ -133,7 +133,7 @@ type Database struct {
 	ShortTermRetentionPolicy DatabaseShortTermRetentionPolicyOutput `pulumi:"shortTermRetentionPolicy"`
 	// Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
-	// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`.  The default value is `Geo`.
+	// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
 	StorageAccountType pulumi.StringPtrOutput `pulumi:"storageAccountType"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -223,7 +223,7 @@ type databaseState struct {
 	ShortTermRetentionPolicy *DatabaseShortTermRetentionPolicy `pulumi:"shortTermRetentionPolicy"`
 	// Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
 	SkuName *string `pulumi:"skuName"`
-	// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`.  The default value is `Geo`.
+	// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
 	StorageAccountType *string `pulumi:"storageAccountType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -282,7 +282,7 @@ type DatabaseState struct {
 	ShortTermRetentionPolicy DatabaseShortTermRetentionPolicyPtrInput
 	// Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
 	SkuName pulumi.StringPtrInput
-	// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`.  The default value is `Geo`.
+	// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
 	StorageAccountType pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -345,7 +345,7 @@ type databaseArgs struct {
 	ShortTermRetentionPolicy *DatabaseShortTermRetentionPolicy `pulumi:"shortTermRetentionPolicy"`
 	// Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
 	SkuName *string `pulumi:"skuName"`
-	// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`.  The default value is `Geo`.
+	// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
 	StorageAccountType *string `pulumi:"storageAccountType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -405,7 +405,7 @@ type DatabaseArgs struct {
 	ShortTermRetentionPolicy DatabaseShortTermRetentionPolicyPtrInput
 	// Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
 	SkuName pulumi.StringPtrInput
-	// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`.  The default value is `Geo`.
+	// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
 	StorageAccountType pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -619,7 +619,7 @@ func (o DatabaseOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }
 
-// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`.  The default value is `Geo`.
+// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
 func (o DatabaseOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.StorageAccountType }).(pulumi.StringPtrOutput)
 }

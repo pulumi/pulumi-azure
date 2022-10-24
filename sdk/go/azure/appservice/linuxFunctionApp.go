@@ -92,6 +92,8 @@ type LinuxFunctionApp struct {
 	BuiltinLoggingEnabled pulumi.BoolPtrOutput `pulumi:"builtinLoggingEnabled"`
 	// Should the function app use Client Certificates.
 	ClientCertificateEnabled pulumi.BoolPtrOutput `pulumi:"clientCertificateEnabled"`
+	// Paths to exclude when using client certificates, separated by ;
+	ClientCertificateExclusionPaths pulumi.StringPtrOutput `pulumi:"clientCertificateExclusionPaths"`
 	// The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
 	ClientCertificateMode pulumi.StringPtrOutput `pulumi:"clientCertificateMode"`
 	// One or more `connectionString` blocks as defined below.
@@ -200,6 +202,8 @@ type linuxFunctionAppState struct {
 	BuiltinLoggingEnabled *bool `pulumi:"builtinLoggingEnabled"`
 	// Should the function app use Client Certificates.
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
+	// Paths to exclude when using client certificates, separated by ;
+	ClientCertificateExclusionPaths *string `pulumi:"clientCertificateExclusionPaths"`
 	// The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
 	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
 	// One or more `connectionString` blocks as defined below.
@@ -271,6 +275,8 @@ type LinuxFunctionAppState struct {
 	BuiltinLoggingEnabled pulumi.BoolPtrInput
 	// Should the function app use Client Certificates.
 	ClientCertificateEnabled pulumi.BoolPtrInput
+	// Paths to exclude when using client certificates, separated by ;
+	ClientCertificateExclusionPaths pulumi.StringPtrInput
 	// The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
 	ClientCertificateMode pulumi.StringPtrInput
 	// One or more `connectionString` blocks as defined below.
@@ -346,6 +352,8 @@ type linuxFunctionAppArgs struct {
 	BuiltinLoggingEnabled *bool `pulumi:"builtinLoggingEnabled"`
 	// Should the function app use Client Certificates.
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
+	// Paths to exclude when using client certificates, separated by ;
+	ClientCertificateExclusionPaths *string `pulumi:"clientCertificateExclusionPaths"`
 	// The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
 	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
 	// One or more `connectionString` blocks as defined below.
@@ -402,6 +410,8 @@ type LinuxFunctionAppArgs struct {
 	BuiltinLoggingEnabled pulumi.BoolPtrInput
 	// Should the function app use Client Certificates.
 	ClientCertificateEnabled pulumi.BoolPtrInput
+	// Paths to exclude when using client certificates, separated by ;
+	ClientCertificateExclusionPaths pulumi.StringPtrInput
 	// The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
 	ClientCertificateMode pulumi.StringPtrInput
 	// One or more `connectionString` blocks as defined below.
@@ -556,6 +566,11 @@ func (o LinuxFunctionAppOutput) BuiltinLoggingEnabled() pulumi.BoolPtrOutput {
 // Should the function app use Client Certificates.
 func (o LinuxFunctionAppOutput) ClientCertificateEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionApp) pulumi.BoolPtrOutput { return v.ClientCertificateEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Paths to exclude when using client certificates, separated by ;
+func (o LinuxFunctionAppOutput) ClientCertificateExclusionPaths() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxFunctionApp) pulumi.StringPtrOutput { return v.ClientCertificateExclusionPaths }).(pulumi.StringPtrOutput)
 }
 
 // The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.

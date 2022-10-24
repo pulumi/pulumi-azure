@@ -158,7 +158,9 @@ type Account struct {
 	// The Primary key for the CosmosDB Account.
 	PrimaryKey pulumi.StringOutput `pulumi:"primaryKey"`
 	// The Primary read-only Key for the CosmosDB Account.
-	PrimaryReadonlyKey pulumi.StringOutput `pulumi:"primaryReadonlyKey"`
+	PrimaryReadonlyKey                 pulumi.StringOutput `pulumi:"primaryReadonlyKey"`
+	PrimaryReadonlySqlConnectionString pulumi.StringOutput `pulumi:"primaryReadonlySqlConnectionString"`
+	PrimarySqlConnectionString         pulumi.StringOutput `pulumi:"primarySqlConnectionString"`
 	// Whether or not public network access is allowed for this CosmosDB account.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// A list of read endpoints available for this CosmosDB account.
@@ -170,7 +172,9 @@ type Account struct {
 	// The Secondary key for the CosmosDB Account.
 	SecondaryKey pulumi.StringOutput `pulumi:"secondaryKey"`
 	// The Secondary read-only key for the CosmosDB Account.
-	SecondaryReadonlyKey pulumi.StringOutput `pulumi:"secondaryReadonlyKey"`
+	SecondaryReadonlyKey                 pulumi.StringOutput `pulumi:"secondaryReadonlyKey"`
+	SecondaryReadonlySqlConnectionString pulumi.StringOutput `pulumi:"secondaryReadonlySqlConnectionString"`
+	SecondarySqlConnectionString         pulumi.StringOutput `pulumi:"secondarySqlConnectionString"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
@@ -279,7 +283,9 @@ type accountState struct {
 	// The Primary key for the CosmosDB Account.
 	PrimaryKey *string `pulumi:"primaryKey"`
 	// The Primary read-only Key for the CosmosDB Account.
-	PrimaryReadonlyKey *string `pulumi:"primaryReadonlyKey"`
+	PrimaryReadonlyKey                 *string `pulumi:"primaryReadonlyKey"`
+	PrimaryReadonlySqlConnectionString *string `pulumi:"primaryReadonlySqlConnectionString"`
+	PrimarySqlConnectionString         *string `pulumi:"primarySqlConnectionString"`
 	// Whether or not public network access is allowed for this CosmosDB account.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// A list of read endpoints available for this CosmosDB account.
@@ -291,7 +297,9 @@ type accountState struct {
 	// The Secondary key for the CosmosDB Account.
 	SecondaryKey *string `pulumi:"secondaryKey"`
 	// The Secondary read-only key for the CosmosDB Account.
-	SecondaryReadonlyKey *string `pulumi:"secondaryReadonlyKey"`
+	SecondaryReadonlyKey                 *string `pulumi:"secondaryReadonlyKey"`
+	SecondaryReadonlySqlConnectionString *string `pulumi:"secondaryReadonlySqlConnectionString"`
+	SecondarySqlConnectionString         *string `pulumi:"secondarySqlConnectionString"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
@@ -360,7 +368,9 @@ type AccountState struct {
 	// The Primary key for the CosmosDB Account.
 	PrimaryKey pulumi.StringPtrInput
 	// The Primary read-only Key for the CosmosDB Account.
-	PrimaryReadonlyKey pulumi.StringPtrInput
+	PrimaryReadonlyKey                 pulumi.StringPtrInput
+	PrimaryReadonlySqlConnectionString pulumi.StringPtrInput
+	PrimarySqlConnectionString         pulumi.StringPtrInput
 	// Whether or not public network access is allowed for this CosmosDB account.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// A list of read endpoints available for this CosmosDB account.
@@ -372,7 +382,9 @@ type AccountState struct {
 	// The Secondary key for the CosmosDB Account.
 	SecondaryKey pulumi.StringPtrInput
 	// The Secondary read-only key for the CosmosDB Account.
-	SecondaryReadonlyKey pulumi.StringPtrInput
+	SecondaryReadonlyKey                 pulumi.StringPtrInput
+	SecondaryReadonlySqlConnectionString pulumi.StringPtrInput
+	SecondarySqlConnectionString         pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
@@ -753,6 +765,14 @@ func (o AccountOutput) PrimaryReadonlyKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryReadonlyKey }).(pulumi.StringOutput)
 }
 
+func (o AccountOutput) PrimaryReadonlySqlConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryReadonlySqlConnectionString }).(pulumi.StringOutput)
+}
+
+func (o AccountOutput) PrimarySqlConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimarySqlConnectionString }).(pulumi.StringOutput)
+}
+
 // Whether or not public network access is allowed for this CosmosDB account.
 func (o AccountOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
@@ -781,6 +801,14 @@ func (o AccountOutput) SecondaryKey() pulumi.StringOutput {
 // The Secondary read-only key for the CosmosDB Account.
 func (o AccountOutput) SecondaryReadonlyKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryReadonlyKey }).(pulumi.StringOutput)
+}
+
+func (o AccountOutput) SecondaryReadonlySqlConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryReadonlySqlConnectionString }).(pulumi.StringOutput)
+}
+
+func (o AccountOutput) SecondarySqlConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondarySqlConnectionString }).(pulumi.StringOutput)
 }
 
 // A mapping of tags to assign to the resource.

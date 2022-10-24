@@ -92,6 +92,8 @@ type WindowsFunctionApp struct {
 	BuiltinLoggingEnabled pulumi.BoolPtrOutput `pulumi:"builtinLoggingEnabled"`
 	// Should the function app use Client Certificates.
 	ClientCertificateEnabled pulumi.BoolPtrOutput `pulumi:"clientCertificateEnabled"`
+	// Paths to exclude when using client certificates, separated by ;
+	ClientCertificateExclusionPaths pulumi.StringPtrOutput `pulumi:"clientCertificateExclusionPaths"`
 	// The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
 	ClientCertificateMode pulumi.StringPtrOutput `pulumi:"clientCertificateMode"`
 	// One or more `connectionString` blocks as defined below.
@@ -200,6 +202,8 @@ type windowsFunctionAppState struct {
 	BuiltinLoggingEnabled *bool `pulumi:"builtinLoggingEnabled"`
 	// Should the function app use Client Certificates.
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
+	// Paths to exclude when using client certificates, separated by ;
+	ClientCertificateExclusionPaths *string `pulumi:"clientCertificateExclusionPaths"`
 	// The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
 	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
 	// One or more `connectionString` blocks as defined below.
@@ -271,6 +275,8 @@ type WindowsFunctionAppState struct {
 	BuiltinLoggingEnabled pulumi.BoolPtrInput
 	// Should the function app use Client Certificates.
 	ClientCertificateEnabled pulumi.BoolPtrInput
+	// Paths to exclude when using client certificates, separated by ;
+	ClientCertificateExclusionPaths pulumi.StringPtrInput
 	// The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
 	ClientCertificateMode pulumi.StringPtrInput
 	// One or more `connectionString` blocks as defined below.
@@ -346,6 +352,8 @@ type windowsFunctionAppArgs struct {
 	BuiltinLoggingEnabled *bool `pulumi:"builtinLoggingEnabled"`
 	// Should the function app use Client Certificates.
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
+	// Paths to exclude when using client certificates, separated by ;
+	ClientCertificateExclusionPaths *string `pulumi:"clientCertificateExclusionPaths"`
 	// The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
 	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
 	// One or more `connectionString` blocks as defined below.
@@ -402,6 +410,8 @@ type WindowsFunctionAppArgs struct {
 	BuiltinLoggingEnabled pulumi.BoolPtrInput
 	// Should the function app use Client Certificates.
 	ClientCertificateEnabled pulumi.BoolPtrInput
+	// Paths to exclude when using client certificates, separated by ;
+	ClientCertificateExclusionPaths pulumi.StringPtrInput
 	// The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
 	ClientCertificateMode pulumi.StringPtrInput
 	// One or more `connectionString` blocks as defined below.
@@ -556,6 +566,11 @@ func (o WindowsFunctionAppOutput) BuiltinLoggingEnabled() pulumi.BoolPtrOutput {
 // Should the function app use Client Certificates.
 func (o WindowsFunctionAppOutput) ClientCertificateEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsFunctionApp) pulumi.BoolPtrOutput { return v.ClientCertificateEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Paths to exclude when using client certificates, separated by ;
+func (o WindowsFunctionAppOutput) ClientCertificateExclusionPaths() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsFunctionApp) pulumi.StringPtrOutput { return v.ClientCertificateExclusionPaths }).(pulumi.StringPtrOutput)
 }
 
 // The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.

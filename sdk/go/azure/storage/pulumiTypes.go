@@ -1590,6 +1590,181 @@ func (o AccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type AccountImmutabilityPolicy struct {
+	// When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
+	AllowProtectedAppendWrites bool `pulumi:"allowProtectedAppendWrites"`
+	// The immutability period for the blobs in the container since the policy creation, in days.
+	PeriodSinceCreationInDays int `pulumi:"periodSinceCreationInDays"`
+	// Defines the mode of the policy. `Disabled` state disables the policy, `Unlocked` state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, `Locked` state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
+	State string `pulumi:"state"`
+}
+
+// AccountImmutabilityPolicyInput is an input type that accepts AccountImmutabilityPolicyArgs and AccountImmutabilityPolicyOutput values.
+// You can construct a concrete instance of `AccountImmutabilityPolicyInput` via:
+//
+//	AccountImmutabilityPolicyArgs{...}
+type AccountImmutabilityPolicyInput interface {
+	pulumi.Input
+
+	ToAccountImmutabilityPolicyOutput() AccountImmutabilityPolicyOutput
+	ToAccountImmutabilityPolicyOutputWithContext(context.Context) AccountImmutabilityPolicyOutput
+}
+
+type AccountImmutabilityPolicyArgs struct {
+	// When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
+	AllowProtectedAppendWrites pulumi.BoolInput `pulumi:"allowProtectedAppendWrites"`
+	// The immutability period for the blobs in the container since the policy creation, in days.
+	PeriodSinceCreationInDays pulumi.IntInput `pulumi:"periodSinceCreationInDays"`
+	// Defines the mode of the policy. `Disabled` state disables the policy, `Unlocked` state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, `Locked` state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
+	State pulumi.StringInput `pulumi:"state"`
+}
+
+func (AccountImmutabilityPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountImmutabilityPolicy)(nil)).Elem()
+}
+
+func (i AccountImmutabilityPolicyArgs) ToAccountImmutabilityPolicyOutput() AccountImmutabilityPolicyOutput {
+	return i.ToAccountImmutabilityPolicyOutputWithContext(context.Background())
+}
+
+func (i AccountImmutabilityPolicyArgs) ToAccountImmutabilityPolicyOutputWithContext(ctx context.Context) AccountImmutabilityPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountImmutabilityPolicyOutput)
+}
+
+func (i AccountImmutabilityPolicyArgs) ToAccountImmutabilityPolicyPtrOutput() AccountImmutabilityPolicyPtrOutput {
+	return i.ToAccountImmutabilityPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i AccountImmutabilityPolicyArgs) ToAccountImmutabilityPolicyPtrOutputWithContext(ctx context.Context) AccountImmutabilityPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountImmutabilityPolicyOutput).ToAccountImmutabilityPolicyPtrOutputWithContext(ctx)
+}
+
+// AccountImmutabilityPolicyPtrInput is an input type that accepts AccountImmutabilityPolicyArgs, AccountImmutabilityPolicyPtr and AccountImmutabilityPolicyPtrOutput values.
+// You can construct a concrete instance of `AccountImmutabilityPolicyPtrInput` via:
+//
+//	        AccountImmutabilityPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccountImmutabilityPolicyPtrInput interface {
+	pulumi.Input
+
+	ToAccountImmutabilityPolicyPtrOutput() AccountImmutabilityPolicyPtrOutput
+	ToAccountImmutabilityPolicyPtrOutputWithContext(context.Context) AccountImmutabilityPolicyPtrOutput
+}
+
+type accountImmutabilityPolicyPtrType AccountImmutabilityPolicyArgs
+
+func AccountImmutabilityPolicyPtr(v *AccountImmutabilityPolicyArgs) AccountImmutabilityPolicyPtrInput {
+	return (*accountImmutabilityPolicyPtrType)(v)
+}
+
+func (*accountImmutabilityPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountImmutabilityPolicy)(nil)).Elem()
+}
+
+func (i *accountImmutabilityPolicyPtrType) ToAccountImmutabilityPolicyPtrOutput() AccountImmutabilityPolicyPtrOutput {
+	return i.ToAccountImmutabilityPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *accountImmutabilityPolicyPtrType) ToAccountImmutabilityPolicyPtrOutputWithContext(ctx context.Context) AccountImmutabilityPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountImmutabilityPolicyPtrOutput)
+}
+
+type AccountImmutabilityPolicyOutput struct{ *pulumi.OutputState }
+
+func (AccountImmutabilityPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountImmutabilityPolicy)(nil)).Elem()
+}
+
+func (o AccountImmutabilityPolicyOutput) ToAccountImmutabilityPolicyOutput() AccountImmutabilityPolicyOutput {
+	return o
+}
+
+func (o AccountImmutabilityPolicyOutput) ToAccountImmutabilityPolicyOutputWithContext(ctx context.Context) AccountImmutabilityPolicyOutput {
+	return o
+}
+
+func (o AccountImmutabilityPolicyOutput) ToAccountImmutabilityPolicyPtrOutput() AccountImmutabilityPolicyPtrOutput {
+	return o.ToAccountImmutabilityPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o AccountImmutabilityPolicyOutput) ToAccountImmutabilityPolicyPtrOutputWithContext(ctx context.Context) AccountImmutabilityPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountImmutabilityPolicy) *AccountImmutabilityPolicy {
+		return &v
+	}).(AccountImmutabilityPolicyPtrOutput)
+}
+
+// When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
+func (o AccountImmutabilityPolicyOutput) AllowProtectedAppendWrites() pulumi.BoolOutput {
+	return o.ApplyT(func(v AccountImmutabilityPolicy) bool { return v.AllowProtectedAppendWrites }).(pulumi.BoolOutput)
+}
+
+// The immutability period for the blobs in the container since the policy creation, in days.
+func (o AccountImmutabilityPolicyOutput) PeriodSinceCreationInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v AccountImmutabilityPolicy) int { return v.PeriodSinceCreationInDays }).(pulumi.IntOutput)
+}
+
+// Defines the mode of the policy. `Disabled` state disables the policy, `Unlocked` state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, `Locked` state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
+func (o AccountImmutabilityPolicyOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountImmutabilityPolicy) string { return v.State }).(pulumi.StringOutput)
+}
+
+type AccountImmutabilityPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountImmutabilityPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountImmutabilityPolicy)(nil)).Elem()
+}
+
+func (o AccountImmutabilityPolicyPtrOutput) ToAccountImmutabilityPolicyPtrOutput() AccountImmutabilityPolicyPtrOutput {
+	return o
+}
+
+func (o AccountImmutabilityPolicyPtrOutput) ToAccountImmutabilityPolicyPtrOutputWithContext(ctx context.Context) AccountImmutabilityPolicyPtrOutput {
+	return o
+}
+
+func (o AccountImmutabilityPolicyPtrOutput) Elem() AccountImmutabilityPolicyOutput {
+	return o.ApplyT(func(v *AccountImmutabilityPolicy) AccountImmutabilityPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret AccountImmutabilityPolicy
+		return ret
+	}).(AccountImmutabilityPolicyOutput)
+}
+
+// When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
+func (o AccountImmutabilityPolicyPtrOutput) AllowProtectedAppendWrites() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccountImmutabilityPolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AllowProtectedAppendWrites
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The immutability period for the blobs in the container since the policy creation, in days.
+func (o AccountImmutabilityPolicyPtrOutput) PeriodSinceCreationInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AccountImmutabilityPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.PeriodSinceCreationInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// Defines the mode of the policy. `Disabled` state disables the policy, `Unlocked` state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, `Locked` state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
+func (o AccountImmutabilityPolicyPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountImmutabilityPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.State
+	}).(pulumi.StringPtrOutput)
+}
+
 type AccountNetworkRulesType struct {
 	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
 	// any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
@@ -4736,6 +4911,8 @@ type ManagementPolicyRuleActionsBaseBlob struct {
 	DeleteAfterDaysSinceModificationGreaterThan *int `pulumi:"deleteAfterDaysSinceModificationGreaterThan"`
 	// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between ` 0 and  `99999`.
 	TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan *int `pulumi:"tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan"`
+	// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+	TierToArchiveAfterDaysSinceLastTierChangeGreaterThan *int `pulumi:"tierToArchiveAfterDaysSinceLastTierChangeGreaterThan"`
 	// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
 	TierToArchiveAfterDaysSinceModificationGreaterThan *int `pulumi:"tierToArchiveAfterDaysSinceModificationGreaterThan"`
 	// The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`.
@@ -4762,6 +4939,8 @@ type ManagementPolicyRuleActionsBaseBlobArgs struct {
 	DeleteAfterDaysSinceModificationGreaterThan pulumi.IntPtrInput `pulumi:"deleteAfterDaysSinceModificationGreaterThan"`
 	// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between ` 0 and  `99999`.
 	TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan pulumi.IntPtrInput `pulumi:"tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan"`
+	// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+	TierToArchiveAfterDaysSinceLastTierChangeGreaterThan pulumi.IntPtrInput `pulumi:"tierToArchiveAfterDaysSinceLastTierChangeGreaterThan"`
 	// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
 	TierToArchiveAfterDaysSinceModificationGreaterThan pulumi.IntPtrInput `pulumi:"tierToArchiveAfterDaysSinceModificationGreaterThan"`
 	// The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`.
@@ -4866,6 +5045,13 @@ func (o ManagementPolicyRuleActionsBaseBlobOutput) TierToArchiveAfterDaysSinceLa
 	}).(pulumi.IntPtrOutput)
 }
 
+// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+func (o ManagementPolicyRuleActionsBaseBlobOutput) TierToArchiveAfterDaysSinceLastTierChangeGreaterThan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int {
+		return v.TierToArchiveAfterDaysSinceLastTierChangeGreaterThan
+	}).(pulumi.IntPtrOutput)
+}
+
 // The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
 func (o ManagementPolicyRuleActionsBaseBlobOutput) TierToArchiveAfterDaysSinceModificationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int {
@@ -4941,6 +5127,16 @@ func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) TierToArchiveAfterDaysSinc
 	}).(pulumi.IntPtrOutput)
 }
 
+// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) TierToArchiveAfterDaysSinceLastTierChangeGreaterThan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagementPolicyRuleActionsBaseBlob) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TierToArchiveAfterDaysSinceLastTierChangeGreaterThan
+	}).(pulumi.IntPtrOutput)
+}
+
 // The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
 func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) TierToArchiveAfterDaysSinceModificationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyRuleActionsBaseBlob) *int {
@@ -4978,6 +5174,8 @@ type ManagementPolicyRuleActionsSnapshot struct {
 	ChangeTierToCoolAfterDaysSinceCreation *int `pulumi:"changeTierToCoolAfterDaysSinceCreation"`
 	// The age in days after creation to delete the blob snapshot. Must be between 0 and 99999.
 	DeleteAfterDaysSinceCreationGreaterThan *int `pulumi:"deleteAfterDaysSinceCreationGreaterThan"`
+	// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+	TierToArchiveAfterDaysSinceLastTierChangeGreaterThan *int `pulumi:"tierToArchiveAfterDaysSinceLastTierChangeGreaterThan"`
 }
 
 // ManagementPolicyRuleActionsSnapshotInput is an input type that accepts ManagementPolicyRuleActionsSnapshotArgs and ManagementPolicyRuleActionsSnapshotOutput values.
@@ -4998,6 +5196,8 @@ type ManagementPolicyRuleActionsSnapshotArgs struct {
 	ChangeTierToCoolAfterDaysSinceCreation pulumi.IntPtrInput `pulumi:"changeTierToCoolAfterDaysSinceCreation"`
 	// The age in days after creation to delete the blob snapshot. Must be between 0 and 99999.
 	DeleteAfterDaysSinceCreationGreaterThan pulumi.IntPtrInput `pulumi:"deleteAfterDaysSinceCreationGreaterThan"`
+	// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+	TierToArchiveAfterDaysSinceLastTierChangeGreaterThan pulumi.IntPtrInput `pulumi:"tierToArchiveAfterDaysSinceLastTierChangeGreaterThan"`
 }
 
 func (ManagementPolicyRuleActionsSnapshotArgs) ElementType() reflect.Type {
@@ -5092,6 +5292,13 @@ func (o ManagementPolicyRuleActionsSnapshotOutput) DeleteAfterDaysSinceCreationG
 	return o.ApplyT(func(v ManagementPolicyRuleActionsSnapshot) *int { return v.DeleteAfterDaysSinceCreationGreaterThan }).(pulumi.IntPtrOutput)
 }
 
+// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+func (o ManagementPolicyRuleActionsSnapshotOutput) TierToArchiveAfterDaysSinceLastTierChangeGreaterThan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagementPolicyRuleActionsSnapshot) *int {
+		return v.TierToArchiveAfterDaysSinceLastTierChangeGreaterThan
+	}).(pulumi.IntPtrOutput)
+}
+
 type ManagementPolicyRuleActionsSnapshotPtrOutput struct{ *pulumi.OutputState }
 
 func (ManagementPolicyRuleActionsSnapshotPtrOutput) ElementType() reflect.Type {
@@ -5146,6 +5353,16 @@ func (o ManagementPolicyRuleActionsSnapshotPtrOutput) DeleteAfterDaysSinceCreati
 	}).(pulumi.IntPtrOutput)
 }
 
+// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+func (o ManagementPolicyRuleActionsSnapshotPtrOutput) TierToArchiveAfterDaysSinceLastTierChangeGreaterThan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagementPolicyRuleActionsSnapshot) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TierToArchiveAfterDaysSinceLastTierChangeGreaterThan
+	}).(pulumi.IntPtrOutput)
+}
+
 type ManagementPolicyRuleActionsVersion struct {
 	// The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999.
 	ChangeTierToArchiveAfterDaysSinceCreation *int `pulumi:"changeTierToArchiveAfterDaysSinceCreation"`
@@ -5153,6 +5370,8 @@ type ManagementPolicyRuleActionsVersion struct {
 	ChangeTierToCoolAfterDaysSinceCreation *int `pulumi:"changeTierToCoolAfterDaysSinceCreation"`
 	// The age in days after creation to delete the blob version. Must be between 0 and 99999.
 	DeleteAfterDaysSinceCreation *int `pulumi:"deleteAfterDaysSinceCreation"`
+	// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+	TierToArchiveAfterDaysSinceLastTierChangeGreaterThan *int `pulumi:"tierToArchiveAfterDaysSinceLastTierChangeGreaterThan"`
 }
 
 // ManagementPolicyRuleActionsVersionInput is an input type that accepts ManagementPolicyRuleActionsVersionArgs and ManagementPolicyRuleActionsVersionOutput values.
@@ -5173,6 +5392,8 @@ type ManagementPolicyRuleActionsVersionArgs struct {
 	ChangeTierToCoolAfterDaysSinceCreation pulumi.IntPtrInput `pulumi:"changeTierToCoolAfterDaysSinceCreation"`
 	// The age in days after creation to delete the blob version. Must be between 0 and 99999.
 	DeleteAfterDaysSinceCreation pulumi.IntPtrInput `pulumi:"deleteAfterDaysSinceCreation"`
+	// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+	TierToArchiveAfterDaysSinceLastTierChangeGreaterThan pulumi.IntPtrInput `pulumi:"tierToArchiveAfterDaysSinceLastTierChangeGreaterThan"`
 }
 
 func (ManagementPolicyRuleActionsVersionArgs) ElementType() reflect.Type {
@@ -5267,6 +5488,13 @@ func (o ManagementPolicyRuleActionsVersionOutput) DeleteAfterDaysSinceCreation()
 	return o.ApplyT(func(v ManagementPolicyRuleActionsVersion) *int { return v.DeleteAfterDaysSinceCreation }).(pulumi.IntPtrOutput)
 }
 
+// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+func (o ManagementPolicyRuleActionsVersionOutput) TierToArchiveAfterDaysSinceLastTierChangeGreaterThan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagementPolicyRuleActionsVersion) *int {
+		return v.TierToArchiveAfterDaysSinceLastTierChangeGreaterThan
+	}).(pulumi.IntPtrOutput)
+}
+
 type ManagementPolicyRuleActionsVersionPtrOutput struct{ *pulumi.OutputState }
 
 func (ManagementPolicyRuleActionsVersionPtrOutput) ElementType() reflect.Type {
@@ -5318,6 +5546,16 @@ func (o ManagementPolicyRuleActionsVersionPtrOutput) DeleteAfterDaysSinceCreatio
 			return nil
 		}
 		return v.DeleteAfterDaysSinceCreation
+	}).(pulumi.IntPtrOutput)
+}
+
+// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+func (o ManagementPolicyRuleActionsVersionPtrOutput) TierToArchiveAfterDaysSinceLastTierChangeGreaterThan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagementPolicyRuleActionsVersion) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TierToArchiveAfterDaysSinceLastTierChangeGreaterThan
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -8116,6 +8354,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountCustomerManagedKeyPtrInput)(nil)).Elem(), AccountCustomerManagedKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountIdentityInput)(nil)).Elem(), AccountIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountIdentityPtrInput)(nil)).Elem(), AccountIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountImmutabilityPolicyInput)(nil)).Elem(), AccountImmutabilityPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountImmutabilityPolicyPtrInput)(nil)).Elem(), AccountImmutabilityPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkRulesTypeInput)(nil)).Elem(), AccountNetworkRulesTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkRulesTypePtrInput)(nil)).Elem(), AccountNetworkRulesTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkRulesPrivateLinkAccessInput)(nil)).Elem(), AccountNetworkRulesPrivateLinkAccessArgs{})
@@ -8223,6 +8463,8 @@ func init() {
 	pulumi.RegisterOutputType(AccountCustomerManagedKeyPtrOutput{})
 	pulumi.RegisterOutputType(AccountIdentityOutput{})
 	pulumi.RegisterOutputType(AccountIdentityPtrOutput{})
+	pulumi.RegisterOutputType(AccountImmutabilityPolicyOutput{})
+	pulumi.RegisterOutputType(AccountImmutabilityPolicyPtrOutput{})
 	pulumi.RegisterOutputType(AccountNetworkRulesTypeOutput{})
 	pulumi.RegisterOutputType(AccountNetworkRulesTypePtrOutput{})
 	pulumi.RegisterOutputType(AccountNetworkRulesPrivateLinkAccessOutput{})

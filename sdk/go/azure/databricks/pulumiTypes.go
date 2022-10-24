@@ -10,6 +10,169 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AccessConnectorIdentity struct {
+	PrincipalId *string `pulumi:"principalId"`
+	TenantId    *string `pulumi:"tenantId"`
+	Type        string  `pulumi:"type"`
+}
+
+// AccessConnectorIdentityInput is an input type that accepts AccessConnectorIdentityArgs and AccessConnectorIdentityOutput values.
+// You can construct a concrete instance of `AccessConnectorIdentityInput` via:
+//
+//	AccessConnectorIdentityArgs{...}
+type AccessConnectorIdentityInput interface {
+	pulumi.Input
+
+	ToAccessConnectorIdentityOutput() AccessConnectorIdentityOutput
+	ToAccessConnectorIdentityOutputWithContext(context.Context) AccessConnectorIdentityOutput
+}
+
+type AccessConnectorIdentityArgs struct {
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	TenantId    pulumi.StringPtrInput `pulumi:"tenantId"`
+	Type        pulumi.StringInput    `pulumi:"type"`
+}
+
+func (AccessConnectorIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessConnectorIdentity)(nil)).Elem()
+}
+
+func (i AccessConnectorIdentityArgs) ToAccessConnectorIdentityOutput() AccessConnectorIdentityOutput {
+	return i.ToAccessConnectorIdentityOutputWithContext(context.Background())
+}
+
+func (i AccessConnectorIdentityArgs) ToAccessConnectorIdentityOutputWithContext(ctx context.Context) AccessConnectorIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessConnectorIdentityOutput)
+}
+
+func (i AccessConnectorIdentityArgs) ToAccessConnectorIdentityPtrOutput() AccessConnectorIdentityPtrOutput {
+	return i.ToAccessConnectorIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i AccessConnectorIdentityArgs) ToAccessConnectorIdentityPtrOutputWithContext(ctx context.Context) AccessConnectorIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessConnectorIdentityOutput).ToAccessConnectorIdentityPtrOutputWithContext(ctx)
+}
+
+// AccessConnectorIdentityPtrInput is an input type that accepts AccessConnectorIdentityArgs, AccessConnectorIdentityPtr and AccessConnectorIdentityPtrOutput values.
+// You can construct a concrete instance of `AccessConnectorIdentityPtrInput` via:
+//
+//	        AccessConnectorIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccessConnectorIdentityPtrInput interface {
+	pulumi.Input
+
+	ToAccessConnectorIdentityPtrOutput() AccessConnectorIdentityPtrOutput
+	ToAccessConnectorIdentityPtrOutputWithContext(context.Context) AccessConnectorIdentityPtrOutput
+}
+
+type accessConnectorIdentityPtrType AccessConnectorIdentityArgs
+
+func AccessConnectorIdentityPtr(v *AccessConnectorIdentityArgs) AccessConnectorIdentityPtrInput {
+	return (*accessConnectorIdentityPtrType)(v)
+}
+
+func (*accessConnectorIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessConnectorIdentity)(nil)).Elem()
+}
+
+func (i *accessConnectorIdentityPtrType) ToAccessConnectorIdentityPtrOutput() AccessConnectorIdentityPtrOutput {
+	return i.ToAccessConnectorIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *accessConnectorIdentityPtrType) ToAccessConnectorIdentityPtrOutputWithContext(ctx context.Context) AccessConnectorIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessConnectorIdentityPtrOutput)
+}
+
+type AccessConnectorIdentityOutput struct{ *pulumi.OutputState }
+
+func (AccessConnectorIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessConnectorIdentity)(nil)).Elem()
+}
+
+func (o AccessConnectorIdentityOutput) ToAccessConnectorIdentityOutput() AccessConnectorIdentityOutput {
+	return o
+}
+
+func (o AccessConnectorIdentityOutput) ToAccessConnectorIdentityOutputWithContext(ctx context.Context) AccessConnectorIdentityOutput {
+	return o
+}
+
+func (o AccessConnectorIdentityOutput) ToAccessConnectorIdentityPtrOutput() AccessConnectorIdentityPtrOutput {
+	return o.ToAccessConnectorIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o AccessConnectorIdentityOutput) ToAccessConnectorIdentityPtrOutputWithContext(ctx context.Context) AccessConnectorIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessConnectorIdentity) *AccessConnectorIdentity {
+		return &v
+	}).(AccessConnectorIdentityPtrOutput)
+}
+
+func (o AccessConnectorIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessConnectorIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+func (o AccessConnectorIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessConnectorIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+func (o AccessConnectorIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessConnectorIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AccessConnectorIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (AccessConnectorIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessConnectorIdentity)(nil)).Elem()
+}
+
+func (o AccessConnectorIdentityPtrOutput) ToAccessConnectorIdentityPtrOutput() AccessConnectorIdentityPtrOutput {
+	return o
+}
+
+func (o AccessConnectorIdentityPtrOutput) ToAccessConnectorIdentityPtrOutputWithContext(ctx context.Context) AccessConnectorIdentityPtrOutput {
+	return o
+}
+
+func (o AccessConnectorIdentityPtrOutput) Elem() AccessConnectorIdentityOutput {
+	return o.ApplyT(func(v *AccessConnectorIdentity) AccessConnectorIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret AccessConnectorIdentity
+		return ret
+	}).(AccessConnectorIdentityOutput)
+}
+
+func (o AccessConnectorIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessConnectorIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AccessConnectorIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessConnectorIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AccessConnectorIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessConnectorIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type WorkspaceCustomParameters struct {
 	// The ID of a Azure Machine Learning workspace to link with Databricks workspace. Changing this forces a new resource to be created.
 	MachineLearningWorkspaceId *string `pulumi:"machineLearningWorkspaceId"`
@@ -605,12 +768,16 @@ func (o GetWorkspacePrivateEndpointConnectionConnectionArrayOutput) Index(i pulu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessConnectorIdentityInput)(nil)).Elem(), AccessConnectorIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessConnectorIdentityPtrInput)(nil)).Elem(), AccessConnectorIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceCustomParametersInput)(nil)).Elem(), WorkspaceCustomParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceCustomParametersPtrInput)(nil)).Elem(), WorkspaceCustomParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceStorageAccountIdentityInput)(nil)).Elem(), WorkspaceStorageAccountIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceStorageAccountIdentityArrayInput)(nil)).Elem(), WorkspaceStorageAccountIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspacePrivateEndpointConnectionConnectionInput)(nil)).Elem(), GetWorkspacePrivateEndpointConnectionConnectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspacePrivateEndpointConnectionConnectionArrayInput)(nil)).Elem(), GetWorkspacePrivateEndpointConnectionConnectionArray{})
+	pulumi.RegisterOutputType(AccessConnectorIdentityOutput{})
+	pulumi.RegisterOutputType(AccessConnectorIdentityPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomParametersOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomParametersPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceStorageAccountIdentityOutput{})

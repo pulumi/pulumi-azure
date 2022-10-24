@@ -89,6 +89,8 @@ type WindowsWebAppSlot struct {
 	ClientAffinityEnabled pulumi.BoolPtrOutput `pulumi:"clientAffinityEnabled"`
 	// Should Client Certificates be enabled?
 	ClientCertificateEnabled pulumi.BoolPtrOutput `pulumi:"clientCertificateEnabled"`
+	// Paths to exclude when using client certificates, separated by ;
+	ClientCertificateExclusionPaths pulumi.StringPtrOutput `pulumi:"clientCertificateExclusionPaths"`
 	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`
 	ClientCertificateMode pulumi.StringPtrOutput `pulumi:"clientCertificateMode"`
 	// One or more `connectionString` blocks as defined below.
@@ -180,6 +182,8 @@ type windowsWebAppSlotState struct {
 	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
 	// Should Client Certificates be enabled?
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
+	// Paths to exclude when using client certificates, separated by ;
+	ClientCertificateExclusionPaths *string `pulumi:"clientCertificateExclusionPaths"`
 	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`
 	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
 	// One or more `connectionString` blocks as defined below.
@@ -237,6 +241,8 @@ type WindowsWebAppSlotState struct {
 	ClientAffinityEnabled pulumi.BoolPtrInput
 	// Should Client Certificates be enabled?
 	ClientCertificateEnabled pulumi.BoolPtrInput
+	// Paths to exclude when using client certificates, separated by ;
+	ClientCertificateExclusionPaths pulumi.StringPtrInput
 	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`
 	ClientCertificateMode pulumi.StringPtrInput
 	// One or more `connectionString` blocks as defined below.
@@ -298,6 +304,8 @@ type windowsWebAppSlotArgs struct {
 	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
 	// Should Client Certificates be enabled?
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
+	// Paths to exclude when using client certificates, separated by ;
+	ClientCertificateExclusionPaths *string `pulumi:"clientCertificateExclusionPaths"`
 	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`
 	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
 	// One or more `connectionString` blocks as defined below.
@@ -340,6 +348,8 @@ type WindowsWebAppSlotArgs struct {
 	ClientAffinityEnabled pulumi.BoolPtrInput
 	// Should Client Certificates be enabled?
 	ClientCertificateEnabled pulumi.BoolPtrInput
+	// Paths to exclude when using client certificates, separated by ;
+	ClientCertificateExclusionPaths pulumi.StringPtrInput
 	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`
 	ClientCertificateMode pulumi.StringPtrInput
 	// One or more `connectionString` blocks as defined below.
@@ -483,6 +493,11 @@ func (o WindowsWebAppSlotOutput) ClientAffinityEnabled() pulumi.BoolPtrOutput {
 // Should Client Certificates be enabled?
 func (o WindowsWebAppSlotOutput) ClientCertificateEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsWebAppSlot) pulumi.BoolPtrOutput { return v.ClientCertificateEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Paths to exclude when using client certificates, separated by ;
+func (o WindowsWebAppSlotOutput) ClientCertificateExclusionPaths() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsWebAppSlot) pulumi.StringPtrOutput { return v.ClientCertificateExclusionPaths }).(pulumi.StringPtrOutput)
 }
 
 // The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`

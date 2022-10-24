@@ -61,7 +61,7 @@ type LookupFrontdoorProfileResult struct {
 	Id                string `pulumi:"id"`
 	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The UUID of this CDN FrontDoor Profile.
+	// The UUID of this CDN FrontDoor Profile. This is the value that is used for the `X-Azure-FDID` attribute in the HTTP header.
 	ResourceGuid string `pulumi:"resourceGuid"`
 	// Specifies the maximum response timeout in seconds.
 	ResponseTimeoutSeconds int `pulumi:"responseTimeoutSeconds"`
@@ -124,7 +124,7 @@ func (o LookupFrontdoorProfileResultOutput) ResourceGroupName() pulumi.StringOut
 	return o.ApplyT(func(v LookupFrontdoorProfileResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The UUID of this CDN FrontDoor Profile.
+// The UUID of this CDN FrontDoor Profile. This is the value that is used for the `X-Azure-FDID` attribute in the HTTP header.
 func (o LookupFrontdoorProfileResultOutput) ResourceGuid() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFrontdoorProfileResult) string { return v.ResourceGuid }).(pulumi.StringOutput)
 }

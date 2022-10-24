@@ -68,6 +68,8 @@ type LookupWindowsWebAppResult struct {
 	ClientAffinityEnabled bool `pulumi:"clientAffinityEnabled"`
 	// Are Client Certificates enabled?
 	ClientCertificateEnabled bool `pulumi:"clientCertificateEnabled"`
+	// Paths to exclude when using client certificates, separated by ;
+	ClientCertificateExclusionPaths string `pulumi:"clientCertificateExclusionPaths"`
 	// The Client Certificate mode.
 	ClientCertificateMode string `pulumi:"clientCertificateMode"`
 	// A `connectionString` block as defined below.
@@ -180,6 +182,11 @@ func (o LookupWindowsWebAppResultOutput) ClientAffinityEnabled() pulumi.BoolOutp
 // Are Client Certificates enabled?
 func (o LookupWindowsWebAppResultOutput) ClientCertificateEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupWindowsWebAppResult) bool { return v.ClientCertificateEnabled }).(pulumi.BoolOutput)
+}
+
+// Paths to exclude when using client certificates, separated by ;
+func (o LookupWindowsWebAppResultOutput) ClientCertificateExclusionPaths() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWindowsWebAppResult) string { return v.ClientCertificateExclusionPaths }).(pulumi.StringOutput)
 }
 
 // The Client Certificate mode.

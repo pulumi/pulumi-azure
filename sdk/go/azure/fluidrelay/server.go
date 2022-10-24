@@ -69,8 +69,14 @@ type Server struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// An array of the Fluid Relay Orderer endpoints.
 	OrdererEndpoints pulumi.StringArrayOutput `pulumi:"ordererEndpoints"`
+	// The primary key for this server.
+	PrimaryKey pulumi.StringOutput `pulumi:"primaryKey"`
 	// The name of the Resource Group where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// The secondary key for this server.
+	SecondaryKey pulumi.StringOutput `pulumi:"secondaryKey"`
+	// An array of service endpoints for this Fluid Relay Server.
+	ServiceEndpoints pulumi.StringArrayOutput `pulumi:"serviceEndpoints"`
 	// An array of storage endpoints for this Fluid Relay Server.
 	StorageEndpoints pulumi.StringArrayOutput `pulumi:"storageEndpoints"`
 	// Sku of the storage associated with the resource, Possible values are `standard` and `basic`. Changing this forces a new Fluid Relay Server to be created.
@@ -121,8 +127,14 @@ type serverState struct {
 	Name *string `pulumi:"name"`
 	// An array of the Fluid Relay Orderer endpoints.
 	OrdererEndpoints []string `pulumi:"ordererEndpoints"`
+	// The primary key for this server.
+	PrimaryKey *string `pulumi:"primaryKey"`
 	// The name of the Resource Group where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// The secondary key for this server.
+	SecondaryKey *string `pulumi:"secondaryKey"`
+	// An array of service endpoints for this Fluid Relay Server.
+	ServiceEndpoints []string `pulumi:"serviceEndpoints"`
 	// An array of storage endpoints for this Fluid Relay Server.
 	StorageEndpoints []string `pulumi:"storageEndpoints"`
 	// Sku of the storage associated with the resource, Possible values are `standard` and `basic`. Changing this forces a new Fluid Relay Server to be created.
@@ -142,8 +154,14 @@ type ServerState struct {
 	Name pulumi.StringPtrInput
 	// An array of the Fluid Relay Orderer endpoints.
 	OrdererEndpoints pulumi.StringArrayInput
+	// The primary key for this server.
+	PrimaryKey pulumi.StringPtrInput
 	// The name of the Resource Group where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// The secondary key for this server.
+	SecondaryKey pulumi.StringPtrInput
+	// An array of service endpoints for this Fluid Relay Server.
+	ServiceEndpoints pulumi.StringArrayInput
 	// An array of storage endpoints for this Fluid Relay Server.
 	StorageEndpoints pulumi.StringArrayInput
 	// Sku of the storage associated with the resource, Possible values are `standard` and `basic`. Changing this forces a new Fluid Relay Server to be created.
@@ -299,9 +317,24 @@ func (o ServerOutput) OrdererEndpoints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringArrayOutput { return v.OrdererEndpoints }).(pulumi.StringArrayOutput)
 }
 
+// The primary key for this server.
+func (o ServerOutput) PrimaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.PrimaryKey }).(pulumi.StringOutput)
+}
+
 // The name of the Resource Group where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
 func (o ServerOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The secondary key for this server.
+func (o ServerOutput) SecondaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.SecondaryKey }).(pulumi.StringOutput)
+}
+
+// An array of service endpoints for this Fluid Relay Server.
+func (o ServerOutput) ServiceEndpoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringArrayOutput { return v.ServiceEndpoints }).(pulumi.StringArrayOutput)
 }
 
 // An array of storage endpoints for this Fluid Relay Server.
