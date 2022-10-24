@@ -103,7 +103,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore` e.g. 2013-11-08T22:00:40Z
+     * The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore`, it should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
      */
     public readonly restorePointInTime!: pulumi.Output<string>;
     /**
@@ -268,7 +268,7 @@ export interface DatabaseState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore` e.g. 2013-11-08T22:00:40Z
+     * The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore`, it should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
      */
     restorePointInTime?: pulumi.Input<string>;
     /**
@@ -352,7 +352,7 @@ export interface DatabaseArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore` e.g. 2013-11-08T22:00:40Z
+     * The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore`, it should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
      */
     restorePointInTime?: pulumi.Input<string>;
     /**

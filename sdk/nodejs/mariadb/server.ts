@@ -115,7 +115,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * When `createMode` is `PointInTimeRestore`, specifies the point in time to restore from `creationSourceServerId`.
+     * When `createMode` is `PointInTimeRestore`, specifies the point in time to restore from `creationSourceServerId`. It should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
      */
     public readonly restorePointInTime!: pulumi.Output<string | undefined>;
     /**
@@ -261,7 +261,7 @@ export interface ServerState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * When `createMode` is `PointInTimeRestore`, specifies the point in time to restore from `creationSourceServerId`.
+     * When `createMode` is `PointInTimeRestore`, specifies the point in time to restore from `creationSourceServerId`. It should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
      */
     restorePointInTime?: pulumi.Input<string>;
     /**
@@ -335,7 +335,7 @@ export interface ServerArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * When `createMode` is `PointInTimeRestore`, specifies the point in time to restore from `creationSourceServerId`.
+     * When `createMode` is `PointInTimeRestore`, specifies the point in time to restore from `creationSourceServerId`. It should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
      */
     restorePointInTime?: pulumi.Input<string>;
     /**

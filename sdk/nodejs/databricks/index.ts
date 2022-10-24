@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AccessConnectorArgs, AccessConnectorState } from "./accessConnector";
+export type AccessConnector = import("./accessConnector").AccessConnector;
+export const AccessConnector: typeof import("./accessConnector").AccessConnector = null as any;
+utilities.lazyLoad(exports, ["AccessConnector"], () => require("./accessConnector"));
+
 export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
 export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
 export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
@@ -30,6 +35,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:databricks/accessConnector:AccessConnector":
+                return new AccessConnector(name, <any>undefined, { urn })
             case "azure:databricks/workspace:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
             case "azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey":
@@ -39,5 +46,6 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "databricks/accessConnector", _module)
 pulumi.runtime.registerResourceModule("azure", "databricks/workspace", _module)
 pulumi.runtime.registerResourceModule("azure", "databricks/workspaceCustomerManagedKey", _module)

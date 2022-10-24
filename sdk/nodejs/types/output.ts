@@ -7780,7 +7780,7 @@ export namespace appservice {
          */
         remoteDebuggingEnabled?: boolean;
         /**
-         * The Remote Debugging Version. Possible values include `VS2017` and `VS2019`.
+         * The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`.
          */
         remoteDebuggingVersion: string;
         /**
@@ -8372,7 +8372,7 @@ export namespace appservice {
          */
         remoteDebuggingEnabled?: boolean;
         /**
-         * The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+         * The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`
          */
         remoteDebuggingVersion: string;
         /**
@@ -11069,7 +11069,7 @@ export namespace appservice {
          */
         remoteDebuggingEnabled?: boolean;
         /**
-         * The Remote Debugging Version. Possible values include `VS2017` and `VS2019`.
+         * The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`.
          */
         remoteDebuggingVersion: string;
         /**
@@ -11619,7 +11619,7 @@ export namespace appservice {
          */
         remoteDebuggingEnabled?: boolean;
         /**
-         * The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+         * The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`
          */
         remoteDebuggingVersion: string;
         /**
@@ -13762,6 +13762,9 @@ export namespace automation {
          */
         startTime?: string;
         startTimeOffsetMinutes: number;
+        /**
+         * The timezone of the start time. Defaults to `UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
+         */
         timeZone?: string;
     }
 
@@ -16045,7 +16048,7 @@ export namespace cdn {
 
     export interface FrontdoorCustomDomainTls {
         /**
-         * Resource ID of the Frontdoor Secrect.
+         * Resource ID of the Frontdoor Secret.
          */
         cdnFrontdoorSecretId: string;
         /**
@@ -16145,7 +16148,7 @@ export namespace cdn {
 
     export interface FrontdoorFirewallPolicyManagedRuleExclusion {
         /**
-         * The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+         * The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
          */
         matchVariable: string;
         /**
@@ -16175,7 +16178,7 @@ export namespace cdn {
 
     export interface FrontdoorFirewallPolicyManagedRuleOverrideExclusion {
         /**
-         * The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+         * The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
          */
         matchVariable: string;
         /**
@@ -16209,7 +16212,7 @@ export namespace cdn {
 
     export interface FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion {
         /**
-         * The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+         * The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
          */
         matchVariable: string;
         /**
@@ -16845,7 +16848,7 @@ export namespace cdn {
 
     export interface FrontdoorSecretSecretCustomerCertificate {
         /**
-         * The key vault certificate resources ID attribute. Changing this forces a new Frontdoor Secret to be created.
+         * The ID of the Key Vault certificate resource to use. Changing this forces a new Frontdoor Secret to be created.
          */
         keyVaultCertificateId: string;
         /**
@@ -16926,6 +16929,24 @@ export namespace cdn {
          * Specifies the number of samples within the sample period that must succeed.
          */
         successfulSamplesRequired: number;
+    }
+
+    export interface GetFrontdoorSecretSecret {
+        /**
+         * A `customerCertificate` block as defined below.
+         */
+        customerCertificates: outputs.cdn.GetFrontdoorSecretSecretCustomerCertificate[];
+    }
+
+    export interface GetFrontdoorSecretSecretCustomerCertificate {
+        /**
+         * The key vault certificate ID.
+         */
+        keyVaultCertificateId: string;
+        /**
+         * One or more `subject alternative names` contained within the key vault certificate.
+         */
+        subjectAlternativeNames: string[];
     }
 
 }
@@ -23826,6 +23847,12 @@ export namespace databoxedge {
 }
 
 export namespace databricks {
+    export interface AccessConnectorIdentity {
+        principalId: string;
+        tenantId: string;
+        type: string;
+    }
+
     export interface GetWorkspacePrivateEndpointConnectionConnection {
         /**
          * Actions required for a private endpoint connection.
@@ -39256,9 +39283,9 @@ export namespace network {
          */
         destinationAddress?: string;
         /**
-         * Specifies a list of destination ports.
+         * Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
          */
-        destinationPorts?: string[];
+        destinationPorts?: string;
         /**
          * The name which should be used for this rule.
          */
@@ -39322,7 +39349,7 @@ export namespace network {
          */
         destinationIpGroups?: string[];
         /**
-         * Specifies a list of destination ports.
+         * Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
          */
         destinationPorts: string[];
         /**
@@ -40504,7 +40531,7 @@ export namespace network {
          */
         actions?: string[];
         /**
-         * The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments` and `PaloAltoNetworks.Cloudngfw/firewalls`.
+         * The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.LabServices/labplans`,`Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments` and `PaloAltoNetworks.Cloudngfw/firewalls`.
          */
         name: string;
     }
@@ -42340,13 +42367,13 @@ export namespace recoveryservices {
 export namespace redis {
     export interface CacheIdentity {
         /**
-         * A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
+         * A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
          */
         identityIds?: string[];
         principalId: string;
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
@@ -44108,6 +44135,21 @@ export namespace storage {
         type: string;
     }
 
+    export interface AccountImmutabilityPolicy {
+        /**
+         * When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
+         */
+        allowProtectedAppendWrites: boolean;
+        /**
+         * The immutability period for the blobs in the container since the policy creation, in days.
+         */
+        periodSinceCreationInDays: number;
+        /**
+         * Defines the mode of the policy. `Disabled` state disables the policy, `Unlocked` state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, `Locked` state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
+         */
+        state: string;
+    }
+
     export interface AccountNetworkRules {
         /**
          * Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
@@ -44804,6 +44846,10 @@ export namespace storage {
          */
         tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan?: number;
         /**
+         * The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+         */
+        tierToArchiveAfterDaysSinceLastTierChangeGreaterThan?: number;
+        /**
          * The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
          */
         tierToArchiveAfterDaysSinceModificationGreaterThan?: number;
@@ -44830,6 +44876,10 @@ export namespace storage {
          * The age in days after creation to delete the blob snapshot. Must be between 0 and 99999.
          */
         deleteAfterDaysSinceCreationGreaterThan?: number;
+        /**
+         * The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+         */
+        tierToArchiveAfterDaysSinceLastTierChangeGreaterThan?: number;
     }
 
     export interface ManagementPolicyRuleActionsVersion {
@@ -44845,6 +44895,10 @@ export namespace storage {
          * The age in days after creation to delete the blob version. Must be between 0 and 99999.
          */
         deleteAfterDaysSinceCreation?: number;
+        /**
+         * The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+         */
+        tierToArchiveAfterDaysSinceLastTierChangeGreaterThan?: number;
     }
 
     export interface ManagementPolicyRuleFilters {

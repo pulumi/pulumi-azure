@@ -17,8 +17,8 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(azure.cosmosdb.getSqlRoleDefinition({
  *     accountName: "tfex-cosmosdb-sql-role-definition-account-name",
- *     name: "tfex-cosmosdb-sql-role-definition",
  *     resourceGroupName: "tfex-cosmosdb-sql-role-definition-rg",
+ *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
  * }));
  * ```
  */
@@ -66,6 +66,9 @@ export interface GetSqlRoleDefinitionResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The role name of the Cosmos DB SQL Role Definition.
+     */
     readonly name: string;
     /**
      * A `permissions` block as defined below.

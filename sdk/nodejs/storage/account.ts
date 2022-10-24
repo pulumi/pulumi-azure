@@ -157,6 +157,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.storage.AccountIdentity | undefined>;
     /**
+     * An `immutabilityPolicy` block as defined below.
+     */
+    public readonly immutabilityPolicy!: pulumi.Output<outputs.storage.AccountImmutabilityPolicy | undefined>;
+    /**
      * Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
      */
     public readonly infrastructureEncryptionEnabled!: pulumi.Output<boolean | undefined>;
@@ -384,6 +388,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["edgeZone"] = state ? state.edgeZone : undefined;
             resourceInputs["enableHttpsTrafficOnly"] = state ? state.enableHttpsTrafficOnly : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["immutabilityPolicy"] = state ? state.immutabilityPolicy : undefined;
             resourceInputs["infrastructureEncryptionEnabled"] = state ? state.infrastructureEncryptionEnabled : undefined;
             resourceInputs["isHnsEnabled"] = state ? state.isHnsEnabled : undefined;
             resourceInputs["largeFileShareEnabled"] = state ? state.largeFileShareEnabled : undefined;
@@ -459,6 +464,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
             resourceInputs["enableHttpsTrafficOnly"] = args ? args.enableHttpsTrafficOnly : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["immutabilityPolicy"] = args ? args.immutabilityPolicy : undefined;
             resourceInputs["infrastructureEncryptionEnabled"] = args ? args.infrastructureEncryptionEnabled : undefined;
             resourceInputs["isHnsEnabled"] = args ? args.isHnsEnabled : undefined;
             resourceInputs["largeFileShareEnabled"] = args ? args.largeFileShareEnabled : undefined;
@@ -576,6 +582,10 @@ export interface AccountState {
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.storage.AccountIdentity>;
+    /**
+     * An `immutabilityPolicy` block as defined below.
+     */
+    immutabilityPolicy?: pulumi.Input<inputs.storage.AccountImmutabilityPolicy>;
     /**
      * Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
      */
@@ -839,6 +849,10 @@ export interface AccountArgs {
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.storage.AccountIdentity>;
+    /**
+     * An `immutabilityPolicy` block as defined below.
+     */
+    immutabilityPolicy?: pulumi.Input<inputs.storage.AccountImmutabilityPolicy>;
     /**
      * Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
      */

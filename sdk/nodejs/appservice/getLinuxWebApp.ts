@@ -77,6 +77,10 @@ export interface GetLinuxWebAppResult {
      */
     readonly clientCertificateEnabled: boolean;
     /**
+     * Paths to exclude when using client certificates, separated by ;
+     */
+    readonly clientCertificateExclusionPaths: string;
+    /**
      * The Client Certificate mode.
      */
     readonly clientCertificateMode: string;
