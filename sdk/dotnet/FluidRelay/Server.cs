@@ -77,10 +77,28 @@ namespace Pulumi.Azure.FluidRelay
         public Output<ImmutableArray<string>> OrdererEndpoints { get; private set; } = null!;
 
         /// <summary>
+        /// The primary key for this server.
+        /// </summary>
+        [Output("primaryKey")]
+        public Output<string> PrimaryKey { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Resource Group where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// The secondary key for this server.
+        /// </summary>
+        [Output("secondaryKey")]
+        public Output<string> SecondaryKey { get; private set; } = null!;
+
+        /// <summary>
+        /// An array of service endpoints for this Fluid Relay Server.
+        /// </summary>
+        [Output("serviceEndpoints")]
+        public Output<ImmutableArray<string>> ServiceEndpoints { get; private set; } = null!;
 
         /// <summary>
         /// An array of storage endpoints for this Fluid Relay Server.
@@ -233,10 +251,34 @@ namespace Pulumi.Azure.FluidRelay
         }
 
         /// <summary>
+        /// The primary key for this server.
+        /// </summary>
+        [Input("primaryKey")]
+        public Input<string>? PrimaryKey { get; set; }
+
+        /// <summary>
         /// The name of the Resource Group where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// The secondary key for this server.
+        /// </summary>
+        [Input("secondaryKey")]
+        public Input<string>? SecondaryKey { get; set; }
+
+        [Input("serviceEndpoints")]
+        private InputList<string>? _serviceEndpoints;
+
+        /// <summary>
+        /// An array of service endpoints for this Fluid Relay Server.
+        /// </summary>
+        public InputList<string> ServiceEndpoints
+        {
+            get => _serviceEndpoints ?? (_serviceEndpoints = new InputList<string>());
+            set => _serviceEndpoints = value;
+        }
 
         [Input("storageEndpoints")]
         private InputList<string>? _storageEndpoints;

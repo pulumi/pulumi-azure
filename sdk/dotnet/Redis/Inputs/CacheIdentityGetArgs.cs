@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Redis.Inputs
         private InputList<string>? _identityIds;
 
         /// <summary>
-        /// A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
+        /// A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
         /// </summary>
         public InputList<string> IdentityIds
         {
@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Redis.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        /// Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

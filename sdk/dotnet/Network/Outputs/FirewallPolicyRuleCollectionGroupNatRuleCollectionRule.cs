@@ -18,9 +18,9 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? DestinationAddress;
         /// <summary>
-        /// Specifies a list of destination ports.
+        /// Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
         /// </summary>
-        public readonly ImmutableArray<string> DestinationPorts;
+        public readonly string? DestinationPorts;
         /// <summary>
         /// The name which should be used for this rule.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.Azure.Network.Outputs
         private FirewallPolicyRuleCollectionGroupNatRuleCollectionRule(
             string? destinationAddress,
 
-            ImmutableArray<string> destinationPorts,
+            string? destinationPorts,
 
             string name,
 

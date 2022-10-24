@@ -144,7 +144,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<ImmutableArray<string>> TargetResourceTypes { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size).
+        /// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
         /// </summary>
         [Output("windowDuration")]
         public Output<string> WindowDuration { get; private set; } = null!;
@@ -322,7 +322,7 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size).
+        /// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
         /// </summary>
         [Input("windowDuration", required: true)]
         public Input<string> WindowDuration { get; set; } = null!;
@@ -480,7 +480,7 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size).
+        /// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
         /// </summary>
         [Input("windowDuration")]
         public Input<string>? WindowDuration { get; set; }

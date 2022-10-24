@@ -13,12 +13,58 @@ namespace Pulumi.Azure.CosmosDB
     {
         /// <summary>
         /// Use this data source to access information about an existing Cosmos DB SQL Role Definition.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.CosmosDB.GetSqlRoleDefinition.Invoke(new()
+        ///     {
+        ///         AccountName = "tfex-cosmosdb-sql-role-definition-account-name",
+        ///         ResourceGroupName = "tfex-cosmosdb-sql-role-definition-rg",
+        ///         RoleDefinitionId = "00000000-0000-0000-0000-000000000000",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSqlRoleDefinitionResult> InvokeAsync(GetSqlRoleDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlRoleDefinitionResult>("azure:cosmosdb/getSqlRoleDefinition:getSqlRoleDefinition", args ?? new GetSqlRoleDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Cosmos DB SQL Role Definition.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.CosmosDB.GetSqlRoleDefinition.Invoke(new()
+        ///     {
+        ///         AccountName = "tfex-cosmosdb-sql-role-definition-account-name",
+        ///         ResourceGroupName = "tfex-cosmosdb-sql-role-definition-rg",
+        ///         RoleDefinitionId = "00000000-0000-0000-0000-000000000000",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetSqlRoleDefinitionResult> Invoke(GetSqlRoleDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlRoleDefinitionResult>("azure:cosmosdb/getSqlRoleDefinition:getSqlRoleDefinition", args ?? new GetSqlRoleDefinitionInvokeArgs(), options.WithDefaults());
@@ -90,6 +136,9 @@ namespace Pulumi.Azure.CosmosDB
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The role name of the Cosmos DB SQL Role Definition.
+        /// </summary>
         public readonly string Name;
         /// <summary>
         /// A `permissions` block as defined below.

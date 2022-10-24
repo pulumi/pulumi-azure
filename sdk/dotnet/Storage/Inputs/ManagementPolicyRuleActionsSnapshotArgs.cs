@@ -30,6 +30,12 @@ namespace Pulumi.Azure.Storage.Inputs
         [Input("deleteAfterDaysSinceCreationGreaterThan")]
         public Input<int>? DeleteAfterDaysSinceCreationGreaterThan { get; set; }
 
+        /// <summary>
+        /// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+        /// </summary>
+        [Input("tierToArchiveAfterDaysSinceLastTierChangeGreaterThan")]
+        public Input<int>? TierToArchiveAfterDaysSinceLastTierChangeGreaterThan { get; set; }
+
         public ManagementPolicyRuleActionsSnapshotArgs()
         {
         }

@@ -203,6 +203,12 @@ namespace Pulumi.Azure.Storage
         public Output<Outputs.AccountIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
+        /// An `immutability_policy` block as defined below.
+        /// </summary>
+        [Output("immutabilityPolicy")]
+        public Output<Outputs.AccountImmutabilityPolicy?> ImmutabilityPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
         /// </summary>
         [Output("infrastructureEncryptionEnabled")]
@@ -634,6 +640,12 @@ namespace Pulumi.Azure.Storage
         public Input<Inputs.AccountIdentityArgs>? Identity { get; set; }
 
         /// <summary>
+        /// An `immutability_policy` block as defined below.
+        /// </summary>
+        [Input("immutabilityPolicy")]
+        public Input<Inputs.AccountImmutabilityPolicyArgs>? ImmutabilityPolicy { get; set; }
+
+        /// <summary>
         /// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
         /// </summary>
         [Input("infrastructureEncryptionEnabled")]
@@ -839,6 +851,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AccountIdentityGetArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// An `immutability_policy` block as defined below.
+        /// </summary>
+        [Input("immutabilityPolicy")]
+        public Input<Inputs.AccountImmutabilityPolicyGetArgs>? ImmutabilityPolicy { get; set; }
 
         /// <summary>
         /// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.

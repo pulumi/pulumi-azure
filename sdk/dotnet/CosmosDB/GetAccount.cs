@@ -173,11 +173,11 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         public readonly string OfferType;
         /// <summary>
-        /// The Primary key for the CosmosDB Account.
+        /// The primary key for the CosmosDB account.
         /// </summary>
         public readonly string PrimaryKey;
         /// <summary>
-        /// The Primary read-only Key for the CosmosDB Account.
+        /// The primary read-only Key for the CosmosDB account.
         /// </summary>
         public readonly string PrimaryReadonlyKey;
         /// <summary>
@@ -186,11 +186,11 @@ namespace Pulumi.Azure.CosmosDB
         public readonly ImmutableArray<string> ReadEndpoints;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// The Secondary key for the CosmosDB Account.
+        /// The secondary key for the CosmosDB account.
         /// </summary>
         public readonly string SecondaryKey;
         /// <summary>
-        /// The Secondary read-only key for the CosmosDB Account.
+        /// The secondary read-only key for the CosmosDB account.
         /// </summary>
         public readonly string SecondaryReadonlyKey;
         /// <summary>

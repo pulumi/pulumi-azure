@@ -142,6 +142,10 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly bool ClientCertificateEnabled;
         /// <summary>
+        /// Paths to exclude when using client certificates, separated by ;
+        /// </summary>
+        public readonly string ClientCertificateExclusionPaths;
+        /// <summary>
         /// The mode of the Function App's client certificates requirement for incoming requests.
         /// </summary>
         public readonly string ClientCertificateMode;
@@ -267,6 +271,8 @@ namespace Pulumi.Azure.AppService
 
             bool clientCertificateEnabled,
 
+            string clientCertificateExclusionPaths,
+
             string clientCertificateMode,
 
             ImmutableArray<Outputs.GetWindowsFunctionAppConnectionStringResult> connectionStrings,
@@ -330,6 +336,7 @@ namespace Pulumi.Azure.AppService
             Backups = backups;
             BuiltinLoggingEnabled = builtinLoggingEnabled;
             ClientCertificateEnabled = clientCertificateEnabled;
+            ClientCertificateExclusionPaths = clientCertificateExclusionPaths;
             ClientCertificateMode = clientCertificateMode;
             ConnectionStrings = connectionStrings;
             ContentShareForceDisabled = contentShareForceDisabled;

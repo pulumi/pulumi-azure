@@ -25,6 +25,10 @@ namespace Pulumi.Azure.Storage.Outputs
         /// The age in days after creation to delete the blob snapshot. Must be between 0 and 99999.
         /// </summary>
         public readonly int? DeleteAfterDaysSinceCreationGreaterThan;
+        /// <summary>
+        /// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+        /// </summary>
+        public readonly int? TierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
 
         [OutputConstructor]
         private ManagementPolicyRuleActionsSnapshot(
@@ -32,11 +36,14 @@ namespace Pulumi.Azure.Storage.Outputs
 
             int? changeTierToCoolAfterDaysSinceCreation,
 
-            int? deleteAfterDaysSinceCreationGreaterThan)
+            int? deleteAfterDaysSinceCreationGreaterThan,
+
+            int? tierToArchiveAfterDaysSinceLastTierChangeGreaterThan)
         {
             ChangeTierToArchiveAfterDaysSinceCreation = changeTierToArchiveAfterDaysSinceCreation;
             ChangeTierToCoolAfterDaysSinceCreation = changeTierToCoolAfterDaysSinceCreation;
             DeleteAfterDaysSinceCreationGreaterThan = deleteAfterDaysSinceCreationGreaterThan;
+            TierToArchiveAfterDaysSinceLastTierChangeGreaterThan = tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
         }
     }
 }

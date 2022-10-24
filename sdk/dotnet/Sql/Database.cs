@@ -113,7 +113,7 @@ namespace Pulumi.Azure.Sql
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The point in time for the restore. Only applies if `create_mode` is `PointInTimeRestore` e.g. 2013-11-08T22:00:40Z
+        /// The point in time for the restore. Only applies if `create_mode` is `PointInTimeRestore`, it should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
         /// </summary>
         [Output("restorePointInTime")]
         public Output<string> RestorePointInTime { get; private set; } = null!;
@@ -277,7 +277,7 @@ namespace Pulumi.Azure.Sql
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The point in time for the restore. Only applies if `create_mode` is `PointInTimeRestore` e.g. 2013-11-08T22:00:40Z
+        /// The point in time for the restore. Only applies if `create_mode` is `PointInTimeRestore`, it should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
         /// </summary>
         [Input("restorePointInTime")]
         public Input<string>? RestorePointInTime { get; set; }
@@ -424,7 +424,7 @@ namespace Pulumi.Azure.Sql
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The point in time for the restore. Only applies if `create_mode` is `PointInTimeRestore` e.g. 2013-11-08T22:00:40Z
+        /// The point in time for the restore. Only applies if `create_mode` is `PointInTimeRestore`, it should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
         /// </summary>
         [Input("restorePointInTime")]
         public Input<string>? RestorePointInTime { get; set; }
