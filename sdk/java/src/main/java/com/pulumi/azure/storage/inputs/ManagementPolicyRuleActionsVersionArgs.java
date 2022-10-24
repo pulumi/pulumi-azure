@@ -60,12 +60,28 @@ public final class ManagementPolicyRuleActionsVersionArgs extends com.pulumi.res
         return Optional.ofNullable(this.deleteAfterDaysSinceCreation);
     }
 
+    /**
+     * The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+     * 
+     */
+    @Import(name="tierToArchiveAfterDaysSinceLastTierChangeGreaterThan")
+    private @Nullable Output<Integer> tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
+
+    /**
+     * @return The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+     * 
+     */
+    public Optional<Output<Integer>> tierToArchiveAfterDaysSinceLastTierChangeGreaterThan() {
+        return Optional.ofNullable(this.tierToArchiveAfterDaysSinceLastTierChangeGreaterThan);
+    }
+
     private ManagementPolicyRuleActionsVersionArgs() {}
 
     private ManagementPolicyRuleActionsVersionArgs(ManagementPolicyRuleActionsVersionArgs $) {
         this.changeTierToArchiveAfterDaysSinceCreation = $.changeTierToArchiveAfterDaysSinceCreation;
         this.changeTierToCoolAfterDaysSinceCreation = $.changeTierToCoolAfterDaysSinceCreation;
         this.deleteAfterDaysSinceCreation = $.deleteAfterDaysSinceCreation;
+        this.tierToArchiveAfterDaysSinceLastTierChangeGreaterThan = $.tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
     }
 
     public static Builder builder() {
@@ -147,6 +163,27 @@ public final class ManagementPolicyRuleActionsVersionArgs extends com.pulumi.res
          */
         public Builder deleteAfterDaysSinceCreation(Integer deleteAfterDaysSinceCreation) {
             return deleteAfterDaysSinceCreation(Output.of(deleteAfterDaysSinceCreation));
+        }
+
+        /**
+         * @param tierToArchiveAfterDaysSinceLastTierChangeGreaterThan The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tierToArchiveAfterDaysSinceLastTierChangeGreaterThan(@Nullable Output<Integer> tierToArchiveAfterDaysSinceLastTierChangeGreaterThan) {
+            $.tierToArchiveAfterDaysSinceLastTierChangeGreaterThan = tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
+            return this;
+        }
+
+        /**
+         * @param tierToArchiveAfterDaysSinceLastTierChangeGreaterThan The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tierToArchiveAfterDaysSinceLastTierChangeGreaterThan(Integer tierToArchiveAfterDaysSinceLastTierChangeGreaterThan) {
+            return tierToArchiveAfterDaysSinceLastTierChangeGreaterThan(Output.of(tierToArchiveAfterDaysSinceLastTierChangeGreaterThan));
         }
 
         public ManagementPolicyRuleActionsVersionArgs build() {

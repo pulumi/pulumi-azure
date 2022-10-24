@@ -197,9 +197,17 @@ public final class SoftwareUpdateConfigurationScheduleArgs extends com.pulumi.re
         return Optional.ofNullable(this.startTimeOffsetMinutes);
     }
 
+    /**
+     * The timezone of the start time. Defaults to `UTC`. For possible values see: &lt;https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows&gt;
+     * 
+     */
     @Import(name="timeZone")
     private @Nullable Output<String> timeZone;
 
+    /**
+     * @return The timezone of the start time. Defaults to `UTC`. For possible values see: &lt;https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows&gt;
+     * 
+     */
     public Optional<Output<String>> timeZone() {
         return Optional.ofNullable(this.timeZone);
     }
@@ -516,11 +524,23 @@ public final class SoftwareUpdateConfigurationScheduleArgs extends com.pulumi.re
             return startTimeOffsetMinutes(Output.of(startTimeOffsetMinutes));
         }
 
+        /**
+         * @param timeZone The timezone of the start time. Defaults to `UTC`. For possible values see: &lt;https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows&gt;
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeZone(@Nullable Output<String> timeZone) {
             $.timeZone = timeZone;
             return this;
         }
 
+        /**
+         * @param timeZone The timezone of the start time. Defaults to `UTC`. For possible values see: &lt;https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows&gt;
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeZone(String timeZone) {
             return timeZone(Output.of(timeZone));
         }

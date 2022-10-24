@@ -14,14 +14,14 @@ public final class FrontdoorFirewallPolicyManagedRuleExclusionArgs extends com.p
     public static final FrontdoorFirewallPolicyManagedRuleExclusionArgs Empty = new FrontdoorFirewallPolicyManagedRuleExclusionArgs();
 
     /**
-     * The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+     * The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
      * 
      */
     @Import(name="matchVariable", required=true)
     private Output<String> matchVariable;
 
     /**
-     * @return The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+     * @return The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
      * 
      */
     public Output<String> matchVariable() {
@@ -85,7 +85,7 @@ public final class FrontdoorFirewallPolicyManagedRuleExclusionArgs extends com.p
         }
 
         /**
-         * @param matchVariable The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+         * @param matchVariable The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
          * 
          * @return builder
          * 
@@ -96,7 +96,7 @@ public final class FrontdoorFirewallPolicyManagedRuleExclusionArgs extends com.p
         }
 
         /**
-         * @param matchVariable The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+         * @param matchVariable The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
          * 
          * @return builder
          * 

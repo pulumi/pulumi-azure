@@ -94,6 +94,21 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The primary key for this server.
+     * 
+     */
+    @Import(name="primaryKey")
+    private @Nullable Output<String> primaryKey;
+
+    /**
+     * @return The primary key for this server.
+     * 
+     */
+    public Optional<Output<String>> primaryKey() {
+        return Optional.ofNullable(this.primaryKey);
+    }
+
+    /**
      * The name of the Resource Group where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
      * 
      */
@@ -106,6 +121,36 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> resourceGroupName() {
         return Optional.ofNullable(this.resourceGroupName);
+    }
+
+    /**
+     * The secondary key for this server.
+     * 
+     */
+    @Import(name="secondaryKey")
+    private @Nullable Output<String> secondaryKey;
+
+    /**
+     * @return The secondary key for this server.
+     * 
+     */
+    public Optional<Output<String>> secondaryKey() {
+        return Optional.ofNullable(this.secondaryKey);
+    }
+
+    /**
+     * An array of service endpoints for this Fluid Relay Server.
+     * 
+     */
+    @Import(name="serviceEndpoints")
+    private @Nullable Output<List<String>> serviceEndpoints;
+
+    /**
+     * @return An array of service endpoints for this Fluid Relay Server.
+     * 
+     */
+    public Optional<Output<List<String>>> serviceEndpoints() {
+        return Optional.ofNullable(this.serviceEndpoints);
     }
 
     /**
@@ -161,7 +206,10 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         this.location = $.location;
         this.name = $.name;
         this.ordererEndpoints = $.ordererEndpoints;
+        this.primaryKey = $.primaryKey;
         this.resourceGroupName = $.resourceGroupName;
+        this.secondaryKey = $.secondaryKey;
+        this.serviceEndpoints = $.serviceEndpoints;
         this.storageEndpoints = $.storageEndpoints;
         this.storageSku = $.storageSku;
         this.tags = $.tags;
@@ -301,6 +349,27 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param primaryKey The primary key for this server.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryKey(@Nullable Output<String> primaryKey) {
+            $.primaryKey = primaryKey;
+            return this;
+        }
+
+        /**
+         * @param primaryKey The primary key for this server.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryKey(String primaryKey) {
+            return primaryKey(Output.of(primaryKey));
+        }
+
+        /**
          * @param resourceGroupName The name of the Resource Group where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
          * 
          * @return builder
@@ -319,6 +388,58 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
+        }
+
+        /**
+         * @param secondaryKey The secondary key for this server.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryKey(@Nullable Output<String> secondaryKey) {
+            $.secondaryKey = secondaryKey;
+            return this;
+        }
+
+        /**
+         * @param secondaryKey The secondary key for this server.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryKey(String secondaryKey) {
+            return secondaryKey(Output.of(secondaryKey));
+        }
+
+        /**
+         * @param serviceEndpoints An array of service endpoints for this Fluid Relay Server.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceEndpoints(@Nullable Output<List<String>> serviceEndpoints) {
+            $.serviceEndpoints = serviceEndpoints;
+            return this;
+        }
+
+        /**
+         * @param serviceEndpoints An array of service endpoints for this Fluid Relay Server.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceEndpoints(List<String> serviceEndpoints) {
+            return serviceEndpoints(Output.of(serviceEndpoints));
+        }
+
+        /**
+         * @param serviceEndpoints An array of service endpoints for this Fluid Relay Server.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceEndpoints(String... serviceEndpoints) {
+            return serviceEndpoints(List.of(serviceEndpoints));
         }
 
         /**

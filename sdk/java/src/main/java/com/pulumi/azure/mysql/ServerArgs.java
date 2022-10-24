@@ -216,14 +216,14 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When `create_mode` is `PointInTimeRestore`, specifies the point in time to restore from `creation_source_server_id`.
+     * When `create_mode` is `PointInTimeRestore`, specifies the point in time to restore from `creation_source_server_id`. It should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
      * 
      */
     @Import(name="restorePointInTime")
     private @Nullable Output<String> restorePointInTime;
 
     /**
-     * @return When `create_mode` is `PointInTimeRestore`, specifies the point in time to restore from `creation_source_server_id`.
+     * @return When `create_mode` is `PointInTimeRestore`, specifies the point in time to restore from `creation_source_server_id`. It should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
      * 
      */
     public Optional<Output<String>> restorePointInTime() {
@@ -653,7 +653,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restorePointInTime When `create_mode` is `PointInTimeRestore`, specifies the point in time to restore from `creation_source_server_id`.
+         * @param restorePointInTime When `create_mode` is `PointInTimeRestore`, specifies the point in time to restore from `creation_source_server_id`. It should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
          * 
          * @return builder
          * 
@@ -664,7 +664,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restorePointInTime When `create_mode` is `PointInTimeRestore`, specifies the point in time to restore from `creation_source_server_id`.
+         * @param restorePointInTime When `create_mode` is `PointInTimeRestore`, specifies the point in time to restore from `creation_source_server_id`. It should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
          * 
          * @return builder
          * 

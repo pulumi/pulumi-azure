@@ -398,14 +398,14 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The Remote Debugging Version. Possible values include `VS2017` and `VS2019`.
+     * The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`.
      * 
      */
     @Import(name="remoteDebuggingVersion")
     private @Nullable Output<String> remoteDebuggingVersion;
 
     /**
-     * @return The Remote Debugging Version. Possible values include `VS2017` and `VS2019`.
+     * @return The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`.
      * 
      */
     public Optional<Output<String>> remoteDebuggingVersion() {
@@ -1141,7 +1141,7 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param remoteDebuggingVersion The Remote Debugging Version. Possible values include `VS2017` and `VS2019`.
+         * @param remoteDebuggingVersion The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`.
          * 
          * @return builder
          * 
@@ -1152,7 +1152,7 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param remoteDebuggingVersion The Remote Debugging Version. Possible values include `VS2017` and `VS2019`.
+         * @param remoteDebuggingVersion The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`.
          * 
          * @return builder
          * 

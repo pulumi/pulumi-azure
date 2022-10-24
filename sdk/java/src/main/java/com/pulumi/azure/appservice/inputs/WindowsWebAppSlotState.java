@@ -117,6 +117,21 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * Paths to exclude when using client certificates, separated by ;
+     * 
+     */
+    @Import(name="clientCertificateExclusionPaths")
+    private @Nullable Output<String> clientCertificateExclusionPaths;
+
+    /**
+     * @return Paths to exclude when using client certificates, separated by ;
+     * 
+     */
+    public Optional<Output<String>> clientCertificateExclusionPaths() {
+        return Optional.ofNullable(this.clientCertificateExclusionPaths);
+    }
+
+    /**
      * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`
      * 
      */
@@ -440,6 +455,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         this.backup = $.backup;
         this.clientAffinityEnabled = $.clientAffinityEnabled;
         this.clientCertificateEnabled = $.clientCertificateEnabled;
+        this.clientCertificateExclusionPaths = $.clientCertificateExclusionPaths;
         this.clientCertificateMode = $.clientCertificateMode;
         this.connectionStrings = $.connectionStrings;
         this.customDomainVerificationId = $.customDomainVerificationId;
@@ -605,6 +621,27 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
          */
         public Builder clientCertificateEnabled(Boolean clientCertificateEnabled) {
             return clientCertificateEnabled(Output.of(clientCertificateEnabled));
+        }
+
+        /**
+         * @param clientCertificateExclusionPaths Paths to exclude when using client certificates, separated by ;
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientCertificateExclusionPaths(@Nullable Output<String> clientCertificateExclusionPaths) {
+            $.clientCertificateExclusionPaths = clientCertificateExclusionPaths;
+            return this;
+        }
+
+        /**
+         * @param clientCertificateExclusionPaths Paths to exclude when using client certificates, separated by ;
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientCertificateExclusionPaths(String clientCertificateExclusionPaths) {
+            return clientCertificateExclusionPaths(Output.of(clientCertificateExclusionPaths));
         }
 
         /**

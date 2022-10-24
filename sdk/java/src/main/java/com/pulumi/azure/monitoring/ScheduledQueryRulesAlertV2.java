@@ -315,14 +315,14 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
         return Codegen.optional(this.targetResourceTypes);
     }
     /**
-     * Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size).
+     * Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
      * 
      */
     @Export(name="windowDuration", type=String.class, parameters={})
     private Output<String> windowDuration;
 
     /**
-     * @return Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size).
+     * @return Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
      * 
      */
     public Output<String> windowDuration() {

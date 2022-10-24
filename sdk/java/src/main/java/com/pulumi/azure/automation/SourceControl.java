@@ -20,7 +20,6 @@ import javax.annotation.Nullable;
  * Manages an Automation Source Control.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -44,7 +43,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SourceControl(&#34;example&#34;, SourceControlArgs.builder()        
- *             .resourceGroupName(&#34;example&#34;)
  *             .automationAccountId(azurerm_automation_account.test().id())
  *             .folderPath(&#34;runbook&#34;)
  *             .security(SourceControlSecurityArgs.builder()

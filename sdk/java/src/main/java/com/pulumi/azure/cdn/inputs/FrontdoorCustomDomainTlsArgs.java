@@ -16,14 +16,14 @@ public final class FrontdoorCustomDomainTlsArgs extends com.pulumi.resources.Res
     public static final FrontdoorCustomDomainTlsArgs Empty = new FrontdoorCustomDomainTlsArgs();
 
     /**
-     * Resource ID of the Frontdoor Secrect.
+     * Resource ID of the Frontdoor Secret.
      * 
      */
     @Import(name="cdnFrontdoorSecretId")
     private @Nullable Output<String> cdnFrontdoorSecretId;
 
     /**
-     * @return Resource ID of the Frontdoor Secrect.
+     * @return Resource ID of the Frontdoor Secret.
      * 
      */
     public Optional<Output<String>> cdnFrontdoorSecretId() {
@@ -87,7 +87,7 @@ public final class FrontdoorCustomDomainTlsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param cdnFrontdoorSecretId Resource ID of the Frontdoor Secrect.
+         * @param cdnFrontdoorSecretId Resource ID of the Frontdoor Secret.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class FrontdoorCustomDomainTlsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param cdnFrontdoorSecretId Resource ID of the Frontdoor Secrect.
+         * @param cdnFrontdoorSecretId Resource ID of the Frontdoor Secret.
          * 
          * @return builder
          * 

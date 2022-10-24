@@ -278,14 +278,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * When `create_mode` is `PointInTimeRestore` the point in time to restore from `creation_source_server_id`.
+     * When `create_mode` is `PointInTimeRestore` the point in time to restore from `creation_source_server_id`. It should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
      * 
      */
     @Export(name="restorePointInTime", type=String.class, parameters={})
     private Output</* @Nullable */ String> restorePointInTime;
 
     /**
-     * @return When `create_mode` is `PointInTimeRestore` the point in time to restore from `creation_source_server_id`.
+     * @return When `create_mode` is `PointInTimeRestore` the point in time to restore from `creation_source_server_id`. It should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
      * 
      */
     public Output<Optional<String>> restorePointInTime() {

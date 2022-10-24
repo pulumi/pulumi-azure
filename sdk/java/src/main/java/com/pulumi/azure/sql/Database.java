@@ -302,14 +302,14 @@ public class Database extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * The point in time for the restore. Only applies if `create_mode` is `PointInTimeRestore` e.g. 2013-11-08T22:00:40Z
+     * The point in time for the restore. Only applies if `create_mode` is `PointInTimeRestore`, it should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
      * 
      */
     @Export(name="restorePointInTime", type=String.class, parameters={})
     private Output<String> restorePointInTime;
 
     /**
-     * @return The point in time for the restore. Only applies if `create_mode` is `PointInTimeRestore` e.g. 2013-11-08T22:00:40Z
+     * @return The point in time for the restore. Only applies if `create_mode` is `PointInTimeRestore`, it should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
      * 
      */
     public Output<String> restorePointInTime() {

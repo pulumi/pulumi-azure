@@ -22,6 +22,10 @@ public final class GetSqlRoleDefinitionResult {
      * 
      */
     private String id;
+    /**
+     * @return The role name of the Cosmos DB SQL Role Definition.
+     * 
+     */
     private String name;
     /**
      * @return A `permissions` block as defined below.
@@ -54,6 +58,10 @@ public final class GetSqlRoleDefinitionResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The role name of the Cosmos DB SQL Role Definition.
+     * 
+     */
     public String name() {
         return this.name;
     }

@@ -80,12 +80,12 @@ public final class GetAccountResult {
      */
     private String offerType;
     /**
-     * @return The Primary key for the CosmosDB Account.
+     * @return The primary key for the CosmosDB account.
      * 
      */
     private String primaryKey;
     /**
-     * @return The Primary read-only Key for the CosmosDB Account.
+     * @return The primary read-only Key for the CosmosDB account.
      * 
      */
     private String primaryReadonlyKey;
@@ -96,12 +96,12 @@ public final class GetAccountResult {
     private List<String> readEndpoints;
     private String resourceGroupName;
     /**
-     * @return The Secondary key for the CosmosDB Account.
+     * @return The secondary key for the CosmosDB account.
      * 
      */
     private String secondaryKey;
     /**
-     * @return The Secondary read-only key for the CosmosDB Account.
+     * @return The secondary read-only key for the CosmosDB account.
      * 
      */
     private String secondaryReadonlyKey;
@@ -216,14 +216,14 @@ public final class GetAccountResult {
         return this.offerType;
     }
     /**
-     * @return The Primary key for the CosmosDB Account.
+     * @return The primary key for the CosmosDB account.
      * 
      */
     public String primaryKey() {
         return this.primaryKey;
     }
     /**
-     * @return The Primary read-only Key for the CosmosDB Account.
+     * @return The primary read-only Key for the CosmosDB account.
      * 
      */
     public String primaryReadonlyKey() {
@@ -240,14 +240,14 @@ public final class GetAccountResult {
         return this.resourceGroupName;
     }
     /**
-     * @return The Secondary key for the CosmosDB Account.
+     * @return The secondary key for the CosmosDB account.
      * 
      */
     public String secondaryKey() {
         return this.secondaryKey;
     }
     /**
-     * @return The Secondary read-only key for the CosmosDB Account.
+     * @return The secondary read-only key for the CosmosDB account.
      * 
      */
     public String secondaryReadonlyKey() {

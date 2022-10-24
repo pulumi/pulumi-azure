@@ -538,6 +538,18 @@ public class Account extends com.pulumi.resources.CustomResource {
     public Output<String> primaryReadonlyKey() {
         return this.primaryReadonlyKey;
     }
+    @Export(name="primaryReadonlySqlConnectionString", type=String.class, parameters={})
+    private Output<String> primaryReadonlySqlConnectionString;
+
+    public Output<String> primaryReadonlySqlConnectionString() {
+        return this.primaryReadonlySqlConnectionString;
+    }
+    @Export(name="primarySqlConnectionString", type=String.class, parameters={})
+    private Output<String> primarySqlConnectionString;
+
+    public Output<String> primarySqlConnectionString() {
+        return this.primarySqlConnectionString;
+    }
     /**
      * Whether or not public network access is allowed for this CosmosDB account.
      * 
@@ -621,6 +633,18 @@ public class Account extends com.pulumi.resources.CustomResource {
      */
     public Output<String> secondaryReadonlyKey() {
         return this.secondaryReadonlyKey;
+    }
+    @Export(name="secondaryReadonlySqlConnectionString", type=String.class, parameters={})
+    private Output<String> secondaryReadonlySqlConnectionString;
+
+    public Output<String> secondaryReadonlySqlConnectionString() {
+        return this.secondaryReadonlySqlConnectionString;
+    }
+    @Export(name="secondarySqlConnectionString", type=String.class, parameters={})
+    private Output<String> secondarySqlConnectionString;
+
+    public Output<String> secondarySqlConnectionString() {
+        return this.secondarySqlConnectionString;
     }
     /**
      * A mapping of tags to assign to the resource.

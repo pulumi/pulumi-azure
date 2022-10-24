@@ -17,14 +17,14 @@ public final class CacheIdentityArgs extends com.pulumi.resources.ResourceArgs {
     public static final CacheIdentityArgs Empty = new CacheIdentityArgs();
 
     /**
-     * A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
+     * A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
      * 
      */
     @Import(name="identityIds")
     private @Nullable Output<List<String>> identityIds;
 
     /**
-     * @return A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
+     * @return A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -46,14 +46,14 @@ public final class CacheIdentityArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+     * Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+     * @return Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
      * 
      */
     public Output<String> type() {
@@ -88,7 +88,7 @@ public final class CacheIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
+         * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class CacheIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
+         * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class CacheIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
+         * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class CacheIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * @param type Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class CacheIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * @param type Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          * 
          * @return builder
          * 

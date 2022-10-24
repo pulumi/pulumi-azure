@@ -17,14 +17,14 @@ public final class FrontdoorSecretSecretCustomerCertificateArgs extends com.pulu
     public static final FrontdoorSecretSecretCustomerCertificateArgs Empty = new FrontdoorSecretSecretCustomerCertificateArgs();
 
     /**
-     * The key vault certificate resources ID attribute. Changing this forces a new Frontdoor Secret to be created.
+     * The ID of the Key Vault certificate resource to use. Changing this forces a new Frontdoor Secret to be created.
      * 
      */
     @Import(name="keyVaultCertificateId", required=true)
     private Output<String> keyVaultCertificateId;
 
     /**
-     * @return The key vault certificate resources ID attribute. Changing this forces a new Frontdoor Secret to be created.
+     * @return The ID of the Key Vault certificate resource to use. Changing this forces a new Frontdoor Secret to be created.
      * 
      */
     public Output<String> keyVaultCertificateId() {
@@ -72,7 +72,7 @@ public final class FrontdoorSecretSecretCustomerCertificateArgs extends com.pulu
         }
 
         /**
-         * @param keyVaultCertificateId The key vault certificate resources ID attribute. Changing this forces a new Frontdoor Secret to be created.
+         * @param keyVaultCertificateId The ID of the Key Vault certificate resource to use. Changing this forces a new Frontdoor Secret to be created.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class FrontdoorSecretSecretCustomerCertificateArgs extends com.pulu
         }
 
         /**
-         * @param keyVaultCertificateId The key vault certificate resources ID attribute. Changing this forces a new Frontdoor Secret to be created.
+         * @param keyVaultCertificateId The ID of the Key Vault certificate resource to use. Changing this forces a new Frontdoor Secret to be created.
          * 
          * @return builder
          * 

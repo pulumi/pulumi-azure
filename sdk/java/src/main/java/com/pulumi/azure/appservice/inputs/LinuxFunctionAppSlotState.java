@@ -101,6 +101,21 @@ public final class LinuxFunctionAppSlotState extends com.pulumi.resources.Resour
     }
 
     /**
+     * Paths to exclude when using client certificates, separated by ;
+     * 
+     */
+    @Import(name="clientCertificateExclusionPaths")
+    private @Nullable Output<String> clientCertificateExclusionPaths;
+
+    /**
+     * @return Paths to exclude when using client certificates, separated by ;
+     * 
+     */
+    public Optional<Output<String>> clientCertificateExclusionPaths() {
+        return Optional.ofNullable(this.clientCertificateExclusionPaths);
+    }
+
+    /**
      * The mode of the Function App Slot&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
      * 
      */
@@ -498,6 +513,7 @@ public final class LinuxFunctionAppSlotState extends com.pulumi.resources.Resour
         this.backup = $.backup;
         this.builtinLoggingEnabled = $.builtinLoggingEnabled;
         this.clientCertificateEnabled = $.clientCertificateEnabled;
+        this.clientCertificateExclusionPaths = $.clientCertificateExclusionPaths;
         this.clientCertificateMode = $.clientCertificateMode;
         this.connectionStrings = $.connectionStrings;
         this.contentShareForceDisabled = $.contentShareForceDisabled;
@@ -647,6 +663,27 @@ public final class LinuxFunctionAppSlotState extends com.pulumi.resources.Resour
          */
         public Builder clientCertificateEnabled(Boolean clientCertificateEnabled) {
             return clientCertificateEnabled(Output.of(clientCertificateEnabled));
+        }
+
+        /**
+         * @param clientCertificateExclusionPaths Paths to exclude when using client certificates, separated by ;
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientCertificateExclusionPaths(@Nullable Output<String> clientCertificateExclusionPaths) {
+            $.clientCertificateExclusionPaths = clientCertificateExclusionPaths;
+            return this;
+        }
+
+        /**
+         * @param clientCertificateExclusionPaths Paths to exclude when using client certificates, separated by ;
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientCertificateExclusionPaths(String clientCertificateExclusionPaths) {
+            return clientCertificateExclusionPaths(Output.of(clientCertificateExclusionPaths));
         }
 
         /**

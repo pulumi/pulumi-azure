@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class FrontdoorFirewallPolicyManagedRuleExclusion {
     /**
-     * @return The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+     * @return The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
      * 
      */
     private String matchVariable;
@@ -27,7 +27,7 @@ public final class FrontdoorFirewallPolicyManagedRuleExclusion {
 
     private FrontdoorFirewallPolicyManagedRuleExclusion() {}
     /**
-     * @return The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+     * @return The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
      * 
      */
     public String matchVariable() {

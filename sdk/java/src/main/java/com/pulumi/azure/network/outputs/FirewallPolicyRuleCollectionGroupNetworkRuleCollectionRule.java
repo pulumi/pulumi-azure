@@ -27,7 +27,7 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
      */
     private @Nullable List<String> destinationIpGroups;
     /**
-     * @return Specifies a list of destination ports.
+     * @return Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
      * 
      */
     private List<String> destinationPorts;
@@ -75,7 +75,7 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
         return this.destinationIpGroups == null ? List.of() : this.destinationIpGroups;
     }
     /**
-     * @return Specifies a list of destination ports.
+     * @return Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
      * 
      */
     public List<String> destinationPorts() {

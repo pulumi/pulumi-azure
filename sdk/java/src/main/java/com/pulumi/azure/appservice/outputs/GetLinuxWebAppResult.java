@@ -52,6 +52,11 @@ public final class GetLinuxWebAppResult {
      */
     private Boolean clientCertificateEnabled;
     /**
+     * @return Paths to exclude when using client certificates, separated by ;
+     * 
+     */
+    private String clientCertificateExclusionPaths;
+    /**
      * @return The Client Certificate mode.
      * 
      */
@@ -207,6 +212,13 @@ public final class GetLinuxWebAppResult {
      */
     public Boolean clientCertificateEnabled() {
         return this.clientCertificateEnabled;
+    }
+    /**
+     * @return Paths to exclude when using client certificates, separated by ;
+     * 
+     */
+    public String clientCertificateExclusionPaths() {
+        return this.clientCertificateExclusionPaths;
     }
     /**
      * @return The Client Certificate mode.
@@ -387,6 +399,7 @@ public final class GetLinuxWebAppResult {
         private List<GetLinuxWebAppBackup> backups;
         private Boolean clientAffinityEnabled;
         private Boolean clientCertificateEnabled;
+        private String clientCertificateExclusionPaths;
         private String clientCertificateMode;
         private List<GetLinuxWebAppConnectionString> connectionStrings;
         private String customDomainVerificationId;
@@ -421,6 +434,7 @@ public final class GetLinuxWebAppResult {
     	      this.backups = defaults.backups;
     	      this.clientAffinityEnabled = defaults.clientAffinityEnabled;
     	      this.clientCertificateEnabled = defaults.clientCertificateEnabled;
+    	      this.clientCertificateExclusionPaths = defaults.clientCertificateExclusionPaths;
     	      this.clientCertificateMode = defaults.clientCertificateMode;
     	      this.connectionStrings = defaults.connectionStrings;
     	      this.customDomainVerificationId = defaults.customDomainVerificationId;
@@ -482,6 +496,11 @@ public final class GetLinuxWebAppResult {
         @CustomType.Setter
         public Builder clientCertificateEnabled(Boolean clientCertificateEnabled) {
             this.clientCertificateEnabled = Objects.requireNonNull(clientCertificateEnabled);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder clientCertificateExclusionPaths(String clientCertificateExclusionPaths) {
+            this.clientCertificateExclusionPaths = Objects.requireNonNull(clientCertificateExclusionPaths);
             return this;
         }
         @CustomType.Setter
@@ -644,6 +663,7 @@ public final class GetLinuxWebAppResult {
             o.backups = backups;
             o.clientAffinityEnabled = clientAffinityEnabled;
             o.clientCertificateEnabled = clientCertificateEnabled;
+            o.clientCertificateExclusionPaths = clientCertificateExclusionPaths;
             o.clientCertificateMode = clientCertificateMode;
             o.connectionStrings = connectionStrings;
             o.customDomainVerificationId = customDomainVerificationId;

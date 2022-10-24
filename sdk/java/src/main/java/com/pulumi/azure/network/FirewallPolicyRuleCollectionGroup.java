@@ -23,6 +23,7 @@ import javax.annotation.Nullable;
  * Manages a Firewall Policy Rule Collection Group.
  * 
  * ## Example Usage
+ * 
  * ```java
  * package generated_program;
  * 
@@ -113,9 +114,7 @@ import javax.annotation.Nullable;
  *                         &#34;10.0.0.1&#34;,
  *                         &#34;10.0.0.2&#34;)
  *                     .destinationAddress(&#34;192.168.1.1&#34;)
- *                     .destinationPorts(                    
- *                         &#34;80&#34;,
- *                         &#34;1000-2000&#34;)
+ *                     .destinationPorts(&#34;80&#34;)
  *                     .translatedAddress(&#34;192.168.0.1&#34;)
  *                     .translatedPort(&#34;8080&#34;)
  *                     .build())

@@ -384,14 +384,14 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
     }
 
     /**
-     * The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+     * The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`
      * 
      */
     @Import(name="remoteDebuggingVersion")
     private @Nullable Output<String> remoteDebuggingVersion;
 
     /**
-     * @return The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+     * @return The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`
      * 
      */
     public Optional<Output<String>> remoteDebuggingVersion() {
@@ -1131,7 +1131,7 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param remoteDebuggingVersion The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+         * @param remoteDebuggingVersion The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`
          * 
          * @return builder
          * 
@@ -1142,7 +1142,7 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param remoteDebuggingVersion The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+         * @param remoteDebuggingVersion The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`
          * 
          * @return builder
          * 

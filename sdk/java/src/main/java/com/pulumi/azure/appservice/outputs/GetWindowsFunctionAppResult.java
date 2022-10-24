@@ -46,6 +46,11 @@ public final class GetWindowsFunctionAppResult {
      */
     private Boolean clientCertificateEnabled;
     /**
+     * @return Paths to exclude when using client certificates, separated by ;
+     * 
+     */
+    private String clientCertificateExclusionPaths;
+    /**
      * @return The mode of the Function App&#39;s client certificates requirement for incoming requests.
      * 
      */
@@ -222,6 +227,13 @@ public final class GetWindowsFunctionAppResult {
      */
     public Boolean clientCertificateEnabled() {
         return this.clientCertificateEnabled;
+    }
+    /**
+     * @return Paths to exclude when using client certificates, separated by ;
+     * 
+     */
+    public String clientCertificateExclusionPaths() {
+        return this.clientCertificateExclusionPaths;
     }
     /**
      * @return The mode of the Function App&#39;s client certificates requirement for incoming requests.
@@ -437,6 +449,7 @@ public final class GetWindowsFunctionAppResult {
         private List<GetWindowsFunctionAppBackup> backups;
         private Boolean builtinLoggingEnabled;
         private Boolean clientCertificateEnabled;
+        private String clientCertificateExclusionPaths;
         private String clientCertificateMode;
         private List<GetWindowsFunctionAppConnectionString> connectionStrings;
         private Boolean contentShareForceDisabled;
@@ -474,6 +487,7 @@ public final class GetWindowsFunctionAppResult {
     	      this.backups = defaults.backups;
     	      this.builtinLoggingEnabled = defaults.builtinLoggingEnabled;
     	      this.clientCertificateEnabled = defaults.clientCertificateEnabled;
+    	      this.clientCertificateExclusionPaths = defaults.clientCertificateExclusionPaths;
     	      this.clientCertificateMode = defaults.clientCertificateMode;
     	      this.connectionStrings = defaults.connectionStrings;
     	      this.contentShareForceDisabled = defaults.contentShareForceDisabled;
@@ -534,6 +548,11 @@ public final class GetWindowsFunctionAppResult {
         @CustomType.Setter
         public Builder clientCertificateEnabled(Boolean clientCertificateEnabled) {
             this.clientCertificateEnabled = Objects.requireNonNull(clientCertificateEnabled);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder clientCertificateExclusionPaths(String clientCertificateExclusionPaths) {
+            this.clientCertificateExclusionPaths = Objects.requireNonNull(clientCertificateExclusionPaths);
             return this;
         }
         @CustomType.Setter
@@ -709,6 +728,7 @@ public final class GetWindowsFunctionAppResult {
             o.backups = backups;
             o.builtinLoggingEnabled = builtinLoggingEnabled;
             o.clientCertificateEnabled = clientCertificateEnabled;
+            o.clientCertificateExclusionPaths = clientCertificateExclusionPaths;
             o.clientCertificateMode = clientCertificateMode;
             o.connectionStrings = connectionStrings;
             o.contentShareForceDisabled = contentShareForceDisabled;
