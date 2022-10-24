@@ -24,8 +24,8 @@ class CacheIdentityArgs:
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -39,7 +39,7 @@ class CacheIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         """
         return pulumi.get(self, "type")
 
@@ -51,7 +51,7 @@ class CacheIdentityArgs:
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
+        A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
         """
         return pulumi.get(self, "identity_ids")
 

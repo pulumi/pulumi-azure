@@ -363,6 +363,24 @@ class SourceControl(pulumi.CustomResource):
         """
         Manages an Automation Source Control.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.automation.SourceControl("example",
+            automation_account_id=azurerm_automation_account["test"]["id"],
+            folder_path="runbook",
+            security=azure.automation.SourceControlSecurityArgs(
+                token="ghp_xxx",
+                token_type="PersonalAccessToken",
+            ),
+            repository_url="https://github.com/foo/bat.git",
+            source_control_type="GitHub",
+            branch="main")
+        ```
+
         ## Import
 
         Automations can be imported using the `resource id`, e.g.
@@ -392,6 +410,24 @@ class SourceControl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Automation Source Control.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.automation.SourceControl("example",
+            automation_account_id=azurerm_automation_account["test"]["id"],
+            folder_path="runbook",
+            security=azure.automation.SourceControlSecurityArgs(
+                token="ghp_xxx",
+                token_type="PersonalAccessToken",
+            ),
+            repository_url="https://github.com/foo/bat.git",
+            source_control_type="GitHub",
+            branch="main")
+        ```
 
         ## Import
 

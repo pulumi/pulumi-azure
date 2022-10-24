@@ -22,7 +22,7 @@ class GetWindowsFunctionAppResult:
     """
     A collection of values returned by getWindowsFunctionApp.
     """
-    def __init__(__self__, app_settings=None, auth_settings=None, backups=None, builtin_logging_enabled=None, client_certificate_enabled=None, client_certificate_mode=None, connection_strings=None, content_share_force_disabled=None, custom_domain_verification_id=None, daily_memory_time_quota=None, default_hostname=None, enabled=None, functions_extension_version=None, https_only=None, id=None, identities=None, kind=None, location=None, name=None, outbound_ip_address_lists=None, outbound_ip_addresses=None, possible_outbound_ip_address_lists=None, possible_outbound_ip_addresses=None, resource_group_name=None, service_plan_id=None, site_configs=None, site_credentials=None, sticky_settings=None, storage_account_access_key=None, storage_account_name=None, storage_key_vault_secret_id=None, storage_uses_managed_identity=None, tags=None, virtual_network_subnet_id=None):
+    def __init__(__self__, app_settings=None, auth_settings=None, backups=None, builtin_logging_enabled=None, client_certificate_enabled=None, client_certificate_exclusion_paths=None, client_certificate_mode=None, connection_strings=None, content_share_force_disabled=None, custom_domain_verification_id=None, daily_memory_time_quota=None, default_hostname=None, enabled=None, functions_extension_version=None, https_only=None, id=None, identities=None, kind=None, location=None, name=None, outbound_ip_address_lists=None, outbound_ip_addresses=None, possible_outbound_ip_address_lists=None, possible_outbound_ip_addresses=None, resource_group_name=None, service_plan_id=None, site_configs=None, site_credentials=None, sticky_settings=None, storage_account_access_key=None, storage_account_name=None, storage_key_vault_secret_id=None, storage_uses_managed_identity=None, tags=None, virtual_network_subnet_id=None):
         if app_settings and not isinstance(app_settings, dict):
             raise TypeError("Expected argument 'app_settings' to be a dict")
         pulumi.set(__self__, "app_settings", app_settings)
@@ -38,6 +38,9 @@ class GetWindowsFunctionAppResult:
         if client_certificate_enabled and not isinstance(client_certificate_enabled, bool):
             raise TypeError("Expected argument 'client_certificate_enabled' to be a bool")
         pulumi.set(__self__, "client_certificate_enabled", client_certificate_enabled)
+        if client_certificate_exclusion_paths and not isinstance(client_certificate_exclusion_paths, str):
+            raise TypeError("Expected argument 'client_certificate_exclusion_paths' to be a str")
+        pulumi.set(__self__, "client_certificate_exclusion_paths", client_certificate_exclusion_paths)
         if client_certificate_mode and not isinstance(client_certificate_mode, str):
             raise TypeError("Expected argument 'client_certificate_mode' to be a str")
         pulumi.set(__self__, "client_certificate_mode", client_certificate_mode)
@@ -165,6 +168,14 @@ class GetWindowsFunctionAppResult:
         Is the use of Client Certificates enabled?
         """
         return pulumi.get(self, "client_certificate_enabled")
+
+    @property
+    @pulumi.getter(name="clientCertificateExclusionPaths")
+    def client_certificate_exclusion_paths(self) -> str:
+        """
+        Paths to exclude when using client certificates, separated by ;
+        """
+        return pulumi.get(self, "client_certificate_exclusion_paths")
 
     @property
     @pulumi.getter(name="clientCertificateMode")
@@ -407,6 +418,7 @@ class AwaitableGetWindowsFunctionAppResult(GetWindowsFunctionAppResult):
             backups=self.backups,
             builtin_logging_enabled=self.builtin_logging_enabled,
             client_certificate_enabled=self.client_certificate_enabled,
+            client_certificate_exclusion_paths=self.client_certificate_exclusion_paths,
             client_certificate_mode=self.client_certificate_mode,
             connection_strings=self.connection_strings,
             content_share_force_disabled=self.content_share_force_disabled,
@@ -471,6 +483,7 @@ def get_windows_function_app(name: Optional[str] = None,
         backups=__ret__.backups,
         builtin_logging_enabled=__ret__.builtin_logging_enabled,
         client_certificate_enabled=__ret__.client_certificate_enabled,
+        client_certificate_exclusion_paths=__ret__.client_certificate_exclusion_paths,
         client_certificate_mode=__ret__.client_certificate_mode,
         connection_strings=__ret__.connection_strings,
         content_share_force_disabled=__ret__.content_share_force_disabled,

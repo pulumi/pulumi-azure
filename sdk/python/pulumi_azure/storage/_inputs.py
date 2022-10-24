@@ -19,6 +19,7 @@ __all__ = [
     'AccountCustomDomainArgs',
     'AccountCustomerManagedKeyArgs',
     'AccountIdentityArgs',
+    'AccountImmutabilityPolicyArgs',
     'AccountNetworkRulesArgs',
     'AccountNetworkRulesPrivateLinkAccessArgs',
     'AccountNetworkRulesPrivateLinkAccessRuleArgs',
@@ -600,6 +601,58 @@ class AccountIdentityArgs:
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class AccountImmutabilityPolicyArgs:
+    def __init__(__self__, *,
+                 allow_protected_append_writes: pulumi.Input[bool],
+                 period_since_creation_in_days: pulumi.Input[int],
+                 state: pulumi.Input[str]):
+        """
+        :param pulumi.Input[bool] allow_protected_append_writes: When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
+        :param pulumi.Input[int] period_since_creation_in_days: The immutability period for the blobs in the container since the policy creation, in days.
+        :param pulumi.Input[str] state: Defines the mode of the policy. `Disabled` state disables the policy, `Unlocked` state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, `Locked` state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
+        """
+        pulumi.set(__self__, "allow_protected_append_writes", allow_protected_append_writes)
+        pulumi.set(__self__, "period_since_creation_in_days", period_since_creation_in_days)
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="allowProtectedAppendWrites")
+    def allow_protected_append_writes(self) -> pulumi.Input[bool]:
+        """
+        When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
+        """
+        return pulumi.get(self, "allow_protected_append_writes")
+
+    @allow_protected_append_writes.setter
+    def allow_protected_append_writes(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "allow_protected_append_writes", value)
+
+    @property
+    @pulumi.getter(name="periodSinceCreationInDays")
+    def period_since_creation_in_days(self) -> pulumi.Input[int]:
+        """
+        The immutability period for the blobs in the container since the policy creation, in days.
+        """
+        return pulumi.get(self, "period_since_creation_in_days")
+
+    @period_since_creation_in_days.setter
+    def period_since_creation_in_days(self, value: pulumi.Input[int]):
+        pulumi.set(self, "period_since_creation_in_days", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Input[str]:
+        """
+        Defines the mode of the policy. `Disabled` state disables the policy, `Unlocked` state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, `Locked` state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input[str]):
+        pulumi.set(self, "state", value)
 
 
 @pulumi.input_type
@@ -1935,6 +1988,7 @@ class ManagementPolicyRuleActionsBaseBlobArgs:
                  delete_after_days_since_last_access_time_greater_than: Optional[pulumi.Input[int]] = None,
                  delete_after_days_since_modification_greater_than: Optional[pulumi.Input[int]] = None,
                  tier_to_archive_after_days_since_last_access_time_greater_than: Optional[pulumi.Input[int]] = None,
+                 tier_to_archive_after_days_since_last_tier_change_greater_than: Optional[pulumi.Input[int]] = None,
                  tier_to_archive_after_days_since_modification_greater_than: Optional[pulumi.Input[int]] = None,
                  tier_to_cool_after_days_since_last_access_time_greater_than: Optional[pulumi.Input[int]] = None,
                  tier_to_cool_after_days_since_modification_greater_than: Optional[pulumi.Input[int]] = None):
@@ -1942,6 +1996,7 @@ class ManagementPolicyRuleActionsBaseBlobArgs:
         :param pulumi.Input[int] delete_after_days_since_last_access_time_greater_than: The age in days after last access time to delete the blob. Must be between `0` and `99999`.
         :param pulumi.Input[int] delete_after_days_since_modification_greater_than: The age in days after last modification to delete the blob. Must be between 0 and 99999.
         :param pulumi.Input[int] tier_to_archive_after_days_since_last_access_time_greater_than: The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0 and `99999`.
+        :param pulumi.Input[int] tier_to_archive_after_days_since_last_tier_change_greater_than: The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
         :param pulumi.Input[int] tier_to_archive_after_days_since_modification_greater_than: The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
         :param pulumi.Input[int] tier_to_cool_after_days_since_last_access_time_greater_than: The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`.
         :param pulumi.Input[int] tier_to_cool_after_days_since_modification_greater_than: The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999.
@@ -1952,6 +2007,8 @@ class ManagementPolicyRuleActionsBaseBlobArgs:
             pulumi.set(__self__, "delete_after_days_since_modification_greater_than", delete_after_days_since_modification_greater_than)
         if tier_to_archive_after_days_since_last_access_time_greater_than is not None:
             pulumi.set(__self__, "tier_to_archive_after_days_since_last_access_time_greater_than", tier_to_archive_after_days_since_last_access_time_greater_than)
+        if tier_to_archive_after_days_since_last_tier_change_greater_than is not None:
+            pulumi.set(__self__, "tier_to_archive_after_days_since_last_tier_change_greater_than", tier_to_archive_after_days_since_last_tier_change_greater_than)
         if tier_to_archive_after_days_since_modification_greater_than is not None:
             pulumi.set(__self__, "tier_to_archive_after_days_since_modification_greater_than", tier_to_archive_after_days_since_modification_greater_than)
         if tier_to_cool_after_days_since_last_access_time_greater_than is not None:
@@ -1996,6 +2053,18 @@ class ManagementPolicyRuleActionsBaseBlobArgs:
         pulumi.set(self, "tier_to_archive_after_days_since_last_access_time_greater_than", value)
 
     @property
+    @pulumi.getter(name="tierToArchiveAfterDaysSinceLastTierChangeGreaterThan")
+    def tier_to_archive_after_days_since_last_tier_change_greater_than(self) -> Optional[pulumi.Input[int]]:
+        """
+        The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+        """
+        return pulumi.get(self, "tier_to_archive_after_days_since_last_tier_change_greater_than")
+
+    @tier_to_archive_after_days_since_last_tier_change_greater_than.setter
+    def tier_to_archive_after_days_since_last_tier_change_greater_than(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "tier_to_archive_after_days_since_last_tier_change_greater_than", value)
+
+    @property
     @pulumi.getter(name="tierToArchiveAfterDaysSinceModificationGreaterThan")
     def tier_to_archive_after_days_since_modification_greater_than(self) -> Optional[pulumi.Input[int]]:
         """
@@ -2037,11 +2106,13 @@ class ManagementPolicyRuleActionsSnapshotArgs:
     def __init__(__self__, *,
                  change_tier_to_archive_after_days_since_creation: Optional[pulumi.Input[int]] = None,
                  change_tier_to_cool_after_days_since_creation: Optional[pulumi.Input[int]] = None,
-                 delete_after_days_since_creation_greater_than: Optional[pulumi.Input[int]] = None):
+                 delete_after_days_since_creation_greater_than: Optional[pulumi.Input[int]] = None,
+                 tier_to_archive_after_days_since_last_tier_change_greater_than: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] change_tier_to_archive_after_days_since_creation: The age in days after creation to tier blob snapshot to archive storage. Must be between 0 and 99999.
         :param pulumi.Input[int] change_tier_to_cool_after_days_since_creation: The age in days after creation to tier blob snapshot to cool storage. Must be between 0 and 99999.
         :param pulumi.Input[int] delete_after_days_since_creation_greater_than: The age in days after creation to delete the blob snapshot. Must be between 0 and 99999.
+        :param pulumi.Input[int] tier_to_archive_after_days_since_last_tier_change_greater_than: The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
         """
         if change_tier_to_archive_after_days_since_creation is not None:
             pulumi.set(__self__, "change_tier_to_archive_after_days_since_creation", change_tier_to_archive_after_days_since_creation)
@@ -2049,6 +2120,8 @@ class ManagementPolicyRuleActionsSnapshotArgs:
             pulumi.set(__self__, "change_tier_to_cool_after_days_since_creation", change_tier_to_cool_after_days_since_creation)
         if delete_after_days_since_creation_greater_than is not None:
             pulumi.set(__self__, "delete_after_days_since_creation_greater_than", delete_after_days_since_creation_greater_than)
+        if tier_to_archive_after_days_since_last_tier_change_greater_than is not None:
+            pulumi.set(__self__, "tier_to_archive_after_days_since_last_tier_change_greater_than", tier_to_archive_after_days_since_last_tier_change_greater_than)
 
     @property
     @pulumi.getter(name="changeTierToArchiveAfterDaysSinceCreation")
@@ -2086,17 +2159,31 @@ class ManagementPolicyRuleActionsSnapshotArgs:
     def delete_after_days_since_creation_greater_than(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "delete_after_days_since_creation_greater_than", value)
 
+    @property
+    @pulumi.getter(name="tierToArchiveAfterDaysSinceLastTierChangeGreaterThan")
+    def tier_to_archive_after_days_since_last_tier_change_greater_than(self) -> Optional[pulumi.Input[int]]:
+        """
+        The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+        """
+        return pulumi.get(self, "tier_to_archive_after_days_since_last_tier_change_greater_than")
+
+    @tier_to_archive_after_days_since_last_tier_change_greater_than.setter
+    def tier_to_archive_after_days_since_last_tier_change_greater_than(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "tier_to_archive_after_days_since_last_tier_change_greater_than", value)
+
 
 @pulumi.input_type
 class ManagementPolicyRuleActionsVersionArgs:
     def __init__(__self__, *,
                  change_tier_to_archive_after_days_since_creation: Optional[pulumi.Input[int]] = None,
                  change_tier_to_cool_after_days_since_creation: Optional[pulumi.Input[int]] = None,
-                 delete_after_days_since_creation: Optional[pulumi.Input[int]] = None):
+                 delete_after_days_since_creation: Optional[pulumi.Input[int]] = None,
+                 tier_to_archive_after_days_since_last_tier_change_greater_than: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] change_tier_to_archive_after_days_since_creation: The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999.
         :param pulumi.Input[int] change_tier_to_cool_after_days_since_creation: The age in days creation create to  tier blob version to cool storage. Must be between 0 and 99999.
         :param pulumi.Input[int] delete_after_days_since_creation: The age in days after creation to delete the blob version. Must be between 0 and 99999.
+        :param pulumi.Input[int] tier_to_archive_after_days_since_last_tier_change_greater_than: The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
         """
         if change_tier_to_archive_after_days_since_creation is not None:
             pulumi.set(__self__, "change_tier_to_archive_after_days_since_creation", change_tier_to_archive_after_days_since_creation)
@@ -2104,6 +2191,8 @@ class ManagementPolicyRuleActionsVersionArgs:
             pulumi.set(__self__, "change_tier_to_cool_after_days_since_creation", change_tier_to_cool_after_days_since_creation)
         if delete_after_days_since_creation is not None:
             pulumi.set(__self__, "delete_after_days_since_creation", delete_after_days_since_creation)
+        if tier_to_archive_after_days_since_last_tier_change_greater_than is not None:
+            pulumi.set(__self__, "tier_to_archive_after_days_since_last_tier_change_greater_than", tier_to_archive_after_days_since_last_tier_change_greater_than)
 
     @property
     @pulumi.getter(name="changeTierToArchiveAfterDaysSinceCreation")
@@ -2140,6 +2229,18 @@ class ManagementPolicyRuleActionsVersionArgs:
     @delete_after_days_since_creation.setter
     def delete_after_days_since_creation(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "delete_after_days_since_creation", value)
+
+    @property
+    @pulumi.getter(name="tierToArchiveAfterDaysSinceLastTierChangeGreaterThan")
+    def tier_to_archive_after_days_since_last_tier_change_greater_than(self) -> Optional[pulumi.Input[int]]:
+        """
+        The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+        """
+        return pulumi.get(self, "tier_to_archive_after_days_since_last_tier_change_greater_than")
+
+    @tier_to_archive_after_days_since_last_tier_change_greater_than.setter
+    def tier_to_archive_after_days_since_last_tier_change_greater_than(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "tier_to_archive_after_days_since_last_tier_change_greater_than", value)
 
 
 @pulumi.input_type

@@ -20,6 +20,7 @@ __all__ = [
     'AccountCustomDomain',
     'AccountCustomerManagedKey',
     'AccountIdentity',
+    'AccountImmutabilityPolicy',
     'AccountNetworkRules',
     'AccountNetworkRulesPrivateLinkAccess',
     'AccountNetworkRulesPrivateLinkAccessRule',
@@ -647,6 +648,65 @@ class AccountIdentity(dict):
         The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
         """
         return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class AccountImmutabilityPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowProtectedAppendWrites":
+            suggest = "allow_protected_append_writes"
+        elif key == "periodSinceCreationInDays":
+            suggest = "period_since_creation_in_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountImmutabilityPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountImmutabilityPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountImmutabilityPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_protected_append_writes: bool,
+                 period_since_creation_in_days: int,
+                 state: str):
+        """
+        :param bool allow_protected_append_writes: When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
+        :param int period_since_creation_in_days: The immutability period for the blobs in the container since the policy creation, in days.
+        :param str state: Defines the mode of the policy. `Disabled` state disables the policy, `Unlocked` state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, `Locked` state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
+        """
+        pulumi.set(__self__, "allow_protected_append_writes", allow_protected_append_writes)
+        pulumi.set(__self__, "period_since_creation_in_days", period_since_creation_in_days)
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="allowProtectedAppendWrites")
+    def allow_protected_append_writes(self) -> bool:
+        """
+        When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
+        """
+        return pulumi.get(self, "allow_protected_append_writes")
+
+    @property
+    @pulumi.getter(name="periodSinceCreationInDays")
+    def period_since_creation_in_days(self) -> int:
+        """
+        The immutability period for the blobs in the container since the policy creation, in days.
+        """
+        return pulumi.get(self, "period_since_creation_in_days")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        Defines the mode of the policy. `Disabled` state disables the policy, `Unlocked` state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, `Locked` state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
+        """
+        return pulumi.get(self, "state")
 
 
 @pulumi.output_type
@@ -2009,6 +2069,8 @@ class ManagementPolicyRuleActionsBaseBlob(dict):
             suggest = "delete_after_days_since_modification_greater_than"
         elif key == "tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan":
             suggest = "tier_to_archive_after_days_since_last_access_time_greater_than"
+        elif key == "tierToArchiveAfterDaysSinceLastTierChangeGreaterThan":
+            suggest = "tier_to_archive_after_days_since_last_tier_change_greater_than"
         elif key == "tierToArchiveAfterDaysSinceModificationGreaterThan":
             suggest = "tier_to_archive_after_days_since_modification_greater_than"
         elif key == "tierToCoolAfterDaysSinceLastAccessTimeGreaterThan":
@@ -2031,6 +2093,7 @@ class ManagementPolicyRuleActionsBaseBlob(dict):
                  delete_after_days_since_last_access_time_greater_than: Optional[int] = None,
                  delete_after_days_since_modification_greater_than: Optional[int] = None,
                  tier_to_archive_after_days_since_last_access_time_greater_than: Optional[int] = None,
+                 tier_to_archive_after_days_since_last_tier_change_greater_than: Optional[int] = None,
                  tier_to_archive_after_days_since_modification_greater_than: Optional[int] = None,
                  tier_to_cool_after_days_since_last_access_time_greater_than: Optional[int] = None,
                  tier_to_cool_after_days_since_modification_greater_than: Optional[int] = None):
@@ -2038,6 +2101,7 @@ class ManagementPolicyRuleActionsBaseBlob(dict):
         :param int delete_after_days_since_last_access_time_greater_than: The age in days after last access time to delete the blob. Must be between `0` and `99999`.
         :param int delete_after_days_since_modification_greater_than: The age in days after last modification to delete the blob. Must be between 0 and 99999.
         :param int tier_to_archive_after_days_since_last_access_time_greater_than: The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0 and `99999`.
+        :param int tier_to_archive_after_days_since_last_tier_change_greater_than: The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
         :param int tier_to_archive_after_days_since_modification_greater_than: The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
         :param int tier_to_cool_after_days_since_last_access_time_greater_than: The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`.
         :param int tier_to_cool_after_days_since_modification_greater_than: The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999.
@@ -2048,6 +2112,8 @@ class ManagementPolicyRuleActionsBaseBlob(dict):
             pulumi.set(__self__, "delete_after_days_since_modification_greater_than", delete_after_days_since_modification_greater_than)
         if tier_to_archive_after_days_since_last_access_time_greater_than is not None:
             pulumi.set(__self__, "tier_to_archive_after_days_since_last_access_time_greater_than", tier_to_archive_after_days_since_last_access_time_greater_than)
+        if tier_to_archive_after_days_since_last_tier_change_greater_than is not None:
+            pulumi.set(__self__, "tier_to_archive_after_days_since_last_tier_change_greater_than", tier_to_archive_after_days_since_last_tier_change_greater_than)
         if tier_to_archive_after_days_since_modification_greater_than is not None:
             pulumi.set(__self__, "tier_to_archive_after_days_since_modification_greater_than", tier_to_archive_after_days_since_modification_greater_than)
         if tier_to_cool_after_days_since_last_access_time_greater_than is not None:
@@ -2078,6 +2144,14 @@ class ManagementPolicyRuleActionsBaseBlob(dict):
         The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0 and `99999`.
         """
         return pulumi.get(self, "tier_to_archive_after_days_since_last_access_time_greater_than")
+
+    @property
+    @pulumi.getter(name="tierToArchiveAfterDaysSinceLastTierChangeGreaterThan")
+    def tier_to_archive_after_days_since_last_tier_change_greater_than(self) -> Optional[int]:
+        """
+        The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+        """
+        return pulumi.get(self, "tier_to_archive_after_days_since_last_tier_change_greater_than")
 
     @property
     @pulumi.getter(name="tierToArchiveAfterDaysSinceModificationGreaterThan")
@@ -2115,6 +2189,8 @@ class ManagementPolicyRuleActionsSnapshot(dict):
             suggest = "change_tier_to_cool_after_days_since_creation"
         elif key == "deleteAfterDaysSinceCreationGreaterThan":
             suggest = "delete_after_days_since_creation_greater_than"
+        elif key == "tierToArchiveAfterDaysSinceLastTierChangeGreaterThan":
+            suggest = "tier_to_archive_after_days_since_last_tier_change_greater_than"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ManagementPolicyRuleActionsSnapshot. Access the value via the '{suggest}' property getter instead.")
@@ -2130,11 +2206,13 @@ class ManagementPolicyRuleActionsSnapshot(dict):
     def __init__(__self__, *,
                  change_tier_to_archive_after_days_since_creation: Optional[int] = None,
                  change_tier_to_cool_after_days_since_creation: Optional[int] = None,
-                 delete_after_days_since_creation_greater_than: Optional[int] = None):
+                 delete_after_days_since_creation_greater_than: Optional[int] = None,
+                 tier_to_archive_after_days_since_last_tier_change_greater_than: Optional[int] = None):
         """
         :param int change_tier_to_archive_after_days_since_creation: The age in days after creation to tier blob snapshot to archive storage. Must be between 0 and 99999.
         :param int change_tier_to_cool_after_days_since_creation: The age in days after creation to tier blob snapshot to cool storage. Must be between 0 and 99999.
         :param int delete_after_days_since_creation_greater_than: The age in days after creation to delete the blob snapshot. Must be between 0 and 99999.
+        :param int tier_to_archive_after_days_since_last_tier_change_greater_than: The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
         """
         if change_tier_to_archive_after_days_since_creation is not None:
             pulumi.set(__self__, "change_tier_to_archive_after_days_since_creation", change_tier_to_archive_after_days_since_creation)
@@ -2142,6 +2220,8 @@ class ManagementPolicyRuleActionsSnapshot(dict):
             pulumi.set(__self__, "change_tier_to_cool_after_days_since_creation", change_tier_to_cool_after_days_since_creation)
         if delete_after_days_since_creation_greater_than is not None:
             pulumi.set(__self__, "delete_after_days_since_creation_greater_than", delete_after_days_since_creation_greater_than)
+        if tier_to_archive_after_days_since_last_tier_change_greater_than is not None:
+            pulumi.set(__self__, "tier_to_archive_after_days_since_last_tier_change_greater_than", tier_to_archive_after_days_since_last_tier_change_greater_than)
 
     @property
     @pulumi.getter(name="changeTierToArchiveAfterDaysSinceCreation")
@@ -2167,6 +2247,14 @@ class ManagementPolicyRuleActionsSnapshot(dict):
         """
         return pulumi.get(self, "delete_after_days_since_creation_greater_than")
 
+    @property
+    @pulumi.getter(name="tierToArchiveAfterDaysSinceLastTierChangeGreaterThan")
+    def tier_to_archive_after_days_since_last_tier_change_greater_than(self) -> Optional[int]:
+        """
+        The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+        """
+        return pulumi.get(self, "tier_to_archive_after_days_since_last_tier_change_greater_than")
+
 
 @pulumi.output_type
 class ManagementPolicyRuleActionsVersion(dict):
@@ -2179,6 +2267,8 @@ class ManagementPolicyRuleActionsVersion(dict):
             suggest = "change_tier_to_cool_after_days_since_creation"
         elif key == "deleteAfterDaysSinceCreation":
             suggest = "delete_after_days_since_creation"
+        elif key == "tierToArchiveAfterDaysSinceLastTierChangeGreaterThan":
+            suggest = "tier_to_archive_after_days_since_last_tier_change_greater_than"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ManagementPolicyRuleActionsVersion. Access the value via the '{suggest}' property getter instead.")
@@ -2194,11 +2284,13 @@ class ManagementPolicyRuleActionsVersion(dict):
     def __init__(__self__, *,
                  change_tier_to_archive_after_days_since_creation: Optional[int] = None,
                  change_tier_to_cool_after_days_since_creation: Optional[int] = None,
-                 delete_after_days_since_creation: Optional[int] = None):
+                 delete_after_days_since_creation: Optional[int] = None,
+                 tier_to_archive_after_days_since_last_tier_change_greater_than: Optional[int] = None):
         """
         :param int change_tier_to_archive_after_days_since_creation: The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999.
         :param int change_tier_to_cool_after_days_since_creation: The age in days creation create to  tier blob version to cool storage. Must be between 0 and 99999.
         :param int delete_after_days_since_creation: The age in days after creation to delete the blob version. Must be between 0 and 99999.
+        :param int tier_to_archive_after_days_since_last_tier_change_greater_than: The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
         """
         if change_tier_to_archive_after_days_since_creation is not None:
             pulumi.set(__self__, "change_tier_to_archive_after_days_since_creation", change_tier_to_archive_after_days_since_creation)
@@ -2206,6 +2298,8 @@ class ManagementPolicyRuleActionsVersion(dict):
             pulumi.set(__self__, "change_tier_to_cool_after_days_since_creation", change_tier_to_cool_after_days_since_creation)
         if delete_after_days_since_creation is not None:
             pulumi.set(__self__, "delete_after_days_since_creation", delete_after_days_since_creation)
+        if tier_to_archive_after_days_since_last_tier_change_greater_than is not None:
+            pulumi.set(__self__, "tier_to_archive_after_days_since_last_tier_change_greater_than", tier_to_archive_after_days_since_last_tier_change_greater_than)
 
     @property
     @pulumi.getter(name="changeTierToArchiveAfterDaysSinceCreation")
@@ -2230,6 +2324,14 @@ class ManagementPolicyRuleActionsVersion(dict):
         The age in days after creation to delete the blob version. Must be between 0 and 99999.
         """
         return pulumi.get(self, "delete_after_days_since_creation")
+
+    @property
+    @pulumi.getter(name="tierToArchiveAfterDaysSinceLastTierChangeGreaterThan")
+    def tier_to_archive_after_days_since_last_tier_change_greater_than(self) -> Optional[int]:
+        """
+        The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+        """
+        return pulumi.get(self, "tier_to_archive_after_days_since_last_tier_change_greater_than")
 
 
 @pulumi.output_type

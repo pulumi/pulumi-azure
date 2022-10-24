@@ -69,7 +69,7 @@ class DatabaseArgs:
         :param pulumi.Input[str] sample_name: Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
         :param pulumi.Input['DatabaseShortTermRetentionPolicyArgs'] short_term_retention_policy: A `short_term_retention_policy` block as defined below.
         :param pulumi.Input[str] sku_name: Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
-        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`.  The default value is `Geo`.
+        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['DatabaseThreatDetectionPolicyArgs'] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] transparent_data_encryption_enabled: If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
@@ -411,7 +411,7 @@ class DatabaseArgs:
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`.  The default value is `Geo`.
+        Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -524,7 +524,7 @@ class _DatabaseState:
         :param pulumi.Input[str] server_id: The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
         :param pulumi.Input['DatabaseShortTermRetentionPolicyArgs'] short_term_retention_policy: A `short_term_retention_policy` block as defined below.
         :param pulumi.Input[str] sku_name: Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
-        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`.  The default value is `Geo`.
+        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['DatabaseThreatDetectionPolicyArgs'] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] transparent_data_encryption_enabled: If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
@@ -867,7 +867,7 @@ class _DatabaseState:
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`.  The default value is `Geo`.
+        Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -1025,7 +1025,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] server_id: The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['DatabaseShortTermRetentionPolicyArgs']] short_term_retention_policy: A `short_term_retention_policy` block as defined below.
         :param pulumi.Input[str] sku_name: Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
-        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`.  The default value is `Geo`.
+        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArgs']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] transparent_data_encryption_enabled: If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
@@ -1229,7 +1229,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] server_id: The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['DatabaseShortTermRetentionPolicyArgs']] short_term_retention_policy: A `short_term_retention_policy` block as defined below.
         :param pulumi.Input[str] sku_name: Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
-        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`.  The default value is `Geo`.
+        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArgs']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] transparent_data_encryption_enabled: If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
@@ -1457,7 +1457,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`.  The default value is `Geo`.
+        Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
         """
         return pulumi.get(self, "storage_account_type")
 

@@ -90,6 +90,8 @@ __all__ = [
     'FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain',
     'GetFrontdoorOriginGroupHealthProbeResult',
     'GetFrontdoorOriginGroupLoadBalancingResult',
+    'GetFrontdoorSecretSecretResult',
+    'GetFrontdoorSecretSecretCustomerCertificateResult',
 ]
 
 @pulumi.output_type
@@ -2402,7 +2404,7 @@ class FrontdoorCustomDomainTls(dict):
                  certificate_type: Optional[str] = None,
                  minimum_tls_version: Optional[str] = None):
         """
-        :param str cdn_frontdoor_secret_id: Resource ID of the Frontdoor Secrect.
+        :param str cdn_frontdoor_secret_id: Resource ID of the Frontdoor Secret.
         :param str certificate_type: Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
         :param str minimum_tls_version: TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
         """
@@ -2417,7 +2419,7 @@ class FrontdoorCustomDomainTls(dict):
     @pulumi.getter(name="cdnFrontdoorSecretId")
     def cdn_frontdoor_secret_id(self) -> Optional[str]:
         """
-        Resource ID of the Frontdoor Secrect.
+        Resource ID of the Frontdoor Secret.
         """
         return pulumi.get(self, "cdn_frontdoor_secret_id")
 
@@ -2744,7 +2746,7 @@ class FrontdoorFirewallPolicyManagedRuleExclusion(dict):
                  operator: str,
                  selector: str):
         """
-        :param str match_variable: The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+        :param str match_variable: The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
         :param str operator: Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
         :param str selector: Selector for the value in the `match_variable` attribute this exclusion applies to.
         """
@@ -2756,7 +2758,7 @@ class FrontdoorFirewallPolicyManagedRuleExclusion(dict):
     @pulumi.getter(name="matchVariable")
     def match_variable(self) -> str:
         """
-        The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+        The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
         """
         return pulumi.get(self, "match_variable")
 
@@ -2860,7 +2862,7 @@ class FrontdoorFirewallPolicyManagedRuleOverrideExclusion(dict):
                  operator: str,
                  selector: str):
         """
-        :param str match_variable: The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+        :param str match_variable: The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
         :param str operator: Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
         :param str selector: Selector for the value in the `match_variable` attribute this exclusion applies to.
         """
@@ -2872,7 +2874,7 @@ class FrontdoorFirewallPolicyManagedRuleOverrideExclusion(dict):
     @pulumi.getter(name="matchVariable")
     def match_variable(self) -> str:
         """
-        The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+        The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
         """
         return pulumi.get(self, "match_variable")
 
@@ -2987,7 +2989,7 @@ class FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion(dict):
                  operator: str,
                  selector: str):
         """
-        :param str match_variable: The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+        :param str match_variable: The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
         :param str operator: Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
         :param str selector: Selector for the value in the `match_variable` attribute this exclusion applies to.
         """
@@ -2999,7 +3001,7 @@ class FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion(dict):
     @pulumi.getter(name="matchVariable")
     def match_variable(self) -> str:
         """
-        The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+        The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
         """
         return pulumi.get(self, "match_variable")
 
@@ -5468,7 +5470,7 @@ class FrontdoorSecretSecretCustomerCertificate(dict):
                  key_vault_certificate_id: str,
                  subject_alternative_names: Optional[Sequence[str]] = None):
         """
-        :param str key_vault_certificate_id: The key vault certificate resources ID attribute. Changing this forces a new Frontdoor Secret to be created.
+        :param str key_vault_certificate_id: The ID of the Key Vault certificate resource to use. Changing this forces a new Frontdoor Secret to be created.
         :param Sequence[str] subject_alternative_names: One or more `subject alternative names` contained within the key vault certificate.
         """
         pulumi.set(__self__, "key_vault_certificate_id", key_vault_certificate_id)
@@ -5479,7 +5481,7 @@ class FrontdoorSecretSecretCustomerCertificate(dict):
     @pulumi.getter(name="keyVaultCertificateId")
     def key_vault_certificate_id(self) -> str:
         """
-        The key vault certificate resources ID attribute. Changing this forces a new Frontdoor Secret to be created.
+        The ID of the Key Vault certificate resource to use. Changing this forces a new Frontdoor Secret to be created.
         """
         return pulumi.get(self, "key_vault_certificate_id")
 
@@ -5738,5 +5740,52 @@ class GetFrontdoorOriginGroupLoadBalancingResult(dict):
         Specifies the number of samples within the sample period that must succeed.
         """
         return pulumi.get(self, "successful_samples_required")
+
+
+@pulumi.output_type
+class GetFrontdoorSecretSecretResult(dict):
+    def __init__(__self__, *,
+                 customer_certificates: Sequence['outputs.GetFrontdoorSecretSecretCustomerCertificateResult']):
+        """
+        :param Sequence['GetFrontdoorSecretSecretCustomerCertificateArgs'] customer_certificates: A `customer_certificate` block as defined below.
+        """
+        pulumi.set(__self__, "customer_certificates", customer_certificates)
+
+    @property
+    @pulumi.getter(name="customerCertificates")
+    def customer_certificates(self) -> Sequence['outputs.GetFrontdoorSecretSecretCustomerCertificateResult']:
+        """
+        A `customer_certificate` block as defined below.
+        """
+        return pulumi.get(self, "customer_certificates")
+
+
+@pulumi.output_type
+class GetFrontdoorSecretSecretCustomerCertificateResult(dict):
+    def __init__(__self__, *,
+                 key_vault_certificate_id: str,
+                 subject_alternative_names: Sequence[str]):
+        """
+        :param str key_vault_certificate_id: The key vault certificate ID.
+        :param Sequence[str] subject_alternative_names: One or more `subject alternative names` contained within the key vault certificate.
+        """
+        pulumi.set(__self__, "key_vault_certificate_id", key_vault_certificate_id)
+        pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
+
+    @property
+    @pulumi.getter(name="keyVaultCertificateId")
+    def key_vault_certificate_id(self) -> str:
+        """
+        The key vault certificate ID.
+        """
+        return pulumi.get(self, "key_vault_certificate_id")
+
+    @property
+    @pulumi.getter(name="subjectAlternativeNames")
+    def subject_alternative_names(self) -> Sequence[str]:
+        """
+        One or more `subject alternative names` contained within the key vault certificate.
+        """
+        return pulumi.get(self, "subject_alternative_names")
 
 

@@ -546,12 +546,16 @@ class _AccountState:
                  offer_type: Optional[pulumi.Input[str]] = None,
                  primary_key: Optional[pulumi.Input[str]] = None,
                  primary_readonly_key: Optional[pulumi.Input[str]] = None,
+                 primary_readonly_sql_connection_string: Optional[pulumi.Input[str]] = None,
+                 primary_sql_connection_string: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  read_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore: Optional[pulumi.Input['AccountRestoreArgs']] = None,
                  secondary_key: Optional[pulumi.Input[str]] = None,
                  secondary_readonly_key: Optional[pulumi.Input[str]] = None,
+                 secondary_readonly_sql_connection_string: Optional[pulumi.Input[str]] = None,
+                 secondary_sql_connection_string: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]] = None,
                  write_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -657,6 +661,10 @@ class _AccountState:
             pulumi.set(__self__, "primary_key", primary_key)
         if primary_readonly_key is not None:
             pulumi.set(__self__, "primary_readonly_key", primary_readonly_key)
+        if primary_readonly_sql_connection_string is not None:
+            pulumi.set(__self__, "primary_readonly_sql_connection_string", primary_readonly_sql_connection_string)
+        if primary_sql_connection_string is not None:
+            pulumi.set(__self__, "primary_sql_connection_string", primary_sql_connection_string)
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if read_endpoints is not None:
@@ -669,6 +677,10 @@ class _AccountState:
             pulumi.set(__self__, "secondary_key", secondary_key)
         if secondary_readonly_key is not None:
             pulumi.set(__self__, "secondary_readonly_key", secondary_readonly_key)
+        if secondary_readonly_sql_connection_string is not None:
+            pulumi.set(__self__, "secondary_readonly_sql_connection_string", secondary_readonly_sql_connection_string)
+        if secondary_sql_connection_string is not None:
+            pulumi.set(__self__, "secondary_sql_connection_string", secondary_sql_connection_string)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if virtual_network_rules is not None:
@@ -1037,6 +1049,24 @@ class _AccountState:
         pulumi.set(self, "primary_readonly_key", value)
 
     @property
+    @pulumi.getter(name="primaryReadonlySqlConnectionString")
+    def primary_readonly_sql_connection_string(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "primary_readonly_sql_connection_string")
+
+    @primary_readonly_sql_connection_string.setter
+    def primary_readonly_sql_connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_readonly_sql_connection_string", value)
+
+    @property
+    @pulumi.getter(name="primarySqlConnectionString")
+    def primary_sql_connection_string(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "primary_sql_connection_string")
+
+    @primary_sql_connection_string.setter
+    def primary_sql_connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_sql_connection_string", value)
+
+    @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -1107,6 +1137,24 @@ class _AccountState:
     @secondary_readonly_key.setter
     def secondary_readonly_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secondary_readonly_key", value)
+
+    @property
+    @pulumi.getter(name="secondaryReadonlySqlConnectionString")
+    def secondary_readonly_sql_connection_string(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "secondary_readonly_sql_connection_string")
+
+    @secondary_readonly_sql_connection_string.setter
+    def secondary_readonly_sql_connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_readonly_sql_connection_string", value)
+
+    @property
+    @pulumi.getter(name="secondarySqlConnectionString")
+    def secondary_sql_connection_string(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "secondary_sql_connection_string")
+
+    @secondary_sql_connection_string.setter
+    def secondary_sql_connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_sql_connection_string", value)
 
     @property
     @pulumi.getter
@@ -1438,9 +1486,13 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["primary_key"] = None
             __props__.__dict__["primary_readonly_key"] = None
+            __props__.__dict__["primary_readonly_sql_connection_string"] = None
+            __props__.__dict__["primary_sql_connection_string"] = None
             __props__.__dict__["read_endpoints"] = None
             __props__.__dict__["secondary_key"] = None
             __props__.__dict__["secondary_readonly_key"] = None
+            __props__.__dict__["secondary_readonly_sql_connection_string"] = None
+            __props__.__dict__["secondary_sql_connection_string"] = None
             __props__.__dict__["write_endpoints"] = None
         super(Account, __self__).__init__(
             'azure:cosmosdb/account:Account',
@@ -1482,12 +1534,16 @@ class Account(pulumi.CustomResource):
             offer_type: Optional[pulumi.Input[str]] = None,
             primary_key: Optional[pulumi.Input[str]] = None,
             primary_readonly_key: Optional[pulumi.Input[str]] = None,
+            primary_readonly_sql_connection_string: Optional[pulumi.Input[str]] = None,
+            primary_sql_connection_string: Optional[pulumi.Input[str]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             read_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             restore: Optional[pulumi.Input[pulumi.InputType['AccountRestoreArgs']]] = None,
             secondary_key: Optional[pulumi.Input[str]] = None,
             secondary_readonly_key: Optional[pulumi.Input[str]] = None,
+            secondary_readonly_sql_connection_string: Optional[pulumi.Input[str]] = None,
+            secondary_sql_connection_string: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountVirtualNetworkRuleArgs']]]]] = None,
             write_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'Account':
@@ -1572,12 +1628,16 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["offer_type"] = offer_type
         __props__.__dict__["primary_key"] = primary_key
         __props__.__dict__["primary_readonly_key"] = primary_readonly_key
+        __props__.__dict__["primary_readonly_sql_connection_string"] = primary_readonly_sql_connection_string
+        __props__.__dict__["primary_sql_connection_string"] = primary_sql_connection_string
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["read_endpoints"] = read_endpoints
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["restore"] = restore
         __props__.__dict__["secondary_key"] = secondary_key
         __props__.__dict__["secondary_readonly_key"] = secondary_readonly_key
+        __props__.__dict__["secondary_readonly_sql_connection_string"] = secondary_readonly_sql_connection_string
+        __props__.__dict__["secondary_sql_connection_string"] = secondary_sql_connection_string
         __props__.__dict__["tags"] = tags
         __props__.__dict__["virtual_network_rules"] = virtual_network_rules
         __props__.__dict__["write_endpoints"] = write_endpoints
@@ -1824,6 +1884,16 @@ class Account(pulumi.CustomResource):
         return pulumi.get(self, "primary_readonly_key")
 
     @property
+    @pulumi.getter(name="primaryReadonlySqlConnectionString")
+    def primary_readonly_sql_connection_string(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "primary_readonly_sql_connection_string")
+
+    @property
+    @pulumi.getter(name="primarySqlConnectionString")
+    def primary_sql_connection_string(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "primary_sql_connection_string")
+
+    @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
@@ -1870,6 +1940,16 @@ class Account(pulumi.CustomResource):
         The Secondary read-only key for the CosmosDB Account.
         """
         return pulumi.get(self, "secondary_readonly_key")
+
+    @property
+    @pulumi.getter(name="secondaryReadonlySqlConnectionString")
+    def secondary_readonly_sql_connection_string(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "secondary_readonly_sql_connection_string")
+
+    @property
+    @pulumi.getter(name="secondarySqlConnectionString")
+    def secondary_sql_connection_string(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "secondary_sql_connection_string")
 
     @property
     @pulumi.getter

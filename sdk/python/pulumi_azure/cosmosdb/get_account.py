@@ -211,7 +211,7 @@ class GetAccountResult:
     @pulumi.getter(name="primaryKey")
     def primary_key(self) -> str:
         """
-        The Primary key for the CosmosDB Account.
+        The primary key for the CosmosDB account.
         """
         return pulumi.get(self, "primary_key")
 
@@ -219,7 +219,7 @@ class GetAccountResult:
     @pulumi.getter(name="primaryReadonlyKey")
     def primary_readonly_key(self) -> str:
         """
-        The Primary read-only Key for the CosmosDB Account.
+        The primary read-only Key for the CosmosDB account.
         """
         return pulumi.get(self, "primary_readonly_key")
 
@@ -240,7 +240,7 @@ class GetAccountResult:
     @pulumi.getter(name="secondaryKey")
     def secondary_key(self) -> str:
         """
-        The Secondary key for the CosmosDB Account.
+        The secondary key for the CosmosDB account.
         """
         return pulumi.get(self, "secondary_key")
 
@@ -248,7 +248,7 @@ class GetAccountResult:
     @pulumi.getter(name="secondaryReadonlyKey")
     def secondary_readonly_key(self) -> str:
         """
-        The Secondary read-only key for the CosmosDB Account.
+        The secondary read-only key for the CosmosDB account.
         """
         return pulumi.get(self, "secondary_readonly_key")
 

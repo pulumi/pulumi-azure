@@ -24,6 +24,7 @@ class LinuxWebAppArgs:
                  backup: Optional[pulumi.Input['LinuxWebAppBackupArgs']] = None,
                  client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
+                 client_certificate_exclusion_paths: Optional[pulumi.Input[str]] = None,
                  client_certificate_mode: Optional[pulumi.Input[str]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppConnectionStringArgs']]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -48,6 +49,7 @@ class LinuxWebAppArgs:
         :param pulumi.Input['LinuxWebAppBackupArgs'] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[bool] client_certificate_enabled: Should Client Certificates be enabled?
+        :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
         :param pulumi.Input[str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppConnectionStringArgs']]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[bool] enabled: Should the Linux Web App be enabled? Defaults to `true`.
@@ -76,6 +78,8 @@ class LinuxWebAppArgs:
             pulumi.set(__self__, "client_affinity_enabled", client_affinity_enabled)
         if client_certificate_enabled is not None:
             pulumi.set(__self__, "client_certificate_enabled", client_certificate_enabled)
+        if client_certificate_exclusion_paths is not None:
+            pulumi.set(__self__, "client_certificate_exclusion_paths", client_certificate_exclusion_paths)
         if client_certificate_mode is not None:
             pulumi.set(__self__, "client_certificate_mode", client_certificate_mode)
         if connection_strings is not None:
@@ -200,6 +204,18 @@ class LinuxWebAppArgs:
     @client_certificate_enabled.setter
     def client_certificate_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "client_certificate_enabled", value)
+
+    @property
+    @pulumi.getter(name="clientCertificateExclusionPaths")
+    def client_certificate_exclusion_paths(self) -> Optional[pulumi.Input[str]]:
+        """
+        Paths to exclude when using client certificates, separated by ;
+        """
+        return pulumi.get(self, "client_certificate_exclusion_paths")
+
+    @client_certificate_exclusion_paths.setter
+    def client_certificate_exclusion_paths(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_certificate_exclusion_paths", value)
 
     @property
     @pulumi.getter(name="clientCertificateMode")
@@ -378,6 +394,7 @@ class _LinuxWebAppState:
                  backup: Optional[pulumi.Input['LinuxWebAppBackupArgs']] = None,
                  client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
+                 client_certificate_exclusion_paths: Optional[pulumi.Input[str]] = None,
                  client_certificate_mode: Optional[pulumi.Input[str]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppConnectionStringArgs']]]] = None,
                  custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
@@ -410,6 +427,7 @@ class _LinuxWebAppState:
         :param pulumi.Input['LinuxWebAppBackupArgs'] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[bool] client_certificate_enabled: Should Client Certificates be enabled?
+        :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
         :param pulumi.Input[str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppConnectionStringArgs']]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[str] custom_domain_verification_id: The identifier used by App Service to perform domain ownership verification via DNS TXT record.
@@ -446,6 +464,8 @@ class _LinuxWebAppState:
             pulumi.set(__self__, "client_affinity_enabled", client_affinity_enabled)
         if client_certificate_enabled is not None:
             pulumi.set(__self__, "client_certificate_enabled", client_certificate_enabled)
+        if client_certificate_exclusion_paths is not None:
+            pulumi.set(__self__, "client_certificate_exclusion_paths", client_certificate_exclusion_paths)
         if client_certificate_mode is not None:
             pulumi.set(__self__, "client_certificate_mode", client_certificate_mode)
         if connection_strings is not None:
@@ -556,6 +576,18 @@ class _LinuxWebAppState:
     @client_certificate_enabled.setter
     def client_certificate_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "client_certificate_enabled", value)
+
+    @property
+    @pulumi.getter(name="clientCertificateExclusionPaths")
+    def client_certificate_exclusion_paths(self) -> Optional[pulumi.Input[str]]:
+        """
+        Paths to exclude when using client certificates, separated by ;
+        """
+        return pulumi.get(self, "client_certificate_exclusion_paths")
+
+    @client_certificate_exclusion_paths.setter
+    def client_certificate_exclusion_paths(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_certificate_exclusion_paths", value)
 
     @property
     @pulumi.getter(name="clientCertificateMode")
@@ -868,6 +900,7 @@ class LinuxWebApp(pulumi.CustomResource):
                  backup: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppBackupArgs']]] = None,
                  client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
+                 client_certificate_exclusion_paths: Optional[pulumi.Input[str]] = None,
                  client_certificate_mode: Optional[pulumi.Input[str]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppConnectionStringArgs']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -923,6 +956,7 @@ class LinuxWebApp(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LinuxWebAppBackupArgs']] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[bool] client_certificate_enabled: Should Client Certificates be enabled?
+        :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
         :param pulumi.Input[str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppConnectionStringArgs']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[bool] enabled: Should the Linux Web App be enabled? Defaults to `true`.
@@ -997,6 +1031,7 @@ class LinuxWebApp(pulumi.CustomResource):
                  backup: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppBackupArgs']]] = None,
                  client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
+                 client_certificate_exclusion_paths: Optional[pulumi.Input[str]] = None,
                  client_certificate_mode: Optional[pulumi.Input[str]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppConnectionStringArgs']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -1028,6 +1063,7 @@ class LinuxWebApp(pulumi.CustomResource):
             __props__.__dict__["backup"] = backup
             __props__.__dict__["client_affinity_enabled"] = client_affinity_enabled
             __props__.__dict__["client_certificate_enabled"] = client_certificate_enabled
+            __props__.__dict__["client_certificate_exclusion_paths"] = client_certificate_exclusion_paths
             __props__.__dict__["client_certificate_mode"] = client_certificate_mode
             __props__.__dict__["connection_strings"] = connection_strings
             __props__.__dict__["enabled"] = enabled
@@ -1074,6 +1110,7 @@ class LinuxWebApp(pulumi.CustomResource):
             backup: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppBackupArgs']]] = None,
             client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
             client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
+            client_certificate_exclusion_paths: Optional[pulumi.Input[str]] = None,
             client_certificate_mode: Optional[pulumi.Input[str]] = None,
             connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppConnectionStringArgs']]]]] = None,
             custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
@@ -1111,6 +1148,7 @@ class LinuxWebApp(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LinuxWebAppBackupArgs']] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[bool] client_certificate_enabled: Should Client Certificates be enabled?
+        :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
         :param pulumi.Input[str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppConnectionStringArgs']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[str] custom_domain_verification_id: The identifier used by App Service to perform domain ownership verification via DNS TXT record.
@@ -1146,6 +1184,7 @@ class LinuxWebApp(pulumi.CustomResource):
         __props__.__dict__["backup"] = backup
         __props__.__dict__["client_affinity_enabled"] = client_affinity_enabled
         __props__.__dict__["client_certificate_enabled"] = client_certificate_enabled
+        __props__.__dict__["client_certificate_exclusion_paths"] = client_certificate_exclusion_paths
         __props__.__dict__["client_certificate_mode"] = client_certificate_mode
         __props__.__dict__["connection_strings"] = connection_strings
         __props__.__dict__["custom_domain_verification_id"] = custom_domain_verification_id
@@ -1212,6 +1251,14 @@ class LinuxWebApp(pulumi.CustomResource):
         Should Client Certificates be enabled?
         """
         return pulumi.get(self, "client_certificate_enabled")
+
+    @property
+    @pulumi.getter(name="clientCertificateExclusionPaths")
+    def client_certificate_exclusion_paths(self) -> pulumi.Output[Optional[str]]:
+        """
+        Paths to exclude when using client certificates, separated by ;
+        """
+        return pulumi.get(self, "client_certificate_exclusion_paths")
 
     @property
     @pulumi.getter(name="clientCertificateMode")
