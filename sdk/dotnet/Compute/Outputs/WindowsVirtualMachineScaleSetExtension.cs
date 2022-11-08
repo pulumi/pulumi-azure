@@ -33,6 +33,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
         /// </summary>
         public readonly string? ProtectedSettings;
+        public readonly Outputs.WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault? ProtectedSettingsFromKeyVault;
         /// <summary>
         /// An ordered list of Extension names which this should be provisioned after.
         /// </summary>
@@ -66,6 +67,8 @@ namespace Pulumi.Azure.Compute.Outputs
 
             string? protectedSettings,
 
+            Outputs.WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault? protectedSettingsFromKeyVault,
+
             ImmutableArray<string> provisionAfterExtensions,
 
             string publisher,
@@ -81,6 +84,7 @@ namespace Pulumi.Azure.Compute.Outputs
             ForceUpdateTag = forceUpdateTag;
             Name = name;
             ProtectedSettings = protectedSettings;
+            ProtectedSettingsFromKeyVault = protectedSettingsFromKeyVault;
             ProvisionAfterExtensions = provisionAfterExtensions;
             Publisher = publisher;
             Settings = settings;

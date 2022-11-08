@@ -7,12 +7,14 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.streamanalytics.JobArgs;
 import com.pulumi.azure.streamanalytics.inputs.JobState;
 import com.pulumi.azure.streamanalytics.outputs.JobIdentity;
+import com.pulumi.azure.streamanalytics.outputs.JobJobStorageAccount;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -94,6 +96,20 @@ public class Job extends com.pulumi.resources.CustomResource {
      */
     public Output<String> compatibilityLevel() {
         return this.compatibilityLevel;
+    }
+    /**
+     * The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
+     * 
+     */
+    @Export(name="contentStoragePolicy", type=String.class, parameters={})
+    private Output</* @Nullable */ String> contentStoragePolicy;
+
+    /**
+     * @return The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
+     * 
+     */
+    public Output<Optional<String>> contentStoragePolicy() {
+        return Codegen.optional(this.contentStoragePolicy);
     }
     /**
      * Specifies the Data Locale of the Job, which [should be a supported .NET Culture](&lt;https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx&gt;).
@@ -178,6 +194,20 @@ public class Job extends com.pulumi.resources.CustomResource {
      */
     public Output<String> jobId() {
         return this.jobId;
+    }
+    /**
+     * The details of the job storage account. A `job_storage_account` block as defined below.
+     * 
+     */
+    @Export(name="jobStorageAccounts", type=List.class, parameters={JobJobStorageAccount.class})
+    private Output</* @Nullable */ List<JobJobStorageAccount>> jobStorageAccounts;
+
+    /**
+     * @return The details of the job storage account. A `job_storage_account` block as defined below.
+     * 
+     */
+    public Output<Optional<List<JobJobStorageAccount>>> jobStorageAccounts() {
+        return Codegen.optional(this.jobStorageAccounts);
     }
     /**
      * The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.

@@ -265,6 +265,10 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * A `webAppRouting` block as defined below.
+     */
+    public readonly webAppRouting!: pulumi.Output<outputs.containerservice.KubernetesClusterWebAppRouting | undefined>;
+    /**
      * A `windowsProfile` block as defined below.
      */
     public readonly windowsProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterWindowsProfile>;
@@ -339,6 +343,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["servicePrincipal"] = state ? state.servicePrincipal : undefined;
             resourceInputs["skuTier"] = state ? state.skuTier : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["webAppRouting"] = state ? state.webAppRouting : undefined;
             resourceInputs["windowsProfile"] = state ? state.windowsProfile : undefined;
             resourceInputs["workloadAutoscalerProfile"] = state ? state.workloadAutoscalerProfile : undefined;
             resourceInputs["workloadIdentityEnabled"] = state ? state.workloadIdentityEnabled : undefined;
@@ -390,6 +395,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["servicePrincipal"] = args ? args.servicePrincipal : undefined;
             resourceInputs["skuTier"] = args ? args.skuTier : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["webAppRouting"] = args ? args.webAppRouting : undefined;
             resourceInputs["windowsProfile"] = args ? args.windowsProfile : undefined;
             resourceInputs["workloadAutoscalerProfile"] = args ? args.workloadAutoscalerProfile : undefined;
             resourceInputs["workloadIdentityEnabled"] = args ? args.workloadIdentityEnabled : undefined;
@@ -603,6 +609,10 @@ export interface KubernetesClusterState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * A `webAppRouting` block as defined below.
+     */
+    webAppRouting?: pulumi.Input<inputs.containerservice.KubernetesClusterWebAppRouting>;
+    /**
      * A `windowsProfile` block as defined below.
      */
     windowsProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterWindowsProfile>;
@@ -774,6 +784,10 @@ export interface KubernetesClusterArgs {
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A `webAppRouting` block as defined below.
+     */
+    webAppRouting?: pulumi.Input<inputs.containerservice.KubernetesClusterWebAppRouting>;
     /**
      * A `windowsProfile` block as defined below.
      */

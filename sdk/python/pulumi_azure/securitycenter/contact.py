@@ -17,17 +17,21 @@ class ContactArgs:
                  alert_notifications: pulumi.Input[bool],
                  alerts_to_admins: pulumi.Input[bool],
                  email: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None,
                  phone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Contact resource.
         :param pulumi.Input[bool] alert_notifications: Whether to send security alerts notifications to the security contact.
         :param pulumi.Input[bool] alerts_to_admins: Whether to send security alerts notifications to subscription admins.
         :param pulumi.Input[str] email: The email of the Security Center Contact.
+        :param pulumi.Input[str] name: The name of the Security Center Contact. Defaults to `default1`.
         :param pulumi.Input[str] phone: The phone number of the Security Center Contact.
         """
         pulumi.set(__self__, "alert_notifications", alert_notifications)
         pulumi.set(__self__, "alerts_to_admins", alerts_to_admins)
         pulumi.set(__self__, "email", email)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if phone is not None:
             pulumi.set(__self__, "phone", phone)
 
@@ -69,6 +73,18 @@ class ContactArgs:
 
     @property
     @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Security Center Contact. Defaults to `default1`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
     def phone(self) -> Optional[pulumi.Input[str]]:
         """
         The phone number of the Security Center Contact.
@@ -86,12 +102,14 @@ class _ContactState:
                  alert_notifications: Optional[pulumi.Input[bool]] = None,
                  alerts_to_admins: Optional[pulumi.Input[bool]] = None,
                  email: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  phone: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Contact resources.
         :param pulumi.Input[bool] alert_notifications: Whether to send security alerts notifications to the security contact.
         :param pulumi.Input[bool] alerts_to_admins: Whether to send security alerts notifications to subscription admins.
         :param pulumi.Input[str] email: The email of the Security Center Contact.
+        :param pulumi.Input[str] name: The name of the Security Center Contact. Defaults to `default1`.
         :param pulumi.Input[str] phone: The phone number of the Security Center Contact.
         """
         if alert_notifications is not None:
@@ -100,6 +118,8 @@ class _ContactState:
             pulumi.set(__self__, "alerts_to_admins", alerts_to_admins)
         if email is not None:
             pulumi.set(__self__, "email", email)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if phone is not None:
             pulumi.set(__self__, "phone", phone)
 
@@ -141,6 +161,18 @@ class _ContactState:
 
     @property
     @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Security Center Contact. Defaults to `default1`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
     def phone(self) -> Optional[pulumi.Input[str]]:
         """
         The phone number of the Security Center Contact.
@@ -160,6 +192,7 @@ class Contact(pulumi.CustomResource):
                  alert_notifications: Optional[pulumi.Input[bool]] = None,
                  alerts_to_admins: Optional[pulumi.Input[bool]] = None,
                  email: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  phone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -193,6 +226,7 @@ class Contact(pulumi.CustomResource):
         :param pulumi.Input[bool] alert_notifications: Whether to send security alerts notifications to the security contact.
         :param pulumi.Input[bool] alerts_to_admins: Whether to send security alerts notifications to subscription admins.
         :param pulumi.Input[str] email: The email of the Security Center Contact.
+        :param pulumi.Input[str] name: The name of the Security Center Contact. Defaults to `default1`.
         :param pulumi.Input[str] phone: The phone number of the Security Center Contact.
         """
         ...
@@ -245,6 +279,7 @@ class Contact(pulumi.CustomResource):
                  alert_notifications: Optional[pulumi.Input[bool]] = None,
                  alerts_to_admins: Optional[pulumi.Input[bool]] = None,
                  email: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  phone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -264,6 +299,7 @@ class Contact(pulumi.CustomResource):
             if email is None and not opts.urn:
                 raise TypeError("Missing required property 'email'")
             __props__.__dict__["email"] = email
+            __props__.__dict__["name"] = name
             __props__.__dict__["phone"] = phone
         super(Contact, __self__).__init__(
             'azure:securitycenter/contact:Contact',
@@ -278,6 +314,7 @@ class Contact(pulumi.CustomResource):
             alert_notifications: Optional[pulumi.Input[bool]] = None,
             alerts_to_admins: Optional[pulumi.Input[bool]] = None,
             email: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
             phone: Optional[pulumi.Input[str]] = None) -> 'Contact':
         """
         Get an existing Contact resource's state with the given name, id, and optional extra
@@ -289,6 +326,7 @@ class Contact(pulumi.CustomResource):
         :param pulumi.Input[bool] alert_notifications: Whether to send security alerts notifications to the security contact.
         :param pulumi.Input[bool] alerts_to_admins: Whether to send security alerts notifications to subscription admins.
         :param pulumi.Input[str] email: The email of the Security Center Contact.
+        :param pulumi.Input[str] name: The name of the Security Center Contact. Defaults to `default1`.
         :param pulumi.Input[str] phone: The phone number of the Security Center Contact.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -298,6 +336,7 @@ class Contact(pulumi.CustomResource):
         __props__.__dict__["alert_notifications"] = alert_notifications
         __props__.__dict__["alerts_to_admins"] = alerts_to_admins
         __props__.__dict__["email"] = email
+        __props__.__dict__["name"] = name
         __props__.__dict__["phone"] = phone
         return Contact(resource_name, opts=opts, __props__=__props__)
 
@@ -324,6 +363,14 @@ class Contact(pulumi.CustomResource):
         The email of the Security Center Contact.
         """
         return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Output[str]:
+        """
+        The name of the Security Center Contact. Defaults to `default1`.
+        """
+        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter

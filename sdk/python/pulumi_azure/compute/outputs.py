@@ -14,6 +14,7 @@ __all__ = [
     'BastionHostIpConfiguration',
     'CapacityReservationSku',
     'DiskEncryptionSetIdentity',
+    'ExtensionProtectedSettingsFromKeyVault',
     'GalleryApplicationVersionManageAction',
     'GalleryApplicationVersionSource',
     'GalleryApplicationVersionTargetRegion',
@@ -34,6 +35,7 @@ __all__ = [
     'LinuxVirtualMachineScaleSetBootDiagnostics',
     'LinuxVirtualMachineScaleSetDataDisk',
     'LinuxVirtualMachineScaleSetExtension',
+    'LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault',
     'LinuxVirtualMachineScaleSetGalleryApplication',
     'LinuxVirtualMachineScaleSetIdentity',
     'LinuxVirtualMachineScaleSetNetworkInterface',
@@ -63,6 +65,7 @@ __all__ = [
     'OrchestratedVirtualMachineScaleSetBootDiagnostics',
     'OrchestratedVirtualMachineScaleSetDataDisk',
     'OrchestratedVirtualMachineScaleSetExtension',
+    'OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault',
     'OrchestratedVirtualMachineScaleSetIdentity',
     'OrchestratedVirtualMachineScaleSetNetworkInterface',
     'OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration',
@@ -121,6 +124,7 @@ __all__ = [
     'VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig',
     'VirtualMachineOsProfileWindowsConfigWinrm',
     'VirtualMachinePlan',
+    'VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault',
     'VirtualMachineStorageDataDisk',
     'VirtualMachineStorageImageReference',
     'VirtualMachineStorageOsDisk',
@@ -139,6 +143,7 @@ __all__ = [
     'WindowsVirtualMachineScaleSetBootDiagnostics',
     'WindowsVirtualMachineScaleSetDataDisk',
     'WindowsVirtualMachineScaleSetExtension',
+    'WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault',
     'WindowsVirtualMachineScaleSetGalleryApplication',
     'WindowsVirtualMachineScaleSetIdentity',
     'WindowsVirtualMachineScaleSetNetworkInterface',
@@ -349,6 +354,54 @@ class DiskEncryptionSetIdentity(dict):
         The ID of the Tenant the Service Principal is assigned in.
         """
         return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class ExtensionProtectedSettingsFromKeyVault(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretUrl":
+            suggest = "secret_url"
+        elif key == "sourceVaultId":
+            suggest = "source_vault_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExtensionProtectedSettingsFromKeyVault. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExtensionProtectedSettingsFromKeyVault.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExtensionProtectedSettingsFromKeyVault.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_url: str,
+                 source_vault_id: str):
+        """
+        :param str secret_url: The URL to the Key Vault Secret which stores the protected settings.
+        :param str source_vault_id: The ID of the source Key Vault.
+        """
+        pulumi.set(__self__, "secret_url", secret_url)
+        pulumi.set(__self__, "source_vault_id", source_vault_id)
+
+    @property
+    @pulumi.getter(name="secretUrl")
+    def secret_url(self) -> str:
+        """
+        The URL to the Key Vault Secret which stores the protected settings.
+        """
+        return pulumi.get(self, "secret_url")
+
+    @property
+    @pulumi.getter(name="sourceVaultId")
+    def source_vault_id(self) -> str:
+        """
+        The ID of the source Key Vault.
+        """
+        return pulumi.get(self, "source_vault_id")
 
 
 @pulumi.output_type
@@ -1430,7 +1483,7 @@ class LinuxVirtualMachineScaleSetDataDisk(dict):
         :param str caching: The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
         :param int disk_size_gb: The size of the Data Disk which should be created.
         :param int lun: The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
-        :param str storage_account_type: The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
+        :param str storage_account_type: The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
         :param str create_option: The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
         :param str disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
         :param str name: The name of the Data Disk.
@@ -1481,7 +1534,7 @@ class LinuxVirtualMachineScaleSetDataDisk(dict):
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> str:
         """
-        The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
+        The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -1543,6 +1596,8 @@ class LinuxVirtualMachineScaleSetExtension(dict):
             suggest = "force_update_tag"
         elif key == "protectedSettings":
             suggest = "protected_settings"
+        elif key == "protectedSettingsFromKeyVault":
+            suggest = "protected_settings_from_key_vault"
         elif key == "provisionAfterExtensions":
             suggest = "provision_after_extensions"
 
@@ -1566,6 +1621,7 @@ class LinuxVirtualMachineScaleSetExtension(dict):
                  automatic_upgrade_enabled: Optional[bool] = None,
                  force_update_tag: Optional[str] = None,
                  protected_settings: Optional[str] = None,
+                 protected_settings_from_key_vault: Optional['outputs.LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault'] = None,
                  provision_after_extensions: Optional[Sequence[str]] = None,
                  settings: Optional[str] = None):
         """
@@ -1592,6 +1648,8 @@ class LinuxVirtualMachineScaleSetExtension(dict):
             pulumi.set(__self__, "force_update_tag", force_update_tag)
         if protected_settings is not None:
             pulumi.set(__self__, "protected_settings", protected_settings)
+        if protected_settings_from_key_vault is not None:
+            pulumi.set(__self__, "protected_settings_from_key_vault", protected_settings_from_key_vault)
         if provision_after_extensions is not None:
             pulumi.set(__self__, "provision_after_extensions", provision_after_extensions)
         if settings is not None:
@@ -1662,6 +1720,11 @@ class LinuxVirtualMachineScaleSetExtension(dict):
         return pulumi.get(self, "protected_settings")
 
     @property
+    @pulumi.getter(name="protectedSettingsFromKeyVault")
+    def protected_settings_from_key_vault(self) -> Optional['outputs.LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault']:
+        return pulumi.get(self, "protected_settings_from_key_vault")
+
+    @property
     @pulumi.getter(name="provisionAfterExtensions")
     def provision_after_extensions(self) -> Optional[Sequence[str]]:
         """
@@ -1676,6 +1739,54 @@ class LinuxVirtualMachineScaleSetExtension(dict):
         A JSON String which specifies Settings for the Extension.
         """
         return pulumi.get(self, "settings")
+
+
+@pulumi.output_type
+class LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretUrl":
+            suggest = "secret_url"
+        elif key == "sourceVaultId":
+            suggest = "source_vault_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_url: str,
+                 source_vault_id: str):
+        """
+        :param str secret_url: The URL to the Key Vault Secret which stores the protected settings.
+        :param str source_vault_id: The ID of the source Key Vault.
+        """
+        pulumi.set(__self__, "secret_url", secret_url)
+        pulumi.set(__self__, "source_vault_id", source_vault_id)
+
+    @property
+    @pulumi.getter(name="secretUrl")
+    def secret_url(self) -> str:
+        """
+        The URL to the Key Vault Secret which stores the protected settings.
+        """
+        return pulumi.get(self, "secret_url")
+
+    @property
+    @pulumi.getter(name="sourceVaultId")
+    def source_vault_id(self) -> str:
+        """
+        The ID of the source Key Vault.
+        """
+        return pulumi.get(self, "source_vault_id")
 
 
 @pulumi.output_type
@@ -2245,7 +2356,7 @@ class LinuxVirtualMachineScaleSetOsDisk(dict):
                  write_accelerator_enabled: Optional[bool] = None):
         """
         :param str caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
-        :param str storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
+        :param str storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
         :param 'LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs' diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
         :param str disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
         :param int disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
@@ -2280,7 +2391,7 @@ class LinuxVirtualMachineScaleSetOsDisk(dict):
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> str:
         """
-        The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
+        The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -3280,6 +3391,8 @@ class OrchestratedVirtualMachineScaleSetExtension(dict):
             suggest = "force_extension_execution_on_change"
         elif key == "protectedSettings":
             suggest = "protected_settings"
+        elif key == "protectedSettingsFromKeyVault":
+            suggest = "protected_settings_from_key_vault"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OrchestratedVirtualMachineScaleSetExtension. Access the value via the '{suggest}' property getter instead.")
@@ -3302,11 +3415,13 @@ class OrchestratedVirtualMachineScaleSetExtension(dict):
                  failure_suppression_enabled: Optional[bool] = None,
                  force_extension_execution_on_change: Optional[str] = None,
                  protected_settings: Optional[str] = None,
+                 protected_settings_from_key_vault: Optional['outputs.OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault'] = None,
                  settings: Optional[str] = None):
         """
         :param str name: The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
         :param Sequence[str] extensions_to_provision_after_vm_creations: An ordered list of Extension names which Orchestrated Virtual Machine Scale Set should provision after VM creation.
         :param bool failure_suppression_enabled: Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+        :param 'OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs' protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "publisher", publisher)
@@ -3322,6 +3437,8 @@ class OrchestratedVirtualMachineScaleSetExtension(dict):
             pulumi.set(__self__, "force_extension_execution_on_change", force_extension_execution_on_change)
         if protected_settings is not None:
             pulumi.set(__self__, "protected_settings", protected_settings)
+        if protected_settings_from_key_vault is not None:
+            pulumi.set(__self__, "protected_settings_from_key_vault", protected_settings_from_key_vault)
         if settings is not None:
             pulumi.set(__self__, "settings", settings)
 
@@ -3380,9 +3497,65 @@ class OrchestratedVirtualMachineScaleSetExtension(dict):
         return pulumi.get(self, "protected_settings")
 
     @property
+    @pulumi.getter(name="protectedSettingsFromKeyVault")
+    def protected_settings_from_key_vault(self) -> Optional['outputs.OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault']:
+        """
+        A `protected_settings_from_key_vault` block as defined below.
+        """
+        return pulumi.get(self, "protected_settings_from_key_vault")
+
+    @property
     @pulumi.getter
     def settings(self) -> Optional[str]:
         return pulumi.get(self, "settings")
+
+
+@pulumi.output_type
+class OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretUrl":
+            suggest = "secret_url"
+        elif key == "sourceVaultId":
+            suggest = "source_vault_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_url: str,
+                 source_vault_id: str):
+        """
+        :param str secret_url: The URL to the Key Vault Secret which stores the protected settings.
+        :param str source_vault_id: The ID of the source Key Vault.
+        """
+        pulumi.set(__self__, "secret_url", secret_url)
+        pulumi.set(__self__, "source_vault_id", source_vault_id)
+
+    @property
+    @pulumi.getter(name="secretUrl")
+    def secret_url(self) -> str:
+        """
+        The URL to the Key Vault Secret which stores the protected settings.
+        """
+        return pulumi.get(self, "secret_url")
+
+    @property
+    @pulumi.getter(name="sourceVaultId")
+    def source_vault_id(self) -> str:
+        """
+        The ID of the source Key Vault.
+        """
+        return pulumi.get(self, "source_vault_id")
 
 
 @pulumi.output_type
@@ -6838,6 +7011,54 @@ class VirtualMachinePlan(dict):
 
 
 @pulumi.output_type
+class VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretUrl":
+            suggest = "secret_url"
+        elif key == "sourceVaultId":
+            suggest = "source_vault_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_url: str,
+                 source_vault_id: str):
+        """
+        :param str secret_url: The URL to the Key Vault Secret which stores the protected settings.
+        :param str source_vault_id: The ID of the source Key Vault.
+        """
+        pulumi.set(__self__, "secret_url", secret_url)
+        pulumi.set(__self__, "source_vault_id", source_vault_id)
+
+    @property
+    @pulumi.getter(name="secretUrl")
+    def secret_url(self) -> str:
+        """
+        The URL to the Key Vault Secret which stores the protected settings.
+        """
+        return pulumi.get(self, "secret_url")
+
+    @property
+    @pulumi.getter(name="sourceVaultId")
+    def source_vault_id(self) -> str:
+        """
+        The ID of the source Key Vault.
+        """
+        return pulumi.get(self, "source_vault_id")
+
+
+@pulumi.output_type
 class VirtualMachineStorageDataDisk(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -7902,7 +8123,7 @@ class WindowsVirtualMachineScaleSetDataDisk(dict):
         :param str caching: The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
         :param int disk_size_gb: The size of the Data Disk which should be created.
         :param int lun: The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
-        :param str storage_account_type: The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
+        :param str storage_account_type: The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
         :param str create_option: The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
         :param str disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
         :param str name: The name of the Data Disk.
@@ -7953,7 +8174,7 @@ class WindowsVirtualMachineScaleSetDataDisk(dict):
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> str:
         """
-        The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
+        The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -8015,6 +8236,8 @@ class WindowsVirtualMachineScaleSetExtension(dict):
             suggest = "force_update_tag"
         elif key == "protectedSettings":
             suggest = "protected_settings"
+        elif key == "protectedSettingsFromKeyVault":
+            suggest = "protected_settings_from_key_vault"
         elif key == "provisionAfterExtensions":
             suggest = "provision_after_extensions"
 
@@ -8038,6 +8261,7 @@ class WindowsVirtualMachineScaleSetExtension(dict):
                  automatic_upgrade_enabled: Optional[bool] = None,
                  force_update_tag: Optional[str] = None,
                  protected_settings: Optional[str] = None,
+                 protected_settings_from_key_vault: Optional['outputs.WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault'] = None,
                  provision_after_extensions: Optional[Sequence[str]] = None,
                  settings: Optional[str] = None):
         """
@@ -8064,6 +8288,8 @@ class WindowsVirtualMachineScaleSetExtension(dict):
             pulumi.set(__self__, "force_update_tag", force_update_tag)
         if protected_settings is not None:
             pulumi.set(__self__, "protected_settings", protected_settings)
+        if protected_settings_from_key_vault is not None:
+            pulumi.set(__self__, "protected_settings_from_key_vault", protected_settings_from_key_vault)
         if provision_after_extensions is not None:
             pulumi.set(__self__, "provision_after_extensions", provision_after_extensions)
         if settings is not None:
@@ -8134,6 +8360,11 @@ class WindowsVirtualMachineScaleSetExtension(dict):
         return pulumi.get(self, "protected_settings")
 
     @property
+    @pulumi.getter(name="protectedSettingsFromKeyVault")
+    def protected_settings_from_key_vault(self) -> Optional['outputs.WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault']:
+        return pulumi.get(self, "protected_settings_from_key_vault")
+
+    @property
     @pulumi.getter(name="provisionAfterExtensions")
     def provision_after_extensions(self) -> Optional[Sequence[str]]:
         """
@@ -8148,6 +8379,54 @@ class WindowsVirtualMachineScaleSetExtension(dict):
         A JSON String which specifies Settings for the Extension.
         """
         return pulumi.get(self, "settings")
+
+
+@pulumi.output_type
+class WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretUrl":
+            suggest = "secret_url"
+        elif key == "sourceVaultId":
+            suggest = "source_vault_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_url: str,
+                 source_vault_id: str):
+        """
+        :param str secret_url: The URL to the Key Vault Secret which stores the protected settings.
+        :param str source_vault_id: The ID of the source Key Vault.
+        """
+        pulumi.set(__self__, "secret_url", secret_url)
+        pulumi.set(__self__, "source_vault_id", source_vault_id)
+
+    @property
+    @pulumi.getter(name="secretUrl")
+    def secret_url(self) -> str:
+        """
+        The URL to the Key Vault Secret which stores the protected settings.
+        """
+        return pulumi.get(self, "secret_url")
+
+    @property
+    @pulumi.getter(name="sourceVaultId")
+    def source_vault_id(self) -> str:
+        """
+        The ID of the source Key Vault.
+        """
+        return pulumi.get(self, "source_vault_id")
 
 
 @pulumi.output_type
@@ -8717,7 +8996,7 @@ class WindowsVirtualMachineScaleSetOsDisk(dict):
                  write_accelerator_enabled: Optional[bool] = None):
         """
         :param str caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
-        :param str storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
+        :param str storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
         :param 'WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs' diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
         :param str disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
         :param int disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
@@ -8752,7 +9031,7 @@ class WindowsVirtualMachineScaleSetOsDisk(dict):
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> str:
         """
-        The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
+        The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
         """
         return pulumi.get(self, "storage_account_type")
 

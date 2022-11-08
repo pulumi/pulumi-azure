@@ -12353,6 +12353,9 @@ export namespace appservice {
          * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
          */
         minimumTlsVersion?: string;
+        /**
+         * Should Remote Debugging be enabled. Defaults to `false`.
+         */
         remoteDebuggingEnabled?: boolean;
         /**
          * The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
@@ -13120,6 +13123,9 @@ export namespace appservice {
          * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
          */
         minimumTlsVersion?: string;
+        /**
+         * Should Remote Debugging be enabled. Defaults to `false`.
+         */
         remoteDebuggingEnabled?: boolean;
         /**
          * The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
@@ -16234,7 +16240,7 @@ export namespace cdn {
 
     export interface FrontdoorFirewallPolicyManagedRule {
         /**
-         * The action to perform when the managed rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+         * The action to perform when the managed rule is matched. Possible values depends on which DRS version you are using, for DRS `1.0`, `1.1` and `preview-0.1` the possible values include `Allow`, `Block`, `Log`, or `Redirect`. For DRS `2.0` and `2.1` the value must be `AnomalyScoring`.
          */
         action: string;
         /**
@@ -16246,11 +16252,11 @@ export namespace cdn {
          */
         overrides?: outputs.cdn.FrontdoorFirewallPolicyManagedRuleOverride[];
         /**
-         * The name of the managed rule to use with this resource.
+         * The name of the managed rule to use with this resource. Possible values include `DefaultRuleSet`, `Microsoft_DefaultRuleSet`, `BotProtection` or `Microsoft_BotManagerRuleSet`.
          */
         type: string;
         /**
-         * The version on the managed rule to use with this resource.
+         * The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the value must be `1.0`.
          */
         version: string;
     }
@@ -17176,6 +17182,17 @@ export namespace compute {
         type: string;
     }
 
+    export interface ExtensionProtectedSettingsFromKeyVault {
+        /**
+         * The URL to the Key Vault Secret which stores the protected settings.
+         */
+        secretUrl: string;
+        /**
+         * The ID of the source Key Vault.
+         */
+        sourceVaultId: string;
+    }
+
     export interface GalleryApplicationVersionManageAction {
         /**
          * The command to install the Gallery Application. Changing this forces a new resource to be created.
@@ -17932,7 +17949,7 @@ export namespace compute {
          */
         name?: string;
         /**
-         * The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
+         * The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
          */
         storageAccountType: string;
         ultraSsdDiskIopsReadWrite: number;
@@ -17964,6 +17981,7 @@ export namespace compute {
          * A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
          */
         protectedSettings?: string;
+        protectedSettingsFromKeyVault?: outputs.compute.LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault;
         /**
          * An ordered list of Extension names which this should be provisioned after.
          */
@@ -17984,6 +18002,17 @@ export namespace compute {
          * Specifies the version of the extension to use, available versions can be found using the Azure CLI.
          */
         typeHandlerVersion: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault {
+        /**
+         * The URL to the Key Vault Secret which stores the protected settings.
+         */
+        secretUrl: string;
+        /**
+         * The ID of the source Key Vault.
+         */
+        sourceVaultId: string;
     }
 
     export interface LinuxVirtualMachineScaleSetGalleryApplication {
@@ -18158,7 +18187,7 @@ export namespace compute {
          */
         securityEncryptionType?: string;
         /**
-         * The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
+         * The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
          */
         storageAccountType: string;
         /**
@@ -18430,10 +18459,25 @@ export namespace compute {
          */
         name: string;
         protectedSettings?: string;
+        /**
+         * A `protectedSettingsFromKeyVault` block as defined below.
+         */
+        protectedSettingsFromKeyVault?: outputs.compute.OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault;
         publisher: string;
         settings?: string;
         type: string;
         typeHandlerVersion: string;
+    }
+
+    export interface OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault {
+        /**
+         * The URL to the Key Vault Secret which stores the protected settings.
+         */
+        secretUrl: string;
+        /**
+         * The ID of the source Key Vault.
+         */
+        sourceVaultId: string;
     }
 
     export interface OrchestratedVirtualMachineScaleSetIdentity {
@@ -19255,6 +19299,17 @@ export namespace compute {
         publisher: string;
     }
 
+    export interface VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault {
+        /**
+         * The URL to the Key Vault Secret which stores the protected settings.
+         */
+        secretUrl: string;
+        /**
+         * The ID of the source Key Vault.
+         */
+        sourceVaultId: string;
+    }
+
     export interface VirtualMachineStorageDataDisk {
         /**
          * Specifies the caching requirements for the Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
@@ -19561,7 +19616,7 @@ export namespace compute {
          */
         name?: string;
         /**
-         * The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
+         * The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
          */
         storageAccountType: string;
         ultraSsdDiskIopsReadWrite: number;
@@ -19593,6 +19648,7 @@ export namespace compute {
          * A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
          */
         protectedSettings?: string;
+        protectedSettingsFromKeyVault?: outputs.compute.WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault;
         /**
          * An ordered list of Extension names which this should be provisioned after.
          */
@@ -19613,6 +19669,17 @@ export namespace compute {
          * Specifies the version of the extension to use, available versions can be found using the Azure CLI.
          */
         typeHandlerVersion: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault {
+        /**
+         * The URL to the Key Vault Secret which stores the protected settings.
+         */
+        secretUrl: string;
+        /**
+         * The ID of the source Key Vault.
+         */
+        sourceVaultId: string;
     }
 
     export interface WindowsVirtualMachineScaleSetGalleryApplication {
@@ -19787,7 +19854,7 @@ export namespace compute {
          */
         securityEncryptionType?: string;
         /**
-         * The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
+         * The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
          */
         storageAccountType: string;
         /**
@@ -21596,7 +21663,7 @@ export namespace containerservice {
         /**
          * Expander to use. Possible values are `least-waste`, `priority`, `most-pods` and `random`. Defaults to `random`.
          */
-        expander: string;
+        expander?: string;
         /**
          * Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
          */
@@ -22571,6 +22638,13 @@ export namespace containerservice {
         clientSecret: string;
     }
 
+    export interface KubernetesClusterWebAppRouting {
+        /**
+         * Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled.
+         */
+        dnsZoneId: string;
+    }
+
     export interface KubernetesClusterWindowsProfile {
         /**
          * The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
@@ -22606,6 +22680,12 @@ export namespace containerservice {
          * Specifies whether KEDA Autoscaler can be used for workloads.
          */
         kedaEnabled?: boolean;
+    }
+
+    export interface KubernetesFleetManagerHubProfile {
+        dnsPrefix: string;
+        fqdn: string;
+        kubernetesVersion: string;
     }
 
     export interface RegistryEncryption {
@@ -31890,7 +31970,7 @@ export namespace iot {
          */
         endpointNames: string[];
         /**
-         * The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `Invalid`, `DeviceMessages`, `TwinChangeEvents`, `DeviceLifecycleEvents`, `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`.
+         * The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `Invalid`, `DeviceMessages`, `TwinChangeEvents`, `DeviceLifecycleEvents`, `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents` and `DigitalTwinChangeEvents`.
          */
         source?: string;
     }
@@ -32001,7 +32081,7 @@ export namespace iot {
          */
         name: string;
         /**
-         * The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `Invalid`, `DeviceMessages`, `TwinChangeEvents`, `DeviceLifecycleEvents`, `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`.
+         * The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `Invalid`, `DeviceMessages`, `TwinChangeEvents`, `DeviceLifecycleEvents`, `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents` and `DigitalTwinChangeEvents`.
          */
         source: string;
     }
@@ -37749,6 +37829,10 @@ export namespace mssql {
          */
         storageWorkloadType: string;
         /**
+         * Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are `true` and `false`. Defaults to `false`.
+         */
+        systemDbOnDataDiskEnabled?: boolean;
+        /**
          * An `tempDbSettings` as defined below.
          */
         tempDbSettings?: outputs.mssql.VirtualMachineStorageConfigurationTempDbSettings;
@@ -39830,6 +39914,25 @@ export namespace network {
          * Specifies the ID of the Virtual Hub where the Firewall resides in.
          */
         virtualHubId: string;
+    }
+
+    export interface GetApplicationGatewayBackendAddressPool {
+        /**
+         * A list of FQDN's that are included in the Backend Address Pool.
+         */
+        fqdns: string[];
+        /**
+         * The ID of the Backend Address Pool.
+         */
+        id: string;
+        /**
+         * A list of IP Addresses that are included in the Backend Address Pool.
+         */
+        ipAddresses: string[];
+        /**
+         * The name of this Application Gateway.
+         */
+        name: string;
     }
 
     export interface GetApplicationGatewayIdentity {
@@ -42450,6 +42553,17 @@ export namespace privatedns {
          * The preference of the MX record.
          */
         preference: number;
+    }
+
+    export interface ResolverForwardingRuleTargetDnsServer {
+        /**
+         * DNS server IP address.
+         */
+        ipAddress: string;
+        /**
+         * DNS server port.
+         */
+        port?: number;
     }
 
     export interface ResolverInboundEndpointIpConfiguration {
@@ -45540,6 +45654,21 @@ export namespace streamanalytics {
          * Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. The only possible value is `SystemAssigned`.
          */
         type: string;
+    }
+
+    export interface JobJobStorageAccount {
+        /**
+         * The account key for the Azure storage account.
+         */
+        accountKey: string;
+        /**
+         * The name of the Azure storage account.
+         */
+        accountName: string;
+        /**
+         * The authentication mode of the storage account. Possible values are `ConnectionString`, `Msi` and `UserToken`.
+         */
+        authenticationMode: string;
     }
 
     export interface OutputBlobSerialization {

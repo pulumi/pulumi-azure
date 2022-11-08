@@ -215,7 +215,7 @@ class Certificate(pulumi.CustomResource):
         An Nginx Certificate can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:nginx/certificate:Certificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Nginx Certificate.NginxPlus/nginxDeployments/deploy1/certificates/cer1
+         $ pulumi import azure:nginx/certificate:Certificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Nginx.NginxPlus/nginxDeployments/deploy1/certificates/cer1
         ```
 
         :param str resource_name: The name of the resource.
@@ -253,7 +253,7 @@ class Certificate(pulumi.CustomResource):
         An Nginx Certificate can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:nginx/certificate:Certificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Nginx Certificate.NginxPlus/nginxDeployments/deploy1/certificates/cer1
+         $ pulumi import azure:nginx/certificate:Certificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Nginx.NginxPlus/nginxDeployments/deploy1/certificates/cer1
         ```
 
         :param str resource_name: The name of the resource.

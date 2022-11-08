@@ -23404,6 +23404,130 @@ func (o VpnSiteO365PolicyTrafficCategoryPtrOutput) OptimizeEndpointEnabled() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
+type GetApplicationGatewayBackendAddressPool struct {
+	// A list of FQDN's that are included in the Backend Address Pool.
+	Fqdns []string `pulumi:"fqdns"`
+	// The ID of the Backend Address Pool.
+	Id string `pulumi:"id"`
+	// A list of IP Addresses that are included in the Backend Address Pool.
+	IpAddresses []string `pulumi:"ipAddresses"`
+	// The name of this Application Gateway.
+	Name string `pulumi:"name"`
+}
+
+// GetApplicationGatewayBackendAddressPoolInput is an input type that accepts GetApplicationGatewayBackendAddressPoolArgs and GetApplicationGatewayBackendAddressPoolOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayBackendAddressPoolInput` via:
+//
+//	GetApplicationGatewayBackendAddressPoolArgs{...}
+type GetApplicationGatewayBackendAddressPoolInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayBackendAddressPoolOutput() GetApplicationGatewayBackendAddressPoolOutput
+	ToGetApplicationGatewayBackendAddressPoolOutputWithContext(context.Context) GetApplicationGatewayBackendAddressPoolOutput
+}
+
+type GetApplicationGatewayBackendAddressPoolArgs struct {
+	// A list of FQDN's that are included in the Backend Address Pool.
+	Fqdns pulumi.StringArrayInput `pulumi:"fqdns"`
+	// The ID of the Backend Address Pool.
+	Id pulumi.StringInput `pulumi:"id"`
+	// A list of IP Addresses that are included in the Backend Address Pool.
+	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
+	// The name of this Application Gateway.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetApplicationGatewayBackendAddressPoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayBackendAddressPool)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayBackendAddressPoolArgs) ToGetApplicationGatewayBackendAddressPoolOutput() GetApplicationGatewayBackendAddressPoolOutput {
+	return i.ToGetApplicationGatewayBackendAddressPoolOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayBackendAddressPoolArgs) ToGetApplicationGatewayBackendAddressPoolOutputWithContext(ctx context.Context) GetApplicationGatewayBackendAddressPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayBackendAddressPoolOutput)
+}
+
+// GetApplicationGatewayBackendAddressPoolArrayInput is an input type that accepts GetApplicationGatewayBackendAddressPoolArray and GetApplicationGatewayBackendAddressPoolArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayBackendAddressPoolArrayInput` via:
+//
+//	GetApplicationGatewayBackendAddressPoolArray{ GetApplicationGatewayBackendAddressPoolArgs{...} }
+type GetApplicationGatewayBackendAddressPoolArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayBackendAddressPoolArrayOutput() GetApplicationGatewayBackendAddressPoolArrayOutput
+	ToGetApplicationGatewayBackendAddressPoolArrayOutputWithContext(context.Context) GetApplicationGatewayBackendAddressPoolArrayOutput
+}
+
+type GetApplicationGatewayBackendAddressPoolArray []GetApplicationGatewayBackendAddressPoolInput
+
+func (GetApplicationGatewayBackendAddressPoolArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayBackendAddressPool)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayBackendAddressPoolArray) ToGetApplicationGatewayBackendAddressPoolArrayOutput() GetApplicationGatewayBackendAddressPoolArrayOutput {
+	return i.ToGetApplicationGatewayBackendAddressPoolArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayBackendAddressPoolArray) ToGetApplicationGatewayBackendAddressPoolArrayOutputWithContext(ctx context.Context) GetApplicationGatewayBackendAddressPoolArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayBackendAddressPoolArrayOutput)
+}
+
+type GetApplicationGatewayBackendAddressPoolOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayBackendAddressPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayBackendAddressPool)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayBackendAddressPoolOutput) ToGetApplicationGatewayBackendAddressPoolOutput() GetApplicationGatewayBackendAddressPoolOutput {
+	return o
+}
+
+func (o GetApplicationGatewayBackendAddressPoolOutput) ToGetApplicationGatewayBackendAddressPoolOutputWithContext(ctx context.Context) GetApplicationGatewayBackendAddressPoolOutput {
+	return o
+}
+
+// A list of FQDN's that are included in the Backend Address Pool.
+func (o GetApplicationGatewayBackendAddressPoolOutput) Fqdns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackendAddressPool) []string { return v.Fqdns }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the Backend Address Pool.
+func (o GetApplicationGatewayBackendAddressPoolOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackendAddressPool) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A list of IP Addresses that are included in the Backend Address Pool.
+func (o GetApplicationGatewayBackendAddressPoolOutput) IpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackendAddressPool) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// The name of this Application Gateway.
+func (o GetApplicationGatewayBackendAddressPoolOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackendAddressPool) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetApplicationGatewayBackendAddressPoolArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayBackendAddressPoolArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayBackendAddressPool)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayBackendAddressPoolArrayOutput) ToGetApplicationGatewayBackendAddressPoolArrayOutput() GetApplicationGatewayBackendAddressPoolArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayBackendAddressPoolArrayOutput) ToGetApplicationGatewayBackendAddressPoolArrayOutputWithContext(ctx context.Context) GetApplicationGatewayBackendAddressPoolArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayBackendAddressPoolArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayBackendAddressPoolOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayBackendAddressPool {
+		return vs[0].([]GetApplicationGatewayBackendAddressPool)[vs[1].(int)]
+	}).(GetApplicationGatewayBackendAddressPoolOutput)
+}
+
 type GetApplicationGatewayIdentity struct {
 	// A list of Managed Identity IDs assigned to this Application Gateway.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -27494,6 +27618,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnSiteO365PolicyPtrInput)(nil)).Elem(), VpnSiteO365PolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnSiteO365PolicyTrafficCategoryInput)(nil)).Elem(), VpnSiteO365PolicyTrafficCategoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnSiteO365PolicyTrafficCategoryPtrInput)(nil)).Elem(), VpnSiteO365PolicyTrafficCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayBackendAddressPoolInput)(nil)).Elem(), GetApplicationGatewayBackendAddressPoolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayBackendAddressPoolArrayInput)(nil)).Elem(), GetApplicationGatewayBackendAddressPoolArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayIdentityInput)(nil)).Elem(), GetApplicationGatewayIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayIdentityArrayInput)(nil)).Elem(), GetApplicationGatewayIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExpressRouteCircuitPeeringTypeInput)(nil)).Elem(), GetExpressRouteCircuitPeeringTypeArgs{})
@@ -27852,6 +27978,8 @@ func init() {
 	pulumi.RegisterOutputType(VpnSiteO365PolicyPtrOutput{})
 	pulumi.RegisterOutputType(VpnSiteO365PolicyTrafficCategoryOutput{})
 	pulumi.RegisterOutputType(VpnSiteO365PolicyTrafficCategoryPtrOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayBackendAddressPoolOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayBackendAddressPoolArrayOutput{})
 	pulumi.RegisterOutputType(GetApplicationGatewayIdentityOutput{})
 	pulumi.RegisterOutputType(GetApplicationGatewayIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetExpressRouteCircuitPeeringTypeOutput{})

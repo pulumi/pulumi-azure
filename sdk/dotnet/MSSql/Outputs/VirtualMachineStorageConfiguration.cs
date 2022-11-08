@@ -30,6 +30,10 @@ namespace Pulumi.Azure.MSSql.Outputs
         /// </summary>
         public readonly string StorageWorkloadType;
         /// <summary>
+        /// Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are `true` and `false`. Defaults to `false`.
+        /// </summary>
+        public readonly bool? SystemDbOnDataDiskEnabled;
+        /// <summary>
         /// An `temp_db_settings` as defined below.
         /// </summary>
         public readonly Outputs.VirtualMachineStorageConfigurationTempDbSettings? TempDbSettings;
@@ -44,12 +48,15 @@ namespace Pulumi.Azure.MSSql.Outputs
 
             string storageWorkloadType,
 
+            bool? systemDbOnDataDiskEnabled,
+
             Outputs.VirtualMachineStorageConfigurationTempDbSettings? tempDbSettings)
         {
             DataSettings = dataSettings;
             DiskType = diskType;
             LogSettings = logSettings;
             StorageWorkloadType = storageWorkloadType;
+            SystemDbOnDataDiskEnabled = systemDbOnDataDiskEnabled;
             TempDbSettings = tempDbSettings;
         }
     }

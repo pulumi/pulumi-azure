@@ -107,6 +107,20 @@ public class Contact extends com.pulumi.resources.CustomResource {
         return this.email;
     }
     /**
+     * The name of the Security Center Contact. Defaults to `default1`.
+     * 
+     */
+    @Export(name="name", type=String.class, parameters={})
+    private Output<String> name;
+
+    /**
+     * @return The name of the Security Center Contact. Defaults to `default1`.
+     * 
+     */
+    public Output<String> name() {
+        return this.name;
+    }
+    /**
      * The phone number of the Security Center Contact.
      * 
      */

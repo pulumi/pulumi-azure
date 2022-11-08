@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -105,6 +107,10 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
      */
     public readonly protectedSettings!: pulumi.Output<string | undefined>;
     /**
+     * A `protectedSettingsFromKeyVault` block as defined below.
+     */
+    public readonly protectedSettingsFromKeyVault!: pulumi.Output<outputs.compute.VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault | undefined>;
+    /**
      * An ordered list of Extension names which this should be provisioned after.
      */
     public readonly provisionAfterExtensions!: pulumi.Output<string[] | undefined>;
@@ -148,6 +154,7 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
             resourceInputs["forceUpdateTag"] = state ? state.forceUpdateTag : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["protectedSettings"] = state ? state.protectedSettings : undefined;
+            resourceInputs["protectedSettingsFromKeyVault"] = state ? state.protectedSettingsFromKeyVault : undefined;
             resourceInputs["provisionAfterExtensions"] = state ? state.provisionAfterExtensions : undefined;
             resourceInputs["publisher"] = state ? state.publisher : undefined;
             resourceInputs["settings"] = state ? state.settings : undefined;
@@ -174,6 +181,7 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
             resourceInputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["protectedSettings"] = args ? args.protectedSettings : undefined;
+            resourceInputs["protectedSettingsFromKeyVault"] = args ? args.protectedSettingsFromKeyVault : undefined;
             resourceInputs["provisionAfterExtensions"] = args ? args.provisionAfterExtensions : undefined;
             resourceInputs["publisher"] = args ? args.publisher : undefined;
             resourceInputs["settings"] = args ? args.settings : undefined;
@@ -214,6 +222,10 @@ export interface VirtualMachineScaleSetExtensionState {
      * A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
      */
     protectedSettings?: pulumi.Input<string>;
+    /**
+     * A `protectedSettingsFromKeyVault` block as defined below.
+     */
+    protectedSettingsFromKeyVault?: pulumi.Input<inputs.compute.VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault>;
     /**
      * An ordered list of Extension names which this should be provisioned after.
      */
@@ -268,6 +280,10 @@ export interface VirtualMachineScaleSetExtensionArgs {
      * A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
      */
     protectedSettings?: pulumi.Input<string>;
+    /**
+     * A `protectedSettingsFromKeyVault` block as defined below.
+     */
+    protectedSettingsFromKeyVault?: pulumi.Input<inputs.compute.VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault>;
     /**
      * An ordered list of Extension names which this should be provisioned after.
      */

@@ -6,6 +6,7 @@ package com.pulumi.azure.compute;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.compute.VirtualMachineScaleSetExtensionArgs;
 import com.pulumi.azure.compute.inputs.VirtualMachineScaleSetExtensionState;
+import com.pulumi.azure.compute.outputs.VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -181,6 +182,20 @@ public class VirtualMachineScaleSetExtension extends com.pulumi.resources.Custom
      */
     public Output<Optional<String>> protectedSettings() {
         return Codegen.optional(this.protectedSettings);
+    }
+    /**
+     * A `protected_settings_from_key_vault` block as defined below.
+     * 
+     */
+    @Export(name="protectedSettingsFromKeyVault", type=VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault.class, parameters={})
+    private Output</* @Nullable */ VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault> protectedSettingsFromKeyVault;
+
+    /**
+     * @return A `protected_settings_from_key_vault` block as defined below.
+     * 
+     */
+    public Output<Optional<VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault>> protectedSettingsFromKeyVault() {
+        return Codegen.optional(this.protectedSettingsFromKeyVault);
     }
     /**
      * An ordered list of Extension names which this should be provisioned after.

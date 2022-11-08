@@ -127,7 +127,7 @@ type WindowsVirtualMachineScaleSet struct {
 	AdminUsername pulumi.StringOutput `pulumi:"adminUsername"`
 	// An `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
 	AutomaticInstanceRepair WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput `pulumi:"automaticInstanceRepair"`
-	// An `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
+	// An `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to either `Automatic` or `Rolling`.
 	AutomaticOsUpgradePolicy WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput `pulumi:"automaticOsUpgradePolicy"`
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput `pulumi:"bootDiagnostics"`
@@ -297,7 +297,7 @@ type windowsVirtualMachineScaleSetState struct {
 	AdminUsername *string `pulumi:"adminUsername"`
 	// An `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
 	AutomaticInstanceRepair *WindowsVirtualMachineScaleSetAutomaticInstanceRepair `pulumi:"automaticInstanceRepair"`
-	// An `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
+	// An `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to either `Automatic` or `Rolling`.
 	AutomaticOsUpgradePolicy *WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy `pulumi:"automaticOsUpgradePolicy"`
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics *WindowsVirtualMachineScaleSetBootDiagnostics `pulumi:"bootDiagnostics"`
@@ -418,7 +418,7 @@ type WindowsVirtualMachineScaleSetState struct {
 	AdminUsername pulumi.StringPtrInput
 	// An `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
 	AutomaticInstanceRepair WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrInput
-	// An `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
+	// An `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to either `Automatic` or `Rolling`.
 	AutomaticOsUpgradePolicy WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrInput
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics WindowsVirtualMachineScaleSetBootDiagnosticsPtrInput
@@ -543,7 +543,7 @@ type windowsVirtualMachineScaleSetArgs struct {
 	AdminUsername string `pulumi:"adminUsername"`
 	// An `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
 	AutomaticInstanceRepair *WindowsVirtualMachineScaleSetAutomaticInstanceRepair `pulumi:"automaticInstanceRepair"`
-	// An `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
+	// An `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to either `Automatic` or `Rolling`.
 	AutomaticOsUpgradePolicy *WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy `pulumi:"automaticOsUpgradePolicy"`
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics *WindowsVirtualMachineScaleSetBootDiagnostics `pulumi:"bootDiagnostics"`
@@ -663,7 +663,7 @@ type WindowsVirtualMachineScaleSetArgs struct {
 	AdminUsername pulumi.StringInput
 	// An `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
 	AutomaticInstanceRepair WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrInput
-	// An `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
+	// An `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to either `Automatic` or `Rolling`.
 	AutomaticOsUpgradePolicy WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrInput
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics WindowsVirtualMachineScaleSetBootDiagnosticsPtrInput
@@ -889,7 +889,7 @@ func (o WindowsVirtualMachineScaleSetOutput) AutomaticInstanceRepair() WindowsVi
 	}).(WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput)
 }
 
-// An `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
+// An `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to either `Automatic` or `Rolling`.
 func (o WindowsVirtualMachineScaleSetOutput) AutomaticOsUpgradePolicy() WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput {
 		return v.AutomaticOsUpgradePolicy

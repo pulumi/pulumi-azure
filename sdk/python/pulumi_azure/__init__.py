@@ -2232,6 +2232,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "containerservice/kubernetesFleetManager",
+  "fqn": "pulumi_azure.containerservice",
+  "classes": {
+   "azure:containerservice/kubernetesFleetManager:KubernetesFleetManager": "KubernetesFleetManager"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "containerservice/registry",
   "fqn": "pulumi_azure.containerservice",
   "classes": {
@@ -5160,6 +5168,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "mssql/managedInstanceSecurityAlertPolicy",
+  "fqn": "pulumi_azure.mssql",
+  "classes": {
+   "azure:mssql/managedInstanceSecurityAlertPolicy:ManagedInstanceSecurityAlertPolicy": "ManagedInstanceSecurityAlertPolicy"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "mssql/managedInstanceVulnerabilityAssessment",
   "fqn": "pulumi_azure.mssql",
   "classes": {
@@ -5196,6 +5212,14 @@ _utilities.register(
   "fqn": "pulumi_azure.mssql",
   "classes": {
    "azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy": "ServerExtendedAuditingPolicy"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "mssql/serverMicrosoftSupportAuditingPolicy",
+  "fqn": "pulumi_azure.mssql",
+  "classes": {
+   "azure:mssql/serverMicrosoftSupportAuditingPolicy:ServerMicrosoftSupportAuditingPolicy": "ServerMicrosoftSupportAuditingPolicy"
   }
  },
  {
@@ -6224,6 +6248,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "privatedns/resolverForwardingRule",
+  "fqn": "pulumi_azure.privatedns",
+  "classes": {
+   "azure:privatedns/resolverForwardingRule:ResolverForwardingRule": "ResolverForwardingRule"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "privatedns/resolverInboundEndpoint",
   "fqn": "pulumi_azure.privatedns",
   "classes": {
@@ -6236,6 +6268,14 @@ _utilities.register(
   "fqn": "pulumi_azure.privatedns",
   "classes": {
    "azure:privatedns/resolverOutboundEndpoint:ResolverOutboundEndpoint": "ResolverOutboundEndpoint"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "privatedns/resolverVirtualNetworkLink",
+  "fqn": "pulumi_azure.privatedns",
+  "classes": {
+   "azure:privatedns/resolverVirtualNetworkLink:ResolverVirtualNetworkLink": "ResolverVirtualNetworkLink"
   }
  },
  {

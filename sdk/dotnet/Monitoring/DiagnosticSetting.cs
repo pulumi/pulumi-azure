@@ -124,6 +124,12 @@ namespace Pulumi.Azure.Monitoring
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
+        /// </summary>
+        [Output("partnerSolutionId")]
+        public Output<string?> PartnerSolutionId { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageAccountId")]
@@ -236,6 +242,12 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
+        /// </summary>
+        [Input("partnerSolutionId")]
+        public Input<string>? PartnerSolutionId { get; set; }
+
+        /// <summary>
         /// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountId")]
@@ -308,6 +320,12 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
+        /// </summary>
+        [Input("partnerSolutionId")]
+        public Input<string>? PartnerSolutionId { get; set; }
 
         /// <summary>
         /// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.

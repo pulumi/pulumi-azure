@@ -6,6 +6,7 @@ package com.pulumi.azure.compute;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.compute.ExtensionArgs;
 import com.pulumi.azure.compute.inputs.ExtensionState;
+import com.pulumi.azure.compute.outputs.ExtensionProtectedSettingsFromKeyVault;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -239,6 +240,20 @@ public class Extension extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> protectedSettings() {
         return Codegen.optional(this.protectedSettings);
+    }
+    /**
+     * A `protected_settings_from_key_vault` block as defined below.
+     * 
+     */
+    @Export(name="protectedSettingsFromKeyVault", type=ExtensionProtectedSettingsFromKeyVault.class, parameters={})
+    private Output</* @Nullable */ ExtensionProtectedSettingsFromKeyVault> protectedSettingsFromKeyVault;
+
+    /**
+     * @return A `protected_settings_from_key_vault` block as defined below.
+     * 
+     */
+    public Output<Optional<ExtensionProtectedSettingsFromKeyVault>> protectedSettingsFromKeyVault() {
+        return Codegen.optional(this.protectedSettingsFromKeyVault);
     }
     /**
      * The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.

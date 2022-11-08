@@ -21,11 +21,13 @@ from .managed_database import *
 from .managed_instance import *
 from .managed_instance_active_directory_administrator import *
 from .managed_instance_failover_group import *
+from .managed_instance_security_alert_policy import *
 from .managed_instance_vulnerability_assessment import *
 from .outbound_firewall_rule import *
 from .server import *
 from .server_dns_alias import *
 from .server_extended_auditing_policy import *
+from .server_microsoft_support_auditing_policy import *
 from .server_security_alert_policy import *
 from .server_transparent_data_encryption import *
 from .server_vulnerability_assessment import *

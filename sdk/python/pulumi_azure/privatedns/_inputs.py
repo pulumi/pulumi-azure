@@ -12,6 +12,7 @@ from .. import _utilities
 __all__ = [
     'LinkServiceNatIpConfigurationArgs',
     'MxRecordRecordArgs',
+    'ResolverForwardingRuleTargetDnsServerArgs',
     'ResolverInboundEndpointIpConfigurationArgs',
     'SRVRecordRecordArgs',
     'TxtRecordRecordArgs',
@@ -137,6 +138,44 @@ class MxRecordRecordArgs:
     @preference.setter
     def preference(self, value: pulumi.Input[int]):
         pulumi.set(self, "preference", value)
+
+
+@pulumi.input_type
+class ResolverForwardingRuleTargetDnsServerArgs:
+    def __init__(__self__, *,
+                 ip_address: pulumi.Input[str],
+                 port: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] ip_address: DNS server IP address.
+        :param pulumi.Input[int] port: DNS server port.
+        """
+        pulumi.set(__self__, "ip_address", ip_address)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> pulumi.Input[str]:
+        """
+        DNS server IP address.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        DNS server port.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
 
 
 @pulumi.input_type

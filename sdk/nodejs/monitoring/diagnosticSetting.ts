@@ -108,6 +108,10 @@ export class DiagnosticSetting extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
+     */
+    public readonly partnerSolutionId!: pulumi.Output<string | undefined>;
+    /**
      * The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
      */
     public readonly storageAccountId!: pulumi.Output<string | undefined>;
@@ -136,6 +140,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
             resourceInputs["logs"] = state ? state.logs : undefined;
             resourceInputs["metrics"] = state ? state.metrics : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["partnerSolutionId"] = state ? state.partnerSolutionId : undefined;
             resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
             resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
         } else {
@@ -150,6 +155,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
             resourceInputs["logs"] = args ? args.logs : undefined;
             resourceInputs["metrics"] = args ? args.metrics : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["partnerSolutionId"] = args ? args.partnerSolutionId : undefined;
             resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
         }
@@ -190,6 +196,10 @@ export interface DiagnosticSettingState {
      * Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
+     */
+    partnerSolutionId?: pulumi.Input<string>;
     /**
      * The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
      */
@@ -232,6 +242,10 @@ export interface DiagnosticSettingArgs {
      * Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
+     */
+    partnerSolutionId?: pulumi.Input<string>;
     /**
      * The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
      */

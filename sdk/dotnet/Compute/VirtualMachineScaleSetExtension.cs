@@ -120,6 +120,12 @@ namespace Pulumi.Azure.Compute
         public Output<string?> ProtectedSettings { get; private set; } = null!;
 
         /// <summary>
+        /// A `protected_settings_from_key_vault` block as defined below.
+        /// </summary>
+        [Output("protectedSettingsFromKeyVault")]
+        public Output<Outputs.VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault?> ProtectedSettingsFromKeyVault { get; private set; } = null!;
+
+        /// <summary>
         /// An ordered list of Extension names which this should be provisioned after.
         /// </summary>
         [Output("provisionAfterExtensions")]
@@ -237,6 +243,12 @@ namespace Pulumi.Azure.Compute
         [Input("protectedSettings")]
         public Input<string>? ProtectedSettings { get; set; }
 
+        /// <summary>
+        /// A `protected_settings_from_key_vault` block as defined below.
+        /// </summary>
+        [Input("protectedSettingsFromKeyVault")]
+        public Input<Inputs.VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs>? ProtectedSettingsFromKeyVault { get; set; }
+
         [Input("provisionAfterExtensions")]
         private InputList<string>? _provisionAfterExtensions;
 
@@ -322,6 +334,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("protectedSettings")]
         public Input<string>? ProtectedSettings { get; set; }
+
+        /// <summary>
+        /// A `protected_settings_from_key_vault` block as defined below.
+        /// </summary>
+        [Input("protectedSettingsFromKeyVault")]
+        public Input<Inputs.VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultGetArgs>? ProtectedSettingsFromKeyVault { get; set; }
 
         [Input("provisionAfterExtensions")]
         private InputList<string>? _provisionAfterExtensions;

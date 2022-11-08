@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.network.outputs;
 
+import com.pulumi.azure.network.outputs.GetApplicationGatewayBackendAddressPool;
 import com.pulumi.azure.network.outputs.GetApplicationGatewayIdentity;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
@@ -12,6 +13,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetApplicationGatewayResult {
+    /**
+     * @return A `backend_address_pool` block as defined below.
+     * 
+     */
+    private List<GetApplicationGatewayBackendAddressPool> backendAddressPools;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -27,6 +33,10 @@ public final class GetApplicationGatewayResult {
      * 
      */
     private String location;
+    /**
+     * @return The name of the Backend Address Pool.
+     * 
+     */
     private String name;
     private String resourceGroupName;
     /**
@@ -36,6 +46,13 @@ public final class GetApplicationGatewayResult {
     private Map<String,String> tags;
 
     private GetApplicationGatewayResult() {}
+    /**
+     * @return A `backend_address_pool` block as defined below.
+     * 
+     */
+    public List<GetApplicationGatewayBackendAddressPool> backendAddressPools() {
+        return this.backendAddressPools;
+    }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -57,6 +74,10 @@ public final class GetApplicationGatewayResult {
     public String location() {
         return this.location;
     }
+    /**
+     * @return The name of the Backend Address Pool.
+     * 
+     */
     public String name() {
         return this.name;
     }
@@ -80,6 +101,7 @@ public final class GetApplicationGatewayResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<GetApplicationGatewayBackendAddressPool> backendAddressPools;
         private String id;
         private List<GetApplicationGatewayIdentity> identities;
         private String location;
@@ -89,6 +111,7 @@ public final class GetApplicationGatewayResult {
         public Builder() {}
         public Builder(GetApplicationGatewayResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.backendAddressPools = defaults.backendAddressPools;
     	      this.id = defaults.id;
     	      this.identities = defaults.identities;
     	      this.location = defaults.location;
@@ -97,6 +120,14 @@ public final class GetApplicationGatewayResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
+        public Builder backendAddressPools(List<GetApplicationGatewayBackendAddressPool> backendAddressPools) {
+            this.backendAddressPools = Objects.requireNonNull(backendAddressPools);
+            return this;
+        }
+        public Builder backendAddressPools(GetApplicationGatewayBackendAddressPool... backendAddressPools) {
+            return backendAddressPools(List.of(backendAddressPools));
+        }
         @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
@@ -132,6 +163,7 @@ public final class GetApplicationGatewayResult {
         }
         public GetApplicationGatewayResult build() {
             final var o = new GetApplicationGatewayResult();
+            o.backendAddressPools = backendAddressPools;
             o.id = id;
             o.identities = identities;
             o.location = location;

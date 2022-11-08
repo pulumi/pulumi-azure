@@ -13,6 +13,7 @@ __all__ = [
     'BastionHostIpConfigurationArgs',
     'CapacityReservationSkuArgs',
     'DiskEncryptionSetIdentityArgs',
+    'ExtensionProtectedSettingsFromKeyVaultArgs',
     'GalleryApplicationVersionManageActionArgs',
     'GalleryApplicationVersionSourceArgs',
     'GalleryApplicationVersionTargetRegionArgs',
@@ -33,6 +34,7 @@ __all__ = [
     'LinuxVirtualMachineScaleSetBootDiagnosticsArgs',
     'LinuxVirtualMachineScaleSetDataDiskArgs',
     'LinuxVirtualMachineScaleSetExtensionArgs',
+    'LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs',
     'LinuxVirtualMachineScaleSetGalleryApplicationArgs',
     'LinuxVirtualMachineScaleSetIdentityArgs',
     'LinuxVirtualMachineScaleSetNetworkInterfaceArgs',
@@ -62,6 +64,7 @@ __all__ = [
     'OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs',
     'OrchestratedVirtualMachineScaleSetDataDiskArgs',
     'OrchestratedVirtualMachineScaleSetExtensionArgs',
+    'OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs',
     'OrchestratedVirtualMachineScaleSetIdentityArgs',
     'OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs',
     'OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs',
@@ -120,6 +123,7 @@ __all__ = [
     'VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs',
     'VirtualMachineOsProfileWindowsConfigWinrmArgs',
     'VirtualMachinePlanArgs',
+    'VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs',
     'VirtualMachineStorageDataDiskArgs',
     'VirtualMachineStorageImageReferenceArgs',
     'VirtualMachineStorageOsDiskArgs',
@@ -138,6 +142,7 @@ __all__ = [
     'WindowsVirtualMachineScaleSetBootDiagnosticsArgs',
     'WindowsVirtualMachineScaleSetDataDiskArgs',
     'WindowsVirtualMachineScaleSetExtensionArgs',
+    'WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs',
     'WindowsVirtualMachineScaleSetGalleryApplicationArgs',
     'WindowsVirtualMachineScaleSetIdentityArgs',
     'WindowsVirtualMachineScaleSetNetworkInterfaceArgs',
@@ -320,6 +325,43 @@ class DiskEncryptionSetIdentityArgs:
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class ExtensionProtectedSettingsFromKeyVaultArgs:
+    def __init__(__self__, *,
+                 secret_url: pulumi.Input[str],
+                 source_vault_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] secret_url: The URL to the Key Vault Secret which stores the protected settings.
+        :param pulumi.Input[str] source_vault_id: The ID of the source Key Vault.
+        """
+        pulumi.set(__self__, "secret_url", secret_url)
+        pulumi.set(__self__, "source_vault_id", source_vault_id)
+
+    @property
+    @pulumi.getter(name="secretUrl")
+    def secret_url(self) -> pulumi.Input[str]:
+        """
+        The URL to the Key Vault Secret which stores the protected settings.
+        """
+        return pulumi.get(self, "secret_url")
+
+    @secret_url.setter
+    def secret_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret_url", value)
+
+    @property
+    @pulumi.getter(name="sourceVaultId")
+    def source_vault_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the source Key Vault.
+        """
+        return pulumi.get(self, "source_vault_id")
+
+    @source_vault_id.setter
+    def source_vault_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_vault_id", value)
 
 
 @pulumi.input_type
@@ -1293,7 +1335,7 @@ class LinuxVirtualMachineScaleSetDataDiskArgs:
         :param pulumi.Input[str] caching: The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
         :param pulumi.Input[int] disk_size_gb: The size of the Data Disk which should be created.
         :param pulumi.Input[int] lun: The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
-        :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
+        :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
         :param pulumi.Input[str] create_option: The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
         :param pulumi.Input[str] name: The name of the Data Disk.
@@ -1356,7 +1398,7 @@ class LinuxVirtualMachineScaleSetDataDiskArgs:
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> pulumi.Input[str]:
         """
-        The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
+        The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -1442,6 +1484,7 @@ class LinuxVirtualMachineScaleSetExtensionArgs:
                  automatic_upgrade_enabled: Optional[pulumi.Input[bool]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[pulumi.Input[str]] = None,
+                 protected_settings_from_key_vault: Optional[pulumi.Input['LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs']] = None,
                  provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  settings: Optional[pulumi.Input[str]] = None):
         """
@@ -1468,6 +1511,8 @@ class LinuxVirtualMachineScaleSetExtensionArgs:
             pulumi.set(__self__, "force_update_tag", force_update_tag)
         if protected_settings is not None:
             pulumi.set(__self__, "protected_settings", protected_settings)
+        if protected_settings_from_key_vault is not None:
+            pulumi.set(__self__, "protected_settings_from_key_vault", protected_settings_from_key_vault)
         if provision_after_extensions is not None:
             pulumi.set(__self__, "provision_after_extensions", provision_after_extensions)
         if settings is not None:
@@ -1570,6 +1615,15 @@ class LinuxVirtualMachineScaleSetExtensionArgs:
         pulumi.set(self, "protected_settings", value)
 
     @property
+    @pulumi.getter(name="protectedSettingsFromKeyVault")
+    def protected_settings_from_key_vault(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs']]:
+        return pulumi.get(self, "protected_settings_from_key_vault")
+
+    @protected_settings_from_key_vault.setter
+    def protected_settings_from_key_vault(self, value: Optional[pulumi.Input['LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs']]):
+        pulumi.set(self, "protected_settings_from_key_vault", value)
+
+    @property
     @pulumi.getter(name="provisionAfterExtensions")
     def provision_after_extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -1592,6 +1646,43 @@ class LinuxVirtualMachineScaleSetExtensionArgs:
     @settings.setter
     def settings(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "settings", value)
+
+
+@pulumi.input_type
+class LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs:
+    def __init__(__self__, *,
+                 secret_url: pulumi.Input[str],
+                 source_vault_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] secret_url: The URL to the Key Vault Secret which stores the protected settings.
+        :param pulumi.Input[str] source_vault_id: The ID of the source Key Vault.
+        """
+        pulumi.set(__self__, "secret_url", secret_url)
+        pulumi.set(__self__, "source_vault_id", source_vault_id)
+
+    @property
+    @pulumi.getter(name="secretUrl")
+    def secret_url(self) -> pulumi.Input[str]:
+        """
+        The URL to the Key Vault Secret which stores the protected settings.
+        """
+        return pulumi.get(self, "secret_url")
+
+    @secret_url.setter
+    def secret_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret_url", value)
+
+    @property
+    @pulumi.getter(name="sourceVaultId")
+    def source_vault_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the source Key Vault.
+        """
+        return pulumi.get(self, "source_vault_id")
+
+    @source_vault_id.setter
+    def source_vault_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_vault_id", value)
 
 
 @pulumi.input_type
@@ -2151,7 +2242,7 @@ class LinuxVirtualMachineScaleSetOsDiskArgs:
                  write_accelerator_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
-        :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
+        :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
         :param pulumi.Input['LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs'] diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
         :param pulumi.Input[int] disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
@@ -2190,7 +2281,7 @@ class LinuxVirtualMachineScaleSetOsDiskArgs:
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> pulumi.Input[str]:
         """
-        The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
+        The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -3221,11 +3312,13 @@ class OrchestratedVirtualMachineScaleSetExtensionArgs:
                  failure_suppression_enabled: Optional[pulumi.Input[bool]] = None,
                  force_extension_execution_on_change: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[pulumi.Input[str]] = None,
+                 protected_settings_from_key_vault: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs']] = None,
                  settings: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extensions_to_provision_after_vm_creations: An ordered list of Extension names which Orchestrated Virtual Machine Scale Set should provision after VM creation.
         :param pulumi.Input[bool] failure_suppression_enabled: Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+        :param pulumi.Input['OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs'] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "publisher", publisher)
@@ -3241,6 +3334,8 @@ class OrchestratedVirtualMachineScaleSetExtensionArgs:
             pulumi.set(__self__, "force_extension_execution_on_change", force_extension_execution_on_change)
         if protected_settings is not None:
             pulumi.set(__self__, "protected_settings", protected_settings)
+        if protected_settings_from_key_vault is not None:
+            pulumi.set(__self__, "protected_settings_from_key_vault", protected_settings_from_key_vault)
         if settings is not None:
             pulumi.set(__self__, "settings", settings)
 
@@ -3335,6 +3430,18 @@ class OrchestratedVirtualMachineScaleSetExtensionArgs:
         pulumi.set(self, "protected_settings", value)
 
     @property
+    @pulumi.getter(name="protectedSettingsFromKeyVault")
+    def protected_settings_from_key_vault(self) -> Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs']]:
+        """
+        A `protected_settings_from_key_vault` block as defined below.
+        """
+        return pulumi.get(self, "protected_settings_from_key_vault")
+
+    @protected_settings_from_key_vault.setter
+    def protected_settings_from_key_vault(self, value: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs']]):
+        pulumi.set(self, "protected_settings_from_key_vault", value)
+
+    @property
     @pulumi.getter
     def settings(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "settings")
@@ -3342,6 +3449,43 @@ class OrchestratedVirtualMachineScaleSetExtensionArgs:
     @settings.setter
     def settings(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "settings", value)
+
+
+@pulumi.input_type
+class OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs:
+    def __init__(__self__, *,
+                 secret_url: pulumi.Input[str],
+                 source_vault_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] secret_url: The URL to the Key Vault Secret which stores the protected settings.
+        :param pulumi.Input[str] source_vault_id: The ID of the source Key Vault.
+        """
+        pulumi.set(__self__, "secret_url", secret_url)
+        pulumi.set(__self__, "source_vault_id", source_vault_id)
+
+    @property
+    @pulumi.getter(name="secretUrl")
+    def secret_url(self) -> pulumi.Input[str]:
+        """
+        The URL to the Key Vault Secret which stores the protected settings.
+        """
+        return pulumi.get(self, "secret_url")
+
+    @secret_url.setter
+    def secret_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret_url", value)
+
+    @property
+    @pulumi.getter(name="sourceVaultId")
+    def source_vault_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the source Key Vault.
+        """
+        return pulumi.get(self, "source_vault_id")
+
+    @source_vault_id.setter
+    def source_vault_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_vault_id", value)
 
 
 @pulumi.input_type
@@ -6705,6 +6849,43 @@ class VirtualMachinePlanArgs:
 
 
 @pulumi.input_type
+class VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs:
+    def __init__(__self__, *,
+                 secret_url: pulumi.Input[str],
+                 source_vault_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] secret_url: The URL to the Key Vault Secret which stores the protected settings.
+        :param pulumi.Input[str] source_vault_id: The ID of the source Key Vault.
+        """
+        pulumi.set(__self__, "secret_url", secret_url)
+        pulumi.set(__self__, "source_vault_id", source_vault_id)
+
+    @property
+    @pulumi.getter(name="secretUrl")
+    def secret_url(self) -> pulumi.Input[str]:
+        """
+        The URL to the Key Vault Secret which stores the protected settings.
+        """
+        return pulumi.get(self, "secret_url")
+
+    @secret_url.setter
+    def secret_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret_url", value)
+
+    @property
+    @pulumi.getter(name="sourceVaultId")
+    def source_vault_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the source Key Vault.
+        """
+        return pulumi.get(self, "source_vault_id")
+
+    @source_vault_id.setter
+    def source_vault_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_vault_id", value)
+
+
+@pulumi.input_type
 class VirtualMachineStorageDataDiskArgs:
     def __init__(__self__, *,
                  create_option: pulumi.Input[str],
@@ -7741,7 +7922,7 @@ class WindowsVirtualMachineScaleSetDataDiskArgs:
         :param pulumi.Input[str] caching: The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
         :param pulumi.Input[int] disk_size_gb: The size of the Data Disk which should be created.
         :param pulumi.Input[int] lun: The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
-        :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
+        :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
         :param pulumi.Input[str] create_option: The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
         :param pulumi.Input[str] name: The name of the Data Disk.
@@ -7804,7 +7985,7 @@ class WindowsVirtualMachineScaleSetDataDiskArgs:
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> pulumi.Input[str]:
         """
-        The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
+        The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -7890,6 +8071,7 @@ class WindowsVirtualMachineScaleSetExtensionArgs:
                  automatic_upgrade_enabled: Optional[pulumi.Input[bool]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[pulumi.Input[str]] = None,
+                 protected_settings_from_key_vault: Optional[pulumi.Input['WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs']] = None,
                  provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  settings: Optional[pulumi.Input[str]] = None):
         """
@@ -7916,6 +8098,8 @@ class WindowsVirtualMachineScaleSetExtensionArgs:
             pulumi.set(__self__, "force_update_tag", force_update_tag)
         if protected_settings is not None:
             pulumi.set(__self__, "protected_settings", protected_settings)
+        if protected_settings_from_key_vault is not None:
+            pulumi.set(__self__, "protected_settings_from_key_vault", protected_settings_from_key_vault)
         if provision_after_extensions is not None:
             pulumi.set(__self__, "provision_after_extensions", provision_after_extensions)
         if settings is not None:
@@ -8018,6 +8202,15 @@ class WindowsVirtualMachineScaleSetExtensionArgs:
         pulumi.set(self, "protected_settings", value)
 
     @property
+    @pulumi.getter(name="protectedSettingsFromKeyVault")
+    def protected_settings_from_key_vault(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs']]:
+        return pulumi.get(self, "protected_settings_from_key_vault")
+
+    @protected_settings_from_key_vault.setter
+    def protected_settings_from_key_vault(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs']]):
+        pulumi.set(self, "protected_settings_from_key_vault", value)
+
+    @property
     @pulumi.getter(name="provisionAfterExtensions")
     def provision_after_extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -8040,6 +8233,43 @@ class WindowsVirtualMachineScaleSetExtensionArgs:
     @settings.setter
     def settings(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "settings", value)
+
+
+@pulumi.input_type
+class WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs:
+    def __init__(__self__, *,
+                 secret_url: pulumi.Input[str],
+                 source_vault_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] secret_url: The URL to the Key Vault Secret which stores the protected settings.
+        :param pulumi.Input[str] source_vault_id: The ID of the source Key Vault.
+        """
+        pulumi.set(__self__, "secret_url", secret_url)
+        pulumi.set(__self__, "source_vault_id", source_vault_id)
+
+    @property
+    @pulumi.getter(name="secretUrl")
+    def secret_url(self) -> pulumi.Input[str]:
+        """
+        The URL to the Key Vault Secret which stores the protected settings.
+        """
+        return pulumi.get(self, "secret_url")
+
+    @secret_url.setter
+    def secret_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret_url", value)
+
+    @property
+    @pulumi.getter(name="sourceVaultId")
+    def source_vault_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the source Key Vault.
+        """
+        return pulumi.get(self, "source_vault_id")
+
+    @source_vault_id.setter
+    def source_vault_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_vault_id", value)
 
 
 @pulumi.input_type
@@ -8599,7 +8829,7 @@ class WindowsVirtualMachineScaleSetOsDiskArgs:
                  write_accelerator_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
-        :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
+        :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
         :param pulumi.Input['WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs'] diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
         :param pulumi.Input[int] disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
@@ -8638,7 +8868,7 @@ class WindowsVirtualMachineScaleSetOsDiskArgs:
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> pulumi.Input[str]:
         """
-        The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
+        The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
         """
         return pulumi.get(self, "storage_account_type")
 

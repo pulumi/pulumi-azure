@@ -357,6 +357,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// A `web_app_routing` block as defined below.
+        /// </summary>
+        [Output("webAppRouting")]
+        public Output<Outputs.KubernetesClusterWebAppRouting?> WebAppRouting { get; private set; } = null!;
+
+        /// <summary>
         /// A `windows_profile` block as defined below.
         /// </summary>
         [Output("windowsProfile")]
@@ -665,6 +671,12 @@ namespace Pulumi.Azure.ContainerService
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// A `web_app_routing` block as defined below.
+        /// </summary>
+        [Input("webAppRouting")]
+        public Input<Inputs.KubernetesClusterWebAppRoutingArgs>? WebAppRouting { get; set; }
 
         /// <summary>
         /// A `windows_profile` block as defined below.
@@ -1003,6 +1015,12 @@ namespace Pulumi.Azure.ContainerService
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// A `web_app_routing` block as defined below.
+        /// </summary>
+        [Input("webAppRouting")]
+        public Input<Inputs.KubernetesClusterWebAppRoutingGetArgs>? WebAppRouting { get; set; }
 
         /// <summary>
         /// A `windows_profile` block as defined below.

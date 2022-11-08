@@ -136,7 +136,10 @@ namespace Pulumi.Azure.Role
     /// 
     ///     var exampleClientConfig = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleGroup = Azure.Management.GetGroup.Invoke();
+    ///     var exampleGroup = Azure.Management.GetGroup.Invoke(new()
+    ///     {
+    ///         Name = "00000000-0000-0000-0000-000000000000",
+    ///     });
     /// 
     ///     var exampleRoleDefinition = new Azure.Authorization.RoleDefinition("exampleRoleDefinition", new()
     ///     {

@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.compute.inputs;
 
+import com.pulumi.azure.compute.inputs.VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -108,6 +109,21 @@ public final class VirtualMachineScaleSetExtensionState extends com.pulumi.resou
     }
 
     /**
+     * A `protected_settings_from_key_vault` block as defined below.
+     * 
+     */
+    @Import(name="protectedSettingsFromKeyVault")
+    private @Nullable Output<VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs> protectedSettingsFromKeyVault;
+
+    /**
+     * @return A `protected_settings_from_key_vault` block as defined below.
+     * 
+     */
+    public Optional<Output<VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs>> protectedSettingsFromKeyVault() {
+        return Optional.ofNullable(this.protectedSettingsFromKeyVault);
+    }
+
+    /**
      * An ordered list of Extension names which this should be provisioned after.
      * 
      */
@@ -206,6 +222,7 @@ public final class VirtualMachineScaleSetExtensionState extends com.pulumi.resou
         this.forceUpdateTag = $.forceUpdateTag;
         this.name = $.name;
         this.protectedSettings = $.protectedSettings;
+        this.protectedSettingsFromKeyVault = $.protectedSettingsFromKeyVault;
         this.provisionAfterExtensions = $.provisionAfterExtensions;
         this.publisher = $.publisher;
         this.settings = $.settings;
@@ -356,6 +373,27 @@ public final class VirtualMachineScaleSetExtensionState extends com.pulumi.resou
          */
         public Builder protectedSettings(String protectedSettings) {
             return protectedSettings(Output.of(protectedSettings));
+        }
+
+        /**
+         * @param protectedSettingsFromKeyVault A `protected_settings_from_key_vault` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder protectedSettingsFromKeyVault(@Nullable Output<VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs> protectedSettingsFromKeyVault) {
+            $.protectedSettingsFromKeyVault = protectedSettingsFromKeyVault;
+            return this;
+        }
+
+        /**
+         * @param protectedSettingsFromKeyVault A `protected_settings_from_key_vault` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder protectedSettingsFromKeyVault(VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs protectedSettingsFromKeyVault) {
+            return protectedSettingsFromKeyVault(Output.of(protectedSettingsFromKeyVault));
         }
 
         /**

@@ -3947,6 +3947,8 @@ type VirtualMachineStorageConfiguration struct {
 	LogSettings *VirtualMachineStorageConfigurationLogSettings `pulumi:"logSettings"`
 	// The type of storage workload. Valid values include `GENERAL`, `OLTP`, or `DW`.
 	StorageWorkloadType string `pulumi:"storageWorkloadType"`
+	// Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are `true` and `false`. Defaults to `false`.
+	SystemDbOnDataDiskEnabled *bool `pulumi:"systemDbOnDataDiskEnabled"`
 	// An `tempDbSettings` as defined below.
 	TempDbSettings *VirtualMachineStorageConfigurationTempDbSettings `pulumi:"tempDbSettings"`
 }
@@ -3971,6 +3973,8 @@ type VirtualMachineStorageConfigurationArgs struct {
 	LogSettings VirtualMachineStorageConfigurationLogSettingsPtrInput `pulumi:"logSettings"`
 	// The type of storage workload. Valid values include `GENERAL`, `OLTP`, or `DW`.
 	StorageWorkloadType pulumi.StringInput `pulumi:"storageWorkloadType"`
+	// Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are `true` and `false`. Defaults to `false`.
+	SystemDbOnDataDiskEnabled pulumi.BoolPtrInput `pulumi:"systemDbOnDataDiskEnabled"`
 	// An `tempDbSettings` as defined below.
 	TempDbSettings VirtualMachineStorageConfigurationTempDbSettingsPtrInput `pulumi:"tempDbSettings"`
 }
@@ -4076,6 +4080,11 @@ func (o VirtualMachineStorageConfigurationOutput) StorageWorkloadType() pulumi.S
 	return o.ApplyT(func(v VirtualMachineStorageConfiguration) string { return v.StorageWorkloadType }).(pulumi.StringOutput)
 }
 
+// Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are `true` and `false`. Defaults to `false`.
+func (o VirtualMachineStorageConfigurationOutput) SystemDbOnDataDiskEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualMachineStorageConfiguration) *bool { return v.SystemDbOnDataDiskEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // An `tempDbSettings` as defined below.
 func (o VirtualMachineStorageConfigurationOutput) TempDbSettings() VirtualMachineStorageConfigurationTempDbSettingsPtrOutput {
 	return o.ApplyT(func(v VirtualMachineStorageConfiguration) *VirtualMachineStorageConfigurationTempDbSettings {
@@ -4145,6 +4154,16 @@ func (o VirtualMachineStorageConfigurationPtrOutput) StorageWorkloadType() pulum
 		}
 		return &v.StorageWorkloadType
 	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are `true` and `false`. Defaults to `false`.
+func (o VirtualMachineStorageConfigurationPtrOutput) SystemDbOnDataDiskEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineStorageConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SystemDbOnDataDiskEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // An `tempDbSettings` as defined below.

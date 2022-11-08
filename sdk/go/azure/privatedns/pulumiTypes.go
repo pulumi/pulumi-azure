@@ -249,6 +249,112 @@ func (o MxRecordRecordArrayOutput) Index(i pulumi.IntInput) MxRecordRecordOutput
 	}).(MxRecordRecordOutput)
 }
 
+type ResolverForwardingRuleTargetDnsServer struct {
+	// DNS server IP address.
+	IpAddress string `pulumi:"ipAddress"`
+	// DNS server port.
+	Port *int `pulumi:"port"`
+}
+
+// ResolverForwardingRuleTargetDnsServerInput is an input type that accepts ResolverForwardingRuleTargetDnsServerArgs and ResolverForwardingRuleTargetDnsServerOutput values.
+// You can construct a concrete instance of `ResolverForwardingRuleTargetDnsServerInput` via:
+//
+//	ResolverForwardingRuleTargetDnsServerArgs{...}
+type ResolverForwardingRuleTargetDnsServerInput interface {
+	pulumi.Input
+
+	ToResolverForwardingRuleTargetDnsServerOutput() ResolverForwardingRuleTargetDnsServerOutput
+	ToResolverForwardingRuleTargetDnsServerOutputWithContext(context.Context) ResolverForwardingRuleTargetDnsServerOutput
+}
+
+type ResolverForwardingRuleTargetDnsServerArgs struct {
+	// DNS server IP address.
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
+	// DNS server port.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+}
+
+func (ResolverForwardingRuleTargetDnsServerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverForwardingRuleTargetDnsServer)(nil)).Elem()
+}
+
+func (i ResolverForwardingRuleTargetDnsServerArgs) ToResolverForwardingRuleTargetDnsServerOutput() ResolverForwardingRuleTargetDnsServerOutput {
+	return i.ToResolverForwardingRuleTargetDnsServerOutputWithContext(context.Background())
+}
+
+func (i ResolverForwardingRuleTargetDnsServerArgs) ToResolverForwardingRuleTargetDnsServerOutputWithContext(ctx context.Context) ResolverForwardingRuleTargetDnsServerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverForwardingRuleTargetDnsServerOutput)
+}
+
+// ResolverForwardingRuleTargetDnsServerArrayInput is an input type that accepts ResolverForwardingRuleTargetDnsServerArray and ResolverForwardingRuleTargetDnsServerArrayOutput values.
+// You can construct a concrete instance of `ResolverForwardingRuleTargetDnsServerArrayInput` via:
+//
+//	ResolverForwardingRuleTargetDnsServerArray{ ResolverForwardingRuleTargetDnsServerArgs{...} }
+type ResolverForwardingRuleTargetDnsServerArrayInput interface {
+	pulumi.Input
+
+	ToResolverForwardingRuleTargetDnsServerArrayOutput() ResolverForwardingRuleTargetDnsServerArrayOutput
+	ToResolverForwardingRuleTargetDnsServerArrayOutputWithContext(context.Context) ResolverForwardingRuleTargetDnsServerArrayOutput
+}
+
+type ResolverForwardingRuleTargetDnsServerArray []ResolverForwardingRuleTargetDnsServerInput
+
+func (ResolverForwardingRuleTargetDnsServerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResolverForwardingRuleTargetDnsServer)(nil)).Elem()
+}
+
+func (i ResolverForwardingRuleTargetDnsServerArray) ToResolverForwardingRuleTargetDnsServerArrayOutput() ResolverForwardingRuleTargetDnsServerArrayOutput {
+	return i.ToResolverForwardingRuleTargetDnsServerArrayOutputWithContext(context.Background())
+}
+
+func (i ResolverForwardingRuleTargetDnsServerArray) ToResolverForwardingRuleTargetDnsServerArrayOutputWithContext(ctx context.Context) ResolverForwardingRuleTargetDnsServerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverForwardingRuleTargetDnsServerArrayOutput)
+}
+
+type ResolverForwardingRuleTargetDnsServerOutput struct{ *pulumi.OutputState }
+
+func (ResolverForwardingRuleTargetDnsServerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverForwardingRuleTargetDnsServer)(nil)).Elem()
+}
+
+func (o ResolverForwardingRuleTargetDnsServerOutput) ToResolverForwardingRuleTargetDnsServerOutput() ResolverForwardingRuleTargetDnsServerOutput {
+	return o
+}
+
+func (o ResolverForwardingRuleTargetDnsServerOutput) ToResolverForwardingRuleTargetDnsServerOutputWithContext(ctx context.Context) ResolverForwardingRuleTargetDnsServerOutput {
+	return o
+}
+
+// DNS server IP address.
+func (o ResolverForwardingRuleTargetDnsServerOutput) IpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v ResolverForwardingRuleTargetDnsServer) string { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+// DNS server port.
+func (o ResolverForwardingRuleTargetDnsServerOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ResolverForwardingRuleTargetDnsServer) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+type ResolverForwardingRuleTargetDnsServerArrayOutput struct{ *pulumi.OutputState }
+
+func (ResolverForwardingRuleTargetDnsServerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResolverForwardingRuleTargetDnsServer)(nil)).Elem()
+}
+
+func (o ResolverForwardingRuleTargetDnsServerArrayOutput) ToResolverForwardingRuleTargetDnsServerArrayOutput() ResolverForwardingRuleTargetDnsServerArrayOutput {
+	return o
+}
+
+func (o ResolverForwardingRuleTargetDnsServerArrayOutput) ToResolverForwardingRuleTargetDnsServerArrayOutputWithContext(ctx context.Context) ResolverForwardingRuleTargetDnsServerArrayOutput {
+	return o
+}
+
+func (o ResolverForwardingRuleTargetDnsServerArrayOutput) Index(i pulumi.IntInput) ResolverForwardingRuleTargetDnsServerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResolverForwardingRuleTargetDnsServer {
+		return vs[0].([]ResolverForwardingRuleTargetDnsServer)[vs[1].(int)]
+	}).(ResolverForwardingRuleTargetDnsServerOutput)
+}
+
 type ResolverInboundEndpointIpConfiguration struct {
 	// Private IP address of the IP configuration.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
@@ -1225,6 +1331,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkServiceNatIpConfigurationArrayInput)(nil)).Elem(), LinkServiceNatIpConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MxRecordRecordInput)(nil)).Elem(), MxRecordRecordArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MxRecordRecordArrayInput)(nil)).Elem(), MxRecordRecordArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverForwardingRuleTargetDnsServerInput)(nil)).Elem(), ResolverForwardingRuleTargetDnsServerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverForwardingRuleTargetDnsServerArrayInput)(nil)).Elem(), ResolverForwardingRuleTargetDnsServerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverInboundEndpointIpConfigurationInput)(nil)).Elem(), ResolverInboundEndpointIpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverInboundEndpointIpConfigurationArrayInput)(nil)).Elem(), ResolverInboundEndpointIpConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SRVRecordRecordInput)(nil)).Elem(), SRVRecordRecordArgs{})
@@ -1243,6 +1351,8 @@ func init() {
 	pulumi.RegisterOutputType(LinkServiceNatIpConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(MxRecordRecordOutput{})
 	pulumi.RegisterOutputType(MxRecordRecordArrayOutput{})
+	pulumi.RegisterOutputType(ResolverForwardingRuleTargetDnsServerOutput{})
+	pulumi.RegisterOutputType(ResolverForwardingRuleTargetDnsServerArrayOutput{})
 	pulumi.RegisterOutputType(ResolverInboundEndpointIpConfigurationOutput{})
 	pulumi.RegisterOutputType(ResolverInboundEndpointIpConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(SRVRecordRecordOutput{})

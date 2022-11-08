@@ -15,6 +15,7 @@ __all__ = [
     'FunctionJavascriptUdaInput',
     'FunctionJavascriptUdaOutput',
     'JobIdentity',
+    'JobJobStorageAccount',
     'OutputBlobSerialization',
     'OutputEventHubSerialization',
     'OutputServiceBusQueueSerialization',
@@ -215,6 +216,67 @@ class JobIdentity(dict):
         The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class JobJobStorageAccount(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountKey":
+            suggest = "account_key"
+        elif key == "accountName":
+            suggest = "account_name"
+        elif key == "authenticationMode":
+            suggest = "authentication_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobJobStorageAccount. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobJobStorageAccount.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobJobStorageAccount.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_key: str,
+                 account_name: str,
+                 authentication_mode: str):
+        """
+        :param str account_key: The account key for the Azure storage account.
+        :param str account_name: The name of the Azure storage account.
+        :param str authentication_mode: The authentication mode of the storage account. Possible values are `ConnectionString`, `Msi` and `UserToken`.
+        """
+        pulumi.set(__self__, "account_key", account_key)
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "authentication_mode", authentication_mode)
+
+    @property
+    @pulumi.getter(name="accountKey")
+    def account_key(self) -> str:
+        """
+        The account key for the Azure storage account.
+        """
+        return pulumi.get(self, "account_key")
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> str:
+        """
+        The name of the Azure storage account.
+        """
+        return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> str:
+        """
+        The authentication mode of the storage account. Possible values are `ConnectionString`, `Msi` and `UserToken`.
+        """
+        return pulumi.get(self, "authentication_mode")
 
 
 @pulumi.output_type

@@ -63,9 +63,11 @@ __all__ = [
     'KubernetesClusterOmsAgentArgs',
     'KubernetesClusterOmsAgentOmsAgentIdentityArgs',
     'KubernetesClusterServicePrincipalArgs',
+    'KubernetesClusterWebAppRoutingArgs',
     'KubernetesClusterWindowsProfileArgs',
     'KubernetesClusterWindowsProfileGmsaArgs',
     'KubernetesClusterWorkloadAutoscalerProfileArgs',
+    'KubernetesFleetManagerHubProfileArgs',
     'RegistryEncryptionArgs',
     'RegistryGeoreplicationArgs',
     'RegistryIdentityArgs',
@@ -5549,6 +5551,28 @@ class KubernetesClusterServicePrincipalArgs:
 
 
 @pulumi.input_type
+class KubernetesClusterWebAppRoutingArgs:
+    def __init__(__self__, *,
+                 dns_zone_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] dns_zone_id: Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled.
+        """
+        pulumi.set(__self__, "dns_zone_id", dns_zone_id)
+
+    @property
+    @pulumi.getter(name="dnsZoneId")
+    def dns_zone_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled.
+        """
+        return pulumi.get(self, "dns_zone_id")
+
+    @dns_zone_id.setter
+    def dns_zone_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "dns_zone_id", value)
+
+
+@pulumi.input_type
 class KubernetesClusterWindowsProfileArgs:
     def __init__(__self__, *,
                  admin_username: pulumi.Input[str],
@@ -5676,6 +5700,46 @@ class KubernetesClusterWorkloadAutoscalerProfileArgs:
     @keda_enabled.setter
     def keda_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "keda_enabled", value)
+
+
+@pulumi.input_type
+class KubernetesFleetManagerHubProfileArgs:
+    def __init__(__self__, *,
+                 dns_prefix: pulumi.Input[str],
+                 fqdn: Optional[pulumi.Input[str]] = None,
+                 kubernetes_version: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "dns_prefix", dns_prefix)
+        if fqdn is not None:
+            pulumi.set(__self__, "fqdn", fqdn)
+        if kubernetes_version is not None:
+            pulumi.set(__self__, "kubernetes_version", kubernetes_version)
+
+    @property
+    @pulumi.getter(name="dnsPrefix")
+    def dns_prefix(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "dns_prefix")
+
+    @dns_prefix.setter
+    def dns_prefix(self, value: pulumi.Input[str]):
+        pulumi.set(self, "dns_prefix", value)
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "fqdn")
+
+    @fqdn.setter
+    def fqdn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fqdn", value)
+
+    @property
+    @pulumi.getter(name="kubernetesVersion")
+    def kubernetes_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kubernetes_version")
+
+    @kubernetes_version.setter
+    def kubernetes_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kubernetes_version", value)
 
 
 @pulumi.input_type

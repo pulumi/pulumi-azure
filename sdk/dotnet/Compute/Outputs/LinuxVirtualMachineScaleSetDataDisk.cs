@@ -38,7 +38,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
+        /// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
         /// </summary>
         public readonly string StorageAccountType;
         public readonly int? UltraSsdDiskIopsReadWrite;

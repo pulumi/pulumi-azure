@@ -116,14 +116,14 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
     }
 
     /**
-     * An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
+     * An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
      * 
      */
     @Import(name="automaticOsUpgradePolicy")
     private @Nullable Output<WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs> automaticOsUpgradePolicy;
 
     /**
-     * @return An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
+     * @return An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
      * 
      */
     public Optional<Output<WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs>> automaticOsUpgradePolicy() {
@@ -1107,7 +1107,7 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
         }
 
         /**
-         * @param automaticOsUpgradePolicy An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
+         * @param automaticOsUpgradePolicy An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
          * 
          * @return builder
          * 
@@ -1118,7 +1118,7 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
         }
 
         /**
-         * @param automaticOsUpgradePolicy An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
+         * @param automaticOsUpgradePolicy An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
          * 
          * @return builder
          * 

@@ -12,6 +12,7 @@ from .. import _utilities
 __all__ = [
     'LinkServiceNatIpConfiguration',
     'MxRecordRecord',
+    'ResolverForwardingRuleTargetDnsServer',
     'ResolverInboundEndpointIpConfiguration',
     'SRVRecordRecord',
     'TxtRecordRecord',
@@ -133,6 +134,53 @@ class MxRecordRecord(dict):
         The preference of the MX record.
         """
         return pulumi.get(self, "preference")
+
+
+@pulumi.output_type
+class ResolverForwardingRuleTargetDnsServer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddress":
+            suggest = "ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResolverForwardingRuleTargetDnsServer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResolverForwardingRuleTargetDnsServer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResolverForwardingRuleTargetDnsServer.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_address: str,
+                 port: Optional[int] = None):
+        """
+        :param str ip_address: DNS server IP address.
+        :param int port: DNS server port.
+        """
+        pulumi.set(__self__, "ip_address", ip_address)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> str:
+        """
+        DNS server IP address.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        DNS server port.
+        """
+        return pulumi.get(self, "port")
 
 
 @pulumi.output_type

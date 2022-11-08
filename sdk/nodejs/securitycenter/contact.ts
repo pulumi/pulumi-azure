@@ -72,6 +72,10 @@ export class Contact extends pulumi.CustomResource {
      */
     public readonly email!: pulumi.Output<string>;
     /**
+     * The name of the Security Center Contact. Defaults to `default1`.
+     */
+    public readonly name!: pulumi.Output<string>;
+    /**
      * The phone number of the Security Center Contact.
      */
     public readonly phone!: pulumi.Output<string | undefined>;
@@ -92,6 +96,7 @@ export class Contact extends pulumi.CustomResource {
             resourceInputs["alertNotifications"] = state ? state.alertNotifications : undefined;
             resourceInputs["alertsToAdmins"] = state ? state.alertsToAdmins : undefined;
             resourceInputs["email"] = state ? state.email : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["phone"] = state ? state.phone : undefined;
         } else {
             const args = argsOrState as ContactArgs | undefined;
@@ -107,6 +112,7 @@ export class Contact extends pulumi.CustomResource {
             resourceInputs["alertNotifications"] = args ? args.alertNotifications : undefined;
             resourceInputs["alertsToAdmins"] = args ? args.alertsToAdmins : undefined;
             resourceInputs["email"] = args ? args.email : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["phone"] = args ? args.phone : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -131,6 +137,10 @@ export interface ContactState {
      */
     email?: pulumi.Input<string>;
     /**
+     * The name of the Security Center Contact. Defaults to `default1`.
+     */
+    name?: pulumi.Input<string>;
+    /**
      * The phone number of the Security Center Contact.
      */
     phone?: pulumi.Input<string>;
@@ -152,6 +162,10 @@ export interface ContactArgs {
      * The email of the Security Center Contact.
      */
     email: pulumi.Input<string>;
+    /**
+     * The name of the Security Center Contact. Defaults to `default1`.
+     */
+    name?: pulumi.Input<string>;
     /**
      * The phone number of the Security Center Contact.
      */

@@ -109,14 +109,14 @@ public final class WindowsVirtualMachineScaleSetOsDiskArgs extends com.pulumi.re
     }
 
     /**
-     * The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
+     * The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
      * 
      */
     @Import(name="storageAccountType", required=true)
     private Output<String> storageAccountType;
 
     /**
-     * @return The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
+     * @return The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
      * 
      */
     public Output<String> storageAccountType() {
@@ -296,7 +296,7 @@ public final class WindowsVirtualMachineScaleSetOsDiskArgs extends com.pulumi.re
         }
 
         /**
-         * @param storageAccountType The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
+         * @param storageAccountType The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class WindowsVirtualMachineScaleSetOsDiskArgs extends com.pulumi.re
         }
 
         /**
-         * @param storageAccountType The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
+         * @param storageAccountType The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
          * 
          * @return builder
          * 

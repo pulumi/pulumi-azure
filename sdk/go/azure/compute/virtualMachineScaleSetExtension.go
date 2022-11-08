@@ -110,6 +110,8 @@ type VirtualMachineScaleSetExtension struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
 	ProtectedSettings pulumi.StringPtrOutput `pulumi:"protectedSettings"`
+	// A `protectedSettingsFromKeyVault` block as defined below.
+	ProtectedSettingsFromKeyVault VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput `pulumi:"protectedSettingsFromKeyVault"`
 	// An ordered list of Extension names which this should be provisioned after.
 	ProvisionAfterExtensions pulumi.StringArrayOutput `pulumi:"provisionAfterExtensions"`
 	// Specifies the Publisher of the Extension. Changing this forces a new resource to be created.
@@ -177,6 +179,8 @@ type virtualMachineScaleSetExtensionState struct {
 	Name *string `pulumi:"name"`
 	// A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
 	ProtectedSettings *string `pulumi:"protectedSettings"`
+	// A `protectedSettingsFromKeyVault` block as defined below.
+	ProtectedSettingsFromKeyVault *VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault `pulumi:"protectedSettingsFromKeyVault"`
 	// An ordered list of Extension names which this should be provisioned after.
 	ProvisionAfterExtensions []string `pulumi:"provisionAfterExtensions"`
 	// Specifies the Publisher of the Extension. Changing this forces a new resource to be created.
@@ -204,6 +208,8 @@ type VirtualMachineScaleSetExtensionState struct {
 	Name pulumi.StringPtrInput
 	// A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
 	ProtectedSettings pulumi.StringPtrInput
+	// A `protectedSettingsFromKeyVault` block as defined below.
+	ProtectedSettingsFromKeyVault VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrInput
 	// An ordered list of Extension names which this should be provisioned after.
 	ProvisionAfterExtensions pulumi.StringArrayInput
 	// Specifies the Publisher of the Extension. Changing this forces a new resource to be created.
@@ -235,6 +241,8 @@ type virtualMachineScaleSetExtensionArgs struct {
 	Name *string `pulumi:"name"`
 	// A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
 	ProtectedSettings *string `pulumi:"protectedSettings"`
+	// A `protectedSettingsFromKeyVault` block as defined below.
+	ProtectedSettingsFromKeyVault *VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault `pulumi:"protectedSettingsFromKeyVault"`
 	// An ordered list of Extension names which this should be provisioned after.
 	ProvisionAfterExtensions []string `pulumi:"provisionAfterExtensions"`
 	// Specifies the Publisher of the Extension. Changing this forces a new resource to be created.
@@ -263,6 +271,8 @@ type VirtualMachineScaleSetExtensionArgs struct {
 	Name pulumi.StringPtrInput
 	// A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
 	ProtectedSettings pulumi.StringPtrInput
+	// A `protectedSettingsFromKeyVault` block as defined below.
+	ProtectedSettingsFromKeyVault VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrInput
 	// An ordered list of Extension names which this should be provisioned after.
 	ProvisionAfterExtensions pulumi.StringArrayInput
 	// Specifies the Publisher of the Extension. Changing this forces a new resource to be created.
@@ -392,6 +402,13 @@ func (o VirtualMachineScaleSetExtensionOutput) Name() pulumi.StringOutput {
 // A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
 func (o VirtualMachineScaleSetExtensionOutput) ProtectedSettings() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineScaleSetExtension) pulumi.StringPtrOutput { return v.ProtectedSettings }).(pulumi.StringPtrOutput)
+}
+
+// A `protectedSettingsFromKeyVault` block as defined below.
+func (o VirtualMachineScaleSetExtensionOutput) ProtectedSettingsFromKeyVault() VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetExtension) VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+		return v.ProtectedSettingsFromKeyVault
+	}).(VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput)
 }
 
 // An ordered list of Extension names which this should be provisioned after.

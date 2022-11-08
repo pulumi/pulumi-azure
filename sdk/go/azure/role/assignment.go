@@ -184,7 +184,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = management.LookupGroup(ctx, nil, nil)
+//			_, err = management.LookupGroup(ctx, &management.LookupGroupArgs{
+//				Name: pulumi.StringRef("00000000-0000-0000-0000-000000000000"),
+//			}, nil)
 //			if err != nil {
 //				return err
 //			}

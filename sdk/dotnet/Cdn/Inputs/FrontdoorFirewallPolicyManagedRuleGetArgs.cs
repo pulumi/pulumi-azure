@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Cdn.Inputs
     public sealed class FrontdoorFirewallPolicyManagedRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action to perform when the managed rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+        /// The action to perform when the managed rule is matched. Possible values depends on which DRS version you are using, for DRS `1.0`, `1.1` and `preview-0.1` the possible values include `Allow`, `Block`, `Log`, or `Redirect`. For DRS `2.0` and `2.1` the value must be `AnomalyScoring`.
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
@@ -43,13 +43,13 @@ namespace Pulumi.Azure.Cdn.Inputs
         }
 
         /// <summary>
-        /// The name of the managed rule to use with this resource.
+        /// The name of the managed rule to use with this resource. Possible values include `DefaultRuleSet`, `Microsoft_DefaultRuleSet`, `BotProtection` or `Microsoft_BotManagerRuleSet`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The version on the managed rule to use with this resource.
+        /// The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the value must be `1.0`.
         /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;

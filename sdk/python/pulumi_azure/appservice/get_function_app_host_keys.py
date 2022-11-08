@@ -21,7 +21,7 @@ class GetFunctionAppHostKeysResult:
     """
     A collection of values returned by getFunctionAppHostKeys.
     """
-    def __init__(__self__, default_function_key=None, durabletask_extension_key=None, event_grid_extension_config_key=None, id=None, name=None, primary_key=None, resource_group_name=None, signalr_extension_key=None):
+    def __init__(__self__, default_function_key=None, durabletask_extension_key=None, event_grid_extension_config_key=None, id=None, name=None, primary_key=None, resource_group_name=None, signalr_extension_key=None, webpubsub_extension_key=None):
         if default_function_key and not isinstance(default_function_key, str):
             raise TypeError("Expected argument 'default_function_key' to be a str")
         pulumi.set(__self__, "default_function_key", default_function_key)
@@ -46,6 +46,9 @@ class GetFunctionAppHostKeysResult:
         if signalr_extension_key and not isinstance(signalr_extension_key, str):
             raise TypeError("Expected argument 'signalr_extension_key' to be a str")
         pulumi.set(__self__, "signalr_extension_key", signalr_extension_key)
+        if webpubsub_extension_key and not isinstance(webpubsub_extension_key, str):
+            raise TypeError("Expected argument 'webpubsub_extension_key' to be a str")
+        pulumi.set(__self__, "webpubsub_extension_key", webpubsub_extension_key)
 
     @property
     @pulumi.getter(name="defaultFunctionKey")
@@ -105,6 +108,14 @@ class GetFunctionAppHostKeysResult:
         """
         return pulumi.get(self, "signalr_extension_key")
 
+    @property
+    @pulumi.getter(name="webpubsubExtensionKey")
+    def webpubsub_extension_key(self) -> str:
+        """
+        Function App resource's Web PubSub Extension system key.
+        """
+        return pulumi.get(self, "webpubsub_extension_key")
+
 
 class AwaitableGetFunctionAppHostKeysResult(GetFunctionAppHostKeysResult):
     # pylint: disable=using-constant-test
@@ -119,7 +130,8 @@ class AwaitableGetFunctionAppHostKeysResult(GetFunctionAppHostKeysResult):
             name=self.name,
             primary_key=self.primary_key,
             resource_group_name=self.resource_group_name,
-            signalr_extension_key=self.signalr_extension_key)
+            signalr_extension_key=self.signalr_extension_key,
+            webpubsub_extension_key=self.webpubsub_extension_key)
 
 
 def get_function_app_host_keys(name: Optional[str] = None,
@@ -156,7 +168,8 @@ def get_function_app_host_keys(name: Optional[str] = None,
         name=__ret__.name,
         primary_key=__ret__.primary_key,
         resource_group_name=__ret__.resource_group_name,
-        signalr_extension_key=__ret__.signalr_extension_key)
+        signalr_extension_key=__ret__.signalr_extension_key,
+        webpubsub_extension_key=__ret__.webpubsub_extension_key)
 
 
 @_utilities.lift_output_func(get_function_app_host_keys)

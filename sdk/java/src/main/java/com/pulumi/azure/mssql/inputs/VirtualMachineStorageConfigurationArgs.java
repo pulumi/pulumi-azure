@@ -8,6 +8,7 @@ import com.pulumi.azure.mssql.inputs.VirtualMachineStorageConfigurationLogSettin
 import com.pulumi.azure.mssql.inputs.VirtualMachineStorageConfigurationTempDbSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -79,6 +80,21 @@ public final class VirtualMachineStorageConfigurationArgs extends com.pulumi.res
     }
 
     /**
+     * Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are `true` and `false`. Defaults to `false`.
+     * 
+     */
+    @Import(name="systemDbOnDataDiskEnabled")
+    private @Nullable Output<Boolean> systemDbOnDataDiskEnabled;
+
+    /**
+     * @return Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are `true` and `false`. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> systemDbOnDataDiskEnabled() {
+        return Optional.ofNullable(this.systemDbOnDataDiskEnabled);
+    }
+
+    /**
      * An `temp_db_settings` as defined below.
      * 
      */
@@ -100,6 +116,7 @@ public final class VirtualMachineStorageConfigurationArgs extends com.pulumi.res
         this.diskType = $.diskType;
         this.logSettings = $.logSettings;
         this.storageWorkloadType = $.storageWorkloadType;
+        this.systemDbOnDataDiskEnabled = $.systemDbOnDataDiskEnabled;
         this.tempDbSettings = $.tempDbSettings;
     }
 
@@ -203,6 +220,27 @@ public final class VirtualMachineStorageConfigurationArgs extends com.pulumi.res
          */
         public Builder storageWorkloadType(String storageWorkloadType) {
             return storageWorkloadType(Output.of(storageWorkloadType));
+        }
+
+        /**
+         * @param systemDbOnDataDiskEnabled Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are `true` and `false`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder systemDbOnDataDiskEnabled(@Nullable Output<Boolean> systemDbOnDataDiskEnabled) {
+            $.systemDbOnDataDiskEnabled = systemDbOnDataDiskEnabled;
+            return this;
+        }
+
+        /**
+         * @param systemDbOnDataDiskEnabled Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are `true` and `false`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder systemDbOnDataDiskEnabled(Boolean systemDbOnDataDiskEnabled) {
+            return systemDbOnDataDiskEnabled(Output.of(systemDbOnDataDiskEnabled));
         }
 
         /**

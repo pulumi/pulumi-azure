@@ -56,6 +56,7 @@ class KubernetesClusterArgs:
                  service_principal: Optional[pulumi.Input['KubernetesClusterServicePrincipalArgs']] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 web_app_routing: Optional[pulumi.Input['KubernetesClusterWebAppRoutingArgs']] = None,
                  windows_profile: Optional[pulumi.Input['KubernetesClusterWindowsProfileArgs']] = None,
                  workload_autoscaler_profile: Optional[pulumi.Input['KubernetesClusterWorkloadAutoscalerProfileArgs']] = None,
                  workload_identity_enabled: Optional[pulumi.Input[bool]] = None):
@@ -99,6 +100,7 @@ class KubernetesClusterArgs:
         :param pulumi.Input['KubernetesClusterServicePrincipalArgs'] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input['KubernetesClusterWebAppRoutingArgs'] web_app_routing: A `web_app_routing` block as defined below.
         :param pulumi.Input['KubernetesClusterWindowsProfileArgs'] windows_profile: A `windows_profile` block as defined below.
         :param pulumi.Input['KubernetesClusterWorkloadAutoscalerProfileArgs'] workload_autoscaler_profile: A `workload_autoscaler_profile` block defined below.
         :param pulumi.Input[bool] workload_identity_enabled: Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
@@ -181,6 +183,8 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "sku_tier", sku_tier)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if web_app_routing is not None:
+            pulumi.set(__self__, "web_app_routing", web_app_routing)
         if windows_profile is not None:
             pulumi.set(__self__, "windows_profile", windows_profile)
         if workload_autoscaler_profile is not None:
@@ -663,6 +667,18 @@ class KubernetesClusterArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="webAppRouting")
+    def web_app_routing(self) -> Optional[pulumi.Input['KubernetesClusterWebAppRoutingArgs']]:
+        """
+        A `web_app_routing` block as defined below.
+        """
+        return pulumi.get(self, "web_app_routing")
+
+    @web_app_routing.setter
+    def web_app_routing(self, value: Optional[pulumi.Input['KubernetesClusterWebAppRoutingArgs']]):
+        pulumi.set(self, "web_app_routing", value)
+
+    @property
     @pulumi.getter(name="windowsProfile")
     def windows_profile(self) -> Optional[pulumi.Input['KubernetesClusterWindowsProfileArgs']]:
         """
@@ -751,6 +767,7 @@ class _KubernetesClusterState:
                  service_principal: Optional[pulumi.Input['KubernetesClusterServicePrincipalArgs']] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 web_app_routing: Optional[pulumi.Input['KubernetesClusterWebAppRoutingArgs']] = None,
                  windows_profile: Optional[pulumi.Input['KubernetesClusterWindowsProfileArgs']] = None,
                  workload_autoscaler_profile: Optional[pulumi.Input['KubernetesClusterWorkloadAutoscalerProfileArgs']] = None,
                  workload_identity_enabled: Optional[pulumi.Input[bool]] = None):
@@ -803,6 +820,7 @@ class _KubernetesClusterState:
         :param pulumi.Input['KubernetesClusterServicePrincipalArgs'] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input['KubernetesClusterWebAppRoutingArgs'] web_app_routing: A `web_app_routing` block as defined below.
         :param pulumi.Input['KubernetesClusterWindowsProfileArgs'] windows_profile: A `windows_profile` block as defined below.
         :param pulumi.Input['KubernetesClusterWorkloadAutoscalerProfileArgs'] workload_autoscaler_profile: A `workload_autoscaler_profile` block defined below.
         :param pulumi.Input[bool] workload_identity_enabled: Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
@@ -905,6 +923,8 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "sku_tier", sku_tier)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if web_app_routing is not None:
+            pulumi.set(__self__, "web_app_routing", web_app_routing)
         if windows_profile is not None:
             pulumi.set(__self__, "windows_profile", windows_profile)
         if workload_autoscaler_profile is not None:
@@ -1495,6 +1515,18 @@ class _KubernetesClusterState:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="webAppRouting")
+    def web_app_routing(self) -> Optional[pulumi.Input['KubernetesClusterWebAppRoutingArgs']]:
+        """
+        A `web_app_routing` block as defined below.
+        """
+        return pulumi.get(self, "web_app_routing")
+
+    @web_app_routing.setter
+    def web_app_routing(self, value: Optional[pulumi.Input['KubernetesClusterWebAppRoutingArgs']]):
+        pulumi.set(self, "web_app_routing", value)
+
+    @property
     @pulumi.getter(name="windowsProfile")
     def windows_profile(self) -> Optional[pulumi.Input['KubernetesClusterWindowsProfileArgs']]:
         """
@@ -1576,6 +1608,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  service_principal: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']]] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 web_app_routing: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWebAppRoutingArgs']]] = None,
                  windows_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArgs']]] = None,
                  workload_autoscaler_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWorkloadAutoscalerProfileArgs']]] = None,
                  workload_identity_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1659,6 +1692,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterWebAppRoutingArgs']] web_app_routing: A `web_app_routing` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArgs']] windows_profile: A `windows_profile` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterWorkloadAutoscalerProfileArgs']] workload_autoscaler_profile: A `workload_autoscaler_profile` block defined below.
         :param pulumi.Input[bool] workload_identity_enabled: Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
@@ -1763,6 +1797,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  service_principal: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']]] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 web_app_routing: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWebAppRoutingArgs']]] = None,
                  windows_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArgs']]] = None,
                  workload_autoscaler_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWorkloadAutoscalerProfileArgs']]] = None,
                  workload_identity_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1819,6 +1854,7 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["service_principal"] = service_principal
             __props__.__dict__["sku_tier"] = sku_tier
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["web_app_routing"] = web_app_routing
             __props__.__dict__["windows_profile"] = windows_profile
             __props__.__dict__["workload_autoscaler_profile"] = workload_autoscaler_profile
             __props__.__dict__["workload_identity_enabled"] = workload_identity_enabled
@@ -1890,6 +1926,7 @@ class KubernetesCluster(pulumi.CustomResource):
             service_principal: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']]] = None,
             sku_tier: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            web_app_routing: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWebAppRoutingArgs']]] = None,
             windows_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArgs']]] = None,
             workload_autoscaler_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWorkloadAutoscalerProfileArgs']]] = None,
             workload_identity_enabled: Optional[pulumi.Input[bool]] = None) -> 'KubernetesCluster':
@@ -1947,6 +1984,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterWebAppRoutingArgs']] web_app_routing: A `web_app_routing` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArgs']] windows_profile: A `windows_profile` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterWorkloadAutoscalerProfileArgs']] workload_autoscaler_profile: A `workload_autoscaler_profile` block defined below.
         :param pulumi.Input[bool] workload_identity_enabled: Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
@@ -2004,6 +2042,7 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["service_principal"] = service_principal
         __props__.__dict__["sku_tier"] = sku_tier
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["web_app_routing"] = web_app_routing
         __props__.__dict__["windows_profile"] = windows_profile
         __props__.__dict__["workload_autoscaler_profile"] = workload_autoscaler_profile
         __props__.__dict__["workload_identity_enabled"] = workload_identity_enabled
@@ -2394,6 +2433,14 @@ class KubernetesCluster(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="webAppRouting")
+    def web_app_routing(self) -> pulumi.Output[Optional['outputs.KubernetesClusterWebAppRouting']]:
+        """
+        A `web_app_routing` block as defined below.
+        """
+        return pulumi.get(self, "web_app_routing")
 
     @property
     @pulumi.getter(name="windowsProfile")

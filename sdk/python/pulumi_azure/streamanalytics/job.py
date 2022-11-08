@@ -19,11 +19,13 @@ class JobArgs:
                  resource_group_name: pulumi.Input[str],
                  transformation_query: pulumi.Input[str],
                  compatibility_level: Optional[pulumi.Input[str]] = None,
+                 content_storage_policy: Optional[pulumi.Input[str]] = None,
                  data_locale: Optional[pulumi.Input[str]] = None,
                  events_late_arrival_max_delay_in_seconds: Optional[pulumi.Input[int]] = None,
                  events_out_of_order_max_delay_in_seconds: Optional[pulumi.Input[int]] = None,
                  events_out_of_order_policy: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['JobIdentityArgs']] = None,
+                 job_storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['JobJobStorageAccountArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  output_error_policy: Optional[pulumi.Input[str]] = None,
@@ -36,11 +38,13 @@ class JobArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] transformation_query: Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
         :param pulumi.Input[str] compatibility_level: Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
+        :param pulumi.Input[str] content_storage_policy: The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
         :param pulumi.Input[str] data_locale: Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
         :param pulumi.Input[int] events_late_arrival_max_delay_in_seconds: Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
         :param pulumi.Input[int] events_out_of_order_max_delay_in_seconds: Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `5`.
         :param pulumi.Input[str] events_out_of_order_policy: Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
         :param pulumi.Input['JobIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['JobJobStorageAccountArgs']]] job_storage_accounts: The details of the job storage account. A `job_storage_account` block as defined below.
         :param pulumi.Input[str] location: The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] output_error_policy: Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.  Default is `Drop`.
@@ -53,6 +57,8 @@ class JobArgs:
         pulumi.set(__self__, "transformation_query", transformation_query)
         if compatibility_level is not None:
             pulumi.set(__self__, "compatibility_level", compatibility_level)
+        if content_storage_policy is not None:
+            pulumi.set(__self__, "content_storage_policy", content_storage_policy)
         if data_locale is not None:
             pulumi.set(__self__, "data_locale", data_locale)
         if events_late_arrival_max_delay_in_seconds is not None:
@@ -63,6 +69,8 @@ class JobArgs:
             pulumi.set(__self__, "events_out_of_order_policy", events_out_of_order_policy)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if job_storage_accounts is not None:
+            pulumi.set(__self__, "job_storage_accounts", job_storage_accounts)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -113,6 +121,18 @@ class JobArgs:
     @compatibility_level.setter
     def compatibility_level(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "compatibility_level", value)
+
+    @property
+    @pulumi.getter(name="contentStoragePolicy")
+    def content_storage_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
+        """
+        return pulumi.get(self, "content_storage_policy")
+
+    @content_storage_policy.setter
+    def content_storage_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_storage_policy", value)
 
     @property
     @pulumi.getter(name="dataLocale")
@@ -173,6 +193,18 @@ class JobArgs:
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['JobIdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="jobStorageAccounts")
+    def job_storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobJobStorageAccountArgs']]]]:
+        """
+        The details of the job storage account. A `job_storage_account` block as defined below.
+        """
+        return pulumi.get(self, "job_storage_accounts")
+
+    @job_storage_accounts.setter
+    def job_storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobJobStorageAccountArgs']]]]):
+        pulumi.set(self, "job_storage_accounts", value)
 
     @property
     @pulumi.getter
@@ -263,12 +295,14 @@ class JobArgs:
 class _JobState:
     def __init__(__self__, *,
                  compatibility_level: Optional[pulumi.Input[str]] = None,
+                 content_storage_policy: Optional[pulumi.Input[str]] = None,
                  data_locale: Optional[pulumi.Input[str]] = None,
                  events_late_arrival_max_delay_in_seconds: Optional[pulumi.Input[int]] = None,
                  events_out_of_order_max_delay_in_seconds: Optional[pulumi.Input[int]] = None,
                  events_out_of_order_policy: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['JobIdentityArgs']] = None,
                  job_id: Optional[pulumi.Input[str]] = None,
+                 job_storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['JobJobStorageAccountArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  output_error_policy: Optional[pulumi.Input[str]] = None,
@@ -281,12 +315,14 @@ class _JobState:
         """
         Input properties used for looking up and filtering Job resources.
         :param pulumi.Input[str] compatibility_level: Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
+        :param pulumi.Input[str] content_storage_policy: The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
         :param pulumi.Input[str] data_locale: Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
         :param pulumi.Input[int] events_late_arrival_max_delay_in_seconds: Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
         :param pulumi.Input[int] events_out_of_order_max_delay_in_seconds: Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `5`.
         :param pulumi.Input[str] events_out_of_order_policy: Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
         :param pulumi.Input['JobIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] job_id: The Job ID assigned by the Stream Analytics Job.
+        :param pulumi.Input[Sequence[pulumi.Input['JobJobStorageAccountArgs']]] job_storage_accounts: The details of the job storage account. A `job_storage_account` block as defined below.
         :param pulumi.Input[str] location: The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] output_error_policy: Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.  Default is `Drop`.
@@ -299,6 +335,8 @@ class _JobState:
         """
         if compatibility_level is not None:
             pulumi.set(__self__, "compatibility_level", compatibility_level)
+        if content_storage_policy is not None:
+            pulumi.set(__self__, "content_storage_policy", content_storage_policy)
         if data_locale is not None:
             pulumi.set(__self__, "data_locale", data_locale)
         if events_late_arrival_max_delay_in_seconds is not None:
@@ -311,6 +349,8 @@ class _JobState:
             pulumi.set(__self__, "identity", identity)
         if job_id is not None:
             pulumi.set(__self__, "job_id", job_id)
+        if job_storage_accounts is not None:
+            pulumi.set(__self__, "job_storage_accounts", job_storage_accounts)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -341,6 +381,18 @@ class _JobState:
     @compatibility_level.setter
     def compatibility_level(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "compatibility_level", value)
+
+    @property
+    @pulumi.getter(name="contentStoragePolicy")
+    def content_storage_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
+        """
+        return pulumi.get(self, "content_storage_policy")
+
+    @content_storage_policy.setter
+    def content_storage_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_storage_policy", value)
 
     @property
     @pulumi.getter(name="dataLocale")
@@ -413,6 +465,18 @@ class _JobState:
     @job_id.setter
     def job_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "job_id", value)
+
+    @property
+    @pulumi.getter(name="jobStorageAccounts")
+    def job_storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobJobStorageAccountArgs']]]]:
+        """
+        The details of the job storage account. A `job_storage_account` block as defined below.
+        """
+        return pulumi.get(self, "job_storage_accounts")
+
+    @job_storage_accounts.setter
+    def job_storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobJobStorageAccountArgs']]]]):
+        pulumi.set(self, "job_storage_accounts", value)
 
     @property
     @pulumi.getter
@@ -529,11 +593,13 @@ class Job(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compatibility_level: Optional[pulumi.Input[str]] = None,
+                 content_storage_policy: Optional[pulumi.Input[str]] = None,
                  data_locale: Optional[pulumi.Input[str]] = None,
                  events_late_arrival_max_delay_in_seconds: Optional[pulumi.Input[int]] = None,
                  events_out_of_order_max_delay_in_seconds: Optional[pulumi.Input[int]] = None,
                  events_out_of_order_policy: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['JobIdentityArgs']]] = None,
+                 job_storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobJobStorageAccountArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  output_error_policy: Optional[pulumi.Input[str]] = None,
@@ -584,11 +650,13 @@ class Job(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] compatibility_level: Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
+        :param pulumi.Input[str] content_storage_policy: The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
         :param pulumi.Input[str] data_locale: Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
         :param pulumi.Input[int] events_late_arrival_max_delay_in_seconds: Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
         :param pulumi.Input[int] events_out_of_order_max_delay_in_seconds: Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `5`.
         :param pulumi.Input[str] events_out_of_order_policy: Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
         :param pulumi.Input[pulumi.InputType['JobIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobJobStorageAccountArgs']]]] job_storage_accounts: The details of the job storage account. A `job_storage_account` block as defined below.
         :param pulumi.Input[str] location: The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] output_error_policy: Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.  Default is `Drop`.
@@ -658,11 +726,13 @@ class Job(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compatibility_level: Optional[pulumi.Input[str]] = None,
+                 content_storage_policy: Optional[pulumi.Input[str]] = None,
                  data_locale: Optional[pulumi.Input[str]] = None,
                  events_late_arrival_max_delay_in_seconds: Optional[pulumi.Input[int]] = None,
                  events_out_of_order_max_delay_in_seconds: Optional[pulumi.Input[int]] = None,
                  events_out_of_order_policy: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['JobIdentityArgs']]] = None,
+                 job_storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobJobStorageAccountArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  output_error_policy: Optional[pulumi.Input[str]] = None,
@@ -682,11 +752,13 @@ class Job(pulumi.CustomResource):
             __props__ = JobArgs.__new__(JobArgs)
 
             __props__.__dict__["compatibility_level"] = compatibility_level
+            __props__.__dict__["content_storage_policy"] = content_storage_policy
             __props__.__dict__["data_locale"] = data_locale
             __props__.__dict__["events_late_arrival_max_delay_in_seconds"] = events_late_arrival_max_delay_in_seconds
             __props__.__dict__["events_out_of_order_max_delay_in_seconds"] = events_out_of_order_max_delay_in_seconds
             __props__.__dict__["events_out_of_order_policy"] = events_out_of_order_policy
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["job_storage_accounts"] = job_storage_accounts
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["output_error_policy"] = output_error_policy
@@ -712,12 +784,14 @@ class Job(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             compatibility_level: Optional[pulumi.Input[str]] = None,
+            content_storage_policy: Optional[pulumi.Input[str]] = None,
             data_locale: Optional[pulumi.Input[str]] = None,
             events_late_arrival_max_delay_in_seconds: Optional[pulumi.Input[int]] = None,
             events_out_of_order_max_delay_in_seconds: Optional[pulumi.Input[int]] = None,
             events_out_of_order_policy: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['JobIdentityArgs']]] = None,
             job_id: Optional[pulumi.Input[str]] = None,
+            job_storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobJobStorageAccountArgs']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             output_error_policy: Optional[pulumi.Input[str]] = None,
@@ -735,12 +809,14 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] compatibility_level: Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
+        :param pulumi.Input[str] content_storage_policy: The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
         :param pulumi.Input[str] data_locale: Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
         :param pulumi.Input[int] events_late_arrival_max_delay_in_seconds: Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
         :param pulumi.Input[int] events_out_of_order_max_delay_in_seconds: Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `5`.
         :param pulumi.Input[str] events_out_of_order_policy: Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
         :param pulumi.Input[pulumi.InputType['JobIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] job_id: The Job ID assigned by the Stream Analytics Job.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobJobStorageAccountArgs']]]] job_storage_accounts: The details of the job storage account. A `job_storage_account` block as defined below.
         :param pulumi.Input[str] location: The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] output_error_policy: Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.  Default is `Drop`.
@@ -756,12 +832,14 @@ class Job(pulumi.CustomResource):
         __props__ = _JobState.__new__(_JobState)
 
         __props__.__dict__["compatibility_level"] = compatibility_level
+        __props__.__dict__["content_storage_policy"] = content_storage_policy
         __props__.__dict__["data_locale"] = data_locale
         __props__.__dict__["events_late_arrival_max_delay_in_seconds"] = events_late_arrival_max_delay_in_seconds
         __props__.__dict__["events_out_of_order_max_delay_in_seconds"] = events_out_of_order_max_delay_in_seconds
         __props__.__dict__["events_out_of_order_policy"] = events_out_of_order_policy
         __props__.__dict__["identity"] = identity
         __props__.__dict__["job_id"] = job_id
+        __props__.__dict__["job_storage_accounts"] = job_storage_accounts
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["output_error_policy"] = output_error_policy
@@ -780,6 +858,14 @@ class Job(pulumi.CustomResource):
         Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
         """
         return pulumi.get(self, "compatibility_level")
+
+    @property
+    @pulumi.getter(name="contentStoragePolicy")
+    def content_storage_policy(self) -> pulumi.Output[Optional[str]]:
+        """
+        The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
+        """
+        return pulumi.get(self, "content_storage_policy")
 
     @property
     @pulumi.getter(name="dataLocale")
@@ -828,6 +914,14 @@ class Job(pulumi.CustomResource):
         The Job ID assigned by the Stream Analytics Job.
         """
         return pulumi.get(self, "job_id")
+
+    @property
+    @pulumi.getter(name="jobStorageAccounts")
+    def job_storage_accounts(self) -> pulumi.Output[Optional[Sequence['outputs.JobJobStorageAccount']]]:
+        """
+        The details of the job storage account. A `job_storage_account` block as defined below.
+        """
+        return pulumi.get(self, "job_storage_accounts")
 
     @property
     @pulumi.getter

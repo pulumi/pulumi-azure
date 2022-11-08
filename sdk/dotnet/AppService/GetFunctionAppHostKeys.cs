@@ -139,6 +139,10 @@ namespace Pulumi.Azure.AppService
         /// Function App resource's SignalR Extension system key.
         /// </summary>
         public readonly string SignalrExtensionKey;
+        /// <summary>
+        /// Function App resource's Web PubSub Extension system key.
+        /// </summary>
+        public readonly string WebpubsubExtensionKey;
 
         [OutputConstructor]
         private GetFunctionAppHostKeysResult(
@@ -156,7 +160,9 @@ namespace Pulumi.Azure.AppService
 
             string resourceGroupName,
 
-            string signalrExtensionKey)
+            string signalrExtensionKey,
+
+            string webpubsubExtensionKey)
         {
             DefaultFunctionKey = defaultFunctionKey;
             DurabletaskExtensionKey = durabletaskExtensionKey;
@@ -166,6 +172,7 @@ namespace Pulumi.Azure.AppService
             PrimaryKey = primaryKey;
             ResourceGroupName = resourceGroupName;
             SignalrExtensionKey = signalrExtensionKey;
+            WebpubsubExtensionKey = webpubsubExtensionKey;
         }
     }
 }

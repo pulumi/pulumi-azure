@@ -49,7 +49,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string>? SecurityEncryptionType { get; set; }
 
         /// <summary>
-        /// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
+        /// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
         /// </summary>
         [Input("storageAccountType", required: true)]
         public Input<string> StorageAccountType { get; set; } = null!;

@@ -64,6 +64,12 @@ namespace Pulumi.Azure.SecurityCenter
         public Output<string> Email { get; private set; } = null!;
 
         /// <summary>
+        /// The name of the Security Center Contact. Defaults to `default1`.
+        /// </summary>
+        [Output("name")]
+        public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
         /// The phone number of the Security Center Contact.
         /// </summary>
         [Output("phone")]
@@ -134,6 +140,12 @@ namespace Pulumi.Azure.SecurityCenter
         public Input<string> Email { get; set; } = null!;
 
         /// <summary>
+        /// The name of the Security Center Contact. Defaults to `default1`.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
         /// The phone number of the Security Center Contact.
         /// </summary>
         [Input("phone")]
@@ -164,6 +176,12 @@ namespace Pulumi.Azure.SecurityCenter
         /// </summary>
         [Input("email")]
         public Input<string>? Email { get; set; }
+
+        /// <summary>
+        /// The name of the Security Center Contact. Defaults to `default1`.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The phone number of the Security Center Contact.

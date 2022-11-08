@@ -85,6 +85,11 @@ export type ManagedInstanceFailoverGroup = import("./managedInstanceFailoverGrou
 export const ManagedInstanceFailoverGroup: typeof import("./managedInstanceFailoverGroup").ManagedInstanceFailoverGroup = null as any;
 utilities.lazyLoad(exports, ["ManagedInstanceFailoverGroup"], () => require("./managedInstanceFailoverGroup"));
 
+export { ManagedInstanceSecurityAlertPolicyArgs, ManagedInstanceSecurityAlertPolicyState } from "./managedInstanceSecurityAlertPolicy";
+export type ManagedInstanceSecurityAlertPolicy = import("./managedInstanceSecurityAlertPolicy").ManagedInstanceSecurityAlertPolicy;
+export const ManagedInstanceSecurityAlertPolicy: typeof import("./managedInstanceSecurityAlertPolicy").ManagedInstanceSecurityAlertPolicy = null as any;
+utilities.lazyLoad(exports, ["ManagedInstanceSecurityAlertPolicy"], () => require("./managedInstanceSecurityAlertPolicy"));
+
 export { ManagedInstanceVulnerabilityAssessmentArgs, ManagedInstanceVulnerabilityAssessmentState } from "./managedInstanceVulnerabilityAssessment";
 export type ManagedInstanceVulnerabilityAssessment = import("./managedInstanceVulnerabilityAssessment").ManagedInstanceVulnerabilityAssessment;
 export const ManagedInstanceVulnerabilityAssessment: typeof import("./managedInstanceVulnerabilityAssessment").ManagedInstanceVulnerabilityAssessment = null as any;
@@ -109,6 +114,11 @@ export { ServerExtendedAuditingPolicyArgs, ServerExtendedAuditingPolicyState } f
 export type ServerExtendedAuditingPolicy = import("./serverExtendedAuditingPolicy").ServerExtendedAuditingPolicy;
 export const ServerExtendedAuditingPolicy: typeof import("./serverExtendedAuditingPolicy").ServerExtendedAuditingPolicy = null as any;
 utilities.lazyLoad(exports, ["ServerExtendedAuditingPolicy"], () => require("./serverExtendedAuditingPolicy"));
+
+export { ServerMicrosoftSupportAuditingPolicyArgs, ServerMicrosoftSupportAuditingPolicyState } from "./serverMicrosoftSupportAuditingPolicy";
+export type ServerMicrosoftSupportAuditingPolicy = import("./serverMicrosoftSupportAuditingPolicy").ServerMicrosoftSupportAuditingPolicy;
+export const ServerMicrosoftSupportAuditingPolicy: typeof import("./serverMicrosoftSupportAuditingPolicy").ServerMicrosoftSupportAuditingPolicy = null as any;
+utilities.lazyLoad(exports, ["ServerMicrosoftSupportAuditingPolicy"], () => require("./serverMicrosoftSupportAuditingPolicy"));
 
 export { ServerSecurityAlertPolicyArgs, ServerSecurityAlertPolicyState } from "./serverSecurityAlertPolicy";
 export type ServerSecurityAlertPolicy = import("./serverSecurityAlertPolicy").ServerSecurityAlertPolicy;
@@ -164,6 +174,8 @@ const _module = {
                 return new ManagedInstanceActiveDirectoryAdministrator(name, <any>undefined, { urn })
             case "azure:mssql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup":
                 return new ManagedInstanceFailoverGroup(name, <any>undefined, { urn })
+            case "azure:mssql/managedInstanceSecurityAlertPolicy:ManagedInstanceSecurityAlertPolicy":
+                return new ManagedInstanceSecurityAlertPolicy(name, <any>undefined, { urn })
             case "azure:mssql/managedInstanceVulnerabilityAssessment:ManagedInstanceVulnerabilityAssessment":
                 return new ManagedInstanceVulnerabilityAssessment(name, <any>undefined, { urn })
             case "azure:mssql/outboundFirewallRule:OutboundFirewallRule":
@@ -174,6 +186,8 @@ const _module = {
                 return new ServerDnsAlias(name, <any>undefined, { urn })
             case "azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy":
                 return new ServerExtendedAuditingPolicy(name, <any>undefined, { urn })
+            case "azure:mssql/serverMicrosoftSupportAuditingPolicy:ServerMicrosoftSupportAuditingPolicy":
+                return new ServerMicrosoftSupportAuditingPolicy(name, <any>undefined, { urn })
             case "azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy":
                 return new ServerSecurityAlertPolicy(name, <any>undefined, { urn })
             case "azure:mssql/serverTransparentDataEncryption:ServerTransparentDataEncryption":
@@ -201,11 +215,13 @@ pulumi.runtime.registerResourceModule("azure", "mssql/managedDatabase", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/managedInstance", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/managedInstanceActiveDirectoryAdministrator", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/managedInstanceFailoverGroup", _module)
+pulumi.runtime.registerResourceModule("azure", "mssql/managedInstanceSecurityAlertPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/managedInstanceVulnerabilityAssessment", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/outboundFirewallRule", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/server", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/serverDnsAlias", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/serverExtendedAuditingPolicy", _module)
+pulumi.runtime.registerResourceModule("azure", "mssql/serverMicrosoftSupportAuditingPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/serverSecurityAlertPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/serverTransparentDataEncryption", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/serverVulnerabilityAssessment", _module)

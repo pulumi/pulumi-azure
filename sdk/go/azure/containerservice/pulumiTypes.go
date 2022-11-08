@@ -11065,6 +11065,143 @@ func (o KubernetesClusterServicePrincipalPtrOutput) ClientSecret() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+type KubernetesClusterWebAppRouting struct {
+	// Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled.
+	DnsZoneId string `pulumi:"dnsZoneId"`
+}
+
+// KubernetesClusterWebAppRoutingInput is an input type that accepts KubernetesClusterWebAppRoutingArgs and KubernetesClusterWebAppRoutingOutput values.
+// You can construct a concrete instance of `KubernetesClusterWebAppRoutingInput` via:
+//
+//	KubernetesClusterWebAppRoutingArgs{...}
+type KubernetesClusterWebAppRoutingInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterWebAppRoutingOutput() KubernetesClusterWebAppRoutingOutput
+	ToKubernetesClusterWebAppRoutingOutputWithContext(context.Context) KubernetesClusterWebAppRoutingOutput
+}
+
+type KubernetesClusterWebAppRoutingArgs struct {
+	// Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled.
+	DnsZoneId pulumi.StringInput `pulumi:"dnsZoneId"`
+}
+
+func (KubernetesClusterWebAppRoutingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterWebAppRouting)(nil)).Elem()
+}
+
+func (i KubernetesClusterWebAppRoutingArgs) ToKubernetesClusterWebAppRoutingOutput() KubernetesClusterWebAppRoutingOutput {
+	return i.ToKubernetesClusterWebAppRoutingOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterWebAppRoutingArgs) ToKubernetesClusterWebAppRoutingOutputWithContext(ctx context.Context) KubernetesClusterWebAppRoutingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterWebAppRoutingOutput)
+}
+
+func (i KubernetesClusterWebAppRoutingArgs) ToKubernetesClusterWebAppRoutingPtrOutput() KubernetesClusterWebAppRoutingPtrOutput {
+	return i.ToKubernetesClusterWebAppRoutingPtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterWebAppRoutingArgs) ToKubernetesClusterWebAppRoutingPtrOutputWithContext(ctx context.Context) KubernetesClusterWebAppRoutingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterWebAppRoutingOutput).ToKubernetesClusterWebAppRoutingPtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterWebAppRoutingPtrInput is an input type that accepts KubernetesClusterWebAppRoutingArgs, KubernetesClusterWebAppRoutingPtr and KubernetesClusterWebAppRoutingPtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterWebAppRoutingPtrInput` via:
+//
+//	        KubernetesClusterWebAppRoutingArgs{...}
+//
+//	or:
+//
+//	        nil
+type KubernetesClusterWebAppRoutingPtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterWebAppRoutingPtrOutput() KubernetesClusterWebAppRoutingPtrOutput
+	ToKubernetesClusterWebAppRoutingPtrOutputWithContext(context.Context) KubernetesClusterWebAppRoutingPtrOutput
+}
+
+type kubernetesClusterWebAppRoutingPtrType KubernetesClusterWebAppRoutingArgs
+
+func KubernetesClusterWebAppRoutingPtr(v *KubernetesClusterWebAppRoutingArgs) KubernetesClusterWebAppRoutingPtrInput {
+	return (*kubernetesClusterWebAppRoutingPtrType)(v)
+}
+
+func (*kubernetesClusterWebAppRoutingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterWebAppRouting)(nil)).Elem()
+}
+
+func (i *kubernetesClusterWebAppRoutingPtrType) ToKubernetesClusterWebAppRoutingPtrOutput() KubernetesClusterWebAppRoutingPtrOutput {
+	return i.ToKubernetesClusterWebAppRoutingPtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterWebAppRoutingPtrType) ToKubernetesClusterWebAppRoutingPtrOutputWithContext(ctx context.Context) KubernetesClusterWebAppRoutingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterWebAppRoutingPtrOutput)
+}
+
+type KubernetesClusterWebAppRoutingOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterWebAppRoutingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterWebAppRouting)(nil)).Elem()
+}
+
+func (o KubernetesClusterWebAppRoutingOutput) ToKubernetesClusterWebAppRoutingOutput() KubernetesClusterWebAppRoutingOutput {
+	return o
+}
+
+func (o KubernetesClusterWebAppRoutingOutput) ToKubernetesClusterWebAppRoutingOutputWithContext(ctx context.Context) KubernetesClusterWebAppRoutingOutput {
+	return o
+}
+
+func (o KubernetesClusterWebAppRoutingOutput) ToKubernetesClusterWebAppRoutingPtrOutput() KubernetesClusterWebAppRoutingPtrOutput {
+	return o.ToKubernetesClusterWebAppRoutingPtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterWebAppRoutingOutput) ToKubernetesClusterWebAppRoutingPtrOutputWithContext(ctx context.Context) KubernetesClusterWebAppRoutingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterWebAppRouting) *KubernetesClusterWebAppRouting {
+		return &v
+	}).(KubernetesClusterWebAppRoutingPtrOutput)
+}
+
+// Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled.
+func (o KubernetesClusterWebAppRoutingOutput) DnsZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v KubernetesClusterWebAppRouting) string { return v.DnsZoneId }).(pulumi.StringOutput)
+}
+
+type KubernetesClusterWebAppRoutingPtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterWebAppRoutingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterWebAppRouting)(nil)).Elem()
+}
+
+func (o KubernetesClusterWebAppRoutingPtrOutput) ToKubernetesClusterWebAppRoutingPtrOutput() KubernetesClusterWebAppRoutingPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterWebAppRoutingPtrOutput) ToKubernetesClusterWebAppRoutingPtrOutputWithContext(ctx context.Context) KubernetesClusterWebAppRoutingPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterWebAppRoutingPtrOutput) Elem() KubernetesClusterWebAppRoutingOutput {
+	return o.ApplyT(func(v *KubernetesClusterWebAppRouting) KubernetesClusterWebAppRouting {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterWebAppRouting
+		return ret
+	}).(KubernetesClusterWebAppRoutingOutput)
+}
+
+// Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled.
+func (o KubernetesClusterWebAppRoutingPtrOutput) DnsZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterWebAppRouting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DnsZoneId
+	}).(pulumi.StringPtrOutput)
+}
+
 type KubernetesClusterWindowsProfile struct {
 	// The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
 	AdminPassword *string `pulumi:"adminPassword"`
@@ -11550,6 +11687,169 @@ func (o KubernetesClusterWorkloadAutoscalerProfilePtrOutput) KedaEnabled() pulum
 		}
 		return v.KedaEnabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+type KubernetesFleetManagerHubProfile struct {
+	DnsPrefix         string  `pulumi:"dnsPrefix"`
+	Fqdn              *string `pulumi:"fqdn"`
+	KubernetesVersion *string `pulumi:"kubernetesVersion"`
+}
+
+// KubernetesFleetManagerHubProfileInput is an input type that accepts KubernetesFleetManagerHubProfileArgs and KubernetesFleetManagerHubProfileOutput values.
+// You can construct a concrete instance of `KubernetesFleetManagerHubProfileInput` via:
+//
+//	KubernetesFleetManagerHubProfileArgs{...}
+type KubernetesFleetManagerHubProfileInput interface {
+	pulumi.Input
+
+	ToKubernetesFleetManagerHubProfileOutput() KubernetesFleetManagerHubProfileOutput
+	ToKubernetesFleetManagerHubProfileOutputWithContext(context.Context) KubernetesFleetManagerHubProfileOutput
+}
+
+type KubernetesFleetManagerHubProfileArgs struct {
+	DnsPrefix         pulumi.StringInput    `pulumi:"dnsPrefix"`
+	Fqdn              pulumi.StringPtrInput `pulumi:"fqdn"`
+	KubernetesVersion pulumi.StringPtrInput `pulumi:"kubernetesVersion"`
+}
+
+func (KubernetesFleetManagerHubProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesFleetManagerHubProfile)(nil)).Elem()
+}
+
+func (i KubernetesFleetManagerHubProfileArgs) ToKubernetesFleetManagerHubProfileOutput() KubernetesFleetManagerHubProfileOutput {
+	return i.ToKubernetesFleetManagerHubProfileOutputWithContext(context.Background())
+}
+
+func (i KubernetesFleetManagerHubProfileArgs) ToKubernetesFleetManagerHubProfileOutputWithContext(ctx context.Context) KubernetesFleetManagerHubProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesFleetManagerHubProfileOutput)
+}
+
+func (i KubernetesFleetManagerHubProfileArgs) ToKubernetesFleetManagerHubProfilePtrOutput() KubernetesFleetManagerHubProfilePtrOutput {
+	return i.ToKubernetesFleetManagerHubProfilePtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesFleetManagerHubProfileArgs) ToKubernetesFleetManagerHubProfilePtrOutputWithContext(ctx context.Context) KubernetesFleetManagerHubProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesFleetManagerHubProfileOutput).ToKubernetesFleetManagerHubProfilePtrOutputWithContext(ctx)
+}
+
+// KubernetesFleetManagerHubProfilePtrInput is an input type that accepts KubernetesFleetManagerHubProfileArgs, KubernetesFleetManagerHubProfilePtr and KubernetesFleetManagerHubProfilePtrOutput values.
+// You can construct a concrete instance of `KubernetesFleetManagerHubProfilePtrInput` via:
+//
+//	        KubernetesFleetManagerHubProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type KubernetesFleetManagerHubProfilePtrInput interface {
+	pulumi.Input
+
+	ToKubernetesFleetManagerHubProfilePtrOutput() KubernetesFleetManagerHubProfilePtrOutput
+	ToKubernetesFleetManagerHubProfilePtrOutputWithContext(context.Context) KubernetesFleetManagerHubProfilePtrOutput
+}
+
+type kubernetesFleetManagerHubProfilePtrType KubernetesFleetManagerHubProfileArgs
+
+func KubernetesFleetManagerHubProfilePtr(v *KubernetesFleetManagerHubProfileArgs) KubernetesFleetManagerHubProfilePtrInput {
+	return (*kubernetesFleetManagerHubProfilePtrType)(v)
+}
+
+func (*kubernetesFleetManagerHubProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesFleetManagerHubProfile)(nil)).Elem()
+}
+
+func (i *kubernetesFleetManagerHubProfilePtrType) ToKubernetesFleetManagerHubProfilePtrOutput() KubernetesFleetManagerHubProfilePtrOutput {
+	return i.ToKubernetesFleetManagerHubProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesFleetManagerHubProfilePtrType) ToKubernetesFleetManagerHubProfilePtrOutputWithContext(ctx context.Context) KubernetesFleetManagerHubProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesFleetManagerHubProfilePtrOutput)
+}
+
+type KubernetesFleetManagerHubProfileOutput struct{ *pulumi.OutputState }
+
+func (KubernetesFleetManagerHubProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesFleetManagerHubProfile)(nil)).Elem()
+}
+
+func (o KubernetesFleetManagerHubProfileOutput) ToKubernetesFleetManagerHubProfileOutput() KubernetesFleetManagerHubProfileOutput {
+	return o
+}
+
+func (o KubernetesFleetManagerHubProfileOutput) ToKubernetesFleetManagerHubProfileOutputWithContext(ctx context.Context) KubernetesFleetManagerHubProfileOutput {
+	return o
+}
+
+func (o KubernetesFleetManagerHubProfileOutput) ToKubernetesFleetManagerHubProfilePtrOutput() KubernetesFleetManagerHubProfilePtrOutput {
+	return o.ToKubernetesFleetManagerHubProfilePtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesFleetManagerHubProfileOutput) ToKubernetesFleetManagerHubProfilePtrOutputWithContext(ctx context.Context) KubernetesFleetManagerHubProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesFleetManagerHubProfile) *KubernetesFleetManagerHubProfile {
+		return &v
+	}).(KubernetesFleetManagerHubProfilePtrOutput)
+}
+
+func (o KubernetesFleetManagerHubProfileOutput) DnsPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v KubernetesFleetManagerHubProfile) string { return v.DnsPrefix }).(pulumi.StringOutput)
+}
+
+func (o KubernetesFleetManagerHubProfileOutput) Fqdn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesFleetManagerHubProfile) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
+}
+
+func (o KubernetesFleetManagerHubProfileOutput) KubernetesVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesFleetManagerHubProfile) *string { return v.KubernetesVersion }).(pulumi.StringPtrOutput)
+}
+
+type KubernetesFleetManagerHubProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesFleetManagerHubProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesFleetManagerHubProfile)(nil)).Elem()
+}
+
+func (o KubernetesFleetManagerHubProfilePtrOutput) ToKubernetesFleetManagerHubProfilePtrOutput() KubernetesFleetManagerHubProfilePtrOutput {
+	return o
+}
+
+func (o KubernetesFleetManagerHubProfilePtrOutput) ToKubernetesFleetManagerHubProfilePtrOutputWithContext(ctx context.Context) KubernetesFleetManagerHubProfilePtrOutput {
+	return o
+}
+
+func (o KubernetesFleetManagerHubProfilePtrOutput) Elem() KubernetesFleetManagerHubProfileOutput {
+	return o.ApplyT(func(v *KubernetesFleetManagerHubProfile) KubernetesFleetManagerHubProfile {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesFleetManagerHubProfile
+		return ret
+	}).(KubernetesFleetManagerHubProfileOutput)
+}
+
+func (o KubernetesFleetManagerHubProfilePtrOutput) DnsPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesFleetManagerHubProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DnsPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o KubernetesFleetManagerHubProfilePtrOutput) Fqdn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesFleetManagerHubProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Fqdn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o KubernetesFleetManagerHubProfilePtrOutput) KubernetesVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesFleetManagerHubProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KubernetesVersion
+	}).(pulumi.StringPtrOutput)
 }
 
 type RegistryEncryption struct {
@@ -18210,12 +18510,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterOmsAgentOmsAgentIdentityArrayInput)(nil)).Elem(), KubernetesClusterOmsAgentOmsAgentIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterServicePrincipalInput)(nil)).Elem(), KubernetesClusterServicePrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterServicePrincipalPtrInput)(nil)).Elem(), KubernetesClusterServicePrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterWebAppRoutingInput)(nil)).Elem(), KubernetesClusterWebAppRoutingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterWebAppRoutingPtrInput)(nil)).Elem(), KubernetesClusterWebAppRoutingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterWindowsProfileInput)(nil)).Elem(), KubernetesClusterWindowsProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterWindowsProfilePtrInput)(nil)).Elem(), KubernetesClusterWindowsProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterWindowsProfileGmsaInput)(nil)).Elem(), KubernetesClusterWindowsProfileGmsaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterWindowsProfileGmsaPtrInput)(nil)).Elem(), KubernetesClusterWindowsProfileGmsaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterWorkloadAutoscalerProfileInput)(nil)).Elem(), KubernetesClusterWorkloadAutoscalerProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterWorkloadAutoscalerProfilePtrInput)(nil)).Elem(), KubernetesClusterWorkloadAutoscalerProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesFleetManagerHubProfileInput)(nil)).Elem(), KubernetesFleetManagerHubProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesFleetManagerHubProfilePtrInput)(nil)).Elem(), KubernetesFleetManagerHubProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryEncryptionInput)(nil)).Elem(), RegistryEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryEncryptionPtrInput)(nil)).Elem(), RegistryEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryGeoreplicationInput)(nil)).Elem(), RegistryGeoreplicationArgs{})
@@ -18412,12 +18716,16 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterOmsAgentOmsAgentIdentityArrayOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterServicePrincipalOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterServicePrincipalPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterWebAppRoutingOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterWebAppRoutingPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterWindowsProfileOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterWindowsProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterWindowsProfileGmsaOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterWindowsProfileGmsaPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterWorkloadAutoscalerProfileOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterWorkloadAutoscalerProfilePtrOutput{})
+	pulumi.RegisterOutputType(KubernetesFleetManagerHubProfileOutput{})
+	pulumi.RegisterOutputType(KubernetesFleetManagerHubProfilePtrOutput{})
 	pulumi.RegisterOutputType(RegistryEncryptionOutput{})
 	pulumi.RegisterOutputType(RegistryEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(RegistryGeoreplicationOutput{})

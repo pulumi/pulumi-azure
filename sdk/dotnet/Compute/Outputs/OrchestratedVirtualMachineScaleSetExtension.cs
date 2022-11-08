@@ -28,6 +28,10 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string Name;
         public readonly string? ProtectedSettings;
+        /// <summary>
+        /// A `protected_settings_from_key_vault` block as defined below.
+        /// </summary>
+        public readonly Outputs.OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault? ProtectedSettingsFromKeyVault;
         public readonly string Publisher;
         public readonly string? Settings;
         public readonly string Type;
@@ -47,6 +51,8 @@ namespace Pulumi.Azure.Compute.Outputs
 
             string? protectedSettings,
 
+            Outputs.OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault? protectedSettingsFromKeyVault,
+
             string publisher,
 
             string? settings,
@@ -61,6 +67,7 @@ namespace Pulumi.Azure.Compute.Outputs
             ForceExtensionExecutionOnChange = forceExtensionExecutionOnChange;
             Name = name;
             ProtectedSettings = protectedSettings;
+            ProtectedSettingsFromKeyVault = protectedSettingsFromKeyVault;
             Publisher = publisher;
             Settings = settings;
             Type = type;

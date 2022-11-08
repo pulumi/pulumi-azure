@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.compute;
 
+import com.pulumi.azure.compute.inputs.ExtensionProtectedSettingsFromKeyVaultArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -96,6 +97,21 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> protectedSettings() {
         return Optional.ofNullable(this.protectedSettings);
+    }
+
+    /**
+     * A `protected_settings_from_key_vault` block as defined below.
+     * 
+     */
+    @Import(name="protectedSettingsFromKeyVault")
+    private @Nullable Output<ExtensionProtectedSettingsFromKeyVaultArgs> protectedSettingsFromKeyVault;
+
+    /**
+     * @return A `protected_settings_from_key_vault` block as defined below.
+     * 
+     */
+    public Optional<Output<ExtensionProtectedSettingsFromKeyVaultArgs>> protectedSettingsFromKeyVault() {
+        return Optional.ofNullable(this.protectedSettingsFromKeyVault);
     }
 
     /**
@@ -202,6 +218,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         this.failureSuppressionEnabled = $.failureSuppressionEnabled;
         this.name = $.name;
         this.protectedSettings = $.protectedSettings;
+        this.protectedSettingsFromKeyVault = $.protectedSettingsFromKeyVault;
         this.publisher = $.publisher;
         this.settings = $.settings;
         this.tags = $.tags;
@@ -337,6 +354,27 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder protectedSettings(String protectedSettings) {
             return protectedSettings(Output.of(protectedSettings));
+        }
+
+        /**
+         * @param protectedSettingsFromKeyVault A `protected_settings_from_key_vault` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder protectedSettingsFromKeyVault(@Nullable Output<ExtensionProtectedSettingsFromKeyVaultArgs> protectedSettingsFromKeyVault) {
+            $.protectedSettingsFromKeyVault = protectedSettingsFromKeyVault;
+            return this;
+        }
+
+        /**
+         * @param protectedSettingsFromKeyVault A `protected_settings_from_key_vault` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder protectedSettingsFromKeyVault(ExtensionProtectedSettingsFromKeyVaultArgs protectedSettingsFromKeyVault) {
+            return protectedSettingsFromKeyVault(Output.of(protectedSettingsFromKeyVault));
         }
 
         /**

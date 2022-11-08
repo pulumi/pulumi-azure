@@ -74,6 +74,8 @@ type Job struct {
 
 	// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
 	CompatibilityLevel pulumi.StringOutput `pulumi:"compatibilityLevel"`
+	// The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
+	ContentStoragePolicy pulumi.StringPtrOutput `pulumi:"contentStoragePolicy"`
 	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](<https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx>).
 	DataLocale pulumi.StringOutput `pulumi:"dataLocale"`
 	// Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
@@ -86,6 +88,8 @@ type Job struct {
 	Identity JobIdentityPtrOutput `pulumi:"identity"`
 	// The Job ID assigned by the Stream Analytics Job.
 	JobId pulumi.StringOutput `pulumi:"jobId"`
+	// The details of the job storage account. A `jobStorageAccount` block as defined below.
+	JobStorageAccounts JobJobStorageAccountArrayOutput `pulumi:"jobStorageAccounts"`
 	// The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
@@ -143,6 +147,8 @@ func GetJob(ctx *pulumi.Context,
 type jobState struct {
 	// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
 	CompatibilityLevel *string `pulumi:"compatibilityLevel"`
+	// The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
+	ContentStoragePolicy *string `pulumi:"contentStoragePolicy"`
 	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](<https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx>).
 	DataLocale *string `pulumi:"dataLocale"`
 	// Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
@@ -155,6 +161,8 @@ type jobState struct {
 	Identity *JobIdentity `pulumi:"identity"`
 	// The Job ID assigned by the Stream Analytics Job.
 	JobId *string `pulumi:"jobId"`
+	// The details of the job storage account. A `jobStorageAccount` block as defined below.
+	JobStorageAccounts []JobJobStorageAccount `pulumi:"jobStorageAccounts"`
 	// The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
@@ -178,6 +186,8 @@ type jobState struct {
 type JobState struct {
 	// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
 	CompatibilityLevel pulumi.StringPtrInput
+	// The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
+	ContentStoragePolicy pulumi.StringPtrInput
 	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](<https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx>).
 	DataLocale pulumi.StringPtrInput
 	// Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
@@ -190,6 +200,8 @@ type JobState struct {
 	Identity JobIdentityPtrInput
 	// The Job ID assigned by the Stream Analytics Job.
 	JobId pulumi.StringPtrInput
+	// The details of the job storage account. A `jobStorageAccount` block as defined below.
+	JobStorageAccounts JobJobStorageAccountArrayInput
 	// The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
@@ -217,6 +229,8 @@ func (JobState) ElementType() reflect.Type {
 type jobArgs struct {
 	// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
 	CompatibilityLevel *string `pulumi:"compatibilityLevel"`
+	// The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
+	ContentStoragePolicy *string `pulumi:"contentStoragePolicy"`
 	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](<https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx>).
 	DataLocale *string `pulumi:"dataLocale"`
 	// Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
@@ -227,6 +241,8 @@ type jobArgs struct {
 	EventsOutOfOrderPolicy *string `pulumi:"eventsOutOfOrderPolicy"`
 	// An `identity` block as defined below.
 	Identity *JobIdentity `pulumi:"identity"`
+	// The details of the job storage account. A `jobStorageAccount` block as defined below.
+	JobStorageAccounts []JobJobStorageAccount `pulumi:"jobStorageAccounts"`
 	// The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
@@ -251,6 +267,8 @@ type jobArgs struct {
 type JobArgs struct {
 	// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
 	CompatibilityLevel pulumi.StringPtrInput
+	// The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
+	ContentStoragePolicy pulumi.StringPtrInput
 	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](<https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx>).
 	DataLocale pulumi.StringPtrInput
 	// Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
@@ -261,6 +279,8 @@ type JobArgs struct {
 	EventsOutOfOrderPolicy pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity JobIdentityPtrInput
+	// The details of the job storage account. A `jobStorageAccount` block as defined below.
+	JobStorageAccounts JobJobStorageAccountArrayInput
 	// The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
@@ -373,6 +393,11 @@ func (o JobOutput) CompatibilityLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.CompatibilityLevel }).(pulumi.StringOutput)
 }
 
+// The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
+func (o JobOutput) ContentStoragePolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringPtrOutput { return v.ContentStoragePolicy }).(pulumi.StringPtrOutput)
+}
+
 // Specifies the Data Locale of the Job, which [should be a supported .NET Culture](<https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx>).
 func (o JobOutput) DataLocale() pulumi.StringOutput {
 	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.DataLocale }).(pulumi.StringOutput)
@@ -401,6 +426,11 @@ func (o JobOutput) Identity() JobIdentityPtrOutput {
 // The Job ID assigned by the Stream Analytics Job.
 func (o JobOutput) JobId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.JobId }).(pulumi.StringOutput)
+}
+
+// The details of the job storage account. A `jobStorageAccount` block as defined below.
+func (o JobOutput) JobStorageAccounts() JobJobStorageAccountArrayOutput {
+	return o.ApplyT(func(v *Job) JobJobStorageAccountArrayOutput { return v.JobStorageAccounts }).(JobJobStorageAccountArrayOutput)
 }
 
 // The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.

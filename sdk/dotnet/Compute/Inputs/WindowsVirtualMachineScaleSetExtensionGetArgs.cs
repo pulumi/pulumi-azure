@@ -42,6 +42,9 @@ namespace Pulumi.Azure.Compute.Inputs
         [Input("protectedSettings")]
         public Input<string>? ProtectedSettings { get; set; }
 
+        [Input("protectedSettingsFromKeyVault")]
+        public Input<Inputs.WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultGetArgs>? ProtectedSettingsFromKeyVault { get; set; }
+
         [Input("provisionAfterExtensions")]
         private InputList<string>? _provisionAfterExtensions;
 

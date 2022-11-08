@@ -18,6 +18,7 @@ import com.pulumi.azure.containerservice.inputs.KubernetesClusterMicrosoftDefend
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterNetworkProfileArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterOmsAgentArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterServicePrincipalArgs;
+import com.pulumi.azure.containerservice.inputs.KubernetesClusterWebAppRoutingArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterWindowsProfileArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterWorkloadAutoscalerProfileArgs;
 import com.pulumi.core.Output;
@@ -620,6 +621,21 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * A `web_app_routing` block as defined below.
+     * 
+     */
+    @Import(name="webAppRouting")
+    private @Nullable Output<KubernetesClusterWebAppRoutingArgs> webAppRouting;
+
+    /**
+     * @return A `web_app_routing` block as defined below.
+     * 
+     */
+    public Optional<Output<KubernetesClusterWebAppRoutingArgs>> webAppRouting() {
+        return Optional.ofNullable(this.webAppRouting);
+    }
+
+    /**
      * A `windows_profile` block as defined below.
      * 
      */
@@ -707,6 +723,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         this.servicePrincipal = $.servicePrincipal;
         this.skuTier = $.skuTier;
         this.tags = $.tags;
+        this.webAppRouting = $.webAppRouting;
         this.windowsProfile = $.windowsProfile;
         this.workloadAutoscalerProfile = $.workloadAutoscalerProfile;
         this.workloadIdentityEnabled = $.workloadIdentityEnabled;
@@ -1554,6 +1571,27 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param webAppRouting A `web_app_routing` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder webAppRouting(@Nullable Output<KubernetesClusterWebAppRoutingArgs> webAppRouting) {
+            $.webAppRouting = webAppRouting;
+            return this;
+        }
+
+        /**
+         * @param webAppRouting A `web_app_routing` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder webAppRouting(KubernetesClusterWebAppRoutingArgs webAppRouting) {
+            return webAppRouting(Output.of(webAppRouting));
         }
 
         /**

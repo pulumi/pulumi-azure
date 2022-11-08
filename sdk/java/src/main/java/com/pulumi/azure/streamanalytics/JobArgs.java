@@ -4,10 +4,12 @@
 package com.pulumi.azure.streamanalytics;
 
 import com.pulumi.azure.streamanalytics.inputs.JobIdentityArgs;
+import com.pulumi.azure.streamanalytics.inputs.JobJobStorageAccountArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -31,6 +33,21 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> compatibilityLevel() {
         return Optional.ofNullable(this.compatibilityLevel);
+    }
+
+    /**
+     * The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
+     * 
+     */
+    @Import(name="contentStoragePolicy")
+    private @Nullable Output<String> contentStoragePolicy;
+
+    /**
+     * @return The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
+     * 
+     */
+    public Optional<Output<String>> contentStoragePolicy() {
+        return Optional.ofNullable(this.contentStoragePolicy);
     }
 
     /**
@@ -106,6 +123,21 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<JobIdentityArgs>> identity() {
         return Optional.ofNullable(this.identity);
+    }
+
+    /**
+     * The details of the job storage account. A `job_storage_account` block as defined below.
+     * 
+     */
+    @Import(name="jobStorageAccounts")
+    private @Nullable Output<List<JobJobStorageAccountArgs>> jobStorageAccounts;
+
+    /**
+     * @return The details of the job storage account. A `job_storage_account` block as defined below.
+     * 
+     */
+    public Optional<Output<List<JobJobStorageAccountArgs>>> jobStorageAccounts() {
+        return Optional.ofNullable(this.jobStorageAccounts);
     }
 
     /**
@@ -247,11 +279,13 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
 
     private JobArgs(JobArgs $) {
         this.compatibilityLevel = $.compatibilityLevel;
+        this.contentStoragePolicy = $.contentStoragePolicy;
         this.dataLocale = $.dataLocale;
         this.eventsLateArrivalMaxDelayInSeconds = $.eventsLateArrivalMaxDelayInSeconds;
         this.eventsOutOfOrderMaxDelayInSeconds = $.eventsOutOfOrderMaxDelayInSeconds;
         this.eventsOutOfOrderPolicy = $.eventsOutOfOrderPolicy;
         this.identity = $.identity;
+        this.jobStorageAccounts = $.jobStorageAccounts;
         this.location = $.location;
         this.name = $.name;
         this.outputErrorPolicy = $.outputErrorPolicy;
@@ -300,6 +334,27 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder compatibilityLevel(String compatibilityLevel) {
             return compatibilityLevel(Output.of(compatibilityLevel));
+        }
+
+        /**
+         * @param contentStoragePolicy The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder contentStoragePolicy(@Nullable Output<String> contentStoragePolicy) {
+            $.contentStoragePolicy = contentStoragePolicy;
+            return this;
+        }
+
+        /**
+         * @param contentStoragePolicy The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder contentStoragePolicy(String contentStoragePolicy) {
+            return contentStoragePolicy(Output.of(contentStoragePolicy));
         }
 
         /**
@@ -405,6 +460,37 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder identity(JobIdentityArgs identity) {
             return identity(Output.of(identity));
+        }
+
+        /**
+         * @param jobStorageAccounts The details of the job storage account. A `job_storage_account` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jobStorageAccounts(@Nullable Output<List<JobJobStorageAccountArgs>> jobStorageAccounts) {
+            $.jobStorageAccounts = jobStorageAccounts;
+            return this;
+        }
+
+        /**
+         * @param jobStorageAccounts The details of the job storage account. A `job_storage_account` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jobStorageAccounts(List<JobJobStorageAccountArgs> jobStorageAccounts) {
+            return jobStorageAccounts(Output.of(jobStorageAccounts));
+        }
+
+        /**
+         * @param jobStorageAccounts The details of the job storage account. A `job_storage_account` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jobStorageAccounts(JobJobStorageAccountArgs... jobStorageAccounts) {
+            return jobStorageAccounts(List.of(jobStorageAccounts));
         }
 
         /**

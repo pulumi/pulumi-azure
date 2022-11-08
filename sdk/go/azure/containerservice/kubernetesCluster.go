@@ -173,6 +173,8 @@ type KubernetesCluster struct {
 	SkuTier pulumi.StringPtrOutput `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A `webAppRouting` block as defined below.
+	WebAppRouting KubernetesClusterWebAppRoutingPtrOutput `pulumi:"webAppRouting"`
 	// A `windowsProfile` block as defined below.
 	WindowsProfile KubernetesClusterWindowsProfileOutput `pulumi:"windowsProfile"`
 	// A `workloadAutoscalerProfile` block defined below.
@@ -312,6 +314,8 @@ type kubernetesClusterState struct {
 	SkuTier *string `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// A `webAppRouting` block as defined below.
+	WebAppRouting *KubernetesClusterWebAppRouting `pulumi:"webAppRouting"`
 	// A `windowsProfile` block as defined below.
 	WindowsProfile *KubernetesClusterWindowsProfile `pulumi:"windowsProfile"`
 	// A `workloadAutoscalerProfile` block defined below.
@@ -417,6 +421,8 @@ type KubernetesClusterState struct {
 	SkuTier pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// A `webAppRouting` block as defined below.
+	WebAppRouting KubernetesClusterWebAppRoutingPtrInput
 	// A `windowsProfile` block as defined below.
 	WindowsProfile KubernetesClusterWindowsProfilePtrInput
 	// A `workloadAutoscalerProfile` block defined below.
@@ -508,6 +514,8 @@ type kubernetesClusterArgs struct {
 	SkuTier *string `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// A `webAppRouting` block as defined below.
+	WebAppRouting *KubernetesClusterWebAppRouting `pulumi:"webAppRouting"`
 	// A `windowsProfile` block as defined below.
 	WindowsProfile *KubernetesClusterWindowsProfile `pulumi:"windowsProfile"`
 	// A `workloadAutoscalerProfile` block defined below.
@@ -596,6 +604,8 @@ type KubernetesClusterArgs struct {
 	SkuTier pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// A `webAppRouting` block as defined below.
+	WebAppRouting KubernetesClusterWebAppRoutingPtrInput
 	// A `windowsProfile` block as defined below.
 	WindowsProfile KubernetesClusterWindowsProfilePtrInput
 	// A `workloadAutoscalerProfile` block defined below.
@@ -938,6 +948,11 @@ func (o KubernetesClusterOutput) SkuTier() pulumi.StringPtrOutput {
 // A mapping of tags to assign to the resource.
 func (o KubernetesClusterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A `webAppRouting` block as defined below.
+func (o KubernetesClusterOutput) WebAppRouting() KubernetesClusterWebAppRoutingPtrOutput {
+	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterWebAppRoutingPtrOutput { return v.WebAppRouting }).(KubernetesClusterWebAppRoutingPtrOutput)
 }
 
 // A `windowsProfile` block as defined below.

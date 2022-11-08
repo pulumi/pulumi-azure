@@ -198,6 +198,20 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
+     * 
+     */
+    @Export(name="partnerSolutionId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> partnerSolutionId;
+
+    /**
+     * @return The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
+     * 
+     */
+    public Output<Optional<String>> partnerSolutionId() {
+        return Codegen.optional(this.partnerSolutionId);
+    }
+    /**
      * The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
      * 
      */

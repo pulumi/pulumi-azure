@@ -5439,15 +5439,15 @@ func (o FrontdoorFirewallPolicyCustomRuleMatchConditionArrayOutput) Index(i pulu
 }
 
 type FrontdoorFirewallPolicyManagedRule struct {
-	// The action to perform when the managed rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+	// The action to perform when the managed rule is matched. Possible values depends on which DRS version you are using, for DRS `1.0`, `1.1` and `preview-0.1` the possible values include `Allow`, `Block`, `Log`, or `Redirect`. For DRS `2.0` and `2.1` the value must be `AnomalyScoring`.
 	Action string `pulumi:"action"`
 	// One or more `exclusion` blocks as defined below.
 	Exclusions []FrontdoorFirewallPolicyManagedRuleExclusion `pulumi:"exclusions"`
 	// One or more `override` blocks as defined below.
 	Overrides []FrontdoorFirewallPolicyManagedRuleOverride `pulumi:"overrides"`
-	// The name of the managed rule to use with this resource.
+	// The name of the managed rule to use with this resource. Possible values include `DefaultRuleSet`, `Microsoft_DefaultRuleSet`, `BotProtection` or `Microsoft_BotManagerRuleSet`.
 	Type string `pulumi:"type"`
-	// The version on the managed rule to use with this resource.
+	// The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the value must be `1.0`.
 	Version string `pulumi:"version"`
 }
 
@@ -5463,15 +5463,15 @@ type FrontdoorFirewallPolicyManagedRuleInput interface {
 }
 
 type FrontdoorFirewallPolicyManagedRuleArgs struct {
-	// The action to perform when the managed rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+	// The action to perform when the managed rule is matched. Possible values depends on which DRS version you are using, for DRS `1.0`, `1.1` and `preview-0.1` the possible values include `Allow`, `Block`, `Log`, or `Redirect`. For DRS `2.0` and `2.1` the value must be `AnomalyScoring`.
 	Action pulumi.StringInput `pulumi:"action"`
 	// One or more `exclusion` blocks as defined below.
 	Exclusions FrontdoorFirewallPolicyManagedRuleExclusionArrayInput `pulumi:"exclusions"`
 	// One or more `override` blocks as defined below.
 	Overrides FrontdoorFirewallPolicyManagedRuleOverrideArrayInput `pulumi:"overrides"`
-	// The name of the managed rule to use with this resource.
+	// The name of the managed rule to use with this resource. Possible values include `DefaultRuleSet`, `Microsoft_DefaultRuleSet`, `BotProtection` or `Microsoft_BotManagerRuleSet`.
 	Type pulumi.StringInput `pulumi:"type"`
-	// The version on the managed rule to use with this resource.
+	// The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the value must be `1.0`.
 	Version pulumi.StringInput `pulumi:"version"`
 }
 
@@ -5526,7 +5526,7 @@ func (o FrontdoorFirewallPolicyManagedRuleOutput) ToFrontdoorFirewallPolicyManag
 	return o
 }
 
-// The action to perform when the managed rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+// The action to perform when the managed rule is matched. Possible values depends on which DRS version you are using, for DRS `1.0`, `1.1` and `preview-0.1` the possible values include `Allow`, `Block`, `Log`, or `Redirect`. For DRS `2.0` and `2.1` the value must be `AnomalyScoring`.
 func (o FrontdoorFirewallPolicyManagedRuleOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRule) string { return v.Action }).(pulumi.StringOutput)
 }
@@ -5545,12 +5545,12 @@ func (o FrontdoorFirewallPolicyManagedRuleOutput) Overrides() FrontdoorFirewallP
 	}).(FrontdoorFirewallPolicyManagedRuleOverrideArrayOutput)
 }
 
-// The name of the managed rule to use with this resource.
+// The name of the managed rule to use with this resource. Possible values include `DefaultRuleSet`, `Microsoft_DefaultRuleSet`, `BotProtection` or `Microsoft_BotManagerRuleSet`.
 func (o FrontdoorFirewallPolicyManagedRuleOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRule) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The version on the managed rule to use with this resource.
+// The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the value must be `1.0`.
 func (o FrontdoorFirewallPolicyManagedRuleOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRule) string { return v.Version }).(pulumi.StringOutput)
 }

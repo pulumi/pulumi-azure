@@ -62,6 +62,8 @@ type Contact struct {
 	AlertsToAdmins pulumi.BoolOutput `pulumi:"alertsToAdmins"`
 	// The email of the Security Center Contact.
 	Email pulumi.StringOutput `pulumi:"email"`
+	// The name of the Security Center Contact. Defaults to `default1`.
+	Name pulumi.StringOutput `pulumi:"name"`
 	// The phone number of the Security Center Contact.
 	Phone pulumi.StringPtrOutput `pulumi:"phone"`
 }
@@ -110,6 +112,8 @@ type contactState struct {
 	AlertsToAdmins *bool `pulumi:"alertsToAdmins"`
 	// The email of the Security Center Contact.
 	Email *string `pulumi:"email"`
+	// The name of the Security Center Contact. Defaults to `default1`.
+	Name *string `pulumi:"name"`
 	// The phone number of the Security Center Contact.
 	Phone *string `pulumi:"phone"`
 }
@@ -121,6 +125,8 @@ type ContactState struct {
 	AlertsToAdmins pulumi.BoolPtrInput
 	// The email of the Security Center Contact.
 	Email pulumi.StringPtrInput
+	// The name of the Security Center Contact. Defaults to `default1`.
+	Name pulumi.StringPtrInput
 	// The phone number of the Security Center Contact.
 	Phone pulumi.StringPtrInput
 }
@@ -136,6 +142,8 @@ type contactArgs struct {
 	AlertsToAdmins bool `pulumi:"alertsToAdmins"`
 	// The email of the Security Center Contact.
 	Email string `pulumi:"email"`
+	// The name of the Security Center Contact. Defaults to `default1`.
+	Name *string `pulumi:"name"`
 	// The phone number of the Security Center Contact.
 	Phone *string `pulumi:"phone"`
 }
@@ -148,6 +156,8 @@ type ContactArgs struct {
 	AlertsToAdmins pulumi.BoolInput
 	// The email of the Security Center Contact.
 	Email pulumi.StringInput
+	// The name of the Security Center Contact. Defaults to `default1`.
+	Name pulumi.StringPtrInput
 	// The phone number of the Security Center Contact.
 	Phone pulumi.StringPtrInput
 }
@@ -252,6 +262,11 @@ func (o ContactOutput) AlertsToAdmins() pulumi.BoolOutput {
 // The email of the Security Center Contact.
 func (o ContactOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
+}
+
+// The name of the Security Center Contact. Defaults to `default1`.
+func (o ContactOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 // The phone number of the Security Center Contact.

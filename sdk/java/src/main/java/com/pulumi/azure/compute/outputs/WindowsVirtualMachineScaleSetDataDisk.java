@@ -44,7 +44,7 @@ public final class WindowsVirtualMachineScaleSetDataDisk {
      */
     private @Nullable String name;
     /**
-     * @return The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
+     * @return The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
      * 
      */
     private String storageAccountType;
@@ -100,7 +100,7 @@ public final class WindowsVirtualMachineScaleSetDataDisk {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
+     * @return The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
      * 
      */
     public String storageAccountType() {

@@ -214,14 +214,14 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
         return this.automaticInstanceRepair;
     }
     /**
-     * An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
+     * An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
      * 
      */
     @Export(name="automaticOsUpgradePolicy", type=LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy.class, parameters={})
     private Output</* @Nullable */ LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy> automaticOsUpgradePolicy;
 
     /**
-     * @return An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
+     * @return An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
      * 
      */
     public Output<Optional<LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy>> automaticOsUpgradePolicy() {

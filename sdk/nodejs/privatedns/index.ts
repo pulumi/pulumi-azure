@@ -95,6 +95,11 @@ export type ResolverDnsForwardingRuleset = import("./resolverDnsForwardingRulese
 export const ResolverDnsForwardingRuleset: typeof import("./resolverDnsForwardingRuleset").ResolverDnsForwardingRuleset = null as any;
 utilities.lazyLoad(exports, ["ResolverDnsForwardingRuleset"], () => require("./resolverDnsForwardingRuleset"));
 
+export { ResolverForwardingRuleArgs, ResolverForwardingRuleState } from "./resolverForwardingRule";
+export type ResolverForwardingRule = import("./resolverForwardingRule").ResolverForwardingRule;
+export const ResolverForwardingRule: typeof import("./resolverForwardingRule").ResolverForwardingRule = null as any;
+utilities.lazyLoad(exports, ["ResolverForwardingRule"], () => require("./resolverForwardingRule"));
+
 export { ResolverInboundEndpointArgs, ResolverInboundEndpointState } from "./resolverInboundEndpoint";
 export type ResolverInboundEndpoint = import("./resolverInboundEndpoint").ResolverInboundEndpoint;
 export const ResolverInboundEndpoint: typeof import("./resolverInboundEndpoint").ResolverInboundEndpoint = null as any;
@@ -104,6 +109,11 @@ export { ResolverOutboundEndpointArgs, ResolverOutboundEndpointState } from "./r
 export type ResolverOutboundEndpoint = import("./resolverOutboundEndpoint").ResolverOutboundEndpoint;
 export const ResolverOutboundEndpoint: typeof import("./resolverOutboundEndpoint").ResolverOutboundEndpoint = null as any;
 utilities.lazyLoad(exports, ["ResolverOutboundEndpoint"], () => require("./resolverOutboundEndpoint"));
+
+export { ResolverVirtualNetworkLinkArgs, ResolverVirtualNetworkLinkState } from "./resolverVirtualNetworkLink";
+export type ResolverVirtualNetworkLink = import("./resolverVirtualNetworkLink").ResolverVirtualNetworkLink;
+export const ResolverVirtualNetworkLink: typeof import("./resolverVirtualNetworkLink").ResolverVirtualNetworkLink = null as any;
+utilities.lazyLoad(exports, ["ResolverVirtualNetworkLink"], () => require("./resolverVirtualNetworkLink"));
 
 export { SRVRecordArgs, SRVRecordState } from "./srvrecord";
 export type SRVRecord = import("./srvrecord").SRVRecord;
@@ -146,10 +156,14 @@ const _module = {
                 return new Resolver(name, <any>undefined, { urn })
             case "azure:privatedns/resolverDnsForwardingRuleset:ResolverDnsForwardingRuleset":
                 return new ResolverDnsForwardingRuleset(name, <any>undefined, { urn })
+            case "azure:privatedns/resolverForwardingRule:ResolverForwardingRule":
+                return new ResolverForwardingRule(name, <any>undefined, { urn })
             case "azure:privatedns/resolverInboundEndpoint:ResolverInboundEndpoint":
                 return new ResolverInboundEndpoint(name, <any>undefined, { urn })
             case "azure:privatedns/resolverOutboundEndpoint:ResolverOutboundEndpoint":
                 return new ResolverOutboundEndpoint(name, <any>undefined, { urn })
+            case "azure:privatedns/resolverVirtualNetworkLink:ResolverVirtualNetworkLink":
+                return new ResolverVirtualNetworkLink(name, <any>undefined, { urn })
             case "azure:privatedns/sRVRecord:SRVRecord":
                 return new SRVRecord(name, <any>undefined, { urn })
             case "azure:privatedns/txtRecord:TxtRecord":
@@ -171,8 +185,10 @@ pulumi.runtime.registerResourceModule("azure", "privatedns/mxRecord", _module)
 pulumi.runtime.registerResourceModule("azure", "privatedns/pTRRecord", _module)
 pulumi.runtime.registerResourceModule("azure", "privatedns/resolver", _module)
 pulumi.runtime.registerResourceModule("azure", "privatedns/resolverDnsForwardingRuleset", _module)
+pulumi.runtime.registerResourceModule("azure", "privatedns/resolverForwardingRule", _module)
 pulumi.runtime.registerResourceModule("azure", "privatedns/resolverInboundEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "privatedns/resolverOutboundEndpoint", _module)
+pulumi.runtime.registerResourceModule("azure", "privatedns/resolverVirtualNetworkLink", _module)
 pulumi.runtime.registerResourceModule("azure", "privatedns/sRVRecord", _module)
 pulumi.runtime.registerResourceModule("azure", "privatedns/txtRecord", _module)
 pulumi.runtime.registerResourceModule("azure", "privatedns/zone", _module)

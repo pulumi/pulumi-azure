@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.compute.outputs;
 
+import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -31,6 +32,11 @@ public final class OrchestratedVirtualMachineScaleSetExtension {
      */
     private String name;
     private @Nullable String protectedSettings;
+    /**
+     * @return A `protected_settings_from_key_vault` block as defined below.
+     * 
+     */
+    private @Nullable OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault protectedSettingsFromKeyVault;
     private String publisher;
     private @Nullable String settings;
     private String type;
@@ -67,6 +73,13 @@ public final class OrchestratedVirtualMachineScaleSetExtension {
     public Optional<String> protectedSettings() {
         return Optional.ofNullable(this.protectedSettings);
     }
+    /**
+     * @return A `protected_settings_from_key_vault` block as defined below.
+     * 
+     */
+    public Optional<OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault> protectedSettingsFromKeyVault() {
+        return Optional.ofNullable(this.protectedSettingsFromKeyVault);
+    }
     public String publisher() {
         return this.publisher;
     }
@@ -95,6 +108,7 @@ public final class OrchestratedVirtualMachineScaleSetExtension {
         private @Nullable String forceExtensionExecutionOnChange;
         private String name;
         private @Nullable String protectedSettings;
+        private @Nullable OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault protectedSettingsFromKeyVault;
         private String publisher;
         private @Nullable String settings;
         private String type;
@@ -108,6 +122,7 @@ public final class OrchestratedVirtualMachineScaleSetExtension {
     	      this.forceExtensionExecutionOnChange = defaults.forceExtensionExecutionOnChange;
     	      this.name = defaults.name;
     	      this.protectedSettings = defaults.protectedSettings;
+    	      this.protectedSettingsFromKeyVault = defaults.protectedSettingsFromKeyVault;
     	      this.publisher = defaults.publisher;
     	      this.settings = defaults.settings;
     	      this.type = defaults.type;
@@ -148,6 +163,11 @@ public final class OrchestratedVirtualMachineScaleSetExtension {
             return this;
         }
         @CustomType.Setter
+        public Builder protectedSettingsFromKeyVault(@Nullable OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault protectedSettingsFromKeyVault) {
+            this.protectedSettingsFromKeyVault = protectedSettingsFromKeyVault;
+            return this;
+        }
+        @CustomType.Setter
         public Builder publisher(String publisher) {
             this.publisher = Objects.requireNonNull(publisher);
             return this;
@@ -175,6 +195,7 @@ public final class OrchestratedVirtualMachineScaleSetExtension {
             o.forceExtensionExecutionOnChange = forceExtensionExecutionOnChange;
             o.name = name;
             o.protectedSettings = protectedSettings;
+            o.protectedSettingsFromKeyVault = protectedSettingsFromKeyVault;
             o.publisher = publisher;
             o.settings = settings;
             o.type = type;

@@ -78,7 +78,9 @@ import * as utilities from "../utilities";
  *
  * const primary = azure.core.getSubscription({});
  * const exampleClientConfig = azure.core.getClientConfig({});
- * const exampleGroup = azure.management.getGroup({});
+ * const exampleGroup = azure.management.getGroup({
+ *     name: "00000000-0000-0000-0000-000000000000",
+ * });
  * const exampleRoleDefinition = new azure.authorization.RoleDefinition("exampleRoleDefinition", {
  *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
  *     scope: primary.then(primary => primary.id),

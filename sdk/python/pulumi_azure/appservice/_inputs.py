@@ -24103,6 +24103,7 @@ class WindowsWebAppSiteConfigArgs:
         :param pulumi.Input[bool] local_mysql_enabled: Use Local MySQL. Defaults to `false`.
         :param pulumi.Input[str] managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
         :param pulumi.Input[str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[bool] remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
         :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param pulumi.Input[str] scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
@@ -24440,6 +24441,9 @@ class WindowsWebAppSiteConfigArgs:
     @property
     @pulumi.getter(name="remoteDebuggingEnabled")
     def remote_debugging_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Remote Debugging be enabled. Defaults to `false`.
+        """
         return pulumi.get(self, "remote_debugging_enabled")
 
     @remote_debugging_enabled.setter
@@ -26996,6 +27000,7 @@ class WindowsWebAppSlotSiteConfigArgs:
         :param pulumi.Input[bool] local_mysql_enabled: Use Local MySQL. Defaults to `false`.
         :param pulumi.Input[str] managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
         :param pulumi.Input[str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[bool] remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
         :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param pulumi.Input[str] scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
@@ -27338,6 +27343,9 @@ class WindowsWebAppSlotSiteConfigArgs:
     @property
     @pulumi.getter(name="remoteDebuggingEnabled")
     def remote_debugging_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Remote Debugging be enabled. Defaults to `false`.
+        """
         return pulumi.get(self, "remote_debugging_enabled")
 
     @remote_debugging_enabled.setter

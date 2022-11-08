@@ -58,12 +58,15 @@ type LookupApplicationGatewayArgs struct {
 
 // A collection of values returned by getApplicationGateway.
 type LookupApplicationGatewayResult struct {
+	// A `backendAddressPool` block as defined below.
+	BackendAddressPools []GetApplicationGatewayBackendAddressPool `pulumi:"backendAddressPools"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A `identity` block as defined below.
 	Identities []GetApplicationGatewayIdentity `pulumi:"identities"`
 	// The Azure Region where the Application Gateway exists.
-	Location          string `pulumi:"location"`
+	Location string `pulumi:"location"`
+	// The name of the Backend Address Pool.
 	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the Application Gateway.
@@ -110,6 +113,13 @@ func (o LookupApplicationGatewayResultOutput) ToLookupApplicationGatewayResultOu
 	return o
 }
 
+// A `backendAddressPool` block as defined below.
+func (o LookupApplicationGatewayResultOutput) BackendAddressPools() GetApplicationGatewayBackendAddressPoolArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewayBackendAddressPool {
+		return v.BackendAddressPools
+	}).(GetApplicationGatewayBackendAddressPoolArrayOutput)
+}
+
 // The provider-assigned unique ID for this managed resource.
 func (o LookupApplicationGatewayResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationGatewayResult) string { return v.Id }).(pulumi.StringOutput)
@@ -125,6 +135,7 @@ func (o LookupApplicationGatewayResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationGatewayResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
+// The name of the Backend Address Pool.
 func (o LookupApplicationGatewayResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationGatewayResult) string { return v.Name }).(pulumi.StringOutput)
 }

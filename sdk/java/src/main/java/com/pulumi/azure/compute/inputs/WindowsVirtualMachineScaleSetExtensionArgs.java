@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.compute.inputs;
 
+import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -92,6 +93,13 @@ public final class WindowsVirtualMachineScaleSetExtensionArgs extends com.pulumi
         return Optional.ofNullable(this.protectedSettings);
     }
 
+    @Import(name="protectedSettingsFromKeyVault")
+    private @Nullable Output<WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs> protectedSettingsFromKeyVault;
+
+    public Optional<Output<WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs>> protectedSettingsFromKeyVault() {
+        return Optional.ofNullable(this.protectedSettingsFromKeyVault);
+    }
+
     /**
      * An ordered list of Extension names which this should be provisioned after.
      * 
@@ -175,6 +183,7 @@ public final class WindowsVirtualMachineScaleSetExtensionArgs extends com.pulumi
         this.forceUpdateTag = $.forceUpdateTag;
         this.name = $.name;
         this.protectedSettings = $.protectedSettings;
+        this.protectedSettingsFromKeyVault = $.protectedSettingsFromKeyVault;
         this.provisionAfterExtensions = $.provisionAfterExtensions;
         this.publisher = $.publisher;
         this.settings = $.settings;
@@ -303,6 +312,15 @@ public final class WindowsVirtualMachineScaleSetExtensionArgs extends com.pulumi
          */
         public Builder protectedSettings(String protectedSettings) {
             return protectedSettings(Output.of(protectedSettings));
+        }
+
+        public Builder protectedSettingsFromKeyVault(@Nullable Output<WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs> protectedSettingsFromKeyVault) {
+            $.protectedSettingsFromKeyVault = protectedSettingsFromKeyVault;
+            return this;
+        }
+
+        public Builder protectedSettingsFromKeyVault(WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs protectedSettingsFromKeyVault) {
+            return protectedSettingsFromKeyVault(Output.of(protectedSettingsFromKeyVault));
         }
 
         /**

@@ -104,6 +104,8 @@ type DiagnosticSetting struct {
 	Metrics DiagnosticSettingMetricArrayOutput `pulumi:"metrics"`
 	// Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
+	PartnerSolutionId pulumi.StringPtrOutput `pulumi:"partnerSolutionId"`
 	// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrOutput `pulumi:"storageAccountId"`
 	// The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
@@ -156,6 +158,8 @@ type diagnosticSettingState struct {
 	Metrics []DiagnosticSettingMetric `pulumi:"metrics"`
 	// Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
+	PartnerSolutionId *string `pulumi:"partnerSolutionId"`
 	// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
@@ -177,6 +181,8 @@ type DiagnosticSettingState struct {
 	Metrics DiagnosticSettingMetricArrayInput
 	// Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
+	PartnerSolutionId pulumi.StringPtrInput
 	// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrInput
 	// The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
@@ -202,6 +208,8 @@ type diagnosticSettingArgs struct {
 	Metrics []DiagnosticSettingMetric `pulumi:"metrics"`
 	// Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
+	PartnerSolutionId *string `pulumi:"partnerSolutionId"`
 	// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
@@ -224,6 +232,8 @@ type DiagnosticSettingArgs struct {
 	Metrics DiagnosticSettingMetricArrayInput
 	// Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
+	PartnerSolutionId pulumi.StringPtrInput
 	// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrInput
 	// The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
@@ -350,6 +360,11 @@ func (o DiagnosticSettingOutput) Metrics() DiagnosticSettingMetricArrayOutput {
 // Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
 func (o DiagnosticSettingOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DiagnosticSetting) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
+func (o DiagnosticSettingOutput) PartnerSolutionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DiagnosticSetting) pulumi.StringPtrOutput { return v.PartnerSolutionId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.

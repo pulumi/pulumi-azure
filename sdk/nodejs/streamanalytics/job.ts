@@ -77,6 +77,10 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly compatibilityLevel!: pulumi.Output<string>;
     /**
+     * The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
+     */
+    public readonly contentStoragePolicy!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
      */
     public readonly dataLocale!: pulumi.Output<string>;
@@ -100,6 +104,10 @@ export class Job extends pulumi.CustomResource {
      * The Job ID assigned by the Stream Analytics Job.
      */
     public /*out*/ readonly jobId!: pulumi.Output<string>;
+    /**
+     * The details of the job storage account. A `jobStorageAccount` block as defined below.
+     */
+    public readonly jobStorageAccounts!: pulumi.Output<outputs.streamanalytics.JobJobStorageAccount[] | undefined>;
     /**
      * The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
      */
@@ -151,12 +159,14 @@ export class Job extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as JobState | undefined;
             resourceInputs["compatibilityLevel"] = state ? state.compatibilityLevel : undefined;
+            resourceInputs["contentStoragePolicy"] = state ? state.contentStoragePolicy : undefined;
             resourceInputs["dataLocale"] = state ? state.dataLocale : undefined;
             resourceInputs["eventsLateArrivalMaxDelayInSeconds"] = state ? state.eventsLateArrivalMaxDelayInSeconds : undefined;
             resourceInputs["eventsOutOfOrderMaxDelayInSeconds"] = state ? state.eventsOutOfOrderMaxDelayInSeconds : undefined;
             resourceInputs["eventsOutOfOrderPolicy"] = state ? state.eventsOutOfOrderPolicy : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["jobId"] = state ? state.jobId : undefined;
+            resourceInputs["jobStorageAccounts"] = state ? state.jobStorageAccounts : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["outputErrorPolicy"] = state ? state.outputErrorPolicy : undefined;
@@ -175,11 +185,13 @@ export class Job extends pulumi.CustomResource {
                 throw new Error("Missing required property 'transformationQuery'");
             }
             resourceInputs["compatibilityLevel"] = args ? args.compatibilityLevel : undefined;
+            resourceInputs["contentStoragePolicy"] = args ? args.contentStoragePolicy : undefined;
             resourceInputs["dataLocale"] = args ? args.dataLocale : undefined;
             resourceInputs["eventsLateArrivalMaxDelayInSeconds"] = args ? args.eventsLateArrivalMaxDelayInSeconds : undefined;
             resourceInputs["eventsOutOfOrderMaxDelayInSeconds"] = args ? args.eventsOutOfOrderMaxDelayInSeconds : undefined;
             resourceInputs["eventsOutOfOrderPolicy"] = args ? args.eventsOutOfOrderPolicy : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["jobStorageAccounts"] = args ? args.jobStorageAccounts : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["outputErrorPolicy"] = args ? args.outputErrorPolicy : undefined;
@@ -205,6 +217,10 @@ export interface JobState {
      */
     compatibilityLevel?: pulumi.Input<string>;
     /**
+     * The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
+     */
+    contentStoragePolicy?: pulumi.Input<string>;
+    /**
      * Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
      */
     dataLocale?: pulumi.Input<string>;
@@ -228,6 +244,10 @@ export interface JobState {
      * The Job ID assigned by the Stream Analytics Job.
      */
     jobId?: pulumi.Input<string>;
+    /**
+     * The details of the job storage account. A `jobStorageAccount` block as defined below.
+     */
+    jobStorageAccounts?: pulumi.Input<pulumi.Input<inputs.streamanalytics.JobJobStorageAccount>[]>;
     /**
      * The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
      */
@@ -275,6 +295,10 @@ export interface JobArgs {
      */
     compatibilityLevel?: pulumi.Input<string>;
     /**
+     * The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
+     */
+    contentStoragePolicy?: pulumi.Input<string>;
+    /**
      * Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
      */
     dataLocale?: pulumi.Input<string>;
@@ -294,6 +318,10 @@ export interface JobArgs {
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.streamanalytics.JobIdentity>;
+    /**
+     * The details of the job storage account. A `jobStorageAccount` block as defined below.
+     */
+    jobStorageAccounts?: pulumi.Input<pulumi.Input<inputs.streamanalytics.JobJobStorageAccount>[]>;
     /**
      * The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
      */

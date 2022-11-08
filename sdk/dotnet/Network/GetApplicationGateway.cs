@@ -122,6 +122,10 @@ namespace Pulumi.Azure.Network
     public sealed class GetApplicationGatewayResult
     {
         /// <summary>
+        /// A `backend_address_pool` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetApplicationGatewayBackendAddressPoolResult> BackendAddressPools;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -133,6 +137,9 @@ namespace Pulumi.Azure.Network
         /// The Azure Region where the Application Gateway exists.
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// The name of the Backend Address Pool.
+        /// </summary>
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
@@ -142,6 +149,8 @@ namespace Pulumi.Azure.Network
 
         [OutputConstructor]
         private GetApplicationGatewayResult(
+            ImmutableArray<Outputs.GetApplicationGatewayBackendAddressPoolResult> backendAddressPools,
+
             string id,
 
             ImmutableArray<Outputs.GetApplicationGatewayIdentityResult> identities,
@@ -154,6 +163,7 @@ namespace Pulumi.Azure.Network
 
             ImmutableDictionary<string, string> tags)
         {
+            BackendAddressPools = backendAddressPools;
             Id = id;
             Identities = identities;
             Location = location;

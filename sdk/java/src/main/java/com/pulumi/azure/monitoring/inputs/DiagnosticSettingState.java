@@ -124,6 +124,21 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
+     * 
+     */
+    @Import(name="partnerSolutionId")
+    private @Nullable Output<String> partnerSolutionId;
+
+    /**
+     * @return The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
+     * 
+     */
+    public Optional<Output<String>> partnerSolutionId() {
+        return Optional.ofNullable(this.partnerSolutionId);
+    }
+
+    /**
      * The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
      * 
      */
@@ -163,6 +178,7 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
         this.logs = $.logs;
         this.metrics = $.metrics;
         this.name = $.name;
+        this.partnerSolutionId = $.partnerSolutionId;
         this.storageAccountId = $.storageAccountId;
         this.targetResourceId = $.targetResourceId;
     }
@@ -350,6 +366,27 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param partnerSolutionId The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder partnerSolutionId(@Nullable Output<String> partnerSolutionId) {
+            $.partnerSolutionId = partnerSolutionId;
+            return this;
+        }
+
+        /**
+         * @param partnerSolutionId The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder partnerSolutionId(String partnerSolutionId) {
+            return partnerSolutionId(Output.of(partnerSolutionId));
         }
 
         /**

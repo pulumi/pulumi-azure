@@ -19,14 +19,14 @@ public final class FrontdoorFirewallPolicyManagedRuleArgs extends com.pulumi.res
     public static final FrontdoorFirewallPolicyManagedRuleArgs Empty = new FrontdoorFirewallPolicyManagedRuleArgs();
 
     /**
-     * The action to perform when the managed rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+     * The action to perform when the managed rule is matched. Possible values depends on which DRS version you are using, for DRS `1.0`, `1.1` and `preview-0.1` the possible values include `Allow`, `Block`, `Log`, or `Redirect`. For DRS `2.0` and `2.1` the value must be `AnomalyScoring`.
      * 
      */
     @Import(name="action", required=true)
     private Output<String> action;
 
     /**
-     * @return The action to perform when the managed rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+     * @return The action to perform when the managed rule is matched. Possible values depends on which DRS version you are using, for DRS `1.0`, `1.1` and `preview-0.1` the possible values include `Allow`, `Block`, `Log`, or `Redirect`. For DRS `2.0` and `2.1` the value must be `AnomalyScoring`.
      * 
      */
     public Output<String> action() {
@@ -64,14 +64,14 @@ public final class FrontdoorFirewallPolicyManagedRuleArgs extends com.pulumi.res
     }
 
     /**
-     * The name of the managed rule to use with this resource.
+     * The name of the managed rule to use with this resource. Possible values include `DefaultRuleSet`, `Microsoft_DefaultRuleSet`, `BotProtection` or `Microsoft_BotManagerRuleSet`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The name of the managed rule to use with this resource.
+     * @return The name of the managed rule to use with this resource. Possible values include `DefaultRuleSet`, `Microsoft_DefaultRuleSet`, `BotProtection` or `Microsoft_BotManagerRuleSet`.
      * 
      */
     public Output<String> type() {
@@ -79,14 +79,14 @@ public final class FrontdoorFirewallPolicyManagedRuleArgs extends com.pulumi.res
     }
 
     /**
-     * The version on the managed rule to use with this resource.
+     * The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the value must be `1.0`.
      * 
      */
     @Import(name="version", required=true)
     private Output<String> version;
 
     /**
-     * @return The version on the managed rule to use with this resource.
+     * @return The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the value must be `1.0`.
      * 
      */
     public Output<String> version() {
@@ -122,7 +122,7 @@ public final class FrontdoorFirewallPolicyManagedRuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param action The action to perform when the managed rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+         * @param action The action to perform when the managed rule is matched. Possible values depends on which DRS version you are using, for DRS `1.0`, `1.1` and `preview-0.1` the possible values include `Allow`, `Block`, `Log`, or `Redirect`. For DRS `2.0` and `2.1` the value must be `AnomalyScoring`.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class FrontdoorFirewallPolicyManagedRuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param action The action to perform when the managed rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+         * @param action The action to perform when the managed rule is matched. Possible values depends on which DRS version you are using, for DRS `1.0`, `1.1` and `preview-0.1` the possible values include `Allow`, `Block`, `Log`, or `Redirect`. For DRS `2.0` and `2.1` the value must be `AnomalyScoring`.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class FrontdoorFirewallPolicyManagedRuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param type The name of the managed rule to use with this resource.
+         * @param type The name of the managed rule to use with this resource. Possible values include `DefaultRuleSet`, `Microsoft_DefaultRuleSet`, `BotProtection` or `Microsoft_BotManagerRuleSet`.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class FrontdoorFirewallPolicyManagedRuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param type The name of the managed rule to use with this resource.
+         * @param type The name of the managed rule to use with this resource. Possible values include `DefaultRuleSet`, `Microsoft_DefaultRuleSet`, `BotProtection` or `Microsoft_BotManagerRuleSet`.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class FrontdoorFirewallPolicyManagedRuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param version The version on the managed rule to use with this resource.
+         * @param version The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the value must be `1.0`.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class FrontdoorFirewallPolicyManagedRuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param version The version on the managed rule to use with this resource.
+         * @param version The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the value must be `1.0`.
          * 
          * @return builder
          * 

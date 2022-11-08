@@ -81,7 +81,7 @@ class LinuxVirtualMachineScaleSetArgs:
         :param pulumi.Input[str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetAdminSshKeyArgs']]] admin_ssh_keys: One or more `admin_ssh_key` blocks as defined below.
         :param pulumi.Input['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs'] automatic_instance_repair: An `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
-        :param pulumi.Input['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs'] automatic_os_upgrade_policy: An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
+        :param pulumi.Input['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs'] automatic_os_upgrade_policy: An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
         :param pulumi.Input['LinuxVirtualMachineScaleSetBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
@@ -350,7 +350,7 @@ class LinuxVirtualMachineScaleSetArgs:
     @pulumi.getter(name="automaticOsUpgradePolicy")
     def automatic_os_upgrade_policy(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']]:
         """
-        An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
+        An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
         """
         return pulumi.get(self, "automatic_os_upgrade_policy")
 
@@ -946,7 +946,7 @@ class _LinuxVirtualMachineScaleSetState:
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetAdminSshKeyArgs']]] admin_ssh_keys: One or more `admin_ssh_key` blocks as defined below.
         :param pulumi.Input[str] admin_username: The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
         :param pulumi.Input['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs'] automatic_instance_repair: An `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
-        :param pulumi.Input['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs'] automatic_os_upgrade_policy: An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
+        :param pulumi.Input['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs'] automatic_os_upgrade_policy: An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
         :param pulumi.Input['LinuxVirtualMachineScaleSetBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
@@ -1179,7 +1179,7 @@ class _LinuxVirtualMachineScaleSetState:
     @pulumi.getter(name="automaticOsUpgradePolicy")
     def automatic_os_upgrade_policy(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']]:
         """
-        An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
+        An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
         """
         return pulumi.get(self, "automatic_os_upgrade_policy")
 
@@ -1901,7 +1901,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAdminSshKeyArgs']]]] admin_ssh_keys: One or more `admin_ssh_key` blocks as defined below.
         :param pulumi.Input[str] admin_username: The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs']] automatic_instance_repair: An `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
-        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']] automatic_os_upgrade_policy: An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
+        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']] automatic_os_upgrade_policy: An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
@@ -2248,7 +2248,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAdminSshKeyArgs']]]] admin_ssh_keys: One or more `admin_ssh_key` blocks as defined below.
         :param pulumi.Input[str] admin_username: The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs']] automatic_instance_repair: An `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
-        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']] automatic_os_upgrade_policy: An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
+        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']] automatic_os_upgrade_policy: An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
@@ -2402,7 +2402,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
     @pulumi.getter(name="automaticOsUpgradePolicy")
     def automatic_os_upgrade_policy(self) -> pulumi.Output[Optional['outputs.LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy']]:
         """
-        An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
+        An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
         """
         return pulumi.get(self, "automatic_os_upgrade_policy")
 

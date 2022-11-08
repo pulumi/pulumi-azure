@@ -62,6 +62,21 @@ public final class ContactArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The name of the Security Center Contact. Defaults to `default1`.
+     * 
+     */
+    @Import(name="name")
+    private @Nullable Output<String> name;
+
+    /**
+     * @return The name of the Security Center Contact. Defaults to `default1`.
+     * 
+     */
+    public Optional<Output<String>> name() {
+        return Optional.ofNullable(this.name);
+    }
+
+    /**
      * The phone number of the Security Center Contact.
      * 
      */
@@ -82,6 +97,7 @@ public final class ContactArgs extends com.pulumi.resources.ResourceArgs {
         this.alertNotifications = $.alertNotifications;
         this.alertsToAdmins = $.alertsToAdmins;
         this.email = $.email;
+        this.name = $.name;
         this.phone = $.phone;
     }
 
@@ -164,6 +180,27 @@ public final class ContactArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder email(String email) {
             return email(Output.of(email));
+        }
+
+        /**
+         * @param name The name of the Security Center Contact. Defaults to `default1`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(@Nullable Output<String> name) {
+            $.name = name;
+            return this;
+        }
+
+        /**
+         * @param name The name of the Security Center Contact. Defaults to `default1`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(String name) {
+            return name(Output.of(name));
         }
 
         /**

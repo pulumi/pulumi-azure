@@ -60,6 +60,11 @@ export type KubernetesClusterNodePool = import("./kubernetesClusterNodePool").Ku
 export const KubernetesClusterNodePool: typeof import("./kubernetesClusterNodePool").KubernetesClusterNodePool = null as any;
 utilities.lazyLoad(exports, ["KubernetesClusterNodePool"], () => require("./kubernetesClusterNodePool"));
 
+export { KubernetesFleetManagerArgs, KubernetesFleetManagerState } from "./kubernetesFleetManager";
+export type KubernetesFleetManager = import("./kubernetesFleetManager").KubernetesFleetManager;
+export const KubernetesFleetManager: typeof import("./kubernetesFleetManager").KubernetesFleetManager = null as any;
+utilities.lazyLoad(exports, ["KubernetesFleetManager"], () => require("./kubernetesFleetManager"));
+
 export { RegistryArgs, RegistryState } from "./registry";
 export type Registry = import("./registry").Registry;
 export const Registry: typeof import("./registry").Registry = null as any;
@@ -118,6 +123,8 @@ const _module = {
                 return new KubernetesCluster(name, <any>undefined, { urn })
             case "azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool":
                 return new KubernetesClusterNodePool(name, <any>undefined, { urn })
+            case "azure:containerservice/kubernetesFleetManager:KubernetesFleetManager":
+                return new KubernetesFleetManager(name, <any>undefined, { urn })
             case "azure:containerservice/registry:Registry":
                 return new Registry(name, <any>undefined, { urn })
             case "azure:containerservice/registryAgentPool:RegistryAgentPool":
@@ -145,6 +152,7 @@ pulumi.runtime.registerResourceModule("azure", "containerservice/connectedRegist
 pulumi.runtime.registerResourceModule("azure", "containerservice/group", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/kubernetesCluster", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/kubernetesClusterNodePool", _module)
+pulumi.runtime.registerResourceModule("azure", "containerservice/kubernetesFleetManager", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/registry", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/registryAgentPool", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/registryScopeMap", _module)

@@ -191,7 +191,9 @@ import javax.annotation.Nullable;
  * 
  *         final var exampleClientConfig = CoreFunctions.getClientConfig();
  * 
- *         final var exampleGroup = ManagementFunctions.getGroup();
+ *         final var exampleGroup = ManagementFunctions.getGroup(GetGroupArgs.builder()
+ *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
+ *             .build());
  * 
  *         var exampleRoleDefinition = new RoleDefinition(&#34;exampleRoleDefinition&#34;, RoleDefinitionArgs.builder()        
  *             .roleDefinitionId(&#34;00000000-0000-0000-0000-000000000000&#34;)

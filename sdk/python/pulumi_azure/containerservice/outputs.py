@@ -64,9 +64,11 @@ __all__ = [
     'KubernetesClusterOmsAgent',
     'KubernetesClusterOmsAgentOmsAgentIdentity',
     'KubernetesClusterServicePrincipal',
+    'KubernetesClusterWebAppRouting',
     'KubernetesClusterWindowsProfile',
     'KubernetesClusterWindowsProfileGmsa',
     'KubernetesClusterWorkloadAutoscalerProfile',
+    'KubernetesFleetManagerHubProfile',
     'RegistryEncryption',
     'RegistryGeoreplication',
     'RegistryIdentity',
@@ -5456,6 +5458,41 @@ class KubernetesClusterServicePrincipal(dict):
 
 
 @pulumi.output_type
+class KubernetesClusterWebAppRouting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsZoneId":
+            suggest = "dns_zone_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterWebAppRouting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterWebAppRouting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterWebAppRouting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dns_zone_id: str):
+        """
+        :param str dns_zone_id: Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled.
+        """
+        pulumi.set(__self__, "dns_zone_id", dns_zone_id)
+
+    @property
+    @pulumi.getter(name="dnsZoneId")
+    def dns_zone_id(self) -> str:
+        """
+        Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled.
+        """
+        return pulumi.get(self, "dns_zone_id")
+
+
+@pulumi.output_type
 class KubernetesClusterWindowsProfile(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -5610,6 +5647,53 @@ class KubernetesClusterWorkloadAutoscalerProfile(dict):
         Specifies whether KEDA Autoscaler can be used for workloads.
         """
         return pulumi.get(self, "keda_enabled")
+
+
+@pulumi.output_type
+class KubernetesFleetManagerHubProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsPrefix":
+            suggest = "dns_prefix"
+        elif key == "kubernetesVersion":
+            suggest = "kubernetes_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesFleetManagerHubProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesFleetManagerHubProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesFleetManagerHubProfile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dns_prefix: str,
+                 fqdn: Optional[str] = None,
+                 kubernetes_version: Optional[str] = None):
+        pulumi.set(__self__, "dns_prefix", dns_prefix)
+        if fqdn is not None:
+            pulumi.set(__self__, "fqdn", fqdn)
+        if kubernetes_version is not None:
+            pulumi.set(__self__, "kubernetes_version", kubernetes_version)
+
+    @property
+    @pulumi.getter(name="dnsPrefix")
+    def dns_prefix(self) -> str:
+        return pulumi.get(self, "dns_prefix")
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> Optional[str]:
+        return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter(name="kubernetesVersion")
+    def kubernetes_version(self) -> Optional[str]:
+        return pulumi.get(self, "kubernetes_version")
 
 
 @pulumi.output_type

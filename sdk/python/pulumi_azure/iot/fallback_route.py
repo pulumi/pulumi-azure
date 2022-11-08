@@ -27,7 +27,7 @@ class FallbackRouteArgs:
         :param pulumi.Input[str] iothub_name: The name of the IoTHub to which this Fallback Route belongs. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] condition: The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
-        :param pulumi.Input[str] source: The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`.
+        :param pulumi.Input[str] source: The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "endpoint_names", endpoint_names)
@@ -102,7 +102,7 @@ class FallbackRouteArgs:
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input[str]]:
         """
-        The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`.
+        The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`.
         """
         return pulumi.get(self, "source")
 
@@ -127,7 +127,7 @@ class _FallbackRouteState:
         :param pulumi.Input[str] endpoint_names: The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
         :param pulumi.Input[str] iothub_name: The name of the IoTHub to which this Fallback Route belongs. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] source: The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`.
+        :param pulumi.Input[str] source: The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`.
         """
         if condition is not None:
             pulumi.set(__self__, "condition", condition)
@@ -206,7 +206,7 @@ class _FallbackRouteState:
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input[str]]:
         """
-        The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`.
+        The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`.
         """
         return pulumi.get(self, "source")
 
@@ -251,7 +251,7 @@ class FallbackRoute(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint_names: The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
         :param pulumi.Input[str] iothub_name: The name of the IoTHub to which this Fallback Route belongs. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] source: The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`.
+        :param pulumi.Input[str] source: The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`.
         """
         ...
     @overload
@@ -348,7 +348,7 @@ class FallbackRoute(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint_names: The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
         :param pulumi.Input[str] iothub_name: The name of the IoTHub to which this Fallback Route belongs. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] source: The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`.
+        :param pulumi.Input[str] source: The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -406,7 +406,7 @@ class FallbackRoute(pulumi.CustomResource):
     @pulumi.getter
     def source(self) -> pulumi.Output[Optional[str]]:
         """
-        The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`.
+        The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`.
         """
         return pulumi.get(self, "source")
 

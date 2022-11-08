@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.compute.inputs;
 
+import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -92,6 +93,13 @@ public final class LinuxVirtualMachineScaleSetExtensionArgs extends com.pulumi.r
         return Optional.ofNullable(this.protectedSettings);
     }
 
+    @Import(name="protectedSettingsFromKeyVault")
+    private @Nullable Output<LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs> protectedSettingsFromKeyVault;
+
+    public Optional<Output<LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs>> protectedSettingsFromKeyVault() {
+        return Optional.ofNullable(this.protectedSettingsFromKeyVault);
+    }
+
     /**
      * An ordered list of Extension names which this should be provisioned after.
      * 
@@ -175,6 +183,7 @@ public final class LinuxVirtualMachineScaleSetExtensionArgs extends com.pulumi.r
         this.forceUpdateTag = $.forceUpdateTag;
         this.name = $.name;
         this.protectedSettings = $.protectedSettings;
+        this.protectedSettingsFromKeyVault = $.protectedSettingsFromKeyVault;
         this.provisionAfterExtensions = $.provisionAfterExtensions;
         this.publisher = $.publisher;
         this.settings = $.settings;
@@ -303,6 +312,15 @@ public final class LinuxVirtualMachineScaleSetExtensionArgs extends com.pulumi.r
          */
         public Builder protectedSettings(String protectedSettings) {
             return protectedSettings(Output.of(protectedSettings));
+        }
+
+        public Builder protectedSettingsFromKeyVault(@Nullable Output<LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs> protectedSettingsFromKeyVault) {
+            $.protectedSettingsFromKeyVault = protectedSettingsFromKeyVault;
+            return this;
+        }
+
+        public Builder protectedSettingsFromKeyVault(LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs protectedSettingsFromKeyVault) {
+            return protectedSettingsFromKeyVault(Output.of(protectedSettingsFromKeyVault));
         }
 
         /**

@@ -23,6 +23,7 @@ import com.pulumi.azure.containerservice.outputs.KubernetesClusterMicrosoftDefen
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterNetworkProfile;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterOmsAgent;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterServicePrincipal;
+import com.pulumi.azure.containerservice.outputs.KubernetesClusterWebAppRouting;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterWindowsProfile;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterWorkloadAutoscalerProfile;
 import com.pulumi.core.Output;
@@ -772,6 +773,20 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
+    }
+    /**
+     * A `web_app_routing` block as defined below.
+     * 
+     */
+    @Export(name="webAppRouting", type=KubernetesClusterWebAppRouting.class, parameters={})
+    private Output</* @Nullable */ KubernetesClusterWebAppRouting> webAppRouting;
+
+    /**
+     * @return A `web_app_routing` block as defined below.
+     * 
+     */
+    public Output<Optional<KubernetesClusterWebAppRouting>> webAppRouting() {
+        return Codegen.optional(this.webAppRouting);
     }
     /**
      * A `windows_profile` block as defined below.

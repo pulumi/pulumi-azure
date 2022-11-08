@@ -75,6 +75,10 @@ export interface GetFunctionAppHostKeysResult {
      * Function App resource's SignalR Extension system key.
      */
     readonly signalrExtensionKey: string;
+    /**
+     * Function App resource's Web PubSub Extension system key.
+     */
+    readonly webpubsubExtensionKey: string;
 }
 
 export function getFunctionAppHostKeysOutput(args: GetFunctionAppHostKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionAppHostKeysResult> {

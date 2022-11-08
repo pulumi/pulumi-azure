@@ -22,7 +22,10 @@ class GetApplicationGatewayResult:
     """
     A collection of values returned by getApplicationGateway.
     """
-    def __init__(__self__, id=None, identities=None, location=None, name=None, resource_group_name=None, tags=None):
+    def __init__(__self__, backend_address_pools=None, id=None, identities=None, location=None, name=None, resource_group_name=None, tags=None):
+        if backend_address_pools and not isinstance(backend_address_pools, list):
+            raise TypeError("Expected argument 'backend_address_pools' to be a list")
+        pulumi.set(__self__, "backend_address_pools", backend_address_pools)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -41,6 +44,14 @@ class GetApplicationGatewayResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="backendAddressPools")
+    def backend_address_pools(self) -> Sequence['outputs.GetApplicationGatewayBackendAddressPoolResult']:
+        """
+        A `backend_address_pool` block as defined below.
+        """
+        return pulumi.get(self, "backend_address_pools")
 
     @property
     @pulumi.getter
@@ -69,6 +80,9 @@ class GetApplicationGatewayResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the Backend Address Pool.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -91,6 +105,7 @@ class AwaitableGetApplicationGatewayResult(GetApplicationGatewayResult):
         if False:
             yield self
         return GetApplicationGatewayResult(
+            backend_address_pools=self.backend_address_pools,
             id=self.id,
             identities=self.identities,
             location=self.location,
@@ -127,6 +142,7 @@ def get_application_gateway(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:network/getApplicationGateway:getApplicationGateway', __args__, opts=opts, typ=GetApplicationGatewayResult).value
 
     return AwaitableGetApplicationGatewayResult(
+        backend_address_pools=__ret__.backend_address_pools,
         id=__ret__.id,
         identities=__ret__.identities,
         location=__ret__.location,

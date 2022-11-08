@@ -205,7 +205,7 @@ class Configuration(pulumi.CustomResource):
         Nginxs can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:nginx/configuration:Configuration example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Nginx Configuration.NginxPlus/nginxDeployments/dep1/configurations/default
+         $ pulumi import azure:nginx/configuration:Configuration example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Nginx.NginxPlus/nginxDeployments/dep1/configurations/default
         ```
 
         :param str resource_name: The name of the resource.
@@ -230,7 +230,7 @@ class Configuration(pulumi.CustomResource):
         Nginxs can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:nginx/configuration:Configuration example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Nginx Configuration.NginxPlus/nginxDeployments/dep1/configurations/default
+         $ pulumi import azure:nginx/configuration:Configuration example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Nginx.NginxPlus/nginxDeployments/dep1/configurations/default
         ```
 
         :param str resource_name: The name of the resource.

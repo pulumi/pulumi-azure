@@ -45,6 +45,12 @@ namespace Pulumi.Azure.Compute.Inputs
         [Input("protectedSettings")]
         public Input<string>? ProtectedSettings { get; set; }
 
+        /// <summary>
+        /// A `protected_settings_from_key_vault` block as defined below.
+        /// </summary>
+        [Input("protectedSettingsFromKeyVault")]
+        public Input<Inputs.OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs>? ProtectedSettingsFromKeyVault { get; set; }
+
         [Input("publisher", required: true)]
         public Input<string> Publisher { get; set; } = null!;
 

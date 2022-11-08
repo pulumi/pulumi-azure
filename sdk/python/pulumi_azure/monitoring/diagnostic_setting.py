@@ -24,6 +24,7 @@ class DiagnosticSettingArgs:
                  logs: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingLogArgs']]]] = None,
                  metrics: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingMetricArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 partner_solution_id: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DiagnosticSetting resource.
@@ -35,6 +36,7 @@ class DiagnosticSettingArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingLogArgs']]] logs: One or more `log` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingMetricArgs']]] metrics: One or more `metric` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] partner_solution_id: The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "target_resource_id", target_resource_id)
@@ -52,6 +54,8 @@ class DiagnosticSettingArgs:
             pulumi.set(__self__, "metrics", metrics)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if partner_solution_id is not None:
+            pulumi.set(__self__, "partner_solution_id", partner_solution_id)
         if storage_account_id is not None:
             pulumi.set(__self__, "storage_account_id", storage_account_id)
 
@@ -152,6 +156,18 @@ class DiagnosticSettingArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="partnerSolutionId")
+    def partner_solution_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
+        """
+        return pulumi.get(self, "partner_solution_id")
+
+    @partner_solution_id.setter
+    def partner_solution_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "partner_solution_id", value)
+
+    @property
     @pulumi.getter(name="storageAccountId")
     def storage_account_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -174,6 +190,7 @@ class _DiagnosticSettingState:
                  logs: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingLogArgs']]]] = None,
                  metrics: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingMetricArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 partner_solution_id: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None):
         """
@@ -185,6 +202,7 @@ class _DiagnosticSettingState:
         :param pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingLogArgs']]] logs: One or more `log` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingMetricArgs']]] metrics: One or more `metric` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] partner_solution_id: The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
         """
@@ -202,6 +220,8 @@ class _DiagnosticSettingState:
             pulumi.set(__self__, "metrics", metrics)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if partner_solution_id is not None:
+            pulumi.set(__self__, "partner_solution_id", partner_solution_id)
         if storage_account_id is not None:
             pulumi.set(__self__, "storage_account_id", storage_account_id)
         if target_resource_id is not None:
@@ -292,6 +312,18 @@ class _DiagnosticSettingState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="partnerSolutionId")
+    def partner_solution_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
+        """
+        return pulumi.get(self, "partner_solution_id")
+
+    @partner_solution_id.setter
+    def partner_solution_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "partner_solution_id", value)
+
+    @property
     @pulumi.getter(name="storageAccountId")
     def storage_account_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -328,6 +360,7 @@ class DiagnosticSetting(pulumi.CustomResource):
                  logs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiagnosticSettingLogArgs']]]]] = None,
                  metrics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiagnosticSettingMetricArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 partner_solution_id: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -380,6 +413,7 @@ class DiagnosticSetting(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiagnosticSettingLogArgs']]]] logs: One or more `log` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiagnosticSettingMetricArgs']]]] metrics: One or more `metric` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] partner_solution_id: The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
         """
@@ -451,6 +485,7 @@ class DiagnosticSetting(pulumi.CustomResource):
                  logs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiagnosticSettingLogArgs']]]]] = None,
                  metrics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiagnosticSettingMetricArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 partner_solution_id: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -469,6 +504,7 @@ class DiagnosticSetting(pulumi.CustomResource):
             __props__.__dict__["logs"] = logs
             __props__.__dict__["metrics"] = metrics
             __props__.__dict__["name"] = name
+            __props__.__dict__["partner_solution_id"] = partner_solution_id
             __props__.__dict__["storage_account_id"] = storage_account_id
             if target_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_resource_id'")
@@ -490,6 +526,7 @@ class DiagnosticSetting(pulumi.CustomResource):
             logs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiagnosticSettingLogArgs']]]]] = None,
             metrics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiagnosticSettingMetricArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            partner_solution_id: Optional[pulumi.Input[str]] = None,
             storage_account_id: Optional[pulumi.Input[str]] = None,
             target_resource_id: Optional[pulumi.Input[str]] = None) -> 'DiagnosticSetting':
         """
@@ -506,6 +543,7 @@ class DiagnosticSetting(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiagnosticSettingLogArgs']]]] logs: One or more `log` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiagnosticSettingMetricArgs']]]] metrics: One or more `metric` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] partner_solution_id: The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
         """
@@ -520,6 +558,7 @@ class DiagnosticSetting(pulumi.CustomResource):
         __props__.__dict__["logs"] = logs
         __props__.__dict__["metrics"] = metrics
         __props__.__dict__["name"] = name
+        __props__.__dict__["partner_solution_id"] = partner_solution_id
         __props__.__dict__["storage_account_id"] = storage_account_id
         __props__.__dict__["target_resource_id"] = target_resource_id
         return DiagnosticSetting(resource_name, opts=opts, __props__=__props__)
@@ -579,6 +618,14 @@ class DiagnosticSetting(pulumi.CustomResource):
         Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="partnerSolutionId")
+    def partner_solution_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
+        """
+        return pulumi.get(self, "partner_solution_id")
 
     @property
     @pulumi.getter(name="storageAccountId")

@@ -122,7 +122,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly automaticInstanceRepair!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetAutomaticInstanceRepair>;
     /**
-     * An `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
+     * An `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to either `Automatic` or `Rolling`.
      */
     public readonly automaticOsUpgradePolicy!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy | undefined>;
     /**
@@ -519,7 +519,7 @@ export interface WindowsVirtualMachineScaleSetState {
      */
     automaticInstanceRepair?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetAutomaticInstanceRepair>;
     /**
-     * An `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
+     * An `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to either `Automatic` or `Rolling`.
      */
     automaticOsUpgradePolicy?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy>;
     /**
@@ -759,7 +759,7 @@ export interface WindowsVirtualMachineScaleSetArgs {
      */
     automaticInstanceRepair?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetAutomaticInstanceRepair>;
     /**
-     * An `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
+     * An `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to either `Automatic` or `Rolling`.
      */
     automaticOsUpgradePolicy?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy>;
     /**

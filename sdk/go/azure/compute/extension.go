@@ -178,6 +178,8 @@ type Extension struct {
 	// The protectedSettings passed to the
 	// extension, like settings, these are specified as a JSON object in a string.
 	ProtectedSettings pulumi.StringPtrOutput `pulumi:"protectedSettings"`
+	// A `protectedSettingsFromKeyVault` block as defined below.
+	ProtectedSettingsFromKeyVault ExtensionProtectedSettingsFromKeyVaultPtrOutput `pulumi:"protectedSettingsFromKeyVault"`
 	// The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
 	Publisher pulumi.StringOutput `pulumi:"publisher"`
 	// The settings passed to the extension, these are
@@ -249,6 +251,8 @@ type extensionState struct {
 	// The protectedSettings passed to the
 	// extension, like settings, these are specified as a JSON object in a string.
 	ProtectedSettings *string `pulumi:"protectedSettings"`
+	// A `protectedSettingsFromKeyVault` block as defined below.
+	ProtectedSettingsFromKeyVault *ExtensionProtectedSettingsFromKeyVault `pulumi:"protectedSettingsFromKeyVault"`
 	// The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
 	Publisher *string `pulumi:"publisher"`
 	// The settings passed to the extension, these are
@@ -280,6 +284,8 @@ type ExtensionState struct {
 	// The protectedSettings passed to the
 	// extension, like settings, these are specified as a JSON object in a string.
 	ProtectedSettings pulumi.StringPtrInput
+	// A `protectedSettingsFromKeyVault` block as defined below.
+	ProtectedSettingsFromKeyVault ExtensionProtectedSettingsFromKeyVaultPtrInput
 	// The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
 	Publisher pulumi.StringPtrInput
 	// The settings passed to the extension, these are
@@ -315,6 +321,8 @@ type extensionArgs struct {
 	// The protectedSettings passed to the
 	// extension, like settings, these are specified as a JSON object in a string.
 	ProtectedSettings *string `pulumi:"protectedSettings"`
+	// A `protectedSettingsFromKeyVault` block as defined below.
+	ProtectedSettingsFromKeyVault *ExtensionProtectedSettingsFromKeyVault `pulumi:"protectedSettingsFromKeyVault"`
 	// The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
 	Publisher string `pulumi:"publisher"`
 	// The settings passed to the extension, these are
@@ -347,6 +355,8 @@ type ExtensionArgs struct {
 	// The protectedSettings passed to the
 	// extension, like settings, these are specified as a JSON object in a string.
 	ProtectedSettings pulumi.StringPtrInput
+	// A `protectedSettingsFromKeyVault` block as defined below.
+	ProtectedSettingsFromKeyVault ExtensionProtectedSettingsFromKeyVaultPtrInput
 	// The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
 	Publisher pulumi.StringInput
 	// The settings passed to the extension, these are
@@ -477,6 +487,13 @@ func (o ExtensionOutput) Name() pulumi.StringOutput {
 // extension, like settings, these are specified as a JSON object in a string.
 func (o ExtensionOutput) ProtectedSettings() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringPtrOutput { return v.ProtectedSettings }).(pulumi.StringPtrOutput)
+}
+
+// A `protectedSettingsFromKeyVault` block as defined below.
+func (o ExtensionOutput) ProtectedSettingsFromKeyVault() ExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return o.ApplyT(func(v *Extension) ExtensionProtectedSettingsFromKeyVaultPtrOutput {
+		return v.ProtectedSettingsFromKeyVault
+	}).(ExtensionProtectedSettingsFromKeyVaultPtrOutput)
 }
 
 // The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.

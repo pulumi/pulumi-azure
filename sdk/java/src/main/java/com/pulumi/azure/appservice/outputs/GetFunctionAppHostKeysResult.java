@@ -41,6 +41,11 @@ public final class GetFunctionAppHostKeysResult {
      * 
      */
     private String signalrExtensionKey;
+    /**
+     * @return Function App resource&#39;s Web PubSub Extension system key.
+     * 
+     */
+    private String webpubsubExtensionKey;
 
     private GetFunctionAppHostKeysResult() {}
     /**
@@ -91,6 +96,13 @@ public final class GetFunctionAppHostKeysResult {
     public String signalrExtensionKey() {
         return this.signalrExtensionKey;
     }
+    /**
+     * @return Function App resource&#39;s Web PubSub Extension system key.
+     * 
+     */
+    public String webpubsubExtensionKey() {
+        return this.webpubsubExtensionKey;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -109,6 +121,7 @@ public final class GetFunctionAppHostKeysResult {
         private String primaryKey;
         private String resourceGroupName;
         private String signalrExtensionKey;
+        private String webpubsubExtensionKey;
         public Builder() {}
         public Builder(GetFunctionAppHostKeysResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -120,6 +133,7 @@ public final class GetFunctionAppHostKeysResult {
     	      this.primaryKey = defaults.primaryKey;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.signalrExtensionKey = defaults.signalrExtensionKey;
+    	      this.webpubsubExtensionKey = defaults.webpubsubExtensionKey;
         }
 
         @CustomType.Setter
@@ -162,6 +176,11 @@ public final class GetFunctionAppHostKeysResult {
             this.signalrExtensionKey = Objects.requireNonNull(signalrExtensionKey);
             return this;
         }
+        @CustomType.Setter
+        public Builder webpubsubExtensionKey(String webpubsubExtensionKey) {
+            this.webpubsubExtensionKey = Objects.requireNonNull(webpubsubExtensionKey);
+            return this;
+        }
         public GetFunctionAppHostKeysResult build() {
             final var o = new GetFunctionAppHostKeysResult();
             o.defaultFunctionKey = defaultFunctionKey;
@@ -172,6 +191,7 @@ public final class GetFunctionAppHostKeysResult {
             o.primaryKey = primaryKey;
             o.resourceGroupName = resourceGroupName;
             o.signalrExtensionKey = signalrExtensionKey;
+            o.webpubsubExtensionKey = webpubsubExtensionKey;
             return o;
         }
     }

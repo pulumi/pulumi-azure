@@ -71,6 +71,8 @@ type GetFunctionAppHostKeysResult struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Function App resource's SignalR Extension system key.
 	SignalrExtensionKey string `pulumi:"signalrExtensionKey"`
+	// Function App resource's Web PubSub Extension system key.
+	WebpubsubExtensionKey string `pulumi:"webpubsubExtensionKey"`
 }
 
 func GetFunctionAppHostKeysOutput(ctx *pulumi.Context, args GetFunctionAppHostKeysOutputArgs, opts ...pulumi.InvokeOption) GetFunctionAppHostKeysResultOutput {
@@ -149,6 +151,11 @@ func (o GetFunctionAppHostKeysResultOutput) ResourceGroupName() pulumi.StringOut
 // Function App resource's SignalR Extension system key.
 func (o GetFunctionAppHostKeysResultOutput) SignalrExtensionKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionAppHostKeysResult) string { return v.SignalrExtensionKey }).(pulumi.StringOutput)
+}
+
+// Function App resource's Web PubSub Extension system key.
+func (o GetFunctionAppHostKeysResultOutput) WebpubsubExtensionKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionAppHostKeysResult) string { return v.WebpubsubExtensionKey }).(pulumi.StringOutput)
 }
 
 func init() {

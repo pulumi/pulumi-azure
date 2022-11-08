@@ -45,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ManagedInstanceActiveDirectoryAdministrator{}
 	case "azure:mssql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup":
 		r = &ManagedInstanceFailoverGroup{}
+	case "azure:mssql/managedInstanceSecurityAlertPolicy:ManagedInstanceSecurityAlertPolicy":
+		r = &ManagedInstanceSecurityAlertPolicy{}
 	case "azure:mssql/managedInstanceVulnerabilityAssessment:ManagedInstanceVulnerabilityAssessment":
 		r = &ManagedInstanceVulnerabilityAssessment{}
 	case "azure:mssql/outboundFirewallRule:OutboundFirewallRule":
@@ -55,6 +57,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServerDnsAlias{}
 	case "azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy":
 		r = &ServerExtendedAuditingPolicy{}
+	case "azure:mssql/serverMicrosoftSupportAuditingPolicy:ServerMicrosoftSupportAuditingPolicy":
+		r = &ServerMicrosoftSupportAuditingPolicy{}
 	case "azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy":
 		r = &ServerSecurityAlertPolicy{}
 	case "azure:mssql/serverTransparentDataEncryption:ServerTransparentDataEncryption":
@@ -140,6 +144,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"mssql/managedInstanceSecurityAlertPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"mssql/managedInstanceVulnerabilityAssessment",
 		&module{version},
 	)
@@ -161,6 +170,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"mssql/serverExtendedAuditingPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"mssql/serverMicrosoftSupportAuditingPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

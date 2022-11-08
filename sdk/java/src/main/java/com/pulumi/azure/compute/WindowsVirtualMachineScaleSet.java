@@ -213,14 +213,14 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
         return this.automaticInstanceRepair;
     }
     /**
-     * An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
+     * An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
      * 
      */
     @Export(name="automaticOsUpgradePolicy", type=WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy.class, parameters={})
     private Output</* @Nullable */ WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy> automaticOsUpgradePolicy;
 
     /**
-     * @return An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
+     * @return An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
      * 
      */
     public Output<Optional<WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy>> automaticOsUpgradePolicy() {

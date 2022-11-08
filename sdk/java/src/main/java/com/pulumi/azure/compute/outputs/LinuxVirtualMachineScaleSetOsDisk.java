@@ -45,7 +45,7 @@ public final class LinuxVirtualMachineScaleSetOsDisk {
      */
     private @Nullable String securityEncryptionType;
     /**
-     * @return The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
+     * @return The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
      * 
      */
     private String storageAccountType;
@@ -99,7 +99,7 @@ public final class LinuxVirtualMachineScaleSetOsDisk {
         return Optional.ofNullable(this.securityEncryptionType);
     }
     /**
-     * @return The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
+     * @return The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
      * 
      */
     public String storageAccountType() {

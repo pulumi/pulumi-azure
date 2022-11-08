@@ -1491,6 +1491,8 @@ class VirtualMachineStorageConfiguration(dict):
             suggest = "data_settings"
         elif key == "logSettings":
             suggest = "log_settings"
+        elif key == "systemDbOnDataDiskEnabled":
+            suggest = "system_db_on_data_disk_enabled"
         elif key == "tempDbSettings":
             suggest = "temp_db_settings"
 
@@ -1510,12 +1512,14 @@ class VirtualMachineStorageConfiguration(dict):
                  storage_workload_type: str,
                  data_settings: Optional['outputs.VirtualMachineStorageConfigurationDataSettings'] = None,
                  log_settings: Optional['outputs.VirtualMachineStorageConfigurationLogSettings'] = None,
+                 system_db_on_data_disk_enabled: Optional[bool] = None,
                  temp_db_settings: Optional['outputs.VirtualMachineStorageConfigurationTempDbSettings'] = None):
         """
         :param str disk_type: The type of disk configuration to apply to the SQL Server. Valid values include `NEW`, `EXTEND`, or `ADD`.
         :param str storage_workload_type: The type of storage workload. Valid values include `GENERAL`, `OLTP`, or `DW`.
         :param 'VirtualMachineStorageConfigurationDataSettingsArgs' data_settings: An `storage_settings` as defined below.
         :param 'VirtualMachineStorageConfigurationLogSettingsArgs' log_settings: An `storage_settings` as defined below.
+        :param bool system_db_on_data_disk_enabled: Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are `true` and `false`. Defaults to `false`.
         :param 'VirtualMachineStorageConfigurationTempDbSettingsArgs' temp_db_settings: An `temp_db_settings` as defined below.
         """
         pulumi.set(__self__, "disk_type", disk_type)
@@ -1524,6 +1528,8 @@ class VirtualMachineStorageConfiguration(dict):
             pulumi.set(__self__, "data_settings", data_settings)
         if log_settings is not None:
             pulumi.set(__self__, "log_settings", log_settings)
+        if system_db_on_data_disk_enabled is not None:
+            pulumi.set(__self__, "system_db_on_data_disk_enabled", system_db_on_data_disk_enabled)
         if temp_db_settings is not None:
             pulumi.set(__self__, "temp_db_settings", temp_db_settings)
 
@@ -1558,6 +1564,14 @@ class VirtualMachineStorageConfiguration(dict):
         An `storage_settings` as defined below.
         """
         return pulumi.get(self, "log_settings")
+
+    @property
+    @pulumi.getter(name="systemDbOnDataDiskEnabled")
+    def system_db_on_data_disk_enabled(self) -> Optional[bool]:
+        """
+        Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are `true` and `false`. Defaults to `false`.
+        """
+        return pulumi.get(self, "system_db_on_data_disk_enabled")
 
     @property
     @pulumi.getter(name="tempDbSettings")

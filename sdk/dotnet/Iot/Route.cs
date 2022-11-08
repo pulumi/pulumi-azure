@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Iot
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`. Defaults to `DeviceMessages`.
+        /// The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`. Defaults to `DeviceMessages`.
         /// </summary>
         [Output("source")]
         public Output<string> Source { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Azure.Iot
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`. Defaults to `DeviceMessages`.
+        /// The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`. Defaults to `DeviceMessages`.
         /// </summary>
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;
@@ -200,7 +200,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`. Defaults to `DeviceMessages`.
+        /// The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`. Defaults to `DeviceMessages`.
         /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }

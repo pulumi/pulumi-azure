@@ -15,6 +15,7 @@ __all__ = [
     'FunctionJavascriptUdaInputArgs',
     'FunctionJavascriptUdaOutputArgs',
     'JobIdentityArgs',
+    'JobJobStorageAccountArgs',
     'OutputBlobSerializationArgs',
     'OutputEventHubSerializationArgs',
     'OutputServiceBusQueueSerializationArgs',
@@ -197,6 +198,58 @@ class JobIdentityArgs:
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class JobJobStorageAccountArgs:
+    def __init__(__self__, *,
+                 account_key: pulumi.Input[str],
+                 account_name: pulumi.Input[str],
+                 authentication_mode: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] account_key: The account key for the Azure storage account.
+        :param pulumi.Input[str] account_name: The name of the Azure storage account.
+        :param pulumi.Input[str] authentication_mode: The authentication mode of the storage account. Possible values are `ConnectionString`, `Msi` and `UserToken`.
+        """
+        pulumi.set(__self__, "account_key", account_key)
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "authentication_mode", authentication_mode)
+
+    @property
+    @pulumi.getter(name="accountKey")
+    def account_key(self) -> pulumi.Input[str]:
+        """
+        The account key for the Azure storage account.
+        """
+        return pulumi.get(self, "account_key")
+
+    @account_key.setter
+    def account_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_key", value)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Azure storage account.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> pulumi.Input[str]:
+        """
+        The authentication mode of the storage account. Possible values are `ConnectionString`, `Msi` and `UserToken`.
+        """
+        return pulumi.get(self, "authentication_mode")
+
+    @authentication_mode.setter
+    def authentication_mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "authentication_mode", value)
 
 
 @pulumi.input_type

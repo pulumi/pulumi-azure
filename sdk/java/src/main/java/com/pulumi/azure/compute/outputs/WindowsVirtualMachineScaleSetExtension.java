@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.compute.outputs;
 
+import com.pulumi.azure.compute.outputs.WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -38,6 +39,7 @@ public final class WindowsVirtualMachineScaleSetExtension {
      * 
      */
     private @Nullable String protectedSettings;
+    private @Nullable WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault protectedSettingsFromKeyVault;
     /**
      * @return An ordered list of Extension names which this should be provisioned after.
      * 
@@ -100,6 +102,9 @@ public final class WindowsVirtualMachineScaleSetExtension {
     public Optional<String> protectedSettings() {
         return Optional.ofNullable(this.protectedSettings);
     }
+    public Optional<WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault> protectedSettingsFromKeyVault() {
+        return Optional.ofNullable(this.protectedSettingsFromKeyVault);
+    }
     /**
      * @return An ordered list of Extension names which this should be provisioned after.
      * 
@@ -150,6 +155,7 @@ public final class WindowsVirtualMachineScaleSetExtension {
         private @Nullable String forceUpdateTag;
         private String name;
         private @Nullable String protectedSettings;
+        private @Nullable WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault protectedSettingsFromKeyVault;
         private @Nullable List<String> provisionAfterExtensions;
         private String publisher;
         private @Nullable String settings;
@@ -163,6 +169,7 @@ public final class WindowsVirtualMachineScaleSetExtension {
     	      this.forceUpdateTag = defaults.forceUpdateTag;
     	      this.name = defaults.name;
     	      this.protectedSettings = defaults.protectedSettings;
+    	      this.protectedSettingsFromKeyVault = defaults.protectedSettingsFromKeyVault;
     	      this.provisionAfterExtensions = defaults.provisionAfterExtensions;
     	      this.publisher = defaults.publisher;
     	      this.settings = defaults.settings;
@@ -193,6 +200,11 @@ public final class WindowsVirtualMachineScaleSetExtension {
         @CustomType.Setter
         public Builder protectedSettings(@Nullable String protectedSettings) {
             this.protectedSettings = protectedSettings;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder protectedSettingsFromKeyVault(@Nullable WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault protectedSettingsFromKeyVault) {
+            this.protectedSettingsFromKeyVault = protectedSettingsFromKeyVault;
             return this;
         }
         @CustomType.Setter
@@ -230,6 +242,7 @@ public final class WindowsVirtualMachineScaleSetExtension {
             o.forceUpdateTag = forceUpdateTag;
             o.name = name;
             o.protectedSettings = protectedSettings;
+            o.protectedSettingsFromKeyVault = protectedSettingsFromKeyVault;
             o.provisionAfterExtensions = provisionAfterExtensions;
             o.publisher = publisher;
             o.settings = settings;

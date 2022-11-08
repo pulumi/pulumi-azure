@@ -53,6 +53,10 @@ export interface GetApplicationGatewayArgs {
  */
 export interface GetApplicationGatewayResult {
     /**
+     * A `backendAddressPool` block as defined below.
+     */
+    readonly backendAddressPools: outputs.network.GetApplicationGatewayBackendAddressPool[];
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
@@ -64,6 +68,9 @@ export interface GetApplicationGatewayResult {
      * The Azure Region where the Application Gateway exists.
      */
     readonly location: string;
+    /**
+     * The name of the Backend Address Pool.
+     */
     readonly name: string;
     readonly resourceGroupName: string;
     /**

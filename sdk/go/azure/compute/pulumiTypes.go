@@ -535,6 +535,162 @@ func (o DiskEncryptionSetIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ExtensionProtectedSettingsFromKeyVault struct {
+	// The URL to the Key Vault Secret which stores the protected settings.
+	SecretUrl string `pulumi:"secretUrl"`
+	// The ID of the source Key Vault.
+	SourceVaultId string `pulumi:"sourceVaultId"`
+}
+
+// ExtensionProtectedSettingsFromKeyVaultInput is an input type that accepts ExtensionProtectedSettingsFromKeyVaultArgs and ExtensionProtectedSettingsFromKeyVaultOutput values.
+// You can construct a concrete instance of `ExtensionProtectedSettingsFromKeyVaultInput` via:
+//
+//	ExtensionProtectedSettingsFromKeyVaultArgs{...}
+type ExtensionProtectedSettingsFromKeyVaultInput interface {
+	pulumi.Input
+
+	ToExtensionProtectedSettingsFromKeyVaultOutput() ExtensionProtectedSettingsFromKeyVaultOutput
+	ToExtensionProtectedSettingsFromKeyVaultOutputWithContext(context.Context) ExtensionProtectedSettingsFromKeyVaultOutput
+}
+
+type ExtensionProtectedSettingsFromKeyVaultArgs struct {
+	// The URL to the Key Vault Secret which stores the protected settings.
+	SecretUrl pulumi.StringInput `pulumi:"secretUrl"`
+	// The ID of the source Key Vault.
+	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
+}
+
+func (ExtensionProtectedSettingsFromKeyVaultArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtensionProtectedSettingsFromKeyVault)(nil)).Elem()
+}
+
+func (i ExtensionProtectedSettingsFromKeyVaultArgs) ToExtensionProtectedSettingsFromKeyVaultOutput() ExtensionProtectedSettingsFromKeyVaultOutput {
+	return i.ToExtensionProtectedSettingsFromKeyVaultOutputWithContext(context.Background())
+}
+
+func (i ExtensionProtectedSettingsFromKeyVaultArgs) ToExtensionProtectedSettingsFromKeyVaultOutputWithContext(ctx context.Context) ExtensionProtectedSettingsFromKeyVaultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtensionProtectedSettingsFromKeyVaultOutput)
+}
+
+func (i ExtensionProtectedSettingsFromKeyVaultArgs) ToExtensionProtectedSettingsFromKeyVaultPtrOutput() ExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return i.ToExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (i ExtensionProtectedSettingsFromKeyVaultArgs) ToExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(ctx context.Context) ExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtensionProtectedSettingsFromKeyVaultOutput).ToExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(ctx)
+}
+
+// ExtensionProtectedSettingsFromKeyVaultPtrInput is an input type that accepts ExtensionProtectedSettingsFromKeyVaultArgs, ExtensionProtectedSettingsFromKeyVaultPtr and ExtensionProtectedSettingsFromKeyVaultPtrOutput values.
+// You can construct a concrete instance of `ExtensionProtectedSettingsFromKeyVaultPtrInput` via:
+//
+//	        ExtensionProtectedSettingsFromKeyVaultArgs{...}
+//
+//	or:
+//
+//	        nil
+type ExtensionProtectedSettingsFromKeyVaultPtrInput interface {
+	pulumi.Input
+
+	ToExtensionProtectedSettingsFromKeyVaultPtrOutput() ExtensionProtectedSettingsFromKeyVaultPtrOutput
+	ToExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(context.Context) ExtensionProtectedSettingsFromKeyVaultPtrOutput
+}
+
+type extensionProtectedSettingsFromKeyVaultPtrType ExtensionProtectedSettingsFromKeyVaultArgs
+
+func ExtensionProtectedSettingsFromKeyVaultPtr(v *ExtensionProtectedSettingsFromKeyVaultArgs) ExtensionProtectedSettingsFromKeyVaultPtrInput {
+	return (*extensionProtectedSettingsFromKeyVaultPtrType)(v)
+}
+
+func (*extensionProtectedSettingsFromKeyVaultPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtensionProtectedSettingsFromKeyVault)(nil)).Elem()
+}
+
+func (i *extensionProtectedSettingsFromKeyVaultPtrType) ToExtensionProtectedSettingsFromKeyVaultPtrOutput() ExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return i.ToExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (i *extensionProtectedSettingsFromKeyVaultPtrType) ToExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(ctx context.Context) ExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtensionProtectedSettingsFromKeyVaultPtrOutput)
+}
+
+type ExtensionProtectedSettingsFromKeyVaultOutput struct{ *pulumi.OutputState }
+
+func (ExtensionProtectedSettingsFromKeyVaultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtensionProtectedSettingsFromKeyVault)(nil)).Elem()
+}
+
+func (o ExtensionProtectedSettingsFromKeyVaultOutput) ToExtensionProtectedSettingsFromKeyVaultOutput() ExtensionProtectedSettingsFromKeyVaultOutput {
+	return o
+}
+
+func (o ExtensionProtectedSettingsFromKeyVaultOutput) ToExtensionProtectedSettingsFromKeyVaultOutputWithContext(ctx context.Context) ExtensionProtectedSettingsFromKeyVaultOutput {
+	return o
+}
+
+func (o ExtensionProtectedSettingsFromKeyVaultOutput) ToExtensionProtectedSettingsFromKeyVaultPtrOutput() ExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return o.ToExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (o ExtensionProtectedSettingsFromKeyVaultOutput) ToExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(ctx context.Context) ExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExtensionProtectedSettingsFromKeyVault) *ExtensionProtectedSettingsFromKeyVault {
+		return &v
+	}).(ExtensionProtectedSettingsFromKeyVaultPtrOutput)
+}
+
+// The URL to the Key Vault Secret which stores the protected settings.
+func (o ExtensionProtectedSettingsFromKeyVaultOutput) SecretUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v ExtensionProtectedSettingsFromKeyVault) string { return v.SecretUrl }).(pulumi.StringOutput)
+}
+
+// The ID of the source Key Vault.
+func (o ExtensionProtectedSettingsFromKeyVaultOutput) SourceVaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v ExtensionProtectedSettingsFromKeyVault) string { return v.SourceVaultId }).(pulumi.StringOutput)
+}
+
+type ExtensionProtectedSettingsFromKeyVaultPtrOutput struct{ *pulumi.OutputState }
+
+func (ExtensionProtectedSettingsFromKeyVaultPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtensionProtectedSettingsFromKeyVault)(nil)).Elem()
+}
+
+func (o ExtensionProtectedSettingsFromKeyVaultPtrOutput) ToExtensionProtectedSettingsFromKeyVaultPtrOutput() ExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return o
+}
+
+func (o ExtensionProtectedSettingsFromKeyVaultPtrOutput) ToExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(ctx context.Context) ExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return o
+}
+
+func (o ExtensionProtectedSettingsFromKeyVaultPtrOutput) Elem() ExtensionProtectedSettingsFromKeyVaultOutput {
+	return o.ApplyT(func(v *ExtensionProtectedSettingsFromKeyVault) ExtensionProtectedSettingsFromKeyVault {
+		if v != nil {
+			return *v
+		}
+		var ret ExtensionProtectedSettingsFromKeyVault
+		return ret
+	}).(ExtensionProtectedSettingsFromKeyVaultOutput)
+}
+
+// The URL to the Key Vault Secret which stores the protected settings.
+func (o ExtensionProtectedSettingsFromKeyVaultPtrOutput) SecretUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExtensionProtectedSettingsFromKeyVault) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the source Key Vault.
+func (o ExtensionProtectedSettingsFromKeyVaultPtrOutput) SourceVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExtensionProtectedSettingsFromKeyVault) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceVaultId
+	}).(pulumi.StringPtrOutput)
+}
+
 type GalleryApplicationVersionManageAction struct {
 	// The command to install the Gallery Application. Changing this forces a new resource to be created.
 	Install string `pulumi:"install"`
@@ -3371,7 +3527,7 @@ type LinuxVirtualMachineScaleSetDataDisk struct {
 	Lun int `pulumi:"lun"`
 	// The name of the Data Disk.
 	Name *string `pulumi:"name"`
-	// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
+	// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
 	StorageAccountType        string `pulumi:"storageAccountType"`
 	UltraSsdDiskIopsReadWrite *int   `pulumi:"ultraSsdDiskIopsReadWrite"`
 	UltraSsdDiskMbpsReadWrite *int   `pulumi:"ultraSsdDiskMbpsReadWrite"`
@@ -3403,7 +3559,7 @@ type LinuxVirtualMachineScaleSetDataDiskArgs struct {
 	Lun pulumi.IntInput `pulumi:"lun"`
 	// The name of the Data Disk.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
+	// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
 	StorageAccountType        pulumi.StringInput `pulumi:"storageAccountType"`
 	UltraSsdDiskIopsReadWrite pulumi.IntPtrInput `pulumi:"ultraSsdDiskIopsReadWrite"`
 	UltraSsdDiskMbpsReadWrite pulumi.IntPtrInput `pulumi:"ultraSsdDiskMbpsReadWrite"`
@@ -3492,7 +3648,7 @@ func (o LinuxVirtualMachineScaleSetDataDiskOutput) Name() pulumi.StringPtrOutput
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
+// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
 func (o LinuxVirtualMachineScaleSetDataDiskOutput) StorageAccountType() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
 }
@@ -3540,7 +3696,8 @@ type LinuxVirtualMachineScaleSetExtension struct {
 	// The name for the Virtual Machine Scale Set Extension.
 	Name string `pulumi:"name"`
 	// A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
-	ProtectedSettings *string `pulumi:"protectedSettings"`
+	ProtectedSettings             *string                                                            `pulumi:"protectedSettings"`
+	ProtectedSettingsFromKeyVault *LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault `pulumi:"protectedSettingsFromKeyVault"`
 	// An ordered list of Extension names which this should be provisioned after.
 	ProvisionAfterExtensions []string `pulumi:"provisionAfterExtensions"`
 	// Specifies the Publisher of the Extension.
@@ -3574,7 +3731,8 @@ type LinuxVirtualMachineScaleSetExtensionArgs struct {
 	// The name for the Virtual Machine Scale Set Extension.
 	Name pulumi.StringInput `pulumi:"name"`
 	// A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
-	ProtectedSettings pulumi.StringPtrInput `pulumi:"protectedSettings"`
+	ProtectedSettings             pulumi.StringPtrInput                                                     `pulumi:"protectedSettings"`
+	ProtectedSettingsFromKeyVault LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrInput `pulumi:"protectedSettingsFromKeyVault"`
 	// An ordered list of Extension names which this should be provisioned after.
 	ProvisionAfterExtensions pulumi.StringArrayInput `pulumi:"provisionAfterExtensions"`
 	// Specifies the Publisher of the Extension.
@@ -3663,6 +3821,12 @@ func (o LinuxVirtualMachineScaleSetExtensionOutput) ProtectedSettings() pulumi.S
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetExtension) *string { return v.ProtectedSettings }).(pulumi.StringPtrOutput)
 }
 
+func (o LinuxVirtualMachineScaleSetExtensionOutput) ProtectedSettingsFromKeyVault() LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetExtension) *LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault {
+		return v.ProtectedSettingsFromKeyVault
+	}).(LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput)
+}
+
 // An ordered list of Extension names which this should be provisioned after.
 func (o LinuxVirtualMachineScaleSetExtensionOutput) ProvisionAfterExtensions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetExtension) []string { return v.ProvisionAfterExtensions }).(pulumi.StringArrayOutput)
@@ -3706,6 +3870,164 @@ func (o LinuxVirtualMachineScaleSetExtensionArrayOutput) Index(i pulumi.IntInput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinuxVirtualMachineScaleSetExtension {
 		return vs[0].([]LinuxVirtualMachineScaleSetExtension)[vs[1].(int)]
 	}).(LinuxVirtualMachineScaleSetExtensionOutput)
+}
+
+type LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault struct {
+	// The URL to the Key Vault Secret which stores the protected settings.
+	SecretUrl string `pulumi:"secretUrl"`
+	// The ID of the source Key Vault.
+	SourceVaultId string `pulumi:"sourceVaultId"`
+}
+
+// LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultInput is an input type that accepts LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs and LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput values.
+// You can construct a concrete instance of `LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultInput` via:
+//
+//	LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs{...}
+type LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput() LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput
+	ToLinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutputWithContext(context.Context) LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput
+}
+
+type LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs struct {
+	// The URL to the Key Vault Secret which stores the protected settings.
+	SecretUrl pulumi.StringInput `pulumi:"secretUrl"`
+	// The ID of the source Key Vault.
+	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
+}
+
+func (LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs) ToLinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput() LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput {
+	return i.ToLinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs) ToLinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput)
+}
+
+func (i LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs) ToLinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput() LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return i.ToLinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs) ToLinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput).ToLinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(ctx)
+}
+
+// LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrInput is an input type that accepts LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs, LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtr and LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput values.
+// You can construct a concrete instance of `LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrInput` via:
+//
+//	        LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs{...}
+//
+//	or:
+//
+//	        nil
+type LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput() LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput
+	ToLinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(context.Context) LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput
+}
+
+type linuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrType LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs
+
+func LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtr(v *LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs) LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrInput {
+	return (*linuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrType)(v)
+}
+
+func (*linuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault)(nil)).Elem()
+}
+
+func (i *linuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrType) ToLinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput() LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return i.ToLinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (i *linuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrType) ToLinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput)
+}
+
+type LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput) ToLinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput() LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput) ToLinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput) ToLinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput() LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return o.ToLinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (o LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput) ToLinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault) *LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault {
+		return &v
+	}).(LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput)
+}
+
+// The URL to the Key Vault Secret which stores the protected settings.
+func (o LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput) SecretUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault) string { return v.SecretUrl }).(pulumi.StringOutput)
+}
+
+// The ID of the source Key Vault.
+func (o LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput) SourceVaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault) string {
+		return v.SourceVaultId
+	}).(pulumi.StringOutput)
+}
+
+type LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput) ToLinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput() LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput) ToLinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput) Elem() LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault) LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault {
+		if v != nil {
+			return *v
+		}
+		var ret LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault
+		return ret
+	}).(LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput)
+}
+
+// The URL to the Key Vault Secret which stores the protected settings.
+func (o LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput) SecretUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the source Key Vault.
+func (o LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput) SourceVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceVaultId
+	}).(pulumi.StringPtrOutput)
 }
 
 type LinuxVirtualMachineScaleSetGalleryApplication struct {
@@ -4635,7 +4957,7 @@ type LinuxVirtualMachineScaleSetOsDisk struct {
 	SecureVmDiskEncryptionSetId *string `pulumi:"secureVmDiskEncryptionSetId"`
 	// Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
 	SecurityEncryptionType *string `pulumi:"securityEncryptionType"`
-	// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
+	// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
 	StorageAccountType string `pulumi:"storageAccountType"`
 	// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 	WriteAcceleratorEnabled *bool `pulumi:"writeAcceleratorEnabled"`
@@ -4665,7 +4987,7 @@ type LinuxVirtualMachineScaleSetOsDiskArgs struct {
 	SecureVmDiskEncryptionSetId pulumi.StringPtrInput `pulumi:"secureVmDiskEncryptionSetId"`
 	// Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
 	SecurityEncryptionType pulumi.StringPtrInput `pulumi:"securityEncryptionType"`
-	// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
+	// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
 	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
 	// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 	WriteAcceleratorEnabled pulumi.BoolPtrInput `pulumi:"writeAcceleratorEnabled"`
@@ -4780,7 +5102,7 @@ func (o LinuxVirtualMachineScaleSetOsDiskOutput) SecurityEncryptionType() pulumi
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) *string { return v.SecurityEncryptionType }).(pulumi.StringPtrOutput)
 }
 
-// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
+// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
 func (o LinuxVirtualMachineScaleSetOsDiskOutput) StorageAccountType() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
 }
@@ -4874,7 +5196,7 @@ func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) SecurityEncryptionType() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
+// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
 func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetOsDisk) *string {
 		if v == nil {
@@ -8096,12 +8418,14 @@ type OrchestratedVirtualMachineScaleSetExtension struct {
 	FailureSuppressionEnabled       *bool   `pulumi:"failureSuppressionEnabled"`
 	ForceExtensionExecutionOnChange *string `pulumi:"forceExtensionExecutionOnChange"`
 	// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
-	Name               string  `pulumi:"name"`
-	ProtectedSettings  *string `pulumi:"protectedSettings"`
-	Publisher          string  `pulumi:"publisher"`
-	Settings           *string `pulumi:"settings"`
-	Type               string  `pulumi:"type"`
-	TypeHandlerVersion string  `pulumi:"typeHandlerVersion"`
+	Name              string  `pulumi:"name"`
+	ProtectedSettings *string `pulumi:"protectedSettings"`
+	// A `protectedSettingsFromKeyVault` block as defined below.
+	ProtectedSettingsFromKeyVault *OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault `pulumi:"protectedSettingsFromKeyVault"`
+	Publisher                     string                                                                    `pulumi:"publisher"`
+	Settings                      *string                                                                   `pulumi:"settings"`
+	Type                          string                                                                    `pulumi:"type"`
+	TypeHandlerVersion            string                                                                    `pulumi:"typeHandlerVersion"`
 }
 
 // OrchestratedVirtualMachineScaleSetExtensionInput is an input type that accepts OrchestratedVirtualMachineScaleSetExtensionArgs and OrchestratedVirtualMachineScaleSetExtensionOutput values.
@@ -8123,12 +8447,14 @@ type OrchestratedVirtualMachineScaleSetExtensionArgs struct {
 	FailureSuppressionEnabled       pulumi.BoolPtrInput   `pulumi:"failureSuppressionEnabled"`
 	ForceExtensionExecutionOnChange pulumi.StringPtrInput `pulumi:"forceExtensionExecutionOnChange"`
 	// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
-	Name               pulumi.StringInput    `pulumi:"name"`
-	ProtectedSettings  pulumi.StringPtrInput `pulumi:"protectedSettings"`
-	Publisher          pulumi.StringInput    `pulumi:"publisher"`
-	Settings           pulumi.StringPtrInput `pulumi:"settings"`
-	Type               pulumi.StringInput    `pulumi:"type"`
-	TypeHandlerVersion pulumi.StringInput    `pulumi:"typeHandlerVersion"`
+	Name              pulumi.StringInput    `pulumi:"name"`
+	ProtectedSettings pulumi.StringPtrInput `pulumi:"protectedSettings"`
+	// A `protectedSettingsFromKeyVault` block as defined below.
+	ProtectedSettingsFromKeyVault OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrInput `pulumi:"protectedSettingsFromKeyVault"`
+	Publisher                     pulumi.StringInput                                                               `pulumi:"publisher"`
+	Settings                      pulumi.StringPtrInput                                                            `pulumi:"settings"`
+	Type                          pulumi.StringInput                                                               `pulumi:"type"`
+	TypeHandlerVersion            pulumi.StringInput                                                               `pulumi:"typeHandlerVersion"`
 }
 
 func (OrchestratedVirtualMachineScaleSetExtensionArgs) ElementType() reflect.Type {
@@ -8211,6 +8537,13 @@ func (o OrchestratedVirtualMachineScaleSetExtensionOutput) ProtectedSettings() p
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetExtension) *string { return v.ProtectedSettings }).(pulumi.StringPtrOutput)
 }
 
+// A `protectedSettingsFromKeyVault` block as defined below.
+func (o OrchestratedVirtualMachineScaleSetExtensionOutput) ProtectedSettingsFromKeyVault() OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetExtension) *OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault {
+		return v.ProtectedSettingsFromKeyVault
+	}).(OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput)
+}
+
 func (o OrchestratedVirtualMachineScaleSetExtensionOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetExtension) string { return v.Publisher }).(pulumi.StringOutput)
 }
@@ -8245,6 +8578,166 @@ func (o OrchestratedVirtualMachineScaleSetExtensionArrayOutput) Index(i pulumi.I
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrchestratedVirtualMachineScaleSetExtension {
 		return vs[0].([]OrchestratedVirtualMachineScaleSetExtension)[vs[1].(int)]
 	}).(OrchestratedVirtualMachineScaleSetExtensionOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault struct {
+	// The URL to the Key Vault Secret which stores the protected settings.
+	SecretUrl string `pulumi:"secretUrl"`
+	// The ID of the source Key Vault.
+	SourceVaultId string `pulumi:"sourceVaultId"`
+}
+
+// OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultInput is an input type that accepts OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs and OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultInput` via:
+//
+//	OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs{...}
+type OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput() OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput
+	ToOrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput
+}
+
+type OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs struct {
+	// The URL to the Key Vault Secret which stores the protected settings.
+	SecretUrl pulumi.StringInput `pulumi:"secretUrl"`
+	// The ID of the source Key Vault.
+	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
+}
+
+func (OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs) ToOrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput() OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs) ToOrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput)
+}
+
+func (i OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs) ToOrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput() OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs) ToOrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput).ToOrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(ctx)
+}
+
+// OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrInput is an input type that accepts OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs, OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtr and OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrInput` via:
+//
+//	        OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput() OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput
+	ToOrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput
+}
+
+type orchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrType OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs
+
+func OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtr(v *OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs) OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrInput {
+	return (*orchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrType)(v)
+}
+
+func (*orchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault)(nil)).Elem()
+}
+
+func (i *orchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrType) ToOrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput() OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (i *orchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrType) ToOrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput) ToOrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput() OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput) ToOrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput) ToOrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput() OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return o.ToOrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (o OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput) ToOrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault) *OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault {
+		return &v
+	}).(OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput)
+}
+
+// The URL to the Key Vault Secret which stores the protected settings.
+func (o OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput) SecretUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault) string {
+		return v.SecretUrl
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the source Key Vault.
+func (o OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput) SourceVaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault) string {
+		return v.SourceVaultId
+	}).(pulumi.StringOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput) ToOrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput() OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput) ToOrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput) Elem() OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault) OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault {
+		if v != nil {
+			return *v
+		}
+		var ret OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault
+		return ret
+	}).(OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput)
+}
+
+// The URL to the Key Vault Secret which stores the protected settings.
+func (o OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput) SecretUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the source Key Vault.
+func (o OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput) SourceVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceVaultId
+	}).(pulumi.StringPtrOutput)
 }
 
 type OrchestratedVirtualMachineScaleSetIdentity struct {
@@ -17255,6 +17748,162 @@ func (o VirtualMachinePlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault struct {
+	// The URL to the Key Vault Secret which stores the protected settings.
+	SecretUrl string `pulumi:"secretUrl"`
+	// The ID of the source Key Vault.
+	SourceVaultId string `pulumi:"sourceVaultId"`
+}
+
+// VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultInput is an input type that accepts VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs and VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput values.
+// You can construct a concrete instance of `VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultInput` via:
+//
+//	VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs{...}
+type VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultInput interface {
+	pulumi.Input
+
+	ToVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput() VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput
+	ToVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutputWithContext(context.Context) VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput
+}
+
+type VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs struct {
+	// The URL to the Key Vault Secret which stores the protected settings.
+	SecretUrl pulumi.StringInput `pulumi:"secretUrl"`
+	// The ID of the source Key Vault.
+	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
+}
+
+func (VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault)(nil)).Elem()
+}
+
+func (i VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs) ToVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput() VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput {
+	return i.ToVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs) ToVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput)
+}
+
+func (i VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs) ToVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput() VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return i.ToVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs) ToVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput).ToVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(ctx)
+}
+
+// VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrInput is an input type that accepts VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs, VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtr and VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput values.
+// You can construct a concrete instance of `VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrInput` via:
+//
+//	        VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs{...}
+//
+//	or:
+//
+//	        nil
+type VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrInput interface {
+	pulumi.Input
+
+	ToVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput() VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput
+	ToVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(context.Context) VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput
+}
+
+type virtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrType VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs
+
+func VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtr(v *VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs) VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrInput {
+	return (*virtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrType)(v)
+}
+
+func (*virtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault)(nil)).Elem()
+}
+
+func (i *virtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrType) ToVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput() VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return i.ToVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrType) ToVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput)
+}
+
+type VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault)(nil)).Elem()
+}
+
+func (o VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput) ToVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput() VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput {
+	return o
+}
+
+func (o VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput) ToVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput {
+	return o
+}
+
+func (o VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput) ToVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput() VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return o.ToVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput) ToVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault) *VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault {
+		return &v
+	}).(VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput)
+}
+
+// The URL to the Key Vault Secret which stores the protected settings.
+func (o VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput) SecretUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault) string { return v.SecretUrl }).(pulumi.StringOutput)
+}
+
+// The ID of the source Key Vault.
+func (o VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput) SourceVaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault) string { return v.SourceVaultId }).(pulumi.StringOutput)
+}
+
+type VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault)(nil)).Elem()
+}
+
+func (o VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput) ToVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput() VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return o
+}
+
+func (o VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput) ToVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return o
+}
+
+func (o VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput) Elem() VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault) VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault
+		return ret
+	}).(VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput)
+}
+
+// The URL to the Key Vault Secret which stores the protected settings.
+func (o VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput) SecretUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the source Key Vault.
+func (o VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput) SourceVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceVaultId
+	}).(pulumi.StringPtrOutput)
+}
+
 type VirtualMachineStorageDataDisk struct {
 	// Specifies the caching requirements for the Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
 	Caching *string `pulumi:"caching"`
@@ -19970,7 +20619,7 @@ type WindowsVirtualMachineScaleSetDataDisk struct {
 	Lun int `pulumi:"lun"`
 	// The name of the Data Disk.
 	Name *string `pulumi:"name"`
-	// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
+	// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
 	StorageAccountType        string `pulumi:"storageAccountType"`
 	UltraSsdDiskIopsReadWrite *int   `pulumi:"ultraSsdDiskIopsReadWrite"`
 	UltraSsdDiskMbpsReadWrite *int   `pulumi:"ultraSsdDiskMbpsReadWrite"`
@@ -20002,7 +20651,7 @@ type WindowsVirtualMachineScaleSetDataDiskArgs struct {
 	Lun pulumi.IntInput `pulumi:"lun"`
 	// The name of the Data Disk.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
+	// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
 	StorageAccountType        pulumi.StringInput `pulumi:"storageAccountType"`
 	UltraSsdDiskIopsReadWrite pulumi.IntPtrInput `pulumi:"ultraSsdDiskIopsReadWrite"`
 	UltraSsdDiskMbpsReadWrite pulumi.IntPtrInput `pulumi:"ultraSsdDiskMbpsReadWrite"`
@@ -20091,7 +20740,7 @@ func (o WindowsVirtualMachineScaleSetDataDiskOutput) Name() pulumi.StringPtrOutp
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
+// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
 func (o WindowsVirtualMachineScaleSetDataDiskOutput) StorageAccountType() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
 }
@@ -20139,7 +20788,8 @@ type WindowsVirtualMachineScaleSetExtension struct {
 	// The name for the Virtual Machine Scale Set Extension.
 	Name string `pulumi:"name"`
 	// A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
-	ProtectedSettings *string `pulumi:"protectedSettings"`
+	ProtectedSettings             *string                                                              `pulumi:"protectedSettings"`
+	ProtectedSettingsFromKeyVault *WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault `pulumi:"protectedSettingsFromKeyVault"`
 	// An ordered list of Extension names which this should be provisioned after.
 	ProvisionAfterExtensions []string `pulumi:"provisionAfterExtensions"`
 	// Specifies the Publisher of the Extension.
@@ -20173,7 +20823,8 @@ type WindowsVirtualMachineScaleSetExtensionArgs struct {
 	// The name for the Virtual Machine Scale Set Extension.
 	Name pulumi.StringInput `pulumi:"name"`
 	// A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
-	ProtectedSettings pulumi.StringPtrInput `pulumi:"protectedSettings"`
+	ProtectedSettings             pulumi.StringPtrInput                                                       `pulumi:"protectedSettings"`
+	ProtectedSettingsFromKeyVault WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrInput `pulumi:"protectedSettingsFromKeyVault"`
 	// An ordered list of Extension names which this should be provisioned after.
 	ProvisionAfterExtensions pulumi.StringArrayInput `pulumi:"provisionAfterExtensions"`
 	// Specifies the Publisher of the Extension.
@@ -20262,6 +20913,12 @@ func (o WindowsVirtualMachineScaleSetExtensionOutput) ProtectedSettings() pulumi
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetExtension) *string { return v.ProtectedSettings }).(pulumi.StringPtrOutput)
 }
 
+func (o WindowsVirtualMachineScaleSetExtensionOutput) ProtectedSettingsFromKeyVault() WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetExtension) *WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault {
+		return v.ProtectedSettingsFromKeyVault
+	}).(WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput)
+}
+
 // An ordered list of Extension names which this should be provisioned after.
 func (o WindowsVirtualMachineScaleSetExtensionOutput) ProvisionAfterExtensions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetExtension) []string { return v.ProvisionAfterExtensions }).(pulumi.StringArrayOutput)
@@ -20305,6 +20962,164 @@ func (o WindowsVirtualMachineScaleSetExtensionArrayOutput) Index(i pulumi.IntInp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsVirtualMachineScaleSetExtension {
 		return vs[0].([]WindowsVirtualMachineScaleSetExtension)[vs[1].(int)]
 	}).(WindowsVirtualMachineScaleSetExtensionOutput)
+}
+
+type WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault struct {
+	// The URL to the Key Vault Secret which stores the protected settings.
+	SecretUrl string `pulumi:"secretUrl"`
+	// The ID of the source Key Vault.
+	SourceVaultId string `pulumi:"sourceVaultId"`
+}
+
+// WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultInput is an input type that accepts WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs and WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput values.
+// You can construct a concrete instance of `WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultInput` via:
+//
+//	WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs{...}
+type WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput() WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput
+	ToWindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutputWithContext(context.Context) WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput
+}
+
+type WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs struct {
+	// The URL to the Key Vault Secret which stores the protected settings.
+	SecretUrl pulumi.StringInput `pulumi:"secretUrl"`
+	// The ID of the source Key Vault.
+	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
+}
+
+func (WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs) ToWindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput() WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput {
+	return i.ToWindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs) ToWindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput)
+}
+
+func (i WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs) ToWindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput() WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return i.ToWindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs) ToWindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput).ToWindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(ctx)
+}
+
+// WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrInput is an input type that accepts WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs, WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtr and WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput values.
+// You can construct a concrete instance of `WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrInput` via:
+//
+//	        WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs{...}
+//
+//	or:
+//
+//	        nil
+type WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput() WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput
+	ToWindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(context.Context) WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput
+}
+
+type windowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrType WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs
+
+func WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtr(v *WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs) WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrInput {
+	return (*windowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrType)(v)
+}
+
+func (*windowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault)(nil)).Elem()
+}
+
+func (i *windowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrType) ToWindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput() WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return i.ToWindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (i *windowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrType) ToWindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput)
+}
+
+type WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput) ToWindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput() WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput) ToWindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput) ToWindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput() WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return o.ToWindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (o WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput) ToWindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault) *WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault {
+		return &v
+	}).(WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput)
+}
+
+// The URL to the Key Vault Secret which stores the protected settings.
+func (o WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput) SecretUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault) string { return v.SecretUrl }).(pulumi.StringOutput)
+}
+
+// The ID of the source Key Vault.
+func (o WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput) SourceVaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault) string {
+		return v.SourceVaultId
+	}).(pulumi.StringOutput)
+}
+
+type WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput) ToWindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput() WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput) ToWindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput) Elem() WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault) WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault {
+		if v != nil {
+			return *v
+		}
+		var ret WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault
+		return ret
+	}).(WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput)
+}
+
+// The URL to the Key Vault Secret which stores the protected settings.
+func (o WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput) SecretUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the source Key Vault.
+func (o WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput) SourceVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceVaultId
+	}).(pulumi.StringPtrOutput)
 }
 
 type WindowsVirtualMachineScaleSetGalleryApplication struct {
@@ -21236,7 +22051,7 @@ type WindowsVirtualMachineScaleSetOsDisk struct {
 	SecureVmDiskEncryptionSetId *string `pulumi:"secureVmDiskEncryptionSetId"`
 	// Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
 	SecurityEncryptionType *string `pulumi:"securityEncryptionType"`
-	// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
+	// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
 	StorageAccountType string `pulumi:"storageAccountType"`
 	// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 	WriteAcceleratorEnabled *bool `pulumi:"writeAcceleratorEnabled"`
@@ -21266,7 +22081,7 @@ type WindowsVirtualMachineScaleSetOsDiskArgs struct {
 	SecureVmDiskEncryptionSetId pulumi.StringPtrInput `pulumi:"secureVmDiskEncryptionSetId"`
 	// Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
 	SecurityEncryptionType pulumi.StringPtrInput `pulumi:"securityEncryptionType"`
-	// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
+	// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
 	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
 	// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 	WriteAcceleratorEnabled pulumi.BoolPtrInput `pulumi:"writeAcceleratorEnabled"`
@@ -21381,7 +22196,7 @@ func (o WindowsVirtualMachineScaleSetOsDiskOutput) SecurityEncryptionType() pulu
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) *string { return v.SecurityEncryptionType }).(pulumi.StringPtrOutput)
 }
 
-// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
+// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
 func (o WindowsVirtualMachineScaleSetOsDiskOutput) StorageAccountType() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
 }
@@ -21475,7 +22290,7 @@ func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) SecurityEncryptionType() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
+// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
 func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetOsDisk) *string {
 		if v == nil {
@@ -26930,6 +27745,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationSkuPtrInput)(nil)).Elem(), CapacityReservationSkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiskEncryptionSetIdentityInput)(nil)).Elem(), DiskEncryptionSetIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiskEncryptionSetIdentityPtrInput)(nil)).Elem(), DiskEncryptionSetIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionProtectedSettingsFromKeyVaultInput)(nil)).Elem(), ExtensionProtectedSettingsFromKeyVaultArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionProtectedSettingsFromKeyVaultPtrInput)(nil)).Elem(), ExtensionProtectedSettingsFromKeyVaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GalleryApplicationVersionManageActionInput)(nil)).Elem(), GalleryApplicationVersionManageActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GalleryApplicationVersionManageActionPtrInput)(nil)).Elem(), GalleryApplicationVersionManageActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GalleryApplicationVersionSourceInput)(nil)).Elem(), GalleryApplicationVersionSourceArgs{})
@@ -26970,6 +27787,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetDataDiskArrayInput)(nil)).Elem(), LinuxVirtualMachineScaleSetDataDiskArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetExtensionInput)(nil)).Elem(), LinuxVirtualMachineScaleSetExtensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetExtensionArrayInput)(nil)).Elem(), LinuxVirtualMachineScaleSetExtensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultInput)(nil)).Elem(), LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrInput)(nil)).Elem(), LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetGalleryApplicationInput)(nil)).Elem(), LinuxVirtualMachineScaleSetGalleryApplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetGalleryApplicationArrayInput)(nil)).Elem(), LinuxVirtualMachineScaleSetGalleryApplicationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetIdentityInput)(nil)).Elem(), LinuxVirtualMachineScaleSetIdentityArgs{})
@@ -27028,6 +27847,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetDataDiskArrayInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetDataDiskArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetExtensionInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetExtensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetExtensionArrayInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetExtensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetIdentityInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetIdentityPtrInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetNetworkInterfaceInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs{})
@@ -27144,6 +27965,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineOsProfileWindowsConfigWinrmArrayInput)(nil)).Elem(), VirtualMachineOsProfileWindowsConfigWinrmArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachinePlanInput)(nil)).Elem(), VirtualMachinePlanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachinePlanPtrInput)(nil)).Elem(), VirtualMachinePlanArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultInput)(nil)).Elem(), VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrInput)(nil)).Elem(), VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineStorageDataDiskInput)(nil)).Elem(), VirtualMachineStorageDataDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineStorageDataDiskArrayInput)(nil)).Elem(), VirtualMachineStorageDataDiskArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineStorageImageReferenceInput)(nil)).Elem(), VirtualMachineStorageImageReferenceArgs{})
@@ -27180,6 +28003,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetDataDiskArrayInput)(nil)).Elem(), WindowsVirtualMachineScaleSetDataDiskArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetExtensionInput)(nil)).Elem(), WindowsVirtualMachineScaleSetExtensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetExtensionArrayInput)(nil)).Elem(), WindowsVirtualMachineScaleSetExtensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultInput)(nil)).Elem(), WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrInput)(nil)).Elem(), WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetGalleryApplicationInput)(nil)).Elem(), WindowsVirtualMachineScaleSetGalleryApplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetGalleryApplicationArrayInput)(nil)).Elem(), WindowsVirtualMachineScaleSetGalleryApplicationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetIdentityInput)(nil)).Elem(), WindowsVirtualMachineScaleSetIdentityArgs{})
@@ -27280,6 +28105,8 @@ func init() {
 	pulumi.RegisterOutputType(CapacityReservationSkuPtrOutput{})
 	pulumi.RegisterOutputType(DiskEncryptionSetIdentityOutput{})
 	pulumi.RegisterOutputType(DiskEncryptionSetIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ExtensionProtectedSettingsFromKeyVaultOutput{})
+	pulumi.RegisterOutputType(ExtensionProtectedSettingsFromKeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(GalleryApplicationVersionManageActionOutput{})
 	pulumi.RegisterOutputType(GalleryApplicationVersionManageActionPtrOutput{})
 	pulumi.RegisterOutputType(GalleryApplicationVersionSourceOutput{})
@@ -27320,6 +28147,8 @@ func init() {
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetDataDiskArrayOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetExtensionOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetExtensionArrayOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetGalleryApplicationOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetGalleryApplicationArrayOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetIdentityOutput{})
@@ -27378,6 +28207,8 @@ func init() {
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetDataDiskArrayOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetExtensionOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetExtensionArrayOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetIdentityOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetIdentityPtrOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput{})
@@ -27494,6 +28325,8 @@ func init() {
 	pulumi.RegisterOutputType(VirtualMachineOsProfileWindowsConfigWinrmArrayOutput{})
 	pulumi.RegisterOutputType(VirtualMachinePlanOutput{})
 	pulumi.RegisterOutputType(VirtualMachinePlanPtrOutput{})
+	pulumi.RegisterOutputType(VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput{})
+	pulumi.RegisterOutputType(VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineStorageDataDiskOutput{})
 	pulumi.RegisterOutputType(VirtualMachineStorageDataDiskArrayOutput{})
 	pulumi.RegisterOutputType(VirtualMachineStorageImageReferenceOutput{})
@@ -27530,6 +28363,8 @@ func init() {
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetDataDiskArrayOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetExtensionOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetExtensionArrayOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetGalleryApplicationOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetGalleryApplicationArrayOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetIdentityOutput{})

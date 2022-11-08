@@ -162,6 +162,7 @@ __all__ = [
     'VpnSiteLinkBgp',
     'VpnSiteO365Policy',
     'VpnSiteO365PolicyTrafficCategory',
+    'GetApplicationGatewayBackendAddressPoolResult',
     'GetApplicationGatewayIdentityResult',
     'GetExpressRouteCircuitPeeringResult',
     'GetExpressRouteCircuitServiceProviderPropertyResult',
@@ -11289,6 +11290,57 @@ class VpnSiteO365PolicyTrafficCategory(dict):
         Is optimize endpoint enabled? The `Optimize` endpoint is required for connectivity to every O365 service and represents the O365 scenario that is the most sensitive to network performance, latency, and availability. Defaults to `false`.
         """
         return pulumi.get(self, "optimize_endpoint_enabled")
+
+
+@pulumi.output_type
+class GetApplicationGatewayBackendAddressPoolResult(dict):
+    def __init__(__self__, *,
+                 fqdns: Sequence[str],
+                 id: str,
+                 ip_addresses: Sequence[str],
+                 name: str):
+        """
+        :param Sequence[str] fqdns: A list of FQDN's that are included in the Backend Address Pool.
+        :param str id: The ID of the Backend Address Pool.
+        :param Sequence[str] ip_addresses: A list of IP Addresses that are included in the Backend Address Pool.
+        :param str name: The name of this Application Gateway.
+        """
+        pulumi.set(__self__, "fqdns", fqdns)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "ip_addresses", ip_addresses)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def fqdns(self) -> Sequence[str]:
+        """
+        A list of FQDN's that are included in the Backend Address Pool.
+        """
+        return pulumi.get(self, "fqdns")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Backend Address Pool.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Sequence[str]:
+        """
+        A list of IP Addresses that are included in the Backend Address Pool.
+        """
+        return pulumi.get(self, "ip_addresses")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of this Application Gateway.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

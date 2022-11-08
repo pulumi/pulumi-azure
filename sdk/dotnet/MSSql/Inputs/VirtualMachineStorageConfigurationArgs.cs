@@ -37,6 +37,12 @@ namespace Pulumi.Azure.MSSql.Inputs
         public Input<string> StorageWorkloadType { get; set; } = null!;
 
         /// <summary>
+        /// Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are `true` and `false`. Defaults to `false`.
+        /// </summary>
+        [Input("systemDbOnDataDiskEnabled")]
+        public Input<bool>? SystemDbOnDataDiskEnabled { get; set; }
+
+        /// <summary>
         /// An `temp_db_settings` as defined below.
         /// </summary>
         [Input("tempDbSettings")]

@@ -37,10 +37,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Resolver{}
 	case "azure:privatedns/resolverDnsForwardingRuleset:ResolverDnsForwardingRuleset":
 		r = &ResolverDnsForwardingRuleset{}
+	case "azure:privatedns/resolverForwardingRule:ResolverForwardingRule":
+		r = &ResolverForwardingRule{}
 	case "azure:privatedns/resolverInboundEndpoint:ResolverInboundEndpoint":
 		r = &ResolverInboundEndpoint{}
 	case "azure:privatedns/resolverOutboundEndpoint:ResolverOutboundEndpoint":
 		r = &ResolverOutboundEndpoint{}
+	case "azure:privatedns/resolverVirtualNetworkLink:ResolverVirtualNetworkLink":
+		r = &ResolverVirtualNetworkLink{}
 	case "azure:privatedns/sRVRecord:SRVRecord":
 		r = &SRVRecord{}
 	case "azure:privatedns/txtRecord:TxtRecord":
@@ -104,12 +108,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"privatedns/resolverForwardingRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"privatedns/resolverInboundEndpoint",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
 		"privatedns/resolverOutboundEndpoint",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"privatedns/resolverVirtualNetworkLink",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

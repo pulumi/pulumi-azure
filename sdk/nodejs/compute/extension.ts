@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -155,6 +157,10 @@ export class Extension extends pulumi.CustomResource {
      */
     public readonly protectedSettings!: pulumi.Output<string | undefined>;
     /**
+     * A `protectedSettingsFromKeyVault` block as defined below.
+     */
+    public readonly protectedSettingsFromKeyVault!: pulumi.Output<outputs.compute.ExtensionProtectedSettingsFromKeyVault | undefined>;
+    /**
      * The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
      */
     public readonly publisher!: pulumi.Output<string>;
@@ -200,6 +206,7 @@ export class Extension extends pulumi.CustomResource {
             resourceInputs["failureSuppressionEnabled"] = state ? state.failureSuppressionEnabled : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["protectedSettings"] = state ? state.protectedSettings : undefined;
+            resourceInputs["protectedSettingsFromKeyVault"] = state ? state.protectedSettingsFromKeyVault : undefined;
             resourceInputs["publisher"] = state ? state.publisher : undefined;
             resourceInputs["settings"] = state ? state.settings : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -225,6 +232,7 @@ export class Extension extends pulumi.CustomResource {
             resourceInputs["failureSuppressionEnabled"] = args ? args.failureSuppressionEnabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["protectedSettings"] = args ? args.protectedSettings : undefined;
+            resourceInputs["protectedSettingsFromKeyVault"] = args ? args.protectedSettingsFromKeyVault : undefined;
             resourceInputs["publisher"] = args ? args.publisher : undefined;
             resourceInputs["settings"] = args ? args.settings : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -264,6 +272,10 @@ export interface ExtensionState {
      * extension, like settings, these are specified as a JSON object in a string.
      */
     protectedSettings?: pulumi.Input<string>;
+    /**
+     * A `protectedSettingsFromKeyVault` block as defined below.
+     */
+    protectedSettingsFromKeyVault?: pulumi.Input<inputs.compute.ExtensionProtectedSettingsFromKeyVault>;
     /**
      * The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
      */
@@ -320,6 +332,10 @@ export interface ExtensionArgs {
      * extension, like settings, these are specified as a JSON object in a string.
      */
     protectedSettings?: pulumi.Input<string>;
+    /**
+     * A `protectedSettingsFromKeyVault` block as defined below.
+     */
+    protectedSettingsFromKeyVault?: pulumi.Input<inputs.compute.ExtensionProtectedSettingsFromKeyVault>;
     /**
      * The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
      */

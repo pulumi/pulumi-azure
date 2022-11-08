@@ -108,14 +108,14 @@ public final class WindowsVirtualMachineScaleSetDataDiskArgs extends com.pulumi.
     }
 
     /**
-     * The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
+     * The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
      * 
      */
     @Import(name="storageAccountType", required=true)
     private Output<String> storageAccountType;
 
     /**
-     * @return The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
+     * @return The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
      * 
      */
     public Output<String> storageAccountType() {
@@ -311,7 +311,7 @@ public final class WindowsVirtualMachineScaleSetDataDiskArgs extends com.pulumi.
         }
 
         /**
-         * @param storageAccountType The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
+         * @param storageAccountType The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class WindowsVirtualMachineScaleSetDataDiskArgs extends com.pulumi.
         }
 
         /**
-         * @param storageAccountType The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
+         * @param storageAccountType The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
          * 
          * @return builder
          * 

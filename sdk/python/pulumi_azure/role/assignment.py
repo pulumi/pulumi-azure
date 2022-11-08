@@ -451,7 +451,7 @@ class Assignment(pulumi.CustomResource):
 
         primary = azure.core.get_subscription()
         example_client_config = azure.core.get_client_config()
-        example_group = azure.management.get_group()
+        example_group = azure.management.get_group(name="00000000-0000-0000-0000-000000000000")
         example_role_definition = azure.authorization.RoleDefinition("exampleRoleDefinition",
             role_definition_id="00000000-0000-0000-0000-000000000000",
             scope=primary.id,
@@ -565,7 +565,7 @@ class Assignment(pulumi.CustomResource):
 
         primary = azure.core.get_subscription()
         example_client_config = azure.core.get_client_config()
-        example_group = azure.management.get_group()
+        example_group = azure.management.get_group(name="00000000-0000-0000-0000-000000000000")
         example_role_definition = azure.authorization.RoleDefinition("exampleRoleDefinition",
             role_definition_id="00000000-0000-0000-0000-000000000000",
             scope=primary.id,

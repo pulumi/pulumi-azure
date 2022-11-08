@@ -68,6 +68,12 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string> CompatibilityLevel { get; private set; } = null!;
 
         /// <summary>
+        /// The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
+        /// </summary>
+        [Output("contentStoragePolicy")]
+        public Output<string?> ContentStoragePolicy { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
         /// </summary>
         [Output("dataLocale")]
@@ -102,6 +108,12 @@ namespace Pulumi.Azure.StreamAnalytics
         /// </summary>
         [Output("jobId")]
         public Output<string> JobId { get; private set; } = null!;
+
+        /// <summary>
+        /// The details of the job storage account. A `job_storage_account` block as defined below.
+        /// </summary>
+        [Output("jobStorageAccounts")]
+        public Output<ImmutableArray<Outputs.JobJobStorageAccount>> JobStorageAccounts { get; private set; } = null!;
 
         /// <summary>
         /// The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
@@ -210,6 +222,12 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? CompatibilityLevel { get; set; }
 
         /// <summary>
+        /// The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
+        /// </summary>
+        [Input("contentStoragePolicy")]
+        public Input<string>? ContentStoragePolicy { get; set; }
+
+        /// <summary>
         /// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
         /// </summary>
         [Input("dataLocale")]
@@ -238,6 +256,18 @@ namespace Pulumi.Azure.StreamAnalytics
         /// </summary>
         [Input("identity")]
         public Input<Inputs.JobIdentityArgs>? Identity { get; set; }
+
+        [Input("jobStorageAccounts")]
+        private InputList<Inputs.JobJobStorageAccountArgs>? _jobStorageAccounts;
+
+        /// <summary>
+        /// The details of the job storage account. A `job_storage_account` block as defined below.
+        /// </summary>
+        public InputList<Inputs.JobJobStorageAccountArgs> JobStorageAccounts
+        {
+            get => _jobStorageAccounts ?? (_jobStorageAccounts = new InputList<Inputs.JobJobStorageAccountArgs>());
+            set => _jobStorageAccounts = value;
+        }
 
         /// <summary>
         /// The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
@@ -314,6 +344,12 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? CompatibilityLevel { get; set; }
 
         /// <summary>
+        /// The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
+        /// </summary>
+        [Input("contentStoragePolicy")]
+        public Input<string>? ContentStoragePolicy { get; set; }
+
+        /// <summary>
         /// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
         /// </summary>
         [Input("dataLocale")]
@@ -348,6 +384,18 @@ namespace Pulumi.Azure.StreamAnalytics
         /// </summary>
         [Input("jobId")]
         public Input<string>? JobId { get; set; }
+
+        [Input("jobStorageAccounts")]
+        private InputList<Inputs.JobJobStorageAccountGetArgs>? _jobStorageAccounts;
+
+        /// <summary>
+        /// The details of the job storage account. A `job_storage_account` block as defined below.
+        /// </summary>
+        public InputList<Inputs.JobJobStorageAccountGetArgs> JobStorageAccounts
+        {
+            get => _jobStorageAccounts ?? (_jobStorageAccounts = new InputList<Inputs.JobJobStorageAccountGetArgs>());
+            set => _jobStorageAccounts = value;
+        }
 
         /// <summary>
         /// The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.

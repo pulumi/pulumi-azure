@@ -2696,9 +2696,9 @@ class FrontdoorFirewallPolicyManagedRuleArgs:
                  exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleExclusionArgs']]]] = None,
                  overrides: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideArgs']]]] = None):
         """
-        :param pulumi.Input[str] action: The action to perform when the managed rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
-        :param pulumi.Input[str] type: The name of the managed rule to use with this resource.
-        :param pulumi.Input[str] version: The version on the managed rule to use with this resource.
+        :param pulumi.Input[str] action: The action to perform when the managed rule is matched. Possible values depends on which DRS version you are using, for DRS `1.0`, `1.1` and `preview-0.1` the possible values include `Allow`, `Block`, `Log`, or `Redirect`. For DRS `2.0` and `2.1` the value must be `AnomalyScoring`.
+        :param pulumi.Input[str] type: The name of the managed rule to use with this resource. Possible values include `DefaultRuleSet`, `Microsoft_DefaultRuleSet`, `BotProtection` or `Microsoft_BotManagerRuleSet`.
+        :param pulumi.Input[str] version: The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the value must be `1.0`.
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleExclusionArgs']]] exclusions: One or more `exclusion` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideArgs']]] overrides: One or more `override` blocks as defined below.
         """
@@ -2714,7 +2714,7 @@ class FrontdoorFirewallPolicyManagedRuleArgs:
     @pulumi.getter
     def action(self) -> pulumi.Input[str]:
         """
-        The action to perform when the managed rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+        The action to perform when the managed rule is matched. Possible values depends on which DRS version you are using, for DRS `1.0`, `1.1` and `preview-0.1` the possible values include `Allow`, `Block`, `Log`, or `Redirect`. For DRS `2.0` and `2.1` the value must be `AnomalyScoring`.
         """
         return pulumi.get(self, "action")
 
@@ -2726,7 +2726,7 @@ class FrontdoorFirewallPolicyManagedRuleArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The name of the managed rule to use with this resource.
+        The name of the managed rule to use with this resource. Possible values include `DefaultRuleSet`, `Microsoft_DefaultRuleSet`, `BotProtection` or `Microsoft_BotManagerRuleSet`.
         """
         return pulumi.get(self, "type")
 
@@ -2738,7 +2738,7 @@ class FrontdoorFirewallPolicyManagedRuleArgs:
     @pulumi.getter
     def version(self) -> pulumi.Input[str]:
         """
-        The version on the managed rule to use with this resource.
+        The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the value must be `1.0`.
         """
         return pulumi.get(self, "version")
 

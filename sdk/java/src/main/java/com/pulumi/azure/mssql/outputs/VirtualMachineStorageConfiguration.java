@@ -7,6 +7,7 @@ import com.pulumi.azure.mssql.outputs.VirtualMachineStorageConfigurationDataSett
 import com.pulumi.azure.mssql.outputs.VirtualMachineStorageConfigurationLogSettings;
 import com.pulumi.azure.mssql.outputs.VirtualMachineStorageConfigurationTempDbSettings;
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -34,6 +35,11 @@ public final class VirtualMachineStorageConfiguration {
      * 
      */
     private String storageWorkloadType;
+    /**
+     * @return Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are `true` and `false`. Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean systemDbOnDataDiskEnabled;
     /**
      * @return An `temp_db_settings` as defined below.
      * 
@@ -70,6 +76,13 @@ public final class VirtualMachineStorageConfiguration {
         return this.storageWorkloadType;
     }
     /**
+     * @return Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are `true` and `false`. Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> systemDbOnDataDiskEnabled() {
+        return Optional.ofNullable(this.systemDbOnDataDiskEnabled);
+    }
+    /**
      * @return An `temp_db_settings` as defined below.
      * 
      */
@@ -90,6 +103,7 @@ public final class VirtualMachineStorageConfiguration {
         private String diskType;
         private @Nullable VirtualMachineStorageConfigurationLogSettings logSettings;
         private String storageWorkloadType;
+        private @Nullable Boolean systemDbOnDataDiskEnabled;
         private @Nullable VirtualMachineStorageConfigurationTempDbSettings tempDbSettings;
         public Builder() {}
         public Builder(VirtualMachineStorageConfiguration defaults) {
@@ -98,6 +112,7 @@ public final class VirtualMachineStorageConfiguration {
     	      this.diskType = defaults.diskType;
     	      this.logSettings = defaults.logSettings;
     	      this.storageWorkloadType = defaults.storageWorkloadType;
+    	      this.systemDbOnDataDiskEnabled = defaults.systemDbOnDataDiskEnabled;
     	      this.tempDbSettings = defaults.tempDbSettings;
         }
 
@@ -122,6 +137,11 @@ public final class VirtualMachineStorageConfiguration {
             return this;
         }
         @CustomType.Setter
+        public Builder systemDbOnDataDiskEnabled(@Nullable Boolean systemDbOnDataDiskEnabled) {
+            this.systemDbOnDataDiskEnabled = systemDbOnDataDiskEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tempDbSettings(@Nullable VirtualMachineStorageConfigurationTempDbSettings tempDbSettings) {
             this.tempDbSettings = tempDbSettings;
             return this;
@@ -132,6 +152,7 @@ public final class VirtualMachineStorageConfiguration {
             o.diskType = diskType;
             o.logSettings = logSettings;
             o.storageWorkloadType = storageWorkloadType;
+            o.systemDbOnDataDiskEnabled = systemDbOnDataDiskEnabled;
             o.tempDbSettings = tempDbSettings;
             return o;
         }
