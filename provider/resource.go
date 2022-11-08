@@ -1086,6 +1086,8 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "datadog_monitors.html.markdown",
 				},
 			},
+			"azurerm_datadog_monitor_sso_configuration": {Tok: azureResource(azureDatadog, "MonitorSsoConfiguration")},
+			"azurerm_datadog_monitor_tag_rule":          {Tok: azureResource(azureDatadog, "MonitorTagRule")},
 
 			// DataFactory
 			"azurerm_data_factory":                    {Tok: azureResource(azureDataFactory, "Factory")},
@@ -1262,17 +1264,19 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"azurerm_iothub_consumer_group":             {Tok: azureResource(azureIot, "ConsumerGroup")},
-			"azurerm_iothub_shared_access_policy":       {Tok: azureResource(azureIot, "SharedAccessPolicy")},
+			"azurerm_iothub_dps":                        {Tok: azureResource(azureIot, "IotHubDps")},
+			"azurerm_iothub_device_update_account":      {Tok: azureResource(azureIot, "IotHubDeviceUpdateAccount")},
+			"azurerm_iothub_device_update_instance":     {Tok: azureResource(azureIot, "IotHubDeviceUpdateInstance")},
+			"azurerm_iothub_dps_certificate":            {Tok: azureResource(azureIot, "IotHubCertificate")},
+			"azurerm_iothub_dps_shared_access_policy":   {Tok: azureResource(azureIot, "DpsSharedAccessPolicy")},
 			"azurerm_iothub_endpoint_eventhub":          {Tok: azureResource(azureIot, "EndpointEventhub")},
 			"azurerm_iothub_endpoint_servicebus_queue":  {Tok: azureResource(azureIot, "EndpointServicebusQueue")},
 			"azurerm_iothub_endpoint_servicebus_topic":  {Tok: azureResource(azureIot, "EndpointServicebusTopic")},
 			"azurerm_iothub_endpoint_storage_container": {Tok: azureResource(azureIot, "EndpointStorageContainer")},
-			"azurerm_iothub_route":                      {Tok: azureResource(azureIot, "Route")},
-			"azurerm_iothub_dps":                        {Tok: azureResource(azureIot, "IotHubDps")},
-			"azurerm_iothub_dps_certificate":            {Tok: azureResource(azureIot, "IotHubCertificate")},
-			"azurerm_iothub_fallback_route":             {Tok: azureResource(azureIot, "FallbackRoute")},
-			"azurerm_iothub_dps_shared_access_policy":   {Tok: azureResource(azureIot, "DpsSharedAccessPolicy")},
 			"azurerm_iothub_enrichment":                 {Tok: azureResource(azureIot, "Enrichment")},
+			"azurerm_iothub_fallback_route":             {Tok: azureResource(azureIot, "FallbackRoute")},
+			"azurerm_iothub_route":                      {Tok: azureResource(azureIot, "Route")},
+			"azurerm_iothub_shared_access_policy":       {Tok: azureResource(azureIot, "SharedAccessPolicy")},
 			"azurerm_iot_security_solution":             {Tok: azureResource(azureIot, "SecuritySolution")},
 			"azurerm_iot_time_series_insights_event_source_iothub": {
 				Tok: azureResource(azureIot, "TimeSeriesInsightsEventSourceIothub"),
@@ -1647,6 +1651,10 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_private_dns_txt_record": {
 				Tok: azureResource(azurePrivateDNS, "TxtRecord"),
 			},
+			"azurerm_private_dns_resolver":                        {Tok: azureResource(azurePrivateDNS, "Resolver")},
+			"azurerm_private_dns_resolver_dns_forwarding_ruleset": {Tok: azureResource(azurePrivateDNS, "ResolverDnsForwardingRuleset")},
+			"azurerm_private_dns_resolver_inbound_endpoint":       {Tok: azureResource(azurePrivateDNS, "ResolverInboundEndpoint")},
+			"azurerm_private_dns_resolver_outbound_endpoint":      {Tok: azureResource(azurePrivateDNS, "ResolverOutboundEndpoint")},
 
 			// SQL
 			"azurerm_sql_elasticpool":    {Tok: azureResource(azureSQL, "ElasticPool")},
@@ -2194,7 +2202,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_netapp_snapshot_policy": {Tok: azureResource(azureNetapp, "SnapshotPolicy")},
 
 			// Nginx
-			"azurerm_nginx_deployment": {Tok: azureResource(azureNginx, "Deployment")},
+			"azurerm_nginx_certificate":   {Tok: azureResource(azureNginx, "Certificate")},
+			"azurerm_nginx_configuration": {Tok: azureResource(azureNginx, "Configuration")},
+			"azurerm_nginx_deployment":    {Tok: azureResource(azureNginx, "Deployment")},
 
 			//AppConfiguration
 			"azurerm_app_configuration":         {Tok: azureResource(azureAppConfiguration, "ConfigurationStore")},
@@ -2483,12 +2493,13 @@ func Provider() tfbridge.ProviderInfo {
 					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
 				},
 			},
-			"azurerm_api_management_api":             {Tok: azureDataSource(azureAPIManagement, "getApi")},
-			"azurerm_api_management_group":           {Tok: azureDataSource(azureAPIManagement, "getGroup")},
-			"azurerm_api_management_product":         {Tok: azureDataSource(azureAPIManagement, "getProduct")},
-			"azurerm_api_management_user":            {Tok: azureDataSource(azureAPIManagement, "getUser")},
-			"azurerm_api_management_api_version_set": {Tok: azureDataSource(azureAPIManagement, "getApiVersionSet")},
-			"azurerm_api_management_gateway":         {Tok: azureDataSource(azureAPIManagement, "getGateway")},
+			"azurerm_api_management_api":                             {Tok: azureDataSource(azureAPIManagement, "getApi")},
+			"azurerm_api_management_group":                           {Tok: azureDataSource(azureAPIManagement, "getGroup")},
+			"azurerm_api_management_product":                         {Tok: azureDataSource(azureAPIManagement, "getProduct")},
+			"azurerm_api_management_user":                            {Tok: azureDataSource(azureAPIManagement, "getUser")},
+			"azurerm_api_management_api_version_set":                 {Tok: azureDataSource(azureAPIManagement, "getApiVersionSet")},
+			"azurerm_api_management_gateway":                         {Tok: azureDataSource(azureAPIManagement, "getGateway")},
+			"azurerm_api_management_gateway_host_name_configuration": {Tok: azureDataSource(azureAPIManagement, "getGatewayHostNameConfiguration")},
 
 			"azurerm_app_service": {
 				Tok: azureDataSource(azureAppService, "getAppService"),
@@ -2528,12 +2539,13 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_subscriptions":      {Tok: azureDataSource(azureCore, "getSubscriptions")},
 			"azurerm_extended_locations": {Tok: azureDataSource(azureCore, "getExtendedLocations")},
 
-			"azurerm_cdn_profile":                {Tok: azureDataSource(azureCDN, "getProfile")},
-			"azurerm_cdn_frontdoor_endpoint":     {Tok: azureDataSource(azureCDN, "getFrontdoorEndpoint")},
-			"azurerm_cdn_frontdoor_profile":      {Tok: azureDataSource(azureCDN, "getFrontdoorProfile")},
-			"azurerm_cdn_frontdoor_rule_set":     {Tok: azureDataSource(azureCDN, "getFrontdoorRuleSet")},
-			"azurerm_cdn_frontdoor_origin_group": {Tok: azureDataSource(azureCDN, "getFrontdoorOriginGroup")},
-			"azurerm_cdn_frontdoor_secret":       {Tok: azureDataSource(azureCDN, "getFrontdoorSecret")},
+			"azurerm_cdn_profile":                   {Tok: azureDataSource(azureCDN, "getProfile")},
+			"azurerm_cdn_frontdoor_endpoint":        {Tok: azureDataSource(azureCDN, "getFrontdoorEndpoint")},
+			"azurerm_cdn_frontdoor_firewall_policy": {Tok: azureDataSource(azureCDN, "getFrontdoorFirewallPolicy")},
+			"azurerm_cdn_frontdoor_profile":         {Tok: azureDataSource(azureCDN, "getFrontdoorProfile")},
+			"azurerm_cdn_frontdoor_rule_set":        {Tok: azureDataSource(azureCDN, "getFrontdoorRuleSet")},
+			"azurerm_cdn_frontdoor_origin_group":    {Tok: azureDataSource(azureCDN, "getFrontdoorOriginGroup")},
+			"azurerm_cdn_frontdoor_secret":          {Tok: azureDataSource(azureCDN, "getFrontdoorSecret")},
 
 			"azurerm_client_config":                         {Tok: azureDataSource(azureCore, "getClientConfig")},
 			"azurerm_container_registry":                    {Tok: azureDataSource(azureContainerService, "getRegistry")},
