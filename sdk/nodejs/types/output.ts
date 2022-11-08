@@ -382,7 +382,6 @@ export namespace apimanagement {
         type: string;
         /**
          * The type name defined by the Schema.
-         * ---
          */
         typeName?: string;
         /**
@@ -634,7 +633,6 @@ export namespace apimanagement {
         type: string;
         /**
          * The type name defined by the Schema.
-         * ---
          */
         typeName?: string;
         /**
@@ -2551,7 +2549,6 @@ export namespace appplatform {
     export interface SpringCloudConnectionAuthentication {
         /**
          * Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
-         * ---
          */
         certificate?: string;
         /**
@@ -2937,7 +2934,7 @@ export namespace appservice {
          */
         google?: outputs.appservice.AppServiceAuthSettingsGoogle;
         /**
-         * Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+         * Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
          */
         issuer?: string;
         /**
@@ -2991,7 +2988,7 @@ export namespace appservice {
          */
         appSecret: string;
         /**
-         * The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
+         * The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login>
          */
         oauthScopes?: string[];
     }
@@ -3006,7 +3003,7 @@ export namespace appservice {
          */
         clientSecret: string;
         /**
-         * The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+         * The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/>
          */
         oauthScopes?: string[];
     }
@@ -3021,7 +3018,7 @@ export namespace appservice {
          */
         clientSecret: string;
         /**
-         * The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+         * The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx>
          */
         oauthScopes?: string[];
     }
@@ -3503,7 +3500,6 @@ export namespace appservice {
     export interface ConnectionAuthentication {
         /**
          * Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
-         * ---
          */
         certificate?: string;
         /**
@@ -3599,7 +3595,7 @@ export namespace appservice {
          */
         google?: outputs.appservice.FunctionAppAuthSettingsGoogle;
         /**
-         * Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+         * Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
          */
         issuer?: string;
         /**
@@ -3653,7 +3649,7 @@ export namespace appservice {
          */
         appSecret: string;
         /**
-         * The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
+         * The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login>
          */
         oauthScopes?: string[];
     }
@@ -3668,7 +3664,7 @@ export namespace appservice {
          */
         clientSecret: string;
         /**
-         * The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+         * The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/>
          */
         oauthScopes?: string[];
     }
@@ -3683,7 +3679,7 @@ export namespace appservice {
          */
         clientSecret: string;
         /**
-         * The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+         * The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx>
          */
         oauthScopes?: string[];
     }
@@ -3783,7 +3779,7 @@ export namespace appservice {
          */
         ipRestrictions: outputs.appservice.FunctionAppSiteConfigIpRestriction[];
         /**
-         * Java version hosted by the function app in Azure. Possible values are `1.8`, `11`.
+         * Java version hosted by the function app in Azure. Possible values are `1.8`, `11` & `17` (In-Preview).
          */
         javaVersion?: string;
         /**
@@ -3980,7 +3976,7 @@ export namespace appservice {
          */
         google?: outputs.appservice.FunctionAppSlotAuthSettingsGoogle;
         /**
-         * Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+         * Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
          */
         issuer?: string;
         /**
@@ -4034,7 +4030,7 @@ export namespace appservice {
          */
         appSecret: string;
         /**
-         * The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
+         * The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login>
          */
         oauthScopes?: string[];
     }
@@ -4049,7 +4045,7 @@ export namespace appservice {
          */
         clientSecret: string;
         /**
-         * The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+         * The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/>
          */
         oauthScopes?: string[];
     }
@@ -4064,7 +4060,7 @@ export namespace appservice {
          */
         clientSecret: string;
         /**
-         * The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+         * The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx>
          */
         oauthScopes?: string[];
     }
@@ -7839,7 +7835,7 @@ export namespace appservice {
          */
         dotnetVersion?: string;
         /**
-         * The Version of Java to use. Supported versions include `8`, and `11`.
+         * The Version of Java to use. Supported versions include `8`, `11` & `17` (In-Preview).
          */
         javaVersion?: string;
         /**
@@ -8434,7 +8430,7 @@ export namespace appservice {
          */
         dotnetVersion?: string;
         /**
-         * The version of Java to use. Possible values are `8`, and `11`.
+         * The version of Java to use. Possible values are `8`, `11` & `17` (In-Preview).
          */
         javaVersion?: string;
         /**
@@ -8604,6 +8600,33 @@ export namespace appservice {
         password: string;
     }
 
+    export interface LinuxFunctionAppSlotStorageAccount {
+        /**
+         * The Access key for the storage account.
+         */
+        accessKey: string;
+        /**
+         * The Name of the Storage Account.
+         */
+        accountName: string;
+        /**
+         * The path at which to mount the storage share.
+         */
+        mountPath?: string;
+        /**
+         * The name which should be used for this Storage Account.
+         */
+        name: string;
+        /**
+         * The Name of the File Share or Container Name for Blob storage.
+         */
+        shareName: string;
+        /**
+         * The Azure Storage Type. Possible values include `AzureFiles` and `AzureBlob`.
+         */
+        type: string;
+    }
+
     export interface LinuxFunctionAppStickySettings {
         /**
          * A list of `appSetting` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
@@ -8613,6 +8636,33 @@ export namespace appservice {
          * A list of `connectionString` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
          */
         connectionStringNames?: string[];
+    }
+
+    export interface LinuxFunctionAppStorageAccount {
+        /**
+         * The Access key for the storage account.
+         */
+        accessKey: string;
+        /**
+         * The Name of the Storage Account.
+         */
+        accountName: string;
+        /**
+         * The path at which to mount the storage share.
+         */
+        mountPath?: string;
+        /**
+         * The name which should be used for this Storage Account.
+         */
+        name: string;
+        /**
+         * The Name of the File Share or Container Name for Blob storage.
+         */
+        shareName: string;
+        /**
+         * The Azure Storage Type. Possible values include `AzureFiles` and `AzureBlob`.
+         */
+        type: string;
     }
 
     export interface LinuxWebAppAuthSettings {
@@ -9026,6 +9076,9 @@ export namespace appservice {
          * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
          */
         minimumTlsVersion?: string;
+        /**
+         * Should Remote Debugging be enabled? Defaults to `false`.
+         */
         remoteDebuggingEnabled?: boolean;
         /**
          * The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
@@ -9736,6 +9789,9 @@ export namespace appservice {
          * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
          */
         minimumTlsVersion?: string;
+        /**
+         * Should Remote Debugging be enabled? Defaults to `false`.
+         */
         remoteDebuggingEnabled?: boolean;
         /**
          * The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
@@ -10138,7 +10194,7 @@ export namespace appservice {
          */
         google?: outputs.appservice.SlotAuthSettingsGoogle;
         /**
-         * Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+         * Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
          */
         issuer?: string;
         /**
@@ -10192,7 +10248,7 @@ export namespace appservice {
          */
         appSecret: string;
         /**
-         * The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
+         * The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login>
          */
         oauthScopes?: string[];
     }
@@ -10207,7 +10263,7 @@ export namespace appservice {
          */
         clientSecret: string;
         /**
-         * The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+         * The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/>
          */
         oauthScopes?: string[];
     }
@@ -10222,7 +10278,7 @@ export namespace appservice {
          */
         clientSecret: string;
         /**
-         * The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+         * The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx>
          */
         oauthScopes?: string[];
     }
@@ -11125,7 +11181,7 @@ export namespace appservice {
          */
         dotnetVersion?: string;
         /**
-         * The Version of Java to use. Supported versions include `8`, and `11`.
+         * The Version of Java to use. Supported versions include `8`, `11` & `17` (In-Preview).
          */
         javaVersion?: string;
         /**
@@ -11681,7 +11737,7 @@ export namespace appservice {
          */
         dotnetVersion?: string;
         /**
-         * The version of Java to use. Possible values are `8`, and `11`
+         * The version of Java to use. Possible values are `8`, `11` & `17` (In-Preview).
          */
         javaVersion?: string;
         /**
@@ -11824,6 +11880,33 @@ export namespace appservice {
         password: string;
     }
 
+    export interface WindowsFunctionAppSlotStorageAccount {
+        /**
+         * The Access key for the storage account.
+         */
+        accessKey: string;
+        /**
+         * The Name of the Storage Account.
+         */
+        accountName: string;
+        /**
+         * The path at which to mount the storage share.
+         */
+        mountPath?: string;
+        /**
+         * The name which should be used for this Storage Account.
+         */
+        name: string;
+        /**
+         * The Name of the File Share or Container Name for Blob storage.
+         */
+        shareName: string;
+        /**
+         * The Azure Storage Type. Possible values include `AzureFiles`.
+         */
+        type: string;
+    }
+
     export interface WindowsFunctionAppStickySettings {
         /**
          * A list of `appSetting` names that the Windows Function App will not swap between Slots when a swap operation is triggered.
@@ -11833,6 +11916,33 @@ export namespace appservice {
          * A list of `connectionString` names that the Windows Function App will not swap between Slots when a swap operation is triggered.
          */
         connectionStringNames?: string[];
+    }
+
+    export interface WindowsFunctionAppStorageAccount {
+        /**
+         * The Access key for the storage account.
+         */
+        accessKey: string;
+        /**
+         * The Name of the Storage Account.
+         */
+        accountName: string;
+        /**
+         * The path at which to mount the storage share.
+         */
+        mountPath?: string;
+        /**
+         * The name which should be used for this Storage Account.
+         */
+        name: string;
+        /**
+         * The Name of the File Share or Container Name for Blob storage.
+         */
+        shareName: string;
+        /**
+         * The Azure Storage Type. Possible values include `AzureFiles`.
+         */
+        type: string;
     }
 
     export interface WindowsWebAppAuthSettings {
@@ -14858,7 +14968,7 @@ export namespace batch {
 
     export interface PoolDataDisk {
         /**
-         * Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
+         * Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: <https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/>.
          */
         caching?: string;
         /**
@@ -15255,7 +15365,6 @@ export namespace batch {
     export interface PoolStorageImageReference {
         /**
          * Specifies the ID of the Custom Image which the virtual machines should be created from. Changing this forces a new resource to be created. See [official documentation](https://docs.microsoft.com/azure/batch/batch-custom-images) for more details.
-         * ---
          */
         id?: string;
         /**
@@ -16048,7 +16157,7 @@ export namespace cdn {
 
     export interface FrontdoorCustomDomainTls {
         /**
-         * Resource ID of the Frontdoor Secret.
+         * Resource ID of the Front Door Secret.
          */
         cdnFrontdoorSecretId: string;
         /**
@@ -16269,7 +16378,7 @@ export namespace cdn {
          */
         privateLinkTargetId: string;
         /**
-         * Specifies the request message that will be submitted to the `privateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN Frontdoor Private Link Origin`.
+         * Specifies the request message that will be submitted to the `privateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for Front Door Private Link Origin`.
          */
         requestMessage?: string;
         /**
@@ -16288,7 +16397,7 @@ export namespace cdn {
          */
         contentTypesToCompresses?: string[];
         /**
-         * Defines how the Frontdoor will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
+         * Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
          */
         queryStringCachingBehavior?: string;
         /**
@@ -16352,19 +16461,19 @@ export namespace cdn {
 
     export interface FrontdoorRuleActionsRouteConfigurationOverrideAction {
         /**
-         * `HonorOrigin` Frontdoor will always honor origin response header directive. If the origin directive is missing, Frontdoor will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. Possible values include `HonorOrigin`, `OverrideAlways` or `OverrideIfOriginMissing`. Defaults to `HonorOrigin`.
+         * `HonorOrigin` the Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your Front Door Origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your Front Door Origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. `Disabled` the Front Door will not cache the response contents, irrespective of Front Door Origin response directives. Possible values include `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing` or `Disabled`. Defaults to `HonorOrigin`.
          */
         cacheBehavior?: string;
         /**
-         * When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`).
+         * When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`). Defaults to `1.12:00:00`.
          */
-        cacheDuration: string;
+        cacheDuration?: string;
         /**
-         * The origin group resource ID that the request should be routed to. This overrides the configuration specified in the Frontdoor endpoint route.
+         * The Front Door Origin Group resource ID that the request should be routed to. This overrides the configuration specified in the Front Door Endpoint route.
          */
-        cdnFrontdoorOriginGroupId: string;
+        cdnFrontdoorOriginGroupId?: string;
         /**
-         * Should Frontdoor dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
+         * Should the Front Door dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
          */
         compressionEnabled?: boolean;
         /**
@@ -16535,7 +16644,7 @@ export namespace cdn {
          */
         operator: string;
         /**
-         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
          */
         transforms?: string[];
     }
@@ -16554,7 +16663,7 @@ export namespace cdn {
          */
         operator: string;
         /**
-         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
          */
         transforms?: string[];
     }
@@ -16607,7 +16716,7 @@ export namespace cdn {
          */
         postArgsName: string;
         /**
-         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
          */
         transforms?: string[];
     }
@@ -16626,7 +16735,7 @@ export namespace cdn {
          */
         operator: string;
         /**
-         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
          */
         transforms?: string[];
     }
@@ -16660,7 +16769,7 @@ export namespace cdn {
          */
         operator: string;
         /**
-         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
          */
         transforms?: string[];
     }
@@ -16683,7 +16792,7 @@ export namespace cdn {
          */
         operator: string;
         /**
-         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
          */
         transforms?: string[];
     }
@@ -16732,7 +16841,7 @@ export namespace cdn {
          */
         operator: string;
         /**
-         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
          */
         transforms?: string[];
     }
@@ -16796,7 +16905,7 @@ export namespace cdn {
          */
         operator: string;
         /**
-         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
          */
         transforms?: string[];
     }
@@ -16815,7 +16924,7 @@ export namespace cdn {
          */
         operator: string;
         /**
-         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
          */
         transforms?: string[];
     }
@@ -16834,21 +16943,21 @@ export namespace cdn {
          */
         operator: string;
         /**
-         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
          */
         transforms?: string[];
     }
 
     export interface FrontdoorSecretSecret {
         /**
-         * A `customerCertificate` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+         * A `customerCertificate` block as defined below. Changing this forces a new Front Door Secret to be created.
          */
         customerCertificates: outputs.cdn.FrontdoorSecretSecretCustomerCertificate[];
     }
 
     export interface FrontdoorSecretSecretCustomerCertificate {
         /**
-         * The ID of the Key Vault certificate resource to use. Changing this forces a new Frontdoor Secret to be created.
+         * The ID of the Key Vault certificate resource to use. Changing this forces a new Front Door Secret to be created.
          */
         keyVaultCertificateId: string;
         /**
@@ -16859,40 +16968,40 @@ export namespace cdn {
 
     export interface FrontdoorSecurityPolicySecurityPolicies {
         /**
-         * An `firewall` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+         * An `firewall` block as defined below. Changing this forces a new Front Door Security Policy to be created.
          */
         firewall: outputs.cdn.FrontdoorSecurityPolicySecurityPoliciesFirewall;
     }
 
     export interface FrontdoorSecurityPolicySecurityPoliciesFirewall {
         /**
-         * An `association` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+         * An `association` block as defined below. Changing this forces a new Front Door Security Policy to be created.
          */
         association: outputs.cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation;
         /**
-         * The Resource Id of the Frontdoor Firewall Policy that should be linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+         * The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
          */
         cdnFrontdoorFirewallPolicyId: string;
     }
 
     export interface FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation {
         /**
-         * One or more `domain` blocks as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+         * One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
          */
         domains: outputs.cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain[];
         /**
-         * The list of paths to match for this firewall policy. Possilbe value includes `/*`. Changing this forces a new Frontdoor Security Policy to be created.
+         * The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
          */
         patternsToMatch: string;
     }
 
     export interface FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain {
         /**
-         * Is the Frontdoor Custom Domain/Endpoint activated?
+         * Is the Front Door Custom Domain/Endpoint activated?
          */
         active: boolean;
         /**
-         * The Resource Id of the **Frontdoor Custom Domain** or **Frontdoor Endpoint** that should be bound to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+         * The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
          */
         cdnFrontdoorDomainId: string;
     }
@@ -17050,6 +17159,10 @@ export namespace compute {
 
     export interface DiskEncryptionSetIdentity {
         /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this Disk Encryption Set.
+         */
+        identityIds?: string[];
+        /**
          * The (Client) ID of the Service Principal.
          */
         principalId: string;
@@ -17058,7 +17171,7 @@ export namespace compute {
          */
         tenantId: string;
         /**
-         * The type of Managed Service Identity that is configured on this Disk Encryption Set. The only possible value is `SystemAssigned`.
+         * The type of Managed Service Identity that is configured on this Disk Encryption Set.  Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
@@ -17875,7 +17988,7 @@ export namespace compute {
 
     export interface LinuxVirtualMachineScaleSetGalleryApplication {
         /**
-         * Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
+         * @deprecated `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0
          */
         configurationReferenceBlobUri?: string;
         /**
@@ -17883,7 +17996,7 @@ export namespace compute {
          */
         order?: number;
         /**
-         * Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+         * @deprecated `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0
          */
         packageReferenceId: string;
         /**
@@ -19504,7 +19617,7 @@ export namespace compute {
 
     export interface WindowsVirtualMachineScaleSetGalleryApplication {
         /**
-         * Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
+         * @deprecated `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0
          */
         configurationReferenceBlobUri?: string;
         /**
@@ -19512,7 +19625,7 @@ export namespace compute {
          */
         order?: number;
         /**
-         * Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+         * @deprecated `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0
          */
         packageReferenceId: string;
         /**
@@ -20660,6 +20773,25 @@ export namespace containerservice {
         maxSurge: string;
     }
 
+    export interface GetGroupIdentity {
+        /**
+         * The list of User Assigned Managed Identity IDs assigned to this Container Group.
+         */
+        identityIds: string[];
+        /**
+         * The Principal ID of the System Assigned Managed Service Identity that is configured on this Container Group.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID of the System Assigned Managed Service Identity that is configured on this Container Group.
+         */
+        tenantId: string;
+        /**
+         * Type of Managed Service Identity configured on this Container Group.
+         */
+        type: string;
+    }
+
     export interface GetKubernetesClusterAciConnectorLinux {
         /**
          * The subnet name for the virtual nodes to run.
@@ -21349,15 +21481,19 @@ export namespace containerservice {
         /**
          * The password with which to connect to the registry. Changing this forces a new resource to be created.
          */
-        password: string;
+        password?: string;
         /**
          * The address to use to connect to the registry without protocol ("https"/"http"). For example: "myacr.acr.io". Changing this forces a new resource to be created.
          */
         server: string;
         /**
+         * The identity ID for the private registry. Changing this forces a new resource to be created.
+         */
+        userAssignedIdentityId?: string;
+        /**
          * The username with which to connect to the registry. Changing this forces a new resource to be created.
          */
-        username: string;
+        username?: string;
     }
 
     export interface GroupInitContainer {
@@ -21634,7 +21770,7 @@ export namespace containerservice {
          */
         osDiskType?: string;
         /**
-         * OsSKU to be used to specify Linux OSType. Not applicable to Windows OSType. Possible values include: `Ubuntu`, `CBLMariner`. Defaults to `Ubuntu`. Changing this forces a new resource to be created.
+         * Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this forces a new resource to be created.
          */
         osSku: string;
         /**
@@ -22463,6 +22599,13 @@ export namespace containerservice {
          * Specifies the root domain name for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
          */
         rootDomain: string;
+    }
+
+    export interface KubernetesClusterWorkloadAutoscalerProfile {
+        /**
+         * Specifies whether KEDA Autoscaler can be used for workloads.
+         */
+        kedaEnabled?: boolean;
     }
 
     export interface RegistryEncryption {
@@ -23995,6 +24138,62 @@ export namespace datadog {
         type: string;
     }
 
+    export interface MonitorTagRuleLog {
+        /**
+         * Whether AAD logs should be sent for the Monitor resource?
+         */
+        aadLogEnabled?: boolean;
+        /**
+         * A `filter` block as defined below.
+         */
+        filters?: outputs.datadog.MonitorTagRuleLogFilter[];
+        /**
+         * Whether Azure resource logs should be sent for the Monitor resource?
+         */
+        resourceLogEnabled?: boolean;
+        /**
+         * Whether Azure subscription logs should be sent for the Monitor resource?
+         */
+        subscriptionLogEnabled?: boolean;
+    }
+
+    export interface MonitorTagRuleLogFilter {
+        /**
+         * Allowed values Include or Exclude.
+         */
+        action: string;
+        /**
+         * Name of the Tag.
+         */
+        name: string;
+        /**
+         * Value of the Tag.
+         */
+        value: string;
+    }
+
+    export interface MonitorTagRuleMetric {
+        /**
+         * A `filter` block as defined below.
+         */
+        filters?: outputs.datadog.MonitorTagRuleMetricFilter[];
+    }
+
+    export interface MonitorTagRuleMetricFilter {
+        /**
+         * Allowed values Include or Exclude.
+         */
+        action: string;
+        /**
+         * Name of the Tag.
+         */
+        name: string;
+        /**
+         * Value of the Tag.
+         */
+        value: string;
+    }
+
     export interface MonitorUser {
         /**
          * Email of the user used by Datadog for contacting them if needed. Changing this forces a new Datadog Monitor to be created.
@@ -24564,7 +24763,7 @@ export namespace datafactory {
         /**
          * The folder path to the file on the web server.
          */
-        path: string;
+        path?: string;
     }
 
     export interface DatasetParquetHttpServerLocation {
@@ -24582,8 +24781,9 @@ export namespace datafactory {
         filename: string;
         /**
          * The folder path to the file on the web server.
+         * ---
          */
-        path: string;
+        path?: string;
         /**
          * The base URL to the web server hosting the file.
          */
@@ -24664,7 +24864,7 @@ export namespace datafactory {
          */
         branchName: string;
         /**
-         * Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com. Use https://github.com for open source repositories.
+         * Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
          */
         gitUrl: string;
         /**
@@ -28902,6 +29102,14 @@ export namespace hdinsight {
         hbase: string;
     }
 
+    export interface HBaseClusterComputeIsolation {
+        computeIsolationEnabled?: boolean;
+        /**
+         * The name of the host SKU.
+         */
+        hostSku?: string;
+    }
+
     export interface HBaseClusterDiskEncryption {
         /**
          * This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
@@ -29305,6 +29513,14 @@ export namespace hdinsight {
          * The version of Hadoop which should be used for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
          */
         hadoop: string;
+    }
+
+    export interface HadoopClusterComputeIsolation {
+        computeIsolationEnabled?: boolean;
+        /**
+         * The name of the host SKU.
+         */
+        hostSku?: string;
     }
 
     export interface HadoopClusterDiskEncryption {
@@ -29798,6 +30014,14 @@ export namespace hdinsight {
         interactiveHive: string;
     }
 
+    export interface InteractiveQueryClusterComputeIsolation {
+        computeIsolationEnabled?: boolean;
+        /**
+         * The name of the host SKU.
+         */
+        hostSku?: string;
+    }
+
     export interface InteractiveQueryClusterDiskEncryption {
         /**
          * This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
@@ -30218,6 +30442,14 @@ export namespace hdinsight {
         kafka: string;
     }
 
+    export interface KafkaClusterComputeIsolation {
+        computeIsolationEnabled?: boolean;
+        /**
+         * The name of the host SKU.
+         */
+        hostSku?: string;
+    }
+
     export interface KafkaClusterDiskEncryption {
         /**
          * This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
@@ -30613,6 +30845,14 @@ export namespace hdinsight {
          * The version of Spark which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
          */
         spark: string;
+    }
+
+    export interface SparkClusterComputeIsolation {
+        computeIsolationEnabled?: boolean;
+        /**
+         * The name of the host SKU.
+         */
+        hostSku?: string;
     }
 
     export interface SparkClusterDiskEncryption {
@@ -31033,7 +31273,7 @@ export namespace hdinsight {
 export namespace healthcare {
     export interface DicomServiceAuthentication {
         /**
-         * The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+         * The intended audience to receive authentication tokens for the service. The default value is <https://dicom.azurehealthcareapis.azure.com>
          */
         audiences: string[];
         authority: string;
@@ -31065,7 +31305,7 @@ export namespace healthcare {
 
     export interface FhirServiceAuthentication {
         /**
-         * The intended audience to receive authentication tokens for the service. The default value is https://<name>.fhir.azurehealthcareapis.com
+         * The intended audience to receive authentication tokens for the service. The default value is `https://<name>.fhir.azurehealthcareapis.com`.
          */
         audience: string;
         authority: string;
@@ -31121,7 +31361,7 @@ export namespace healthcare {
 
     export interface GetDicomServiceAuthentication {
         /**
-         * The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+         * The intended audience to receive authentication tokens for the service. The default value is <https://dicom.azurehealthcareapis.azure.com>
          */
         audiences: string[];
         authority: string;
@@ -31147,7 +31387,7 @@ export namespace healthcare {
 
     export interface GetFhirServiceAuthentication {
         /**
-         * The intended audience to receive authentication tokens for the service. The default value is https://<name>.fhir.azurehealthcareapis.com
+         * The intended audience to receive authentication tokens for the service. The default value is `https://<name>.fhir.azurehealthcareapis.com`.
          */
         audience: string;
         authority: string;
@@ -31638,7 +31878,7 @@ export namespace iot {
 
     export interface IoTHubFallbackRoute {
         /**
-         * The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+         * The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
          */
         condition?: string;
         /**
@@ -31745,7 +31985,7 @@ export namespace iot {
 
     export interface IoTHubRoute {
         /**
-         * The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+         * The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
          */
         condition?: string;
         /**
@@ -31794,6 +32034,36 @@ export namespace iot {
          * The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
          */
         name: string;
+    }
+
+    export interface IotHubDeviceUpdateAccountIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this IoT Hub Device Update Account.
+         */
+        identityIds?: string[];
+        /**
+         * The Principal ID for the Service Principal associated with the Managed Service Identity of this IoT Hub Device Update Account.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this IoT Hub Device Update Account.
+         */
+        tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this IoT Hub Device Update Account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: string;
+    }
+
+    export interface IotHubDeviceUpdateInstanceDiagnosticStorageAccount {
+        /**
+         * Connection String of the Diagnostic Storage Account.
+         */
+        connectionString: string;
+        /**
+         * Resource ID of the Diagnostic Storage Account.
+         */
+        id: string;
     }
 
     export interface IotHubDpsIpFilterRule {
@@ -32021,11 +32291,11 @@ export namespace iotcentral {
 export namespace keyvault {
     export interface CertifiateCertificate {
         /**
-         * The base64-encoded certificate contents. Changing this forces a new resource to be created.
+         * The base64-encoded certificate contents.
          */
         contents: string;
         /**
-         * The password associated with the certificate. Changing this forces a new resource to be created.
+         * The password associated with the certificate.
          */
         password?: string;
     }
@@ -32186,11 +32456,11 @@ export namespace keyvault {
 
     export interface CertificateCertificate {
         /**
-         * The base64-encoded certificate contents. Changing this forces a new resource to be created.
+         * The base64-encoded certificate contents.
          */
         contents: string;
         /**
-         * The password associated with the certificate. Changing this forces a new resource to be created.
+         * The password associated with the certificate.
          */
         password?: string;
     }
@@ -33002,6 +33272,10 @@ export namespace logicapps {
         minTlsVersion: string;
         preWarmedInstanceCount: number;
         runtimeScaleMonitoringEnabled?: boolean;
+        scmIpRestrictions: outputs.logicapps.GetStandardSiteConfigScmIpRestriction[];
+        scmMinTlsVersion: string;
+        scmType: string;
+        scmUseMainIpRestriction?: boolean;
         use32BitWorkerProcess?: boolean;
         vnetRouteAllEnabled: boolean;
         websocketsEnabled?: boolean;
@@ -33026,6 +33300,26 @@ export namespace logicapps {
     }
 
     export interface GetStandardSiteConfigIpRestrictionHeaders {
+        xAzureFdids?: string[];
+        xFdHealthProbe?: string;
+        xForwardedFors?: string[];
+        xForwardedHosts?: string[];
+    }
+
+    export interface GetStandardSiteConfigScmIpRestriction {
+        action?: string;
+        headers: outputs.logicapps.GetStandardSiteConfigScmIpRestrictionHeaders;
+        ipAddress?: string;
+        /**
+         * The name of this Logic App.
+         */
+        name: string;
+        priority?: number;
+        serviceTag?: string;
+        virtualNetworkSubnetId?: string;
+    }
+
+    export interface GetStandardSiteConfigScmIpRestrictionHeaders {
         xAzureFdids?: string[];
         xFdHealthProbe?: string;
         xForwardedFors?: string[];
@@ -33197,7 +33491,7 @@ export namespace logicapps {
 
     export interface StandardIdentity {
         /**
-         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
          */
         identityIds?: string[];
         /**
@@ -33268,6 +33562,22 @@ export namespace logicapps {
          */
         runtimeScaleMonitoringEnabled?: boolean;
         /**
+         * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
+         */
+        scmIpRestrictions: outputs.logicapps.StandardSiteConfigScmIpRestriction[];
+        /**
+         * Configures the minimum version of TLS required for SSL requests to the SCM site.
+         */
+        scmMinTlsVersion: string;
+        /**
+         * The type of Source Control used by the Logic App in use by the Windows Function App. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+         */
+        scmType: string;
+        /**
+         * Should the Logic App `ipRestriction` configuration be used for the SCM too. Defaults to `false`.
+         */
+        scmUseMainIpRestriction?: boolean;
+        /**
          * Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
          */
         use32BitWorkerProcess?: boolean;
@@ -33324,6 +33634,56 @@ export namespace logicapps {
     }
 
     export interface StandardSiteConfigIpRestrictionHeaders {
+        /**
+         * A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+         */
+        xAzureFdids?: string[];
+        /**
+         * A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+         */
+        xFdHealthProbe?: string;
+        /**
+         * A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+         */
+        xForwardedFors?: string[];
+        /**
+         * A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+         */
+        xForwardedHosts?: string[];
+    }
+
+    export interface StandardSiteConfigScmIpRestriction {
+        /**
+         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+         */
+        action?: string;
+        /**
+         * The headers for this specific `ipRestriction` as defined below.
+         */
+        headers: outputs.logicapps.StandardSiteConfigScmIpRestrictionHeaders;
+        /**
+         * The IP Address used for this IP Restriction in CIDR notation.
+         */
+        ipAddress?: string;
+        /**
+         * The name for this IP Restriction.
+         */
+        name: string;
+        /**
+         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+         */
+        priority?: number;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: string;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: string;
+    }
+
+    export interface StandardSiteConfigScmIpRestrictionHeaders {
         /**
          * A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
          */
@@ -33904,7 +34264,7 @@ export namespace media {
          */
         clearKeyConfigurationEnabled?: boolean;
         /**
-         * A `fairplayConfiguration` block as defined above. Check license requirements here https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview.
+         * A `fairplayConfiguration` block as defined above. Check license requirements here <https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview>.
          */
         fairplayConfiguration?: outputs.media.ContentKeyPolicyPolicyOptionFairplayConfiguration;
         /**
@@ -34523,7 +34883,7 @@ export namespace media {
          */
         audioAnalysisMode?: string;
         /**
-         * The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463.
+         * The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>.
          */
         audioLanguage?: string;
     }
@@ -34537,7 +34897,7 @@ export namespace media {
 
     export interface TransformOutputFaceDetectorPreset {
         /**
-         * Possibles value are `SourceResolution` or `StandardDefinition`. Specifies the maximum resolution at which your video is analyzed. The default behavior is `SourceResolution` which will keep the input video at its original resolution when analyzed. Using `StandardDefinition` will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to `StandardDefinition` will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics for details). However, faces that end up being too small in the resized video may not be detected.
+         * Possibles value are `SourceResolution` or `StandardDefinition`. Specifies the maximum resolution at which your video is analyzed. The default behavior is `SourceResolution` which will keep the input video at its original resolution when analyzed. Using `StandardDefinition` will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to `StandardDefinition` will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see <https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics> for details). However, faces that end up being too small in the resized video may not be detected.
          */
         analysisResolution?: string;
     }
@@ -34548,7 +34908,7 @@ export namespace media {
          */
         audioAnalysisMode?: string;
         /**
-         * The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463.
+         * The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>.
          */
         audioLanguage?: string;
         /**
@@ -35925,7 +36285,7 @@ export namespace monitoring {
          */
         destinations: string[];
         /**
-         * Specifies a list of streams. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+         * Specifies a list of streams. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
          */
         streams: string[];
     }
@@ -35967,7 +36327,7 @@ export namespace monitoring {
          */
         name: string;
         /**
-         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`, `Microsoft-WindowsEvent`.
          */
         streams: string[];
     }
@@ -35986,7 +36346,7 @@ export namespace monitoring {
          */
         samplingFrequencyInSeconds: number;
         /**
-         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
+         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
          */
         streams: string[];
     }
@@ -36004,6 +36364,10 @@ export namespace monitoring {
          * The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
          */
         name: string;
+        /**
+         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
+         */
+        streams: string[];
     }
 
     export interface DataCollectionRuleDataSourcesWindowsEventLog {
@@ -36012,7 +36376,7 @@ export namespace monitoring {
          */
         name: string;
         /**
-         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`,and `Microsoft-WindowsEvent`, `Microsoft-RomeDetectionEvent`, and `Microsoft-SecurityEvent`.
          */
         streams: string[];
         /**
@@ -36416,6 +36780,10 @@ export namespace monitoring {
          * Specifies the name of the Data Collection Rule.
          */
         name: string;
+        /**
+         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+         */
+        streams: string[];
     }
 
     export interface GetDataCollectionRuleDataSourceWindowsEventLog {
@@ -37019,7 +37387,7 @@ export namespace mssql {
          */
         storageAccountAccessKey?: string;
         /**
-         * Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+         * Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
          */
         storageEndpoint?: string;
     }
@@ -37245,6 +37613,40 @@ export namespace mssql {
         enabled?: boolean;
     }
 
+    export interface VirtualMachineAssessment {
+        /**
+         * Should Assessment be enabled? Defaults to `true`.
+         */
+        enabled?: boolean;
+        /**
+         * Should Assessment be run immediately? Defaults to `false`.
+         */
+        runImmediately?: boolean;
+        /**
+         * An `schedule` block as defined below.
+         */
+        schedule?: outputs.mssql.VirtualMachineAssessmentSchedule;
+    }
+
+    export interface VirtualMachineAssessmentSchedule {
+        /**
+         * What day of the week the assessment will be run. Default value is `Monday`.
+         */
+        dayOfWeek: string;
+        /**
+         * How many months between assessment runs. Valid values are between `1` and `5`.
+         */
+        monthlyOccurrence?: number;
+        /**
+         * What time the assessment will be run. Must be in the format `HH:mm`.
+         */
+        startTime: string;
+        /**
+         * How many weeks between assessment runs. Valid values are between `1` and `6`.
+         */
+        weeklyInterval?: number;
+    }
+
     export interface VirtualMachineAutoBackup {
         /**
          * Enable or disable encryption for backups. Defaults to `false`.
@@ -37278,19 +37680,19 @@ export namespace mssql {
 
     export interface VirtualMachineAutoBackupManualSchedule {
         /**
-         * Frequency of full backups. Valid values include `Daily` or `Weekly`. Required when `backupScheduleAutomated` is false.
+         * Frequency of full backups. Valid values include `Daily` or `Weekly`.
          */
         fullBackupFrequency: string;
         /**
-         * Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`. Required when `backupScheduleAutomated` is false.
+         * Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`.
          */
         fullBackupStartHour: number;
         /**
-         * Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`. Required when `backupScheduleAutomated` is false.
+         * Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`.
          */
         fullBackupWindowInHours: number;
         /**
-         * Frequency of log backups, in minutes. Valid values are from `5` to `60`. Required when `backupScheduleAutomated` is false.
+         * Frequency of log backups, in minutes. Valid values are from `5` to `60`.
          */
         logBackupFrequencyInMinutes: number;
     }
@@ -37347,7 +37749,7 @@ export namespace mssql {
          */
         storageWorkloadType: string;
         /**
-         * An `storageSettings` as defined below.
+         * An `tempDbSettings` as defined below.
          */
         tempDbSettings?: outputs.mssql.VirtualMachineStorageConfigurationTempDbSettings;
     }
@@ -37376,9 +37778,29 @@ export namespace mssql {
 
     export interface VirtualMachineStorageConfigurationTempDbSettings {
         /**
+         * The SQL Server default file count. This value defaults to `8`
+         */
+        dataFileCount?: number;
+        /**
+         * The SQL Server default file size - This value defaults to `512`
+         */
+        dataFileGrowthInMb?: number;
+        /**
+         * The SQL Server default file size - This value defaults to `256`
+         */
+        dataFileSizeMb?: number;
+        /**
          * The SQL Server default path
          */
         defaultFilePath: string;
+        /**
+         * The SQL Server default file size - This value defaults to `512`
+         */
+        logFileGrowthMb?: number;
+        /**
+         * The SQL Server default file size - This value defaults to `256`
+         */
+        logFileSizeMb?: number;
         /**
          * A list of Logical Unit Numbers for the disks.
          */
@@ -37481,7 +37903,6 @@ export namespace mysql {
         tenantId: string;
         /**
          * The identity type of this Managed Service Identity.
-         * ---
          */
         type: string;
     }
@@ -37512,7 +37933,7 @@ export namespace mysql {
          */
         storageAccountAccessKey: string;
         /**
-         * Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+         * Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
          */
         storageEndpoint: string;
     }
@@ -37558,7 +37979,7 @@ export namespace mysql {
          */
         storageAccountAccessKey?: string;
         /**
-         * Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+         * Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
          */
         storageEndpoint?: string;
     }
@@ -38473,7 +38894,7 @@ export namespace network {
         minProtocolVersion?: string;
         /**
          * The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and
-         * are published here https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
+         * are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
          */
         policyName?: string;
         /**
@@ -38520,7 +38941,7 @@ export namespace network {
         minProtocolVersion?: string;
         /**
          * The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and
-         * are published here https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
+         * are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
          */
         policyName?: string;
         /**
@@ -41457,6 +41878,28 @@ export namespace network {
 }
 
 export namespace nginx {
+    export interface ConfigurationConfigFile {
+        /**
+         * Specifies the base-64 encoded contents of this config file (Sensitive).
+         */
+        content: string;
+        /**
+         * Specify the path of this config file.
+         */
+        virtualPath: string;
+    }
+
+    export interface ConfigurationProtectedFile {
+        /**
+         * Specifies the base-64 encoded contents of this config file.
+         */
+        content: string;
+        /**
+         * Specify the path of this config file.
+         */
+        virtualPath: string;
+    }
+
     export interface DeploymentFrontendPrivate {
         /**
          * Specify the methos of allocating the private IP. Possible values are `Static` and `Dynamic`.
@@ -41930,7 +42373,7 @@ export namespace postgresql {
          */
         storageAccountAccessKey?: string;
         /**
-         * Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+         * Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
          */
         storageEndpoint?: string;
     }
@@ -42007,6 +42450,21 @@ export namespace privatedns {
          * The preference of the MX record.
          */
         preference: number;
+    }
+
+    export interface ResolverInboundEndpointIpConfiguration {
+        /**
+         * Private IP address of the IP configuration.
+         */
+        privateIpAddress: string;
+        /**
+         * Private IP address allocation method. Allowed value is `Dynamic`. Defaults to `Dynamic`.
+         */
+        privateIpAllocationMethod?: string;
+        /**
+         * The subnet ID of the IP configuration.
+         */
+        subnetId: string;
     }
 
     export interface SRVRecordRecord {
@@ -43832,7 +44290,7 @@ export namespace sql {
          */
         storageAccountAccessKey?: string;
         /**
-         * Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+         * Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
          */
         storageEndpoint?: string;
     }
@@ -43975,7 +44433,7 @@ export namespace sql {
          */
         storageAccountAccessKey?: string;
         /**
-         * Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+         * Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
          */
         storageEndpoint?: string;
     }
@@ -44699,6 +45157,10 @@ export namespace storage {
          */
         tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan: number;
         /**
+         * The age in days after last tier change to the blobs to skip to be archved.
+         */
+        tierToArchiveAfterDaysSinceLastTierChangeGreaterThan: number;
+        /**
          * The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
          */
         tierToArchiveAfterDaysSinceModificationGreaterThan: number;
@@ -44725,6 +45187,10 @@ export namespace storage {
          * The age in days after creation to delete the blob snapshot.
          */
         deleteAfterDaysSinceCreationGreaterThan: number;
+        /**
+         * The age in days after last tier change to the blobs to skip to be archved.
+         */
+        tierToArchiveAfterDaysSinceLastTierChangeGreaterThan: number;
     }
 
     export interface GetPolicyRuleActionVersion {
@@ -44740,6 +45206,10 @@ export namespace storage {
          * The age in days after creation to delete the blob version.
          */
         deleteAfterDaysSinceCreation: number;
+        /**
+         * The age in days after last tier change to the blobs to skip to be archved.
+         */
+        tierToArchiveAfterDaysSinceLastTierChangeGreaterThan: number;
     }
 
     export interface GetPolicyRuleFilter {
@@ -44842,7 +45312,7 @@ export namespace storage {
          */
         deleteAfterDaysSinceModificationGreaterThan?: number;
         /**
-         * The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0 and `99999`.
+         * The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0 and`99999`.
          */
         tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan?: number;
         /**
@@ -45078,7 +45548,7 @@ export namespace streamanalytics {
          */
         encoding?: string;
         /**
-         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
+         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `    ` (tab), `|` (pipe) and `;`.
          */
         fieldDelimiter?: string;
         /**
@@ -45097,7 +45567,7 @@ export namespace streamanalytics {
          */
         encoding?: string;
         /**
-         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
+         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `    ` (tab), `|` (pipe) and `;`.
          */
         fieldDelimiter?: string;
         /**
@@ -45116,7 +45586,7 @@ export namespace streamanalytics {
          */
         encoding?: string;
         /**
-         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
+         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `    ` (tab), `|` (pipe) and `;`.
          */
         fieldDelimiter?: string;
         /**
@@ -45135,7 +45605,7 @@ export namespace streamanalytics {
          */
         encoding?: string;
         /**
-         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
+         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `    ` (tab), `|` (pipe) and `;`.
          */
         fieldDelimiter?: string;
         /**
@@ -45154,7 +45624,7 @@ export namespace streamanalytics {
          */
         encoding?: string;
         /**
-         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
+         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are `` (space), `,` (comma), `` (tab), `|` (pipe) and `;`.
          */
         fieldDelimiter?: string;
         /**
@@ -45169,7 +45639,7 @@ export namespace streamanalytics {
          */
         encoding?: string;
         /**
-         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
+         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are `` (space), `,` (comma), `` (tab), `|` (pipe) and `;`.
          */
         fieldDelimiter?: string;
         /**
@@ -45184,7 +45654,7 @@ export namespace streamanalytics {
          */
         encoding?: string;
         /**
-         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
+         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are `` (space), `,` (comma), `` (tab), `|` (pipe) and `;`.
          */
         fieldDelimiter?: string;
         /**
@@ -45199,7 +45669,7 @@ export namespace streamanalytics {
          */
         encoding?: string;
         /**
-         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
+         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are `` (space), `,` (comma), `` (tab), `|` (pipe) and `;`.
          */
         fieldDelimiter?: string;
         /**
@@ -45212,6 +45682,7 @@ export namespace streamanalytics {
 
 export namespace synapse {
     export interface GetWorkspaceIdentity {
+        identityIds: string[];
         /**
          * The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
          */
@@ -45377,7 +45848,7 @@ export namespace synapse {
          */
         branchName: string;
         /**
-         * Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com.
+         * Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>.
          */
         gitUrl?: string;
         /**
@@ -45396,6 +45867,10 @@ export namespace synapse {
 
     export interface WorkspaceIdentity {
         /**
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace.
+         */
+        identityIds?: string[];
+        /**
          * The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
          */
         principalId: string;
@@ -45404,7 +45879,7 @@ export namespace synapse {
          */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Synapse Workspace. The only possible value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be associated with this Synapse Workspace. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
@@ -45721,9 +46196,9 @@ export namespace webpubsub {
         urlTemplate: string;
         /**
          * Specify the matching event names. There are 3 kind of patterns supported:
-         * - `*` matches any event name
-         * - `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2`
-         * - The single event name, for example `event1`, it matches `event1`.
+         * * `*` matches any event name
+         * * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2`
+         * * The single event name, for example `event1`, it matches `event1`.
          */
         userEventPattern?: string;
     }

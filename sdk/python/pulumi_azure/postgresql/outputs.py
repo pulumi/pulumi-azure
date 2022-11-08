@@ -233,7 +233,7 @@ class ServerThreatDetectionPolicy(dict):
         :param bool enabled: Is the policy enabled?
         :param int retention_days: Specifies the number of days to keep in the Threat Detection audit logs.
         :param str storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account.
-        :param str storage_endpoint: Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+        :param str storage_endpoint: Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
         """
         if disabled_alerts is not None:
             pulumi.set(__self__, "disabled_alerts", disabled_alerts)
@@ -302,7 +302,7 @@ class ServerThreatDetectionPolicy(dict):
     @pulumi.getter(name="storageEndpoint")
     def storage_endpoint(self) -> Optional[str]:
         """
-        Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+        Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
         """
         return pulumi.get(self, "storage_endpoint")
 

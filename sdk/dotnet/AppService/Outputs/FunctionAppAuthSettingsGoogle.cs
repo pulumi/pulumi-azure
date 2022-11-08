@@ -22,7 +22,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string ClientSecret;
         /// <summary>
-        /// The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+        /// The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. &lt;https://developers.google.com/identity/sign-in/web/&gt;
         /// </summary>
         public readonly ImmutableArray<string> OauthScopes;
 

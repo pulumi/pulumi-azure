@@ -13,6 +13,8 @@ import (
 
 // Manages as an Azure Container Group instance.
 //
+// > **Note** `networkProfileId` is [deprecated](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-vnet) by Azure. For users who want to continue to manage existing `containerservice.Group` that rely on `networkProfileId`, please stay on provider versions prior to v3.16.0. Otherwise, use `subnetIds` instead.
+//
 // ## Example Usage
 //
 // This example provisions a Basic Container.
@@ -95,6 +97,8 @@ type Group struct {
 	DnsConfig GroupDnsConfigPtrOutput `pulumi:"dnsConfig"`
 	// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
 	DnsNameLabel pulumi.StringPtrOutput `pulumi:"dnsNameLabel"`
+	// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+	DnsNameLabelReusePolicy pulumi.StringPtrOutput `pulumi:"dnsNameLabelReusePolicy"`
 	// Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
 	ExposedPorts GroupExposedPortArrayOutput `pulumi:"exposedPorts"`
 	// The FQDN of the container group derived from `dnsNameLabel`.
@@ -107,7 +111,7 @@ type Group struct {
 	InitContainers GroupInitContainerArrayOutput `pulumi:"initContainers"`
 	// The IP address allocated to the container group.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
-	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
+	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set.
 	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
 	// The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
 	KeyVaultKeyId pulumi.StringPtrOutput `pulumi:"keyVaultKeyId"`
@@ -115,16 +119,20 @@ type Group struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Network profile ID for deploying to a virtual network.
-	NetworkProfileId pulumi.StringPtrOutput `pulumi:"networkProfileId"`
+	// Deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead
+	NetworkProfileId pulumi.StringOutput `pulumi:"networkProfileId"`
 	// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
 	OsType pulumi.StringOutput `pulumi:"osType"`
 	// The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
 	RestartPolicy pulumi.StringPtrOutput `pulumi:"restartPolicy"`
+	// The subnet resource IDs for a container group. Changing this forces a new resource to be created.
+	SubnetIds pulumi.StringPtrOutput `pulumi:"subnetIds"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A list of Availability Zones in which this Container Group is located.
+	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
 // NewGroup registers a new resource with the given unique name, arguments, and options.
@@ -173,6 +181,8 @@ type groupState struct {
 	DnsConfig *GroupDnsConfig `pulumi:"dnsConfig"`
 	// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
 	DnsNameLabel *string `pulumi:"dnsNameLabel"`
+	// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+	DnsNameLabelReusePolicy *string `pulumi:"dnsNameLabelReusePolicy"`
 	// Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
 	ExposedPorts []GroupExposedPort `pulumi:"exposedPorts"`
 	// The FQDN of the container group derived from `dnsNameLabel`.
@@ -185,7 +195,7 @@ type groupState struct {
 	InitContainers []GroupInitContainer `pulumi:"initContainers"`
 	// The IP address allocated to the container group.
 	IpAddress *string `pulumi:"ipAddress"`
-	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
+	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set.
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
@@ -193,7 +203,7 @@ type groupState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Network profile ID for deploying to a virtual network.
+	// Deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead
 	NetworkProfileId *string `pulumi:"networkProfileId"`
 	// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
 	OsType *string `pulumi:"osType"`
@@ -201,8 +211,12 @@ type groupState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
 	RestartPolicy *string `pulumi:"restartPolicy"`
+	// The subnet resource IDs for a container group. Changing this forces a new resource to be created.
+	SubnetIds *string `pulumi:"subnetIds"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// A list of Availability Zones in which this Container Group is located.
+	Zones []string `pulumi:"zones"`
 }
 
 type GroupState struct {
@@ -214,6 +228,8 @@ type GroupState struct {
 	DnsConfig GroupDnsConfigPtrInput
 	// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
 	DnsNameLabel pulumi.StringPtrInput
+	// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+	DnsNameLabelReusePolicy pulumi.StringPtrInput
 	// Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
 	ExposedPorts GroupExposedPortArrayInput
 	// The FQDN of the container group derived from `dnsNameLabel`.
@@ -226,7 +242,7 @@ type GroupState struct {
 	InitContainers GroupInitContainerArrayInput
 	// The IP address allocated to the container group.
 	IpAddress pulumi.StringPtrInput
-	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
+	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set.
 	IpAddressType pulumi.StringPtrInput
 	// The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
 	KeyVaultKeyId pulumi.StringPtrInput
@@ -234,7 +250,7 @@ type GroupState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Network profile ID for deploying to a virtual network.
+	// Deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead
 	NetworkProfileId pulumi.StringPtrInput
 	// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
 	OsType pulumi.StringPtrInput
@@ -242,8 +258,12 @@ type GroupState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
 	RestartPolicy pulumi.StringPtrInput
+	// The subnet resource IDs for a container group. Changing this forces a new resource to be created.
+	SubnetIds pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// A list of Availability Zones in which this Container Group is located.
+	Zones pulumi.StringArrayInput
 }
 
 func (GroupState) ElementType() reflect.Type {
@@ -259,6 +279,8 @@ type groupArgs struct {
 	DnsConfig *GroupDnsConfig `pulumi:"dnsConfig"`
 	// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
 	DnsNameLabel *string `pulumi:"dnsNameLabel"`
+	// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+	DnsNameLabelReusePolicy *string `pulumi:"dnsNameLabelReusePolicy"`
 	// Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
 	ExposedPorts []GroupExposedPort `pulumi:"exposedPorts"`
 	// An `identity` block as defined below.
@@ -267,7 +289,7 @@ type groupArgs struct {
 	ImageRegistryCredentials []GroupImageRegistryCredential `pulumi:"imageRegistryCredentials"`
 	// The definition of an init container that is part of the group as documented in the `initContainer` block below. Changing this forces a new resource to be created.
 	InitContainers []GroupInitContainer `pulumi:"initContainers"`
-	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
+	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set.
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
@@ -275,7 +297,7 @@ type groupArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Network profile ID for deploying to a virtual network.
+	// Deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead
 	NetworkProfileId *string `pulumi:"networkProfileId"`
 	// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
 	OsType string `pulumi:"osType"`
@@ -283,8 +305,12 @@ type groupArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
 	RestartPolicy *string `pulumi:"restartPolicy"`
+	// The subnet resource IDs for a container group. Changing this forces a new resource to be created.
+	SubnetIds *string `pulumi:"subnetIds"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// A list of Availability Zones in which this Container Group is located.
+	Zones []string `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a Group resource.
@@ -297,6 +323,8 @@ type GroupArgs struct {
 	DnsConfig GroupDnsConfigPtrInput
 	// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
 	DnsNameLabel pulumi.StringPtrInput
+	// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+	DnsNameLabelReusePolicy pulumi.StringPtrInput
 	// Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
 	ExposedPorts GroupExposedPortArrayInput
 	// An `identity` block as defined below.
@@ -305,7 +333,7 @@ type GroupArgs struct {
 	ImageRegistryCredentials GroupImageRegistryCredentialArrayInput
 	// The definition of an init container that is part of the group as documented in the `initContainer` block below. Changing this forces a new resource to be created.
 	InitContainers GroupInitContainerArrayInput
-	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
+	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set.
 	IpAddressType pulumi.StringPtrInput
 	// The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
 	KeyVaultKeyId pulumi.StringPtrInput
@@ -313,7 +341,7 @@ type GroupArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Network profile ID for deploying to a virtual network.
+	// Deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead
 	NetworkProfileId pulumi.StringPtrInput
 	// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
 	OsType pulumi.StringInput
@@ -321,8 +349,12 @@ type GroupArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
 	RestartPolicy pulumi.StringPtrInput
+	// The subnet resource IDs for a container group. Changing this forces a new resource to be created.
+	SubnetIds pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// A list of Availability Zones in which this Container Group is located.
+	Zones pulumi.StringArrayInput
 }
 
 func (GroupArgs) ElementType() reflect.Type {
@@ -432,6 +464,11 @@ func (o GroupOutput) DnsNameLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.DnsNameLabel }).(pulumi.StringPtrOutput)
 }
 
+// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+func (o GroupOutput) DnsNameLabelReusePolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.DnsNameLabelReusePolicy }).(pulumi.StringPtrOutput)
+}
+
 // Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
 func (o GroupOutput) ExposedPorts() GroupExposedPortArrayOutput {
 	return o.ApplyT(func(v *Group) GroupExposedPortArrayOutput { return v.ExposedPorts }).(GroupExposedPortArrayOutput)
@@ -462,7 +499,7 @@ func (o GroupOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
 }
 
-// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
+// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set.
 func (o GroupOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
@@ -482,9 +519,9 @@ func (o GroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Network profile ID for deploying to a virtual network.
-func (o GroupOutput) NetworkProfileId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.NetworkProfileId }).(pulumi.StringPtrOutput)
+// Deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead
+func (o GroupOutput) NetworkProfileId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.NetworkProfileId }).(pulumi.StringOutput)
 }
 
 // The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
@@ -502,9 +539,19 @@ func (o GroupOutput) RestartPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.RestartPolicy }).(pulumi.StringPtrOutput)
 }
 
+// The subnet resource IDs for a container group. Changing this forces a new resource to be created.
+func (o GroupOutput) SubnetIds() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.SubnetIds }).(pulumi.StringPtrOutput)
+}
+
 // A mapping of tags to assign to the resource.
 func (o GroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A list of Availability Zones in which this Container Group is located.
+func (o GroupOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
 }
 
 type GroupArrayOutput struct{ *pulumi.OutputState }

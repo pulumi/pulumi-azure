@@ -23,7 +23,6 @@ namespace Pulumi.Azure.MySql.Outputs
         public readonly string TenantId;
         /// <summary>
         /// The identity type of this Managed Service Identity.
-        /// ---
         /// </summary>
         public readonly string Type;
 

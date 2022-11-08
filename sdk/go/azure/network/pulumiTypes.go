@@ -4289,7 +4289,7 @@ type ApplicationGatewaySslPolicy struct {
 	// The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
 	MinProtocolVersion *string `pulumi:"minProtocolVersion"`
 	// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and
-	// are published here https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
+	// are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
 	PolicyName *string `pulumi:"policyName"`
 	// The Type of the Policy. Possible values are `Predefined` and `Custom`.
 	PolicyType *string `pulumi:"policyType"`
@@ -4314,7 +4314,7 @@ type ApplicationGatewaySslPolicyArgs struct {
 	// The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
 	MinProtocolVersion pulumi.StringPtrInput `pulumi:"minProtocolVersion"`
 	// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and
-	// are published here https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
+	// are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
 	PolicyName pulumi.StringPtrInput `pulumi:"policyName"`
 	// The Type of the Policy. Possible values are `Predefined` and `Custom`.
 	PolicyType pulumi.StringPtrInput `pulumi:"policyType"`
@@ -4413,7 +4413,7 @@ func (o ApplicationGatewaySslPolicyOutput) MinProtocolVersion() pulumi.StringPtr
 }
 
 // The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and
-// are published here https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
+// are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
 func (o ApplicationGatewaySslPolicyOutput) PolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslPolicy) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
@@ -4478,7 +4478,7 @@ func (o ApplicationGatewaySslPolicyPtrOutput) MinProtocolVersion() pulumi.String
 }
 
 // The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and
-// are published here https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
+// are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
 func (o ApplicationGatewaySslPolicyPtrOutput) PolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGatewaySslPolicy) *string {
 		if v == nil {
@@ -4639,7 +4639,7 @@ type ApplicationGatewaySslProfileSslPolicy struct {
 	// The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
 	MinProtocolVersion *string `pulumi:"minProtocolVersion"`
 	// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and
-	// are published here https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
+	// are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
 	PolicyName *string `pulumi:"policyName"`
 	// The Type of the Policy. Possible values are `Predefined` and `Custom`.
 	PolicyType *string `pulumi:"policyType"`
@@ -4664,7 +4664,7 @@ type ApplicationGatewaySslProfileSslPolicyArgs struct {
 	// The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
 	MinProtocolVersion pulumi.StringPtrInput `pulumi:"minProtocolVersion"`
 	// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and
-	// are published here https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
+	// are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
 	PolicyName pulumi.StringPtrInput `pulumi:"policyName"`
 	// The Type of the Policy. Possible values are `Predefined` and `Custom`.
 	PolicyType pulumi.StringPtrInput `pulumi:"policyType"`
@@ -4763,7 +4763,7 @@ func (o ApplicationGatewaySslProfileSslPolicyOutput) MinProtocolVersion() pulumi
 }
 
 // The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and
-// are published here https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
+// are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
 func (o ApplicationGatewaySslProfileSslPolicyOutput) PolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslProfileSslPolicy) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
@@ -4828,7 +4828,7 @@ func (o ApplicationGatewaySslProfileSslPolicyPtrOutput) MinProtocolVersion() pul
 }
 
 // The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and
-// are published here https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
+// are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
 func (o ApplicationGatewaySslProfileSslPolicyPtrOutput) PolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGatewaySslProfileSslPolicy) *string {
 		if v == nil {

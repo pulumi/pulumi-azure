@@ -14,22 +14,22 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FrontdoorRuleActionsRouteConfigurationOverrideAction {
     /**
-     * @return `HonorOrigin` Frontdoor will always honor origin response header directive. If the origin directive is missing, Frontdoor will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. Possible values include `HonorOrigin`, `OverrideAlways` or `OverrideIfOriginMissing`. Defaults to `HonorOrigin`.
+     * @return `HonorOrigin` the Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your Front Door Origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your Front Door Origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. `Disabled` the Front Door will not cache the response contents, irrespective of Front Door Origin response directives. Possible values include `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing` or `Disabled`. Defaults to `HonorOrigin`.
      * 
      */
     private @Nullable String cacheBehavior;
     /**
-     * @return When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`).
+     * @return When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`). Defaults to `1.12:00:00`.
      * 
      */
-    private String cacheDuration;
+    private @Nullable String cacheDuration;
     /**
-     * @return The origin group resource ID that the request should be routed to. This overrides the configuration specified in the Frontdoor endpoint route.
+     * @return The Front Door Origin Group resource ID that the request should be routed to. This overrides the configuration specified in the Front Door Endpoint route.
      * 
      */
-    private String cdnFrontdoorOriginGroupId;
+    private @Nullable String cdnFrontdoorOriginGroupId;
     /**
-     * @return Should Frontdoor dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
+     * @return Should the Front Door dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
      * 
      */
     private @Nullable Boolean compressionEnabled;
@@ -51,28 +51,28 @@ public final class FrontdoorRuleActionsRouteConfigurationOverrideAction {
 
     private FrontdoorRuleActionsRouteConfigurationOverrideAction() {}
     /**
-     * @return `HonorOrigin` Frontdoor will always honor origin response header directive. If the origin directive is missing, Frontdoor will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. Possible values include `HonorOrigin`, `OverrideAlways` or `OverrideIfOriginMissing`. Defaults to `HonorOrigin`.
+     * @return `HonorOrigin` the Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your Front Door Origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your Front Door Origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. `Disabled` the Front Door will not cache the response contents, irrespective of Front Door Origin response directives. Possible values include `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing` or `Disabled`. Defaults to `HonorOrigin`.
      * 
      */
     public Optional<String> cacheBehavior() {
         return Optional.ofNullable(this.cacheBehavior);
     }
     /**
-     * @return When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`).
+     * @return When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`). Defaults to `1.12:00:00`.
      * 
      */
-    public String cacheDuration() {
-        return this.cacheDuration;
+    public Optional<String> cacheDuration() {
+        return Optional.ofNullable(this.cacheDuration);
     }
     /**
-     * @return The origin group resource ID that the request should be routed to. This overrides the configuration specified in the Frontdoor endpoint route.
+     * @return The Front Door Origin Group resource ID that the request should be routed to. This overrides the configuration specified in the Front Door Endpoint route.
      * 
      */
-    public String cdnFrontdoorOriginGroupId() {
-        return this.cdnFrontdoorOriginGroupId;
+    public Optional<String> cdnFrontdoorOriginGroupId() {
+        return Optional.ofNullable(this.cdnFrontdoorOriginGroupId);
     }
     /**
-     * @return Should Frontdoor dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
+     * @return Should the Front Door dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
      * 
      */
     public Optional<Boolean> compressionEnabled() {
@@ -110,8 +110,8 @@ public final class FrontdoorRuleActionsRouteConfigurationOverrideAction {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String cacheBehavior;
-        private String cacheDuration;
-        private String cdnFrontdoorOriginGroupId;
+        private @Nullable String cacheDuration;
+        private @Nullable String cdnFrontdoorOriginGroupId;
         private @Nullable Boolean compressionEnabled;
         private @Nullable String forwardingProtocol;
         private @Nullable String queryStringCachingBehavior;
@@ -134,13 +134,13 @@ public final class FrontdoorRuleActionsRouteConfigurationOverrideAction {
             return this;
         }
         @CustomType.Setter
-        public Builder cacheDuration(String cacheDuration) {
-            this.cacheDuration = Objects.requireNonNull(cacheDuration);
+        public Builder cacheDuration(@Nullable String cacheDuration) {
+            this.cacheDuration = cacheDuration;
             return this;
         }
         @CustomType.Setter
-        public Builder cdnFrontdoorOriginGroupId(String cdnFrontdoorOriginGroupId) {
-            this.cdnFrontdoorOriginGroupId = Objects.requireNonNull(cdnFrontdoorOriginGroupId);
+        public Builder cdnFrontdoorOriginGroupId(@Nullable String cdnFrontdoorOriginGroupId) {
+            this.cdnFrontdoorOriginGroupId = cdnFrontdoorOriginGroupId;
             return this;
         }
         @CustomType.Setter

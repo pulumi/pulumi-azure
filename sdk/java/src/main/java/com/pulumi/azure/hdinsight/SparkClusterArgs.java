@@ -4,6 +4,7 @@
 package com.pulumi.azure.hdinsight;
 
 import com.pulumi.azure.hdinsight.inputs.SparkClusterComponentVersionArgs;
+import com.pulumi.azure.hdinsight.inputs.SparkClusterComputeIsolationArgs;
 import com.pulumi.azure.hdinsight.inputs.SparkClusterDiskEncryptionArgs;
 import com.pulumi.azure.hdinsight.inputs.SparkClusterExtensionArgs;
 import com.pulumi.azure.hdinsight.inputs.SparkClusterGatewayArgs;
@@ -57,6 +58,21 @@ public final class SparkClusterArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<SparkClusterComponentVersionArgs> componentVersion() {
         return this.componentVersion;
+    }
+
+    /**
+     * A `compute_isolation` block as defined below.
+     * 
+     */
+    @Import(name="computeIsolation")
+    private @Nullable Output<SparkClusterComputeIsolationArgs> computeIsolation;
+
+    /**
+     * @return A `compute_isolation` block as defined below.
+     * 
+     */
+    public Optional<Output<SparkClusterComputeIsolationArgs>> computeIsolation() {
+        return Optional.ofNullable(this.computeIsolation);
     }
 
     @Import(name="diskEncryptions")
@@ -303,6 +319,7 @@ public final class SparkClusterArgs extends com.pulumi.resources.ResourceArgs {
     private SparkClusterArgs(SparkClusterArgs $) {
         this.clusterVersion = $.clusterVersion;
         this.componentVersion = $.componentVersion;
+        this.computeIsolation = $.computeIsolation;
         this.diskEncryptions = $.diskEncryptions;
         this.encryptionInTransitEnabled = $.encryptionInTransitEnabled;
         this.extension = $.extension;
@@ -380,6 +397,27 @@ public final class SparkClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder componentVersion(SparkClusterComponentVersionArgs componentVersion) {
             return componentVersion(Output.of(componentVersion));
+        }
+
+        /**
+         * @param computeIsolation A `compute_isolation` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder computeIsolation(@Nullable Output<SparkClusterComputeIsolationArgs> computeIsolation) {
+            $.computeIsolation = computeIsolation;
+            return this;
+        }
+
+        /**
+         * @param computeIsolation A `compute_isolation` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder computeIsolation(SparkClusterComputeIsolationArgs computeIsolation) {
+            return computeIsolation(Output.of(computeIsolation));
         }
 
         public Builder diskEncryptions(@Nullable Output<List<SparkClusterDiskEncryptionArgs>> diskEncryptions) {

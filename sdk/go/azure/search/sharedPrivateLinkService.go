@@ -66,13 +66,6 @@ import (
 //	}
 //
 // ```
-// ## Attributes Reference:
-//
-// The following attributes are exported:
-//
-// * `id` - The ID of the Azure Search Shared Private Link resource.
-//
-// * `status` - The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
 //
 // ## Import
 //
@@ -92,7 +85,8 @@ type SharedPrivateLinkService struct {
 	RequestMessage pulumi.StringPtrOutput `pulumi:"requestMessage"`
 	// Specify the id of the Azure Search Service. Changing this forces a new resource to be created.
 	SearchServiceId pulumi.StringOutput `pulumi:"searchServiceId"`
-	Status          pulumi.StringOutput `pulumi:"status"`
+	// The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
+	Status pulumi.StringOutput `pulumi:"status"`
 	// Specify the sub resource name which the Azure Search Private Endpoint is able to connect to. Changing this forces a new resource to be created.
 	SubresourceName pulumi.StringOutput `pulumi:"subresourceName"`
 	// Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
@@ -143,7 +137,8 @@ type sharedPrivateLinkServiceState struct {
 	RequestMessage *string `pulumi:"requestMessage"`
 	// Specify the id of the Azure Search Service. Changing this forces a new resource to be created.
 	SearchServiceId *string `pulumi:"searchServiceId"`
-	Status          *string `pulumi:"status"`
+	// The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
+	Status *string `pulumi:"status"`
 	// Specify the sub resource name which the Azure Search Private Endpoint is able to connect to. Changing this forces a new resource to be created.
 	SubresourceName *string `pulumi:"subresourceName"`
 	// Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
@@ -157,7 +152,8 @@ type SharedPrivateLinkServiceState struct {
 	RequestMessage pulumi.StringPtrInput
 	// Specify the id of the Azure Search Service. Changing this forces a new resource to be created.
 	SearchServiceId pulumi.StringPtrInput
-	Status          pulumi.StringPtrInput
+	// The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
+	Status pulumi.StringPtrInput
 	// Specify the sub resource name which the Azure Search Private Endpoint is able to connect to. Changing this forces a new resource to be created.
 	SubresourceName pulumi.StringPtrInput
 	// Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
@@ -297,6 +293,7 @@ func (o SharedPrivateLinkServiceOutput) SearchServiceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SharedPrivateLinkService) pulumi.StringOutput { return v.SearchServiceId }).(pulumi.StringOutput)
 }
 
+// The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
 func (o SharedPrivateLinkServiceOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *SharedPrivateLinkService) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

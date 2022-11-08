@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.hdinsight.InteractiveQueryClusterArgs;
 import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterState;
 import com.pulumi.azure.hdinsight.outputs.InteractiveQueryClusterComponentVersion;
+import com.pulumi.azure.hdinsight.outputs.InteractiveQueryClusterComputeIsolation;
 import com.pulumi.azure.hdinsight.outputs.InteractiveQueryClusterDiskEncryption;
 import com.pulumi.azure.hdinsight.outputs.InteractiveQueryClusterExtension;
 import com.pulumi.azure.hdinsight.outputs.InteractiveQueryClusterGateway;
@@ -161,6 +162,20 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
      */
     public Output<InteractiveQueryClusterComponentVersion> componentVersion() {
         return this.componentVersion;
+    }
+    /**
+     * A `compute_isolation` block as defined below.
+     * 
+     */
+    @Export(name="computeIsolation", type=InteractiveQueryClusterComputeIsolation.class, parameters={})
+    private Output</* @Nullable */ InteractiveQueryClusterComputeIsolation> computeIsolation;
+
+    /**
+     * @return A `compute_isolation` block as defined below.
+     * 
+     */
+    public Output<Optional<InteractiveQueryClusterComputeIsolation>> computeIsolation() {
+        return Codegen.optional(this.computeIsolation);
     }
     @Export(name="diskEncryptions", type=List.class, parameters={InteractiveQueryClusterDiskEncryption.class})
     private Output</* @Nullable */ List<InteractiveQueryClusterDiskEncryption>> diskEncryptions;

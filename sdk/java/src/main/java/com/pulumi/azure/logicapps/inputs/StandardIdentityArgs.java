@@ -17,14 +17,14 @@ public final class StandardIdentityArgs extends com.pulumi.resources.ResourceArg
     public static final StandardIdentityArgs Empty = new StandardIdentityArgs();
 
     /**
-     * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+     * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
      * 
      */
     @Import(name="identityIds")
     private @Nullable Output<List<String>> identityIds;
 
     /**
-     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -104,7 +104,7 @@ public final class StandardIdentityArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class StandardIdentityArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class StandardIdentityArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
          * 
          * @return builder
          * 

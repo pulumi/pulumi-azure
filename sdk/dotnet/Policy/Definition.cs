@@ -33,7 +33,7 @@ namespace Pulumi.Azure.Policy
     /// 
     /// ",
     ///         Mode = "Indexed",
-    ///         Parameters = @"	{
+    ///         Parameters = @" {
     ///     ""allowedLocations"": {
     ///       ""type"": ""Array"",
     ///       ""metadata"": {
@@ -45,7 +45,7 @@ namespace Pulumi.Azure.Policy
     ///   }
     /// 
     /// ",
-    ///         PolicyRule = @"	{
+    ///         PolicyRule = @" {
     ///     ""if"": {
     ///       ""not"": {
     ///         ""field"": ""location"",

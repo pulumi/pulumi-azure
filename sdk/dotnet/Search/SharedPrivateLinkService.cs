@@ -51,13 +51,6 @@ namespace Pulumi.Azure.Search
     /// 
     /// });
     /// ```
-    /// ## Attributes Reference:
-    /// 
-    /// The following attributes are exported:
-    /// 
-    /// * `id` - The ID of the Azure Search Shared Private Link resource.
-    /// 
-    /// * `status` - The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
     /// 
     /// ## Import
     /// 
@@ -88,6 +81,9 @@ namespace Pulumi.Azure.Search
         [Output("searchServiceId")]
         public Output<string> SearchServiceId { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -205,6 +201,9 @@ namespace Pulumi.Azure.Search
         [Input("searchServiceId")]
         public Input<string>? SearchServiceId { get; set; }
 
+        /// <summary>
+        /// The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

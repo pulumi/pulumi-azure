@@ -5,6 +5,7 @@ package com.pulumi.azure.logicapps.inputs;
 
 import com.pulumi.azure.logicapps.inputs.StandardSiteConfigCorsArgs;
 import com.pulumi.azure.logicapps.inputs.StandardSiteConfigIpRestrictionArgs;
+import com.pulumi.azure.logicapps.inputs.StandardSiteConfigScmIpRestrictionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -216,6 +217,66 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
+     * 
+     */
+    @Import(name="scmIpRestrictions")
+    private @Nullable Output<List<StandardSiteConfigScmIpRestrictionArgs>> scmIpRestrictions;
+
+    /**
+     * @return A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
+     * 
+     */
+    public Optional<Output<List<StandardSiteConfigScmIpRestrictionArgs>>> scmIpRestrictions() {
+        return Optional.ofNullable(this.scmIpRestrictions);
+    }
+
+    /**
+     * Configures the minimum version of TLS required for SSL requests to the SCM site.
+     * 
+     */
+    @Import(name="scmMinTlsVersion")
+    private @Nullable Output<String> scmMinTlsVersion;
+
+    /**
+     * @return Configures the minimum version of TLS required for SSL requests to the SCM site.
+     * 
+     */
+    public Optional<Output<String>> scmMinTlsVersion() {
+        return Optional.ofNullable(this.scmMinTlsVersion);
+    }
+
+    /**
+     * The type of Source Control used by the Logic App in use by the Windows Function App. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+     * 
+     */
+    @Import(name="scmType")
+    private @Nullable Output<String> scmType;
+
+    /**
+     * @return The type of Source Control used by the Logic App in use by the Windows Function App. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+     * 
+     */
+    public Optional<Output<String>> scmType() {
+        return Optional.ofNullable(this.scmType);
+    }
+
+    /**
+     * Should the Logic App `ip_restriction` configuration be used for the SCM too. Defaults to `false`.
+     * 
+     */
+    @Import(name="scmUseMainIpRestriction")
+    private @Nullable Output<Boolean> scmUseMainIpRestriction;
+
+    /**
+     * @return Should the Logic App `ip_restriction` configuration be used for the SCM too. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> scmUseMainIpRestriction() {
+        return Optional.ofNullable(this.scmUseMainIpRestriction);
+    }
+
+    /**
      * Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
      * 
      */
@@ -276,6 +337,10 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         this.minTlsVersion = $.minTlsVersion;
         this.preWarmedInstanceCount = $.preWarmedInstanceCount;
         this.runtimeScaleMonitoringEnabled = $.runtimeScaleMonitoringEnabled;
+        this.scmIpRestrictions = $.scmIpRestrictions;
+        this.scmMinTlsVersion = $.scmMinTlsVersion;
+        this.scmType = $.scmType;
+        this.scmUseMainIpRestriction = $.scmUseMainIpRestriction;
         this.use32BitWorkerProcess = $.use32BitWorkerProcess;
         this.vnetRouteAllEnabled = $.vnetRouteAllEnabled;
         this.websocketsEnabled = $.websocketsEnabled;
@@ -580,6 +645,100 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
          */
         public Builder runtimeScaleMonitoringEnabled(Boolean runtimeScaleMonitoringEnabled) {
             return runtimeScaleMonitoringEnabled(Output.of(runtimeScaleMonitoringEnabled));
+        }
+
+        /**
+         * @param scmIpRestrictions A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scmIpRestrictions(@Nullable Output<List<StandardSiteConfigScmIpRestrictionArgs>> scmIpRestrictions) {
+            $.scmIpRestrictions = scmIpRestrictions;
+            return this;
+        }
+
+        /**
+         * @param scmIpRestrictions A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scmIpRestrictions(List<StandardSiteConfigScmIpRestrictionArgs> scmIpRestrictions) {
+            return scmIpRestrictions(Output.of(scmIpRestrictions));
+        }
+
+        /**
+         * @param scmIpRestrictions A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scmIpRestrictions(StandardSiteConfigScmIpRestrictionArgs... scmIpRestrictions) {
+            return scmIpRestrictions(List.of(scmIpRestrictions));
+        }
+
+        /**
+         * @param scmMinTlsVersion Configures the minimum version of TLS required for SSL requests to the SCM site.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scmMinTlsVersion(@Nullable Output<String> scmMinTlsVersion) {
+            $.scmMinTlsVersion = scmMinTlsVersion;
+            return this;
+        }
+
+        /**
+         * @param scmMinTlsVersion Configures the minimum version of TLS required for SSL requests to the SCM site.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scmMinTlsVersion(String scmMinTlsVersion) {
+            return scmMinTlsVersion(Output.of(scmMinTlsVersion));
+        }
+
+        /**
+         * @param scmType The type of Source Control used by the Logic App in use by the Windows Function App. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scmType(@Nullable Output<String> scmType) {
+            $.scmType = scmType;
+            return this;
+        }
+
+        /**
+         * @param scmType The type of Source Control used by the Logic App in use by the Windows Function App. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scmType(String scmType) {
+            return scmType(Output.of(scmType));
+        }
+
+        /**
+         * @param scmUseMainIpRestriction Should the Logic App `ip_restriction` configuration be used for the SCM too. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scmUseMainIpRestriction(@Nullable Output<Boolean> scmUseMainIpRestriction) {
+            $.scmUseMainIpRestriction = scmUseMainIpRestriction;
+            return this;
+        }
+
+        /**
+         * @param scmUseMainIpRestriction Should the Logic App `ip_restriction` configuration be used for the SCM too. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scmUseMainIpRestriction(Boolean scmUseMainIpRestriction) {
+            return scmUseMainIpRestriction(Output.of(scmUseMainIpRestriction));
         }
 
         /**

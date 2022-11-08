@@ -33,7 +33,7 @@ class WebhookArgs:
         :param pulumi.Input[str] name: Specifies the name of the Webhook. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Map of input parameters passed to runbook.
         :param pulumi.Input[str] run_on_worker_group: Name of the hybrid worker group the Webhook job will run on.
-        :param pulumi.Input[str] uri: URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation.
+        :param pulumi.Input[str] uri: URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
         pulumi.set(__self__, "expiry_time", expiry_time)
@@ -150,7 +150,7 @@ class WebhookArgs:
     @pulumi.getter
     def uri(self) -> Optional[pulumi.Input[str]]:
         """
-        URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation.
+        URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "uri")
 
@@ -181,7 +181,7 @@ class _WebhookState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Webhook is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] run_on_worker_group: Name of the hybrid worker group the Webhook job will run on.
         :param pulumi.Input[str] runbook_name: Name of the Automation Runbook to execute by Webhook.
-        :param pulumi.Input[str] uri: URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation.
+        :param pulumi.Input[str] uri: URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation. Changing this forces a new resource to be created.
         """
         if automation_account_name is not None:
             pulumi.set(__self__, "automation_account_name", automation_account_name)
@@ -302,7 +302,7 @@ class _WebhookState:
     @pulumi.getter
     def uri(self) -> Optional[pulumi.Input[str]]:
         """
-        URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation.
+        URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "uri")
 
@@ -380,7 +380,7 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Webhook is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] run_on_worker_group: Name of the hybrid worker group the Webhook job will run on.
         :param pulumi.Input[str] runbook_name: Name of the Automation Runbook to execute by Webhook.
-        :param pulumi.Input[str] uri: URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation.
+        :param pulumi.Input[str] uri: URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -516,7 +516,7 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Webhook is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] run_on_worker_group: Name of the hybrid worker group the Webhook job will run on.
         :param pulumi.Input[str] runbook_name: Name of the Automation Runbook to execute by Webhook.
-        :param pulumi.Input[str] uri: URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation.
+        :param pulumi.Input[str] uri: URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -601,7 +601,7 @@ class Webhook(pulumi.CustomResource):
     @pulumi.getter
     def uri(self) -> pulumi.Output[str]:
         """
-        URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation.
+        URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "uri")
 

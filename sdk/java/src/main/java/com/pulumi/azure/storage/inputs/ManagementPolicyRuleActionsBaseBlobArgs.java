@@ -46,14 +46,14 @@ public final class ManagementPolicyRuleActionsBaseBlobArgs extends com.pulumi.re
     }
 
     /**
-     * The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between ` 0 and  `99999`.
+     * The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0 and`99999`.
      * 
      */
     @Import(name="tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan")
     private @Nullable Output<Integer> tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan;
 
     /**
-     * @return The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between ` 0 and  `99999`.
+     * @return The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0 and`99999`.
      * 
      */
     public Optional<Output<Integer>> tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan() {
@@ -193,7 +193,7 @@ public final class ManagementPolicyRuleActionsBaseBlobArgs extends com.pulumi.re
         }
 
         /**
-         * @param tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between ` 0 and  `99999`.
+         * @param tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0 and`99999`.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class ManagementPolicyRuleActionsBaseBlobArgs extends com.pulumi.re
         }
 
         /**
-         * @param tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between ` 0 and  `99999`.
+         * @param tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0 and`99999`.
          * 
          * @return builder
          * 

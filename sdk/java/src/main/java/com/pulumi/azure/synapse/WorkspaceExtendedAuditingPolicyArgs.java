@@ -78,14 +78,14 @@ public final class WorkspaceExtendedAuditingPolicyArgs extends com.pulumi.resour
     }
 
     /**
-     * The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+     * The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
      * 
      */
     @Import(name="storageEndpoint")
     private @Nullable Output<String> storageEndpoint;
 
     /**
-     * @return The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+     * @return The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
      * 
      */
     public Optional<Output<String>> storageEndpoint() {
@@ -221,7 +221,7 @@ public final class WorkspaceExtendedAuditingPolicyArgs extends com.pulumi.resour
         }
 
         /**
-         * @param storageEndpoint The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+         * @param storageEndpoint The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class WorkspaceExtendedAuditingPolicyArgs extends com.pulumi.resour
         }
 
         /**
-         * @param storageEndpoint The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+         * @param storageEndpoint The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
          * 
          * @return builder
          * 

@@ -195,7 +195,6 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
     }
     /**
      * `sku_tier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
-     * *
      * 
      */
     @Export(name="skuTier", type=String.class, parameters={})
@@ -203,7 +202,6 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
 
     /**
      * @return `sku_tier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
-     * *
      * 
      */
     public Output<Optional<String>> skuTier() {

@@ -13,7 +13,7 @@ import (
 
 // ## Import
 //
-// CDN FrontDoor Origin can be imported using the `resource id`, e.g.
+// Front Door Origins can be imported using the `resource id`, e.g.
 //
 // ```sh
 //
@@ -23,7 +23,7 @@ import (
 type FrontdoorOrigin struct {
 	pulumi.CustomResourceState
 
-	// The ID of the CDN FrontDoor Origin Group within which this CDN FrontDoor Origin should exist. Changing this forces a new CDN FrontDoor Origin to be created.
+	// The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
 	CdnFrontdoorOriginGroupId pulumi.StringOutput `pulumi:"cdnFrontdoorOriginGroupId"`
 	// Specifies whether certificate name checks are enabled for this origin.
 	CertificateNameCheckEnabled pulumi.BoolOutput `pulumi:"certificateNameCheckEnabled"`
@@ -37,7 +37,7 @@ type FrontdoorOrigin struct {
 	HttpPort pulumi.IntPtrOutput `pulumi:"httpPort"`
 	// The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`.
 	HttpsPort pulumi.IntPtrOutput `pulumi:"httpsPort"`
-	// The name which should be used for this CDN FrontDoor Origin. Changing this forces a new CDN FrontDoor Origin to be created.
+	// The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
 	OriginHostHeader pulumi.StringPtrOutput `pulumi:"originHostHeader"`
@@ -87,7 +87,7 @@ func GetFrontdoorOrigin(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FrontdoorOrigin resources.
 type frontdoorOriginState struct {
-	// The ID of the CDN FrontDoor Origin Group within which this CDN FrontDoor Origin should exist. Changing this forces a new CDN FrontDoor Origin to be created.
+	// The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
 	CdnFrontdoorOriginGroupId *string `pulumi:"cdnFrontdoorOriginGroupId"`
 	// Specifies whether certificate name checks are enabled for this origin.
 	CertificateNameCheckEnabled *bool `pulumi:"certificateNameCheckEnabled"`
@@ -101,7 +101,7 @@ type frontdoorOriginState struct {
 	HttpPort *int `pulumi:"httpPort"`
 	// The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`.
 	HttpsPort *int `pulumi:"httpsPort"`
-	// The name which should be used for this CDN FrontDoor Origin. Changing this forces a new CDN FrontDoor Origin to be created.
+	// The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
 	Name *string `pulumi:"name"`
 	// The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
 	OriginHostHeader *string `pulumi:"originHostHeader"`
@@ -114,7 +114,7 @@ type frontdoorOriginState struct {
 }
 
 type FrontdoorOriginState struct {
-	// The ID of the CDN FrontDoor Origin Group within which this CDN FrontDoor Origin should exist. Changing this forces a new CDN FrontDoor Origin to be created.
+	// The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
 	CdnFrontdoorOriginGroupId pulumi.StringPtrInput
 	// Specifies whether certificate name checks are enabled for this origin.
 	CertificateNameCheckEnabled pulumi.BoolPtrInput
@@ -128,7 +128,7 @@ type FrontdoorOriginState struct {
 	HttpPort pulumi.IntPtrInput
 	// The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`.
 	HttpsPort pulumi.IntPtrInput
-	// The name which should be used for this CDN FrontDoor Origin. Changing this forces a new CDN FrontDoor Origin to be created.
+	// The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
 	Name pulumi.StringPtrInput
 	// The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
 	OriginHostHeader pulumi.StringPtrInput
@@ -145,7 +145,7 @@ func (FrontdoorOriginState) ElementType() reflect.Type {
 }
 
 type frontdoorOriginArgs struct {
-	// The ID of the CDN FrontDoor Origin Group within which this CDN FrontDoor Origin should exist. Changing this forces a new CDN FrontDoor Origin to be created.
+	// The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
 	CdnFrontdoorOriginGroupId string `pulumi:"cdnFrontdoorOriginGroupId"`
 	// Specifies whether certificate name checks are enabled for this origin.
 	CertificateNameCheckEnabled bool `pulumi:"certificateNameCheckEnabled"`
@@ -159,7 +159,7 @@ type frontdoorOriginArgs struct {
 	HttpPort *int `pulumi:"httpPort"`
 	// The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`.
 	HttpsPort *int `pulumi:"httpsPort"`
-	// The name which should be used for this CDN FrontDoor Origin. Changing this forces a new CDN FrontDoor Origin to be created.
+	// The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
 	Name *string `pulumi:"name"`
 	// The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
 	OriginHostHeader *string `pulumi:"originHostHeader"`
@@ -173,7 +173,7 @@ type frontdoorOriginArgs struct {
 
 // The set of arguments for constructing a FrontdoorOrigin resource.
 type FrontdoorOriginArgs struct {
-	// The ID of the CDN FrontDoor Origin Group within which this CDN FrontDoor Origin should exist. Changing this forces a new CDN FrontDoor Origin to be created.
+	// The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
 	CdnFrontdoorOriginGroupId pulumi.StringInput
 	// Specifies whether certificate name checks are enabled for this origin.
 	CertificateNameCheckEnabled pulumi.BoolInput
@@ -187,7 +187,7 @@ type FrontdoorOriginArgs struct {
 	HttpPort pulumi.IntPtrInput
 	// The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`.
 	HttpsPort pulumi.IntPtrInput
-	// The name which should be used for this CDN FrontDoor Origin. Changing this forces a new CDN FrontDoor Origin to be created.
+	// The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
 	Name pulumi.StringPtrInput
 	// The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
 	OriginHostHeader pulumi.StringPtrInput
@@ -286,7 +286,7 @@ func (o FrontdoorOriginOutput) ToFrontdoorOriginOutputWithContext(ctx context.Co
 	return o
 }
 
-// The ID of the CDN FrontDoor Origin Group within which this CDN FrontDoor Origin should exist. Changing this forces a new CDN FrontDoor Origin to be created.
+// The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
 func (o FrontdoorOriginOutput) CdnFrontdoorOriginGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorOrigin) pulumi.StringOutput { return v.CdnFrontdoorOriginGroupId }).(pulumi.StringOutput)
 }
@@ -321,7 +321,7 @@ func (o FrontdoorOriginOutput) HttpsPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FrontdoorOrigin) pulumi.IntPtrOutput { return v.HttpsPort }).(pulumi.IntPtrOutput)
 }
 
-// The name which should be used for this CDN FrontDoor Origin. Changing this forces a new CDN FrontDoor Origin to be created.
+// The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
 func (o FrontdoorOriginOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorOrigin) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

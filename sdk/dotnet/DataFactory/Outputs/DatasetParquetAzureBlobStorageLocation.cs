@@ -36,7 +36,7 @@ namespace Pulumi.Azure.DataFactory.Outputs
         /// <summary>
         /// The folder path to the file on the web server.
         /// </summary>
-        public readonly string Path;
+        public readonly string? Path;
 
         [OutputConstructor]
         private DatasetParquetAzureBlobStorageLocation(
@@ -50,7 +50,7 @@ namespace Pulumi.Azure.DataFactory.Outputs
 
             string? filename,
 
-            string path)
+            string? path)
         {
             Container = container;
             DynamicContainerEnabled = dynamicContainerEnabled;

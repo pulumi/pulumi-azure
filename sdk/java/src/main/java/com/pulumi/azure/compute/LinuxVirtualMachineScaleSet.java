@@ -410,18 +410,16 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.extensionsTimeBudget);
     }
     /**
-     * A `gallery_applications` block as defined below.
+     * @deprecated
+     * `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
      * 
      */
+    @Deprecated /* `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0 */
     @Export(name="galleryApplications", type=List.class, parameters={LinuxVirtualMachineScaleSetGalleryApplication.class})
-    private Output</* @Nullable */ List<LinuxVirtualMachineScaleSetGalleryApplication>> galleryApplications;
+    private Output<List<LinuxVirtualMachineScaleSetGalleryApplication>> galleryApplications;
 
-    /**
-     * @return A `gallery_applications` block as defined below.
-     * 
-     */
-    public Output<Optional<List<LinuxVirtualMachineScaleSetGalleryApplication>>> galleryApplications() {
-        return Codegen.optional(this.galleryApplications);
+    public Output<List<LinuxVirtualMachineScaleSetGalleryApplication>> galleryApplications() {
+        return this.galleryApplications;
     }
     /**
      * The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.

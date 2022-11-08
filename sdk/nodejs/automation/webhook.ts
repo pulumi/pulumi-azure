@@ -112,7 +112,7 @@ export class Webhook extends pulumi.CustomResource {
      */
     public readonly runbookName!: pulumi.Output<string>;
     /**
-     * URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation.
+     * URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation. Changing this forces a new resource to be created.
      */
     public readonly uri!: pulumi.Output<string>;
 
@@ -204,7 +204,7 @@ export interface WebhookState {
      */
     runbookName?: pulumi.Input<string>;
     /**
-     * URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation.
+     * URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation. Changing this forces a new resource to be created.
      */
     uri?: pulumi.Input<string>;
 }
@@ -246,7 +246,7 @@ export interface WebhookArgs {
      */
     runbookName: pulumi.Input<string>;
     /**
-     * URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation.
+     * URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation. Changing this forces a new resource to be created.
      */
     uri?: pulumi.Input<string>;
 }

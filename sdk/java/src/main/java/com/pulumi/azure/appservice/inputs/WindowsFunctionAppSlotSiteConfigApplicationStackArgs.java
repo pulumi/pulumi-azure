@@ -32,14 +32,14 @@ public final class WindowsFunctionAppSlotSiteConfigApplicationStackArgs extends 
     }
 
     /**
-     * The version of Java to use. Possible values are `8`, and `11`
+     * The version of Java to use. Possible values are `8`, `11` &amp; `17` (In-Preview).
      * 
      */
     @Import(name="javaVersion")
     private @Nullable Output<String> javaVersion;
 
     /**
-     * @return The version of Java to use. Possible values are `8`, and `11`
+     * @return The version of Java to use. Possible values are `8`, `11` &amp; `17` (In-Preview).
      * 
      */
     public Optional<Output<String>> javaVersion() {
@@ -157,7 +157,7 @@ public final class WindowsFunctionAppSlotSiteConfigApplicationStackArgs extends 
         }
 
         /**
-         * @param javaVersion The version of Java to use. Possible values are `8`, and `11`
+         * @param javaVersion The version of Java to use. Possible values are `8`, `11` &amp; `17` (In-Preview).
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class WindowsFunctionAppSlotSiteConfigApplicationStackArgs extends 
         }
 
         /**
-         * @param javaVersion The version of Java to use. Possible values are `8`, and `11`
+         * @param javaVersion The version of Java to use. Possible values are `8`, `11` &amp; `17` (In-Preview).
          * 
          * @return builder
          * 

@@ -17,14 +17,14 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDom
     public static final FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs Empty = new FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs();
 
     /**
-     * Is the Frontdoor Custom Domain/Endpoint activated?
+     * Is the Front Door Custom Domain/Endpoint activated?
      * 
      */
     @Import(name="active")
     private @Nullable Output<Boolean> active;
 
     /**
-     * @return Is the Frontdoor Custom Domain/Endpoint activated?
+     * @return Is the Front Door Custom Domain/Endpoint activated?
      * 
      */
     public Optional<Output<Boolean>> active() {
@@ -32,14 +32,14 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDom
     }
 
     /**
-     * The Resource Id of the **Frontdoor Custom Domain** or **Frontdoor Endpoint** that should be bound to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+     * The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
     @Import(name="cdnFrontdoorDomainId", required=true)
     private Output<String> cdnFrontdoorDomainId;
 
     /**
-     * @return The Resource Id of the **Frontdoor Custom Domain** or **Frontdoor Endpoint** that should be bound to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+     * @return The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
     public Output<String> cdnFrontdoorDomainId() {
@@ -72,7 +72,7 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDom
         }
 
         /**
-         * @param active Is the Frontdoor Custom Domain/Endpoint activated?
+         * @param active Is the Front Door Custom Domain/Endpoint activated?
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDom
         }
 
         /**
-         * @param active Is the Frontdoor Custom Domain/Endpoint activated?
+         * @param active Is the Front Door Custom Domain/Endpoint activated?
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDom
         }
 
         /**
-         * @param cdnFrontdoorDomainId The Resource Id of the **Frontdoor Custom Domain** or **Frontdoor Endpoint** that should be bound to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+         * @param cdnFrontdoorDomainId The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDom
         }
 
         /**
-         * @param cdnFrontdoorDomainId The Resource Id of the **Frontdoor Custom Domain** or **Frontdoor Endpoint** that should be bound to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+         * @param cdnFrontdoorDomainId The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
          * 
          * @return builder
          * 

@@ -15,7 +15,6 @@ namespace Pulumi.Azure.AppPlatform.Outputs
     {
         /// <summary>
         /// Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
-        /// ---
         /// </summary>
         public readonly string? Certificate;
         /// <summary>

@@ -64,7 +64,7 @@ public final class FunctionAppSiteConfig {
      */
     private @Nullable List<FunctionAppSiteConfigIpRestriction> ipRestrictions;
     /**
-     * @return Java version hosted by the function app in Azure. Possible values are `1.8`, `11`.
+     * @return Java version hosted by the function app in Azure. Possible values are `1.8`, `11` &amp; `17` (In-Preview).
      * 
      */
     private @Nullable String javaVersion;
@@ -187,7 +187,7 @@ public final class FunctionAppSiteConfig {
         return this.ipRestrictions == null ? List.of() : this.ipRestrictions;
     }
     /**
-     * @return Java version hosted by the function app in Azure. Possible values are `1.8`, `11`.
+     * @return Java version hosted by the function app in Azure. Possible values are `1.8`, `11` &amp; `17` (In-Preview).
      * 
      */
     public Optional<String> javaVersion() {

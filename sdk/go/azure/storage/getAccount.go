@@ -71,7 +71,6 @@ type LookupAccountResult struct {
 	// Can nested items in the storage account opt into allowing public access?
 	AllowNestedItemsToBePublic bool `pulumi:"allowNestedItemsToBePublic"`
 	// A `azureFilesAuthentication` block as documented below.
-	// ---
 	AzureFilesAuthentications []GetAccountAzureFilesAuthentication `pulumi:"azureFilesAuthentications"`
 	// A `customDomain` block as documented below.
 	CustomDomains []GetAccountCustomDomain `pulumi:"customDomains"`
@@ -236,7 +235,6 @@ func (o LookupAccountResultOutput) AllowNestedItemsToBePublic() pulumi.BoolOutpu
 }
 
 // A `azureFilesAuthentication` block as documented below.
-// ---
 func (o LookupAccountResultOutput) AzureFilesAuthentications() GetAccountAzureFilesAuthenticationArrayOutput {
 	return o.ApplyT(func(v LookupAccountResult) []GetAccountAzureFilesAuthentication { return v.AzureFilesAuthentications }).(GetAccountAzureFilesAuthenticationArrayOutput)
 }

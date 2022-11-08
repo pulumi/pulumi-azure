@@ -35,7 +35,7 @@ public final class VirtualMachineStorageConfiguration {
      */
     private String storageWorkloadType;
     /**
-     * @return An `storage_settings` as defined below.
+     * @return An `temp_db_settings` as defined below.
      * 
      */
     private @Nullable VirtualMachineStorageConfigurationTempDbSettings tempDbSettings;
@@ -70,7 +70,7 @@ public final class VirtualMachineStorageConfiguration {
         return this.storageWorkloadType;
     }
     /**
-     * @return An `storage_settings` as defined below.
+     * @return An `temp_db_settings` as defined below.
      * 
      */
     public Optional<VirtualMachineStorageConfigurationTempDbSettings> tempDbSettings() {

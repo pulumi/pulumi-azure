@@ -233,9 +233,17 @@ public class Insights extends com.pulumi.resources.CustomResource {
     public Output<String> instrumentationKey() {
         return this.instrumentationKey;
     }
+    /**
+     * Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
+     * 
+     */
     @Export(name="internetIngestionEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> internetIngestionEnabled;
 
+    /**
+     * @return Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
+     * 
+     */
     public Output<Optional<Boolean>> internetIngestionEnabled() {
         return Codegen.optional(this.internetIngestionEnabled);
     }

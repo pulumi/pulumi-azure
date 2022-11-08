@@ -90,7 +90,6 @@ public final class GetServerResult {
     private Integer storageMb;
     /**
      * @return A mapping of tags to assign to the resource.
-     * ---
      * 
      */
     private Map<String,String> tags;
@@ -215,7 +214,6 @@ public final class GetServerResult {
     }
     /**
      * @return A mapping of tags to assign to the resource.
-     * ---
      * 
      */
     public Map<String,String> tags() {

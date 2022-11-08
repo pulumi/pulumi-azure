@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Azure CDN Front Door Firewall Policy instance.
+// Manages a Front Door (standard/premium) Firewall Policy instance.
 //
 // ## Example Usage
 //
@@ -168,7 +168,7 @@ import (
 //
 // ## Import
 //
-// Frontdoor Firewall Policy can be imported using the `resource id`, e.g.
+// Front Door Firewall Policies can be imported using the `resource id`, e.g.
 //
 // ```sh
 //
@@ -184,13 +184,13 @@ type FrontdoorFirewallPolicy struct {
 	CustomBlockResponseStatusCode pulumi.IntPtrOutput `pulumi:"customBlockResponseStatusCode"`
 	// One or more `customRule` blocks as defined below.
 	CustomRules FrontdoorFirewallPolicyCustomRuleArrayOutput `pulumi:"customRules"`
-	// Is the Cdn Frontdoor firewall policy enabled? Defaults to `true`.
+	// Is the Front Door Firewall Policy enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// The Cdn Frontend Endpoints associated with this Cdn Frontdoor Firewall policy.
+	// The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
 	FrontendEndpointIds pulumi.StringArrayOutput `pulumi:"frontendEndpointIds"`
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules FrontdoorFirewallPolicyManagedRuleArrayOutput `pulumi:"managedRules"`
-	// The Cdn Frontdoor firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+	// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
 	Mode pulumi.StringOutput `pulumi:"mode"`
 	// The name of the policy. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -198,9 +198,9 @@ type FrontdoorFirewallPolicy struct {
 	RedirectUrl pulumi.StringPtrOutput `pulumi:"redirectUrl"`
 	// The name of the resource group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The sku's pricing tier for this Cdn Frontdoor firewall policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+	// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
-	// A mapping of tags to assign to the Cdn Frontdoor firewall policy.
+	// A mapping of tags to assign to the Front Door Firewall Policy.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -248,13 +248,13 @@ type frontdoorFirewallPolicyState struct {
 	CustomBlockResponseStatusCode *int `pulumi:"customBlockResponseStatusCode"`
 	// One or more `customRule` blocks as defined below.
 	CustomRules []FrontdoorFirewallPolicyCustomRule `pulumi:"customRules"`
-	// Is the Cdn Frontdoor firewall policy enabled? Defaults to `true`.
+	// Is the Front Door Firewall Policy enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// The Cdn Frontend Endpoints associated with this Cdn Frontdoor Firewall policy.
+	// The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
 	FrontendEndpointIds []string `pulumi:"frontendEndpointIds"`
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules []FrontdoorFirewallPolicyManagedRule `pulumi:"managedRules"`
-	// The Cdn Frontdoor firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+	// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
 	Mode *string `pulumi:"mode"`
 	// The name of the policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -262,9 +262,9 @@ type frontdoorFirewallPolicyState struct {
 	RedirectUrl *string `pulumi:"redirectUrl"`
 	// The name of the resource group. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The sku's pricing tier for this Cdn Frontdoor firewall policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+	// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
 	SkuName *string `pulumi:"skuName"`
-	// A mapping of tags to assign to the Cdn Frontdoor firewall policy.
+	// A mapping of tags to assign to the Front Door Firewall Policy.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -275,13 +275,13 @@ type FrontdoorFirewallPolicyState struct {
 	CustomBlockResponseStatusCode pulumi.IntPtrInput
 	// One or more `customRule` blocks as defined below.
 	CustomRules FrontdoorFirewallPolicyCustomRuleArrayInput
-	// Is the Cdn Frontdoor firewall policy enabled? Defaults to `true`.
+	// Is the Front Door Firewall Policy enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// The Cdn Frontend Endpoints associated with this Cdn Frontdoor Firewall policy.
+	// The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
 	FrontendEndpointIds pulumi.StringArrayInput
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules FrontdoorFirewallPolicyManagedRuleArrayInput
-	// The Cdn Frontdoor firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+	// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
 	Mode pulumi.StringPtrInput
 	// The name of the policy. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -289,9 +289,9 @@ type FrontdoorFirewallPolicyState struct {
 	RedirectUrl pulumi.StringPtrInput
 	// The name of the resource group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The sku's pricing tier for this Cdn Frontdoor firewall policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+	// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
 	SkuName pulumi.StringPtrInput
-	// A mapping of tags to assign to the Cdn Frontdoor firewall policy.
+	// A mapping of tags to assign to the Front Door Firewall Policy.
 	Tags pulumi.StringMapInput
 }
 
@@ -306,11 +306,11 @@ type frontdoorFirewallPolicyArgs struct {
 	CustomBlockResponseStatusCode *int `pulumi:"customBlockResponseStatusCode"`
 	// One or more `customRule` blocks as defined below.
 	CustomRules []FrontdoorFirewallPolicyCustomRule `pulumi:"customRules"`
-	// Is the Cdn Frontdoor firewall policy enabled? Defaults to `true`.
+	// Is the Front Door Firewall Policy enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules []FrontdoorFirewallPolicyManagedRule `pulumi:"managedRules"`
-	// The Cdn Frontdoor firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+	// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
 	Mode string `pulumi:"mode"`
 	// The name of the policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -318,9 +318,9 @@ type frontdoorFirewallPolicyArgs struct {
 	RedirectUrl *string `pulumi:"redirectUrl"`
 	// The name of the resource group. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The sku's pricing tier for this Cdn Frontdoor firewall policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+	// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
 	SkuName string `pulumi:"skuName"`
-	// A mapping of tags to assign to the Cdn Frontdoor firewall policy.
+	// A mapping of tags to assign to the Front Door Firewall Policy.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -332,11 +332,11 @@ type FrontdoorFirewallPolicyArgs struct {
 	CustomBlockResponseStatusCode pulumi.IntPtrInput
 	// One or more `customRule` blocks as defined below.
 	CustomRules FrontdoorFirewallPolicyCustomRuleArrayInput
-	// Is the Cdn Frontdoor firewall policy enabled? Defaults to `true`.
+	// Is the Front Door Firewall Policy enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules FrontdoorFirewallPolicyManagedRuleArrayInput
-	// The Cdn Frontdoor firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+	// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
 	Mode pulumi.StringInput
 	// The name of the policy. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -344,9 +344,9 @@ type FrontdoorFirewallPolicyArgs struct {
 	RedirectUrl pulumi.StringPtrInput
 	// The name of the resource group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The sku's pricing tier for this Cdn Frontdoor firewall policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+	// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
 	SkuName pulumi.StringInput
-	// A mapping of tags to assign to the Cdn Frontdoor firewall policy.
+	// A mapping of tags to assign to the Front Door Firewall Policy.
 	Tags pulumi.StringMapInput
 }
 
@@ -452,12 +452,12 @@ func (o FrontdoorFirewallPolicyOutput) CustomRules() FrontdoorFirewallPolicyCust
 	return o.ApplyT(func(v *FrontdoorFirewallPolicy) FrontdoorFirewallPolicyCustomRuleArrayOutput { return v.CustomRules }).(FrontdoorFirewallPolicyCustomRuleArrayOutput)
 }
 
-// Is the Cdn Frontdoor firewall policy enabled? Defaults to `true`.
+// Is the Front Door Firewall Policy enabled? Defaults to `true`.
 func (o FrontdoorFirewallPolicyOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FrontdoorFirewallPolicy) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The Cdn Frontend Endpoints associated with this Cdn Frontdoor Firewall policy.
+// The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
 func (o FrontdoorFirewallPolicyOutput) FrontendEndpointIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FrontdoorFirewallPolicy) pulumi.StringArrayOutput { return v.FrontendEndpointIds }).(pulumi.StringArrayOutput)
 }
@@ -467,7 +467,7 @@ func (o FrontdoorFirewallPolicyOutput) ManagedRules() FrontdoorFirewallPolicyMan
 	return o.ApplyT(func(v *FrontdoorFirewallPolicy) FrontdoorFirewallPolicyManagedRuleArrayOutput { return v.ManagedRules }).(FrontdoorFirewallPolicyManagedRuleArrayOutput)
 }
 
-// The Cdn Frontdoor firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
 func (o FrontdoorFirewallPolicyOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorFirewallPolicy) pulumi.StringOutput { return v.Mode }).(pulumi.StringOutput)
 }
@@ -487,12 +487,12 @@ func (o FrontdoorFirewallPolicyOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorFirewallPolicy) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The sku's pricing tier for this Cdn Frontdoor firewall policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
 func (o FrontdoorFirewallPolicyOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorFirewallPolicy) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }
 
-// A mapping of tags to assign to the Cdn Frontdoor firewall policy.
+// A mapping of tags to assign to the Front Door Firewall Policy.
 func (o FrontdoorFirewallPolicyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FrontdoorFirewallPolicy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

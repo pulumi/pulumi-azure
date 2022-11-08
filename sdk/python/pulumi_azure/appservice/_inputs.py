@@ -114,7 +114,9 @@ __all__ = [
     'LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs',
     'LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs',
     'LinuxFunctionAppSlotSiteCredentialArgs',
+    'LinuxFunctionAppSlotStorageAccountArgs',
     'LinuxFunctionAppStickySettingsArgs',
+    'LinuxFunctionAppStorageAccountArgs',
     'LinuxWebAppAuthSettingsArgs',
     'LinuxWebAppAuthSettingsActiveDirectoryArgs',
     'LinuxWebAppAuthSettingsFacebookArgs',
@@ -250,7 +252,9 @@ __all__ = [
     'WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs',
     'WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs',
     'WindowsFunctionAppSlotSiteCredentialArgs',
+    'WindowsFunctionAppSlotStorageAccountArgs',
     'WindowsFunctionAppStickySettingsArgs',
+    'WindowsFunctionAppStorageAccountArgs',
     'WindowsWebAppAuthSettingsArgs',
     'WindowsWebAppAuthSettingsActiveDirectoryArgs',
     'WindowsWebAppAuthSettingsFacebookArgs',
@@ -349,7 +353,7 @@ class AppServiceAuthSettingsArgs:
         :param pulumi.Input[str] default_provider: The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
         :param pulumi.Input['AppServiceAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
         :param pulumi.Input['AppServiceAuthSettingsGoogleArgs'] google: A `google` block as defined below.
-        :param pulumi.Input[str] issuer: Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+        :param pulumi.Input[str] issuer: Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         :param pulumi.Input['AppServiceAuthSettingsMicrosoftArgs'] microsoft: A `microsoft` block as defined below.
         :param pulumi.Input[str] runtime_version: The runtime version of the Authentication/Authorization module.
         :param pulumi.Input[float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
@@ -473,7 +477,7 @@ class AppServiceAuthSettingsArgs:
     @pulumi.getter
     def issuer(self) -> Optional[pulumi.Input[str]]:
         """
-        Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+        Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         """
         return pulumi.get(self, "issuer")
 
@@ -617,7 +621,7 @@ class AppServiceAuthSettingsFacebookArgs:
         """
         :param pulumi.Input[str] app_id: The App ID of the Facebook app used for login
         :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook login.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login>
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "app_secret", app_secret)
@@ -652,7 +656,7 @@ class AppServiceAuthSettingsFacebookArgs:
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
+        The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login>
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -670,7 +674,7 @@ class AppServiceAuthSettingsGoogleArgs:
         """
         :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Google web application.
         :param pulumi.Input[str] client_secret: The client secret associated with the Google web application.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/>
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -705,7 +709,7 @@ class AppServiceAuthSettingsGoogleArgs:
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+        The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/>
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -723,7 +727,7 @@ class AppServiceAuthSettingsMicrosoftArgs:
         """
         :param pulumi.Input[str] client_id: The OAuth 2.0 client ID that was created for the app used for authentication.
         :param pulumi.Input[str] client_secret: The OAuth 2.0 client secret that was created for the app used for authentication.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx>
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -758,7 +762,7 @@ class AppServiceAuthSettingsMicrosoftArgs:
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+        The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx>
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -2569,7 +2573,6 @@ class ConnectionAuthenticationArgs:
         """
         :param pulumi.Input[str] type: The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`.
         :param pulumi.Input[str] certificate: Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
-               ---
         :param pulumi.Input[str] client_id: Client ID for `userAssignedIdentity` or `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`. When `type` is set to `userAssignedIdentity`, `client_id` and `subscription_id` should be either both specified or both not specified.
         :param pulumi.Input[str] name: Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
         :param pulumi.Input[str] principal_id: Principal ID for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`.
@@ -2607,7 +2610,6 @@ class ConnectionAuthenticationArgs:
     def certificate(self) -> Optional[pulumi.Input[str]]:
         """
         Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
-        ---
         """
         return pulumi.get(self, "certificate")
 
@@ -2830,7 +2832,7 @@ class FunctionAppAuthSettingsArgs:
         :param pulumi.Input[str] default_provider: The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
         :param pulumi.Input['FunctionAppAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
         :param pulumi.Input['FunctionAppAuthSettingsGoogleArgs'] google: A `google` block as defined below.
-        :param pulumi.Input[str] issuer: Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+        :param pulumi.Input[str] issuer: Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         :param pulumi.Input['FunctionAppAuthSettingsMicrosoftArgs'] microsoft: A `microsoft` block as defined below.
         :param pulumi.Input[str] runtime_version: The runtime version of the Authentication/Authorization module.
         :param pulumi.Input[float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
@@ -2954,7 +2956,7 @@ class FunctionAppAuthSettingsArgs:
     @pulumi.getter
     def issuer(self) -> Optional[pulumi.Input[str]]:
         """
-        Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+        Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         """
         return pulumi.get(self, "issuer")
 
@@ -3098,7 +3100,7 @@ class FunctionAppAuthSettingsFacebookArgs:
         """
         :param pulumi.Input[str] app_id: The App ID of the Facebook app used for login
         :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook login.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login>
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "app_secret", app_secret)
@@ -3133,7 +3135,7 @@ class FunctionAppAuthSettingsFacebookArgs:
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
+        The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login>
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -3151,7 +3153,7 @@ class FunctionAppAuthSettingsGoogleArgs:
         """
         :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Google web application.
         :param pulumi.Input[str] client_secret: The client secret associated with the Google web application.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/>
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -3186,7 +3188,7 @@ class FunctionAppAuthSettingsGoogleArgs:
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+        The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/>
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -3204,7 +3206,7 @@ class FunctionAppAuthSettingsMicrosoftArgs:
         """
         :param pulumi.Input[str] client_id: The OAuth 2.0 client ID that was created for the app used for authentication.
         :param pulumi.Input[str] client_secret: The OAuth 2.0 client secret that was created for the app used for authentication.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx>
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -3239,7 +3241,7 @@ class FunctionAppAuthSettingsMicrosoftArgs:
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+        The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx>
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -3478,7 +3480,7 @@ class FunctionAppSiteConfigArgs:
         :param pulumi.Input[str] health_check_path: Path which will be checked for this function app health.
         :param pulumi.Input[bool] http2_enabled: Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigIpRestrictionArgs']]] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
-        :param pulumi.Input[str] java_version: Java version hosted by the function app in Azure. Possible values are `1.8`, `11`.
+        :param pulumi.Input[str] java_version: Java version hosted by the function app in Azure. Possible values are `1.8`, `11` & `17` (In-Preview).
         :param pulumi.Input[str] linux_fx_version: Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
         :param pulumi.Input[str] min_tls_version: The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
         :param pulumi.Input[int] pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
@@ -3654,7 +3656,7 @@ class FunctionAppSiteConfigArgs:
     @pulumi.getter(name="javaVersion")
     def java_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Java version hosted by the function app in Azure. Possible values are `1.8`, `11`.
+        Java version hosted by the function app in Azure. Possible values are `1.8`, `11` & `17` (In-Preview).
         """
         return pulumi.get(self, "java_version")
 
@@ -4265,7 +4267,7 @@ class FunctionAppSlotAuthSettingsArgs:
         :param pulumi.Input[str] default_provider: The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
         :param pulumi.Input['FunctionAppSlotAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
         :param pulumi.Input['FunctionAppSlotAuthSettingsGoogleArgs'] google: A `google` block as defined below.
-        :param pulumi.Input[str] issuer: Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+        :param pulumi.Input[str] issuer: Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         :param pulumi.Input['FunctionAppSlotAuthSettingsMicrosoftArgs'] microsoft: A `microsoft` block as defined below.
         :param pulumi.Input[str] runtime_version: The runtime version of the Authentication/Authorization module.
         :param pulumi.Input[float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
@@ -4389,7 +4391,7 @@ class FunctionAppSlotAuthSettingsArgs:
     @pulumi.getter
     def issuer(self) -> Optional[pulumi.Input[str]]:
         """
-        Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+        Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         """
         return pulumi.get(self, "issuer")
 
@@ -4533,7 +4535,7 @@ class FunctionAppSlotAuthSettingsFacebookArgs:
         """
         :param pulumi.Input[str] app_id: The App ID of the Facebook app used for login
         :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook login.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login>
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "app_secret", app_secret)
@@ -4568,7 +4570,7 @@ class FunctionAppSlotAuthSettingsFacebookArgs:
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
+        The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login>
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -4586,7 +4588,7 @@ class FunctionAppSlotAuthSettingsGoogleArgs:
         """
         :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Google web application.
         :param pulumi.Input[str] client_secret: The client secret associated with the Google web application.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/>
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -4621,7 +4623,7 @@ class FunctionAppSlotAuthSettingsGoogleArgs:
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+        The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/>
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -4639,7 +4641,7 @@ class FunctionAppSlotAuthSettingsMicrosoftArgs:
         """
         :param pulumi.Input[str] client_id: The OAuth 2.0 client ID that was created for the app used for authentication.
         :param pulumi.Input[str] client_secret: The OAuth 2.0 client secret that was created for the app used for authentication.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx>
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -4674,7 +4676,7 @@ class FunctionAppSlotAuthSettingsMicrosoftArgs:
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+        The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx>
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -7266,7 +7268,7 @@ class LinuxFunctionAppSiteConfigApplicationStackArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackDockerArgs']]] dockers: One or more `docker` blocks as defined below.
         :param pulumi.Input[str] dotnet_version: The version of .NET to use. Possible values include `3.1` and `6.0`.
-        :param pulumi.Input[str] java_version: The Version of Java to use. Supported versions include `8`, and `11`.
+        :param pulumi.Input[str] java_version: The Version of Java to use. Supported versions include `8`, `11` & `17` (In-Preview).
         :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `12`, `14`, `16` and `18`.
         :param pulumi.Input[str] powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, and `7.2`.
         :param pulumi.Input[str] python_version: The version of Python to run. Possible values include `3.6`, `3.7`, `3.8`, and `3.9`.
@@ -7318,7 +7320,7 @@ class LinuxFunctionAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="javaVersion")
     def java_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The Version of Java to use. Supported versions include `8`, and `11`.
+        The Version of Java to use. Supported versions include `8`, `11` & `17` (In-Preview).
         """
         return pulumi.get(self, "java_version")
 
@@ -9521,7 +9523,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStackArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgs']]] dockers: a `docker` block as detailed below.
         :param pulumi.Input[str] dotnet_version: The version of .Net. Possible values are `3.1` and `6.0`.
-        :param pulumi.Input[str] java_version: The version of Java to use. Possible values are `8`, and `11`.
+        :param pulumi.Input[str] java_version: The version of Java to use. Possible values are `8`, `11` & `17` (In-Preview).
         :param pulumi.Input[str] node_version: The version of Node to use. Possible values include `12`, and `14`
         :param pulumi.Input[str] powershell_core_version: The version of PowerShell Core to use. Possibles values are `7` , and `7.2`.
         :param pulumi.Input[str] python_version: The version of Python to use. Possible values include `3.9`, `3.8`, and `3.7`.
@@ -9573,7 +9575,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStackArgs:
     @pulumi.getter(name="javaVersion")
     def java_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of Java to use. Possible values are `8`, and `11`.
+        The version of Java to use. Possible values are `8`, `11` & `17` (In-Preview).
         """
         return pulumi.get(self, "java_version")
 
@@ -10184,6 +10186,104 @@ class LinuxFunctionAppSlotSiteCredentialArgs:
 
 
 @pulumi.input_type
+class LinuxFunctionAppSlotStorageAccountArgs:
+    def __init__(__self__, *,
+                 access_key: pulumi.Input[str],
+                 account_name: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 share_name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 mount_path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] access_key: The Access key for the storage account.
+        :param pulumi.Input[str] account_name: The Name of the Storage Account.
+        :param pulumi.Input[str] name: The name which should be used for this Storage Account.
+        :param pulumi.Input[str] share_name: The Name of the File Share or Container Name for Blob storage.
+        :param pulumi.Input[str] type: The Azure Storage Type. Possible values include `AzureFiles` and `AzureBlob`.
+        :param pulumi.Input[str] mount_path: The path at which to mount the storage share.
+        """
+        pulumi.set(__self__, "access_key", access_key)
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "share_name", share_name)
+        pulumi.set(__self__, "type", type)
+        if mount_path is not None:
+            pulumi.set(__self__, "mount_path", mount_path)
+
+    @property
+    @pulumi.getter(name="accessKey")
+    def access_key(self) -> pulumi.Input[str]:
+        """
+        The Access key for the storage account.
+        """
+        return pulumi.get(self, "access_key")
+
+    @access_key.setter
+    def access_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "access_key", value)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[str]:
+        """
+        The Name of the Storage Account.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this Storage Account.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="shareName")
+    def share_name(self) -> pulumi.Input[str]:
+        """
+        The Name of the File Share or Container Name for Blob storage.
+        """
+        return pulumi.get(self, "share_name")
+
+    @share_name.setter
+    def share_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "share_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The Azure Storage Type. Possible values include `AzureFiles` and `AzureBlob`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path at which to mount the storage share.
+        """
+        return pulumi.get(self, "mount_path")
+
+    @mount_path.setter
+    def mount_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mount_path", value)
+
+
+@pulumi.input_type
 class LinuxFunctionAppStickySettingsArgs:
     def __init__(__self__, *,
                  app_setting_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -10220,6 +10320,104 @@ class LinuxFunctionAppStickySettingsArgs:
     @connection_string_names.setter
     def connection_string_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "connection_string_names", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppStorageAccountArgs:
+    def __init__(__self__, *,
+                 access_key: pulumi.Input[str],
+                 account_name: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 share_name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 mount_path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] access_key: The Access key for the storage account.
+        :param pulumi.Input[str] account_name: The Name of the Storage Account.
+        :param pulumi.Input[str] name: The name which should be used for this Storage Account.
+        :param pulumi.Input[str] share_name: The Name of the File Share or Container Name for Blob storage.
+        :param pulumi.Input[str] type: The Azure Storage Type. Possible values include `AzureFiles` and `AzureBlob`.
+        :param pulumi.Input[str] mount_path: The path at which to mount the storage share.
+        """
+        pulumi.set(__self__, "access_key", access_key)
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "share_name", share_name)
+        pulumi.set(__self__, "type", type)
+        if mount_path is not None:
+            pulumi.set(__self__, "mount_path", mount_path)
+
+    @property
+    @pulumi.getter(name="accessKey")
+    def access_key(self) -> pulumi.Input[str]:
+        """
+        The Access key for the storage account.
+        """
+        return pulumi.get(self, "access_key")
+
+    @access_key.setter
+    def access_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "access_key", value)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[str]:
+        """
+        The Name of the Storage Account.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this Storage Account.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="shareName")
+    def share_name(self) -> pulumi.Input[str]:
+        """
+        The Name of the File Share or Container Name for Blob storage.
+        """
+        return pulumi.get(self, "share_name")
+
+    @share_name.setter
+    def share_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "share_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The Azure Storage Type. Possible values include `AzureFiles` and `AzureBlob`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path at which to mount the storage share.
+        """
+        return pulumi.get(self, "mount_path")
+
+    @mount_path.setter
+    def mount_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mount_path", value)
 
 
 @pulumi.input_type
@@ -11490,6 +11688,7 @@ class LinuxWebAppSiteConfigArgs:
         :param pulumi.Input[bool] local_mysql_enabled: Use Local MySQL. Defaults to `false`.
         :param pulumi.Input[str] managed_pipeline_mode: Managed pipeline mode. Possible values include `Integrated`, and `Classic`.
         :param pulumi.Input[str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[bool] remote_debugging_enabled: Should Remote Debugging be enabled? Defaults to `false`.
         :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param pulumi.Input[str] scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
@@ -11825,6 +12024,9 @@ class LinuxWebAppSiteConfigArgs:
     @property
     @pulumi.getter(name="remoteDebuggingEnabled")
     def remote_debugging_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Remote Debugging be enabled? Defaults to `false`.
+        """
         return pulumi.get(self, "remote_debugging_enabled")
 
     @remote_debugging_enabled.setter
@@ -14168,6 +14370,7 @@ class LinuxWebAppSlotSiteConfigArgs:
         :param pulumi.Input[bool] local_mysql_enabled: Use Local MySQL. Defaults to `false`.
         :param pulumi.Input[str] managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
         :param pulumi.Input[str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[bool] remote_debugging_enabled: Should Remote Debugging be enabled? Defaults to `false`.
         :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param pulumi.Input[str] scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
@@ -14516,6 +14719,9 @@ class LinuxWebAppSlotSiteConfigArgs:
     @property
     @pulumi.getter(name="remoteDebuggingEnabled")
     def remote_debugging_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Remote Debugging be enabled? Defaults to `false`.
+        """
         return pulumi.get(self, "remote_debugging_enabled")
 
     @remote_debugging_enabled.setter
@@ -15899,7 +16105,7 @@ class SlotAuthSettingsArgs:
         :param pulumi.Input[str] default_provider: The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
         :param pulumi.Input['SlotAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
         :param pulumi.Input['SlotAuthSettingsGoogleArgs'] google: A `google` block as defined below.
-        :param pulumi.Input[str] issuer: Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+        :param pulumi.Input[str] issuer: Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         :param pulumi.Input['SlotAuthSettingsMicrosoftArgs'] microsoft: A `microsoft` block as defined below.
         :param pulumi.Input[str] runtime_version: The runtime version of the Authentication/Authorization module.
         :param pulumi.Input[float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
@@ -16023,7 +16229,7 @@ class SlotAuthSettingsArgs:
     @pulumi.getter
     def issuer(self) -> Optional[pulumi.Input[str]]:
         """
-        Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+        Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         """
         return pulumi.get(self, "issuer")
 
@@ -16167,7 +16373,7 @@ class SlotAuthSettingsFacebookArgs:
         """
         :param pulumi.Input[str] app_id: The App ID of the Facebook app used for login
         :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook login.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login>
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "app_secret", app_secret)
@@ -16202,7 +16408,7 @@ class SlotAuthSettingsFacebookArgs:
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
+        The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login>
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -16220,7 +16426,7 @@ class SlotAuthSettingsGoogleArgs:
         """
         :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Google web application.
         :param pulumi.Input[str] client_secret: The client secret associated with the Google web application.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/>
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -16255,7 +16461,7 @@ class SlotAuthSettingsGoogleArgs:
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+        The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/>
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -16273,7 +16479,7 @@ class SlotAuthSettingsMicrosoftArgs:
         """
         :param pulumi.Input[str] client_id: The OAuth 2.0 client ID that was created for the app used for authentication.
         :param pulumi.Input[str] client_secret: The OAuth 2.0 client secret that was created for the app used for authentication.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx>
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -16308,7 +16514,7 @@ class SlotAuthSettingsMicrosoftArgs:
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+        The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx>
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -19737,7 +19943,7 @@ class WindowsFunctionAppSiteConfigApplicationStackArgs:
                  use_dotnet_isolated_runtime: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] dotnet_version: The version of .NET to use. Possible values include `3.1` and `6`.
-        :param pulumi.Input[str] java_version: The Version of Java to use. Supported versions include `8`, and `11`.
+        :param pulumi.Input[str] java_version: The Version of Java to use. Supported versions include `8`, `11` & `17` (In-Preview).
         :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `~12`, `~14`, `~16` and `~18`.
         :param pulumi.Input[str] powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, and `7.2`.
         :param pulumi.Input[bool] use_custom_runtime: Should the Windows Function App use a custom runtime?
@@ -19772,7 +19978,7 @@ class WindowsFunctionAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="javaVersion")
     def java_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The Version of Java to use. Supported versions include `8`, and `11`.
+        The Version of Java to use. Supported versions include `8`, `11` & `17` (In-Preview).
         """
         return pulumi.get(self, "java_version")
 
@@ -21844,7 +22050,7 @@ class WindowsFunctionAppSlotSiteConfigApplicationStackArgs:
                  use_dotnet_isolated_runtime: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] dotnet_version: The version of .Net. Possible values are `3.1` and `6`
-        :param pulumi.Input[str] java_version: The version of Java to use. Possible values are `8`, and `11`
+        :param pulumi.Input[str] java_version: The version of Java to use. Possible values are `8`, `11` & `17` (In-Preview).
         :param pulumi.Input[str] node_version: The version of Node to use. Possible values include `12`, and `14`
         :param pulumi.Input[str] powershell_core_version: The PowerShell Core version to use. Possible values are `7`, and `7.2`.
         :param pulumi.Input[bool] use_custom_runtime: Does the Function App use a custom Application Stack?
@@ -21879,7 +22085,7 @@ class WindowsFunctionAppSlotSiteConfigApplicationStackArgs:
     @pulumi.getter(name="javaVersion")
     def java_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of Java to use. Possible values are `8`, and `11`
+        The version of Java to use. Possible values are `8`, `11` & `17` (In-Preview).
         """
         return pulumi.get(self, "java_version")
 
@@ -22394,6 +22600,104 @@ class WindowsFunctionAppSlotSiteCredentialArgs:
 
 
 @pulumi.input_type
+class WindowsFunctionAppSlotStorageAccountArgs:
+    def __init__(__self__, *,
+                 access_key: pulumi.Input[str],
+                 account_name: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 share_name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 mount_path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] access_key: The Access key for the storage account.
+        :param pulumi.Input[str] account_name: The Name of the Storage Account.
+        :param pulumi.Input[str] name: The name which should be used for this Storage Account.
+        :param pulumi.Input[str] share_name: The Name of the File Share or Container Name for Blob storage.
+        :param pulumi.Input[str] type: The Azure Storage Type. Possible values include `AzureFiles`.
+        :param pulumi.Input[str] mount_path: The path at which to mount the storage share.
+        """
+        pulumi.set(__self__, "access_key", access_key)
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "share_name", share_name)
+        pulumi.set(__self__, "type", type)
+        if mount_path is not None:
+            pulumi.set(__self__, "mount_path", mount_path)
+
+    @property
+    @pulumi.getter(name="accessKey")
+    def access_key(self) -> pulumi.Input[str]:
+        """
+        The Access key for the storage account.
+        """
+        return pulumi.get(self, "access_key")
+
+    @access_key.setter
+    def access_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "access_key", value)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[str]:
+        """
+        The Name of the Storage Account.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this Storage Account.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="shareName")
+    def share_name(self) -> pulumi.Input[str]:
+        """
+        The Name of the File Share or Container Name for Blob storage.
+        """
+        return pulumi.get(self, "share_name")
+
+    @share_name.setter
+    def share_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "share_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The Azure Storage Type. Possible values include `AzureFiles`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path at which to mount the storage share.
+        """
+        return pulumi.get(self, "mount_path")
+
+    @mount_path.setter
+    def mount_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mount_path", value)
+
+
+@pulumi.input_type
 class WindowsFunctionAppStickySettingsArgs:
     def __init__(__self__, *,
                  app_setting_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -22430,6 +22734,104 @@ class WindowsFunctionAppStickySettingsArgs:
     @connection_string_names.setter
     def connection_string_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "connection_string_names", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppStorageAccountArgs:
+    def __init__(__self__, *,
+                 access_key: pulumi.Input[str],
+                 account_name: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 share_name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 mount_path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] access_key: The Access key for the storage account.
+        :param pulumi.Input[str] account_name: The Name of the Storage Account.
+        :param pulumi.Input[str] name: The name which should be used for this Storage Account.
+        :param pulumi.Input[str] share_name: The Name of the File Share or Container Name for Blob storage.
+        :param pulumi.Input[str] type: The Azure Storage Type. Possible values include `AzureFiles`.
+        :param pulumi.Input[str] mount_path: The path at which to mount the storage share.
+        """
+        pulumi.set(__self__, "access_key", access_key)
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "share_name", share_name)
+        pulumi.set(__self__, "type", type)
+        if mount_path is not None:
+            pulumi.set(__self__, "mount_path", mount_path)
+
+    @property
+    @pulumi.getter(name="accessKey")
+    def access_key(self) -> pulumi.Input[str]:
+        """
+        The Access key for the storage account.
+        """
+        return pulumi.get(self, "access_key")
+
+    @access_key.setter
+    def access_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "access_key", value)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[str]:
+        """
+        The Name of the Storage Account.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this Storage Account.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="shareName")
+    def share_name(self) -> pulumi.Input[str]:
+        """
+        The Name of the File Share or Container Name for Blob storage.
+        """
+        return pulumi.get(self, "share_name")
+
+    @share_name.setter
+    def share_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "share_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The Azure Storage Type. Possible values include `AzureFiles`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path at which to mount the storage share.
+        """
+        return pulumi.get(self, "mount_path")
+
+    @mount_path.setter
+    def mount_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mount_path", value)
 
 
 @pulumi.input_type

@@ -49,14 +49,14 @@ public final class FrontdoorRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The resource ID of the Frontdoor Rule Set for this Frontdoor Rule. Changing this forces a new Frontdoor Rule to be created.
+     * The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
      * 
      */
     @Import(name="cdnFrontdoorRuleSetId", required=true)
     private Output<String> cdnFrontdoorRuleSetId;
 
     /**
-     * @return The resource ID of the Frontdoor Rule Set for this Frontdoor Rule. Changing this forces a new Frontdoor Rule to be created.
+     * @return The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
      * 
      */
     public Output<String> cdnFrontdoorRuleSetId() {
@@ -79,14 +79,14 @@ public final class FrontdoorRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name which should be used for this Frontdoor Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Frontdoor Rule to be created.
+     * The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Frontdoor Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Frontdoor Rule to be created.
+     * @return The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -94,14 +94,14 @@ public final class FrontdoorRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The order in which the rules will be applied for the Frontdoor Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Frontdoor Rule with a lesser order value will be applied before a rule with a greater order value.
+     * The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
      * 
      */
     @Import(name="order", required=true)
     private Output<Integer> order;
 
     /**
-     * @return The order in which the rules will be applied for the Frontdoor Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Frontdoor Rule with a lesser order value will be applied before a rule with a greater order value.
+     * @return The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
      * 
      */
     public Output<Integer> order() {
@@ -180,7 +180,7 @@ public final class FrontdoorRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cdnFrontdoorRuleSetId The resource ID of the Frontdoor Rule Set for this Frontdoor Rule. Changing this forces a new Frontdoor Rule to be created.
+         * @param cdnFrontdoorRuleSetId The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class FrontdoorRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cdnFrontdoorRuleSetId The resource ID of the Frontdoor Rule Set for this Frontdoor Rule. Changing this forces a new Frontdoor Rule to be created.
+         * @param cdnFrontdoorRuleSetId The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class FrontdoorRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name which should be used for this Frontdoor Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Frontdoor Rule to be created.
+         * @param name The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class FrontdoorRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name which should be used for this Frontdoor Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Frontdoor Rule to be created.
+         * @param name The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class FrontdoorRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param order The order in which the rules will be applied for the Frontdoor Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Frontdoor Rule with a lesser order value will be applied before a rule with a greater order value.
+         * @param order The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class FrontdoorRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param order The order in which the rules will be applied for the Frontdoor Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Frontdoor Rule with a lesser order value will be applied before a rule with a greater order value.
+         * @param order The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
          * 
          * @return builder
          * 

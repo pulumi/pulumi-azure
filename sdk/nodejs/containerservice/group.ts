@@ -9,6 +9,8 @@ import * as utilities from "../utilities";
 /**
  * Manages as an Azure Container Group instance.
  *
+ * > **Note** `networkProfileId` is [deprecated](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-vnet) by Azure. For users who want to continue to manage existing `azure.containerservice.Group` that rely on `networkProfileId`, please stay on provider versions prior to v3.16.0. Otherwise, use `subnetIds` instead.
+ *
  * ## Example Usage
  *
  * This example provisions a Basic Container.
@@ -101,6 +103,10 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly dnsNameLabel!: pulumi.Output<string | undefined>;
     /**
+     * The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+     */
+    public readonly dnsNameLabelReusePolicy!: pulumi.Output<string | undefined>;
+    /**
      * Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
      */
     public readonly exposedPorts!: pulumi.Output<outputs.containerservice.GroupExposedPort[]>;
@@ -125,7 +131,7 @@ export class Group extends pulumi.CustomResource {
      */
     public /*out*/ readonly ipAddress!: pulumi.Output<string>;
     /**
-     * Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
+     * Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set.
      */
     public readonly ipAddressType!: pulumi.Output<string | undefined>;
     /**
@@ -141,9 +147,9 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Network profile ID for deploying to a virtual network.
+     * @deprecated the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead
      */
-    public readonly networkProfileId!: pulumi.Output<string | undefined>;
+    public readonly networkProfileId!: pulumi.Output<string>;
     /**
      * The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
      */
@@ -157,9 +163,17 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly restartPolicy!: pulumi.Output<string | undefined>;
     /**
+     * The subnet resource IDs for a container group. Changing this forces a new resource to be created.
+     */
+    public readonly subnetIds!: pulumi.Output<string | undefined>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A list of Availability Zones in which this Container Group is located.
+     */
+    public readonly zones!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -178,6 +192,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["diagnostics"] = state ? state.diagnostics : undefined;
             resourceInputs["dnsConfig"] = state ? state.dnsConfig : undefined;
             resourceInputs["dnsNameLabel"] = state ? state.dnsNameLabel : undefined;
+            resourceInputs["dnsNameLabelReusePolicy"] = state ? state.dnsNameLabelReusePolicy : undefined;
             resourceInputs["exposedPorts"] = state ? state.exposedPorts : undefined;
             resourceInputs["fqdn"] = state ? state.fqdn : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
@@ -192,7 +207,9 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["osType"] = state ? state.osType : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["restartPolicy"] = state ? state.restartPolicy : undefined;
+            resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as GroupArgs | undefined;
             if ((!args || args.containers === undefined) && !opts.urn) {
@@ -208,6 +225,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["diagnostics"] = args ? args.diagnostics : undefined;
             resourceInputs["dnsConfig"] = args ? args.dnsConfig : undefined;
             resourceInputs["dnsNameLabel"] = args ? args.dnsNameLabel : undefined;
+            resourceInputs["dnsNameLabelReusePolicy"] = args ? args.dnsNameLabelReusePolicy : undefined;
             resourceInputs["exposedPorts"] = args ? args.exposedPorts : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["imageRegistryCredentials"] = args ? args.imageRegistryCredentials : undefined;
@@ -220,7 +238,9 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["osType"] = args ? args.osType : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["restartPolicy"] = args ? args.restartPolicy : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["zones"] = args ? args.zones : undefined;
             resourceInputs["fqdn"] = undefined /*out*/;
             resourceInputs["ipAddress"] = undefined /*out*/;
         }
@@ -250,6 +270,10 @@ export interface GroupState {
      */
     dnsNameLabel?: pulumi.Input<string>;
     /**
+     * The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+     */
+    dnsNameLabelReusePolicy?: pulumi.Input<string>;
+    /**
      * Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
      */
     exposedPorts?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupExposedPort>[]>;
@@ -274,7 +298,7 @@ export interface GroupState {
      */
     ipAddress?: pulumi.Input<string>;
     /**
-     * Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
+     * Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set.
      */
     ipAddressType?: pulumi.Input<string>;
     /**
@@ -290,7 +314,7 @@ export interface GroupState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Network profile ID for deploying to a virtual network.
+     * @deprecated the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead
      */
     networkProfileId?: pulumi.Input<string>;
     /**
@@ -306,9 +330,17 @@ export interface GroupState {
      */
     restartPolicy?: pulumi.Input<string>;
     /**
+     * The subnet resource IDs for a container group. Changing this forces a new resource to be created.
+     */
+    subnetIds?: pulumi.Input<string>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A list of Availability Zones in which this Container Group is located.
+     */
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -332,6 +364,10 @@ export interface GroupArgs {
      */
     dnsNameLabel?: pulumi.Input<string>;
     /**
+     * The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+     */
+    dnsNameLabelReusePolicy?: pulumi.Input<string>;
+    /**
      * Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
      */
     exposedPorts?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupExposedPort>[]>;
@@ -348,7 +384,7 @@ export interface GroupArgs {
      */
     initContainers?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupInitContainer>[]>;
     /**
-     * Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
+     * Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set.
      */
     ipAddressType?: pulumi.Input<string>;
     /**
@@ -364,7 +400,7 @@ export interface GroupArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Network profile ID for deploying to a virtual network.
+     * @deprecated the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead
      */
     networkProfileId?: pulumi.Input<string>;
     /**
@@ -380,7 +416,15 @@ export interface GroupArgs {
      */
     restartPolicy?: pulumi.Input<string>;
     /**
+     * The subnet resource IDs for a container group. Changing this forces a new resource to be created.
+     */
+    subnetIds?: pulumi.Input<string>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A list of Availability Zones in which this Container Group is located.
+     */
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -25,6 +25,10 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
+        /// </summary>
+        public readonly ImmutableArray<string> Streams;
 
         [OutputConstructor]
         private DataCollectionRuleDataSourcesSyslog(
@@ -32,11 +36,14 @@ namespace Pulumi.Azure.Monitoring.Outputs
 
             ImmutableArray<string> logLevels,
 
-            string name)
+            string name,
+
+            ImmutableArray<string> streams)
         {
             FacilityNames = facilityNames;
             LogLevels = logLevels;
             Name = name;
+            Streams = streams;
         }
     }
 }

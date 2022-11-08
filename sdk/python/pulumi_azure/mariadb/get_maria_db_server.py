@@ -128,7 +128,6 @@ class GetMariaDbServerResult:
     def tags(self) -> Mapping[str, str]:
         """
         A mapping of tags assigned to the resource.
-        ---
         """
         return pulumi.get(self, "tags")
 

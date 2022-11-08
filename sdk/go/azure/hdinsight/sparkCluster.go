@@ -113,7 +113,9 @@ type SparkCluster struct {
 	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
 	ClusterVersion pulumi.StringOutput `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
-	ComponentVersion SparkClusterComponentVersionOutput    `pulumi:"componentVersion"`
+	ComponentVersion SparkClusterComponentVersionOutput `pulumi:"componentVersion"`
+	// A `computeIsolation` block as defined below.
+	ComputeIsolation SparkClusterComputeIsolationPtrOutput `pulumi:"computeIsolation"`
 	DiskEncryptions  SparkClusterDiskEncryptionArrayOutput `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolOutput `pulumi:"encryptionInTransitEnabled"`
@@ -203,6 +205,8 @@ type sparkClusterState struct {
 	ClusterVersion *string `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
 	ComponentVersion *SparkClusterComponentVersion `pulumi:"componentVersion"`
+	// A `computeIsolation` block as defined below.
+	ComputeIsolation *SparkClusterComputeIsolation `pulumi:"computeIsolation"`
 	DiskEncryptions  []SparkClusterDiskEncryption  `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled *bool `pulumi:"encryptionInTransitEnabled"`
@@ -246,6 +250,8 @@ type SparkClusterState struct {
 	ClusterVersion pulumi.StringPtrInput
 	// A `componentVersion` block as defined below.
 	ComponentVersion SparkClusterComponentVersionPtrInput
+	// A `computeIsolation` block as defined below.
+	ComputeIsolation SparkClusterComputeIsolationPtrInput
 	DiskEncryptions  SparkClusterDiskEncryptionArrayInput
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolPtrInput
@@ -293,7 +299,9 @@ type sparkClusterArgs struct {
 	ClusterVersion string `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
 	ComponentVersion SparkClusterComponentVersion `pulumi:"componentVersion"`
-	DiskEncryptions  []SparkClusterDiskEncryption `pulumi:"diskEncryptions"`
+	// A `computeIsolation` block as defined below.
+	ComputeIsolation *SparkClusterComputeIsolation `pulumi:"computeIsolation"`
+	DiskEncryptions  []SparkClusterDiskEncryption  `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled *bool `pulumi:"encryptionInTransitEnabled"`
 	// An `extension` block as defined below.
@@ -333,6 +341,8 @@ type SparkClusterArgs struct {
 	ClusterVersion pulumi.StringInput
 	// A `componentVersion` block as defined below.
 	ComponentVersion SparkClusterComponentVersionInput
+	// A `computeIsolation` block as defined below.
+	ComputeIsolation SparkClusterComputeIsolationPtrInput
 	DiskEncryptions  SparkClusterDiskEncryptionArrayInput
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolPtrInput
@@ -462,6 +472,11 @@ func (o SparkClusterOutput) ClusterVersion() pulumi.StringOutput {
 // A `componentVersion` block as defined below.
 func (o SparkClusterOutput) ComponentVersion() SparkClusterComponentVersionOutput {
 	return o.ApplyT(func(v *SparkCluster) SparkClusterComponentVersionOutput { return v.ComponentVersion }).(SparkClusterComponentVersionOutput)
+}
+
+// A `computeIsolation` block as defined below.
+func (o SparkClusterOutput) ComputeIsolation() SparkClusterComputeIsolationPtrOutput {
+	return o.ApplyT(func(v *SparkCluster) SparkClusterComputeIsolationPtrOutput { return v.ComputeIsolation }).(SparkClusterComputeIsolationPtrOutput)
 }
 
 func (o SparkClusterOutput) DiskEncryptions() SparkClusterDiskEncryptionArrayOutput {

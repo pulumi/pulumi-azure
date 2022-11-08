@@ -44,10 +44,19 @@ namespace Pulumi.Azure.ServiceBus
     ///         Capacity = 1,
     ///     });
     /// 
+    ///     var exampleNamespaceAuthorizationRule = new Azure.ServiceBus.NamespaceAuthorizationRule("exampleNamespaceAuthorizationRule", new()
+    ///     {
+    ///         NamespaceId = azurerm_servicebus_namespace.Example.Id,
+    ///         Listen = true,
+    ///         Send = true,
+    ///         Manage = false,
+    ///     });
+    /// 
     ///     var exampleNamespaceDisasterRecoveryConfig = new Azure.ServiceBus.NamespaceDisasterRecoveryConfig("exampleNamespaceDisasterRecoveryConfig", new()
     ///     {
     ///         PrimaryNamespaceId = primary.Id,
     ///         PartnerNamespaceId = secondary.Id,
+    ///         AliasAuthorizationRuleId = exampleNamespaceAuthorizationRule.Id,
     ///     });
     /// 
     /// });
@@ -64,6 +73,12 @@ namespace Pulumi.Azure.ServiceBus
     [AzureResourceType("azure:servicebus/namespaceDisasterRecoveryConfig:NamespaceDisasterRecoveryConfig")]
     public partial class NamespaceDisasterRecoveryConfig : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
+        /// </summary>
+        [Output("aliasAuthorizationRuleId")]
+        public Output<string?> AliasAuthorizationRuleId { get; private set; } = null!;
+
         /// <summary>
         /// The primary access key for the authorization rule `RootManageSharedAccessKey`.
         /// </summary>
@@ -153,6 +168,12 @@ namespace Pulumi.Azure.ServiceBus
     public sealed class NamespaceDisasterRecoveryConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
+        /// </summary>
+        [Input("aliasAuthorizationRuleId")]
+        public Input<string>? AliasAuthorizationRuleId { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Disaster Recovery Config. This is the alias DNS name that will be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -178,6 +199,12 @@ namespace Pulumi.Azure.ServiceBus
 
     public sealed class NamespaceDisasterRecoveryConfigState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
+        /// </summary>
+        [Input("aliasAuthorizationRuleId")]
+        public Input<string>? AliasAuthorizationRuleId { get; set; }
+
         /// <summary>
         /// The primary access key for the authorization rule `RootManageSharedAccessKey`.
         /// </summary>

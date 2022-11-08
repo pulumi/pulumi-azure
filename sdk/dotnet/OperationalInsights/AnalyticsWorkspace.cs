@@ -60,6 +60,9 @@ namespace Pulumi.Azure.OperationalInsights
         [Output("dailyQuotaGb")]
         public Output<double?> DailyQuotaGb { get; private set; } = null!;
 
+        /// <summary>
+        /// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
+        /// </summary>
         [Output("internetIngestionEnabled")]
         public Output<bool?> InternetIngestionEnabled { get; private set; } = null!;
 
@@ -187,6 +190,9 @@ namespace Pulumi.Azure.OperationalInsights
         [Input("dailyQuotaGb")]
         public Input<double>? DailyQuotaGb { get; set; }
 
+        /// <summary>
+        /// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
+        /// </summary>
         [Input("internetIngestionEnabled")]
         public Input<bool>? InternetIngestionEnabled { get; set; }
 
@@ -264,6 +270,9 @@ namespace Pulumi.Azure.OperationalInsights
         [Input("dailyQuotaGb")]
         public Input<double>? DailyQuotaGb { get; set; }
 
+        /// <summary>
+        /// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
+        /// </summary>
         [Input("internetIngestionEnabled")]
         public Input<bool>? InternetIngestionEnabled { get; set; }
 

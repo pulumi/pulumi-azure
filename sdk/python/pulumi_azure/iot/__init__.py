@@ -20,6 +20,8 @@ from .get_iot_hub import *
 from .get_shared_access_policy import *
 from .io_t_hub import *
 from .iot_hub_certificate import *
+from .iot_hub_device_update_account import *
+from .iot_hub_device_update_instance import *
 from .iot_hub_dps import *
 from .route import *
 from .security_device_group import *

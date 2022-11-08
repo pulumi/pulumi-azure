@@ -66,6 +66,7 @@ __all__ = [
     'KubernetesClusterServicePrincipal',
     'KubernetesClusterWindowsProfile',
     'KubernetesClusterWindowsProfileGmsa',
+    'KubernetesClusterWorkloadAutoscalerProfile',
     'RegistryEncryption',
     'RegistryGeoreplication',
     'RegistryIdentity',
@@ -90,6 +91,7 @@ __all__ = [
     'TokenPasswordPassword1',
     'TokenPasswordPassword2',
     'GetClusterNodePoolUpgradeSettingResult',
+    'GetGroupIdentityResult',
     'GetKubernetesClusterAciConnectorLinuxResult',
     'GetKubernetesClusterAgentPoolProfileResult',
     'GetKubernetesClusterAgentPoolProfileUpgradeSettingResult',
@@ -1310,26 +1312,41 @@ class GroupIdentity(dict):
 
 @pulumi.output_type
 class GroupImageRegistryCredential(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userAssignedIdentityId":
+            suggest = "user_assigned_identity_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupImageRegistryCredential. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupImageRegistryCredential.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupImageRegistryCredential.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 password: str,
                  server: str,
-                 username: str):
+                 password: Optional[str] = None,
+                 user_assigned_identity_id: Optional[str] = None,
+                 username: Optional[str] = None):
         """
-        :param str password: The password with which to connect to the registry. Changing this forces a new resource to be created.
         :param str server: The address to use to connect to the registry without protocol ("https"/"http"). For example: "myacr.acr.io". Changing this forces a new resource to be created.
+        :param str password: The password with which to connect to the registry. Changing this forces a new resource to be created.
+        :param str user_assigned_identity_id: The identity ID for the private registry. Changing this forces a new resource to be created.
         :param str username: The username with which to connect to the registry. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "server", server)
-        pulumi.set(__self__, "username", username)
-
-    @property
-    @pulumi.getter
-    def password(self) -> str:
-        """
-        The password with which to connect to the registry. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "password")
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
@@ -1341,7 +1358,23 @@ class GroupImageRegistryCredential(dict):
 
     @property
     @pulumi.getter
-    def username(self) -> str:
+    def password(self) -> Optional[str]:
+        """
+        The password with which to connect to the registry. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[str]:
+        """
+        The identity ID for the private registry. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
         """
         The username with which to connect to the registry. Changing this forces a new resource to be created.
         """
@@ -2173,7 +2206,7 @@ class KubernetesClusterDefaultNodePool(dict):
         :param str orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
         :param int os_disk_size_gb: The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
         :param str os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
-        :param str os_sku: OsSKU to be used to specify Linux OSType. Not applicable to Windows OSType. Possible values include: `Ubuntu`, `CBLMariner`. Defaults to `Ubuntu`. Changing this forces a new resource to be created.
+        :param str os_sku: Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this forces a new resource to be created.
         :param str pod_subnet_id: The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
         :param str scale_down_mode: Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to 'ScaleDownModeDelete'. Possible values include 'ScaleDownModeDelete' and 'ScaleDownModeDeallocate'. Changing this forces a new resource to be created.
         :param Mapping[str, str] tags: A mapping of tags to assign to the Node Pool.
@@ -2433,7 +2466,7 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter(name="osSku")
     def os_sku(self) -> Optional[str]:
         """
-        OsSKU to be used to specify Linux OSType. Not applicable to Windows OSType. Possible values include: `Ubuntu`, `CBLMariner`. Defaults to `Ubuntu`. Changing this forces a new resource to be created.
+        Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "os_sku")
 
@@ -5544,6 +5577,42 @@ class KubernetesClusterWindowsProfileGmsa(dict):
 
 
 @pulumi.output_type
+class KubernetesClusterWorkloadAutoscalerProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kedaEnabled":
+            suggest = "keda_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterWorkloadAutoscalerProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterWorkloadAutoscalerProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterWorkloadAutoscalerProfile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 keda_enabled: Optional[bool] = None):
+        """
+        :param bool keda_enabled: Specifies whether KEDA Autoscaler can be used for workloads.
+        """
+        if keda_enabled is not None:
+            pulumi.set(__self__, "keda_enabled", keda_enabled)
+
+    @property
+    @pulumi.getter(name="kedaEnabled")
+    def keda_enabled(self) -> Optional[bool]:
+        """
+        Specifies whether KEDA Autoscaler can be used for workloads.
+        """
+        return pulumi.get(self, "keda_enabled")
+
+
+@pulumi.output_type
 class RegistryEncryption(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -6971,6 +7040,57 @@ class GetClusterNodePoolUpgradeSettingResult(dict):
         The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
         """
         return pulumi.get(self, "max_surge")
+
+
+@pulumi.output_type
+class GetGroupIdentityResult(dict):
+    def __init__(__self__, *,
+                 identity_ids: Sequence[str],
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str):
+        """
+        :param Sequence[str] identity_ids: The list of User Assigned Managed Identity IDs assigned to this Container Group.
+        :param str principal_id: The Principal ID of the System Assigned Managed Service Identity that is configured on this Container Group.
+        :param str tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this Container Group.
+        :param str type: Type of Managed Service Identity configured on this Container Group.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[str]:
+        """
+        The list of User Assigned Managed Identity IDs assigned to this Container Group.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The Principal ID of the System Assigned Managed Service Identity that is configured on this Container Group.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The Tenant ID of the System Assigned Managed Service Identity that is configured on this Container Group.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of Managed Service Identity configured on this Container Group.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

@@ -77,7 +77,6 @@ namespace Pulumi.Azure.Automation
 
         /// <summary>
         /// The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
-        /// ---
         /// </summary>
         [Output("hybridServiceUrl")]
         public Output<string> HybridServiceUrl { get; private set; } = null!;
@@ -285,7 +284,6 @@ namespace Pulumi.Azure.Automation
 
         /// <summary>
         /// The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
-        /// ---
         /// </summary>
         [Input("hybridServiceUrl")]
         public Input<string>? HybridServiceUrl { get; set; }

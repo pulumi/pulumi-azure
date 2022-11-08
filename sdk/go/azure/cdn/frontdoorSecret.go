@@ -24,7 +24,7 @@ import (
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-//	"github.com/pulumi/pulumi-azuread/sdk/v4/go/azuread"
+//	"github.com/pulumi/pulumi-azuread/sdk/v5/go/azuread"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -118,7 +118,7 @@ import (
 //
 // ## Import
 //
-// Frontdoor Secrets can be imported using the `resource id`, e.g.
+// Front Door Secrets can be imported using the `resource id`, e.g.
 //
 // ```sh
 //
@@ -128,13 +128,13 @@ import (
 type FrontdoorSecret struct {
 	pulumi.CustomResourceState
 
-	// The Resource ID of the Frontdoor Profile. Changing this forces a new Frontdoor Secret to be created.
+	// The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
 	CdnFrontdoorProfileId pulumi.StringOutput `pulumi:"cdnFrontdoorProfileId"`
-	// The name of the Frontdoor Profile containing this Frontdoor Secret.
+	// The name of the Front Door Profile containing this Front Door Secret.
 	CdnFrontdoorProfileName pulumi.StringOutput `pulumi:"cdnFrontdoorProfileName"`
-	// The name which should be used for this Frontdoor Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Frontdoor Secret to be created.
+	// The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A `secret` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+	// A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
 	Secret FrontdoorSecretSecretOutput `pulumi:"secret"`
 }
 
@@ -173,24 +173,24 @@ func GetFrontdoorSecret(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FrontdoorSecret resources.
 type frontdoorSecretState struct {
-	// The Resource ID of the Frontdoor Profile. Changing this forces a new Frontdoor Secret to be created.
+	// The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
 	CdnFrontdoorProfileId *string `pulumi:"cdnFrontdoorProfileId"`
-	// The name of the Frontdoor Profile containing this Frontdoor Secret.
+	// The name of the Front Door Profile containing this Front Door Secret.
 	CdnFrontdoorProfileName *string `pulumi:"cdnFrontdoorProfileName"`
-	// The name which should be used for this Frontdoor Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Frontdoor Secret to be created.
+	// The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
 	Name *string `pulumi:"name"`
-	// A `secret` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+	// A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
 	Secret *FrontdoorSecretSecret `pulumi:"secret"`
 }
 
 type FrontdoorSecretState struct {
-	// The Resource ID of the Frontdoor Profile. Changing this forces a new Frontdoor Secret to be created.
+	// The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
 	CdnFrontdoorProfileId pulumi.StringPtrInput
-	// The name of the Frontdoor Profile containing this Frontdoor Secret.
+	// The name of the Front Door Profile containing this Front Door Secret.
 	CdnFrontdoorProfileName pulumi.StringPtrInput
-	// The name which should be used for this Frontdoor Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Frontdoor Secret to be created.
+	// The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
 	Name pulumi.StringPtrInput
-	// A `secret` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+	// A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
 	Secret FrontdoorSecretSecretPtrInput
 }
 
@@ -199,21 +199,21 @@ func (FrontdoorSecretState) ElementType() reflect.Type {
 }
 
 type frontdoorSecretArgs struct {
-	// The Resource ID of the Frontdoor Profile. Changing this forces a new Frontdoor Secret to be created.
+	// The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
 	CdnFrontdoorProfileId string `pulumi:"cdnFrontdoorProfileId"`
-	// The name which should be used for this Frontdoor Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Frontdoor Secret to be created.
+	// The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
 	Name *string `pulumi:"name"`
-	// A `secret` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+	// A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
 	Secret FrontdoorSecretSecret `pulumi:"secret"`
 }
 
 // The set of arguments for constructing a FrontdoorSecret resource.
 type FrontdoorSecretArgs struct {
-	// The Resource ID of the Frontdoor Profile. Changing this forces a new Frontdoor Secret to be created.
+	// The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
 	CdnFrontdoorProfileId pulumi.StringInput
-	// The name which should be used for this Frontdoor Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Frontdoor Secret to be created.
+	// The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
 	Name pulumi.StringPtrInput
-	// A `secret` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+	// A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
 	Secret FrontdoorSecretSecretInput
 }
 
@@ -304,22 +304,22 @@ func (o FrontdoorSecretOutput) ToFrontdoorSecretOutputWithContext(ctx context.Co
 	return o
 }
 
-// The Resource ID of the Frontdoor Profile. Changing this forces a new Frontdoor Secret to be created.
+// The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
 func (o FrontdoorSecretOutput) CdnFrontdoorProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorSecret) pulumi.StringOutput { return v.CdnFrontdoorProfileId }).(pulumi.StringOutput)
 }
 
-// The name of the Frontdoor Profile containing this Frontdoor Secret.
+// The name of the Front Door Profile containing this Front Door Secret.
 func (o FrontdoorSecretOutput) CdnFrontdoorProfileName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorSecret) pulumi.StringOutput { return v.CdnFrontdoorProfileName }).(pulumi.StringOutput)
 }
 
-// The name which should be used for this Frontdoor Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Frontdoor Secret to be created.
+// The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
 func (o FrontdoorSecretOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorSecret) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A `secret` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+// A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
 func (o FrontdoorSecretOutput) Secret() FrontdoorSecretSecretOutput {
 	return o.ApplyT(func(v *FrontdoorSecret) FrontdoorSecretSecretOutput { return v.Secret }).(FrontdoorSecretSecretOutput)
 }

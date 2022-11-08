@@ -614,7 +614,7 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             connection_string=example_account.primary_connection_string)
         ```
-        ### With SAS URI And SAS Token.
+        ### With SAS URI And SAS Token
 
         ```python
         import pulumi
@@ -704,7 +704,7 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             connection_string=example_account.primary_connection_string)
         ```
-        ### With SAS URI And SAS Token.
+        ### With SAS URI And SAS Token
 
         ```python
         import pulumi

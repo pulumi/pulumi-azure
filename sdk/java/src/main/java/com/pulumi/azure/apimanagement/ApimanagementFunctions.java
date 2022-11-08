@@ -9,6 +9,8 @@ import com.pulumi.azure.apimanagement.inputs.GetApiPlainArgs;
 import com.pulumi.azure.apimanagement.inputs.GetApiVersionSetArgs;
 import com.pulumi.azure.apimanagement.inputs.GetApiVersionSetPlainArgs;
 import com.pulumi.azure.apimanagement.inputs.GetGatewayArgs;
+import com.pulumi.azure.apimanagement.inputs.GetGatewayHostNameConfigurationArgs;
+import com.pulumi.azure.apimanagement.inputs.GetGatewayHostNameConfigurationPlainArgs;
 import com.pulumi.azure.apimanagement.inputs.GetGatewayPlainArgs;
 import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
 import com.pulumi.azure.apimanagement.inputs.GetGroupPlainArgs;
@@ -20,6 +22,7 @@ import com.pulumi.azure.apimanagement.inputs.GetUserArgs;
 import com.pulumi.azure.apimanagement.inputs.GetUserPlainArgs;
 import com.pulumi.azure.apimanagement.outputs.GetApiResult;
 import com.pulumi.azure.apimanagement.outputs.GetApiVersionSetResult;
+import com.pulumi.azure.apimanagement.outputs.GetGatewayHostNameConfigurationResult;
 import com.pulumi.azure.apimanagement.outputs.GetGatewayResult;
 import com.pulumi.azure.apimanagement.outputs.GetGroupResult;
 import com.pulumi.azure.apimanagement.outputs.GetProductResult;
@@ -531,6 +534,214 @@ public final class ApimanagementFunctions {
      */
     public static CompletableFuture<GetGatewayResult> getGatewayPlain(GetGatewayPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:apimanagement/getGateway:getGateway", TypeShape.of(GetGatewayResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing API Management Gateway Host Configuration.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import com.pulumi.azure.apimanagement.inputs.GetGatewayArgs;
+     * import com.pulumi.azure.apimanagement.inputs.GetGatewayHostNameConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleService = ApimanagementFunctions.getService(GetServiceArgs.builder()
+     *             .name(&#34;example-apim&#34;)
+     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .build());
+     * 
+     *         final var exampleGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
+     *             .name(&#34;example-gateway&#34;)
+     *             .apiManagementId(data.azurerm_api_management().main().id())
+     *             .build());
+     * 
+     *         final var exampleGatewayHostNameConfiguration = ApimanagementFunctions.getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs.builder()
+     *             .name(&#34;example-host-configuration&#34;)
+     *             .apiManagementId(exampleService.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .gatewayName(exampleGateway.applyValue(getGatewayResult -&gt; getGatewayResult.name()))
+     *             .build());
+     * 
+     *         ctx.export(&#34;hostName&#34;, exampleGatewayHostNameConfiguration.applyValue(getGatewayHostNameConfigurationResult -&gt; getGatewayHostNameConfigurationResult.hostName()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetGatewayHostNameConfigurationResult> getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs args) {
+        return getGatewayHostNameConfiguration(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing API Management Gateway Host Configuration.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import com.pulumi.azure.apimanagement.inputs.GetGatewayArgs;
+     * import com.pulumi.azure.apimanagement.inputs.GetGatewayHostNameConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleService = ApimanagementFunctions.getService(GetServiceArgs.builder()
+     *             .name(&#34;example-apim&#34;)
+     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .build());
+     * 
+     *         final var exampleGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
+     *             .name(&#34;example-gateway&#34;)
+     *             .apiManagementId(data.azurerm_api_management().main().id())
+     *             .build());
+     * 
+     *         final var exampleGatewayHostNameConfiguration = ApimanagementFunctions.getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs.builder()
+     *             .name(&#34;example-host-configuration&#34;)
+     *             .apiManagementId(exampleService.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .gatewayName(exampleGateway.applyValue(getGatewayResult -&gt; getGatewayResult.name()))
+     *             .build());
+     * 
+     *         ctx.export(&#34;hostName&#34;, exampleGatewayHostNameConfiguration.applyValue(getGatewayHostNameConfigurationResult -&gt; getGatewayHostNameConfigurationResult.hostName()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetGatewayHostNameConfigurationResult> getGatewayHostNameConfigurationPlain(GetGatewayHostNameConfigurationPlainArgs args) {
+        return getGatewayHostNameConfigurationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing API Management Gateway Host Configuration.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import com.pulumi.azure.apimanagement.inputs.GetGatewayArgs;
+     * import com.pulumi.azure.apimanagement.inputs.GetGatewayHostNameConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleService = ApimanagementFunctions.getService(GetServiceArgs.builder()
+     *             .name(&#34;example-apim&#34;)
+     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .build());
+     * 
+     *         final var exampleGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
+     *             .name(&#34;example-gateway&#34;)
+     *             .apiManagementId(data.azurerm_api_management().main().id())
+     *             .build());
+     * 
+     *         final var exampleGatewayHostNameConfiguration = ApimanagementFunctions.getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs.builder()
+     *             .name(&#34;example-host-configuration&#34;)
+     *             .apiManagementId(exampleService.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .gatewayName(exampleGateway.applyValue(getGatewayResult -&gt; getGatewayResult.name()))
+     *             .build());
+     * 
+     *         ctx.export(&#34;hostName&#34;, exampleGatewayHostNameConfiguration.applyValue(getGatewayHostNameConfigurationResult -&gt; getGatewayHostNameConfigurationResult.hostName()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetGatewayHostNameConfigurationResult> getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:apimanagement/getGatewayHostNameConfiguration:getGatewayHostNameConfiguration", TypeShape.of(GetGatewayHostNameConfigurationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing API Management Gateway Host Configuration.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import com.pulumi.azure.apimanagement.inputs.GetGatewayArgs;
+     * import com.pulumi.azure.apimanagement.inputs.GetGatewayHostNameConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleService = ApimanagementFunctions.getService(GetServiceArgs.builder()
+     *             .name(&#34;example-apim&#34;)
+     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .build());
+     * 
+     *         final var exampleGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
+     *             .name(&#34;example-gateway&#34;)
+     *             .apiManagementId(data.azurerm_api_management().main().id())
+     *             .build());
+     * 
+     *         final var exampleGatewayHostNameConfiguration = ApimanagementFunctions.getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs.builder()
+     *             .name(&#34;example-host-configuration&#34;)
+     *             .apiManagementId(exampleService.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .gatewayName(exampleGateway.applyValue(getGatewayResult -&gt; getGatewayResult.name()))
+     *             .build());
+     * 
+     *         ctx.export(&#34;hostName&#34;, exampleGatewayHostNameConfiguration.applyValue(getGatewayHostNameConfigurationResult -&gt; getGatewayHostNameConfigurationResult.hostName()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetGatewayHostNameConfigurationResult> getGatewayHostNameConfigurationPlain(GetGatewayHostNameConfigurationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:apimanagement/getGatewayHostNameConfiguration:getGatewayHostNameConfiguration", TypeShape.of(GetGatewayHostNameConfigurationResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing API Management Group.

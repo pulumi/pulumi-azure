@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     mode: "All",
  *     displayName: "my-policy-definition",
  *     managementGroupId: exampleGroup.id,
- *     policyRule: `	{
+ *     policyRule: ` {
  *     "if": {
  *       "not": {
  *         "field": "location",

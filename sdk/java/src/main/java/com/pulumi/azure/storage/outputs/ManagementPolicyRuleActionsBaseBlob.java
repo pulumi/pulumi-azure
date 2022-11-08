@@ -22,7 +22,7 @@ public final class ManagementPolicyRuleActionsBaseBlob {
      */
     private @Nullable Integer deleteAfterDaysSinceModificationGreaterThan;
     /**
-     * @return The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between ` 0 and  `99999`.
+     * @return The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0 and`99999`.
      * 
      */
     private @Nullable Integer tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan;
@@ -63,7 +63,7 @@ public final class ManagementPolicyRuleActionsBaseBlob {
         return Optional.ofNullable(this.deleteAfterDaysSinceModificationGreaterThan);
     }
     /**
-     * @return The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between ` 0 and  `99999`.
+     * @return The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0 and`99999`.
      * 
      */
     public Optional<Integer> tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan() {

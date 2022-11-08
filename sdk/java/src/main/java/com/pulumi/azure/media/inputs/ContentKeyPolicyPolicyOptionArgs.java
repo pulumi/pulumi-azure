@@ -36,14 +36,14 @@ public final class ContentKeyPolicyPolicyOptionArgs extends com.pulumi.resources
     }
 
     /**
-     * A `fairplay_configuration` block as defined above. Check license requirements here https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview.
+     * A `fairplay_configuration` block as defined above. Check license requirements here &lt;https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview&gt;.
      * 
      */
     @Import(name="fairplayConfiguration")
     private @Nullable Output<ContentKeyPolicyPolicyOptionFairplayConfigurationArgs> fairplayConfiguration;
 
     /**
-     * @return A `fairplay_configuration` block as defined above. Check license requirements here https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview.
+     * @return A `fairplay_configuration` block as defined above. Check license requirements here &lt;https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview&gt;.
      * 
      */
     public Optional<Output<ContentKeyPolicyPolicyOptionFairplayConfigurationArgs>> fairplayConfiguration() {
@@ -177,7 +177,7 @@ public final class ContentKeyPolicyPolicyOptionArgs extends com.pulumi.resources
         }
 
         /**
-         * @param fairplayConfiguration A `fairplay_configuration` block as defined above. Check license requirements here https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview.
+         * @param fairplayConfiguration A `fairplay_configuration` block as defined above. Check license requirements here &lt;https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview&gt;.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class ContentKeyPolicyPolicyOptionArgs extends com.pulumi.resources
         }
 
         /**
-         * @param fairplayConfiguration A `fairplay_configuration` block as defined above. Check license requirements here https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview.
+         * @param fairplayConfiguration A `fairplay_configuration` block as defined above. Check license requirements here &lt;https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview&gt;.
          * 
          * @return builder
          * 

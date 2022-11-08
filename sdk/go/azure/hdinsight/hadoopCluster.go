@@ -113,7 +113,9 @@ type HadoopCluster struct {
 	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
 	ClusterVersion pulumi.StringOutput `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
-	ComponentVersion HadoopClusterComponentVersionOutput    `pulumi:"componentVersion"`
+	ComponentVersion HadoopClusterComponentVersionOutput `pulumi:"componentVersion"`
+	// A `computeIsolation` block as defined below.
+	ComputeIsolation HadoopClusterComputeIsolationPtrOutput `pulumi:"computeIsolation"`
 	DiskEncryptions  HadoopClusterDiskEncryptionArrayOutput `pulumi:"diskEncryptions"`
 	// An `extension` block as defined below.
 	Extension HadoopClusterExtensionPtrOutput `pulumi:"extension"`
@@ -201,6 +203,8 @@ type hadoopClusterState struct {
 	ClusterVersion *string `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
 	ComponentVersion *HadoopClusterComponentVersion `pulumi:"componentVersion"`
+	// A `computeIsolation` block as defined below.
+	ComputeIsolation *HadoopClusterComputeIsolation `pulumi:"computeIsolation"`
 	DiskEncryptions  []HadoopClusterDiskEncryption  `pulumi:"diskEncryptions"`
 	// An `extension` block as defined below.
 	Extension *HadoopClusterExtension `pulumi:"extension"`
@@ -242,6 +246,8 @@ type HadoopClusterState struct {
 	ClusterVersion pulumi.StringPtrInput
 	// A `componentVersion` block as defined below.
 	ComponentVersion HadoopClusterComponentVersionPtrInput
+	// A `computeIsolation` block as defined below.
+	ComputeIsolation HadoopClusterComputeIsolationPtrInput
 	DiskEncryptions  HadoopClusterDiskEncryptionArrayInput
 	// An `extension` block as defined below.
 	Extension HadoopClusterExtensionPtrInput
@@ -287,7 +293,9 @@ type hadoopClusterArgs struct {
 	ClusterVersion string `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
 	ComponentVersion HadoopClusterComponentVersion `pulumi:"componentVersion"`
-	DiskEncryptions  []HadoopClusterDiskEncryption `pulumi:"diskEncryptions"`
+	// A `computeIsolation` block as defined below.
+	ComputeIsolation *HadoopClusterComputeIsolation `pulumi:"computeIsolation"`
+	DiskEncryptions  []HadoopClusterDiskEncryption  `pulumi:"diskEncryptions"`
 	// An `extension` block as defined below.
 	Extension *HadoopClusterExtension `pulumi:"extension"`
 	// A `gateway` block as defined below.
@@ -325,6 +333,8 @@ type HadoopClusterArgs struct {
 	ClusterVersion pulumi.StringInput
 	// A `componentVersion` block as defined below.
 	ComponentVersion HadoopClusterComponentVersionInput
+	// A `computeIsolation` block as defined below.
+	ComputeIsolation HadoopClusterComputeIsolationPtrInput
 	DiskEncryptions  HadoopClusterDiskEncryptionArrayInput
 	// An `extension` block as defined below.
 	Extension HadoopClusterExtensionPtrInput
@@ -452,6 +462,11 @@ func (o HadoopClusterOutput) ClusterVersion() pulumi.StringOutput {
 // A `componentVersion` block as defined below.
 func (o HadoopClusterOutput) ComponentVersion() HadoopClusterComponentVersionOutput {
 	return o.ApplyT(func(v *HadoopCluster) HadoopClusterComponentVersionOutput { return v.ComponentVersion }).(HadoopClusterComponentVersionOutput)
+}
+
+// A `computeIsolation` block as defined below.
+func (o HadoopClusterOutput) ComputeIsolation() HadoopClusterComputeIsolationPtrOutput {
+	return o.ApplyT(func(v *HadoopCluster) HadoopClusterComputeIsolationPtrOutput { return v.ComputeIsolation }).(HadoopClusterComputeIsolationPtrOutput)
 }
 
 func (o HadoopClusterOutput) DiskEncryptions() HadoopClusterDiskEncryptionArrayOutput {

@@ -171,7 +171,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
      */
     public /*out*/ readonly frontendEndpointIds!: pulumi.Output<string[]>;
     /**
-     * The Azure Region where this FrontDoor Firewall Policy exists.
+     * The Azure Region where this Front Door Firewall Policy exists.
      */
     public /*out*/ readonly location!: pulumi.Output<string>;
     /**
@@ -272,7 +272,7 @@ export interface FirewallPolicyState {
      */
     frontendEndpointIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The Azure Region where this FrontDoor Firewall Policy exists.
+     * The Azure Region where this Front Door Firewall Policy exists.
      */
     location?: pulumi.Input<string>;
     /**

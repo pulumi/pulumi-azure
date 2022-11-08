@@ -37,7 +37,7 @@ namespace Pulumi.Azure.LogicApps
     ///     {
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         IntegrationAccountName = exampleIntegrationAccount.Name,
-    ///         Content = @"	{
+    ///         Content = @" {
     ///        ""controlNumber"": ""1234""
     ///     }
     /// ",

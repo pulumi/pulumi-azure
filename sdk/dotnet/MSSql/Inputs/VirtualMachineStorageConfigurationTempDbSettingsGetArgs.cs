@@ -13,10 +13,40 @@ namespace Pulumi.Azure.MSSql.Inputs
     public sealed class VirtualMachineStorageConfigurationTempDbSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The SQL Server default file count. This value defaults to `8`
+        /// </summary>
+        [Input("dataFileCount")]
+        public Input<int>? DataFileCount { get; set; }
+
+        /// <summary>
+        /// The SQL Server default file size - This value defaults to `512`
+        /// </summary>
+        [Input("dataFileGrowthInMb")]
+        public Input<int>? DataFileGrowthInMb { get; set; }
+
+        /// <summary>
+        /// The SQL Server default file size - This value defaults to `256`
+        /// </summary>
+        [Input("dataFileSizeMb")]
+        public Input<int>? DataFileSizeMb { get; set; }
+
+        /// <summary>
         /// The SQL Server default path
         /// </summary>
         [Input("defaultFilePath", required: true)]
         public Input<string> DefaultFilePath { get; set; } = null!;
+
+        /// <summary>
+        /// The SQL Server default file size - This value defaults to `512`
+        /// </summary>
+        [Input("logFileGrowthMb")]
+        public Input<int>? LogFileGrowthMb { get; set; }
+
+        /// <summary>
+        /// The SQL Server default file size - This value defaults to `256`
+        /// </summary>
+        [Input("logFileSizeMb")]
+        public Input<int>? LogFileSizeMb { get; set; }
 
         [Input("luns", required: true)]
         private InputList<int>? _luns;

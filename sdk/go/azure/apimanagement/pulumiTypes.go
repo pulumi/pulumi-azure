@@ -3382,7 +3382,6 @@ type ApiOperationRequestHeader struct {
 	// The Type of this Header, such as a `string`.
 	Type string `pulumi:"type"`
 	// The type name defined by the Schema.
-	// ---
 	TypeName *string `pulumi:"typeName"`
 	// One or more acceptable values for this Header.
 	Values []string `pulumi:"values"`
@@ -3415,7 +3414,6 @@ type ApiOperationRequestHeaderArgs struct {
 	// The Type of this Header, such as a `string`.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The type name defined by the Schema.
-	// ---
 	TypeName pulumi.StringPtrInput `pulumi:"typeName"`
 	// One or more acceptable values for this Header.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -3508,7 +3506,6 @@ func (o ApiOperationRequestHeaderOutput) Type() pulumi.StringOutput {
 }
 
 // The type name defined by the Schema.
-// ---
 func (o ApiOperationRequestHeaderOutput) TypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiOperationRequestHeader) *string { return v.TypeName }).(pulumi.StringPtrOutput)
 }
@@ -4689,7 +4686,6 @@ type ApiOperationResponseHeader struct {
 	// The Type of this Header, such as a `string`.
 	Type string `pulumi:"type"`
 	// The type name defined by the Schema.
-	// ---
 	TypeName *string `pulumi:"typeName"`
 	// One or more acceptable values for this Header.
 	Values []string `pulumi:"values"`
@@ -4722,7 +4718,6 @@ type ApiOperationResponseHeaderArgs struct {
 	// The Type of this Header, such as a `string`.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The type name defined by the Schema.
-	// ---
 	TypeName pulumi.StringPtrInput `pulumi:"typeName"`
 	// One or more acceptable values for this Header.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -4815,7 +4810,6 @@ func (o ApiOperationResponseHeaderOutput) Type() pulumi.StringOutput {
 }
 
 // The type name defined by the Schema.
-// ---
 func (o ApiOperationResponseHeaderOutput) TypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiOperationResponseHeader) *string { return v.TypeName }).(pulumi.StringPtrOutput)
 }

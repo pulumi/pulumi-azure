@@ -108,7 +108,7 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// ## Import
     /// 
-    /// Frontdoor Secrets can be imported using the `resource id`, e.g.
+    /// Front Door Secrets can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import azure:cdn/frontdoorSecret:FrontdoorSecret example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/secrets/secrets1
@@ -118,25 +118,25 @@ namespace Pulumi.Azure.Cdn
     public partial class FrontdoorSecret : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Resource ID of the Frontdoor Profile. Changing this forces a new Frontdoor Secret to be created.
+        /// The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
         /// </summary>
         [Output("cdnFrontdoorProfileId")]
         public Output<string> CdnFrontdoorProfileId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Frontdoor Profile containing this Frontdoor Secret.
+        /// The name of the Front Door Profile containing this Front Door Secret.
         /// </summary>
         [Output("cdnFrontdoorProfileName")]
         public Output<string> CdnFrontdoorProfileName { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Frontdoor Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Frontdoor Secret to be created.
+        /// The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `secret` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+        /// A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
         /// </summary>
         [Output("secret")]
         public Output<Outputs.FrontdoorSecretSecret> Secret { get; private set; } = null!;
@@ -188,19 +188,19 @@ namespace Pulumi.Azure.Cdn
     public sealed class FrontdoorSecretArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Resource ID of the Frontdoor Profile. Changing this forces a new Frontdoor Secret to be created.
+        /// The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
         /// </summary>
         [Input("cdnFrontdoorProfileId", required: true)]
         public Input<string> CdnFrontdoorProfileId { get; set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Frontdoor Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Frontdoor Secret to be created.
+        /// The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `secret` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+        /// A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
         /// </summary>
         [Input("secret", required: true)]
         public Input<Inputs.FrontdoorSecretSecretArgs> Secret { get; set; } = null!;
@@ -214,25 +214,25 @@ namespace Pulumi.Azure.Cdn
     public sealed class FrontdoorSecretState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Resource ID of the Frontdoor Profile. Changing this forces a new Frontdoor Secret to be created.
+        /// The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
         /// </summary>
         [Input("cdnFrontdoorProfileId")]
         public Input<string>? CdnFrontdoorProfileId { get; set; }
 
         /// <summary>
-        /// The name of the Frontdoor Profile containing this Frontdoor Secret.
+        /// The name of the Front Door Profile containing this Front Door Secret.
         /// </summary>
         [Input("cdnFrontdoorProfileName")]
         public Input<string>? CdnFrontdoorProfileName { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Frontdoor Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Frontdoor Secret to be created.
+        /// The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `secret` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+        /// A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
         /// </summary>
         [Input("secret")]
         public Input<Inputs.FrontdoorSecretSecretGetArgs>? Secret { get; set; }

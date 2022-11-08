@@ -13,9 +13,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LinuxVirtualMachineScaleSetGalleryApplication {
     /**
-     * @return Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
+     * @deprecated
+     * `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0
      * 
      */
+    @Deprecated /* `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0 */
     private @Nullable String configurationReferenceBlobUri;
     /**
      * @return Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
@@ -23,9 +25,11 @@ public final class LinuxVirtualMachineScaleSetGalleryApplication {
      */
     private @Nullable Integer order;
     /**
-     * @return Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+     * @deprecated
+     * `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0
      * 
      */
+    @Deprecated /* `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0 */
     private String packageReferenceId;
     /**
      * @return Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
@@ -35,9 +39,11 @@ public final class LinuxVirtualMachineScaleSetGalleryApplication {
 
     private LinuxVirtualMachineScaleSetGalleryApplication() {}
     /**
-     * @return Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
+     * @deprecated
+     * `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0
      * 
      */
+    @Deprecated /* `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0 */
     public Optional<String> configurationReferenceBlobUri() {
         return Optional.ofNullable(this.configurationReferenceBlobUri);
     }
@@ -49,9 +55,11 @@ public final class LinuxVirtualMachineScaleSetGalleryApplication {
         return Optional.ofNullable(this.order);
     }
     /**
-     * @return Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+     * @deprecated
+     * `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0
      * 
      */
+    @Deprecated /* `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0 */
     public String packageReferenceId() {
         return this.packageReferenceId;
     }

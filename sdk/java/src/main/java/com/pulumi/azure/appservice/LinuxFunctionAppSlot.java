@@ -12,6 +12,7 @@ import com.pulumi.azure.appservice.outputs.LinuxFunctionAppSlotConnectionString;
 import com.pulumi.azure.appservice.outputs.LinuxFunctionAppSlotIdentity;
 import com.pulumi.azure.appservice.outputs.LinuxFunctionAppSlotSiteConfig;
 import com.pulumi.azure.appservice.outputs.LinuxFunctionAppSlotSiteCredential;
+import com.pulumi.azure.appservice.outputs.LinuxFunctionAppSlotStorageAccount;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -497,6 +498,20 @@ public class LinuxFunctionAppSlot extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> storageAccountName() {
         return Codegen.optional(this.storageAccountName);
+    }
+    /**
+     * One or more `storage_account` blocks as defined below.
+     * 
+     */
+    @Export(name="storageAccounts", type=List.class, parameters={LinuxFunctionAppSlotStorageAccount.class})
+    private Output</* @Nullable */ List<LinuxFunctionAppSlotStorageAccount>> storageAccounts;
+
+    /**
+     * @return One or more `storage_account` blocks as defined below.
+     * 
+     */
+    public Output<Optional<List<LinuxFunctionAppSlotStorageAccount>>> storageAccounts() {
+        return Codegen.optional(this.storageAccounts);
     }
     /**
      * The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.

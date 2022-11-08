@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a CDN FrontDoor Origin Group.
+ * Manages a Front Door (standard/premium) Origin Group.
  *
  * ## Example Usage
  *
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * CDN FrontDoor Origin Groups can be imported using the `resource id`, e.g.
+ * Front Door Origin Groups can be imported using the `resource id`, e.g.
  *
  * ```sh
  *  $ pulumi import azure:cdn/frontdoorOriginGroup:FrontdoorOriginGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/originGroups/originGroup1
@@ -72,7 +72,7 @@ export class FrontdoorOriginGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group should exist. Changing this forces a new CDN FrontDoor Origin Group to be created.
+     * The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
      */
     public readonly cdnFrontdoorProfileId!: pulumi.Output<string>;
     /**
@@ -84,7 +84,7 @@ export class FrontdoorOriginGroup extends pulumi.CustomResource {
      */
     public readonly loadBalancing!: pulumi.Output<outputs.cdn.FrontdoorOriginGroupLoadBalancing>;
     /**
-     * The name which should be used for this CDN FrontDoor Origin Group. Changing this forces a new CDN FrontDoor Origin Group to be created.
+     * The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -140,7 +140,7 @@ export class FrontdoorOriginGroup extends pulumi.CustomResource {
  */
 export interface FrontdoorOriginGroupState {
     /**
-     * The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group should exist. Changing this forces a new CDN FrontDoor Origin Group to be created.
+     * The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
      */
     cdnFrontdoorProfileId?: pulumi.Input<string>;
     /**
@@ -152,7 +152,7 @@ export interface FrontdoorOriginGroupState {
      */
     loadBalancing?: pulumi.Input<inputs.cdn.FrontdoorOriginGroupLoadBalancing>;
     /**
-     * The name which should be used for this CDN FrontDoor Origin Group. Changing this forces a new CDN FrontDoor Origin Group to be created.
+     * The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -170,7 +170,7 @@ export interface FrontdoorOriginGroupState {
  */
 export interface FrontdoorOriginGroupArgs {
     /**
-     * The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group should exist. Changing this forces a new CDN FrontDoor Origin Group to be created.
+     * The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
      */
     cdnFrontdoorProfileId: pulumi.Input<string>;
     /**
@@ -182,7 +182,7 @@ export interface FrontdoorOriginGroupArgs {
      */
     loadBalancing: pulumi.Input<inputs.cdn.FrontdoorOriginGroupLoadBalancing>;
     /**
-     * The name which should be used for this CDN FrontDoor Origin Group. Changing this forces a new CDN FrontDoor Origin Group to be created.
+     * The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
      */
     name?: pulumi.Input<string>;
     /**

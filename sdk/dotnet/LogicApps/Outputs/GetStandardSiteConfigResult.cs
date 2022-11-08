@@ -26,6 +26,10 @@ namespace Pulumi.Azure.LogicApps.Outputs
         public readonly string MinTlsVersion;
         public readonly int PreWarmedInstanceCount;
         public readonly bool? RuntimeScaleMonitoringEnabled;
+        public readonly ImmutableArray<Outputs.GetStandardSiteConfigScmIpRestrictionResult> ScmIpRestrictions;
+        public readonly string ScmMinTlsVersion;
+        public readonly string ScmType;
+        public readonly bool? ScmUseMainIpRestriction;
         public readonly bool? Use32BitWorkerProcess;
         public readonly bool VnetRouteAllEnabled;
         public readonly bool? WebsocketsEnabled;
@@ -58,6 +62,14 @@ namespace Pulumi.Azure.LogicApps.Outputs
 
             bool? runtimeScaleMonitoringEnabled,
 
+            ImmutableArray<Outputs.GetStandardSiteConfigScmIpRestrictionResult> scmIpRestrictions,
+
+            string scmMinTlsVersion,
+
+            string scmType,
+
+            bool? scmUseMainIpRestriction,
+
             bool? use32BitWorkerProcess,
 
             bool vnetRouteAllEnabled,
@@ -77,6 +89,10 @@ namespace Pulumi.Azure.LogicApps.Outputs
             MinTlsVersion = minTlsVersion;
             PreWarmedInstanceCount = preWarmedInstanceCount;
             RuntimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
+            ScmIpRestrictions = scmIpRestrictions;
+            ScmMinTlsVersion = scmMinTlsVersion;
+            ScmType = scmType;
+            ScmUseMainIpRestriction = scmUseMainIpRestriction;
             Use32BitWorkerProcess = use32BitWorkerProcess;
             VnetRouteAllEnabled = vnetRouteAllEnabled;
             WebsocketsEnabled = websocketsEnabled;

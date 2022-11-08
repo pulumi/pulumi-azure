@@ -269,6 +269,10 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly windowsProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterWindowsProfile>;
     /**
+     * A `workloadAutoscalerProfile` block defined below.
+     */
+    public readonly workloadAutoscalerProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterWorkloadAutoscalerProfile | undefined>;
+    /**
      * Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
      */
     public readonly workloadIdentityEnabled!: pulumi.Output<boolean | undefined>;
@@ -336,6 +340,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["skuTier"] = state ? state.skuTier : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["windowsProfile"] = state ? state.windowsProfile : undefined;
+            resourceInputs["workloadAutoscalerProfile"] = state ? state.workloadAutoscalerProfile : undefined;
             resourceInputs["workloadIdentityEnabled"] = state ? state.workloadIdentityEnabled : undefined;
         } else {
             const args = argsOrState as KubernetesClusterArgs | undefined;
@@ -386,6 +391,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["skuTier"] = args ? args.skuTier : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["windowsProfile"] = args ? args.windowsProfile : undefined;
+            resourceInputs["workloadAutoscalerProfile"] = args ? args.workloadAutoscalerProfile : undefined;
             resourceInputs["workloadIdentityEnabled"] = args ? args.workloadIdentityEnabled : undefined;
             resourceInputs["fqdn"] = undefined /*out*/;
             resourceInputs["httpApplicationRoutingZoneName"] = undefined /*out*/;
@@ -601,6 +607,10 @@ export interface KubernetesClusterState {
      */
     windowsProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterWindowsProfile>;
     /**
+     * A `workloadAutoscalerProfile` block defined below.
+     */
+    workloadAutoscalerProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterWorkloadAutoscalerProfile>;
+    /**
      * Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
      */
     workloadIdentityEnabled?: pulumi.Input<boolean>;
@@ -768,6 +778,10 @@ export interface KubernetesClusterArgs {
      * A `windowsProfile` block as defined below.
      */
     windowsProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterWindowsProfile>;
+    /**
+     * A `workloadAutoscalerProfile` block defined below.
+     */
+    workloadAutoscalerProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterWorkloadAutoscalerProfile>;
     /**
      * Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
      */

@@ -244,7 +244,7 @@ class OutputBlobSerialization(dict):
         """
         :param str type: The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
         :param str encoding: The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
-        :param str field_delimiter: The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
+        :param str field_delimiter: The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `    ` (tab), `|` (pipe) and `;`.
         :param str format: Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
         """
         pulumi.set(__self__, "type", type)
@@ -275,7 +275,7 @@ class OutputBlobSerialization(dict):
     @pulumi.getter(name="fieldDelimiter")
     def field_delimiter(self) -> Optional[str]:
         """
-        The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
+        The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `    ` (tab), `|` (pipe) and `;`.
         """
         return pulumi.get(self, "field_delimiter")
 
@@ -315,7 +315,7 @@ class OutputEventHubSerialization(dict):
         """
         :param str type: The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
         :param str encoding: The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
-        :param str field_delimiter: The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
+        :param str field_delimiter: The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `    ` (tab), `|` (pipe) and `;`.
         :param str format: Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
         """
         pulumi.set(__self__, "type", type)
@@ -346,7 +346,7 @@ class OutputEventHubSerialization(dict):
     @pulumi.getter(name="fieldDelimiter")
     def field_delimiter(self) -> Optional[str]:
         """
-        The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
+        The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `    ` (tab), `|` (pipe) and `;`.
         """
         return pulumi.get(self, "field_delimiter")
 
@@ -386,7 +386,7 @@ class OutputServiceBusQueueSerialization(dict):
         """
         :param str type: The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
         :param str encoding: The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
-        :param str field_delimiter: The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
+        :param str field_delimiter: The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `    ` (tab), `|` (pipe) and `;`.
         :param str format: Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
         """
         pulumi.set(__self__, "type", type)
@@ -417,7 +417,7 @@ class OutputServiceBusQueueSerialization(dict):
     @pulumi.getter(name="fieldDelimiter")
     def field_delimiter(self) -> Optional[str]:
         """
-        The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
+        The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `    ` (tab), `|` (pipe) and `;`.
         """
         return pulumi.get(self, "field_delimiter")
 
@@ -457,7 +457,7 @@ class OutputServicebusTopicSerialization(dict):
         """
         :param str type: The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
         :param str encoding: The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
-        :param str field_delimiter: The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
+        :param str field_delimiter: The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `    ` (tab), `|` (pipe) and `;`.
         :param str format: Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
         """
         pulumi.set(__self__, "type", type)
@@ -488,7 +488,7 @@ class OutputServicebusTopicSerialization(dict):
     @pulumi.getter(name="fieldDelimiter")
     def field_delimiter(self) -> Optional[str]:
         """
-        The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
+        The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `    ` (tab), `|` (pipe) and `;`.
         """
         return pulumi.get(self, "field_delimiter")
 
@@ -527,7 +527,7 @@ class ReferenceInputBlobSerialization(dict):
         """
         :param str type: The serialization format used for the reference data. Possible values are `Avro`, `Csv` and `Json`.
         :param str encoding: The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
-        :param str field_delimiter: The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
+        :param str field_delimiter: The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are `` (space), `,` (comma), `` (tab), `|` (pipe) and `;`.
         """
         pulumi.set(__self__, "type", type)
         if encoding is not None:
@@ -555,7 +555,7 @@ class ReferenceInputBlobSerialization(dict):
     @pulumi.getter(name="fieldDelimiter")
     def field_delimiter(self) -> Optional[str]:
         """
-        The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
+        The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are `` (space), `,` (comma), `` (tab), `|` (pipe) and `;`.
         """
         return pulumi.get(self, "field_delimiter")
 
@@ -586,7 +586,7 @@ class StreamInputBlobSerialization(dict):
         """
         :param str type: The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
         :param str encoding: The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
-        :param str field_delimiter: The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
+        :param str field_delimiter: The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are `` (space), `,` (comma), `` (tab), `|` (pipe) and `;`.
         """
         pulumi.set(__self__, "type", type)
         if encoding is not None:
@@ -614,7 +614,7 @@ class StreamInputBlobSerialization(dict):
     @pulumi.getter(name="fieldDelimiter")
     def field_delimiter(self) -> Optional[str]:
         """
-        The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
+        The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are `` (space), `,` (comma), `` (tab), `|` (pipe) and `;`.
         """
         return pulumi.get(self, "field_delimiter")
 
@@ -645,7 +645,7 @@ class StreamInputEventHubSerialization(dict):
         """
         :param str type: The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
         :param str encoding: The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
-        :param str field_delimiter: The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
+        :param str field_delimiter: The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are `` (space), `,` (comma), `` (tab), `|` (pipe) and `;`.
         """
         pulumi.set(__self__, "type", type)
         if encoding is not None:
@@ -673,7 +673,7 @@ class StreamInputEventHubSerialization(dict):
     @pulumi.getter(name="fieldDelimiter")
     def field_delimiter(self) -> Optional[str]:
         """
-        The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
+        The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are `` (space), `,` (comma), `` (tab), `|` (pipe) and `;`.
         """
         return pulumi.get(self, "field_delimiter")
 
@@ -704,7 +704,7 @@ class StreamInputIotHubSerialization(dict):
         """
         :param str type: The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
         :param str encoding: The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
-        :param str field_delimiter: The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
+        :param str field_delimiter: The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are `` (space), `,` (comma), `` (tab), `|` (pipe) and `;`.
         """
         pulumi.set(__self__, "type", type)
         if encoding is not None:
@@ -732,7 +732,7 @@ class StreamInputIotHubSerialization(dict):
     @pulumi.getter(name="fieldDelimiter")
     def field_delimiter(self) -> Optional[str]:
         """
-        The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
+        The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are `` (space), `,` (comma), `` (tab), `|` (pipe) and `;`.
         """
         return pulumi.get(self, "field_delimiter")
 

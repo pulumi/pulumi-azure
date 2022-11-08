@@ -93,7 +93,7 @@ export class RunBook extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. 
+     * Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
      * Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
      */
     public readonly logActivityTraceLevel!: pulumi.Output<number | undefined>;
@@ -118,7 +118,7 @@ export class RunBook extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell` or `Script`.
+     * The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`.
      */
     public readonly runbookType!: pulumi.Output<string>;
     /**
@@ -216,7 +216,7 @@ export interface RunBookState {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. 
+     * Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
      * Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
      */
     logActivityTraceLevel?: pulumi.Input<number>;
@@ -241,7 +241,7 @@ export interface RunBookState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell` or `Script`.
+     * The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`.
      */
     runbookType?: pulumi.Input<string>;
     /**
@@ -276,7 +276,7 @@ export interface RunBookArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. 
+     * Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
      * Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
      */
     logActivityTraceLevel?: pulumi.Input<number>;
@@ -301,7 +301,7 @@ export interface RunBookArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell` or `Script`.
+     * The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`.
      */
     runbookType: pulumi.Input<string>;
     /**

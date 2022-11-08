@@ -218,7 +218,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> OsDiskType { get; private set; } = null!;
 
         /// <summary>
-        /// OsSKU to be used to specify Linux OSType. Not applicable to Windows OSType. Possible values include: `Ubuntu`, `CBLMariner`. Defaults to `Ubuntu`. Changing this forces a new resource to be created.
+        /// Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this forces a new resource to be created.
         /// </summary>
         [Output("osSku")]
         public Output<string> OsSku { get; private set; } = null!;
@@ -504,7 +504,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? OsDiskType { get; set; }
 
         /// <summary>
-        /// OsSKU to be used to specify Linux OSType. Not applicable to Windows OSType. Possible values include: `Ubuntu`, `CBLMariner`. Defaults to `Ubuntu`. Changing this forces a new resource to be created.
+        /// Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this forces a new resource to be created.
         /// </summary>
         [Input("osSku")]
         public Input<string>? OsSku { get; set; }
@@ -764,7 +764,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? OsDiskType { get; set; }
 
         /// <summary>
-        /// OsSKU to be used to specify Linux OSType. Not applicable to Windows OSType. Possible values include: `Ubuntu`, `CBLMariner`. Defaults to `Ubuntu`. Changing this forces a new resource to be created.
+        /// Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this forces a new resource to be created.
         /// </summary>
         [Input("osSku")]
         public Input<string>? OsSku { get; set; }

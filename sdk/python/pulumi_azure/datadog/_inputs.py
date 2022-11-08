@@ -12,6 +12,10 @@ from .. import _utilities
 __all__ = [
     'MonitorDatadogOrganizationArgs',
     'MonitorIdentityArgs',
+    'MonitorTagRuleLogArgs',
+    'MonitorTagRuleLogFilterArgs',
+    'MonitorTagRuleMetricArgs',
+    'MonitorTagRuleMetricFilterArgs',
     'MonitorUserArgs',
 ]
 
@@ -200,6 +204,204 @@ class MonitorIdentityArgs:
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class MonitorTagRuleLogArgs:
+    def __init__(__self__, *,
+                 aad_log_enabled: Optional[pulumi.Input[bool]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogFilterArgs']]]] = None,
+                 resource_log_enabled: Optional[pulumi.Input[bool]] = None,
+                 subscription_log_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] aad_log_enabled: Whether AAD logs should be sent for the Monitor resource?
+        :param pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogFilterArgs']]] filters: A `filter` block as defined below.
+        :param pulumi.Input[bool] resource_log_enabled: Whether Azure resource logs should be sent for the Monitor resource?
+        :param pulumi.Input[bool] subscription_log_enabled: Whether Azure subscription logs should be sent for the Monitor resource?
+        """
+        if aad_log_enabled is not None:
+            pulumi.set(__self__, "aad_log_enabled", aad_log_enabled)
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+        if resource_log_enabled is not None:
+            pulumi.set(__self__, "resource_log_enabled", resource_log_enabled)
+        if subscription_log_enabled is not None:
+            pulumi.set(__self__, "subscription_log_enabled", subscription_log_enabled)
+
+    @property
+    @pulumi.getter(name="aadLogEnabled")
+    def aad_log_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether AAD logs should be sent for the Monitor resource?
+        """
+        return pulumi.get(self, "aad_log_enabled")
+
+    @aad_log_enabled.setter
+    def aad_log_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "aad_log_enabled", value)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogFilterArgs']]]]:
+        """
+        A `filter` block as defined below.
+        """
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogFilterArgs']]]]):
+        pulumi.set(self, "filters", value)
+
+    @property
+    @pulumi.getter(name="resourceLogEnabled")
+    def resource_log_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether Azure resource logs should be sent for the Monitor resource?
+        """
+        return pulumi.get(self, "resource_log_enabled")
+
+    @resource_log_enabled.setter
+    def resource_log_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "resource_log_enabled", value)
+
+    @property
+    @pulumi.getter(name="subscriptionLogEnabled")
+    def subscription_log_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether Azure subscription logs should be sent for the Monitor resource?
+        """
+        return pulumi.get(self, "subscription_log_enabled")
+
+    @subscription_log_enabled.setter
+    def subscription_log_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "subscription_log_enabled", value)
+
+
+@pulumi.input_type
+class MonitorTagRuleLogFilterArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] action: Allowed values Include or Exclude.
+        :param pulumi.Input[str] name: Name of the Tag.
+        :param pulumi.Input[str] value: Value of the Tag.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input[str]:
+        """
+        Allowed values Include or Exclude.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input[str]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the Tag.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Value of the Tag.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class MonitorTagRuleMetricArgs:
+    def __init__(__self__, *,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricFilterArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricFilterArgs']]] filters: A `filter` block as defined below.
+        """
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricFilterArgs']]]]:
+        """
+        A `filter` block as defined below.
+        """
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricFilterArgs']]]]):
+        pulumi.set(self, "filters", value)
+
+
+@pulumi.input_type
+class MonitorTagRuleMetricFilterArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] action: Allowed values Include or Exclude.
+        :param pulumi.Input[str] name: Name of the Tag.
+        :param pulumi.Input[str] value: Value of the Tag.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input[str]:
+        """
+        Allowed values Include or Exclude.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input[str]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the Tag.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Value of the Tag.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

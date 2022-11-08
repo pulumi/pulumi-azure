@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *             .mode(&#34;All&#34;)
  *             .displayName(&#34;Allowed resource types&#34;)
  *             .policyRule(&#34;&#34;&#34;
- * 	{
+ *  {
  *     &#34;if&#34;: {
  *       &#34;not&#34;: {
  *         &#34;field&#34;: &#34;location&#34;,

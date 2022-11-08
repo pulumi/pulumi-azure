@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Cdn
     public static class GetFrontdoorSecret
     {
         /// <summary>
-        /// Use this data source to access information about an existing CDN FrontDoor Secret.
+        /// Use this data source to access information about an existing Front Door (standard/premium) Secret.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Cdn
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrontdoorSecretResult>("azure:cdn/getFrontdoorSecret:getFrontdoorSecret", args ?? new GetFrontdoorSecretArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to access information about an existing CDN FrontDoor Secret.
+        /// Use this data source to access information about an existing Front Door (standard/premium) Secret.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -74,19 +74,19 @@ namespace Pulumi.Azure.Cdn
     public sealed class GetFrontdoorSecretArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies the name of the FrontDoor Secret.
+        /// Specifies the name of the Front Door Secret.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the FrontDoor Profile within which CDN FrontDoor Secret exists.
+        /// The name of the Front Door Profile within which the Front Door Secret exists.
         /// </summary>
         [Input("profileName", required: true)]
         public string ProfileName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the CDN FrontDoor Profile exists.
+        /// The name of the Resource Group where the Front Door Profile exists.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -100,19 +100,19 @@ namespace Pulumi.Azure.Cdn
     public sealed class GetFrontdoorSecretInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies the name of the FrontDoor Secret.
+        /// Specifies the name of the Front Door Secret.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the FrontDoor Profile within which CDN FrontDoor Secret exists.
+        /// The name of the Front Door Profile within which the Front Door Secret exists.
         /// </summary>
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the CDN FrontDoor Profile exists.
+        /// The name of the Resource Group where the Front Door Profile exists.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.Azure.Cdn
     public sealed class GetFrontdoorSecretResult
     {
         /// <summary>
-        /// Specifies the ID of the CDN FrontDoor Profile within which this CDN FrontDoor Secret exists.
+        /// Specifies the ID of the Front Door Profile within which this Front Door Secret exists.
         /// </summary>
         public readonly string CdnFrontdoorProfileId;
         /// <summary>

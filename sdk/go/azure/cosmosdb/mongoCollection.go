@@ -85,9 +85,9 @@ type MongoCollection struct {
 	// The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
-	// * # `index` - (Optional) One or more `index` blocks as defined below.
-	DefaultTtlSeconds pulumi.IntPtrOutput             `pulumi:"defaultTtlSeconds"`
-	Indices           MongoCollectionIndexArrayOutput `pulumi:"indices"`
+	DefaultTtlSeconds pulumi.IntPtrOutput `pulumi:"defaultTtlSeconds"`
+	// One or more `index` blocks as defined below.
+	Indices MongoCollectionIndexArrayOutput `pulumi:"indices"`
 	// Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
@@ -144,9 +144,9 @@ type mongoCollectionState struct {
 	// The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	DatabaseName *string `pulumi:"databaseName"`
 	// The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
-	// * # `index` - (Optional) One or more `index` blocks as defined below.
-	DefaultTtlSeconds *int                   `pulumi:"defaultTtlSeconds"`
-	Indices           []MongoCollectionIndex `pulumi:"indices"`
+	DefaultTtlSeconds *int `pulumi:"defaultTtlSeconds"`
+	// One or more `index` blocks as defined below.
+	Indices []MongoCollectionIndex `pulumi:"indices"`
 	// Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
@@ -166,9 +166,9 @@ type MongoCollectionState struct {
 	// The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringPtrInput
 	// The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
-	// * # `index` - (Optional) One or more `index` blocks as defined below.
 	DefaultTtlSeconds pulumi.IntPtrInput
-	Indices           MongoCollectionIndexArrayInput
+	// One or more `index` blocks as defined below.
+	Indices MongoCollectionIndexArrayInput
 	// Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
@@ -192,9 +192,9 @@ type mongoCollectionArgs struct {
 	// The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
 	// The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
-	// * # `index` - (Optional) One or more `index` blocks as defined below.
-	DefaultTtlSeconds *int                   `pulumi:"defaultTtlSeconds"`
-	Indices           []MongoCollectionIndex `pulumi:"indices"`
+	DefaultTtlSeconds *int `pulumi:"defaultTtlSeconds"`
+	// One or more `index` blocks as defined below.
+	Indices []MongoCollectionIndex `pulumi:"indices"`
 	// Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
@@ -213,9 +213,9 @@ type MongoCollectionArgs struct {
 	// The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput
 	// The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
-	// * # `index` - (Optional) One or more `index` blocks as defined below.
 	DefaultTtlSeconds pulumi.IntPtrInput
-	Indices           MongoCollectionIndexArrayInput
+	// One or more `index` blocks as defined below.
+	Indices MongoCollectionIndexArrayInput
 	// Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
@@ -331,11 +331,11 @@ func (o MongoCollectionOutput) DatabaseName() pulumi.StringOutput {
 }
 
 // The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
-// * # `index` - (Optional) One or more `index` blocks as defined below.
 func (o MongoCollectionOutput) DefaultTtlSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MongoCollection) pulumi.IntPtrOutput { return v.DefaultTtlSeconds }).(pulumi.IntPtrOutput)
 }
 
+// One or more `index` blocks as defined below.
 func (o MongoCollectionOutput) Indices() MongoCollectionIndexArrayOutput {
 	return o.ApplyT(func(v *MongoCollection) MongoCollectionIndexArrayOutput { return v.Indices }).(MongoCollectionIndexArrayOutput)
 }

@@ -153,7 +153,6 @@ namespace Pulumi.Azure.MariaDB
         public readonly ImmutableArray<Outputs.GetMariaDbServerStorageProfileResult> StorageProfiles;
         /// <summary>
         /// A mapping of tags assigned to the resource.
-        /// ---
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>

@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Backup Instance to back up PostgreSQL.
  * 
- * &gt; **Note:** Before using this resource, there are some prerequisite permissions for configure backup and restore. See more details from https://docs.microsoft.com/azure/backup/backup-azure-database-postgresql#prerequisite-permissions-for-configure-backup-and-restore.
+ * &gt; **Note:** Before using this resource, there are some prerequisite permissions for configure backup and restore. See more details from &lt;https://docs.microsoft.com/azure/backup/backup-azure-database-postgresql#prerequisite-permissions-for-configure-backup-and-restore&gt;.
  * 
  * ## Example Usage
  * ```java

@@ -21,7 +21,6 @@ public final class GetServerIdentity {
     private String tenantId;
     /**
      * @return The identity type of this Managed Service Identity.
-     * ---
      * 
      */
     private String type;
@@ -43,7 +42,6 @@ public final class GetServerIdentity {
     }
     /**
      * @return The identity type of this Managed Service Identity.
-     * ---
      * 
      */
     public String type() {

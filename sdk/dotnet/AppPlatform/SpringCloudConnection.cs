@@ -110,7 +110,6 @@ namespace Pulumi.Azure.AppPlatform
     {
         /// <summary>
         /// The authentication info. An `authentication` block as defined below.
-        /// ---
         /// </summary>
         [Output("authentication")]
         public Output<Outputs.SpringCloudConnectionAuthentication> Authentication { get; private set; } = null!;
@@ -193,7 +192,6 @@ namespace Pulumi.Azure.AppPlatform
     {
         /// <summary>
         /// The authentication info. An `authentication` block as defined below.
-        /// ---
         /// </summary>
         [Input("authentication", required: true)]
         public Input<Inputs.SpringCloudConnectionAuthenticationArgs> Authentication { get; set; } = null!;
@@ -238,7 +236,6 @@ namespace Pulumi.Azure.AppPlatform
     {
         /// <summary>
         /// The authentication info. An `authentication` block as defined below.
-        /// ---
         /// </summary>
         [Input("authentication")]
         public Input<Inputs.SpringCloudConnectionAuthenticationGetArgs>? Authentication { get; set; }

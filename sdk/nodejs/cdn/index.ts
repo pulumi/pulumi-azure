@@ -85,6 +85,11 @@ export const getFrontdoorEndpoint: typeof import("./getFrontdoorEndpoint").getFr
 export const getFrontdoorEndpointOutput: typeof import("./getFrontdoorEndpoint").getFrontdoorEndpointOutput = null as any;
 utilities.lazyLoad(exports, ["getFrontdoorEndpoint","getFrontdoorEndpointOutput"], () => require("./getFrontdoorEndpoint"));
 
+export { GetFrontdoorFirewallPolicyArgs, GetFrontdoorFirewallPolicyResult, GetFrontdoorFirewallPolicyOutputArgs } from "./getFrontdoorFirewallPolicy";
+export const getFrontdoorFirewallPolicy: typeof import("./getFrontdoorFirewallPolicy").getFrontdoorFirewallPolicy = null as any;
+export const getFrontdoorFirewallPolicyOutput: typeof import("./getFrontdoorFirewallPolicy").getFrontdoorFirewallPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getFrontdoorFirewallPolicy","getFrontdoorFirewallPolicyOutput"], () => require("./getFrontdoorFirewallPolicy"));
+
 export { GetFrontdoorOriginGroupArgs, GetFrontdoorOriginGroupResult, GetFrontdoorOriginGroupOutputArgs } from "./getFrontdoorOriginGroup";
 export const getFrontdoorOriginGroup: typeof import("./getFrontdoorOriginGroup").getFrontdoorOriginGroup = null as any;
 export const getFrontdoorOriginGroupOutput: typeof import("./getFrontdoorOriginGroup").getFrontdoorOriginGroupOutput = null as any;

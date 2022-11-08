@@ -51,7 +51,6 @@ public final class ApiOperationResponseHeader {
     private String type;
     /**
      * @return The type name defined by the Schema.
-     * ---
      * 
      */
     private @Nullable String typeName;
@@ -113,7 +112,6 @@ public final class ApiOperationResponseHeader {
     }
     /**
      * @return The type name defined by the Schema.
-     * ---
      * 
      */
     public Optional<String> typeName() {

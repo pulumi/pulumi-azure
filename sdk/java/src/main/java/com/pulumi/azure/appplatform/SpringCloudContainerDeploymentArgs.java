@@ -80,14 +80,14 @@ public final class SpringCloudContainerDeploymentArgs extends com.pulumi.resourc
     }
 
     /**
-     * Container image of the custom container. This should be in the form of &lt;repository&gt;:&lt;tag&gt; without the server name of the registry.
+     * Container image of the custom container. This should be in the form of `&lt;repository&gt;:&lt;tag&gt;` without the server name of the registry.
      * 
      */
     @Import(name="image", required=true)
     private Output<String> image;
 
     /**
-     * @return Container image of the custom container. This should be in the form of &lt;repository&gt;:&lt;tag&gt; without the server name of the registry.
+     * @return Container image of the custom container. This should be in the form of `&lt;repository&gt;:&lt;tag&gt;` without the server name of the registry.
      * 
      */
     public Output<String> image() {
@@ -323,7 +323,7 @@ public final class SpringCloudContainerDeploymentArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param image Container image of the custom container. This should be in the form of &lt;repository&gt;:&lt;tag&gt; without the server name of the registry.
+         * @param image Container image of the custom container. This should be in the form of `&lt;repository&gt;:&lt;tag&gt;` without the server name of the registry.
          * 
          * @return builder
          * 
@@ -334,7 +334,7 @@ public final class SpringCloudContainerDeploymentArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param image Container image of the custom container. This should be in the form of &lt;repository&gt;:&lt;tag&gt; without the server name of the registry.
+         * @param image Container image of the custom container. This should be in the form of `&lt;repository&gt;:&lt;tag&gt;` without the server name of the registry.
          * 
          * @return builder
          * 

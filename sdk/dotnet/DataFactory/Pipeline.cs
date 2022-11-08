@@ -56,16 +56,16 @@ namespace Pulumi.Azure.DataFactory
     ///             { "bob", "item1" },
     ///         },
     ///         ActivitiesJson = @"[
-    /// 	{
-    /// 		""name"": ""Append variable1"",
-    /// 		""type"": ""AppendVariable"",
-    /// 		""dependsOn"": [],
-    /// 		""userProperties"": [],
-    /// 		""typeProperties"": {
-    /// 			""variableName"": ""bob"",
-    /// 			""value"": ""something""
-    /// 		}
-    /// 	}
+    ///     {
+    ///         ""name"": ""Append variable1"",
+    ///         ""type"": ""AppendVariable"",
+    ///         ""dependsOn"": [],
+    ///         ""userProperties"": [],
+    ///         ""typeProperties"": {
+    ///           ""variableName"": ""bob"",
+    ///           ""value"": ""something""
+    ///         }
+    ///     }
     /// ]
     /// ",
     ///     });

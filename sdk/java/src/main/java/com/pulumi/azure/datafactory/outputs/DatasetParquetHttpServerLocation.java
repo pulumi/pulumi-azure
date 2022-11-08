@@ -29,9 +29,10 @@ public final class DatasetParquetHttpServerLocation {
     private String filename;
     /**
      * @return The folder path to the file on the web server.
+     * ---
      * 
      */
-    private String path;
+    private @Nullable String path;
     /**
      * @return The base URL to the web server hosting the file.
      * 
@@ -62,10 +63,11 @@ public final class DatasetParquetHttpServerLocation {
     }
     /**
      * @return The folder path to the file on the web server.
+     * ---
      * 
      */
-    public String path() {
-        return this.path;
+    public Optional<String> path() {
+        return Optional.ofNullable(this.path);
     }
     /**
      * @return The base URL to the web server hosting the file.
@@ -87,7 +89,7 @@ public final class DatasetParquetHttpServerLocation {
         private @Nullable Boolean dynamicFilenameEnabled;
         private @Nullable Boolean dynamicPathEnabled;
         private String filename;
-        private String path;
+        private @Nullable String path;
         private String relativeUrl;
         public Builder() {}
         public Builder(DatasetParquetHttpServerLocation defaults) {
@@ -115,8 +117,8 @@ public final class DatasetParquetHttpServerLocation {
             return this;
         }
         @CustomType.Setter
-        public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+        public Builder path(@Nullable String path) {
+            this.path = path;
             return this;
         }
         @CustomType.Setter

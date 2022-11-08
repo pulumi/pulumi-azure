@@ -4960,7 +4960,7 @@ func (o EndpointOriginArrayOutput) Index(i pulumi.IntInput) EndpointOriginOutput
 }
 
 type FrontdoorCustomDomainTls struct {
-	// Resource ID of the Frontdoor Secret.
+	// Resource ID of the Front Door Secret.
 	CdnFrontdoorSecretId *string `pulumi:"cdnFrontdoorSecretId"`
 	// Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
 	CertificateType *string `pulumi:"certificateType"`
@@ -4980,7 +4980,7 @@ type FrontdoorCustomDomainTlsInput interface {
 }
 
 type FrontdoorCustomDomainTlsArgs struct {
-	// Resource ID of the Frontdoor Secret.
+	// Resource ID of the Front Door Secret.
 	CdnFrontdoorSecretId pulumi.StringPtrInput `pulumi:"cdnFrontdoorSecretId"`
 	// Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
 	CertificateType pulumi.StringPtrInput `pulumi:"certificateType"`
@@ -5065,7 +5065,7 @@ func (o FrontdoorCustomDomainTlsOutput) ToFrontdoorCustomDomainTlsPtrOutputWithC
 	}).(FrontdoorCustomDomainTlsPtrOutput)
 }
 
-// Resource ID of the Frontdoor Secret.
+// Resource ID of the Front Door Secret.
 func (o FrontdoorCustomDomainTlsOutput) CdnFrontdoorSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorCustomDomainTls) *string { return v.CdnFrontdoorSecretId }).(pulumi.StringPtrOutput)
 }
@@ -5104,7 +5104,7 @@ func (o FrontdoorCustomDomainTlsPtrOutput) Elem() FrontdoorCustomDomainTlsOutput
 	}).(FrontdoorCustomDomainTlsOutput)
 }
 
-// Resource ID of the Frontdoor Secret.
+// Resource ID of the Front Door Secret.
 func (o FrontdoorCustomDomainTlsPtrOutput) CdnFrontdoorSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorCustomDomainTls) *string {
 		if v == nil {
@@ -6539,7 +6539,7 @@ type FrontdoorOriginPrivateLink struct {
 	Location string `pulumi:"location"`
 	// The ID of the Azure Resource to connect to via the Private Link.
 	PrivateLinkTargetId string `pulumi:"privateLinkTargetId"`
-	// Specifies the request message that will be submitted to the `privateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN Frontdoor Private Link Origin`.
+	// Specifies the request message that will be submitted to the `privateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for Front Door Private Link Origin`.
 	RequestMessage *string `pulumi:"requestMessage"`
 	// Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blobSecondary`, `web` and `sites`.
 	TargetType *string `pulumi:"targetType"`
@@ -6561,7 +6561,7 @@ type FrontdoorOriginPrivateLinkArgs struct {
 	Location pulumi.StringInput `pulumi:"location"`
 	// The ID of the Azure Resource to connect to via the Private Link.
 	PrivateLinkTargetId pulumi.StringInput `pulumi:"privateLinkTargetId"`
-	// Specifies the request message that will be submitted to the `privateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN Frontdoor Private Link Origin`.
+	// Specifies the request message that will be submitted to the `privateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for Front Door Private Link Origin`.
 	RequestMessage pulumi.StringPtrInput `pulumi:"requestMessage"`
 	// Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blobSecondary`, `web` and `sites`.
 	TargetType pulumi.StringPtrInput `pulumi:"targetType"`
@@ -6654,7 +6654,7 @@ func (o FrontdoorOriginPrivateLinkOutput) PrivateLinkTargetId() pulumi.StringOut
 	return o.ApplyT(func(v FrontdoorOriginPrivateLink) string { return v.PrivateLinkTargetId }).(pulumi.StringOutput)
 }
 
-// Specifies the request message that will be submitted to the `privateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN Frontdoor Private Link Origin`.
+// Specifies the request message that will be submitted to the `privateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for Front Door Private Link Origin`.
 func (o FrontdoorOriginPrivateLinkOutput) RequestMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorOriginPrivateLink) *string { return v.RequestMessage }).(pulumi.StringPtrOutput)
 }
@@ -6708,7 +6708,7 @@ func (o FrontdoorOriginPrivateLinkPtrOutput) PrivateLinkTargetId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the request message that will be submitted to the `privateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN Frontdoor Private Link Origin`.
+// Specifies the request message that will be submitted to the `privateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for Front Door Private Link Origin`.
 func (o FrontdoorOriginPrivateLinkPtrOutput) RequestMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorOriginPrivateLink) *string {
 		if v == nil {
@@ -6733,7 +6733,7 @@ type FrontdoorRouteCache struct {
 	CompressionEnabled *bool `pulumi:"compressionEnabled"`
 	// A list of one or more `Content types` (formerly known as `MIME types`) to compress. Possible values include `application/eot`, `application/font`, `application/font-sfnt`, `application/javascript`, `application/json`, `application/opentype`, `application/otf`, `application/pkcs7-mime`, `application/truetype`, `application/ttf`, `application/vnd.ms-fontobject`, `application/xhtml+xml`, `application/xml`, `application/xml+rss`, `application/x-font-opentype`, `application/x-font-truetype`, `application/x-font-ttf`, `application/x-httpd-cgi`, `application/x-mpegurl`, `application/x-opentype`, `application/x-otf`, `application/x-perl`, `application/x-ttf`, `application/x-javascript`, `font/eot`, `font/ttf`, `font/otf`, `font/opentype`, `image/svg+xml`, `text/css`, `text/csv`, `text/html`, `text/javascript`, `text/js`, `text/plain`, `text/richtext`, `text/tab-separated-values`, `text/xml`, `text/x-script`, `text/x-component` or `text/x-java-source`.
 	ContentTypesToCompresses []string `pulumi:"contentTypesToCompresses"`
-	// Defines how the Frontdoor will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
+	// Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
 	QueryStringCachingBehavior *string `pulumi:"queryStringCachingBehavior"`
 	// Query strings to include or ignore.
 	QueryStrings []string `pulumi:"queryStrings"`
@@ -6755,7 +6755,7 @@ type FrontdoorRouteCacheArgs struct {
 	CompressionEnabled pulumi.BoolPtrInput `pulumi:"compressionEnabled"`
 	// A list of one or more `Content types` (formerly known as `MIME types`) to compress. Possible values include `application/eot`, `application/font`, `application/font-sfnt`, `application/javascript`, `application/json`, `application/opentype`, `application/otf`, `application/pkcs7-mime`, `application/truetype`, `application/ttf`, `application/vnd.ms-fontobject`, `application/xhtml+xml`, `application/xml`, `application/xml+rss`, `application/x-font-opentype`, `application/x-font-truetype`, `application/x-font-ttf`, `application/x-httpd-cgi`, `application/x-mpegurl`, `application/x-opentype`, `application/x-otf`, `application/x-perl`, `application/x-ttf`, `application/x-javascript`, `font/eot`, `font/ttf`, `font/otf`, `font/opentype`, `image/svg+xml`, `text/css`, `text/csv`, `text/html`, `text/javascript`, `text/js`, `text/plain`, `text/richtext`, `text/tab-separated-values`, `text/xml`, `text/x-script`, `text/x-component` or `text/x-java-source`.
 	ContentTypesToCompresses pulumi.StringArrayInput `pulumi:"contentTypesToCompresses"`
-	// Defines how the Frontdoor will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
+	// Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
 	QueryStringCachingBehavior pulumi.StringPtrInput `pulumi:"queryStringCachingBehavior"`
 	// Query strings to include or ignore.
 	QueryStrings pulumi.StringArrayInput `pulumi:"queryStrings"`
@@ -6848,7 +6848,7 @@ func (o FrontdoorRouteCacheOutput) ContentTypesToCompresses() pulumi.StringArray
 	return o.ApplyT(func(v FrontdoorRouteCache) []string { return v.ContentTypesToCompresses }).(pulumi.StringArrayOutput)
 }
 
-// Defines how the Frontdoor will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
+// Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
 func (o FrontdoorRouteCacheOutput) QueryStringCachingBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorRouteCache) *string { return v.QueryStringCachingBehavior }).(pulumi.StringPtrOutput)
 }
@@ -6902,7 +6902,7 @@ func (o FrontdoorRouteCachePtrOutput) ContentTypesToCompresses() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Defines how the Frontdoor will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
+// Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
 func (o FrontdoorRouteCachePtrOutput) QueryStringCachingBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRouteCache) *string {
 		if v == nil {
@@ -7370,13 +7370,13 @@ func (o FrontdoorRuleActionsResponseHeaderActionArrayOutput) Index(i pulumi.IntI
 }
 
 type FrontdoorRuleActionsRouteConfigurationOverrideAction struct {
-	// `HonorOrigin` Frontdoor will always honor origin response header directive. If the origin directive is missing, Frontdoor will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. Possible values include `HonorOrigin`, `OverrideAlways` or `OverrideIfOriginMissing`. Defaults to `HonorOrigin`.
+	// `HonorOrigin` the Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your Front Door Origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your Front Door Origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. `Disabled` the Front Door will not cache the response contents, irrespective of Front Door Origin response directives. Possible values include `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing` or `Disabled`. Defaults to `HonorOrigin`.
 	CacheBehavior *string `pulumi:"cacheBehavior"`
-	// When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`).
-	CacheDuration string `pulumi:"cacheDuration"`
-	// The origin group resource ID that the request should be routed to. This overrides the configuration specified in the Frontdoor endpoint route.
-	CdnFrontdoorOriginGroupId string `pulumi:"cdnFrontdoorOriginGroupId"`
-	// Should Frontdoor dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
+	// When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`). Defaults to `1.12:00:00`.
+	CacheDuration *string `pulumi:"cacheDuration"`
+	// The Front Door Origin Group resource ID that the request should be routed to. This overrides the configuration specified in the Front Door Endpoint route.
+	CdnFrontdoorOriginGroupId *string `pulumi:"cdnFrontdoorOriginGroupId"`
+	// Should the Front Door dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
 	CompressionEnabled *bool `pulumi:"compressionEnabled"`
 	// The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`. Defaults to `MatchRequest`. Possible values include `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
 	ForwardingProtocol *string `pulumi:"forwardingProtocol"`
@@ -7398,13 +7398,13 @@ type FrontdoorRuleActionsRouteConfigurationOverrideActionInput interface {
 }
 
 type FrontdoorRuleActionsRouteConfigurationOverrideActionArgs struct {
-	// `HonorOrigin` Frontdoor will always honor origin response header directive. If the origin directive is missing, Frontdoor will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. Possible values include `HonorOrigin`, `OverrideAlways` or `OverrideIfOriginMissing`. Defaults to `HonorOrigin`.
+	// `HonorOrigin` the Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your Front Door Origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your Front Door Origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. `Disabled` the Front Door will not cache the response contents, irrespective of Front Door Origin response directives. Possible values include `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing` or `Disabled`. Defaults to `HonorOrigin`.
 	CacheBehavior pulumi.StringPtrInput `pulumi:"cacheBehavior"`
-	// When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`).
-	CacheDuration pulumi.StringInput `pulumi:"cacheDuration"`
-	// The origin group resource ID that the request should be routed to. This overrides the configuration specified in the Frontdoor endpoint route.
-	CdnFrontdoorOriginGroupId pulumi.StringInput `pulumi:"cdnFrontdoorOriginGroupId"`
-	// Should Frontdoor dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
+	// When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`). Defaults to `1.12:00:00`.
+	CacheDuration pulumi.StringPtrInput `pulumi:"cacheDuration"`
+	// The Front Door Origin Group resource ID that the request should be routed to. This overrides the configuration specified in the Front Door Endpoint route.
+	CdnFrontdoorOriginGroupId pulumi.StringPtrInput `pulumi:"cdnFrontdoorOriginGroupId"`
+	// Should the Front Door dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
 	CompressionEnabled pulumi.BoolPtrInput `pulumi:"compressionEnabled"`
 	// The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`. Defaults to `MatchRequest`. Possible values include `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
 	ForwardingProtocol pulumi.StringPtrInput `pulumi:"forwardingProtocol"`
@@ -7491,24 +7491,24 @@ func (o FrontdoorRuleActionsRouteConfigurationOverrideActionOutput) ToFrontdoorR
 	}).(FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput)
 }
 
-// `HonorOrigin` Frontdoor will always honor origin response header directive. If the origin directive is missing, Frontdoor will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. Possible values include `HonorOrigin`, `OverrideAlways` or `OverrideIfOriginMissing`. Defaults to `HonorOrigin`.
+// `HonorOrigin` the Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your Front Door Origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your Front Door Origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. `Disabled` the Front Door will not cache the response contents, irrespective of Front Door Origin response directives. Possible values include `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing` or `Disabled`. Defaults to `HonorOrigin`.
 func (o FrontdoorRuleActionsRouteConfigurationOverrideActionOutput) CacheBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorRuleActionsRouteConfigurationOverrideAction) *string { return v.CacheBehavior }).(pulumi.StringPtrOutput)
 }
 
-// When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`).
-func (o FrontdoorRuleActionsRouteConfigurationOverrideActionOutput) CacheDuration() pulumi.StringOutput {
-	return o.ApplyT(func(v FrontdoorRuleActionsRouteConfigurationOverrideAction) string { return v.CacheDuration }).(pulumi.StringOutput)
+// When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`). Defaults to `1.12:00:00`.
+func (o FrontdoorRuleActionsRouteConfigurationOverrideActionOutput) CacheDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleActionsRouteConfigurationOverrideAction) *string { return v.CacheDuration }).(pulumi.StringPtrOutput)
 }
 
-// The origin group resource ID that the request should be routed to. This overrides the configuration specified in the Frontdoor endpoint route.
-func (o FrontdoorRuleActionsRouteConfigurationOverrideActionOutput) CdnFrontdoorOriginGroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v FrontdoorRuleActionsRouteConfigurationOverrideAction) string {
+// The Front Door Origin Group resource ID that the request should be routed to. This overrides the configuration specified in the Front Door Endpoint route.
+func (o FrontdoorRuleActionsRouteConfigurationOverrideActionOutput) CdnFrontdoorOriginGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleActionsRouteConfigurationOverrideAction) *string {
 		return v.CdnFrontdoorOriginGroupId
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
-// Should Frontdoor dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
+// Should the Front Door dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
 func (o FrontdoorRuleActionsRouteConfigurationOverrideActionOutput) CompressionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FrontdoorRuleActionsRouteConfigurationOverrideAction) *bool { return v.CompressionEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -7554,7 +7554,7 @@ func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) Elem() Fr
 	}).(FrontdoorRuleActionsRouteConfigurationOverrideActionOutput)
 }
 
-// `HonorOrigin` Frontdoor will always honor origin response header directive. If the origin directive is missing, Frontdoor will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. Possible values include `HonorOrigin`, `OverrideAlways` or `OverrideIfOriginMissing`. Defaults to `HonorOrigin`.
+// `HonorOrigin` the Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your Front Door Origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your Front Door Origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. `Disabled` the Front Door will not cache the response contents, irrespective of Front Door Origin response directives. Possible values include `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing` or `Disabled`. Defaults to `HonorOrigin`.
 func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) CacheBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRuleActionsRouteConfigurationOverrideAction) *string {
 		if v == nil {
@@ -7564,27 +7564,27 @@ func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) CacheBeha
 	}).(pulumi.StringPtrOutput)
 }
 
-// When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`).
+// When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`). Defaults to `1.12:00:00`.
 func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) CacheDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRuleActionsRouteConfigurationOverrideAction) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.CacheDuration
+		return v.CacheDuration
 	}).(pulumi.StringPtrOutput)
 }
 
-// The origin group resource ID that the request should be routed to. This overrides the configuration specified in the Frontdoor endpoint route.
+// The Front Door Origin Group resource ID that the request should be routed to. This overrides the configuration specified in the Front Door Endpoint route.
 func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) CdnFrontdoorOriginGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRuleActionsRouteConfigurationOverrideAction) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.CdnFrontdoorOriginGroupId
+		return v.CdnFrontdoorOriginGroupId
 	}).(pulumi.StringPtrOutput)
 }
 
-// Should Frontdoor dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
+// Should the Front Door dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
 func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) CompressionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRuleActionsRouteConfigurationOverrideAction) *bool {
 		if v == nil {
@@ -8668,7 +8668,7 @@ type FrontdoorRuleConditionsCookiesCondition struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator string `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -8692,7 +8692,7 @@ type FrontdoorRuleConditionsCookiesConditionArgs struct {
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -8767,7 +8767,7 @@ func (o FrontdoorRuleConditionsCookiesConditionOutput) Operator() pulumi.StringO
 	return o.ApplyT(func(v FrontdoorRuleConditionsCookiesCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
 func (o FrontdoorRuleConditionsCookiesConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsCookiesCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -8799,7 +8799,7 @@ type FrontdoorRuleConditionsHostNameCondition struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator string `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -8821,7 +8821,7 @@ type FrontdoorRuleConditionsHostNameConditionArgs struct {
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -8891,7 +8891,7 @@ func (o FrontdoorRuleConditionsHostNameConditionOutput) Operator() pulumi.String
 	return o.ApplyT(func(v FrontdoorRuleConditionsHostNameCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
 func (o FrontdoorRuleConditionsHostNameConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsHostNameCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -9155,7 +9155,7 @@ type FrontdoorRuleConditionsPostArgsCondition struct {
 	Operator string `pulumi:"operator"`
 	// A string value representing the name of the `POST` argument.
 	PostArgsName string `pulumi:"postArgsName"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -9179,7 +9179,7 @@ type FrontdoorRuleConditionsPostArgsConditionArgs struct {
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// A string value representing the name of the `POST` argument.
 	PostArgsName pulumi.StringInput `pulumi:"postArgsName"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -9254,7 +9254,7 @@ func (o FrontdoorRuleConditionsPostArgsConditionOutput) PostArgsName() pulumi.St
 	return o.ApplyT(func(v FrontdoorRuleConditionsPostArgsCondition) string { return v.PostArgsName }).(pulumi.StringOutput)
 }
 
-// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
 func (o FrontdoorRuleConditionsPostArgsConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsPostArgsCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -9286,7 +9286,7 @@ type FrontdoorRuleConditionsQueryStringCondition struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator string `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -9308,7 +9308,7 @@ type FrontdoorRuleConditionsQueryStringConditionArgs struct {
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -9378,7 +9378,7 @@ func (o FrontdoorRuleConditionsQueryStringConditionOutput) Operator() pulumi.Str
 	return o.ApplyT(func(v FrontdoorRuleConditionsQueryStringCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
 func (o FrontdoorRuleConditionsQueryStringConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsQueryStringCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -9525,7 +9525,7 @@ type FrontdoorRuleConditionsRequestBodyCondition struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator string `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -9547,7 +9547,7 @@ type FrontdoorRuleConditionsRequestBodyConditionArgs struct {
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -9617,7 +9617,7 @@ func (o FrontdoorRuleConditionsRequestBodyConditionOutput) Operator() pulumi.Str
 	return o.ApplyT(func(v FrontdoorRuleConditionsRequestBodyCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
 func (o FrontdoorRuleConditionsRequestBodyConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsRequestBodyCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -9651,7 +9651,7 @@ type FrontdoorRuleConditionsRequestHeaderCondition struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator string `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -9675,7 +9675,7 @@ type FrontdoorRuleConditionsRequestHeaderConditionArgs struct {
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -9750,7 +9750,7 @@ func (o FrontdoorRuleConditionsRequestHeaderConditionOutput) Operator() pulumi.S
 	return o.ApplyT(func(v FrontdoorRuleConditionsRequestHeaderCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
 func (o FrontdoorRuleConditionsRequestHeaderConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsRequestHeaderCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -10012,7 +10012,7 @@ type FrontdoorRuleConditionsRequestUriCondition struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator string `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -10034,7 +10034,7 @@ type FrontdoorRuleConditionsRequestUriConditionArgs struct {
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -10104,7 +10104,7 @@ func (o FrontdoorRuleConditionsRequestUriConditionOutput) Operator() pulumi.Stri
 	return o.ApplyT(func(v FrontdoorRuleConditionsRequestUriCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
 func (o FrontdoorRuleConditionsRequestUriConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsRequestUriCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -10481,7 +10481,7 @@ type FrontdoorRuleConditionsUrlFileExtensionCondition struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator string `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -10503,7 +10503,7 @@ type FrontdoorRuleConditionsUrlFileExtensionConditionArgs struct {
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -10573,7 +10573,7 @@ func (o FrontdoorRuleConditionsUrlFileExtensionConditionOutput) Operator() pulum
 	return o.ApplyT(func(v FrontdoorRuleConditionsUrlFileExtensionCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
 func (o FrontdoorRuleConditionsUrlFileExtensionConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsUrlFileExtensionCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -10605,7 +10605,7 @@ type FrontdoorRuleConditionsUrlFilenameCondition struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator string `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -10627,7 +10627,7 @@ type FrontdoorRuleConditionsUrlFilenameConditionArgs struct {
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -10697,7 +10697,7 @@ func (o FrontdoorRuleConditionsUrlFilenameConditionOutput) Operator() pulumi.Str
 	return o.ApplyT(func(v FrontdoorRuleConditionsUrlFilenameCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
 func (o FrontdoorRuleConditionsUrlFilenameConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsUrlFilenameCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -10729,7 +10729,7 @@ type FrontdoorRuleConditionsUrlPathCondition struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator string `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -10751,7 +10751,7 @@ type FrontdoorRuleConditionsUrlPathConditionArgs struct {
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -10821,7 +10821,7 @@ func (o FrontdoorRuleConditionsUrlPathConditionOutput) Operator() pulumi.StringO
 	return o.ApplyT(func(v FrontdoorRuleConditionsUrlPathCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
 func (o FrontdoorRuleConditionsUrlPathConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsUrlPathCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -10847,7 +10847,7 @@ func (o FrontdoorRuleConditionsUrlPathConditionArrayOutput) Index(i pulumi.IntIn
 }
 
 type FrontdoorSecretSecret struct {
-	// A `customerCertificate` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+	// A `customerCertificate` block as defined below. Changing this forces a new Front Door Secret to be created.
 	CustomerCertificates []FrontdoorSecretSecretCustomerCertificate `pulumi:"customerCertificates"`
 }
 
@@ -10863,7 +10863,7 @@ type FrontdoorSecretSecretInput interface {
 }
 
 type FrontdoorSecretSecretArgs struct {
-	// A `customerCertificate` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+	// A `customerCertificate` block as defined below. Changing this forces a new Front Door Secret to be created.
 	CustomerCertificates FrontdoorSecretSecretCustomerCertificateArrayInput `pulumi:"customerCertificates"`
 }
 
@@ -10944,7 +10944,7 @@ func (o FrontdoorSecretSecretOutput) ToFrontdoorSecretSecretPtrOutputWithContext
 	}).(FrontdoorSecretSecretPtrOutput)
 }
 
-// A `customerCertificate` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+// A `customerCertificate` block as defined below. Changing this forces a new Front Door Secret to be created.
 func (o FrontdoorSecretSecretOutput) CustomerCertificates() FrontdoorSecretSecretCustomerCertificateArrayOutput {
 	return o.ApplyT(func(v FrontdoorSecretSecret) []FrontdoorSecretSecretCustomerCertificate {
 		return v.CustomerCertificates
@@ -10975,7 +10975,7 @@ func (o FrontdoorSecretSecretPtrOutput) Elem() FrontdoorSecretSecretOutput {
 	}).(FrontdoorSecretSecretOutput)
 }
 
-// A `customerCertificate` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+// A `customerCertificate` block as defined below. Changing this forces a new Front Door Secret to be created.
 func (o FrontdoorSecretSecretPtrOutput) CustomerCertificates() FrontdoorSecretSecretCustomerCertificateArrayOutput {
 	return o.ApplyT(func(v *FrontdoorSecretSecret) []FrontdoorSecretSecretCustomerCertificate {
 		if v == nil {
@@ -10986,7 +10986,7 @@ func (o FrontdoorSecretSecretPtrOutput) CustomerCertificates() FrontdoorSecretSe
 }
 
 type FrontdoorSecretSecretCustomerCertificate struct {
-	// The ID of the Key Vault certificate resource to use. Changing this forces a new Frontdoor Secret to be created.
+	// The ID of the Key Vault certificate resource to use. Changing this forces a new Front Door Secret to be created.
 	KeyVaultCertificateId string `pulumi:"keyVaultCertificateId"`
 	// One or more `subject alternative names` contained within the key vault certificate.
 	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
@@ -11004,7 +11004,7 @@ type FrontdoorSecretSecretCustomerCertificateInput interface {
 }
 
 type FrontdoorSecretSecretCustomerCertificateArgs struct {
-	// The ID of the Key Vault certificate resource to use. Changing this forces a new Frontdoor Secret to be created.
+	// The ID of the Key Vault certificate resource to use. Changing this forces a new Front Door Secret to be created.
 	KeyVaultCertificateId pulumi.StringInput `pulumi:"keyVaultCertificateId"`
 	// One or more `subject alternative names` contained within the key vault certificate.
 	SubjectAlternativeNames pulumi.StringArrayInput `pulumi:"subjectAlternativeNames"`
@@ -11061,7 +11061,7 @@ func (o FrontdoorSecretSecretCustomerCertificateOutput) ToFrontdoorSecretSecretC
 	return o
 }
 
-// The ID of the Key Vault certificate resource to use. Changing this forces a new Frontdoor Secret to be created.
+// The ID of the Key Vault certificate resource to use. Changing this forces a new Front Door Secret to be created.
 func (o FrontdoorSecretSecretCustomerCertificateOutput) KeyVaultCertificateId() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorSecretSecretCustomerCertificate) string { return v.KeyVaultCertificateId }).(pulumi.StringOutput)
 }
@@ -11092,7 +11092,7 @@ func (o FrontdoorSecretSecretCustomerCertificateArrayOutput) Index(i pulumi.IntI
 }
 
 type FrontdoorSecurityPolicySecurityPolicies struct {
-	// An `firewall` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+	// An `firewall` block as defined below. Changing this forces a new Front Door Security Policy to be created.
 	Firewall FrontdoorSecurityPolicySecurityPoliciesFirewall `pulumi:"firewall"`
 }
 
@@ -11108,7 +11108,7 @@ type FrontdoorSecurityPolicySecurityPoliciesInput interface {
 }
 
 type FrontdoorSecurityPolicySecurityPoliciesArgs struct {
-	// An `firewall` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+	// An `firewall` block as defined below. Changing this forces a new Front Door Security Policy to be created.
 	Firewall FrontdoorSecurityPolicySecurityPoliciesFirewallInput `pulumi:"firewall"`
 }
 
@@ -11189,7 +11189,7 @@ func (o FrontdoorSecurityPolicySecurityPoliciesOutput) ToFrontdoorSecurityPolicy
 	}).(FrontdoorSecurityPolicySecurityPoliciesPtrOutput)
 }
 
-// An `firewall` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+// An `firewall` block as defined below. Changing this forces a new Front Door Security Policy to be created.
 func (o FrontdoorSecurityPolicySecurityPoliciesOutput) Firewall() FrontdoorSecurityPolicySecurityPoliciesFirewallOutput {
 	return o.ApplyT(func(v FrontdoorSecurityPolicySecurityPolicies) FrontdoorSecurityPolicySecurityPoliciesFirewall {
 		return v.Firewall
@@ -11220,7 +11220,7 @@ func (o FrontdoorSecurityPolicySecurityPoliciesPtrOutput) Elem() FrontdoorSecuri
 	}).(FrontdoorSecurityPolicySecurityPoliciesOutput)
 }
 
-// An `firewall` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+// An `firewall` block as defined below. Changing this forces a new Front Door Security Policy to be created.
 func (o FrontdoorSecurityPolicySecurityPoliciesPtrOutput) Firewall() FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput {
 	return o.ApplyT(func(v *FrontdoorSecurityPolicySecurityPolicies) *FrontdoorSecurityPolicySecurityPoliciesFirewall {
 		if v == nil {
@@ -11231,9 +11231,9 @@ func (o FrontdoorSecurityPolicySecurityPoliciesPtrOutput) Firewall() FrontdoorSe
 }
 
 type FrontdoorSecurityPolicySecurityPoliciesFirewall struct {
-	// An `association` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+	// An `association` block as defined below. Changing this forces a new Front Door Security Policy to be created.
 	Association FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation `pulumi:"association"`
-	// The Resource Id of the Frontdoor Firewall Policy that should be linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+	// The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
 	CdnFrontdoorFirewallPolicyId string `pulumi:"cdnFrontdoorFirewallPolicyId"`
 }
 
@@ -11249,9 +11249,9 @@ type FrontdoorSecurityPolicySecurityPoliciesFirewallInput interface {
 }
 
 type FrontdoorSecurityPolicySecurityPoliciesFirewallArgs struct {
-	// An `association` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+	// An `association` block as defined below. Changing this forces a new Front Door Security Policy to be created.
 	Association FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationInput `pulumi:"association"`
-	// The Resource Id of the Frontdoor Firewall Policy that should be linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+	// The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
 	CdnFrontdoorFirewallPolicyId pulumi.StringInput `pulumi:"cdnFrontdoorFirewallPolicyId"`
 }
 
@@ -11332,14 +11332,14 @@ func (o FrontdoorSecurityPolicySecurityPoliciesFirewallOutput) ToFrontdoorSecuri
 	}).(FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput)
 }
 
-// An `association` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+// An `association` block as defined below. Changing this forces a new Front Door Security Policy to be created.
 func (o FrontdoorSecurityPolicySecurityPoliciesFirewallOutput) Association() FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput {
 	return o.ApplyT(func(v FrontdoorSecurityPolicySecurityPoliciesFirewall) FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation {
 		return v.Association
 	}).(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput)
 }
 
-// The Resource Id of the Frontdoor Firewall Policy that should be linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+// The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
 func (o FrontdoorSecurityPolicySecurityPoliciesFirewallOutput) CdnFrontdoorFirewallPolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorSecurityPolicySecurityPoliciesFirewall) string { return v.CdnFrontdoorFirewallPolicyId }).(pulumi.StringOutput)
 }
@@ -11368,7 +11368,7 @@ func (o FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput) Elem() Frontdo
 	}).(FrontdoorSecurityPolicySecurityPoliciesFirewallOutput)
 }
 
-// An `association` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+// An `association` block as defined below. Changing this forces a new Front Door Security Policy to be created.
 func (o FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput) Association() FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput {
 	return o.ApplyT(func(v *FrontdoorSecurityPolicySecurityPoliciesFirewall) *FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation {
 		if v == nil {
@@ -11378,7 +11378,7 @@ func (o FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput) Association() 
 	}).(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput)
 }
 
-// The Resource Id of the Frontdoor Firewall Policy that should be linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+// The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
 func (o FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput) CdnFrontdoorFirewallPolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorSecurityPolicySecurityPoliciesFirewall) *string {
 		if v == nil {
@@ -11389,9 +11389,9 @@ func (o FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput) CdnFrontdoorFi
 }
 
 type FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation struct {
-	// One or more `domain` blocks as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+	// One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
 	Domains []FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain `pulumi:"domains"`
-	// The list of paths to match for this firewall policy. Possilbe value includes `/*`. Changing this forces a new Frontdoor Security Policy to be created.
+	// The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
 	PatternsToMatch string `pulumi:"patternsToMatch"`
 }
 
@@ -11407,9 +11407,9 @@ type FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationInput interface {
 }
 
 type FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs struct {
-	// One or more `domain` blocks as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+	// One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
 	Domains FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayInput `pulumi:"domains"`
-	// The list of paths to match for this firewall policy. Possilbe value includes `/*`. Changing this forces a new Frontdoor Security Policy to be created.
+	// The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
 	PatternsToMatch pulumi.StringInput `pulumi:"patternsToMatch"`
 }
 
@@ -11490,14 +11490,14 @@ func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput) ToFron
 	}).(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput)
 }
 
-// One or more `domain` blocks as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+// One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
 func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput) Domains() FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutput {
 	return o.ApplyT(func(v FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation) []FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain {
 		return v.Domains
 	}).(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutput)
 }
 
-// The list of paths to match for this firewall policy. Possilbe value includes `/*`. Changing this forces a new Frontdoor Security Policy to be created.
+// The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
 func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput) PatternsToMatch() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation) string { return v.PatternsToMatch }).(pulumi.StringOutput)
 }
@@ -11526,7 +11526,7 @@ func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput) Ele
 	}).(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput)
 }
 
-// One or more `domain` blocks as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+// One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
 func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput) Domains() FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutput {
 	return o.ApplyT(func(v *FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation) []FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain {
 		if v == nil {
@@ -11536,7 +11536,7 @@ func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput) Dom
 	}).(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutput)
 }
 
-// The list of paths to match for this firewall policy. Possilbe value includes `/*`. Changing this forces a new Frontdoor Security Policy to be created.
+// The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
 func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput) PatternsToMatch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation) *string {
 		if v == nil {
@@ -11547,9 +11547,9 @@ func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput) Pat
 }
 
 type FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain struct {
-	// Is the Frontdoor Custom Domain/Endpoint activated?
+	// Is the Front Door Custom Domain/Endpoint activated?
 	Active *bool `pulumi:"active"`
-	// The Resource Id of the **Frontdoor Custom Domain** or **Frontdoor Endpoint** that should be bound to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+	// The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
 	CdnFrontdoorDomainId string `pulumi:"cdnFrontdoorDomainId"`
 }
 
@@ -11565,9 +11565,9 @@ type FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainInput inter
 }
 
 type FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs struct {
-	// Is the Frontdoor Custom Domain/Endpoint activated?
+	// Is the Front Door Custom Domain/Endpoint activated?
 	Active pulumi.BoolPtrInput `pulumi:"active"`
-	// The Resource Id of the **Frontdoor Custom Domain** or **Frontdoor Endpoint** that should be bound to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+	// The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
 	CdnFrontdoorDomainId pulumi.StringInput `pulumi:"cdnFrontdoorDomainId"`
 }
 
@@ -11622,12 +11622,12 @@ func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainOutput) 
 	return o
 }
 
-// Is the Frontdoor Custom Domain/Endpoint activated?
+// Is the Front Door Custom Domain/Endpoint activated?
 func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainOutput) Active() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain) *bool { return v.Active }).(pulumi.BoolPtrOutput)
 }
 
-// The Resource Id of the **Frontdoor Custom Domain** or **Frontdoor Endpoint** that should be bound to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+// The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
 func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainOutput) CdnFrontdoorDomainId() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain) string {
 		return v.CdnFrontdoorDomainId

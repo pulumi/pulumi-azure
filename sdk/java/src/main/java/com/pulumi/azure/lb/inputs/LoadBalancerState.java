@@ -140,7 +140,6 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * `sku_tier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
-     * *
      * 
      */
     @Import(name="skuTier")
@@ -148,7 +147,6 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return `sku_tier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
-     * *
      * 
      */
     public Optional<Output<String>> skuTier() {
@@ -393,7 +391,6 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param skuTier `sku_tier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
-         * *
          * 
          * @return builder
          * 
@@ -405,7 +402,6 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param skuTier `sku_tier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
-         * *
          * 
          * @return builder
          * 

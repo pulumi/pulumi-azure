@@ -113,7 +113,9 @@ type HBaseCluster struct {
 	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
 	ClusterVersion pulumi.StringOutput `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
-	ComponentVersion HBaseClusterComponentVersionOutput    `pulumi:"componentVersion"`
+	ComponentVersion HBaseClusterComponentVersionOutput `pulumi:"componentVersion"`
+	// A `computeIsolation` block as defined below.
+	ComputeIsolation HBaseClusterComputeIsolationPtrOutput `pulumi:"computeIsolation"`
 	DiskEncryptions  HBaseClusterDiskEncryptionArrayOutput `pulumi:"diskEncryptions"`
 	// An `extension` block as defined below.
 	Extension HBaseClusterExtensionPtrOutput `pulumi:"extension"`
@@ -201,6 +203,8 @@ type hbaseClusterState struct {
 	ClusterVersion *string `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
 	ComponentVersion *HBaseClusterComponentVersion `pulumi:"componentVersion"`
+	// A `computeIsolation` block as defined below.
+	ComputeIsolation *HBaseClusterComputeIsolation `pulumi:"computeIsolation"`
 	DiskEncryptions  []HBaseClusterDiskEncryption  `pulumi:"diskEncryptions"`
 	// An `extension` block as defined below.
 	Extension *HBaseClusterExtension `pulumi:"extension"`
@@ -242,6 +246,8 @@ type HBaseClusterState struct {
 	ClusterVersion pulumi.StringPtrInput
 	// A `componentVersion` block as defined below.
 	ComponentVersion HBaseClusterComponentVersionPtrInput
+	// A `computeIsolation` block as defined below.
+	ComputeIsolation HBaseClusterComputeIsolationPtrInput
 	DiskEncryptions  HBaseClusterDiskEncryptionArrayInput
 	// An `extension` block as defined below.
 	Extension HBaseClusterExtensionPtrInput
@@ -287,7 +293,9 @@ type hbaseClusterArgs struct {
 	ClusterVersion string `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
 	ComponentVersion HBaseClusterComponentVersion `pulumi:"componentVersion"`
-	DiskEncryptions  []HBaseClusterDiskEncryption `pulumi:"diskEncryptions"`
+	// A `computeIsolation` block as defined below.
+	ComputeIsolation *HBaseClusterComputeIsolation `pulumi:"computeIsolation"`
+	DiskEncryptions  []HBaseClusterDiskEncryption  `pulumi:"diskEncryptions"`
 	// An `extension` block as defined below.
 	Extension *HBaseClusterExtension `pulumi:"extension"`
 	// A `gateway` block as defined below.
@@ -325,6 +333,8 @@ type HBaseClusterArgs struct {
 	ClusterVersion pulumi.StringInput
 	// A `componentVersion` block as defined below.
 	ComponentVersion HBaseClusterComponentVersionInput
+	// A `computeIsolation` block as defined below.
+	ComputeIsolation HBaseClusterComputeIsolationPtrInput
 	DiskEncryptions  HBaseClusterDiskEncryptionArrayInput
 	// An `extension` block as defined below.
 	Extension HBaseClusterExtensionPtrInput
@@ -452,6 +462,11 @@ func (o HBaseClusterOutput) ClusterVersion() pulumi.StringOutput {
 // A `componentVersion` block as defined below.
 func (o HBaseClusterOutput) ComponentVersion() HBaseClusterComponentVersionOutput {
 	return o.ApplyT(func(v *HBaseCluster) HBaseClusterComponentVersionOutput { return v.ComponentVersion }).(HBaseClusterComponentVersionOutput)
+}
+
+// A `computeIsolation` block as defined below.
+func (o HBaseClusterOutput) ComputeIsolation() HBaseClusterComputeIsolationPtrOutput {
+	return o.ApplyT(func(v *HBaseCluster) HBaseClusterComputeIsolationPtrOutput { return v.ComputeIsolation }).(HBaseClusterComputeIsolationPtrOutput)
 }
 
 func (o HBaseClusterOutput) DiskEncryptions() HBaseClusterDiskEncryptionArrayOutput {

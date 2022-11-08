@@ -113,7 +113,6 @@ export interface GetServerResult {
     readonly storageMb: number;
     /**
      * A mapping of tags to assign to the resource.
-     * ---
      */
     readonly tags: {[key: string]: string};
     /**

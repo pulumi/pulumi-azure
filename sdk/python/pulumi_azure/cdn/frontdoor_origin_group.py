@@ -24,10 +24,10 @@ class FrontdoorOriginGroupArgs:
                  session_affinity_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a FrontdoorOriginGroup resource.
-        :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group should exist. Changing this forces a new CDN FrontDoor Origin Group to be created.
+        :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
         :param pulumi.Input['FrontdoorOriginGroupLoadBalancingArgs'] load_balancing: A `load_balancing` block as defined below.
         :param pulumi.Input['FrontdoorOriginGroupHealthProbeArgs'] health_probe: A `health_probe` block as defined below.
-        :param pulumi.Input[str] name: The name which should be used for this CDN FrontDoor Origin Group. Changing this forces a new CDN FrontDoor Origin Group to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
         :param pulumi.Input[int] restore_traffic_time_to_healed_or_new_endpoint_in_minutes: Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
         :param pulumi.Input[bool] session_affinity_enabled: Specifies whether session affinity should be enabled on this host. Defaults to `true`.
         """
@@ -46,7 +46,7 @@ class FrontdoorOriginGroupArgs:
     @pulumi.getter(name="cdnFrontdoorProfileId")
     def cdn_frontdoor_profile_id(self) -> pulumi.Input[str]:
         """
-        The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group should exist. Changing this forces a new CDN FrontDoor Origin Group to be created.
+        The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_profile_id")
 
@@ -82,7 +82,7 @@ class FrontdoorOriginGroupArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this CDN FrontDoor Origin Group. Changing this forces a new CDN FrontDoor Origin Group to be created.
+        The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
         """
         return pulumi.get(self, "name")
 
@@ -126,10 +126,10 @@ class _FrontdoorOriginGroupState:
                  session_affinity_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering FrontdoorOriginGroup resources.
-        :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group should exist. Changing this forces a new CDN FrontDoor Origin Group to be created.
+        :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
         :param pulumi.Input['FrontdoorOriginGroupHealthProbeArgs'] health_probe: A `health_probe` block as defined below.
         :param pulumi.Input['FrontdoorOriginGroupLoadBalancingArgs'] load_balancing: A `load_balancing` block as defined below.
-        :param pulumi.Input[str] name: The name which should be used for this CDN FrontDoor Origin Group. Changing this forces a new CDN FrontDoor Origin Group to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
         :param pulumi.Input[int] restore_traffic_time_to_healed_or_new_endpoint_in_minutes: Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
         :param pulumi.Input[bool] session_affinity_enabled: Specifies whether session affinity should be enabled on this host. Defaults to `true`.
         """
@@ -150,7 +150,7 @@ class _FrontdoorOriginGroupState:
     @pulumi.getter(name="cdnFrontdoorProfileId")
     def cdn_frontdoor_profile_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group should exist. Changing this forces a new CDN FrontDoor Origin Group to be created.
+        The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_profile_id")
 
@@ -186,7 +186,7 @@ class _FrontdoorOriginGroupState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this CDN FrontDoor Origin Group. Changing this forces a new CDN FrontDoor Origin Group to be created.
+        The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
         """
         return pulumi.get(self, "name")
 
@@ -232,7 +232,7 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
                  session_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Manages a CDN FrontDoor Origin Group.
+        Manages a Front Door (standard/premium) Origin Group.
 
         ## Example Usage
 
@@ -261,7 +261,7 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
 
         ## Import
 
-        CDN FrontDoor Origin Groups can be imported using the `resource id`, e.g.
+        Front Door Origin Groups can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:cdn/frontdoorOriginGroup:FrontdoorOriginGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/originGroups/originGroup1
@@ -269,10 +269,10 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group should exist. Changing this forces a new CDN FrontDoor Origin Group to be created.
+        :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
         :param pulumi.Input[pulumi.InputType['FrontdoorOriginGroupHealthProbeArgs']] health_probe: A `health_probe` block as defined below.
         :param pulumi.Input[pulumi.InputType['FrontdoorOriginGroupLoadBalancingArgs']] load_balancing: A `load_balancing` block as defined below.
-        :param pulumi.Input[str] name: The name which should be used for this CDN FrontDoor Origin Group. Changing this forces a new CDN FrontDoor Origin Group to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
         :param pulumi.Input[int] restore_traffic_time_to_healed_or_new_endpoint_in_minutes: Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
         :param pulumi.Input[bool] session_affinity_enabled: Specifies whether session affinity should be enabled on this host. Defaults to `true`.
         """
@@ -283,7 +283,7 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
                  args: FrontdoorOriginGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a CDN FrontDoor Origin Group.
+        Manages a Front Door (standard/premium) Origin Group.
 
         ## Example Usage
 
@@ -312,7 +312,7 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
 
         ## Import
 
-        CDN FrontDoor Origin Groups can be imported using the `resource id`, e.g.
+        Front Door Origin Groups can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:cdn/frontdoorOriginGroup:FrontdoorOriginGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/originGroups/originGroup1
@@ -381,10 +381,10 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group should exist. Changing this forces a new CDN FrontDoor Origin Group to be created.
+        :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
         :param pulumi.Input[pulumi.InputType['FrontdoorOriginGroupHealthProbeArgs']] health_probe: A `health_probe` block as defined below.
         :param pulumi.Input[pulumi.InputType['FrontdoorOriginGroupLoadBalancingArgs']] load_balancing: A `load_balancing` block as defined below.
-        :param pulumi.Input[str] name: The name which should be used for this CDN FrontDoor Origin Group. Changing this forces a new CDN FrontDoor Origin Group to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
         :param pulumi.Input[int] restore_traffic_time_to_healed_or_new_endpoint_in_minutes: Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
         :param pulumi.Input[bool] session_affinity_enabled: Specifies whether session affinity should be enabled on this host. Defaults to `true`.
         """
@@ -404,7 +404,7 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
     @pulumi.getter(name="cdnFrontdoorProfileId")
     def cdn_frontdoor_profile_id(self) -> pulumi.Output[str]:
         """
-        The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group should exist. Changing this forces a new CDN FrontDoor Origin Group to be created.
+        The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_profile_id")
 
@@ -428,7 +428,7 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name which should be used for this CDN FrontDoor Origin Group. Changing this forces a new CDN FrontDoor Origin Group to be created.
+        The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
         """
         return pulumi.get(self, "name")
 

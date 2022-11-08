@@ -125,7 +125,6 @@ public final class ApiOperationRequestHeaderArgs extends com.pulumi.resources.Re
 
     /**
      * The type name defined by the Schema.
-     * ---
      * 
      */
     @Import(name="typeName")
@@ -133,7 +132,6 @@ public final class ApiOperationRequestHeaderArgs extends com.pulumi.resources.Re
 
     /**
      * @return The type name defined by the Schema.
-     * ---
      * 
      */
     public Optional<Output<String>> typeName() {
@@ -346,7 +344,6 @@ public final class ApiOperationRequestHeaderArgs extends com.pulumi.resources.Re
 
         /**
          * @param typeName The type name defined by the Schema.
-         * ---
          * 
          * @return builder
          * 
@@ -358,7 +355,6 @@ public final class ApiOperationRequestHeaderArgs extends com.pulumi.resources.Re
 
         /**
          * @param typeName The type name defined by the Schema.
-         * ---
          * 
          * @return builder
          * 

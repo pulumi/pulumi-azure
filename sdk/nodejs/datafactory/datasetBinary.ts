@@ -120,7 +120,6 @@ export class DatasetBinary extends pulumi.CustomResource {
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A `sftpServerLocation` block as defined below.
-     * ---
      */
     public readonly sftpServerLocation!: pulumi.Output<outputs.datafactory.DatasetBinarySftpServerLocation | undefined>;
 
@@ -225,7 +224,6 @@ export interface DatasetBinaryState {
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `sftpServerLocation` block as defined below.
-     * ---
      */
     sftpServerLocation?: pulumi.Input<inputs.datafactory.DatasetBinarySftpServerLocation>;
 }
@@ -280,7 +278,6 @@ export interface DatasetBinaryArgs {
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `sftpServerLocation` block as defined below.
-     * ---
      */
     sftpServerLocation?: pulumi.Input<inputs.datafactory.DatasetBinarySftpServerLocation>;
 }

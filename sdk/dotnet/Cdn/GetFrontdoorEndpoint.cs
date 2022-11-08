@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Cdn
     public static class GetFrontdoorEndpoint
     {
         /// <summary>
-        /// Use this data source to access information about an existing CDN FrontDoor Endpoint.
+        /// Use this data source to access information about an existing Front Door (standard/premium) Endpoint.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Cdn
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrontdoorEndpointResult>("azure:cdn/getFrontdoorEndpoint:getFrontdoorEndpoint", args ?? new GetFrontdoorEndpointArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to access information about an existing CDN FrontDoor Endpoint.
+        /// Use this data source to access information about an existing Front Door (standard/premium) Endpoint.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -74,19 +74,19 @@ namespace Pulumi.Azure.Cdn
     public sealed class GetFrontdoorEndpointArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies the name of the FrontDoor Endpoint.
+        /// Specifies the name of the Front Door Endpoint.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the FrontDoor Profile within which CDN FrontDoor Endpoint exists.
+        /// The name of the Front Door Profile within which Front Door Endpoint exists.
         /// </summary>
         [Input("profileName", required: true)]
         public string ProfileName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the CDN FrontDoor Profile exists.
+        /// The name of the Resource Group where the Front Door Profile exists.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -100,19 +100,19 @@ namespace Pulumi.Azure.Cdn
     public sealed class GetFrontdoorEndpointInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies the name of the FrontDoor Endpoint.
+        /// Specifies the name of the Front Door Endpoint.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the FrontDoor Profile within which CDN FrontDoor Endpoint exists.
+        /// The name of the Front Door Profile within which Front Door Endpoint exists.
         /// </summary>
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the CDN FrontDoor Profile exists.
+        /// The name of the Resource Group where the Front Door Profile exists.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -128,11 +128,11 @@ namespace Pulumi.Azure.Cdn
     public sealed class GetFrontdoorEndpointResult
     {
         /// <summary>
-        /// Specifies whether this CDN FrontDoor Endpoint is enabled or not.
+        /// Specifies whether this Front Door Endpoint is enabled or not.
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// Specifies the host name of the CDN FrontDoor Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
+        /// Specifies the host name of the Front Door Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
         /// </summary>
         public readonly string HostName;
         /// <summary>
@@ -143,7 +143,7 @@ namespace Pulumi.Azure.Cdn
         public readonly string ProfileName;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// Specifies a mapping of Tags assigned to this CDN FrontDoor Endpoint.
+        /// Specifies a mapping of Tags assigned to this Front Door Endpoint.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 /**
  * ## Import
  * 
- * CDN FrontDoor Origin can be imported using the `resource id`, e.g.
+ * Front Door Origins can be imported using the `resource id`, e.g.
  * 
  * ```sh
  *  $ pulumi import azure:cdn/frontdoorOrigin:FrontdoorOrigin example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/originGroups/originGroup1/origins/origin1
@@ -30,14 +30,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:cdn/frontdoorOrigin:FrontdoorOrigin")
 public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the CDN FrontDoor Origin Group within which this CDN FrontDoor Origin should exist. Changing this forces a new CDN FrontDoor Origin to be created.
+     * The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
      * 
      */
     @Export(name="cdnFrontdoorOriginGroupId", type=String.class, parameters={})
     private Output<String> cdnFrontdoorOriginGroupId;
 
     /**
-     * @return The ID of the CDN FrontDoor Origin Group within which this CDN FrontDoor Origin should exist. Changing this forces a new CDN FrontDoor Origin to be created.
+     * @return The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
      * 
      */
     public Output<String> cdnFrontdoorOriginGroupId() {
@@ -126,14 +126,14 @@ public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.httpsPort);
     }
     /**
-     * The name which should be used for this CDN FrontDoor Origin. Changing this forces a new CDN FrontDoor Origin to be created.
+     * The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this CDN FrontDoor Origin. Changing this forces a new CDN FrontDoor Origin to be created.
+     * @return The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
      * 
      */
     public Output<String> name() {

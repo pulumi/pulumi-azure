@@ -342,11 +342,13 @@ func (o CapacityReservationSkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type DiskEncryptionSetIdentity struct {
+	// A list of User Assigned Managed Identity IDs to be assigned to this Disk Encryption Set.
+	IdentityIds []string `pulumi:"identityIds"`
 	// The (Client) ID of the Service Principal.
 	PrincipalId *string `pulumi:"principalId"`
 	// The ID of the Tenant the Service Principal is assigned in.
 	TenantId *string `pulumi:"tenantId"`
-	// The type of Managed Service Identity that is configured on this Disk Encryption Set. The only possible value is `SystemAssigned`.
+	// The type of Managed Service Identity that is configured on this Disk Encryption Set.  Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type string `pulumi:"type"`
 }
 
@@ -362,11 +364,13 @@ type DiskEncryptionSetIdentityInput interface {
 }
 
 type DiskEncryptionSetIdentityArgs struct {
+	// A list of User Assigned Managed Identity IDs to be assigned to this Disk Encryption Set.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The (Client) ID of the Service Principal.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The ID of the Tenant the Service Principal is assigned in.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The type of Managed Service Identity that is configured on this Disk Encryption Set. The only possible value is `SystemAssigned`.
+	// The type of Managed Service Identity that is configured on this Disk Encryption Set.  Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -447,6 +451,11 @@ func (o DiskEncryptionSetIdentityOutput) ToDiskEncryptionSetIdentityPtrOutputWit
 	}).(DiskEncryptionSetIdentityPtrOutput)
 }
 
+// A list of User Assigned Managed Identity IDs to be assigned to this Disk Encryption Set.
+func (o DiskEncryptionSetIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DiskEncryptionSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
 // The (Client) ID of the Service Principal.
 func (o DiskEncryptionSetIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DiskEncryptionSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
@@ -457,7 +466,7 @@ func (o DiskEncryptionSetIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DiskEncryptionSetIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The type of Managed Service Identity that is configured on this Disk Encryption Set. The only possible value is `SystemAssigned`.
+// The type of Managed Service Identity that is configured on this Disk Encryption Set.  Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o DiskEncryptionSetIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DiskEncryptionSetIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -486,6 +495,16 @@ func (o DiskEncryptionSetIdentityPtrOutput) Elem() DiskEncryptionSetIdentityOutp
 	}).(DiskEncryptionSetIdentityOutput)
 }
 
+// A list of User Assigned Managed Identity IDs to be assigned to this Disk Encryption Set.
+func (o DiskEncryptionSetIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DiskEncryptionSetIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
 // The (Client) ID of the Service Principal.
 func (o DiskEncryptionSetIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiskEncryptionSetIdentity) *string {
@@ -506,7 +525,7 @@ func (o DiskEncryptionSetIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of Managed Service Identity that is configured on this Disk Encryption Set. The only possible value is `SystemAssigned`.
+// The type of Managed Service Identity that is configured on this Disk Encryption Set.  Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o DiskEncryptionSetIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiskEncryptionSetIdentity) *string {
 		if v == nil {
@@ -3690,11 +3709,11 @@ func (o LinuxVirtualMachineScaleSetExtensionArrayOutput) Index(i pulumi.IntInput
 }
 
 type LinuxVirtualMachineScaleSetGalleryApplication struct {
-	// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
+	// Deprecated: `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0
 	ConfigurationReferenceBlobUri *string `pulumi:"configurationReferenceBlobUri"`
 	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
 	Order *int `pulumi:"order"`
-	// Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+	// Deprecated: `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0
 	PackageReferenceId string `pulumi:"packageReferenceId"`
 	// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
 	Tag *string `pulumi:"tag"`
@@ -3712,11 +3731,11 @@ type LinuxVirtualMachineScaleSetGalleryApplicationInput interface {
 }
 
 type LinuxVirtualMachineScaleSetGalleryApplicationArgs struct {
-	// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
+	// Deprecated: `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0
 	ConfigurationReferenceBlobUri pulumi.StringPtrInput `pulumi:"configurationReferenceBlobUri"`
 	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
 	Order pulumi.IntPtrInput `pulumi:"order"`
-	// Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+	// Deprecated: `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0
 	PackageReferenceId pulumi.StringInput `pulumi:"packageReferenceId"`
 	// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
 	Tag pulumi.StringPtrInput `pulumi:"tag"`
@@ -3773,7 +3792,7 @@ func (o LinuxVirtualMachineScaleSetGalleryApplicationOutput) ToLinuxVirtualMachi
 	return o
 }
 
-// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
+// Deprecated: `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0
 func (o LinuxVirtualMachineScaleSetGalleryApplicationOutput) ConfigurationReferenceBlobUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetGalleryApplication) *string { return v.ConfigurationReferenceBlobUri }).(pulumi.StringPtrOutput)
 }
@@ -3783,7 +3802,7 @@ func (o LinuxVirtualMachineScaleSetGalleryApplicationOutput) Order() pulumi.IntP
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetGalleryApplication) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+// Deprecated: `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0
 func (o LinuxVirtualMachineScaleSetGalleryApplicationOutput) PackageReferenceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetGalleryApplication) string { return v.PackageReferenceId }).(pulumi.StringOutput)
 }
@@ -20289,11 +20308,11 @@ func (o WindowsVirtualMachineScaleSetExtensionArrayOutput) Index(i pulumi.IntInp
 }
 
 type WindowsVirtualMachineScaleSetGalleryApplication struct {
-	// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
+	// Deprecated: `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0
 	ConfigurationReferenceBlobUri *string `pulumi:"configurationReferenceBlobUri"`
 	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
 	Order *int `pulumi:"order"`
-	// Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+	// Deprecated: `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0
 	PackageReferenceId string `pulumi:"packageReferenceId"`
 	// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
 	Tag *string `pulumi:"tag"`
@@ -20311,11 +20330,11 @@ type WindowsVirtualMachineScaleSetGalleryApplicationInput interface {
 }
 
 type WindowsVirtualMachineScaleSetGalleryApplicationArgs struct {
-	// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
+	// Deprecated: `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0
 	ConfigurationReferenceBlobUri pulumi.StringPtrInput `pulumi:"configurationReferenceBlobUri"`
 	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
 	Order pulumi.IntPtrInput `pulumi:"order"`
-	// Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+	// Deprecated: `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0
 	PackageReferenceId pulumi.StringInput `pulumi:"packageReferenceId"`
 	// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
 	Tag pulumi.StringPtrInput `pulumi:"tag"`
@@ -20372,7 +20391,7 @@ func (o WindowsVirtualMachineScaleSetGalleryApplicationOutput) ToWindowsVirtualM
 	return o
 }
 
-// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
+// Deprecated: `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0
 func (o WindowsVirtualMachineScaleSetGalleryApplicationOutput) ConfigurationReferenceBlobUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetGalleryApplication) *string {
 		return v.ConfigurationReferenceBlobUri
@@ -20384,7 +20403,7 @@ func (o WindowsVirtualMachineScaleSetGalleryApplicationOutput) Order() pulumi.In
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetGalleryApplication) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+// Deprecated: `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0
 func (o WindowsVirtualMachineScaleSetGalleryApplicationOutput) PackageReferenceId() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetGalleryApplication) string { return v.PackageReferenceId }).(pulumi.StringOutput)
 }

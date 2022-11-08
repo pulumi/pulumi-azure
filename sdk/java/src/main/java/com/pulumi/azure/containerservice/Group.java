@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
 /**
  * Manages as an Azure Container Group instance.
  * 
+ * &gt; **Note** `network_profile_id` is [deprecated](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-vnet) by Azure. For users who want to continue to manage existing `azure.containerservice.Group` that rely on `network_profile_id`, please stay on provider versions prior to v3.16.0. Otherwise, use `subnet_ids` instead.
+ * 
  * ## Example Usage
  * 
  * This example provisions a Basic Container.
@@ -155,6 +157,20 @@ public class Group extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dnsNameLabel);
     }
     /**
+     * The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="dnsNameLabelReusePolicy", type=String.class, parameters={})
+    private Output</* @Nullable */ String> dnsNameLabelReusePolicy;
+
+    /**
+     * @return The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> dnsNameLabelReusePolicy() {
+        return Codegen.optional(this.dnsNameLabelReusePolicy);
+    }
+    /**
      * Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
@@ -239,14 +255,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return this.ipAddress;
     }
     /**
-     * Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
+     * Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
      * 
      */
     @Export(name="ipAddressType", type=String.class, parameters={})
     private Output</* @Nullable */ String> ipAddressType;
 
     /**
-     * @return Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
+     * @return Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
      * 
      */
     public Output<Optional<String>> ipAddressType() {
@@ -295,18 +311,16 @@ public class Group extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Network profile ID for deploying to a virtual network.
+     * @deprecated
+     * the &#39;network_profile_id&#39; has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the &#39;subnet_id&#39; field instead
      * 
      */
+    @Deprecated /* the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead */
     @Export(name="networkProfileId", type=String.class, parameters={})
-    private Output</* @Nullable */ String> networkProfileId;
+    private Output<String> networkProfileId;
 
-    /**
-     * @return Network profile ID for deploying to a virtual network.
-     * 
-     */
-    public Output<Optional<String>> networkProfileId() {
-        return Codegen.optional(this.networkProfileId);
+    public Output<String> networkProfileId() {
+        return this.networkProfileId;
     }
     /**
      * The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
@@ -351,6 +365,20 @@ public class Group extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.restartPolicy);
     }
     /**
+     * The subnet resource IDs for a container group. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="subnetIds", type=String.class, parameters={})
+    private Output</* @Nullable */ String> subnetIds;
+
+    /**
+     * @return The subnet resource IDs for a container group. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> subnetIds() {
+        return Codegen.optional(this.subnetIds);
+    }
+    /**
      * A mapping of tags to assign to the resource.
      * 
      */
@@ -363,6 +391,20 @@ public class Group extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
+    }
+    /**
+     * A list of Availability Zones in which this Container Group is located.
+     * 
+     */
+    @Export(name="zones", type=List.class, parameters={String.class})
+    private Output</* @Nullable */ List<String>> zones;
+
+    /**
+     * @return A list of Availability Zones in which this Container Group is located.
+     * 
+     */
+    public Output<Optional<List<String>>> zones() {
+        return Codegen.optional(this.zones);
     }
 
     /**

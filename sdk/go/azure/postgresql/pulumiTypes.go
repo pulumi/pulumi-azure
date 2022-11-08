@@ -529,7 +529,7 @@ type ServerThreatDetectionPolicy struct {
 	RetentionDays *int `pulumi:"retentionDays"`
 	// Specifies the identifier key of the Threat Detection audit storage account.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
-	// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+	// Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
 	StorageEndpoint *string `pulumi:"storageEndpoint"`
 }
 
@@ -557,7 +557,7 @@ type ServerThreatDetectionPolicyArgs struct {
 	RetentionDays pulumi.IntPtrInput `pulumi:"retentionDays"`
 	// Specifies the identifier key of the Threat Detection audit storage account.
 	StorageAccountAccessKey pulumi.StringPtrInput `pulumi:"storageAccountAccessKey"`
-	// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+	// Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
 	StorageEndpoint pulumi.StringPtrInput `pulumi:"storageEndpoint"`
 }
 
@@ -668,7 +668,7 @@ func (o ServerThreatDetectionPolicyOutput) StorageAccountAccessKey() pulumi.Stri
 	return o.ApplyT(func(v ServerThreatDetectionPolicy) *string { return v.StorageAccountAccessKey }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+// Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
 func (o ServerThreatDetectionPolicyOutput) StorageEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerThreatDetectionPolicy) *string { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
 }
@@ -757,7 +757,7 @@ func (o ServerThreatDetectionPolicyPtrOutput) StorageAccountAccessKey() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+// Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
 func (o ServerThreatDetectionPolicyPtrOutput) StorageEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerThreatDetectionPolicy) *string {
 		if v == nil {

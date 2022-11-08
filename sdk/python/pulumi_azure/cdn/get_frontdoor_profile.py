@@ -66,7 +66,7 @@ class GetFrontdoorProfileResult:
     @pulumi.getter(name="resourceGuid")
     def resource_guid(self) -> str:
         """
-        The UUID of this CDN FrontDoor Profile. This is the value that is used for the `X-Azure-FDID` attribute in the HTTP header.
+        The UUID of the Front Door Profile which will be sent in the HTTP Header as the `X-Azure-FDID` attribute.
         """
         return pulumi.get(self, "resource_guid")
 
@@ -82,7 +82,7 @@ class GetFrontdoorProfileResult:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> str:
         """
-        Specifies the SKU for this CDN FrontDoor Profile.
+        Specifies the SKU for this Front Door Profile.
         """
         return pulumi.get(self, "sku_name")
 
@@ -90,7 +90,7 @@ class GetFrontdoorProfileResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        Specifies a mapping of Tags assigned to this CDN FrontDoor Profile.
+        Specifies a mapping of Tags assigned to this Front Door Profile.
         """
         return pulumi.get(self, "tags")
 
@@ -114,7 +114,7 @@ def get_frontdoor_profile(name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFrontdoorProfileResult:
     """
-    Use this data source to access information about an existing CDN FrontDoor Profile.
+    Use this data source to access information about an existing Front Door (standard/premium) Profile.
 
     ## Example Usage
 
@@ -127,8 +127,8 @@ def get_frontdoor_profile(name: Optional[str] = None,
     ```
 
 
-    :param str name: Specifies the name of the FrontDoor Profile.
-    :param str resource_group_name: The name of the Resource Group where this FrontDoor Profile exists.
+    :param str name: Specifies the name of the Front Door Profile.
+    :param str resource_group_name: The name of the Resource Group where this Front Door Profile exists.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -151,7 +151,7 @@ def get_frontdoor_profile_output(name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFrontdoorProfileResult]:
     """
-    Use this data source to access information about an existing CDN FrontDoor Profile.
+    Use this data source to access information about an existing Front Door (standard/premium) Profile.
 
     ## Example Usage
 
@@ -164,7 +164,7 @@ def get_frontdoor_profile_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: Specifies the name of the FrontDoor Profile.
-    :param str resource_group_name: The name of the Resource Group where this FrontDoor Profile exists.
+    :param str name: Specifies the name of the Front Door Profile.
+    :param str resource_group_name: The name of the Resource Group where this Front Door Profile exists.
     """
     ...

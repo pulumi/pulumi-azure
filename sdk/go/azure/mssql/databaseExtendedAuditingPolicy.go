@@ -102,7 +102,7 @@ type DatabaseExtendedAuditingPolicy struct {
 	StorageAccountAccessKey pulumi.StringPtrOutput `pulumi:"storageAccountAccessKey"`
 	// Is `storageAccountAccessKey` value the storage's secondary key?
 	StorageAccountAccessKeyIsSecondary pulumi.BoolPtrOutput `pulumi:"storageAccountAccessKeyIsSecondary"`
-	// The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
 	StorageEndpoint pulumi.StringPtrOutput `pulumi:"storageEndpoint"`
 }
 
@@ -150,7 +150,7 @@ type databaseExtendedAuditingPolicyState struct {
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// Is `storageAccountAccessKey` value the storage's secondary key?
 	StorageAccountAccessKeyIsSecondary *bool `pulumi:"storageAccountAccessKeyIsSecondary"`
-	// The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
 	StorageEndpoint *string `pulumi:"storageEndpoint"`
 }
 
@@ -167,7 +167,7 @@ type DatabaseExtendedAuditingPolicyState struct {
 	StorageAccountAccessKey pulumi.StringPtrInput
 	// Is `storageAccountAccessKey` value the storage's secondary key?
 	StorageAccountAccessKeyIsSecondary pulumi.BoolPtrInput
-	// The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
 	StorageEndpoint pulumi.StringPtrInput
 }
 
@@ -188,7 +188,7 @@ type databaseExtendedAuditingPolicyArgs struct {
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// Is `storageAccountAccessKey` value the storage's secondary key?
 	StorageAccountAccessKeyIsSecondary *bool `pulumi:"storageAccountAccessKeyIsSecondary"`
-	// The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
 	StorageEndpoint *string `pulumi:"storageEndpoint"`
 }
 
@@ -206,7 +206,7 @@ type DatabaseExtendedAuditingPolicyArgs struct {
 	StorageAccountAccessKey pulumi.StringPtrInput
 	// Is `storageAccountAccessKey` value the storage's secondary key?
 	StorageAccountAccessKeyIsSecondary pulumi.BoolPtrInput
-	// The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
 	StorageEndpoint pulumi.StringPtrInput
 }
 
@@ -329,7 +329,7 @@ func (o DatabaseExtendedAuditingPolicyOutput) StorageAccountAccessKeyIsSecondary
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
 func (o DatabaseExtendedAuditingPolicyOutput) StorageEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicy) pulumi.StringPtrOutput { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
 }

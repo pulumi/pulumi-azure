@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * const exampleIntegrationAccountSession = new azure.logicapps.IntegrationAccountSession("exampleIntegrationAccountSession", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     integrationAccountName: exampleIntegrationAccount.name,
- *     content: `	{
+ *     content: ` {
  *        "controlNumber": "1234"
  *     }
  * `,

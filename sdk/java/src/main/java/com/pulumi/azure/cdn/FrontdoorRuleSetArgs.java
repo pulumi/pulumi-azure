@@ -16,14 +16,14 @@ public final class FrontdoorRuleSetArgs extends com.pulumi.resources.ResourceArg
     public static final FrontdoorRuleSetArgs Empty = new FrontdoorRuleSetArgs();
 
     /**
-     * The ID of the CDN FrontDoor Profile. Changing this forces a new CDN FrontDoor Rule Set to be created.
+     * The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created.
      * 
      */
     @Import(name="cdnFrontdoorProfileId", required=true)
     private Output<String> cdnFrontdoorProfileId;
 
     /**
-     * @return The ID of the CDN FrontDoor Profile. Changing this forces a new CDN FrontDoor Rule Set to be created.
+     * @return The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created.
      * 
      */
     public Output<String> cdnFrontdoorProfileId() {
@@ -31,14 +31,14 @@ public final class FrontdoorRuleSetArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The name which should be used for this CDN FrontDoor Rule Set. Changing this forces a new CDN FrontDoor Rule Set to be created.
+     * The name which should be used for this Front Door Rule Set. Changing this forces a new Front Door Rule Set to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this CDN FrontDoor Rule Set. Changing this forces a new CDN FrontDoor Rule Set to be created.
+     * @return The name which should be used for this Front Door Rule Set. Changing this forces a new Front Door Rule Set to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -71,7 +71,7 @@ public final class FrontdoorRuleSetArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param cdnFrontdoorProfileId The ID of the CDN FrontDoor Profile. Changing this forces a new CDN FrontDoor Rule Set to be created.
+         * @param cdnFrontdoorProfileId The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class FrontdoorRuleSetArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param cdnFrontdoorProfileId The ID of the CDN FrontDoor Profile. Changing this forces a new CDN FrontDoor Rule Set to be created.
+         * @param cdnFrontdoorProfileId The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class FrontdoorRuleSetArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name which should be used for this CDN FrontDoor Rule Set. Changing this forces a new CDN FrontDoor Rule Set to be created.
+         * @param name The name which should be used for this Front Door Rule Set. Changing this forces a new Front Door Rule Set to be created.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class FrontdoorRuleSetArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name which should be used for this CDN FrontDoor Rule Set. Changing this forces a new CDN FrontDoor Rule Set to be created.
+         * @param name The name which should be used for this Front Door Rule Set. Changing this forces a new Front Door Rule Set to be created.
          * 
          * @return builder
          * 

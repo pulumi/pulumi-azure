@@ -17,7 +17,6 @@ public final class PoolStorageImageReferenceArgs extends com.pulumi.resources.Re
 
     /**
      * Specifies the ID of the Custom Image which the virtual machines should be created from. Changing this forces a new resource to be created. See [official documentation](https://docs.microsoft.com/azure/batch/batch-custom-images) for more details.
-     * ---
      * 
      */
     @Import(name="id")
@@ -25,7 +24,6 @@ public final class PoolStorageImageReferenceArgs extends com.pulumi.resources.Re
 
     /**
      * @return Specifies the ID of the Custom Image which the virtual machines should be created from. Changing this forces a new resource to be created. See [official documentation](https://docs.microsoft.com/azure/batch/batch-custom-images) for more details.
-     * ---
      * 
      */
     public Optional<Output<String>> id() {
@@ -122,7 +120,6 @@ public final class PoolStorageImageReferenceArgs extends com.pulumi.resources.Re
 
         /**
          * @param id Specifies the ID of the Custom Image which the virtual machines should be created from. Changing this forces a new resource to be created. See [official documentation](https://docs.microsoft.com/azure/batch/batch-custom-images) for more details.
-         * ---
          * 
          * @return builder
          * 
@@ -134,7 +131,6 @@ public final class PoolStorageImageReferenceArgs extends com.pulumi.resources.Re
 
         /**
          * @param id Specifies the ID of the Custom Image which the virtual machines should be created from. Changing this forces a new resource to be created. See [official documentation](https://docs.microsoft.com/azure/batch/batch-custom-images) for more details.
-         * ---
          * 
          * @return builder
          * 

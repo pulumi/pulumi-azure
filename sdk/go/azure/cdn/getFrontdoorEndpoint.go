@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to access information about an existing CDN FrontDoor Endpoint.
+// Use this data source to access information about an existing Front Door (standard/premium) Endpoint.
 //
 // ## Example Usage
 //
@@ -50,26 +50,26 @@ func LookupFrontdoorEndpoint(ctx *pulumi.Context, args *LookupFrontdoorEndpointA
 
 // A collection of arguments for invoking getFrontdoorEndpoint.
 type LookupFrontdoorEndpointArgs struct {
-	// Specifies the name of the FrontDoor Endpoint.
+	// Specifies the name of the Front Door Endpoint.
 	Name string `pulumi:"name"`
-	// The name of the FrontDoor Profile within which CDN FrontDoor Endpoint exists.
+	// The name of the Front Door Profile within which Front Door Endpoint exists.
 	ProfileName string `pulumi:"profileName"`
-	// The name of the Resource Group where the CDN FrontDoor Profile exists.
+	// The name of the Resource Group where the Front Door Profile exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getFrontdoorEndpoint.
 type LookupFrontdoorEndpointResult struct {
-	// Specifies whether this CDN FrontDoor Endpoint is enabled or not.
+	// Specifies whether this Front Door Endpoint is enabled or not.
 	Enabled bool `pulumi:"enabled"`
-	// Specifies the host name of the CDN FrontDoor Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
+	// Specifies the host name of the Front Door Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
 	HostName string `pulumi:"hostName"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                string `pulumi:"id"`
 	Name              string `pulumi:"name"`
 	ProfileName       string `pulumi:"profileName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Specifies a mapping of Tags assigned to this CDN FrontDoor Endpoint.
+	// Specifies a mapping of Tags assigned to this Front Door Endpoint.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -88,11 +88,11 @@ func LookupFrontdoorEndpointOutput(ctx *pulumi.Context, args LookupFrontdoorEndp
 
 // A collection of arguments for invoking getFrontdoorEndpoint.
 type LookupFrontdoorEndpointOutputArgs struct {
-	// Specifies the name of the FrontDoor Endpoint.
+	// Specifies the name of the Front Door Endpoint.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The name of the FrontDoor Profile within which CDN FrontDoor Endpoint exists.
+	// The name of the Front Door Profile within which Front Door Endpoint exists.
 	ProfileName pulumi.StringInput `pulumi:"profileName"`
-	// The name of the Resource Group where the CDN FrontDoor Profile exists.
+	// The name of the Resource Group where the Front Door Profile exists.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
@@ -115,12 +115,12 @@ func (o LookupFrontdoorEndpointResultOutput) ToLookupFrontdoorEndpointResultOutp
 	return o
 }
 
-// Specifies whether this CDN FrontDoor Endpoint is enabled or not.
+// Specifies whether this Front Door Endpoint is enabled or not.
 func (o LookupFrontdoorEndpointResultOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupFrontdoorEndpointResult) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Specifies the host name of the CDN FrontDoor Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
+// Specifies the host name of the Front Door Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
 func (o LookupFrontdoorEndpointResultOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFrontdoorEndpointResult) string { return v.HostName }).(pulumi.StringOutput)
 }
@@ -142,7 +142,7 @@ func (o LookupFrontdoorEndpointResultOutput) ResourceGroupName() pulumi.StringOu
 	return o.ApplyT(func(v LookupFrontdoorEndpointResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// Specifies a mapping of Tags assigned to this CDN FrontDoor Endpoint.
+// Specifies a mapping of Tags assigned to this Front Door Endpoint.
 func (o LookupFrontdoorEndpointResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupFrontdoorEndpointResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

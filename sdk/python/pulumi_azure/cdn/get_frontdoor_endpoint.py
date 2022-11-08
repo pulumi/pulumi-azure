@@ -48,7 +48,7 @@ class GetFrontdoorEndpointResult:
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Specifies whether this CDN FrontDoor Endpoint is enabled or not.
+        Specifies whether this Front Door Endpoint is enabled or not.
         """
         return pulumi.get(self, "enabled")
 
@@ -56,7 +56,7 @@ class GetFrontdoorEndpointResult:
     @pulumi.getter(name="hostName")
     def host_name(self) -> str:
         """
-        Specifies the host name of the CDN FrontDoor Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
+        Specifies the host name of the Front Door Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
         """
         return pulumi.get(self, "host_name")
 
@@ -87,7 +87,7 @@ class GetFrontdoorEndpointResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        Specifies a mapping of Tags assigned to this CDN FrontDoor Endpoint.
+        Specifies a mapping of Tags assigned to this Front Door Endpoint.
         """
         return pulumi.get(self, "tags")
 
@@ -112,7 +112,7 @@ def get_frontdoor_endpoint(name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFrontdoorEndpointResult:
     """
-    Use this data source to access information about an existing CDN FrontDoor Endpoint.
+    Use this data source to access information about an existing Front Door (standard/premium) Endpoint.
 
     ## Example Usage
 
@@ -126,9 +126,9 @@ def get_frontdoor_endpoint(name: Optional[str] = None,
     ```
 
 
-    :param str name: Specifies the name of the FrontDoor Endpoint.
-    :param str profile_name: The name of the FrontDoor Profile within which CDN FrontDoor Endpoint exists.
-    :param str resource_group_name: The name of the Resource Group where the CDN FrontDoor Profile exists.
+    :param str name: Specifies the name of the Front Door Endpoint.
+    :param str profile_name: The name of the Front Door Profile within which Front Door Endpoint exists.
+    :param str resource_group_name: The name of the Resource Group where the Front Door Profile exists.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -153,7 +153,7 @@ def get_frontdoor_endpoint_output(name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFrontdoorEndpointResult]:
     """
-    Use this data source to access information about an existing CDN FrontDoor Endpoint.
+    Use this data source to access information about an existing Front Door (standard/premium) Endpoint.
 
     ## Example Usage
 
@@ -167,8 +167,8 @@ def get_frontdoor_endpoint_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: Specifies the name of the FrontDoor Endpoint.
-    :param str profile_name: The name of the FrontDoor Profile within which CDN FrontDoor Endpoint exists.
-    :param str resource_group_name: The name of the Resource Group where the CDN FrontDoor Profile exists.
+    :param str name: Specifies the name of the Front Door Endpoint.
+    :param str profile_name: The name of the Front Door Profile within which Front Door Endpoint exists.
+    :param str resource_group_name: The name of the Resource Group where the Front Door Profile exists.
     """
     ...

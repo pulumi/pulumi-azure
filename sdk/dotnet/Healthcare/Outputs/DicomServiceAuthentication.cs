@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Healthcare.Outputs
     public sealed class DicomServiceAuthentication
     {
         /// <summary>
-        /// The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+        /// The intended audience to receive authentication tokens for the service. The default value is &lt;https://dicom.azurehealthcareapis.azure.com&gt;
         /// </summary>
         public readonly ImmutableArray<string> Audiences;
         public readonly string? Authority;

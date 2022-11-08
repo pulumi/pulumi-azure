@@ -85,9 +85,9 @@ import * as utilities from "../utilities";
  *     publisher: "Microsoft.Azure.Extensions",
  *     type: "CustomScript",
  *     typeHandlerVersion: "2.0",
- *     settings: `	{
- * 		"commandToExecute": "hostname && uptime"
- * 	}
+ *     settings: ` {
+ *   "commandToExecute": "hostname && uptime"
+ *  }
  * `,
  *     tags: {
  *         environment: "Production",

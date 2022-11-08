@@ -55,6 +55,7 @@ namespace Pulumi.Azure.MSSql
     /// });
     /// ```
     /// ### With Storage Account Behind VNet And Firewall
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using Pulumi;
@@ -236,7 +237,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string?> StorageAccountSubscriptionId { get; private set; } = null!;
 
         /// <summary>
-        /// The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+        /// The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
         /// </summary>
         [Output("storageEndpoint")]
         public Output<string?> StorageEndpoint { get; private set; } = null!;
@@ -330,7 +331,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? StorageAccountSubscriptionId { get; set; }
 
         /// <summary>
-        /// The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+        /// The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
         /// </summary>
         [Input("storageEndpoint")]
         public Input<string>? StorageEndpoint { get; set; }
@@ -386,7 +387,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? StorageAccountSubscriptionId { get; set; }
 
         /// <summary>
-        /// The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+        /// The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
         /// </summary>
         [Input("storageEndpoint")]
         public Input<string>? StorageEndpoint { get; set; }

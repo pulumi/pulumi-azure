@@ -97,7 +97,7 @@ export class SpringCloudContainerDeployment extends pulumi.CustomResource {
      */
     public readonly environmentVariables!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Container image of the custom container. This should be in the form of <repository>:<tag> without the server name of the registry.
+     * Container image of the custom container. This should be in the form of `<repository>:<tag>` without the server name of the registry.
      */
     public readonly image!: pulumi.Output<string>;
     /**
@@ -198,7 +198,7 @@ export interface SpringCloudContainerDeploymentState {
      */
     environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Container image of the custom container. This should be in the form of <repository>:<tag> without the server name of the registry.
+     * Container image of the custom container. This should be in the form of `<repository>:<tag>` without the server name of the registry.
      */
     image?: pulumi.Input<string>;
     /**
@@ -248,7 +248,7 @@ export interface SpringCloudContainerDeploymentArgs {
      */
     environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Container image of the custom container. This should be in the form of <repository>:<tag> without the server name of the registry.
+     * Container image of the custom container. This should be in the form of `<repository>:<tag>` without the server name of the registry.
      */
     image: pulumi.Input<string>;
     /**

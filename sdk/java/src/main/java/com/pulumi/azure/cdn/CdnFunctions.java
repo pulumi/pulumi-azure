@@ -6,6 +6,8 @@ package com.pulumi.azure.cdn;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.cdn.inputs.GetFrontdoorEndpointArgs;
 import com.pulumi.azure.cdn.inputs.GetFrontdoorEndpointPlainArgs;
+import com.pulumi.azure.cdn.inputs.GetFrontdoorFirewallPolicyArgs;
+import com.pulumi.azure.cdn.inputs.GetFrontdoorFirewallPolicyPlainArgs;
 import com.pulumi.azure.cdn.inputs.GetFrontdoorOriginGroupArgs;
 import com.pulumi.azure.cdn.inputs.GetFrontdoorOriginGroupPlainArgs;
 import com.pulumi.azure.cdn.inputs.GetFrontdoorProfileArgs;
@@ -17,6 +19,7 @@ import com.pulumi.azure.cdn.inputs.GetFrontdoorSecretPlainArgs;
 import com.pulumi.azure.cdn.inputs.GetProfileArgs;
 import com.pulumi.azure.cdn.inputs.GetProfilePlainArgs;
 import com.pulumi.azure.cdn.outputs.GetFrontdoorEndpointResult;
+import com.pulumi.azure.cdn.outputs.GetFrontdoorFirewallPolicyResult;
 import com.pulumi.azure.cdn.outputs.GetFrontdoorOriginGroupResult;
 import com.pulumi.azure.cdn.outputs.GetFrontdoorProfileResult;
 import com.pulumi.azure.cdn.outputs.GetFrontdoorRuleSetResult;
@@ -30,7 +33,7 @@ import java.util.concurrent.CompletableFuture;
 
 public final class CdnFunctions {
     /**
-     * Use this data source to access information about an existing CDN FrontDoor Endpoint.
+     * Use this data source to access information about an existing Front Door (standard/premium) Endpoint.
      * 
      * ## Example Usage
      * ```java
@@ -69,7 +72,7 @@ public final class CdnFunctions {
         return getFrontdoorEndpoint(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to access information about an existing CDN FrontDoor Endpoint.
+     * Use this data source to access information about an existing Front Door (standard/premium) Endpoint.
      * 
      * ## Example Usage
      * ```java
@@ -108,7 +111,7 @@ public final class CdnFunctions {
         return getFrontdoorEndpointPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to access information about an existing CDN FrontDoor Endpoint.
+     * Use this data source to access information about an existing Front Door (standard/premium) Endpoint.
      * 
      * ## Example Usage
      * ```java
@@ -147,7 +150,7 @@ public final class CdnFunctions {
         return Deployment.getInstance().invoke("azure:cdn/getFrontdoorEndpoint:getFrontdoorEndpoint", TypeShape.of(GetFrontdoorEndpointResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to access information about an existing CDN FrontDoor Endpoint.
+     * Use this data source to access information about an existing Front Door (standard/premium) Endpoint.
      * 
      * ## Example Usage
      * ```java
@@ -186,7 +189,159 @@ public final class CdnFunctions {
         return Deployment.getInstance().invokeAsync("azure:cdn/getFrontdoorEndpoint:getFrontdoorEndpoint", TypeShape.of(GetFrontdoorEndpointResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to access information about an existing CDN FrontDoor Origin Group.
+     * Use this data source to access information about an existing Front Door (standard/premium) Firewall Policy.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetFrontdoorFirewallPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CdnFunctions.getFrontdoorFirewallPolicy(GetFrontdoorFirewallPolicyArgs.builder()
+     *             .name(&#34;examplecdnfdwafpolicy&#34;)
+     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetFrontdoorFirewallPolicyResult> getFrontdoorFirewallPolicy(GetFrontdoorFirewallPolicyArgs args) {
+        return getFrontdoorFirewallPolicy(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Front Door (standard/premium) Firewall Policy.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetFrontdoorFirewallPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CdnFunctions.getFrontdoorFirewallPolicy(GetFrontdoorFirewallPolicyArgs.builder()
+     *             .name(&#34;examplecdnfdwafpolicy&#34;)
+     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetFrontdoorFirewallPolicyResult> getFrontdoorFirewallPolicyPlain(GetFrontdoorFirewallPolicyPlainArgs args) {
+        return getFrontdoorFirewallPolicyPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Front Door (standard/premium) Firewall Policy.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetFrontdoorFirewallPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CdnFunctions.getFrontdoorFirewallPolicy(GetFrontdoorFirewallPolicyArgs.builder()
+     *             .name(&#34;examplecdnfdwafpolicy&#34;)
+     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetFrontdoorFirewallPolicyResult> getFrontdoorFirewallPolicy(GetFrontdoorFirewallPolicyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:cdn/getFrontdoorFirewallPolicy:getFrontdoorFirewallPolicy", TypeShape.of(GetFrontdoorFirewallPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Front Door (standard/premium) Firewall Policy.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetFrontdoorFirewallPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CdnFunctions.getFrontdoorFirewallPolicy(GetFrontdoorFirewallPolicyArgs.builder()
+     *             .name(&#34;examplecdnfdwafpolicy&#34;)
+     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetFrontdoorFirewallPolicyResult> getFrontdoorFirewallPolicyPlain(GetFrontdoorFirewallPolicyPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:cdn/getFrontdoorFirewallPolicy:getFrontdoorFirewallPolicy", TypeShape.of(GetFrontdoorFirewallPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Front Door (standard/premium) Origin Group.
      * 
      * ## Example Usage
      * ```java
@@ -225,7 +380,7 @@ public final class CdnFunctions {
         return getFrontdoorOriginGroup(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to access information about an existing CDN FrontDoor Origin Group.
+     * Use this data source to access information about an existing Front Door (standard/premium) Origin Group.
      * 
      * ## Example Usage
      * ```java
@@ -264,7 +419,7 @@ public final class CdnFunctions {
         return getFrontdoorOriginGroupPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to access information about an existing CDN FrontDoor Origin Group.
+     * Use this data source to access information about an existing Front Door (standard/premium) Origin Group.
      * 
      * ## Example Usage
      * ```java
@@ -303,7 +458,7 @@ public final class CdnFunctions {
         return Deployment.getInstance().invoke("azure:cdn/getFrontdoorOriginGroup:getFrontdoorOriginGroup", TypeShape.of(GetFrontdoorOriginGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to access information about an existing CDN FrontDoor Origin Group.
+     * Use this data source to access information about an existing Front Door (standard/premium) Origin Group.
      * 
      * ## Example Usage
      * ```java
@@ -342,7 +497,7 @@ public final class CdnFunctions {
         return Deployment.getInstance().invokeAsync("azure:cdn/getFrontdoorOriginGroup:getFrontdoorOriginGroup", TypeShape.of(GetFrontdoorOriginGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to access information about an existing CDN FrontDoor Profile.
+     * Use this data source to access information about an existing Front Door (standard/premium) Profile.
      * 
      * ## Example Usage
      * ```java
@@ -380,7 +535,7 @@ public final class CdnFunctions {
         return getFrontdoorProfile(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to access information about an existing CDN FrontDoor Profile.
+     * Use this data source to access information about an existing Front Door (standard/premium) Profile.
      * 
      * ## Example Usage
      * ```java
@@ -418,7 +573,7 @@ public final class CdnFunctions {
         return getFrontdoorProfilePlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to access information about an existing CDN FrontDoor Profile.
+     * Use this data source to access information about an existing Front Door (standard/premium) Profile.
      * 
      * ## Example Usage
      * ```java
@@ -456,7 +611,7 @@ public final class CdnFunctions {
         return Deployment.getInstance().invoke("azure:cdn/getFrontdoorProfile:getFrontdoorProfile", TypeShape.of(GetFrontdoorProfileResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to access information about an existing CDN FrontDoor Profile.
+     * Use this data source to access information about an existing Front Door (standard/premium) Profile.
      * 
      * ## Example Usage
      * ```java
@@ -494,7 +649,7 @@ public final class CdnFunctions {
         return Deployment.getInstance().invokeAsync("azure:cdn/getFrontdoorProfile:getFrontdoorProfile", TypeShape.of(GetFrontdoorProfileResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Gets information about an existing CDN FrontDoor Rule Set.
+     * Use this data source to access information about an existing Front Door (standard/premium) Rule Set.
      * 
      * ## Example Usage
      * ```java
@@ -533,7 +688,7 @@ public final class CdnFunctions {
         return getFrontdoorRuleSet(args, InvokeOptions.Empty);
     }
     /**
-     * Gets information about an existing CDN FrontDoor Rule Set.
+     * Use this data source to access information about an existing Front Door (standard/premium) Rule Set.
      * 
      * ## Example Usage
      * ```java
@@ -572,7 +727,7 @@ public final class CdnFunctions {
         return getFrontdoorRuleSetPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Gets information about an existing CDN FrontDoor Rule Set.
+     * Use this data source to access information about an existing Front Door (standard/premium) Rule Set.
      * 
      * ## Example Usage
      * ```java
@@ -611,7 +766,7 @@ public final class CdnFunctions {
         return Deployment.getInstance().invoke("azure:cdn/getFrontdoorRuleSet:getFrontdoorRuleSet", TypeShape.of(GetFrontdoorRuleSetResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Gets information about an existing CDN FrontDoor Rule Set.
+     * Use this data source to access information about an existing Front Door (standard/premium) Rule Set.
      * 
      * ## Example Usage
      * ```java
@@ -650,7 +805,7 @@ public final class CdnFunctions {
         return Deployment.getInstance().invokeAsync("azure:cdn/getFrontdoorRuleSet:getFrontdoorRuleSet", TypeShape.of(GetFrontdoorRuleSetResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to access information about an existing CDN FrontDoor Secret.
+     * Use this data source to access information about an existing Front Door (standard/premium) Secret.
      * 
      * ## Example Usage
      * ```java
@@ -689,7 +844,7 @@ public final class CdnFunctions {
         return getFrontdoorSecret(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to access information about an existing CDN FrontDoor Secret.
+     * Use this data source to access information about an existing Front Door (standard/premium) Secret.
      * 
      * ## Example Usage
      * ```java
@@ -728,7 +883,7 @@ public final class CdnFunctions {
         return getFrontdoorSecretPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to access information about an existing CDN FrontDoor Secret.
+     * Use this data source to access information about an existing Front Door (standard/premium) Secret.
      * 
      * ## Example Usage
      * ```java
@@ -767,7 +922,7 @@ public final class CdnFunctions {
         return Deployment.getInstance().invoke("azure:cdn/getFrontdoorSecret:getFrontdoorSecret", TypeShape.of(GetFrontdoorSecretResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to access information about an existing CDN FrontDoor Secret.
+     * Use this data source to access information about an existing Front Door (standard/premium) Secret.
      * 
      * ## Example Usage
      * ```java

@@ -102,7 +102,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<ImmutableDictionary<string, string>?> EnvironmentVariables { get; private set; } = null!;
 
         /// <summary>
-        /// Container image of the custom container. This should be in the form of &lt;repository&gt;:&lt;tag&gt; without the server name of the registry.
+        /// Container image of the custom container. This should be in the form of `&lt;repository&gt;:&lt;tag&gt;` without the server name of the registry.
         /// </summary>
         [Output("image")]
         public Output<string> Image { get; private set; } = null!;
@@ -232,7 +232,7 @@ namespace Pulumi.Azure.AppPlatform
         }
 
         /// <summary>
-        /// Container image of the custom container. This should be in the form of &lt;repository&gt;:&lt;tag&gt; without the server name of the registry.
+        /// Container image of the custom container. This should be in the form of `&lt;repository&gt;:&lt;tag&gt;` without the server name of the registry.
         /// </summary>
         [Input("image", required: true)]
         public Input<string> Image { get; set; } = null!;
@@ -324,7 +324,7 @@ namespace Pulumi.Azure.AppPlatform
         }
 
         /// <summary>
-        /// Container image of the custom container. This should be in the form of &lt;repository&gt;:&lt;tag&gt; without the server name of the registry.
+        /// Container image of the custom container. This should be in the form of `&lt;repository&gt;:&lt;tag&gt;` without the server name of the registry.
         /// </summary>
         [Input("image")]
         public Input<string>? Image { get; set; }

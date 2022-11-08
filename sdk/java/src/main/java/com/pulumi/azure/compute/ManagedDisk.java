@@ -125,14 +125,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:compute/managedDisk:ManagedDisk")
 public class ManagedDisk extends com.pulumi.resources.CustomResource {
     /**
-     * The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `source_uri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `source_resource_id`), `FromImage` (Copy a Platform Image, specified with `image_reference_id`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `source_resource_id`).
+     * The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
      * 
      */
     @Export(name="createOption", type=String.class, parameters={})
     private Output<String> createOption;
 
     /**
-     * @return The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `source_uri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `source_resource_id`), `FromImage` (Copy a Platform Image, specified with `image_reference_id`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `source_resource_id`).
+     * @return The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
      * 
      */
     public Output<String> createOption() {
@@ -167,56 +167,56 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.diskEncryptionSetId);
     }
     /**
-     * The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
+     * The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
      * 
      */
     @Export(name="diskIopsReadOnly", type=Integer.class, parameters={})
     private Output<Integer> diskIopsReadOnly;
 
     /**
-     * @return The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
+     * @return The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
      * 
      */
     public Output<Integer> diskIopsReadOnly() {
         return this.diskIopsReadOnly;
     }
     /**
-     * The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+     * The number of IOPS allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. One operation can transfer between 4k and 256k bytes.
      * 
      */
     @Export(name="diskIopsReadWrite", type=Integer.class, parameters={})
     private Output<Integer> diskIopsReadWrite;
 
     /**
-     * @return The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+     * @return The number of IOPS allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. One operation can transfer between 4k and 256k bytes.
      * 
      */
     public Output<Integer> diskIopsReadWrite() {
         return this.diskIopsReadWrite;
     }
     /**
-     * The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
+     * The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. MBps means millions of bytes per second.
      * 
      */
     @Export(name="diskMbpsReadOnly", type=Integer.class, parameters={})
     private Output<Integer> diskMbpsReadOnly;
 
     /**
-     * @return The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
+     * @return The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. MBps means millions of bytes per second.
      * 
      */
     public Output<Integer> diskMbpsReadOnly() {
         return this.diskMbpsReadOnly;
     }
     /**
-     * The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
+     * The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
      * 
      */
     @Export(name="diskMbpsReadWrite", type=Integer.class, parameters={})
     private Output<Integer> diskMbpsReadWrite;
 
     /**
-     * @return The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
+     * @return The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
      * 
      */
     public Output<Integer> diskMbpsReadWrite() {
@@ -461,14 +461,14 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.securityType);
     }
     /**
-     * The ID of an existing Managed Disk to copy `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
+     * The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
      * 
      */
     @Export(name="sourceResourceId", type=String.class, parameters={})
     private Output</* @Nullable */ String> sourceResourceId;
 
     /**
-     * @return The ID of an existing Managed Disk to copy `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
+     * @return The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
      * 
      */
     public Output<Optional<String>> sourceResourceId() {

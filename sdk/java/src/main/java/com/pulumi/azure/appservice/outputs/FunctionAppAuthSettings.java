@@ -56,7 +56,7 @@ public final class FunctionAppAuthSettings {
      */
     private @Nullable FunctionAppAuthSettingsGoogle google;
     /**
-     * @return Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+     * @return Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. &lt;https://sts.windows.net/{tenant-guid}/&gt;.
      * 
      */
     private @Nullable String issuer;
@@ -142,7 +142,7 @@ public final class FunctionAppAuthSettings {
         return Optional.ofNullable(this.google);
     }
     /**
-     * @return Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+     * @return Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. &lt;https://sts.windows.net/{tenant-guid}/&gt;.
      * 
      */
     public Optional<String> issuer() {

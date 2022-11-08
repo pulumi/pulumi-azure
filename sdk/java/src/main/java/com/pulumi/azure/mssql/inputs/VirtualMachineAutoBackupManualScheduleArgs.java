@@ -15,14 +15,14 @@ public final class VirtualMachineAutoBackupManualScheduleArgs extends com.pulumi
     public static final VirtualMachineAutoBackupManualScheduleArgs Empty = new VirtualMachineAutoBackupManualScheduleArgs();
 
     /**
-     * Frequency of full backups. Valid values include `Daily` or `Weekly`. Required when `backup_schedule_automated` is false.
+     * Frequency of full backups. Valid values include `Daily` or `Weekly`.
      * 
      */
     @Import(name="fullBackupFrequency", required=true)
     private Output<String> fullBackupFrequency;
 
     /**
-     * @return Frequency of full backups. Valid values include `Daily` or `Weekly`. Required when `backup_schedule_automated` is false.
+     * @return Frequency of full backups. Valid values include `Daily` or `Weekly`.
      * 
      */
     public Output<String> fullBackupFrequency() {
@@ -30,14 +30,14 @@ public final class VirtualMachineAutoBackupManualScheduleArgs extends com.pulumi
     }
 
     /**
-     * Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`. Required when `backup_schedule_automated` is false.
+     * Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`.
      * 
      */
     @Import(name="fullBackupStartHour", required=true)
     private Output<Integer> fullBackupStartHour;
 
     /**
-     * @return Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`. Required when `backup_schedule_automated` is false.
+     * @return Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`.
      * 
      */
     public Output<Integer> fullBackupStartHour() {
@@ -45,14 +45,14 @@ public final class VirtualMachineAutoBackupManualScheduleArgs extends com.pulumi
     }
 
     /**
-     * Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`. Required when `backup_schedule_automated` is false.
+     * Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`.
      * 
      */
     @Import(name="fullBackupWindowInHours", required=true)
     private Output<Integer> fullBackupWindowInHours;
 
     /**
-     * @return Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`. Required when `backup_schedule_automated` is false.
+     * @return Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`.
      * 
      */
     public Output<Integer> fullBackupWindowInHours() {
@@ -60,14 +60,14 @@ public final class VirtualMachineAutoBackupManualScheduleArgs extends com.pulumi
     }
 
     /**
-     * Frequency of log backups, in minutes. Valid values are from `5` to `60`. Required when `backup_schedule_automated` is false.
+     * Frequency of log backups, in minutes. Valid values are from `5` to `60`.
      * 
      */
     @Import(name="logBackupFrequencyInMinutes", required=true)
     private Output<Integer> logBackupFrequencyInMinutes;
 
     /**
-     * @return Frequency of log backups, in minutes. Valid values are from `5` to `60`. Required when `backup_schedule_automated` is false.
+     * @return Frequency of log backups, in minutes. Valid values are from `5` to `60`.
      * 
      */
     public Output<Integer> logBackupFrequencyInMinutes() {
@@ -102,7 +102,7 @@ public final class VirtualMachineAutoBackupManualScheduleArgs extends com.pulumi
         }
 
         /**
-         * @param fullBackupFrequency Frequency of full backups. Valid values include `Daily` or `Weekly`. Required when `backup_schedule_automated` is false.
+         * @param fullBackupFrequency Frequency of full backups. Valid values include `Daily` or `Weekly`.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class VirtualMachineAutoBackupManualScheduleArgs extends com.pulumi
         }
 
         /**
-         * @param fullBackupFrequency Frequency of full backups. Valid values include `Daily` or `Weekly`. Required when `backup_schedule_automated` is false.
+         * @param fullBackupFrequency Frequency of full backups. Valid values include `Daily` or `Weekly`.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class VirtualMachineAutoBackupManualScheduleArgs extends com.pulumi
         }
 
         /**
-         * @param fullBackupStartHour Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`. Required when `backup_schedule_automated` is false.
+         * @param fullBackupStartHour Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class VirtualMachineAutoBackupManualScheduleArgs extends com.pulumi
         }
 
         /**
-         * @param fullBackupStartHour Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`. Required when `backup_schedule_automated` is false.
+         * @param fullBackupStartHour Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class VirtualMachineAutoBackupManualScheduleArgs extends com.pulumi
         }
 
         /**
-         * @param fullBackupWindowInHours Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`. Required when `backup_schedule_automated` is false.
+         * @param fullBackupWindowInHours Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class VirtualMachineAutoBackupManualScheduleArgs extends com.pulumi
         }
 
         /**
-         * @param fullBackupWindowInHours Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`. Required when `backup_schedule_automated` is false.
+         * @param fullBackupWindowInHours Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class VirtualMachineAutoBackupManualScheduleArgs extends com.pulumi
         }
 
         /**
-         * @param logBackupFrequencyInMinutes Frequency of log backups, in minutes. Valid values are from `5` to `60`. Required when `backup_schedule_automated` is false.
+         * @param logBackupFrequencyInMinutes Frequency of log backups, in minutes. Valid values are from `5` to `60`.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class VirtualMachineAutoBackupManualScheduleArgs extends com.pulumi
         }
 
         /**
-         * @param logBackupFrequencyInMinutes Frequency of log backups, in minutes. Valid values are from `5` to `60`. Required when `backup_schedule_automated` is false.
+         * @param logBackupFrequencyInMinutes Frequency of log backups, in minutes. Valid values are from `5` to `60`.
          * 
          * @return builder
          * 

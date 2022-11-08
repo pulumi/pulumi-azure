@@ -84,7 +84,7 @@ type CassandraKeyspace struct {
 
 	// The name of the Cosmos DB Cassandra KeySpace to create the table within. Changing this forces a new resource to be created.
 	AccountName pulumi.StringOutput `pulumi:"accountName"`
-	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 	AutoscaleSettings CassandraKeyspaceAutoscaleSettingsPtrOutput `pulumi:"autoscaleSettings"`
 	// Specifies the name of the Cosmos DB Cassandra KeySpace. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -131,7 +131,7 @@ func GetCassandraKeyspace(ctx *pulumi.Context,
 type cassandraKeyspaceState struct {
 	// The name of the Cosmos DB Cassandra KeySpace to create the table within. Changing this forces a new resource to be created.
 	AccountName *string `pulumi:"accountName"`
-	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 	AutoscaleSettings *CassandraKeyspaceAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// Specifies the name of the Cosmos DB Cassandra KeySpace. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -144,7 +144,7 @@ type cassandraKeyspaceState struct {
 type CassandraKeyspaceState struct {
 	// The name of the Cosmos DB Cassandra KeySpace to create the table within. Changing this forces a new resource to be created.
 	AccountName pulumi.StringPtrInput
-	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 	AutoscaleSettings CassandraKeyspaceAutoscaleSettingsPtrInput
 	// Specifies the name of the Cosmos DB Cassandra KeySpace. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -161,7 +161,7 @@ func (CassandraKeyspaceState) ElementType() reflect.Type {
 type cassandraKeyspaceArgs struct {
 	// The name of the Cosmos DB Cassandra KeySpace to create the table within. Changing this forces a new resource to be created.
 	AccountName string `pulumi:"accountName"`
-	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 	AutoscaleSettings *CassandraKeyspaceAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// Specifies the name of the Cosmos DB Cassandra KeySpace. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -175,7 +175,7 @@ type cassandraKeyspaceArgs struct {
 type CassandraKeyspaceArgs struct {
 	// The name of the Cosmos DB Cassandra KeySpace to create the table within. Changing this forces a new resource to be created.
 	AccountName pulumi.StringInput
-	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 	AutoscaleSettings CassandraKeyspaceAutoscaleSettingsPtrInput
 	// Specifies the name of the Cosmos DB Cassandra KeySpace. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -277,7 +277,7 @@ func (o CassandraKeyspaceOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CassandraKeyspace) pulumi.StringOutput { return v.AccountName }).(pulumi.StringOutput)
 }
 
-// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 func (o CassandraKeyspaceOutput) AutoscaleSettings() CassandraKeyspaceAutoscaleSettingsPtrOutput {
 	return o.ApplyT(func(v *CassandraKeyspace) CassandraKeyspaceAutoscaleSettingsPtrOutput { return v.AutoscaleSettings }).(CassandraKeyspaceAutoscaleSettingsPtrOutput)
 }

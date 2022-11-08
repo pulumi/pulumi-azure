@@ -148,6 +148,7 @@ namespace Pulumi.Azure.AppService
     /// 
     /// });
     /// ```
+    /// 
     /// &gt; **Note:** Version `~3` or `~4` is required for Linux Function Apps.
     /// 
     /// ## Import

@@ -29,17 +29,17 @@ class FrontdoorFirewallPolicyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a FrontdoorFirewallPolicy resource.
-        :param pulumi.Input[str] mode: The Cdn Frontdoor firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+        :param pulumi.Input[str] mode: The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku_name: The sku's pricing tier for this Cdn Frontdoor firewall policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+        :param pulumi.Input[str] sku_name: The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
         :param pulumi.Input[str] custom_block_response_body: If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
         :param pulumi.Input[int] custom_block_response_status_code: If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleArgs']]] custom_rules: One or more `custom_rule` blocks as defined below.
-        :param pulumi.Input[bool] enabled: Is the Cdn Frontdoor firewall policy enabled? Defaults to `true`.
+        :param pulumi.Input[bool] enabled: Is the Front Door Firewall Policy enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleArgs']]] managed_rules: One or more `managed_rule` blocks as defined below.
         :param pulumi.Input[str] name: The name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] redirect_url: If action type is redirect, this field represents redirect URL for the client.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Cdn Frontdoor firewall policy.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Front Door Firewall Policy.
         """
         pulumi.set(__self__, "mode", mode)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -65,7 +65,7 @@ class FrontdoorFirewallPolicyArgs:
     @pulumi.getter
     def mode(self) -> pulumi.Input[str]:
         """
-        The Cdn Frontdoor firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+        The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
         """
         return pulumi.get(self, "mode")
 
@@ -89,7 +89,7 @@ class FrontdoorFirewallPolicyArgs:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Input[str]:
         """
-        The sku's pricing tier for this Cdn Frontdoor firewall policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+        The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -137,7 +137,7 @@ class FrontdoorFirewallPolicyArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is the Cdn Frontdoor firewall policy enabled? Defaults to `true`.
+        Is the Front Door Firewall Policy enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -185,7 +185,7 @@ class FrontdoorFirewallPolicyArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags to assign to the Cdn Frontdoor firewall policy.
+        A mapping of tags to assign to the Front Door Firewall Policy.
         """
         return pulumi.get(self, "tags")
 
@@ -214,15 +214,15 @@ class _FrontdoorFirewallPolicyState:
         :param pulumi.Input[str] custom_block_response_body: If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
         :param pulumi.Input[int] custom_block_response_status_code: If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleArgs']]] custom_rules: One or more `custom_rule` blocks as defined below.
-        :param pulumi.Input[bool] enabled: Is the Cdn Frontdoor firewall policy enabled? Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] frontend_endpoint_ids: The Cdn Frontend Endpoints associated with this Cdn Frontdoor Firewall policy.
+        :param pulumi.Input[bool] enabled: Is the Front Door Firewall Policy enabled? Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] frontend_endpoint_ids: The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleArgs']]] managed_rules: One or more `managed_rule` blocks as defined below.
-        :param pulumi.Input[str] mode: The Cdn Frontdoor firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+        :param pulumi.Input[str] mode: The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
         :param pulumi.Input[str] name: The name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] redirect_url: If action type is redirect, this field represents redirect URL for the client.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku_name: The sku's pricing tier for this Cdn Frontdoor firewall policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Cdn Frontdoor firewall policy.
+        :param pulumi.Input[str] sku_name: The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Front Door Firewall Policy.
         """
         if custom_block_response_body is not None:
             pulumi.set(__self__, "custom_block_response_body", custom_block_response_body)
@@ -289,7 +289,7 @@ class _FrontdoorFirewallPolicyState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is the Cdn Frontdoor firewall policy enabled? Defaults to `true`.
+        Is the Front Door Firewall Policy enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -301,7 +301,7 @@ class _FrontdoorFirewallPolicyState:
     @pulumi.getter(name="frontendEndpointIds")
     def frontend_endpoint_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The Cdn Frontend Endpoints associated with this Cdn Frontdoor Firewall policy.
+        The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
         """
         return pulumi.get(self, "frontend_endpoint_ids")
 
@@ -325,7 +325,7 @@ class _FrontdoorFirewallPolicyState:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The Cdn Frontdoor firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+        The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
         """
         return pulumi.get(self, "mode")
 
@@ -373,7 +373,7 @@ class _FrontdoorFirewallPolicyState:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The sku's pricing tier for this Cdn Frontdoor firewall policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+        The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -385,7 +385,7 @@ class _FrontdoorFirewallPolicyState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags to assign to the Cdn Frontdoor firewall policy.
+        A mapping of tags to assign to the Front Door Firewall Policy.
         """
         return pulumi.get(self, "tags")
 
@@ -412,7 +412,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Manages an Azure CDN Front Door Firewall Policy instance.
+        Manages a Front Door (standard/premium) Firewall Policy instance.
 
         ## Example Usage
 
@@ -527,7 +527,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
 
         ## Import
 
-        Frontdoor Firewall Policy can be imported using the `resource id`, e.g.
+        Front Door Firewall Policies can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:cdn/frontdoorFirewallPolicy:FrontdoorFirewallPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/frontdoorWebApplicationFirewallPolicies/firewallPolicy1
@@ -538,14 +538,14 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] custom_block_response_body: If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
         :param pulumi.Input[int] custom_block_response_status_code: If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorFirewallPolicyCustomRuleArgs']]]] custom_rules: One or more `custom_rule` blocks as defined below.
-        :param pulumi.Input[bool] enabled: Is the Cdn Frontdoor firewall policy enabled? Defaults to `true`.
+        :param pulumi.Input[bool] enabled: Is the Front Door Firewall Policy enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorFirewallPolicyManagedRuleArgs']]]] managed_rules: One or more `managed_rule` blocks as defined below.
-        :param pulumi.Input[str] mode: The Cdn Frontdoor firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+        :param pulumi.Input[str] mode: The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
         :param pulumi.Input[str] name: The name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] redirect_url: If action type is redirect, this field represents redirect URL for the client.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku_name: The sku's pricing tier for this Cdn Frontdoor firewall policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Cdn Frontdoor firewall policy.
+        :param pulumi.Input[str] sku_name: The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Front Door Firewall Policy.
         """
         ...
     @overload
@@ -554,7 +554,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                  args: FrontdoorFirewallPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Azure CDN Front Door Firewall Policy instance.
+        Manages a Front Door (standard/premium) Firewall Policy instance.
 
         ## Example Usage
 
@@ -669,7 +669,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
 
         ## Import
 
-        Frontdoor Firewall Policy can be imported using the `resource id`, e.g.
+        Front Door Firewall Policies can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:cdn/frontdoorFirewallPolicy:FrontdoorFirewallPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/frontdoorWebApplicationFirewallPolicies/firewallPolicy1
@@ -760,15 +760,15 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] custom_block_response_body: If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
         :param pulumi.Input[int] custom_block_response_status_code: If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorFirewallPolicyCustomRuleArgs']]]] custom_rules: One or more `custom_rule` blocks as defined below.
-        :param pulumi.Input[bool] enabled: Is the Cdn Frontdoor firewall policy enabled? Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] frontend_endpoint_ids: The Cdn Frontend Endpoints associated with this Cdn Frontdoor Firewall policy.
+        :param pulumi.Input[bool] enabled: Is the Front Door Firewall Policy enabled? Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] frontend_endpoint_ids: The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorFirewallPolicyManagedRuleArgs']]]] managed_rules: One or more `managed_rule` blocks as defined below.
-        :param pulumi.Input[str] mode: The Cdn Frontdoor firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+        :param pulumi.Input[str] mode: The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
         :param pulumi.Input[str] name: The name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] redirect_url: If action type is redirect, this field represents redirect URL for the client.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku_name: The sku's pricing tier for this Cdn Frontdoor firewall policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Cdn Frontdoor firewall policy.
+        :param pulumi.Input[str] sku_name: The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Front Door Firewall Policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -816,7 +816,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is the Cdn Frontdoor firewall policy enabled? Defaults to `true`.
+        Is the Front Door Firewall Policy enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -824,7 +824,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
     @pulumi.getter(name="frontendEndpointIds")
     def frontend_endpoint_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        The Cdn Frontend Endpoints associated with this Cdn Frontdoor Firewall policy.
+        The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
         """
         return pulumi.get(self, "frontend_endpoint_ids")
 
@@ -840,7 +840,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
     @pulumi.getter
     def mode(self) -> pulumi.Output[str]:
         """
-        The Cdn Frontdoor firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+        The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
         """
         return pulumi.get(self, "mode")
 
@@ -872,7 +872,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Output[str]:
         """
-        The sku's pricing tier for this Cdn Frontdoor firewall policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+        The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -880,7 +880,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A mapping of tags to assign to the Cdn Frontdoor firewall policy.
+        A mapping of tags to assign to the Front Door Firewall Policy.
         """
         return pulumi.get(self, "tags")
 

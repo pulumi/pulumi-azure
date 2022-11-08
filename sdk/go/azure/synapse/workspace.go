@@ -252,7 +252,7 @@ type Workspace struct {
 	// A `githubRepo` block as defined below.
 	GithubRepo WorkspaceGithubRepoPtrOutput `pulumi:"githubRepo"`
 	// An `identity` block as defined below.
-	Identity WorkspaceIdentityOutput `pulumi:"identity"`
+	Identity WorkspaceIdentityPtrOutput `pulumi:"identity"`
 	// Allowed AAD Tenant Ids For Linking.
 	LinkingAllowedForAadTenantIds pulumi.StringArrayOutput `pulumi:"linkingAllowedForAadTenantIds"`
 	// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
@@ -271,10 +271,10 @@ type Workspace struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// An `sqlAadAdmin` block as defined below.
 	SqlAadAdmin WorkspaceSqlAadAdminTypeOutput `pulumi:"sqlAadAdmin"`
-	// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
-	SqlAdministratorLogin pulumi.StringOutput `pulumi:"sqlAdministratorLogin"`
-	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator.
-	SqlAdministratorLoginPassword pulumi.StringOutput `pulumi:"sqlAdministratorLoginPassword"`
+	// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
+	SqlAdministratorLogin pulumi.StringPtrOutput `pulumi:"sqlAdministratorLogin"`
+	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
+	SqlAdministratorLoginPassword pulumi.StringPtrOutput `pulumi:"sqlAdministratorLoginPassword"`
 	// Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
 	SqlIdentityControlEnabled pulumi.BoolPtrOutput `pulumi:"sqlIdentityControlEnabled"`
 	// Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
@@ -290,17 +290,8 @@ func NewWorkspace(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Identity == nil {
-		return nil, errors.New("invalid value for required argument 'Identity'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
-	}
-	if args.SqlAdministratorLogin == nil {
-		return nil, errors.New("invalid value for required argument 'SqlAdministratorLogin'")
-	}
-	if args.SqlAdministratorLoginPassword == nil {
-		return nil, errors.New("invalid value for required argument 'SqlAdministratorLoginPassword'")
 	}
 	if args.StorageDataLakeGen2FilesystemId == nil {
 		return nil, errors.New("invalid value for required argument 'StorageDataLakeGen2FilesystemId'")
@@ -361,9 +352,9 @@ type workspaceState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// An `sqlAadAdmin` block as defined below.
 	SqlAadAdmin *WorkspaceSqlAadAdminType `pulumi:"sqlAadAdmin"`
-	// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
+	// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
 	SqlAdministratorLogin *string `pulumi:"sqlAdministratorLogin"`
-	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator.
+	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
 	SqlAdministratorLoginPassword *string `pulumi:"sqlAdministratorLoginPassword"`
 	// Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
 	SqlIdentityControlEnabled *bool `pulumi:"sqlIdentityControlEnabled"`
@@ -408,9 +399,9 @@ type WorkspaceState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// An `sqlAadAdmin` block as defined below.
 	SqlAadAdmin WorkspaceSqlAadAdminTypePtrInput
-	// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
+	// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
 	SqlAdministratorLogin pulumi.StringPtrInput
-	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator.
+	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
 	SqlAdministratorLoginPassword pulumi.StringPtrInput
 	// Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
 	SqlIdentityControlEnabled pulumi.BoolPtrInput
@@ -438,7 +429,7 @@ type workspaceArgs struct {
 	// A `githubRepo` block as defined below.
 	GithubRepo *WorkspaceGithubRepo `pulumi:"githubRepo"`
 	// An `identity` block as defined below.
-	Identity WorkspaceIdentity `pulumi:"identity"`
+	Identity *WorkspaceIdentity `pulumi:"identity"`
 	// Allowed AAD Tenant Ids For Linking.
 	LinkingAllowedForAadTenantIds []string `pulumi:"linkingAllowedForAadTenantIds"`
 	// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
@@ -457,10 +448,10 @@ type workspaceArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// An `sqlAadAdmin` block as defined below.
 	SqlAadAdmin *WorkspaceSqlAadAdminType `pulumi:"sqlAadAdmin"`
-	// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
-	SqlAdministratorLogin string `pulumi:"sqlAdministratorLogin"`
-	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator.
-	SqlAdministratorLoginPassword string `pulumi:"sqlAdministratorLoginPassword"`
+	// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
+	SqlAdministratorLogin *string `pulumi:"sqlAdministratorLogin"`
+	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
+	SqlAdministratorLoginPassword *string `pulumi:"sqlAdministratorLoginPassword"`
 	// Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
 	SqlIdentityControlEnabled *bool `pulumi:"sqlIdentityControlEnabled"`
 	// Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
@@ -484,7 +475,7 @@ type WorkspaceArgs struct {
 	// A `githubRepo` block as defined below.
 	GithubRepo WorkspaceGithubRepoPtrInput
 	// An `identity` block as defined below.
-	Identity WorkspaceIdentityInput
+	Identity WorkspaceIdentityPtrInput
 	// Allowed AAD Tenant Ids For Linking.
 	LinkingAllowedForAadTenantIds pulumi.StringArrayInput
 	// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
@@ -503,10 +494,10 @@ type WorkspaceArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// An `sqlAadAdmin` block as defined below.
 	SqlAadAdmin WorkspaceSqlAadAdminTypePtrInput
-	// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
-	SqlAdministratorLogin pulumi.StringInput
-	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator.
-	SqlAdministratorLoginPassword pulumi.StringInput
+	// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
+	SqlAdministratorLogin pulumi.StringPtrInput
+	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
+	SqlAdministratorLoginPassword pulumi.StringPtrInput
 	// Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
 	SqlIdentityControlEnabled pulumi.BoolPtrInput
 	// Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
@@ -638,8 +629,8 @@ func (o WorkspaceOutput) GithubRepo() WorkspaceGithubRepoPtrOutput {
 }
 
 // An `identity` block as defined below.
-func (o WorkspaceOutput) Identity() WorkspaceIdentityOutput {
-	return o.ApplyT(func(v *Workspace) WorkspaceIdentityOutput { return v.Identity }).(WorkspaceIdentityOutput)
+func (o WorkspaceOutput) Identity() WorkspaceIdentityPtrOutput {
+	return o.ApplyT(func(v *Workspace) WorkspaceIdentityPtrOutput { return v.Identity }).(WorkspaceIdentityPtrOutput)
 }
 
 // Allowed AAD Tenant Ids For Linking.
@@ -687,14 +678,14 @@ func (o WorkspaceOutput) SqlAadAdmin() WorkspaceSqlAadAdminTypeOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceSqlAadAdminTypeOutput { return v.SqlAadAdmin }).(WorkspaceSqlAadAdminTypeOutput)
 }
 
-// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
-func (o WorkspaceOutput) SqlAdministratorLogin() pulumi.StringOutput {
-	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.SqlAdministratorLogin }).(pulumi.StringOutput)
+// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
+func (o WorkspaceOutput) SqlAdministratorLogin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.SqlAdministratorLogin }).(pulumi.StringPtrOutput)
 }
 
-// The Password associated with the `sqlAdministratorLogin` for the SQL administrator.
-func (o WorkspaceOutput) SqlAdministratorLoginPassword() pulumi.StringOutput {
-	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.SqlAdministratorLoginPassword }).(pulumi.StringOutput)
+// The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
+func (o WorkspaceOutput) SqlAdministratorLoginPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.SqlAdministratorLoginPassword }).(pulumi.StringPtrOutput)
 }
 
 // Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?

@@ -14,19 +14,19 @@ namespace Pulumi.Azure.MSSql.Outputs
     public sealed class VirtualMachineAutoBackupManualSchedule
     {
         /// <summary>
-        /// Frequency of full backups. Valid values include `Daily` or `Weekly`. Required when `backup_schedule_automated` is false.
+        /// Frequency of full backups. Valid values include `Daily` or `Weekly`.
         /// </summary>
         public readonly string FullBackupFrequency;
         /// <summary>
-        /// Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`. Required when `backup_schedule_automated` is false.
+        /// Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`.
         /// </summary>
         public readonly int FullBackupStartHour;
         /// <summary>
-        /// Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`. Required when `backup_schedule_automated` is false.
+        /// Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`.
         /// </summary>
         public readonly int FullBackupWindowInHours;
         /// <summary>
-        /// Frequency of log backups, in minutes. Valid values are from `5` to `60`. Required when `backup_schedule_automated` is false.
+        /// Frequency of log backups, in minutes. Valid values are from `5` to `60`.
         /// </summary>
         public readonly int LogBackupFrequencyInMinutes;
 

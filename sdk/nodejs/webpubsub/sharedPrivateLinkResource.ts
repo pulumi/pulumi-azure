@@ -41,13 +41,6 @@ import * as utilities from "../utilities";
  *     targetResourceId: exampleKeyVault.id,
  * });
  * ```
- * ## Attributes Reference:
- *
- * The following attributes are exported:
- *
- * * `id` - The ID of the Web Pubsub Shared Private Link resource.
- *
- * * `status` - The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
  *
  * ## Import
  *
@@ -93,6 +86,9 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
      * Specify the request message for requesting approval of the Shared Private Link Enabled Remote Resource.
      */
     public readonly requestMessage!: pulumi.Output<string | undefined>;
+    /**
+     * The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
+     */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Specify the sub resource name which the Web Pubsub Private Endpoint is able to connect to. Changing this forces a new resource to be created.
@@ -161,6 +157,9 @@ export interface SharedPrivateLinkResourceState {
      * Specify the request message for requesting approval of the Shared Private Link Enabled Remote Resource.
      */
     requestMessage?: pulumi.Input<string>;
+    /**
+     * The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
+     */
     status?: pulumi.Input<string>;
     /**
      * Specify the sub resource name which the Web Pubsub Private Endpoint is able to connect to. Changing this forces a new resource to be created.

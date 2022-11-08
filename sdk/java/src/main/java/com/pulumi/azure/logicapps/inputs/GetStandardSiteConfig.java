@@ -5,6 +5,7 @@ package com.pulumi.azure.logicapps.inputs;
 
 import com.pulumi.azure.logicapps.inputs.GetStandardSiteConfigCors;
 import com.pulumi.azure.logicapps.inputs.GetStandardSiteConfigIpRestriction;
+import com.pulumi.azure.logicapps.inputs.GetStandardSiteConfigScmIpRestriction;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -110,6 +111,34 @@ public final class GetStandardSiteConfig extends com.pulumi.resources.InvokeArgs
         return Optional.ofNullable(this.runtimeScaleMonitoringEnabled);
     }
 
+    @Import(name="scmIpRestrictions", required=true)
+    private List<GetStandardSiteConfigScmIpRestriction> scmIpRestrictions;
+
+    public List<GetStandardSiteConfigScmIpRestriction> scmIpRestrictions() {
+        return this.scmIpRestrictions;
+    }
+
+    @Import(name="scmMinTlsVersion", required=true)
+    private String scmMinTlsVersion;
+
+    public String scmMinTlsVersion() {
+        return this.scmMinTlsVersion;
+    }
+
+    @Import(name="scmType", required=true)
+    private String scmType;
+
+    public String scmType() {
+        return this.scmType;
+    }
+
+    @Import(name="scmUseMainIpRestriction")
+    private @Nullable Boolean scmUseMainIpRestriction;
+
+    public Optional<Boolean> scmUseMainIpRestriction() {
+        return Optional.ofNullable(this.scmUseMainIpRestriction);
+    }
+
     @Import(name="use32BitWorkerProcess")
     private @Nullable Boolean use32BitWorkerProcess;
 
@@ -147,6 +176,10 @@ public final class GetStandardSiteConfig extends com.pulumi.resources.InvokeArgs
         this.minTlsVersion = $.minTlsVersion;
         this.preWarmedInstanceCount = $.preWarmedInstanceCount;
         this.runtimeScaleMonitoringEnabled = $.runtimeScaleMonitoringEnabled;
+        this.scmIpRestrictions = $.scmIpRestrictions;
+        this.scmMinTlsVersion = $.scmMinTlsVersion;
+        this.scmType = $.scmType;
+        this.scmUseMainIpRestriction = $.scmUseMainIpRestriction;
         this.use32BitWorkerProcess = $.use32BitWorkerProcess;
         this.vnetRouteAllEnabled = $.vnetRouteAllEnabled;
         this.websocketsEnabled = $.websocketsEnabled;
@@ -239,6 +272,30 @@ public final class GetStandardSiteConfig extends com.pulumi.resources.InvokeArgs
             return this;
         }
 
+        public Builder scmIpRestrictions(List<GetStandardSiteConfigScmIpRestriction> scmIpRestrictions) {
+            $.scmIpRestrictions = scmIpRestrictions;
+            return this;
+        }
+
+        public Builder scmIpRestrictions(GetStandardSiteConfigScmIpRestriction... scmIpRestrictions) {
+            return scmIpRestrictions(List.of(scmIpRestrictions));
+        }
+
+        public Builder scmMinTlsVersion(String scmMinTlsVersion) {
+            $.scmMinTlsVersion = scmMinTlsVersion;
+            return this;
+        }
+
+        public Builder scmType(String scmType) {
+            $.scmType = scmType;
+            return this;
+        }
+
+        public Builder scmUseMainIpRestriction(@Nullable Boolean scmUseMainIpRestriction) {
+            $.scmUseMainIpRestriction = scmUseMainIpRestriction;
+            return this;
+        }
+
         public Builder use32BitWorkerProcess(@Nullable Boolean use32BitWorkerProcess) {
             $.use32BitWorkerProcess = use32BitWorkerProcess;
             return this;
@@ -263,6 +320,9 @@ public final class GetStandardSiteConfig extends com.pulumi.resources.InvokeArgs
             $.linuxFxVersion = Objects.requireNonNull($.linuxFxVersion, "expected parameter 'linuxFxVersion' to be non-null");
             $.minTlsVersion = Objects.requireNonNull($.minTlsVersion, "expected parameter 'minTlsVersion' to be non-null");
             $.preWarmedInstanceCount = Objects.requireNonNull($.preWarmedInstanceCount, "expected parameter 'preWarmedInstanceCount' to be non-null");
+            $.scmIpRestrictions = Objects.requireNonNull($.scmIpRestrictions, "expected parameter 'scmIpRestrictions' to be non-null");
+            $.scmMinTlsVersion = Objects.requireNonNull($.scmMinTlsVersion, "expected parameter 'scmMinTlsVersion' to be non-null");
+            $.scmType = Objects.requireNonNull($.scmType, "expected parameter 'scmType' to be non-null");
             $.vnetRouteAllEnabled = Objects.requireNonNull($.vnetRouteAllEnabled, "expected parameter 'vnetRouteAllEnabled' to be non-null");
             return $;
         }

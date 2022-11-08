@@ -36,6 +36,7 @@ class WindowsFunctionAppSlotArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotStorageAccountArgs']]]] = None,
                  storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -62,6 +63,7 @@ class WindowsFunctionAppSlotArgs:
         :param pulumi.Input[str] name: Specifies the name of the Windows Function App Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the storage account for the Function App Slot.
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App Slot.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
         :param pulumi.Input[bool] storage_uses_managed_identity: Should the Function App Slot use its Managed Identity to access storage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Function App Slot.
@@ -105,6 +107,8 @@ class WindowsFunctionAppSlotArgs:
             pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
         if storage_account_name is not None:
             pulumi.set(__self__, "storage_account_name", storage_account_name)
+        if storage_accounts is not None:
+            pulumi.set(__self__, "storage_accounts", storage_accounts)
         if storage_key_vault_secret_id is not None:
             pulumi.set(__self__, "storage_key_vault_secret_id", storage_key_vault_secret_id)
         if storage_uses_managed_identity is not None:
@@ -355,6 +359,18 @@ class WindowsFunctionAppSlotArgs:
         pulumi.set(self, "storage_account_name", value)
 
     @property
+    @pulumi.getter(name="storageAccounts")
+    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotStorageAccountArgs']]]]:
+        """
+        One or more `storage_account` blocks as defined below.
+        """
+        return pulumi.get(self, "storage_accounts")
+
+    @storage_accounts.setter
+    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotStorageAccountArgs']]]]):
+        pulumi.set(self, "storage_accounts", value)
+
+    @property
     @pulumi.getter(name="storageKeyVaultSecretId")
     def storage_key_vault_secret_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -434,6 +450,7 @@ class _WindowsFunctionAppSlotState:
                  site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteCredentialArgs']]]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotStorageAccountArgs']]]] = None,
                  storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -468,6 +485,7 @@ class _WindowsFunctionAppSlotState:
         :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the storage account for the Function App Slot.
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App Slot.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
         :param pulumi.Input[bool] storage_uses_managed_identity: Should the Function App Slot use its Managed Identity to access storage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Function App Slot.
@@ -529,6 +547,8 @@ class _WindowsFunctionAppSlotState:
             pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
         if storage_account_name is not None:
             pulumi.set(__self__, "storage_account_name", storage_account_name)
+        if storage_accounts is not None:
+            pulumi.set(__self__, "storage_accounts", storage_accounts)
         if storage_key_vault_secret_id is not None:
             pulumi.set(__self__, "storage_key_vault_secret_id", storage_key_vault_secret_id)
         if storage_uses_managed_identity is not None:
@@ -875,6 +895,18 @@ class _WindowsFunctionAppSlotState:
         pulumi.set(self, "storage_account_name", value)
 
     @property
+    @pulumi.getter(name="storageAccounts")
+    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotStorageAccountArgs']]]]:
+        """
+        One or more `storage_account` blocks as defined below.
+        """
+        return pulumi.get(self, "storage_accounts")
+
+    @storage_accounts.setter
+    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotStorageAccountArgs']]]]):
+        pulumi.set(self, "storage_accounts", value)
+
+    @property
     @pulumi.getter(name="storageKeyVaultSecretId")
     def storage_key_vault_secret_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -948,6 +980,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
                  site_config: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotSiteConfigArgs']]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotStorageAccountArgs']]]]] = None,
                  storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1015,6 +1048,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotSiteConfigArgs']] site_config: a `site_config` block as detailed below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the storage account for the Function App Slot.
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App Slot.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
         :param pulumi.Input[bool] storage_uses_managed_identity: Should the Function App Slot use its Managed Identity to access storage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Function App Slot.
@@ -1101,6 +1135,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
                  site_config: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotSiteConfigArgs']]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotStorageAccountArgs']]]]] = None,
                  storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1138,6 +1173,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
             __props__.__dict__["site_config"] = site_config
             __props__.__dict__["storage_account_access_key"] = storage_account_access_key
             __props__.__dict__["storage_account_name"] = storage_account_name
+            __props__.__dict__["storage_accounts"] = storage_accounts
             __props__.__dict__["storage_key_vault_secret_id"] = storage_key_vault_secret_id
             __props__.__dict__["storage_uses_managed_identity"] = storage_uses_managed_identity
             __props__.__dict__["tags"] = tags
@@ -1188,6 +1224,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
             site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotSiteCredentialArgs']]]]] = None,
             storage_account_access_key: Optional[pulumi.Input[str]] = None,
             storage_account_name: Optional[pulumi.Input[str]] = None,
+            storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotStorageAccountArgs']]]]] = None,
             storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
             storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1227,6 +1264,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotSiteCredentialArgs']]]] site_credentials: A `site_credential` block as defined below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the storage account for the Function App Slot.
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App Slot.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
         :param pulumi.Input[bool] storage_uses_managed_identity: Should the Function App Slot use its Managed Identity to access storage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Function App Slot.
@@ -1264,6 +1302,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
         __props__.__dict__["site_credentials"] = site_credentials
         __props__.__dict__["storage_account_access_key"] = storage_account_access_key
         __props__.__dict__["storage_account_name"] = storage_account_name
+        __props__.__dict__["storage_accounts"] = storage_accounts
         __props__.__dict__["storage_key_vault_secret_id"] = storage_key_vault_secret_id
         __props__.__dict__["storage_uses_managed_identity"] = storage_uses_managed_identity
         __props__.__dict__["tags"] = tags
@@ -1493,6 +1532,14 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
         The backend storage account name which will be used by this Function App Slot.
         """
         return pulumi.get(self, "storage_account_name")
+
+    @property
+    @pulumi.getter(name="storageAccounts")
+    def storage_accounts(self) -> pulumi.Output[Optional[Sequence['outputs.WindowsFunctionAppSlotStorageAccount']]]:
+        """
+        One or more `storage_account` blocks as defined below.
+        """
+        return pulumi.get(self, "storage_accounts")
 
     @property
     @pulumi.getter(name="storageKeyVaultSecretId")

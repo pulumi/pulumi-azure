@@ -37,6 +37,10 @@ type SparkPool struct {
 	DynamicExecutorAllocationEnabled pulumi.BoolPtrOutput `pulumi:"dynamicExecutorAllocationEnabled"`
 	// A `libraryRequirement` block as defined below.
 	LibraryRequirement SparkPoolLibraryRequirementPtrOutput `pulumi:"libraryRequirement"`
+	// The maximum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
+	MaxExecutors pulumi.IntPtrOutput `pulumi:"maxExecutors"`
+	// The minimum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
+	MinExecutors pulumi.IntPtrOutput `pulumi:"minExecutors"`
 	// The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The number of nodes in the Spark Pool. Exactly one of `nodeCount` or `autoScale` must be specified.
@@ -111,6 +115,10 @@ type sparkPoolState struct {
 	DynamicExecutorAllocationEnabled *bool `pulumi:"dynamicExecutorAllocationEnabled"`
 	// A `libraryRequirement` block as defined below.
 	LibraryRequirement *SparkPoolLibraryRequirement `pulumi:"libraryRequirement"`
+	// The maximum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
+	MaxExecutors *int `pulumi:"maxExecutors"`
+	// The minimum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
+	MinExecutors *int `pulumi:"minExecutors"`
 	// The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
 	Name *string `pulumi:"name"`
 	// The number of nodes in the Spark Pool. Exactly one of `nodeCount` or `autoScale` must be specified.
@@ -148,6 +156,10 @@ type SparkPoolState struct {
 	DynamicExecutorAllocationEnabled pulumi.BoolPtrInput
 	// A `libraryRequirement` block as defined below.
 	LibraryRequirement SparkPoolLibraryRequirementPtrInput
+	// The maximum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
+	MaxExecutors pulumi.IntPtrInput
+	// The minimum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
+	MinExecutors pulumi.IntPtrInput
 	// The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
 	Name pulumi.StringPtrInput
 	// The number of nodes in the Spark Pool. Exactly one of `nodeCount` or `autoScale` must be specified.
@@ -189,6 +201,10 @@ type sparkPoolArgs struct {
 	DynamicExecutorAllocationEnabled *bool `pulumi:"dynamicExecutorAllocationEnabled"`
 	// A `libraryRequirement` block as defined below.
 	LibraryRequirement *SparkPoolLibraryRequirement `pulumi:"libraryRequirement"`
+	// The maximum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
+	MaxExecutors *int `pulumi:"maxExecutors"`
+	// The minimum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
+	MinExecutors *int `pulumi:"minExecutors"`
 	// The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
 	Name *string `pulumi:"name"`
 	// The number of nodes in the Spark Pool. Exactly one of `nodeCount` or `autoScale` must be specified.
@@ -227,6 +243,10 @@ type SparkPoolArgs struct {
 	DynamicExecutorAllocationEnabled pulumi.BoolPtrInput
 	// A `libraryRequirement` block as defined below.
 	LibraryRequirement SparkPoolLibraryRequirementPtrInput
+	// The maximum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
+	MaxExecutors pulumi.IntPtrInput
+	// The minimum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
+	MinExecutors pulumi.IntPtrInput
 	// The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
 	Name pulumi.StringPtrInput
 	// The number of nodes in the Spark Pool. Exactly one of `nodeCount` or `autoScale` must be specified.
@@ -366,6 +386,16 @@ func (o SparkPoolOutput) DynamicExecutorAllocationEnabled() pulumi.BoolPtrOutput
 // A `libraryRequirement` block as defined below.
 func (o SparkPoolOutput) LibraryRequirement() SparkPoolLibraryRequirementPtrOutput {
 	return o.ApplyT(func(v *SparkPool) SparkPoolLibraryRequirementPtrOutput { return v.LibraryRequirement }).(SparkPoolLibraryRequirementPtrOutput)
+}
+
+// The maximum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
+func (o SparkPoolOutput) MaxExecutors() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SparkPool) pulumi.IntPtrOutput { return v.MaxExecutors }).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
+func (o SparkPoolOutput) MinExecutors() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SparkPool) pulumi.IntPtrOutput { return v.MinExecutors }).(pulumi.IntPtrOutput)
 }
 
 // The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.

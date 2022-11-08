@@ -1127,7 +1127,6 @@ class ApiOperationRequestHeaderArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestHeaderExampleArgs']]] examples: (Optional) One or more `example` blocks as defined above.
         :param pulumi.Input[str] schema_id: The name of the Schema.
         :param pulumi.Input[str] type_name: The type name defined by the Schema.
-               ---
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: One or more acceptable values for this Header.
         """
         pulumi.set(__self__, "name", name)
@@ -1235,7 +1234,6 @@ class ApiOperationRequestHeaderArgs:
     def type_name(self) -> Optional[pulumi.Input[str]]:
         """
         The type name defined by the Schema.
-        ---
         """
         return pulumi.get(self, "type_name")
 
@@ -2073,7 +2071,6 @@ class ApiOperationResponseHeaderArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseHeaderExampleArgs']]] examples: (Optional) One or more `example` blocks as defined above.
         :param pulumi.Input[str] schema_id: The name of the Schema.
         :param pulumi.Input[str] type_name: The type name defined by the Schema.
-               ---
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: One or more acceptable values for this Header.
         """
         pulumi.set(__self__, "name", name)
@@ -2181,7 +2178,6 @@ class ApiOperationResponseHeaderArgs:
     def type_name(self) -> Optional[pulumi.Input[str]]:
         """
         The type name defined by the Schema.
-        ---
         """
         return pulumi.get(self, "type_name")
 

@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to access information about an existing CDN FrontDoor Profile.
+// Use this data source to access information about an existing Front Door (standard/premium) Profile.
 //
 // ## Example Usage
 //
@@ -49,9 +49,9 @@ func LookupFrontdoorProfile(ctx *pulumi.Context, args *LookupFrontdoorProfileArg
 
 // A collection of arguments for invoking getFrontdoorProfile.
 type LookupFrontdoorProfileArgs struct {
-	// Specifies the name of the FrontDoor Profile.
+	// Specifies the name of the Front Door Profile.
 	Name string `pulumi:"name"`
-	// The name of the Resource Group where this FrontDoor Profile exists.
+	// The name of the Resource Group where this Front Door Profile exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
@@ -61,13 +61,13 @@ type LookupFrontdoorProfileResult struct {
 	Id                string `pulumi:"id"`
 	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The UUID of this CDN FrontDoor Profile. This is the value that is used for the `X-Azure-FDID` attribute in the HTTP header.
+	// The UUID of the Front Door Profile which will be sent in the HTTP Header as the `X-Azure-FDID` attribute.
 	ResourceGuid string `pulumi:"resourceGuid"`
 	// Specifies the maximum response timeout in seconds.
 	ResponseTimeoutSeconds int `pulumi:"responseTimeoutSeconds"`
-	// Specifies the SKU for this CDN FrontDoor Profile.
+	// Specifies the SKU for this Front Door Profile.
 	SkuName string `pulumi:"skuName"`
-	// Specifies a mapping of Tags assigned to this CDN FrontDoor Profile.
+	// Specifies a mapping of Tags assigned to this Front Door Profile.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -86,9 +86,9 @@ func LookupFrontdoorProfileOutput(ctx *pulumi.Context, args LookupFrontdoorProfi
 
 // A collection of arguments for invoking getFrontdoorProfile.
 type LookupFrontdoorProfileOutputArgs struct {
-	// Specifies the name of the FrontDoor Profile.
+	// Specifies the name of the Front Door Profile.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The name of the Resource Group where this FrontDoor Profile exists.
+	// The name of the Resource Group where this Front Door Profile exists.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
@@ -124,7 +124,7 @@ func (o LookupFrontdoorProfileResultOutput) ResourceGroupName() pulumi.StringOut
 	return o.ApplyT(func(v LookupFrontdoorProfileResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The UUID of this CDN FrontDoor Profile. This is the value that is used for the `X-Azure-FDID` attribute in the HTTP header.
+// The UUID of the Front Door Profile which will be sent in the HTTP Header as the `X-Azure-FDID` attribute.
 func (o LookupFrontdoorProfileResultOutput) ResourceGuid() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFrontdoorProfileResult) string { return v.ResourceGuid }).(pulumi.StringOutput)
 }
@@ -134,12 +134,12 @@ func (o LookupFrontdoorProfileResultOutput) ResponseTimeoutSeconds() pulumi.IntO
 	return o.ApplyT(func(v LookupFrontdoorProfileResult) int { return v.ResponseTimeoutSeconds }).(pulumi.IntOutput)
 }
 
-// Specifies the SKU for this CDN FrontDoor Profile.
+// Specifies the SKU for this Front Door Profile.
 func (o LookupFrontdoorProfileResultOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFrontdoorProfileResult) string { return v.SkuName }).(pulumi.StringOutput)
 }
 
-// Specifies a mapping of Tags assigned to this CDN FrontDoor Profile.
+// Specifies a mapping of Tags assigned to this Front Door Profile.
 func (o LookupFrontdoorProfileResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupFrontdoorProfileResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

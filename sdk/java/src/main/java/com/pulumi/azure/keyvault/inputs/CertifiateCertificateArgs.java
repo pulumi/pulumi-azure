@@ -16,14 +16,14 @@ public final class CertifiateCertificateArgs extends com.pulumi.resources.Resour
     public static final CertifiateCertificateArgs Empty = new CertifiateCertificateArgs();
 
     /**
-     * The base64-encoded certificate contents. Changing this forces a new resource to be created.
+     * The base64-encoded certificate contents.
      * 
      */
     @Import(name="contents", required=true)
     private Output<String> contents;
 
     /**
-     * @return The base64-encoded certificate contents. Changing this forces a new resource to be created.
+     * @return The base64-encoded certificate contents.
      * 
      */
     public Output<String> contents() {
@@ -31,14 +31,14 @@ public final class CertifiateCertificateArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The password associated with the certificate. Changing this forces a new resource to be created.
+     * The password associated with the certificate.
      * 
      */
     @Import(name="password")
     private @Nullable Output<String> password;
 
     /**
-     * @return The password associated with the certificate. Changing this forces a new resource to be created.
+     * @return The password associated with the certificate.
      * 
      */
     public Optional<Output<String>> password() {
@@ -71,7 +71,7 @@ public final class CertifiateCertificateArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param contents The base64-encoded certificate contents. Changing this forces a new resource to be created.
+         * @param contents The base64-encoded certificate contents.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class CertifiateCertificateArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param contents The base64-encoded certificate contents. Changing this forces a new resource to be created.
+         * @param contents The base64-encoded certificate contents.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class CertifiateCertificateArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param password The password associated with the certificate. Changing this forces a new resource to be created.
+         * @param password The password associated with the certificate.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class CertifiateCertificateArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param password The password associated with the certificate. Changing this forces a new resource to be created.
+         * @param password The password associated with the certificate.
          * 
          * @return builder
          * 

@@ -387,7 +387,7 @@ class Definition(pulumi.CustomResource):
 
         \"\"\",
             mode="Indexed",
-            parameters=\"\"\"	{
+            parameters=\"\"\" {
             "allowedLocations": {
               "type": "Array",
               "metadata": {
@@ -399,7 +399,7 @@ class Definition(pulumi.CustomResource):
           }
 
         \"\"\",
-            policy_rule=\"\"\"	{
+            policy_rule=\"\"\" {
             "if": {
               "not": {
                 "field": "location",
@@ -473,7 +473,7 @@ class Definition(pulumi.CustomResource):
 
         \"\"\",
             mode="Indexed",
-            parameters=\"\"\"	{
+            parameters=\"\"\" {
             "allowedLocations": {
               "type": "Array",
               "metadata": {
@@ -485,7 +485,7 @@ class Definition(pulumi.CustomResource):
           }
 
         \"\"\",
-            policy_rule=\"\"\"	{
+            policy_rule=\"\"\" {
             "if": {
               "not": {
                 "field": "location",

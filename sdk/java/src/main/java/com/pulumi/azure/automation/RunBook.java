@@ -252,14 +252,14 @@ public class RunBook extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell` or `Script`.
+     * The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`.
      * 
      */
     @Export(name="runbookType", type=String.class, parameters={})
     private Output<String> runbookType;
 
     /**
-     * @return The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell` or `Script`.
+     * @return The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`.
      * 
      */
     public Output<String> runbookType() {

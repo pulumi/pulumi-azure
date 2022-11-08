@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages the association between a CDN FrontDoor Custom Domain and one or more CDN FrontDoor Routes.
+ * Manages the association between a Front Door (standard/premium) Custom Domain and one or more Front Door (standard/premium) Routes.
  *
  * ## Example Usage
  *
@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Frontdoor Routes can be imported using the `resource id`, e.g.
+ * Front Door Custom Domain Associations can be imported using the `resource id`, e.g.
  *
  * ```sh
  *  $ pulumi import azure:cdn/frontdoorCustomDomainAssociation:FrontdoorCustomDomainAssociation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/associations/assoc1
@@ -59,11 +59,11 @@ export class FrontdoorCustomDomainAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the CDN FrontDoor Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
+     * The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
      */
     public readonly cdnFrontdoorCustomDomainId!: pulumi.Output<string>;
     /**
-     * One or more IDs of the CDN FrontDoor Route to which the CDN FrontDoor Custom Domain is associated with.
+     * One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
      */
     public readonly cdnFrontdoorRouteIds!: pulumi.Output<string[]>;
 
@@ -103,11 +103,11 @@ export class FrontdoorCustomDomainAssociation extends pulumi.CustomResource {
  */
 export interface FrontdoorCustomDomainAssociationState {
     /**
-     * The ID of the CDN FrontDoor Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
+     * The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
      */
     cdnFrontdoorCustomDomainId?: pulumi.Input<string>;
     /**
-     * One or more IDs of the CDN FrontDoor Route to which the CDN FrontDoor Custom Domain is associated with.
+     * One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
      */
     cdnFrontdoorRouteIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -117,11 +117,11 @@ export interface FrontdoorCustomDomainAssociationState {
  */
 export interface FrontdoorCustomDomainAssociationArgs {
     /**
-     * The ID of the CDN FrontDoor Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
+     * The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
      */
     cdnFrontdoorCustomDomainId: pulumi.Input<string>;
     /**
-     * One or more IDs of the CDN FrontDoor Route to which the CDN FrontDoor Custom Domain is associated with.
+     * One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
      */
     cdnFrontdoorRouteIds: pulumi.Input<pulumi.Input<string>[]>;
 }

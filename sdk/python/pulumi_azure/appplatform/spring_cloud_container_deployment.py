@@ -29,7 +29,7 @@ class SpringCloudContainerDeploymentArgs:
                  quota: Optional[pulumi.Input['SpringCloudContainerDeploymentQuotaArgs']] = None):
         """
         The set of arguments for constructing a SpringCloudContainerDeployment resource.
-        :param pulumi.Input[str] image: Container image of the custom container. This should be in the form of <repository>:<tag> without the server name of the registry.
+        :param pulumi.Input[str] image: Container image of the custom container. This should be in the form of `<repository>:<tag>` without the server name of the registry.
         :param pulumi.Input[str] server: The name of the registry that contains the container image.
         :param pulumi.Input[str] spring_cloud_app_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Container Deployment to be created.
         :param pulumi.Input[str] addon_json: A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
@@ -65,7 +65,7 @@ class SpringCloudContainerDeploymentArgs:
     @pulumi.getter
     def image(self) -> pulumi.Input[str]:
         """
-        Container image of the custom container. This should be in the form of <repository>:<tag> without the server name of the registry.
+        Container image of the custom container. This should be in the form of `<repository>:<tag>` without the server name of the registry.
         """
         return pulumi.get(self, "image")
 
@@ -214,7 +214,7 @@ class _SpringCloudContainerDeploymentState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] arguments: Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: Specifies the entrypoint array. It will not be executed within a shell. The docker image's `ENTRYPOINT` is used if not specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
-        :param pulumi.Input[str] image: Container image of the custom container. This should be in the form of <repository>:<tag> without the server name of the registry.
+        :param pulumi.Input[str] image: Container image of the custom container. This should be in the form of `<repository>:<tag>` without the server name of the registry.
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
         :param pulumi.Input[str] language_framework: Specifies the language framework of the container image.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Container Deployment. Changing this forces a new Spring Cloud Container Deployment to be created.
@@ -297,7 +297,7 @@ class _SpringCloudContainerDeploymentState:
     @pulumi.getter
     def image(self) -> Optional[pulumi.Input[str]]:
         """
-        Container image of the custom container. This should be in the form of <repository>:<tag> without the server name of the registry.
+        Container image of the custom container. This should be in the form of `<repository>:<tag>` without the server name of the registry.
         """
         return pulumi.get(self, "image")
 
@@ -444,7 +444,7 @@ class SpringCloudContainerDeployment(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] arguments: Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: Specifies the entrypoint array. It will not be executed within a shell. The docker image's `ENTRYPOINT` is used if not specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
-        :param pulumi.Input[str] image: Container image of the custom container. This should be in the form of <repository>:<tag> without the server name of the registry.
+        :param pulumi.Input[str] image: Container image of the custom container. This should be in the form of `<repository>:<tag>` without the server name of the registry.
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
         :param pulumi.Input[str] language_framework: Specifies the language framework of the container image.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Container Deployment. Changing this forces a new Spring Cloud Container Deployment to be created.
@@ -585,7 +585,7 @@ class SpringCloudContainerDeployment(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] arguments: Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: Specifies the entrypoint array. It will not be executed within a shell. The docker image's `ENTRYPOINT` is used if not specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
-        :param pulumi.Input[str] image: Container image of the custom container. This should be in the form of <repository>:<tag> without the server name of the registry.
+        :param pulumi.Input[str] image: Container image of the custom container. This should be in the form of `<repository>:<tag>` without the server name of the registry.
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
         :param pulumi.Input[str] language_framework: Specifies the language framework of the container image.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Container Deployment. Changing this forces a new Spring Cloud Container Deployment to be created.
@@ -646,7 +646,7 @@ class SpringCloudContainerDeployment(pulumi.CustomResource):
     @pulumi.getter
     def image(self) -> pulumi.Output[str]:
         """
-        Container image of the custom container. This should be in the form of <repository>:<tag> without the server name of the registry.
+        Container image of the custom container. This should be in the form of `<repository>:<tag>` without the server name of the registry.
         """
         return pulumi.get(self, "image")
 

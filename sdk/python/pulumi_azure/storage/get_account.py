@@ -225,7 +225,6 @@ class GetAccountResult:
     def azure_files_authentications(self) -> Sequence['outputs.GetAccountAzureFilesAuthenticationResult']:
         """
         A `azure_files_authentication` block as documented below.
-        ---
         """
         return pulumi.get(self, "azure_files_authentications")
 

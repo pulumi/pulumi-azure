@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cdn
 {
     /// <summary>
-    /// Manages the Link To Default Domain property of a CDN FrontDoor Route.
+    /// Manages the Link To Default Domain property of a Front Door (standard/premium) Route.
     /// 
     /// !&gt;**IMPORTANT:** This resource has been deprecated and should not be used for new deployments. The `azure.cdn.FrontdoorRouteDisableLinkToDefaultDomain` resource will be removed from the 4.0 AzureRM provider. Please use the `link_to_default_domain` field in the `azure.cdn.FrontdoorRoute` resource to control this value.
     /// 
@@ -48,13 +48,13 @@ namespace Pulumi.Azure.Cdn
     public partial class FrontdoorRouteDisableLinkToDefaultDomain : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The resource IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route. Changing this forces a new FrontDoor Route Disable Link To Default Domain to be created.
+        /// The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
         /// </summary>
         [Output("cdnFrontdoorCustomDomainIds")]
         public Output<ImmutableArray<string>> CdnFrontdoorCustomDomainIds { get; private set; } = null!;
 
         /// <summary>
-        /// The resource ID of the CDN FrontDoor Route where the Link To Default Domain property should be `disabled`. Changing this forces a new FrontDoor Route Disable Link To Default Domain to be created.
+        /// The resource ID of the Front Door Route where the Link To Default Domain property should be `disabled`. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
         /// </summary>
         [Output("cdnFrontdoorRouteId")]
         public Output<string> CdnFrontdoorRouteId { get; private set; } = null!;
@@ -109,7 +109,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<string>? _cdnFrontdoorCustomDomainIds;
 
         /// <summary>
-        /// The resource IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route. Changing this forces a new FrontDoor Route Disable Link To Default Domain to be created.
+        /// The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
         /// </summary>
         [Obsolete(@"the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value")]
         public InputList<string> CdnFrontdoorCustomDomainIds
@@ -119,7 +119,7 @@ namespace Pulumi.Azure.Cdn
         }
 
         /// <summary>
-        /// The resource ID of the CDN FrontDoor Route where the Link To Default Domain property should be `disabled`. Changing this forces a new FrontDoor Route Disable Link To Default Domain to be created.
+        /// The resource ID of the Front Door Route where the Link To Default Domain property should be `disabled`. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
         /// </summary>
         [Input("cdnFrontdoorRouteId", required: true)]
         public Input<string> CdnFrontdoorRouteId { get; set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<string>? _cdnFrontdoorCustomDomainIds;
 
         /// <summary>
-        /// The resource IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route. Changing this forces a new FrontDoor Route Disable Link To Default Domain to be created.
+        /// The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
         /// </summary>
         [Obsolete(@"the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value")]
         public InputList<string> CdnFrontdoorCustomDomainIds
@@ -146,7 +146,7 @@ namespace Pulumi.Azure.Cdn
         }
 
         /// <summary>
-        /// The resource ID of the CDN FrontDoor Route where the Link To Default Domain property should be `disabled`. Changing this forces a new FrontDoor Route Disable Link To Default Domain to be created.
+        /// The resource ID of the Front Door Route where the Link To Default Domain property should be `disabled`. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
         /// </summary>
         [Input("cdnFrontdoorRouteId")]
         public Input<string>? CdnFrontdoorRouteId { get; set; }

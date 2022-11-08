@@ -15,13 +15,17 @@ __all__ = ['ServerTransparentDataEncryptionArgs', 'ServerTransparentDataEncrypti
 class ServerTransparentDataEncryptionArgs:
     def __init__(__self__, *,
                  server_id: pulumi.Input[str],
+                 auto_rotation_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServerTransparentDataEncryption resource.
         :param pulumi.Input[str] server_id: Specifies the name of the MS SQL Server.
+        :param pulumi.Input[bool] auto_rotation_enabled: When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
         :param pulumi.Input[str] key_vault_key_id: To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
         """
         pulumi.set(__self__, "server_id", server_id)
+        if auto_rotation_enabled is not None:
+            pulumi.set(__self__, "auto_rotation_enabled", auto_rotation_enabled)
         if key_vault_key_id is not None:
             pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
 
@@ -36,6 +40,18 @@ class ServerTransparentDataEncryptionArgs:
     @server_id.setter
     def server_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "server_id", value)
+
+    @property
+    @pulumi.getter(name="autoRotationEnabled")
+    def auto_rotation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
+        """
+        return pulumi.get(self, "auto_rotation_enabled")
+
+    @auto_rotation_enabled.setter
+    def auto_rotation_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_rotation_enabled", value)
 
     @property
     @pulumi.getter(name="keyVaultKeyId")
@@ -53,17 +69,33 @@ class ServerTransparentDataEncryptionArgs:
 @pulumi.input_type
 class _ServerTransparentDataEncryptionState:
     def __init__(__self__, *,
+                 auto_rotation_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ServerTransparentDataEncryption resources.
+        :param pulumi.Input[bool] auto_rotation_enabled: When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
         :param pulumi.Input[str] key_vault_key_id: To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
         :param pulumi.Input[str] server_id: Specifies the name of the MS SQL Server.
         """
+        if auto_rotation_enabled is not None:
+            pulumi.set(__self__, "auto_rotation_enabled", auto_rotation_enabled)
         if key_vault_key_id is not None:
             pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         if server_id is not None:
             pulumi.set(__self__, "server_id", server_id)
+
+    @property
+    @pulumi.getter(name="autoRotationEnabled")
+    def auto_rotation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
+        """
+        return pulumi.get(self, "auto_rotation_enabled")
+
+    @auto_rotation_enabled.setter
+    def auto_rotation_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_rotation_enabled", value)
 
     @property
     @pulumi.getter(name="keyVaultKeyId")
@@ -95,6 +127,7 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_rotation_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -140,6 +173,7 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] auto_rotation_enabled: When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
         :param pulumi.Input[str] key_vault_key_id: To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
         :param pulumi.Input[str] server_id: Specifies the name of the MS SQL Server.
         """
@@ -204,6 +238,7 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_rotation_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -215,6 +250,7 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServerTransparentDataEncryptionArgs.__new__(ServerTransparentDataEncryptionArgs)
 
+            __props__.__dict__["auto_rotation_enabled"] = auto_rotation_enabled
             __props__.__dict__["key_vault_key_id"] = key_vault_key_id
             if server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'server_id'")
@@ -229,6 +265,7 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            auto_rotation_enabled: Optional[pulumi.Input[bool]] = None,
             key_vault_key_id: Optional[pulumi.Input[str]] = None,
             server_id: Optional[pulumi.Input[str]] = None) -> 'ServerTransparentDataEncryption':
         """
@@ -238,6 +275,7 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] auto_rotation_enabled: When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
         :param pulumi.Input[str] key_vault_key_id: To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
         :param pulumi.Input[str] server_id: Specifies the name of the MS SQL Server.
         """
@@ -245,9 +283,18 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
 
         __props__ = _ServerTransparentDataEncryptionState.__new__(_ServerTransparentDataEncryptionState)
 
+        __props__.__dict__["auto_rotation_enabled"] = auto_rotation_enabled
         __props__.__dict__["key_vault_key_id"] = key_vault_key_id
         __props__.__dict__["server_id"] = server_id
         return ServerTransparentDataEncryption(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="autoRotationEnabled")
+    def auto_rotation_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
+        """
+        return pulumi.get(self, "auto_rotation_enabled")
 
     @property
     @pulumi.getter(name="keyVaultKeyId")

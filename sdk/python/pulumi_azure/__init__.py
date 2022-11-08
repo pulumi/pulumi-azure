@@ -2696,6 +2696,22 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "datadog/monitorSsoConfiguration",
+  "fqn": "pulumi_azure.datadog",
+  "classes": {
+   "azure:datadog/monitorSsoConfiguration:MonitorSsoConfiguration": "MonitorSsoConfiguration"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "datadog/monitorTagRule",
+  "fqn": "pulumi_azure.datadog",
+  "classes": {
+   "azure:datadog/monitorTagRule:MonitorTagRule": "MonitorTagRule"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "datafactory/customDataset",
   "fqn": "pulumi_azure.datafactory",
   "classes": {
@@ -3924,6 +3940,22 @@ _utilities.register(
   "fqn": "pulumi_azure.iot",
   "classes": {
    "azure:iot/iotHubCertificate:IotHubCertificate": "IotHubCertificate"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "iot/iotHubDeviceUpdateAccount",
+  "fqn": "pulumi_azure.iot",
+  "classes": {
+   "azure:iot/iotHubDeviceUpdateAccount:IotHubDeviceUpdateAccount": "IotHubDeviceUpdateAccount"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "iot/iotHubDeviceUpdateInstance",
+  "fqn": "pulumi_azure.iot",
+  "classes": {
+   "azure:iot/iotHubDeviceUpdateInstance:IotHubDeviceUpdateInstance": "IotHubDeviceUpdateInstance"
   }
  },
  {
@@ -5904,6 +5936,22 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "nginx/certificate",
+  "fqn": "pulumi_azure.nginx",
+  "classes": {
+   "azure:nginx/certificate:Certificate": "Certificate"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "nginx/configuration",
+  "fqn": "pulumi_azure.nginx",
+  "classes": {
+   "azure:nginx/configuration:Configuration": "Configuration"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "nginx/deployment",
   "fqn": "pulumi_azure.nginx",
   "classes": {
@@ -6156,6 +6204,38 @@ _utilities.register(
   "fqn": "pulumi_azure.privatedns",
   "classes": {
    "azure:privatedns/pTRRecord:PTRRecord": "PTRRecord"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "privatedns/resolver",
+  "fqn": "pulumi_azure.privatedns",
+  "classes": {
+   "azure:privatedns/resolver:Resolver": "Resolver"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "privatedns/resolverDnsForwardingRuleset",
+  "fqn": "pulumi_azure.privatedns",
+  "classes": {
+   "azure:privatedns/resolverDnsForwardingRuleset:ResolverDnsForwardingRuleset": "ResolverDnsForwardingRuleset"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "privatedns/resolverInboundEndpoint",
+  "fqn": "pulumi_azure.privatedns",
+  "classes": {
+   "azure:privatedns/resolverInboundEndpoint:ResolverInboundEndpoint": "ResolverInboundEndpoint"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "privatedns/resolverOutboundEndpoint",
+  "fqn": "pulumi_azure.privatedns",
+  "classes": {
+   "azure:privatedns/resolverOutboundEndpoint:ResolverOutboundEndpoint": "ResolverOutboundEndpoint"
   }
  },
  {

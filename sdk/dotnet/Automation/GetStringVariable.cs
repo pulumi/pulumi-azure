@@ -14,7 +14,6 @@ namespace Pulumi.Azure.Automation
         /// <summary>
         /// Use this data source to access information about an existing Automation String Variable.
         /// 
-        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
@@ -47,7 +46,6 @@ namespace Pulumi.Azure.Automation
 
         /// <summary>
         /// Use this data source to access information about an existing Automation String Variable.
-        /// 
         /// 
         /// {{% examples %}}
         /// ## Example Usage

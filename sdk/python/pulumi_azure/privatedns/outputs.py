@@ -12,6 +12,7 @@ from .. import _utilities
 __all__ = [
     'LinkServiceNatIpConfiguration',
     'MxRecordRecord',
+    'ResolverInboundEndpointIpConfiguration',
     'SRVRecordRecord',
     'TxtRecordRecord',
     'ZoneSoaRecord',
@@ -132,6 +133,69 @@ class MxRecordRecord(dict):
         The preference of the MX record.
         """
         return pulumi.get(self, "preference")
+
+
+@pulumi.output_type
+class ResolverInboundEndpointIpConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "privateIpAddress":
+            suggest = "private_ip_address"
+        elif key == "privateIpAllocationMethod":
+            suggest = "private_ip_allocation_method"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResolverInboundEndpointIpConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResolverInboundEndpointIpConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResolverInboundEndpointIpConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 subnet_id: str,
+                 private_ip_address: Optional[str] = None,
+                 private_ip_allocation_method: Optional[str] = None):
+        """
+        :param str subnet_id: The subnet ID of the IP configuration.
+        :param str private_ip_address: Private IP address of the IP configuration.
+        :param str private_ip_allocation_method: Private IP address allocation method. Allowed value is `Dynamic`. Defaults to `Dynamic`.
+        """
+        pulumi.set(__self__, "subnet_id", subnet_id)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_allocation_method is not None:
+            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> str:
+        """
+        The subnet ID of the IP configuration.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[str]:
+        """
+        Private IP address of the IP configuration.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="privateIpAllocationMethod")
+    def private_ip_allocation_method(self) -> Optional[str]:
+        """
+        Private IP address allocation method. Allowed value is `Dynamic`. Defaults to `Dynamic`.
+        """
+        return pulumi.get(self, "private_ip_allocation_method")
 
 
 @pulumi.output_type

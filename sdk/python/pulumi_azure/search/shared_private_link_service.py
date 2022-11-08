@@ -110,6 +110,7 @@ class _SharedPrivateLinkServiceState:
         :param pulumi.Input[str] name: Specify the name of the Azure Search Shared Private Link Resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] request_message: Specify the request message for requesting approval of the Shared Private Link Enabled Remote Resource.
         :param pulumi.Input[str] search_service_id: Specify the id of the Azure Search Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] status: The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
         :param pulumi.Input[str] subresource_name: Specify the sub resource name which the Azure Search Private Endpoint is able to connect to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
         """
@@ -165,6 +166,9 @@ class _SharedPrivateLinkServiceState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -232,13 +236,6 @@ class SharedPrivateLinkService(pulumi.CustomResource):
             target_resource_id=test_account.id,
             request_message="please approve")
         ```
-        ## Attributes Reference:
-
-        The following attributes are exported:
-
-        * `id` - The ID of the Azure Search Shared Private Link resource.
-
-        * `status` - The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
 
         ## Import
 
@@ -287,13 +284,6 @@ class SharedPrivateLinkService(pulumi.CustomResource):
             target_resource_id=test_account.id,
             request_message="please approve")
         ```
-        ## Attributes Reference:
-
-        The following attributes are exported:
-
-        * `id` - The ID of the Azure Search Shared Private Link resource.
-
-        * `status` - The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
 
         ## Import
 
@@ -370,6 +360,7 @@ class SharedPrivateLinkService(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specify the name of the Azure Search Shared Private Link Resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] request_message: Specify the request message for requesting approval of the Shared Private Link Enabled Remote Resource.
         :param pulumi.Input[str] search_service_id: Specify the id of the Azure Search Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] status: The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
         :param pulumi.Input[str] subresource_name: Specify the sub resource name which the Azure Search Private Endpoint is able to connect to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
         """
@@ -412,6 +403,9 @@ class SharedPrivateLinkService(pulumi.CustomResource):
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
+        """
         return pulumi.get(self, "status")
 
     @property

@@ -41,7 +41,7 @@ import (
 //				Mode:              pulumi.String("All"),
 //				DisplayName:       pulumi.String("my-policy-definition"),
 //				ManagementGroupId: exampleGroup.ID(),
-//				PolicyRule: pulumi.String(fmt.Sprintf(`	{
+//				PolicyRule: pulumi.String(fmt.Sprintf(` {
 //	    "if": {
 //	      "not": {
 //	        "field": "location",

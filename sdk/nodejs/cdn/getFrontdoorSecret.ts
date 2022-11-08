@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access information about an existing CDN FrontDoor Secret.
+ * Use this data source to access information about an existing Front Door (standard/premium) Secret.
  *
  * ## Example Usage
  *
@@ -40,15 +40,15 @@ export function getFrontdoorSecret(args: GetFrontdoorSecretArgs, opts?: pulumi.I
  */
 export interface GetFrontdoorSecretArgs {
     /**
-     * Specifies the name of the FrontDoor Secret.
+     * Specifies the name of the Front Door Secret.
      */
     name: string;
     /**
-     * The name of the FrontDoor Profile within which CDN FrontDoor Secret exists.
+     * The name of the Front Door Profile within which the Front Door Secret exists.
      */
     profileName: string;
     /**
-     * The name of the Resource Group where the CDN FrontDoor Profile exists.
+     * The name of the Resource Group where the Front Door Profile exists.
      */
     resourceGroupName: string;
 }
@@ -58,7 +58,7 @@ export interface GetFrontdoorSecretArgs {
  */
 export interface GetFrontdoorSecretResult {
     /**
-     * Specifies the ID of the CDN FrontDoor Profile within which this CDN FrontDoor Secret exists.
+     * Specifies the ID of the Front Door Profile within which this Front Door Secret exists.
      */
     readonly cdnFrontdoorProfileId: string;
     /**
@@ -83,15 +83,15 @@ export function getFrontdoorSecretOutput(args: GetFrontdoorSecretOutputArgs, opt
  */
 export interface GetFrontdoorSecretOutputArgs {
     /**
-     * Specifies the name of the FrontDoor Secret.
+     * Specifies the name of the Front Door Secret.
      */
     name: pulumi.Input<string>;
     /**
-     * The name of the FrontDoor Profile within which CDN FrontDoor Secret exists.
+     * The name of the Front Door Profile within which the Front Door Secret exists.
      */
     profileName: pulumi.Input<string>;
     /**
-     * The name of the Resource Group where the CDN FrontDoor Profile exists.
+     * The name of the Resource Group where the Front Door Profile exists.
      */
     resourceGroupName: pulumi.Input<string>;
 }

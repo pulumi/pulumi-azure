@@ -13,14 +13,14 @@ public final class GetFrontdoorProfilePlainArgs extends com.pulumi.resources.Inv
     public static final GetFrontdoorProfilePlainArgs Empty = new GetFrontdoorProfilePlainArgs();
 
     /**
-     * Specifies the name of the FrontDoor Profile.
+     * Specifies the name of the Front Door Profile.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return Specifies the name of the FrontDoor Profile.
+     * @return Specifies the name of the Front Door Profile.
      * 
      */
     public String name() {
@@ -28,14 +28,14 @@ public final class GetFrontdoorProfilePlainArgs extends com.pulumi.resources.Inv
     }
 
     /**
-     * The name of the Resource Group where this FrontDoor Profile exists.
+     * The name of the Resource Group where this Front Door Profile exists.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private String resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where this FrontDoor Profile exists.
+     * @return The name of the Resource Group where this Front Door Profile exists.
      * 
      */
     public String resourceGroupName() {
@@ -68,7 +68,7 @@ public final class GetFrontdoorProfilePlainArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param name Specifies the name of the FrontDoor Profile.
+         * @param name Specifies the name of the Front Door Profile.
          * 
          * @return builder
          * 
@@ -79,7 +79,7 @@ public final class GetFrontdoorProfilePlainArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where this FrontDoor Profile exists.
+         * @param resourceGroupName The name of the Resource Group where this Front Door Profile exists.
          * 
          * @return builder
          * 

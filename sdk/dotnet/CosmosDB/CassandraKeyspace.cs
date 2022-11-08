@@ -80,7 +80,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> AccountName { get; private set; } = null!;
 
         /// <summary>
-        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
         /// </summary>
         [Output("autoscaleSettings")]
         public Output<Outputs.CassandraKeyspaceAutoscaleSettings?> AutoscaleSettings { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
         /// </summary>
         [Input("autoscaleSettings")]
         public Input<Inputs.CassandraKeyspaceAutoscaleSettingsArgs>? AutoscaleSettings { get; set; }
@@ -194,7 +194,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? AccountName { get; set; }
 
         /// <summary>
-        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
         /// </summary>
         [Input("autoscaleSettings")]
         public Input<Inputs.CassandraKeyspaceAutoscaleSettingsGetArgs>? AutoscaleSettings { get; set; }

@@ -6,6 +6,8 @@ package com.pulumi.azure.containerservice.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GroupImageRegistryCredential {
@@ -13,25 +15,30 @@ public final class GroupImageRegistryCredential {
      * @return The password with which to connect to the registry. Changing this forces a new resource to be created.
      * 
      */
-    private String password;
+    private @Nullable String password;
     /**
      * @return The address to use to connect to the registry without protocol (&#34;https&#34;/&#34;http&#34;). For example: &#34;myacr.acr.io&#34;. Changing this forces a new resource to be created.
      * 
      */
     private String server;
     /**
+     * @return The identity ID for the private registry. Changing this forces a new resource to be created.
+     * 
+     */
+    private @Nullable String userAssignedIdentityId;
+    /**
      * @return The username with which to connect to the registry. Changing this forces a new resource to be created.
      * 
      */
-    private String username;
+    private @Nullable String username;
 
     private GroupImageRegistryCredential() {}
     /**
      * @return The password with which to connect to the registry. Changing this forces a new resource to be created.
      * 
      */
-    public String password() {
-        return this.password;
+    public Optional<String> password() {
+        return Optional.ofNullable(this.password);
     }
     /**
      * @return The address to use to connect to the registry without protocol (&#34;https&#34;/&#34;http&#34;). For example: &#34;myacr.acr.io&#34;. Changing this forces a new resource to be created.
@@ -41,11 +48,18 @@ public final class GroupImageRegistryCredential {
         return this.server;
     }
     /**
+     * @return The identity ID for the private registry. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<String> userAssignedIdentityId() {
+        return Optional.ofNullable(this.userAssignedIdentityId);
+    }
+    /**
      * @return The username with which to connect to the registry. Changing this forces a new resource to be created.
      * 
      */
-    public String username() {
-        return this.username;
+    public Optional<String> username() {
+        return Optional.ofNullable(this.username);
     }
 
     public static Builder builder() {
@@ -57,20 +71,22 @@ public final class GroupImageRegistryCredential {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String password;
+        private @Nullable String password;
         private String server;
-        private String username;
+        private @Nullable String userAssignedIdentityId;
+        private @Nullable String username;
         public Builder() {}
         public Builder(GroupImageRegistryCredential defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.password = defaults.password;
     	      this.server = defaults.server;
+    	      this.userAssignedIdentityId = defaults.userAssignedIdentityId;
     	      this.username = defaults.username;
         }
 
         @CustomType.Setter
-        public Builder password(String password) {
-            this.password = Objects.requireNonNull(password);
+        public Builder password(@Nullable String password) {
+            this.password = password;
             return this;
         }
         @CustomType.Setter
@@ -79,14 +95,20 @@ public final class GroupImageRegistryCredential {
             return this;
         }
         @CustomType.Setter
-        public Builder username(String username) {
-            this.username = Objects.requireNonNull(username);
+        public Builder userAssignedIdentityId(@Nullable String userAssignedIdentityId) {
+            this.userAssignedIdentityId = userAssignedIdentityId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder username(@Nullable String username) {
+            this.username = username;
             return this;
         }
         public GroupImageRegistryCredential build() {
             final var o = new GroupImageRegistryCredential();
             o.password = password;
             o.server = server;
+            o.userAssignedIdentityId = userAssignedIdentityId;
             o.username = username;
             return o;
         }

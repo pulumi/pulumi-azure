@@ -11,50 +11,50 @@ import java.util.Objects;
 @CustomType
 public final class VirtualMachineAutoBackupManualSchedule {
     /**
-     * @return Frequency of full backups. Valid values include `Daily` or `Weekly`. Required when `backup_schedule_automated` is false.
+     * @return Frequency of full backups. Valid values include `Daily` or `Weekly`.
      * 
      */
     private String fullBackupFrequency;
     /**
-     * @return Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`. Required when `backup_schedule_automated` is false.
+     * @return Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`.
      * 
      */
     private Integer fullBackupStartHour;
     /**
-     * @return Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`. Required when `backup_schedule_automated` is false.
+     * @return Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`.
      * 
      */
     private Integer fullBackupWindowInHours;
     /**
-     * @return Frequency of log backups, in minutes. Valid values are from `5` to `60`. Required when `backup_schedule_automated` is false.
+     * @return Frequency of log backups, in minutes. Valid values are from `5` to `60`.
      * 
      */
     private Integer logBackupFrequencyInMinutes;
 
     private VirtualMachineAutoBackupManualSchedule() {}
     /**
-     * @return Frequency of full backups. Valid values include `Daily` or `Weekly`. Required when `backup_schedule_automated` is false.
+     * @return Frequency of full backups. Valid values include `Daily` or `Weekly`.
      * 
      */
     public String fullBackupFrequency() {
         return this.fullBackupFrequency;
     }
     /**
-     * @return Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`. Required when `backup_schedule_automated` is false.
+     * @return Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`.
      * 
      */
     public Integer fullBackupStartHour() {
         return this.fullBackupStartHour;
     }
     /**
-     * @return Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`. Required when `backup_schedule_automated` is false.
+     * @return Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`.
      * 
      */
     public Integer fullBackupWindowInHours() {
         return this.fullBackupWindowInHours;
     }
     /**
-     * @return Frequency of log backups, in minutes. Valid values are from `5` to `60`. Required when `backup_schedule_automated` is false.
+     * @return Frequency of log backups, in minutes. Valid values are from `5` to `60`.
      * 
      */
     public Integer logBackupFrequencyInMinutes() {

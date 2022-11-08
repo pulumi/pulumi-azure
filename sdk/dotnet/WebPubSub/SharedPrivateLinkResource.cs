@@ -74,13 +74,6 @@ namespace Pulumi.Azure.WebPubSub
     /// 
     /// });
     /// ```
-    /// ## Attributes Reference:
-    /// 
-    /// The following attributes are exported:
-    /// 
-    /// * `id` - The ID of the Web Pubsub Shared Private Link resource.
-    /// 
-    /// * `status` - The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
     /// 
     /// ## Import
     /// 
@@ -105,6 +98,9 @@ namespace Pulumi.Azure.WebPubSub
         [Output("requestMessage")]
         public Output<string?> RequestMessage { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -222,6 +218,9 @@ namespace Pulumi.Azure.WebPubSub
         [Input("requestMessage")]
         public Input<string>? RequestMessage { get; set; }
 
+        /// <summary>
+        /// The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

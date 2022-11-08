@@ -2677,11 +2677,13 @@ func (o GroupIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 
 type GroupImageRegistryCredential struct {
 	// The password with which to connect to the registry. Changing this forces a new resource to be created.
-	Password string `pulumi:"password"`
+	Password *string `pulumi:"password"`
 	// The address to use to connect to the registry without protocol ("https"/"http"). For example: "myacr.acr.io". Changing this forces a new resource to be created.
 	Server string `pulumi:"server"`
+	// The identity ID for the private registry. Changing this forces a new resource to be created.
+	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 	// The username with which to connect to the registry. Changing this forces a new resource to be created.
-	Username string `pulumi:"username"`
+	Username *string `pulumi:"username"`
 }
 
 // GroupImageRegistryCredentialInput is an input type that accepts GroupImageRegistryCredentialArgs and GroupImageRegistryCredentialOutput values.
@@ -2697,11 +2699,13 @@ type GroupImageRegistryCredentialInput interface {
 
 type GroupImageRegistryCredentialArgs struct {
 	// The password with which to connect to the registry. Changing this forces a new resource to be created.
-	Password pulumi.StringInput `pulumi:"password"`
+	Password pulumi.StringPtrInput `pulumi:"password"`
 	// The address to use to connect to the registry without protocol ("https"/"http"). For example: "myacr.acr.io". Changing this forces a new resource to be created.
 	Server pulumi.StringInput `pulumi:"server"`
+	// The identity ID for the private registry. Changing this forces a new resource to be created.
+	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 	// The username with which to connect to the registry. Changing this forces a new resource to be created.
-	Username pulumi.StringInput `pulumi:"username"`
+	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
 func (GroupImageRegistryCredentialArgs) ElementType() reflect.Type {
@@ -2756,8 +2760,8 @@ func (o GroupImageRegistryCredentialOutput) ToGroupImageRegistryCredentialOutput
 }
 
 // The password with which to connect to the registry. Changing this forces a new resource to be created.
-func (o GroupImageRegistryCredentialOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func(v GroupImageRegistryCredential) string { return v.Password }).(pulumi.StringOutput)
+func (o GroupImageRegistryCredentialOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupImageRegistryCredential) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 // The address to use to connect to the registry without protocol ("https"/"http"). For example: "myacr.acr.io". Changing this forces a new resource to be created.
@@ -2765,9 +2769,14 @@ func (o GroupImageRegistryCredentialOutput) Server() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupImageRegistryCredential) string { return v.Server }).(pulumi.StringOutput)
 }
 
+// The identity ID for the private registry. Changing this forces a new resource to be created.
+func (o GroupImageRegistryCredentialOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupImageRegistryCredential) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
+}
+
 // The username with which to connect to the registry. Changing this forces a new resource to be created.
-func (o GroupImageRegistryCredentialOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func(v GroupImageRegistryCredential) string { return v.Username }).(pulumi.StringOutput)
+func (o GroupImageRegistryCredentialOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupImageRegistryCredential) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
 type GroupImageRegistryCredentialArrayOutput struct{ *pulumi.OutputState }
@@ -4150,7 +4159,7 @@ type KubernetesClusterDefaultNodePool struct {
 	OsDiskSizeGb *int `pulumi:"osDiskSizeGb"`
 	// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
 	OsDiskType *string `pulumi:"osDiskType"`
-	// OsSKU to be used to specify Linux OSType. Not applicable to Windows OSType. Possible values include: `Ubuntu`, `CBLMariner`. Defaults to `Ubuntu`. Changing this forces a new resource to be created.
+	// Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this forces a new resource to be created.
 	OsSku *string `pulumi:"osSku"`
 	// The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
 	PodSubnetId               *string `pulumi:"podSubnetId"`
@@ -4229,7 +4238,7 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	OsDiskSizeGb pulumi.IntPtrInput `pulumi:"osDiskSizeGb"`
 	// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
 	OsDiskType pulumi.StringPtrInput `pulumi:"osDiskType"`
-	// OsSKU to be used to specify Linux OSType. Not applicable to Windows OSType. Possible values include: `Ubuntu`, `CBLMariner`. Defaults to `Ubuntu`. Changing this forces a new resource to be created.
+	// Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this forces a new resource to be created.
 	OsSku pulumi.StringPtrInput `pulumi:"osSku"`
 	// The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
 	PodSubnetId               pulumi.StringPtrInput `pulumi:"podSubnetId"`
@@ -4443,7 +4452,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) OsDiskType() pulumi.StringPtrOut
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.OsDiskType }).(pulumi.StringPtrOutput)
 }
 
-// OsSKU to be used to specify Linux OSType. Not applicable to Windows OSType. Possible values include: `Ubuntu`, `CBLMariner`. Defaults to `Ubuntu`. Changing this forces a new resource to be created.
+// Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolOutput) OsSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.OsSku }).(pulumi.StringPtrOutput)
 }
@@ -4746,7 +4755,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) OsDiskType() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// OsSKU to be used to specify Linux OSType. Not applicable to Windows OSType. Possible values include: `Ubuntu`, `CBLMariner`. Defaults to `Ubuntu`. Changing this forces a new resource to be created.
+// Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) OsSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
 		if v == nil {
@@ -11406,6 +11415,143 @@ func (o KubernetesClusterWindowsProfileGmsaPtrOutput) RootDomain() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+type KubernetesClusterWorkloadAutoscalerProfile struct {
+	// Specifies whether KEDA Autoscaler can be used for workloads.
+	KedaEnabled *bool `pulumi:"kedaEnabled"`
+}
+
+// KubernetesClusterWorkloadAutoscalerProfileInput is an input type that accepts KubernetesClusterWorkloadAutoscalerProfileArgs and KubernetesClusterWorkloadAutoscalerProfileOutput values.
+// You can construct a concrete instance of `KubernetesClusterWorkloadAutoscalerProfileInput` via:
+//
+//	KubernetesClusterWorkloadAutoscalerProfileArgs{...}
+type KubernetesClusterWorkloadAutoscalerProfileInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterWorkloadAutoscalerProfileOutput() KubernetesClusterWorkloadAutoscalerProfileOutput
+	ToKubernetesClusterWorkloadAutoscalerProfileOutputWithContext(context.Context) KubernetesClusterWorkloadAutoscalerProfileOutput
+}
+
+type KubernetesClusterWorkloadAutoscalerProfileArgs struct {
+	// Specifies whether KEDA Autoscaler can be used for workloads.
+	KedaEnabled pulumi.BoolPtrInput `pulumi:"kedaEnabled"`
+}
+
+func (KubernetesClusterWorkloadAutoscalerProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterWorkloadAutoscalerProfile)(nil)).Elem()
+}
+
+func (i KubernetesClusterWorkloadAutoscalerProfileArgs) ToKubernetesClusterWorkloadAutoscalerProfileOutput() KubernetesClusterWorkloadAutoscalerProfileOutput {
+	return i.ToKubernetesClusterWorkloadAutoscalerProfileOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterWorkloadAutoscalerProfileArgs) ToKubernetesClusterWorkloadAutoscalerProfileOutputWithContext(ctx context.Context) KubernetesClusterWorkloadAutoscalerProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterWorkloadAutoscalerProfileOutput)
+}
+
+func (i KubernetesClusterWorkloadAutoscalerProfileArgs) ToKubernetesClusterWorkloadAutoscalerProfilePtrOutput() KubernetesClusterWorkloadAutoscalerProfilePtrOutput {
+	return i.ToKubernetesClusterWorkloadAutoscalerProfilePtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterWorkloadAutoscalerProfileArgs) ToKubernetesClusterWorkloadAutoscalerProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterWorkloadAutoscalerProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterWorkloadAutoscalerProfileOutput).ToKubernetesClusterWorkloadAutoscalerProfilePtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterWorkloadAutoscalerProfilePtrInput is an input type that accepts KubernetesClusterWorkloadAutoscalerProfileArgs, KubernetesClusterWorkloadAutoscalerProfilePtr and KubernetesClusterWorkloadAutoscalerProfilePtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterWorkloadAutoscalerProfilePtrInput` via:
+//
+//	        KubernetesClusterWorkloadAutoscalerProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type KubernetesClusterWorkloadAutoscalerProfilePtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterWorkloadAutoscalerProfilePtrOutput() KubernetesClusterWorkloadAutoscalerProfilePtrOutput
+	ToKubernetesClusterWorkloadAutoscalerProfilePtrOutputWithContext(context.Context) KubernetesClusterWorkloadAutoscalerProfilePtrOutput
+}
+
+type kubernetesClusterWorkloadAutoscalerProfilePtrType KubernetesClusterWorkloadAutoscalerProfileArgs
+
+func KubernetesClusterWorkloadAutoscalerProfilePtr(v *KubernetesClusterWorkloadAutoscalerProfileArgs) KubernetesClusterWorkloadAutoscalerProfilePtrInput {
+	return (*kubernetesClusterWorkloadAutoscalerProfilePtrType)(v)
+}
+
+func (*kubernetesClusterWorkloadAutoscalerProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterWorkloadAutoscalerProfile)(nil)).Elem()
+}
+
+func (i *kubernetesClusterWorkloadAutoscalerProfilePtrType) ToKubernetesClusterWorkloadAutoscalerProfilePtrOutput() KubernetesClusterWorkloadAutoscalerProfilePtrOutput {
+	return i.ToKubernetesClusterWorkloadAutoscalerProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterWorkloadAutoscalerProfilePtrType) ToKubernetesClusterWorkloadAutoscalerProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterWorkloadAutoscalerProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterWorkloadAutoscalerProfilePtrOutput)
+}
+
+type KubernetesClusterWorkloadAutoscalerProfileOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterWorkloadAutoscalerProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterWorkloadAutoscalerProfile)(nil)).Elem()
+}
+
+func (o KubernetesClusterWorkloadAutoscalerProfileOutput) ToKubernetesClusterWorkloadAutoscalerProfileOutput() KubernetesClusterWorkloadAutoscalerProfileOutput {
+	return o
+}
+
+func (o KubernetesClusterWorkloadAutoscalerProfileOutput) ToKubernetesClusterWorkloadAutoscalerProfileOutputWithContext(ctx context.Context) KubernetesClusterWorkloadAutoscalerProfileOutput {
+	return o
+}
+
+func (o KubernetesClusterWorkloadAutoscalerProfileOutput) ToKubernetesClusterWorkloadAutoscalerProfilePtrOutput() KubernetesClusterWorkloadAutoscalerProfilePtrOutput {
+	return o.ToKubernetesClusterWorkloadAutoscalerProfilePtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterWorkloadAutoscalerProfileOutput) ToKubernetesClusterWorkloadAutoscalerProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterWorkloadAutoscalerProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterWorkloadAutoscalerProfile) *KubernetesClusterWorkloadAutoscalerProfile {
+		return &v
+	}).(KubernetesClusterWorkloadAutoscalerProfilePtrOutput)
+}
+
+// Specifies whether KEDA Autoscaler can be used for workloads.
+func (o KubernetesClusterWorkloadAutoscalerProfileOutput) KedaEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterWorkloadAutoscalerProfile) *bool { return v.KedaEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type KubernetesClusterWorkloadAutoscalerProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterWorkloadAutoscalerProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterWorkloadAutoscalerProfile)(nil)).Elem()
+}
+
+func (o KubernetesClusterWorkloadAutoscalerProfilePtrOutput) ToKubernetesClusterWorkloadAutoscalerProfilePtrOutput() KubernetesClusterWorkloadAutoscalerProfilePtrOutput {
+	return o
+}
+
+func (o KubernetesClusterWorkloadAutoscalerProfilePtrOutput) ToKubernetesClusterWorkloadAutoscalerProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterWorkloadAutoscalerProfilePtrOutput {
+	return o
+}
+
+func (o KubernetesClusterWorkloadAutoscalerProfilePtrOutput) Elem() KubernetesClusterWorkloadAutoscalerProfileOutput {
+	return o.ApplyT(func(v *KubernetesClusterWorkloadAutoscalerProfile) KubernetesClusterWorkloadAutoscalerProfile {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterWorkloadAutoscalerProfile
+		return ret
+	}).(KubernetesClusterWorkloadAutoscalerProfileOutput)
+}
+
+// Specifies whether KEDA Autoscaler can be used for workloads.
+func (o KubernetesClusterWorkloadAutoscalerProfilePtrOutput) KedaEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterWorkloadAutoscalerProfile) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.KedaEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type RegistryEncryption struct {
 	// Boolean value that indicates whether encryption is enabled.
 	Enabled *bool `pulumi:"enabled"`
@@ -15356,6 +15502,130 @@ func (o GetClusterNodePoolUpgradeSettingArrayOutput) Index(i pulumi.IntInput) Ge
 	}).(GetClusterNodePoolUpgradeSettingOutput)
 }
 
+type GetGroupIdentity struct {
+	// The list of User Assigned Managed Identity IDs assigned to this Container Group.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Container Group.
+	PrincipalId string `pulumi:"principalId"`
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Container Group.
+	TenantId string `pulumi:"tenantId"`
+	// Type of Managed Service Identity configured on this Container Group.
+	Type string `pulumi:"type"`
+}
+
+// GetGroupIdentityInput is an input type that accepts GetGroupIdentityArgs and GetGroupIdentityOutput values.
+// You can construct a concrete instance of `GetGroupIdentityInput` via:
+//
+//	GetGroupIdentityArgs{...}
+type GetGroupIdentityInput interface {
+	pulumi.Input
+
+	ToGetGroupIdentityOutput() GetGroupIdentityOutput
+	ToGetGroupIdentityOutputWithContext(context.Context) GetGroupIdentityOutput
+}
+
+type GetGroupIdentityArgs struct {
+	// The list of User Assigned Managed Identity IDs assigned to this Container Group.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Container Group.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Container Group.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// Type of Managed Service Identity configured on this Container Group.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetGroupIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGroupIdentity)(nil)).Elem()
+}
+
+func (i GetGroupIdentityArgs) ToGetGroupIdentityOutput() GetGroupIdentityOutput {
+	return i.ToGetGroupIdentityOutputWithContext(context.Background())
+}
+
+func (i GetGroupIdentityArgs) ToGetGroupIdentityOutputWithContext(ctx context.Context) GetGroupIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGroupIdentityOutput)
+}
+
+// GetGroupIdentityArrayInput is an input type that accepts GetGroupIdentityArray and GetGroupIdentityArrayOutput values.
+// You can construct a concrete instance of `GetGroupIdentityArrayInput` via:
+//
+//	GetGroupIdentityArray{ GetGroupIdentityArgs{...} }
+type GetGroupIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetGroupIdentityArrayOutput() GetGroupIdentityArrayOutput
+	ToGetGroupIdentityArrayOutputWithContext(context.Context) GetGroupIdentityArrayOutput
+}
+
+type GetGroupIdentityArray []GetGroupIdentityInput
+
+func (GetGroupIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGroupIdentity)(nil)).Elem()
+}
+
+func (i GetGroupIdentityArray) ToGetGroupIdentityArrayOutput() GetGroupIdentityArrayOutput {
+	return i.ToGetGroupIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetGroupIdentityArray) ToGetGroupIdentityArrayOutputWithContext(ctx context.Context) GetGroupIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGroupIdentityArrayOutput)
+}
+
+type GetGroupIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetGroupIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGroupIdentity)(nil)).Elem()
+}
+
+func (o GetGroupIdentityOutput) ToGetGroupIdentityOutput() GetGroupIdentityOutput {
+	return o
+}
+
+func (o GetGroupIdentityOutput) ToGetGroupIdentityOutputWithContext(ctx context.Context) GetGroupIdentityOutput {
+	return o
+}
+
+// The list of User Assigned Managed Identity IDs assigned to this Container Group.
+func (o GetGroupIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetGroupIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID of the System Assigned Managed Service Identity that is configured on this Container Group.
+func (o GetGroupIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Container Group.
+func (o GetGroupIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Type of Managed Service Identity configured on this Container Group.
+func (o GetGroupIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetGroupIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetGroupIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGroupIdentity)(nil)).Elem()
+}
+
+func (o GetGroupIdentityArrayOutput) ToGetGroupIdentityArrayOutput() GetGroupIdentityArrayOutput {
+	return o
+}
+
+func (o GetGroupIdentityArrayOutput) ToGetGroupIdentityArrayOutputWithContext(ctx context.Context) GetGroupIdentityArrayOutput {
+	return o
+}
+
+func (o GetGroupIdentityArrayOutput) Index(i pulumi.IntInput) GetGroupIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGroupIdentity {
+		return vs[0].([]GetGroupIdentity)[vs[1].(int)]
+	}).(GetGroupIdentityOutput)
+}
+
 type GetKubernetesClusterAciConnectorLinux struct {
 	// The subnet name for the virtual nodes to run.
 	SubnetName string `pulumi:"subnetName"`
@@ -17944,6 +18214,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterWindowsProfilePtrInput)(nil)).Elem(), KubernetesClusterWindowsProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterWindowsProfileGmsaInput)(nil)).Elem(), KubernetesClusterWindowsProfileGmsaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterWindowsProfileGmsaPtrInput)(nil)).Elem(), KubernetesClusterWindowsProfileGmsaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterWorkloadAutoscalerProfileInput)(nil)).Elem(), KubernetesClusterWorkloadAutoscalerProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterWorkloadAutoscalerProfilePtrInput)(nil)).Elem(), KubernetesClusterWorkloadAutoscalerProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryEncryptionInput)(nil)).Elem(), RegistryEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryEncryptionPtrInput)(nil)).Elem(), RegistryEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryGeoreplicationInput)(nil)).Elem(), RegistryGeoreplicationArgs{})
@@ -17992,6 +18264,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TokenPasswordPassword2PtrInput)(nil)).Elem(), TokenPasswordPassword2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterNodePoolUpgradeSettingInput)(nil)).Elem(), GetClusterNodePoolUpgradeSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterNodePoolUpgradeSettingArrayInput)(nil)).Elem(), GetClusterNodePoolUpgradeSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupIdentityInput)(nil)).Elem(), GetGroupIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupIdentityArrayInput)(nil)).Elem(), GetGroupIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAciConnectorLinuxInput)(nil)).Elem(), GetKubernetesClusterAciConnectorLinuxArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAciConnectorLinuxArrayInput)(nil)).Elem(), GetKubernetesClusterAciConnectorLinuxArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAgentPoolProfileInput)(nil)).Elem(), GetKubernetesClusterAgentPoolProfileArgs{})
@@ -18142,6 +18416,8 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterWindowsProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterWindowsProfileGmsaOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterWindowsProfileGmsaPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterWorkloadAutoscalerProfileOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterWorkloadAutoscalerProfilePtrOutput{})
 	pulumi.RegisterOutputType(RegistryEncryptionOutput{})
 	pulumi.RegisterOutputType(RegistryEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(RegistryGeoreplicationOutput{})
@@ -18190,6 +18466,8 @@ func init() {
 	pulumi.RegisterOutputType(TokenPasswordPassword2PtrOutput{})
 	pulumi.RegisterOutputType(GetClusterNodePoolUpgradeSettingOutput{})
 	pulumi.RegisterOutputType(GetClusterNodePoolUpgradeSettingArrayOutput{})
+	pulumi.RegisterOutputType(GetGroupIdentityOutput{})
+	pulumi.RegisterOutputType(GetGroupIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAciConnectorLinuxOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAciConnectorLinuxArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAgentPoolProfileOutput{})

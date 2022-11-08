@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cdn
 {
     /// <summary>
-    /// Manages a CDN FrontDoor Origin Group.
+    /// Manages a Front Door (standard/premium) Origin Group.
     /// 
     /// ## Example Usage
     /// 
@@ -56,7 +56,7 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// ## Import
     /// 
-    /// CDN FrontDoor Origin Groups can be imported using the `resource id`, e.g.
+    /// Front Door Origin Groups can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import azure:cdn/frontdoorOriginGroup:FrontdoorOriginGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/originGroups/originGroup1
@@ -66,7 +66,7 @@ namespace Pulumi.Azure.Cdn
     public partial class FrontdoorOriginGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group should exist. Changing this forces a new CDN FrontDoor Origin Group to be created.
+        /// The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
         /// </summary>
         [Output("cdnFrontdoorProfileId")]
         public Output<string> CdnFrontdoorProfileId { get; private set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.Azure.Cdn
         public Output<Outputs.FrontdoorOriginGroupLoadBalancing> LoadBalancing { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this CDN FrontDoor Origin Group. Changing this forces a new CDN FrontDoor Origin Group to be created.
+        /// The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -148,7 +148,7 @@ namespace Pulumi.Azure.Cdn
     public sealed class FrontdoorOriginGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group should exist. Changing this forces a new CDN FrontDoor Origin Group to be created.
+        /// The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
         /// </summary>
         [Input("cdnFrontdoorProfileId", required: true)]
         public Input<string> CdnFrontdoorProfileId { get; set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.Azure.Cdn
         public Input<Inputs.FrontdoorOriginGroupLoadBalancingArgs> LoadBalancing { get; set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this CDN FrontDoor Origin Group. Changing this forces a new CDN FrontDoor Origin Group to be created.
+        /// The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -192,7 +192,7 @@ namespace Pulumi.Azure.Cdn
     public sealed class FrontdoorOriginGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group should exist. Changing this forces a new CDN FrontDoor Origin Group to be created.
+        /// The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
         /// </summary>
         [Input("cdnFrontdoorProfileId")]
         public Input<string>? CdnFrontdoorProfileId { get; set; }
@@ -210,7 +210,7 @@ namespace Pulumi.Azure.Cdn
         public Input<Inputs.FrontdoorOriginGroupLoadBalancingGetArgs>? LoadBalancing { get; set; }
 
         /// <summary>
-        /// The name which should be used for this CDN FrontDoor Origin Group. Changing this forces a new CDN FrontDoor Origin Group to be created.
+        /// The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

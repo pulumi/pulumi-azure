@@ -17,7 +17,6 @@ public final class ConnectionAuthenticationArgs extends com.pulumi.resources.Res
 
     /**
      * Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
-     * ---
      * 
      */
     @Import(name="certificate")
@@ -25,7 +24,6 @@ public final class ConnectionAuthenticationArgs extends com.pulumi.resources.Res
 
     /**
      * @return Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
-     * ---
      * 
      */
     public Optional<Output<String>> certificate() {
@@ -154,7 +152,6 @@ public final class ConnectionAuthenticationArgs extends com.pulumi.resources.Res
 
         /**
          * @param certificate Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
-         * ---
          * 
          * @return builder
          * 
@@ -166,7 +163,6 @@ public final class ConnectionAuthenticationArgs extends com.pulumi.resources.Res
 
         /**
          * @param certificate Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
-         * ---
          * 
          * @return builder
          * 

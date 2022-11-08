@@ -51,7 +51,7 @@ namespace Pulumi.Azure.Cdn
     /// ```
     /// ## Example CNAME Record Usage
     /// 
-    /// !&gt;**IMPORTANT:** You **must** include the `depends_on` meta-argument which references both the `azure.cdn.FrontdoorRoute` and the `azure.cdn.FrontdoorSecurityPolicy` that are associated with your Custom Domain. The reason for these `depends_on` meta-arguments is because all of the resources for the Custom Domain need to be associated within FrontDoor before the CNAME record can be written to the domains DNS, else the CNAME validation will fail and FrontDoor will not enable traffic to the Domain.
+    /// !&gt;**IMPORTANT:** You **must** include the `depends_on` meta-argument which references both the `azure.cdn.FrontdoorRoute` and the `azure.cdn.FrontdoorSecurityPolicy` that are associated with your Custom Domain. The reason for these `depends_on` meta-arguments is because all of the resources for the Custom Domain need to be associated within Front Door before the CNAME record can be written to the domains DNS, else the CNAME validation will fail and Front Door will not enable traffic to the Domain.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -80,7 +80,7 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// ## Import
     /// 
-    /// CDN FrontDoor Custom Domains can be imported using the `resource id`, e.g.
+    /// Front Door Custom Domains can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/customDomains/customDomain1
@@ -90,13 +90,13 @@ namespace Pulumi.Azure.Cdn
     public partial class FrontdoorCustomDomain : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the Frontdoor Profile. Changing this forces a new Frontdoor Profile to be created.
+        /// The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
         /// </summary>
         [Output("cdnFrontdoorProfileId")]
         public Output<string> CdnFrontdoorProfileId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Azure DNS Zone which should be used for this CDN FrontDoor Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the CDN FrontDoor Custom Domain by creating the DNS TXT records manually.
+        /// The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
         /// </summary>
         [Output("dnsZoneId")]
         public Output<string?> DnsZoneId { get; private set; } = null!;
@@ -108,13 +108,13 @@ namespace Pulumi.Azure.Cdn
         public Output<string> ExpirationDate { get; private set; } = null!;
 
         /// <summary>
-        /// The host name of the domain. The `host_name` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new CDN FrontDoor Custom Domain to be created.
+        /// The host name of the domain. The `host_name` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new Front Door Custom Domain to be created.
         /// </summary>
         [Output("hostName")]
         public Output<string> HostName { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this CDN FrontDoor Custom Domain. Possible values must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number and contain only letters, numbers and hyphens. Changing this forces a new CDN FrontDoor Custom Domain to be created.
+        /// The name which should be used for this Front Door Custom Domain. Possible values must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number and contain only letters, numbers and hyphens. Changing this forces a new Front Door Custom Domain to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -182,25 +182,25 @@ namespace Pulumi.Azure.Cdn
     public sealed class FrontdoorCustomDomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Frontdoor Profile. Changing this forces a new Frontdoor Profile to be created.
+        /// The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
         /// </summary>
         [Input("cdnFrontdoorProfileId", required: true)]
         public Input<string> CdnFrontdoorProfileId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Azure DNS Zone which should be used for this CDN FrontDoor Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the CDN FrontDoor Custom Domain by creating the DNS TXT records manually.
+        /// The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
         /// </summary>
         [Input("dnsZoneId")]
         public Input<string>? DnsZoneId { get; set; }
 
         /// <summary>
-        /// The host name of the domain. The `host_name` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new CDN FrontDoor Custom Domain to be created.
+        /// The host name of the domain. The `host_name` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new Front Door Custom Domain to be created.
         /// </summary>
         [Input("hostName", required: true)]
         public Input<string> HostName { get; set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this CDN FrontDoor Custom Domain. Possible values must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number and contain only letters, numbers and hyphens. Changing this forces a new CDN FrontDoor Custom Domain to be created.
+        /// The name which should be used for this Front Door Custom Domain. Possible values must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number and contain only letters, numbers and hyphens. Changing this forces a new Front Door Custom Domain to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -220,13 +220,13 @@ namespace Pulumi.Azure.Cdn
     public sealed class FrontdoorCustomDomainState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Frontdoor Profile. Changing this forces a new Frontdoor Profile to be created.
+        /// The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
         /// </summary>
         [Input("cdnFrontdoorProfileId")]
         public Input<string>? CdnFrontdoorProfileId { get; set; }
 
         /// <summary>
-        /// The ID of the Azure DNS Zone which should be used for this CDN FrontDoor Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the CDN FrontDoor Custom Domain by creating the DNS TXT records manually.
+        /// The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
         /// </summary>
         [Input("dnsZoneId")]
         public Input<string>? DnsZoneId { get; set; }
@@ -238,13 +238,13 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? ExpirationDate { get; set; }
 
         /// <summary>
-        /// The host name of the domain. The `host_name` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new CDN FrontDoor Custom Domain to be created.
+        /// The host name of the domain. The `host_name` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new Front Door Custom Domain to be created.
         /// </summary>
         [Input("hostName")]
         public Input<string>? HostName { get; set; }
 
         /// <summary>
-        /// The name which should be used for this CDN FrontDoor Custom Domain. Possible values must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number and contain only letters, numbers and hyphens. Changing this forces a new CDN FrontDoor Custom Domain to be created.
+        /// The name which should be used for this Front Door Custom Domain. Possible values must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number and contain only letters, numbers and hyphens. Changing this forces a new Front Door Custom Domain to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

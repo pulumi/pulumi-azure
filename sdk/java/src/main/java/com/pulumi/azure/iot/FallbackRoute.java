@@ -119,14 +119,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:iot/fallbackRoute:FallbackRoute")
 public class FallbackRoute extends com.pulumi.resources.CustomResource {
     /**
-     * The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+     * The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: &lt;https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language&gt;.
      * 
      */
     @Export(name="condition", type=String.class, parameters={})
     private Output</* @Nullable */ String> condition;
 
     /**
-     * @return The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+     * @return The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: &lt;https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language&gt;.
      * 
      */
     public Output<Optional<String>> condition() {

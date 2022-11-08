@@ -204,14 +204,14 @@ public class WorkspaceSecurityAlertPolicy extends com.pulumi.resources.CustomRes
         return Codegen.optional(this.storageAccountAccessKey);
     }
     /**
-     * Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+     * Specifies the blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Threat Detection audit logs.
      * 
      */
     @Export(name="storageEndpoint", type=String.class, parameters={})
     private Output</* @Nullable */ String> storageEndpoint;
 
     /**
-     * @return Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+     * @return Specifies the blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Threat Detection audit logs.
      * 
      */
     public Output<Optional<String>> storageEndpoint() {

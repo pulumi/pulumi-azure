@@ -28,7 +28,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<string>? _oauthScopes;
 
         /// <summary>
-        /// The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
+        /// The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. &lt;https://developers.facebook.com/docs/facebook-login&gt;
         /// </summary>
         public InputList<string> OauthScopes
         {

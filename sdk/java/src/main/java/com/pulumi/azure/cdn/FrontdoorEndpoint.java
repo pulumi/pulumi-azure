@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a FrontDoor Endpoint.
+ * Manages a Front Door (standard/premium) Endpoint.
  * 
  * ## Example Usage
  * ```java
@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CDN FrontDoor Endpoints can be imported using the `resource id`, e.g.
+ * Front Door Endpoints can be imported using the `resource id`, e.g.
  * 
  * ```sh
  *  $ pulumi import azure:cdn/frontdoorEndpoint:FrontdoorEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/afdEndpoints/endpoint1
@@ -75,70 +75,70 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:cdn/frontdoorEndpoint:FrontdoorEndpoint")
 public class FrontdoorEndpoint extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the FrontDoor Profile within which this FrontDoor Endpoint should exist. Changing this forces a new CDN FrontDoor Endpoint to be created.
+     * The ID of the Front Door Profile within which this Front Door Endpoint should exist. Changing this forces a new Front Door Endpoint to be created.
      * 
      */
     @Export(name="cdnFrontdoorProfileId", type=String.class, parameters={})
     private Output<String> cdnFrontdoorProfileId;
 
     /**
-     * @return The ID of the FrontDoor Profile within which this FrontDoor Endpoint should exist. Changing this forces a new CDN FrontDoor Endpoint to be created.
+     * @return The ID of the Front Door Profile within which this Front Door Endpoint should exist. Changing this forces a new Front Door Endpoint to be created.
      * 
      */
     public Output<String> cdnFrontdoorProfileId() {
         return this.cdnFrontdoorProfileId;
     }
     /**
-     * Specifies if this CDN FrontDoor Endpoint is enabled? Defaults to `true`.
+     * Specifies if this Front Door Endpoint is enabled? Defaults to `true`.
      * 
      */
     @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Specifies if this CDN FrontDoor Endpoint is enabled? Defaults to `true`.
+     * @return Specifies if this Front Door Endpoint is enabled? Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
     /**
-     * The host name of the CDN FrontDoor Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
+     * The host name of the Front Door Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
      * 
      */
     @Export(name="hostName", type=String.class, parameters={})
     private Output<String> hostName;
 
     /**
-     * @return The host name of the CDN FrontDoor Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
+     * @return The host name of the Front Door Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
      * 
      */
     public Output<String> hostName() {
         return this.hostName;
     }
     /**
-     * The name which should be used for this CDN FrontDoor Endpoint. Changing this forces a new CDN FrontDoor Endpoint to be created.
+     * The name which should be used for this Front Door Endpoint. Changing this forces a new Front Door Endpoint to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this CDN FrontDoor Endpoint. Changing this forces a new CDN FrontDoor Endpoint to be created.
+     * @return The name which should be used for this Front Door Endpoint. Changing this forces a new Front Door Endpoint to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Specifies a mapping of tags which should be assigned to the CDN FrontDoor Endpoint.
+     * Specifies a mapping of tags which should be assigned to the Front Door Endpoint.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Specifies a mapping of tags which should be assigned to the CDN FrontDoor Endpoint.
+     * @return Specifies a mapping of tags which should be assigned to the Front Door Endpoint.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

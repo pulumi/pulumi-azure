@@ -2404,7 +2404,7 @@ class FrontdoorCustomDomainTls(dict):
                  certificate_type: Optional[str] = None,
                  minimum_tls_version: Optional[str] = None):
         """
-        :param str cdn_frontdoor_secret_id: Resource ID of the Frontdoor Secret.
+        :param str cdn_frontdoor_secret_id: Resource ID of the Front Door Secret.
         :param str certificate_type: Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
         :param str minimum_tls_version: TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
         """
@@ -2419,7 +2419,7 @@ class FrontdoorCustomDomainTls(dict):
     @pulumi.getter(name="cdnFrontdoorSecretId")
     def cdn_frontdoor_secret_id(self) -> Optional[str]:
         """
-        Resource ID of the Frontdoor Secret.
+        Resource ID of the Front Door Secret.
         """
         return pulumi.get(self, "cdn_frontdoor_secret_id")
 
@@ -3189,7 +3189,7 @@ class FrontdoorOriginPrivateLink(dict):
         """
         :param str location: Specifies the location where the Private Link resource should exist.
         :param str private_link_target_id: The ID of the Azure Resource to connect to via the Private Link.
-        :param str request_message: Specifies the request message that will be submitted to the `private_link_target_id` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN Frontdoor Private Link Origin`.
+        :param str request_message: Specifies the request message that will be submitted to the `private_link_target_id` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for Front Door Private Link Origin`.
         :param str target_type: Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `web` and `sites`.
         """
         pulumi.set(__self__, "location", location)
@@ -3219,7 +3219,7 @@ class FrontdoorOriginPrivateLink(dict):
     @pulumi.getter(name="requestMessage")
     def request_message(self) -> Optional[str]:
         """
-        Specifies the request message that will be submitted to the `private_link_target_id` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN Frontdoor Private Link Origin`.
+        Specifies the request message that will be submitted to the `private_link_target_id` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for Front Door Private Link Origin`.
         """
         return pulumi.get(self, "request_message")
 
@@ -3265,7 +3265,7 @@ class FrontdoorRouteCache(dict):
         """
         :param bool compression_enabled: Is content compression enabled? Possible values are `true` or `false`. Defaults to `false`.
         :param Sequence[str] content_types_to_compresses: A list of one or more `Content types` (formerly known as `MIME types`) to compress. Possible values include `application/eot`, `application/font`, `application/font-sfnt`, `application/javascript`, `application/json`, `application/opentype`, `application/otf`, `application/pkcs7-mime`, `application/truetype`, `application/ttf`, `application/vnd.ms-fontobject`, `application/xhtml+xml`, `application/xml`, `application/xml+rss`, `application/x-font-opentype`, `application/x-font-truetype`, `application/x-font-ttf`, `application/x-httpd-cgi`, `application/x-mpegurl`, `application/x-opentype`, `application/x-otf`, `application/x-perl`, `application/x-ttf`, `application/x-javascript`, `font/eot`, `font/ttf`, `font/otf`, `font/opentype`, `image/svg+xml`, `text/css`, `text/csv`, `text/html`, `text/javascript`, `text/js`, `text/plain`, `text/richtext`, `text/tab-separated-values`, `text/xml`, `text/x-script`, `text/x-component` or `text/x-java-source`.
-        :param str query_string_caching_behavior: Defines how the Frontdoor will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
+        :param str query_string_caching_behavior: Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
         :param Sequence[str] query_strings: Query strings to include or ignore.
         """
         if compression_enabled is not None:
@@ -3297,7 +3297,7 @@ class FrontdoorRouteCache(dict):
     @pulumi.getter(name="queryStringCachingBehavior")
     def query_string_caching_behavior(self) -> Optional[str]:
         """
-        Defines how the Frontdoor will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
+        Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
         """
         return pulumi.get(self, "query_string_caching_behavior")
 
@@ -3527,12 +3527,12 @@ class FrontdoorRuleActionsRouteConfigurationOverrideAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "cacheDuration":
+        if key == "cacheBehavior":
+            suggest = "cache_behavior"
+        elif key == "cacheDuration":
             suggest = "cache_duration"
         elif key == "cdnFrontdoorOriginGroupId":
             suggest = "cdn_frontdoor_origin_group_id"
-        elif key == "cacheBehavior":
-            suggest = "cache_behavior"
         elif key == "compressionEnabled":
             suggest = "compression_enabled"
         elif key == "forwardingProtocol":
@@ -3554,26 +3554,28 @@ class FrontdoorRuleActionsRouteConfigurationOverrideAction(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 cache_duration: str,
-                 cdn_frontdoor_origin_group_id: str,
                  cache_behavior: Optional[str] = None,
+                 cache_duration: Optional[str] = None,
+                 cdn_frontdoor_origin_group_id: Optional[str] = None,
                  compression_enabled: Optional[bool] = None,
                  forwarding_protocol: Optional[str] = None,
                  query_string_caching_behavior: Optional[str] = None,
                  query_string_parameters: Optional[Sequence[str]] = None):
         """
-        :param str cache_duration: When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`).
-        :param str cdn_frontdoor_origin_group_id: The origin group resource ID that the request should be routed to. This overrides the configuration specified in the Frontdoor endpoint route.
-        :param str cache_behavior: `HonorOrigin` Frontdoor will always honor origin response header directive. If the origin directive is missing, Frontdoor will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. Possible values include `HonorOrigin`, `OverrideAlways` or `OverrideIfOriginMissing`. Defaults to `HonorOrigin`.
-        :param bool compression_enabled: Should Frontdoor dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
+        :param str cache_behavior: `HonorOrigin` the Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your Front Door Origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your Front Door Origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. `Disabled` the Front Door will not cache the response contents, irrespective of Front Door Origin response directives. Possible values include `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing` or `Disabled`. Defaults to `HonorOrigin`.
+        :param str cache_duration: When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`). Defaults to `1.12:00:00`.
+        :param str cdn_frontdoor_origin_group_id: The Front Door Origin Group resource ID that the request should be routed to. This overrides the configuration specified in the Front Door Endpoint route.
+        :param bool compression_enabled: Should the Front Door dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
         :param str forwarding_protocol: The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`. Defaults to `MatchRequest`. Possible values include `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
         :param str query_string_caching_behavior: `IncludeSpecifiedQueryStrings` query strings specified in the `query_string_parameters` field get included when the cache key gets generated. `UseQueryString` cache every unique URL, each unique URL will have its own cache key. `IgnoreSpecifiedQueryStrings` query strings specified in the `query_string_parameters` field get excluded when the cache key gets generated. `IgnoreQueryString` query strings aren't considered when the cache key gets generated. Possible values include `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings` or `IncludeSpecifiedQueryStrings`. Defaults to `IgnoreQueryString`.
         :param Sequence[str] query_string_parameters: A list of query string parameter names.
         """
-        pulumi.set(__self__, "cache_duration", cache_duration)
-        pulumi.set(__self__, "cdn_frontdoor_origin_group_id", cdn_frontdoor_origin_group_id)
         if cache_behavior is not None:
             pulumi.set(__self__, "cache_behavior", cache_behavior)
+        if cache_duration is not None:
+            pulumi.set(__self__, "cache_duration", cache_duration)
+        if cdn_frontdoor_origin_group_id is not None:
+            pulumi.set(__self__, "cdn_frontdoor_origin_group_id", cdn_frontdoor_origin_group_id)
         if compression_enabled is not None:
             pulumi.set(__self__, "compression_enabled", compression_enabled)
         if forwarding_protocol is not None:
@@ -3584,34 +3586,34 @@ class FrontdoorRuleActionsRouteConfigurationOverrideAction(dict):
             pulumi.set(__self__, "query_string_parameters", query_string_parameters)
 
     @property
-    @pulumi.getter(name="cacheDuration")
-    def cache_duration(self) -> str:
+    @pulumi.getter(name="cacheBehavior")
+    def cache_behavior(self) -> Optional[str]:
         """
-        When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`).
+        `HonorOrigin` the Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your Front Door Origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your Front Door Origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. `Disabled` the Front Door will not cache the response contents, irrespective of Front Door Origin response directives. Possible values include `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing` or `Disabled`. Defaults to `HonorOrigin`.
+        """
+        return pulumi.get(self, "cache_behavior")
+
+    @property
+    @pulumi.getter(name="cacheDuration")
+    def cache_duration(self) -> Optional[str]:
+        """
+        When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`). Defaults to `1.12:00:00`.
         """
         return pulumi.get(self, "cache_duration")
 
     @property
     @pulumi.getter(name="cdnFrontdoorOriginGroupId")
-    def cdn_frontdoor_origin_group_id(self) -> str:
+    def cdn_frontdoor_origin_group_id(self) -> Optional[str]:
         """
-        The origin group resource ID that the request should be routed to. This overrides the configuration specified in the Frontdoor endpoint route.
+        The Front Door Origin Group resource ID that the request should be routed to. This overrides the configuration specified in the Front Door Endpoint route.
         """
         return pulumi.get(self, "cdn_frontdoor_origin_group_id")
-
-    @property
-    @pulumi.getter(name="cacheBehavior")
-    def cache_behavior(self) -> Optional[str]:
-        """
-        `HonorOrigin` Frontdoor will always honor origin response header directive. If the origin directive is missing, Frontdoor will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. Possible values include `HonorOrigin`, `OverrideAlways` or `OverrideIfOriginMissing`. Defaults to `HonorOrigin`.
-        """
-        return pulumi.get(self, "cache_behavior")
 
     @property
     @pulumi.getter(name="compressionEnabled")
     def compression_enabled(self) -> Optional[bool]:
         """
-        Should Frontdoor dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
+        Should the Front Door dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
         """
         return pulumi.get(self, "compression_enabled")
 
@@ -4187,7 +4189,7 @@ class FrontdoorRuleConditionsCookiesCondition(dict):
         :param str operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
         :param Sequence[str] match_values: One or more string or integer values(e.g. "1") representing the value of the request header to match. If multiple values are specified, they're evaluated using `OR` logic.
         :param bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-        :param Sequence[str] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+        :param Sequence[str] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
         """
         pulumi.set(__self__, "cookie_name", cookie_name)
         pulumi.set(__self__, "operator", operator)
@@ -4234,7 +4236,7 @@ class FrontdoorRuleConditionsCookiesCondition(dict):
     @pulumi.getter
     def transforms(self) -> Optional[Sequence[str]]:
         """
-        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
         """
         return pulumi.get(self, "transforms")
 
@@ -4269,7 +4271,7 @@ class FrontdoorRuleConditionsHostNameCondition(dict):
         :param str operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
         :param Sequence[str] match_values: A list of one or more string values representing the value of the request hostname to match. If multiple values are specified, they're evaluated using `OR` logic.
         :param bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-        :param Sequence[str] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+        :param Sequence[str] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
         """
         pulumi.set(__self__, "operator", operator)
         if match_values is not None:
@@ -4307,7 +4309,7 @@ class FrontdoorRuleConditionsHostNameCondition(dict):
     @pulumi.getter
     def transforms(self) -> Optional[Sequence[str]]:
         """
-        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
         """
         return pulumi.get(self, "transforms")
 
@@ -4469,7 +4471,7 @@ class FrontdoorRuleConditionsPostArgsCondition(dict):
         :param str post_args_name: A string value representing the name of the `POST` argument.
         :param Sequence[str] match_values: One or more string or integer values(e.g. "1") representing the value of the `POST` argument to match. If multiple values are specified, they're evaluated using `OR` logic.
         :param bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-        :param Sequence[str] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+        :param Sequence[str] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "post_args_name", post_args_name)
@@ -4516,7 +4518,7 @@ class FrontdoorRuleConditionsPostArgsCondition(dict):
     @pulumi.getter
     def transforms(self) -> Optional[Sequence[str]]:
         """
-        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
         """
         return pulumi.get(self, "transforms")
 
@@ -4551,7 +4553,7 @@ class FrontdoorRuleConditionsQueryStringCondition(dict):
         :param str operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
         :param Sequence[str] match_values: One or more string or integer values(e.g. "1") representing the value of the query string to match. If multiple values are specified, they're evaluated using `OR` logic.
         :param bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-        :param Sequence[str] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+        :param Sequence[str] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
         """
         pulumi.set(__self__, "operator", operator)
         if match_values is not None:
@@ -4589,7 +4591,7 @@ class FrontdoorRuleConditionsQueryStringCondition(dict):
     @pulumi.getter
     def transforms(self) -> Optional[Sequence[str]]:
         """
-        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
         """
         return pulumi.get(self, "transforms")
 
@@ -4686,7 +4688,7 @@ class FrontdoorRuleConditionsRequestBodyCondition(dict):
         :param Sequence[str] match_values: A list of one or more string or integer values(e.g. "1") representing the value of the request body text to match. If multiple values are specified, they're evaluated using `OR` logic.
         :param str operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
         :param bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-        :param Sequence[str] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+        :param Sequence[str] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "operator", operator)
@@ -4723,7 +4725,7 @@ class FrontdoorRuleConditionsRequestBodyCondition(dict):
     @pulumi.getter
     def transforms(self) -> Optional[Sequence[str]]:
         """
-        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
         """
         return pulumi.get(self, "transforms")
 
@@ -4762,7 +4764,7 @@ class FrontdoorRuleConditionsRequestHeaderCondition(dict):
         :param str operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
         :param Sequence[str] match_values: One or more string or integer values(e.g. "1") representing the value of the request header to match. If multiple values are specified, they're evaluated using `OR` logic.
         :param bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-        :param Sequence[str] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+        :param Sequence[str] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
         """
         pulumi.set(__self__, "header_name", header_name)
         pulumi.set(__self__, "operator", operator)
@@ -4809,7 +4811,7 @@ class FrontdoorRuleConditionsRequestHeaderCondition(dict):
     @pulumi.getter
     def transforms(self) -> Optional[Sequence[str]]:
         """
-        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
         """
         return pulumi.get(self, "transforms")
 
@@ -4967,7 +4969,7 @@ class FrontdoorRuleConditionsRequestUriCondition(dict):
         :param str operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
         :param Sequence[str] match_values: One or more string or integer values(e.g. "1") representing the value of the request URL to match. If multiple values are specified, they're evaluated using `OR` logic.
         :param bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-        :param Sequence[str] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+        :param Sequence[str] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
         """
         pulumi.set(__self__, "operator", operator)
         if match_values is not None:
@@ -5005,7 +5007,7 @@ class FrontdoorRuleConditionsRequestUriCondition(dict):
     @pulumi.getter
     def transforms(self) -> Optional[Sequence[str]]:
         """
-        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
         """
         return pulumi.get(self, "transforms")
 
@@ -5223,7 +5225,7 @@ class FrontdoorRuleConditionsUrlFileExtensionCondition(dict):
         :param Sequence[str] match_values: A list of one or more string or integer values(e.g. "1") representing the value of the request file extension to match. If multiple values are specified, they're evaluated using `OR` logic.
         :param str operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
         :param bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-        :param Sequence[str] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+        :param Sequence[str] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "operator", operator)
@@ -5260,7 +5262,7 @@ class FrontdoorRuleConditionsUrlFileExtensionCondition(dict):
     @pulumi.getter
     def transforms(self) -> Optional[Sequence[str]]:
         """
-        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
         """
         return pulumi.get(self, "transforms")
 
@@ -5295,7 +5297,7 @@ class FrontdoorRuleConditionsUrlFilenameCondition(dict):
         :param Sequence[str] match_values: A list of one or more string or integer values(e.g. "1") representing the value of the request file name to match. If multiple values are specified, they're evaluated using `OR` logic.
         :param str operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
         :param bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-        :param Sequence[str] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+        :param Sequence[str] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "operator", operator)
@@ -5332,7 +5334,7 @@ class FrontdoorRuleConditionsUrlFilenameCondition(dict):
     @pulumi.getter
     def transforms(self) -> Optional[Sequence[str]]:
         """
-        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
         """
         return pulumi.get(self, "transforms")
 
@@ -5367,7 +5369,7 @@ class FrontdoorRuleConditionsUrlPathCondition(dict):
         :param str operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
         :param Sequence[str] match_values: One or more string or integer values(e.g. "1") representing the value of the request path to match. Don't include the leading slash (`/`). If multiple values are specified, they're evaluated using `OR` logic.
         :param bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-        :param Sequence[str] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+        :param Sequence[str] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
         """
         pulumi.set(__self__, "operator", operator)
         if match_values is not None:
@@ -5405,7 +5407,7 @@ class FrontdoorRuleConditionsUrlPathCondition(dict):
     @pulumi.getter
     def transforms(self) -> Optional[Sequence[str]]:
         """
-        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
         """
         return pulumi.get(self, "transforms")
 
@@ -5432,7 +5434,7 @@ class FrontdoorSecretSecret(dict):
     def __init__(__self__, *,
                  customer_certificates: Sequence['outputs.FrontdoorSecretSecretCustomerCertificate']):
         """
-        :param Sequence['FrontdoorSecretSecretCustomerCertificateArgs'] customer_certificates: A `customer_certificate` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+        :param Sequence['FrontdoorSecretSecretCustomerCertificateArgs'] customer_certificates: A `customer_certificate` block as defined below. Changing this forces a new Front Door Secret to be created.
         """
         pulumi.set(__self__, "customer_certificates", customer_certificates)
 
@@ -5440,7 +5442,7 @@ class FrontdoorSecretSecret(dict):
     @pulumi.getter(name="customerCertificates")
     def customer_certificates(self) -> Sequence['outputs.FrontdoorSecretSecretCustomerCertificate']:
         """
-        A `customer_certificate` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+        A `customer_certificate` block as defined below. Changing this forces a new Front Door Secret to be created.
         """
         return pulumi.get(self, "customer_certificates")
 
@@ -5470,7 +5472,7 @@ class FrontdoorSecretSecretCustomerCertificate(dict):
                  key_vault_certificate_id: str,
                  subject_alternative_names: Optional[Sequence[str]] = None):
         """
-        :param str key_vault_certificate_id: The ID of the Key Vault certificate resource to use. Changing this forces a new Frontdoor Secret to be created.
+        :param str key_vault_certificate_id: The ID of the Key Vault certificate resource to use. Changing this forces a new Front Door Secret to be created.
         :param Sequence[str] subject_alternative_names: One or more `subject alternative names` contained within the key vault certificate.
         """
         pulumi.set(__self__, "key_vault_certificate_id", key_vault_certificate_id)
@@ -5481,7 +5483,7 @@ class FrontdoorSecretSecretCustomerCertificate(dict):
     @pulumi.getter(name="keyVaultCertificateId")
     def key_vault_certificate_id(self) -> str:
         """
-        The ID of the Key Vault certificate resource to use. Changing this forces a new Frontdoor Secret to be created.
+        The ID of the Key Vault certificate resource to use. Changing this forces a new Front Door Secret to be created.
         """
         return pulumi.get(self, "key_vault_certificate_id")
 
@@ -5499,7 +5501,7 @@ class FrontdoorSecurityPolicySecurityPolicies(dict):
     def __init__(__self__, *,
                  firewall: 'outputs.FrontdoorSecurityPolicySecurityPoliciesFirewall'):
         """
-        :param 'FrontdoorSecurityPolicySecurityPoliciesFirewallArgs' firewall: An `firewall` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+        :param 'FrontdoorSecurityPolicySecurityPoliciesFirewallArgs' firewall: An `firewall` block as defined below. Changing this forces a new Front Door Security Policy to be created.
         """
         pulumi.set(__self__, "firewall", firewall)
 
@@ -5507,7 +5509,7 @@ class FrontdoorSecurityPolicySecurityPolicies(dict):
     @pulumi.getter
     def firewall(self) -> 'outputs.FrontdoorSecurityPolicySecurityPoliciesFirewall':
         """
-        An `firewall` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+        An `firewall` block as defined below. Changing this forces a new Front Door Security Policy to be created.
         """
         return pulumi.get(self, "firewall")
 
@@ -5535,8 +5537,8 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewall(dict):
                  association: 'outputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation',
                  cdn_frontdoor_firewall_policy_id: str):
         """
-        :param 'FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs' association: An `association` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
-        :param str cdn_frontdoor_firewall_policy_id: The Resource Id of the Frontdoor Firewall Policy that should be linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+        :param 'FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs' association: An `association` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+        :param str cdn_frontdoor_firewall_policy_id: The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
         """
         pulumi.set(__self__, "association", association)
         pulumi.set(__self__, "cdn_frontdoor_firewall_policy_id", cdn_frontdoor_firewall_policy_id)
@@ -5545,7 +5547,7 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewall(dict):
     @pulumi.getter
     def association(self) -> 'outputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation':
         """
-        An `association` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+        An `association` block as defined below. Changing this forces a new Front Door Security Policy to be created.
         """
         return pulumi.get(self, "association")
 
@@ -5553,7 +5555,7 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewall(dict):
     @pulumi.getter(name="cdnFrontdoorFirewallPolicyId")
     def cdn_frontdoor_firewall_policy_id(self) -> str:
         """
-        The Resource Id of the Frontdoor Firewall Policy that should be linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+        The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_firewall_policy_id")
 
@@ -5581,8 +5583,8 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation(dict):
                  domains: Sequence['outputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain'],
                  patterns_to_match: str):
         """
-        :param Sequence['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs'] domains: One or more `domain` blocks as defined below. Changing this forces a new Frontdoor Security Policy to be created.
-        :param str patterns_to_match: The list of paths to match for this firewall policy. Possilbe value includes `/*`. Changing this forces a new Frontdoor Security Policy to be created.
+        :param Sequence['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs'] domains: One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
+        :param str patterns_to_match: The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
         """
         pulumi.set(__self__, "domains", domains)
         pulumi.set(__self__, "patterns_to_match", patterns_to_match)
@@ -5591,7 +5593,7 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation(dict):
     @pulumi.getter
     def domains(self) -> Sequence['outputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain']:
         """
-        One or more `domain` blocks as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+        One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
         """
         return pulumi.get(self, "domains")
 
@@ -5599,7 +5601,7 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation(dict):
     @pulumi.getter(name="patternsToMatch")
     def patterns_to_match(self) -> str:
         """
-        The list of paths to match for this firewall policy. Possilbe value includes `/*`. Changing this forces a new Frontdoor Security Policy to be created.
+        The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
         """
         return pulumi.get(self, "patterns_to_match")
 
@@ -5627,8 +5629,8 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain(dict):
                  cdn_frontdoor_domain_id: str,
                  active: Optional[bool] = None):
         """
-        :param str cdn_frontdoor_domain_id: The Resource Id of the **Frontdoor Custom Domain** or **Frontdoor Endpoint** that should be bound to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
-        :param bool active: Is the Frontdoor Custom Domain/Endpoint activated?
+        :param str cdn_frontdoor_domain_id: The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+        :param bool active: Is the Front Door Custom Domain/Endpoint activated?
         """
         pulumi.set(__self__, "cdn_frontdoor_domain_id", cdn_frontdoor_domain_id)
         if active is not None:
@@ -5638,7 +5640,7 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain(dict):
     @pulumi.getter(name="cdnFrontdoorDomainId")
     def cdn_frontdoor_domain_id(self) -> str:
         """
-        The Resource Id of the **Frontdoor Custom Domain** or **Frontdoor Endpoint** that should be bound to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+        The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_domain_id")
 
@@ -5646,7 +5648,7 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain(dict):
     @pulumi.getter
     def active(self) -> Optional[bool]:
         """
-        Is the Frontdoor Custom Domain/Endpoint activated?
+        Is the Front Door Custom Domain/Endpoint activated?
         """
         return pulumi.get(self, "active")
 

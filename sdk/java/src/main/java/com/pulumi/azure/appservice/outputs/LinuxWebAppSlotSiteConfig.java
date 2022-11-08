@@ -126,6 +126,10 @@ public final class LinuxWebAppSlotSiteConfig {
      * 
      */
     private @Nullable String minimumTlsVersion;
+    /**
+     * @return Should Remote Debugging be enabled? Defaults to `false`.
+     * 
+     */
     private @Nullable Boolean remoteDebuggingEnabled;
     /**
      * @return The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
@@ -319,6 +323,10 @@ public final class LinuxWebAppSlotSiteConfig {
     public Optional<String> minimumTlsVersion() {
         return Optional.ofNullable(this.minimumTlsVersion);
     }
+    /**
+     * @return Should Remote Debugging be enabled? Defaults to `false`.
+     * 
+     */
     public Optional<Boolean> remoteDebuggingEnabled() {
         return Optional.ofNullable(this.remoteDebuggingEnabled);
     }

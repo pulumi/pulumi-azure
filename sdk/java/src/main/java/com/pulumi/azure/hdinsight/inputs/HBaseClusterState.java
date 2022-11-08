@@ -4,6 +4,7 @@
 package com.pulumi.azure.hdinsight.inputs;
 
 import com.pulumi.azure.hdinsight.inputs.HBaseClusterComponentVersionArgs;
+import com.pulumi.azure.hdinsight.inputs.HBaseClusterComputeIsolationArgs;
 import com.pulumi.azure.hdinsight.inputs.HBaseClusterDiskEncryptionArgs;
 import com.pulumi.azure.hdinsight.inputs.HBaseClusterExtensionArgs;
 import com.pulumi.azure.hdinsight.inputs.HBaseClusterGatewayArgs;
@@ -56,6 +57,21 @@ public final class HBaseClusterState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<HBaseClusterComponentVersionArgs>> componentVersion() {
         return Optional.ofNullable(this.componentVersion);
+    }
+
+    /**
+     * A `compute_isolation` block as defined below.
+     * 
+     */
+    @Import(name="computeIsolation")
+    private @Nullable Output<HBaseClusterComputeIsolationArgs> computeIsolation;
+
+    /**
+     * @return A `compute_isolation` block as defined below.
+     * 
+     */
+    public Optional<Output<HBaseClusterComputeIsolationArgs>> computeIsolation() {
+        return Optional.ofNullable(this.computeIsolation);
     }
 
     @Import(name="diskEncryptions")
@@ -317,6 +333,7 @@ public final class HBaseClusterState extends com.pulumi.resources.ResourceArgs {
     private HBaseClusterState(HBaseClusterState $) {
         this.clusterVersion = $.clusterVersion;
         this.componentVersion = $.componentVersion;
+        this.computeIsolation = $.computeIsolation;
         this.diskEncryptions = $.diskEncryptions;
         this.extension = $.extension;
         this.gateway = $.gateway;
@@ -395,6 +412,27 @@ public final class HBaseClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder componentVersion(HBaseClusterComponentVersionArgs componentVersion) {
             return componentVersion(Output.of(componentVersion));
+        }
+
+        /**
+         * @param computeIsolation A `compute_isolation` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder computeIsolation(@Nullable Output<HBaseClusterComputeIsolationArgs> computeIsolation) {
+            $.computeIsolation = computeIsolation;
+            return this;
+        }
+
+        /**
+         * @param computeIsolation A `compute_isolation` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder computeIsolation(HBaseClusterComputeIsolationArgs computeIsolation) {
+            return computeIsolation(Output.of(computeIsolation));
         }
 
         public Builder diskEncryptions(@Nullable Output<List<HBaseClusterDiskEncryptionArgs>> diskEncryptions) {

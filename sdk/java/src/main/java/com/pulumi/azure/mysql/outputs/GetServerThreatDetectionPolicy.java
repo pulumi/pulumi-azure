@@ -43,7 +43,7 @@ public final class GetServerThreatDetectionPolicy {
      */
     private String storageAccountAccessKey;
     /**
-     * @return Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+     * @return Specifies the blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Threat Detection audit logs.
      * 
      */
     private String storageEndpoint;
@@ -92,7 +92,7 @@ public final class GetServerThreatDetectionPolicy {
         return this.storageAccountAccessKey;
     }
     /**
-     * @return Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+     * @return Specifies the blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Threat Detection audit logs.
      * 
      */
     public String storageEndpoint() {

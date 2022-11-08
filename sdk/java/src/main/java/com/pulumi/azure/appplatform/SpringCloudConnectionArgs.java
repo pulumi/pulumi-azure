@@ -18,7 +18,6 @@ public final class SpringCloudConnectionArgs extends com.pulumi.resources.Resour
 
     /**
      * The authentication info. An `authentication` block as defined below.
-     * ---
      * 
      */
     @Import(name="authentication", required=true)
@@ -26,7 +25,6 @@ public final class SpringCloudConnectionArgs extends com.pulumi.resources.Resour
 
     /**
      * @return The authentication info. An `authentication` block as defined below.
-     * ---
      * 
      */
     public Output<SpringCloudConnectionAuthenticationArgs> authentication() {
@@ -139,7 +137,6 @@ public final class SpringCloudConnectionArgs extends com.pulumi.resources.Resour
 
         /**
          * @param authentication The authentication info. An `authentication` block as defined below.
-         * ---
          * 
          * @return builder
          * 
@@ -151,7 +148,6 @@ public final class SpringCloudConnectionArgs extends com.pulumi.resources.Resour
 
         /**
          * @param authentication The authentication info. An `authentication` block as defined below.
-         * ---
          * 
          * @return builder
          * 

@@ -178,9 +178,9 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly extensionsTimeBudget!: pulumi.Output<string | undefined>;
     /**
-     * A `galleryApplications` block as defined below.
+     * @deprecated `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
      */
-    public readonly galleryApplications!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetGalleryApplication[] | undefined>;
+    public readonly galleryApplications!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetGalleryApplication[]>;
     /**
      * The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
      */
@@ -551,7 +551,7 @@ export interface LinuxVirtualMachineScaleSetState {
      */
     extensionsTimeBudget?: pulumi.Input<string>;
     /**
-     * A `galleryApplications` block as defined below.
+     * @deprecated `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
      */
     galleryApplications?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetGalleryApplication>[]>;
     /**
@@ -779,7 +779,7 @@ export interface LinuxVirtualMachineScaleSetArgs {
      */
     extensionsTimeBudget?: pulumi.Input<string>;
     /**
-     * A `galleryApplications` block as defined below.
+     * @deprecated `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
      */
     galleryApplications?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetGalleryApplication>[]>;
     /**

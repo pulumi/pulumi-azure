@@ -5,12 +5,18 @@ package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class DiskEncryptionSetIdentity {
+    /**
+     * @return A list of User Assigned Managed Identity IDs to be assigned to this Disk Encryption Set.
+     * 
+     */
+    private @Nullable List<String> identityIds;
     /**
      * @return The (Client) ID of the Service Principal.
      * 
@@ -22,12 +28,19 @@ public final class DiskEncryptionSetIdentity {
      */
     private @Nullable String tenantId;
     /**
-     * @return The type of Managed Service Identity that is configured on this Disk Encryption Set. The only possible value is `SystemAssigned`.
+     * @return The type of Managed Service Identity that is configured on this Disk Encryption Set.  Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
      * 
      */
     private String type;
 
     private DiskEncryptionSetIdentity() {}
+    /**
+     * @return A list of User Assigned Managed Identity IDs to be assigned to this Disk Encryption Set.
+     * 
+     */
+    public List<String> identityIds() {
+        return this.identityIds == null ? List.of() : this.identityIds;
+    }
     /**
      * @return The (Client) ID of the Service Principal.
      * 
@@ -43,7 +56,7 @@ public final class DiskEncryptionSetIdentity {
         return Optional.ofNullable(this.tenantId);
     }
     /**
-     * @return The type of Managed Service Identity that is configured on this Disk Encryption Set. The only possible value is `SystemAssigned`.
+     * @return The type of Managed Service Identity that is configured on this Disk Encryption Set.  Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
      * 
      */
     public String type() {
@@ -59,17 +72,27 @@ public final class DiskEncryptionSetIdentity {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<String> identityIds;
         private @Nullable String principalId;
         private @Nullable String tenantId;
         private String type;
         public Builder() {}
         public Builder(DiskEncryptionSetIdentity defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.identityIds = defaults.identityIds;
     	      this.principalId = defaults.principalId;
     	      this.tenantId = defaults.tenantId;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
+        public Builder identityIds(@Nullable List<String> identityIds) {
+            this.identityIds = identityIds;
+            return this;
+        }
+        public Builder identityIds(String... identityIds) {
+            return identityIds(List.of(identityIds));
+        }
         @CustomType.Setter
         public Builder principalId(@Nullable String principalId) {
             this.principalId = principalId;
@@ -87,6 +110,7 @@ public final class DiskEncryptionSetIdentity {
         }
         public DiskEncryptionSetIdentity build() {
             final var o = new DiskEncryptionSetIdentity();
+            o.identityIds = identityIds;
             o.principalId = principalId;
             o.tenantId = tenantId;
             o.type = type;

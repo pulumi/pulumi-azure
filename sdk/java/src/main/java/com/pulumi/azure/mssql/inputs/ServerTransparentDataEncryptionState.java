@@ -5,6 +5,7 @@ package com.pulumi.azure.mssql.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class ServerTransparentDataEncryptionState extends com.pulumi.resources.ResourceArgs {
 
     public static final ServerTransparentDataEncryptionState Empty = new ServerTransparentDataEncryptionState();
+
+    /**
+     * When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
+     * 
+     */
+    @Import(name="autoRotationEnabled")
+    private @Nullable Output<Boolean> autoRotationEnabled;
+
+    /**
+     * @return When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
+     * 
+     */
+    public Optional<Output<Boolean>> autoRotationEnabled() {
+        return Optional.ofNullable(this.autoRotationEnabled);
+    }
 
     /**
      * To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
@@ -48,6 +64,7 @@ public final class ServerTransparentDataEncryptionState extends com.pulumi.resou
     private ServerTransparentDataEncryptionState() {}
 
     private ServerTransparentDataEncryptionState(ServerTransparentDataEncryptionState $) {
+        this.autoRotationEnabled = $.autoRotationEnabled;
         this.keyVaultKeyId = $.keyVaultKeyId;
         this.serverId = $.serverId;
     }
@@ -68,6 +85,27 @@ public final class ServerTransparentDataEncryptionState extends com.pulumi.resou
 
         public Builder(ServerTransparentDataEncryptionState defaults) {
             $ = new ServerTransparentDataEncryptionState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param autoRotationEnabled When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoRotationEnabled(@Nullable Output<Boolean> autoRotationEnabled) {
+            $.autoRotationEnabled = autoRotationEnabled;
+            return this;
+        }
+
+        /**
+         * @param autoRotationEnabled When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoRotationEnabled(Boolean autoRotationEnabled) {
+            return autoRotationEnabled(Output.of(autoRotationEnabled));
         }
 
         /**

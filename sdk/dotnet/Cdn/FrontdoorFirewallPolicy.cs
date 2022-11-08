@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cdn
 {
     /// <summary>
-    /// Manages an Azure CDN Front Door Firewall Policy instance.
+    /// Manages a Front Door (standard/premium) Firewall Policy instance.
     /// 
     /// ## Example Usage
     /// 
@@ -183,7 +183,7 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// ## Import
     /// 
-    /// Frontdoor Firewall Policy can be imported using the `resource id`, e.g.
+    /// Front Door Firewall Policies can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import azure:cdn/frontdoorFirewallPolicy:FrontdoorFirewallPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/frontdoorWebApplicationFirewallPolicies/firewallPolicy1
@@ -211,13 +211,13 @@ namespace Pulumi.Azure.Cdn
         public Output<ImmutableArray<Outputs.FrontdoorFirewallPolicyCustomRule>> CustomRules { get; private set; } = null!;
 
         /// <summary>
-        /// Is the Cdn Frontdoor firewall policy enabled? Defaults to `true`.
+        /// Is the Front Door Firewall Policy enabled? Defaults to `true`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// The Cdn Frontend Endpoints associated with this Cdn Frontdoor Firewall policy.
+        /// The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
         /// </summary>
         [Output("frontendEndpointIds")]
         public Output<ImmutableArray<string>> FrontendEndpointIds { get; private set; } = null!;
@@ -229,7 +229,7 @@ namespace Pulumi.Azure.Cdn
         public Output<ImmutableArray<Outputs.FrontdoorFirewallPolicyManagedRule>> ManagedRules { get; private set; } = null!;
 
         /// <summary>
-        /// The Cdn Frontdoor firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+        /// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
         /// </summary>
         [Output("mode")]
         public Output<string> Mode { get; private set; } = null!;
@@ -253,13 +253,13 @@ namespace Pulumi.Azure.Cdn
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The sku's pricing tier for this Cdn Frontdoor firewall policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+        /// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the Cdn Frontdoor firewall policy.
+        /// A mapping of tags to assign to the Front Door Firewall Policy.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -335,7 +335,7 @@ namespace Pulumi.Azure.Cdn
         }
 
         /// <summary>
-        /// Is the Cdn Frontdoor firewall policy enabled? Defaults to `true`.
+        /// Is the Front Door Firewall Policy enabled? Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -353,7 +353,7 @@ namespace Pulumi.Azure.Cdn
         }
 
         /// <summary>
-        /// The Cdn Frontdoor firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+        /// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
         /// </summary>
         [Input("mode", required: true)]
         public Input<string> Mode { get; set; } = null!;
@@ -377,7 +377,7 @@ namespace Pulumi.Azure.Cdn
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The sku's pricing tier for this Cdn Frontdoor firewall policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+        /// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
@@ -386,7 +386,7 @@ namespace Pulumi.Azure.Cdn
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the Cdn Frontdoor firewall policy.
+        /// A mapping of tags to assign to the Front Door Firewall Policy.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -427,7 +427,7 @@ namespace Pulumi.Azure.Cdn
         }
 
         /// <summary>
-        /// Is the Cdn Frontdoor firewall policy enabled? Defaults to `true`.
+        /// Is the Front Door Firewall Policy enabled? Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -436,7 +436,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<string>? _frontendEndpointIds;
 
         /// <summary>
-        /// The Cdn Frontend Endpoints associated with this Cdn Frontdoor Firewall policy.
+        /// The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
         /// </summary>
         public InputList<string> FrontendEndpointIds
         {
@@ -457,7 +457,7 @@ namespace Pulumi.Azure.Cdn
         }
 
         /// <summary>
-        /// The Cdn Frontdoor firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+        /// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
@@ -481,7 +481,7 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The sku's pricing tier for this Cdn Frontdoor firewall policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+        /// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
@@ -490,7 +490,7 @@ namespace Pulumi.Azure.Cdn
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the Cdn Frontdoor firewall policy.
+        /// A mapping of tags to assign to the Front Door Firewall Policy.
         /// </summary>
         public InputMap<string> Tags
         {

@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class GetFrontdoorRuleSetResult {
     /**
-     * @return The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Rule Set exists.
+     * @return The ID of the Front Door Profile within which this Front Door Rule Set exists.
      * 
      */
     private String cdnFrontdoorProfileId;
@@ -25,7 +25,7 @@ public final class GetFrontdoorRuleSetResult {
 
     private GetFrontdoorRuleSetResult() {}
     /**
-     * @return The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Rule Set exists.
+     * @return The ID of the Front Door Profile within which this Front Door Rule Set exists.
      * 
      */
     public String cdnFrontdoorProfileId() {

@@ -188,7 +188,6 @@ public final class DatasetBinaryArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * A `sftp_server_location` block as defined below.
-     * ---
      * 
      */
     @Import(name="sftpServerLocation")
@@ -196,7 +195,6 @@ public final class DatasetBinaryArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return A `sftp_server_location` block as defined below.
-     * ---
      * 
      */
     public Optional<Output<DatasetBinarySftpServerLocationArgs>> sftpServerLocation() {
@@ -481,7 +479,6 @@ public final class DatasetBinaryArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param sftpServerLocation A `sftp_server_location` block as defined below.
-         * ---
          * 
          * @return builder
          * 
@@ -493,7 +490,6 @@ public final class DatasetBinaryArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param sftpServerLocation A `sftp_server_location` block as defined below.
-         * ---
          * 
          * @return builder
          * 

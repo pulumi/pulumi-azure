@@ -250,7 +250,6 @@ public class DatasetBinary extends com.pulumi.resources.CustomResource {
     }
     /**
      * A `sftp_server_location` block as defined below.
-     * ---
      * 
      */
     @Export(name="sftpServerLocation", type=DatasetBinarySftpServerLocation.class, parameters={})
@@ -258,7 +257,6 @@ public class DatasetBinary extends com.pulumi.resources.CustomResource {
 
     /**
      * @return A `sftp_server_location` block as defined below.
-     * ---
      * 
      */
     public Output<Optional<DatasetBinarySftpServerLocation>> sftpServerLocation() {

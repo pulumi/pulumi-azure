@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -31,6 +33,7 @@ export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promi
     return pulumi.runtime.invoke("azure:containerservice/getGroup:getGroup", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "zones": args.zones,
     }, opts);
 }
 
@@ -46,6 +49,10 @@ export interface GetGroupArgs {
      * The name of the Resource Group where the Container Group instance exists.
      */
     resourceGroupName: string;
+    /**
+     * A list of Availability Zones in which this Container Group is located.
+     */
+    zones?: string[];
 }
 
 /**
@@ -61,6 +68,10 @@ export interface GetGroupResult {
      */
     readonly id: string;
     /**
+     * A `identity` block as defined below.
+     */
+    readonly identities: outputs.containerservice.GetGroupIdentity[];
+    /**
      * The IP address allocated to the Container Group instance.
      */
     readonly ipAddress: string;
@@ -71,9 +82,17 @@ export interface GetGroupResult {
     readonly name: string;
     readonly resourceGroupName: string;
     /**
+     * The subnet resource IDs for a container group.
+     */
+    readonly subnetIds: string[];
+    /**
      * A mapping of tags assigned to the Container Group instance.
      */
     readonly tags: {[key: string]: string};
+    /**
+     * A list of Availability Zones in which this Container Group is located.
+     */
+    readonly zones?: string[];
 }
 
 export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {
@@ -92,4 +111,8 @@ export interface GetGroupOutputArgs {
      * The name of the Resource Group where the Container Group instance exists.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * A list of Availability Zones in which this Container Group is located.
+     */
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

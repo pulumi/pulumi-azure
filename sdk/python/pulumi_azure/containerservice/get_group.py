@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetGroupResult',
@@ -21,13 +22,16 @@ class GetGroupResult:
     """
     A collection of values returned by getGroup.
     """
-    def __init__(__self__, fqdn=None, id=None, ip_address=None, location=None, name=None, resource_group_name=None, tags=None):
+    def __init__(__self__, fqdn=None, id=None, identities=None, ip_address=None, location=None, name=None, resource_group_name=None, subnet_ids=None, tags=None, zones=None):
         if fqdn and not isinstance(fqdn, str):
             raise TypeError("Expected argument 'fqdn' to be a str")
         pulumi.set(__self__, "fqdn", fqdn)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identities and not isinstance(identities, list):
+            raise TypeError("Expected argument 'identities' to be a list")
+        pulumi.set(__self__, "identities", identities)
         if ip_address and not isinstance(ip_address, str):
             raise TypeError("Expected argument 'ip_address' to be a str")
         pulumi.set(__self__, "ip_address", ip_address)
@@ -40,9 +44,15 @@ class GetGroupResult:
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if subnet_ids and not isinstance(subnet_ids, list):
+            raise TypeError("Expected argument 'subnet_ids' to be a list")
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if zones and not isinstance(zones, list):
+            raise TypeError("Expected argument 'zones' to be a list")
+        pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter
@@ -59,6 +69,14 @@ class GetGroupResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identities(self) -> Sequence['outputs.GetGroupIdentityResult']:
+        """
+        A `identity` block as defined below.
+        """
+        return pulumi.get(self, "identities")
 
     @property
     @pulumi.getter(name="ipAddress")
@@ -87,12 +105,28 @@ class GetGroupResult:
         return pulumi.get(self, "resource_group_name")
 
     @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[str]:
+        """
+        The subnet resource IDs for a container group.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
         A mapping of tags assigned to the Container Group instance.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[Sequence[str]]:
+        """
+        A list of Availability Zones in which this Container Group is located.
+        """
+        return pulumi.get(self, "zones")
 
 
 class AwaitableGetGroupResult(GetGroupResult):
@@ -103,15 +137,19 @@ class AwaitableGetGroupResult(GetGroupResult):
         return GetGroupResult(
             fqdn=self.fqdn,
             id=self.id,
+            identities=self.identities,
             ip_address=self.ip_address,
             location=self.location,
             name=self.name,
             resource_group_name=self.resource_group_name,
-            tags=self.tags)
+            subnet_ids=self.subnet_ids,
+            tags=self.tags,
+            zones=self.zones)
 
 
 def get_group(name: Optional[str] = None,
               resource_group_name: Optional[str] = None,
+              zones: Optional[Sequence[str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupResult:
     """
     Use this data source to access information about an existing Container Group instance.
@@ -132,26 +170,32 @@ def get_group(name: Optional[str] = None,
 
     :param str name: The name of this Container Group instance.
     :param str resource_group_name: The name of the Resource Group where the Container Group instance exists.
+    :param Sequence[str] zones: A list of Availability Zones in which this Container Group is located.
     """
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['zones'] = zones
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure:containerservice/getGroup:getGroup', __args__, opts=opts, typ=GetGroupResult).value
 
     return AwaitableGetGroupResult(
         fqdn=__ret__.fqdn,
         id=__ret__.id,
+        identities=__ret__.identities,
         ip_address=__ret__.ip_address,
         location=__ret__.location,
         name=__ret__.name,
         resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags)
+        subnet_ids=__ret__.subnet_ids,
+        tags=__ret__.tags,
+        zones=__ret__.zones)
 
 
 @_utilities.lift_output_func(get_group)
 def get_group_output(name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                     zones: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
     """
     Use this data source to access information about an existing Container Group instance.
@@ -172,5 +216,6 @@ def get_group_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: The name of this Container Group instance.
     :param str resource_group_name: The name of the Resource Group where the Container Group instance exists.
+    :param Sequence[str] zones: A list of Availability Zones in which this Container Group is located.
     """
     ...

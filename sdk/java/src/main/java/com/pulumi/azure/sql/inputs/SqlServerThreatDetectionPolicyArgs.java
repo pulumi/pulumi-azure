@@ -109,14 +109,14 @@ public final class SqlServerThreatDetectionPolicyArgs extends com.pulumi.resourc
     }
 
     /**
-     * Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+     * Specifies the blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
      * 
      */
     @Import(name="storageEndpoint")
     private @Nullable Output<String> storageEndpoint;
 
     /**
-     * @return Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+     * @return Specifies the blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
      * 
      */
     public Optional<Output<String>> storageEndpoint() {
@@ -300,7 +300,7 @@ public final class SqlServerThreatDetectionPolicyArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param storageEndpoint Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+         * @param storageEndpoint Specifies the blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class SqlServerThreatDetectionPolicyArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param storageEndpoint Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+         * @param storageEndpoint Specifies the blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
          * 
          * @return builder
          * 

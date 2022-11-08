@@ -121,7 +121,7 @@ export class WorkspaceSecurityAlertPolicy extends pulumi.CustomResource {
      */
     public readonly storageAccountAccessKey!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+     * Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
      */
     public readonly storageEndpoint!: pulumi.Output<string | undefined>;
     /**
@@ -201,7 +201,7 @@ export interface WorkspaceSecurityAlertPolicyState {
      */
     storageAccountAccessKey?: pulumi.Input<string>;
     /**
-     * Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+     * Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
      */
     storageEndpoint?: pulumi.Input<string>;
     /**
@@ -239,7 +239,7 @@ export interface WorkspaceSecurityAlertPolicyArgs {
      */
     storageAccountAccessKey?: pulumi.Input<string>;
     /**
-     * Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+     * Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
      */
     storageEndpoint?: pulumi.Input<string>;
     /**

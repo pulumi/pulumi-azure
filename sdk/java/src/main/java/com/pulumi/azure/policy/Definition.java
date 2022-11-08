@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *             &#34;&#34;&#34;)
  *             .mode(&#34;Indexed&#34;)
  *             .parameters(&#34;&#34;&#34;
- * 	{
+ *  {
  *     &#34;allowedLocations&#34;: {
  *       &#34;type&#34;: &#34;Array&#34;,
  *       &#34;metadata&#34;: {
@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * 
  *             &#34;&#34;&#34;)
  *             .policyRule(&#34;&#34;&#34;
- * 	{
+ *  {
  *     &#34;if&#34;: {
  *       &#34;not&#34;: {
  *         &#34;field&#34;: &#34;location&#34;,

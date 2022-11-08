@@ -13,14 +13,14 @@ public final class GetFrontdoorRuleSetPlainArgs extends com.pulumi.resources.Inv
     public static final GetFrontdoorRuleSetPlainArgs Empty = new GetFrontdoorRuleSetPlainArgs();
 
     /**
-     * Specifies the name of the CDN FrontDoor Rule Set to retrieve.
+     * Specifies the name of the Front Door Rule Set to retrieve.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return Specifies the name of the CDN FrontDoor Rule Set to retrieve.
+     * @return Specifies the name of the Front Door Rule Set to retrieve.
      * 
      */
     public String name() {
@@ -28,14 +28,14 @@ public final class GetFrontdoorRuleSetPlainArgs extends com.pulumi.resources.Inv
     }
 
     /**
-     * Specifies the name of the CDN FrontDoor Profile where this CDN FrontDoor Rule Set exists.
+     * Specifies the name of the Front Door Profile where this Front Door Rule Set exists.
      * 
      */
     @Import(name="profileName", required=true)
     private String profileName;
 
     /**
-     * @return Specifies the name of the CDN FrontDoor Profile where this CDN FrontDoor Rule Set exists.
+     * @return Specifies the name of the Front Door Profile where this Front Door Rule Set exists.
      * 
      */
     public String profileName() {
@@ -43,14 +43,14 @@ public final class GetFrontdoorRuleSetPlainArgs extends com.pulumi.resources.Inv
     }
 
     /**
-     * Specifies the name of the Resource Group where the CDN FrontDoor Profile exists.
+     * Specifies the name of the Resource Group where the Front Door Profile exists.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private String resourceGroupName;
 
     /**
-     * @return Specifies the name of the Resource Group where the CDN FrontDoor Profile exists.
+     * @return Specifies the name of the Resource Group where the Front Door Profile exists.
      * 
      */
     public String resourceGroupName() {
@@ -84,7 +84,7 @@ public final class GetFrontdoorRuleSetPlainArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param name Specifies the name of the CDN FrontDoor Rule Set to retrieve.
+         * @param name Specifies the name of the Front Door Rule Set to retrieve.
          * 
          * @return builder
          * 
@@ -95,7 +95,7 @@ public final class GetFrontdoorRuleSetPlainArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param profileName Specifies the name of the CDN FrontDoor Profile where this CDN FrontDoor Rule Set exists.
+         * @param profileName Specifies the name of the Front Door Profile where this Front Door Rule Set exists.
          * 
          * @return builder
          * 
@@ -106,7 +106,7 @@ public final class GetFrontdoorRuleSetPlainArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param resourceGroupName Specifies the name of the Resource Group where the CDN FrontDoor Profile exists.
+         * @param resourceGroupName Specifies the name of the Resource Group where the Front Door Profile exists.
          * 
          * @return builder
          * 

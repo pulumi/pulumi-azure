@@ -22,7 +22,7 @@ public final class SlotAuthSettingsFacebook {
      */
     private String appSecret;
     /**
-     * @return The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
+     * @return The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. &lt;https://developers.facebook.com/docs/facebook-login&gt;
      * 
      */
     private @Nullable List<String> oauthScopes;
@@ -43,7 +43,7 @@ public final class SlotAuthSettingsFacebook {
         return this.appSecret;
     }
     /**
-     * @return The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
+     * @return The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. &lt;https://developers.facebook.com/docs/facebook-login&gt;
      * 
      */
     public List<String> oauthScopes() {

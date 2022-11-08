@@ -141,7 +141,6 @@ type LiveEvent struct {
 	// Specifies a list of languages (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in `BCP-47` format (e.g: `en-US`). [See the Microsoft Documentation for more information about the live transcription feature and the list of supported languages](https://go.microsoft.com/fwlink/?linkid=2133742).
 	TranscriptionLanguages pulumi.StringArrayOutput `pulumi:"transcriptionLanguages"`
 	// Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. Changing this forces a new Live Event to be created.
-	// ---
 	UseStaticHostname pulumi.BoolPtrOutput `pulumi:"useStaticHostname"`
 }
 
@@ -210,7 +209,6 @@ type liveEventState struct {
 	// Specifies a list of languages (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in `BCP-47` format (e.g: `en-US`). [See the Microsoft Documentation for more information about the live transcription feature and the list of supported languages](https://go.microsoft.com/fwlink/?linkid=2133742).
 	TranscriptionLanguages []string `pulumi:"transcriptionLanguages"`
 	// Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. Changing this forces a new Live Event to be created.
-	// ---
 	UseStaticHostname *bool `pulumi:"useStaticHostname"`
 }
 
@@ -242,7 +240,6 @@ type LiveEventState struct {
 	// Specifies a list of languages (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in `BCP-47` format (e.g: `en-US`). [See the Microsoft Documentation for more information about the live transcription feature and the list of supported languages](https://go.microsoft.com/fwlink/?linkid=2133742).
 	TranscriptionLanguages pulumi.StringArrayInput
 	// Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. Changing this forces a new Live Event to be created.
-	// ---
 	UseStaticHostname pulumi.BoolPtrInput
 }
 
@@ -278,7 +275,6 @@ type liveEventArgs struct {
 	// Specifies a list of languages (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in `BCP-47` format (e.g: `en-US`). [See the Microsoft Documentation for more information about the live transcription feature and the list of supported languages](https://go.microsoft.com/fwlink/?linkid=2133742).
 	TranscriptionLanguages []string `pulumi:"transcriptionLanguages"`
 	// Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. Changing this forces a new Live Event to be created.
-	// ---
 	UseStaticHostname *bool `pulumi:"useStaticHostname"`
 }
 
@@ -311,7 +307,6 @@ type LiveEventArgs struct {
 	// Specifies a list of languages (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in `BCP-47` format (e.g: `en-US`). [See the Microsoft Documentation for more information about the live transcription feature and the list of supported languages](https://go.microsoft.com/fwlink/?linkid=2133742).
 	TranscriptionLanguages pulumi.StringArrayInput
 	// Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. Changing this forces a new Live Event to be created.
-	// ---
 	UseStaticHostname pulumi.BoolPtrInput
 }
 
@@ -468,7 +463,6 @@ func (o LiveEventOutput) TranscriptionLanguages() pulumi.StringArrayOutput {
 }
 
 // Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. Changing this forces a new Live Event to be created.
-// ---
 func (o LiveEventOutput) UseStaticHostname() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LiveEvent) pulumi.BoolPtrOutput { return v.UseStaticHostname }).(pulumi.BoolPtrOutput)
 }

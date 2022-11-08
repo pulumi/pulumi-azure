@@ -81,7 +81,7 @@ export class LinkedServiceAzureSearch extends pulumi.CustomResource {
      */
     public readonly searchServiceKey!: pulumi.Output<string>;
     /**
-     * The URL of the Search Service endpoint (e.g. https://{searchServiceName}.search.windows.net).
+     * The URL of the Search Service endpoint (e.g. <https://{searchServiceName}.search.windows.net>).
      */
     public readonly url!: pulumi.Output<string>;
 
@@ -177,7 +177,7 @@ export interface LinkedServiceAzureSearchState {
      */
     searchServiceKey?: pulumi.Input<string>;
     /**
-     * The URL of the Search Service endpoint (e.g. https://{searchServiceName}.search.windows.net).
+     * The URL of the Search Service endpoint (e.g. <https://{searchServiceName}.search.windows.net>).
      */
     url?: pulumi.Input<string>;
 }
@@ -220,7 +220,7 @@ export interface LinkedServiceAzureSearchArgs {
      */
     searchServiceKey: pulumi.Input<string>;
     /**
-     * The URL of the Search Service endpoint (e.g. https://{searchServiceName}.search.windows.net).
+     * The URL of the Search Service endpoint (e.g. <https://{searchServiceName}.search.windows.net>).
      */
     url: pulumi.Input<string>;
 }

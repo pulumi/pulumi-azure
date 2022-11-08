@@ -39,6 +39,7 @@ class LinuxFunctionAppArgs:
                  sticky_settings: Optional[pulumi.Input['LinuxFunctionAppStickySettingsArgs']] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppStorageAccountArgs']]]] = None,
                  storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -68,6 +69,7 @@ class LinuxFunctionAppArgs:
         :param pulumi.Input['LinuxFunctionAppStickySettingsArgs'] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App. Conflicts with `storage_uses_managed_identity`.
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
         :param pulumi.Input[bool] storage_uses_managed_identity: Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
@@ -116,6 +118,8 @@ class LinuxFunctionAppArgs:
             pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
         if storage_account_name is not None:
             pulumi.set(__self__, "storage_account_name", storage_account_name)
+        if storage_accounts is not None:
+            pulumi.set(__self__, "storage_accounts", storage_accounts)
         if storage_key_vault_secret_id is not None:
             pulumi.set(__self__, "storage_key_vault_secret_id", storage_key_vault_secret_id)
         if storage_uses_managed_identity is not None:
@@ -402,6 +406,18 @@ class LinuxFunctionAppArgs:
         pulumi.set(self, "storage_account_name", value)
 
     @property
+    @pulumi.getter(name="storageAccounts")
+    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppStorageAccountArgs']]]]:
+        """
+        One or more `storage_account` blocks as defined below.
+        """
+        return pulumi.get(self, "storage_accounts")
+
+    @storage_accounts.setter
+    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppStorageAccountArgs']]]]):
+        pulumi.set(self, "storage_accounts", value)
+
+    @property
     @pulumi.getter(name="storageKeyVaultSecretId")
     def storage_key_vault_secret_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -484,6 +500,7 @@ class _LinuxFunctionAppState:
                  sticky_settings: Optional[pulumi.Input['LinuxFunctionAppStickySettingsArgs']] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppStorageAccountArgs']]]] = None,
                  storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -521,6 +538,7 @@ class _LinuxFunctionAppState:
         :param pulumi.Input['LinuxFunctionAppStickySettingsArgs'] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App. Conflicts with `storage_uses_managed_identity`.
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
         :param pulumi.Input[bool] storage_uses_managed_identity: Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
@@ -588,6 +606,8 @@ class _LinuxFunctionAppState:
             pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
         if storage_account_name is not None:
             pulumi.set(__self__, "storage_account_name", storage_account_name)
+        if storage_accounts is not None:
+            pulumi.set(__self__, "storage_accounts", storage_accounts)
         if storage_key_vault_secret_id is not None:
             pulumi.set(__self__, "storage_key_vault_secret_id", storage_key_vault_secret_id)
         if storage_uses_managed_identity is not None:
@@ -970,6 +990,18 @@ class _LinuxFunctionAppState:
         pulumi.set(self, "storage_account_name", value)
 
     @property
+    @pulumi.getter(name="storageAccounts")
+    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppStorageAccountArgs']]]]:
+        """
+        One or more `storage_account` blocks as defined below.
+        """
+        return pulumi.get(self, "storage_accounts")
+
+    @storage_accounts.setter
+    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppStorageAccountArgs']]]]):
+        pulumi.set(self, "storage_accounts", value)
+
+    @property
     @pulumi.getter(name="storageKeyVaultSecretId")
     def storage_key_vault_secret_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1046,6 +1078,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
                  sticky_settings: Optional[pulumi.Input[pulumi.InputType['LinuxFunctionAppStickySettingsArgs']]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxFunctionAppStorageAccountArgs']]]]] = None,
                  storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1113,6 +1146,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LinuxFunctionAppStickySettingsArgs']] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App. Conflicts with `storage_uses_managed_identity`.
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxFunctionAppStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
         :param pulumi.Input[bool] storage_uses_managed_identity: Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
@@ -1199,6 +1233,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
                  sticky_settings: Optional[pulumi.Input[pulumi.InputType['LinuxFunctionAppStickySettingsArgs']]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxFunctionAppStorageAccountArgs']]]]] = None,
                  storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1241,6 +1276,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
             __props__.__dict__["sticky_settings"] = sticky_settings
             __props__.__dict__["storage_account_access_key"] = storage_account_access_key
             __props__.__dict__["storage_account_name"] = storage_account_name
+            __props__.__dict__["storage_accounts"] = storage_accounts
             __props__.__dict__["storage_key_vault_secret_id"] = storage_key_vault_secret_id
             __props__.__dict__["storage_uses_managed_identity"] = storage_uses_managed_identity
             __props__.__dict__["tags"] = tags
@@ -1294,6 +1330,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
             sticky_settings: Optional[pulumi.Input[pulumi.InputType['LinuxFunctionAppStickySettingsArgs']]] = None,
             storage_account_access_key: Optional[pulumi.Input[str]] = None,
             storage_account_name: Optional[pulumi.Input[str]] = None,
+            storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxFunctionAppStorageAccountArgs']]]]] = None,
             storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
             storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1336,6 +1373,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LinuxFunctionAppStickySettingsArgs']] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App. Conflicts with `storage_uses_managed_identity`.
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxFunctionAppStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
         :param pulumi.Input[bool] storage_uses_managed_identity: Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
@@ -1376,6 +1414,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
         __props__.__dict__["sticky_settings"] = sticky_settings
         __props__.__dict__["storage_account_access_key"] = storage_account_access_key
         __props__.__dict__["storage_account_name"] = storage_account_name
+        __props__.__dict__["storage_accounts"] = storage_accounts
         __props__.__dict__["storage_key_vault_secret_id"] = storage_key_vault_secret_id
         __props__.__dict__["storage_uses_managed_identity"] = storage_uses_managed_identity
         __props__.__dict__["tags"] = tags
@@ -1629,6 +1668,14 @@ class LinuxFunctionApp(pulumi.CustomResource):
         The backend storage account name which will be used by this Function App.
         """
         return pulumi.get(self, "storage_account_name")
+
+    @property
+    @pulumi.getter(name="storageAccounts")
+    def storage_accounts(self) -> pulumi.Output[Optional[Sequence['outputs.LinuxFunctionAppStorageAccount']]]:
+        """
+        One or more `storage_account` blocks as defined below.
+        """
+        return pulumi.get(self, "storage_accounts")
 
     @property
     @pulumi.getter(name="storageKeyVaultSecretId")

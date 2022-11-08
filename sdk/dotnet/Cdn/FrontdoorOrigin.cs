@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Cdn
     /// <summary>
     /// ## Import
     /// 
-    /// CDN FrontDoor Origin can be imported using the `resource id`, e.g.
+    /// Front Door Origins can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import azure:cdn/frontdoorOrigin:FrontdoorOrigin example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/originGroups/originGroup1/origins/origin1
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Cdn
     public partial class FrontdoorOrigin : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the CDN FrontDoor Origin Group within which this CDN FrontDoor Origin should exist. Changing this forces a new CDN FrontDoor Origin to be created.
+        /// The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
         /// </summary>
         [Output("cdnFrontdoorOriginGroupId")]
         public Output<string> CdnFrontdoorOriginGroupId { get; private set; } = null!;
@@ -61,7 +61,7 @@ namespace Pulumi.Azure.Cdn
         public Output<int?> HttpsPort { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this CDN FrontDoor Origin. Changing this forces a new CDN FrontDoor Origin to be created.
+        /// The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -137,7 +137,7 @@ namespace Pulumi.Azure.Cdn
     public sealed class FrontdoorOriginArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the CDN FrontDoor Origin Group within which this CDN FrontDoor Origin should exist. Changing this forces a new CDN FrontDoor Origin to be created.
+        /// The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
         /// </summary>
         [Input("cdnFrontdoorOriginGroupId", required: true)]
         public Input<string> CdnFrontdoorOriginGroupId { get; set; } = null!;
@@ -176,7 +176,7 @@ namespace Pulumi.Azure.Cdn
         public Input<int>? HttpsPort { get; set; }
 
         /// <summary>
-        /// The name which should be used for this CDN FrontDoor Origin. Changing this forces a new CDN FrontDoor Origin to be created.
+        /// The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -214,7 +214,7 @@ namespace Pulumi.Azure.Cdn
     public sealed class FrontdoorOriginState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the CDN FrontDoor Origin Group within which this CDN FrontDoor Origin should exist. Changing this forces a new CDN FrontDoor Origin to be created.
+        /// The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
         /// </summary>
         [Input("cdnFrontdoorOriginGroupId")]
         public Input<string>? CdnFrontdoorOriginGroupId { get; set; }
@@ -253,7 +253,7 @@ namespace Pulumi.Azure.Cdn
         public Input<int>? HttpsPort { get; set; }
 
         /// <summary>
-        /// The name which should be used for this CDN FrontDoor Origin. Changing this forces a new CDN FrontDoor Origin to be created.
+        /// The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

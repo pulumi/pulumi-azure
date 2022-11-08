@@ -1786,7 +1786,7 @@ type WorkspaceGithubRepo struct {
 	AccountName string `pulumi:"accountName"`
 	// Specifies the collaboration branch of the repository to get code from.
 	BranchName string `pulumi:"branchName"`
-	// Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com.
+	// Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>.
 	GitUrl *string `pulumi:"gitUrl"`
 	// The last commit ID.
 	LastCommitId *string `pulumi:"lastCommitId"`
@@ -1812,7 +1812,7 @@ type WorkspaceGithubRepoArgs struct {
 	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// Specifies the collaboration branch of the repository to get code from.
 	BranchName pulumi.StringInput `pulumi:"branchName"`
-	// Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com.
+	// Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>.
 	GitUrl pulumi.StringPtrInput `pulumi:"gitUrl"`
 	// The last commit ID.
 	LastCommitId pulumi.StringPtrInput `pulumi:"lastCommitId"`
@@ -1909,7 +1909,7 @@ func (o WorkspaceGithubRepoOutput) BranchName() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkspaceGithubRepo) string { return v.BranchName }).(pulumi.StringOutput)
 }
 
-// Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com.
+// Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>.
 func (o WorkspaceGithubRepoOutput) GitUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceGithubRepo) *string { return v.GitUrl }).(pulumi.StringPtrOutput)
 }
@@ -1973,7 +1973,7 @@ func (o WorkspaceGithubRepoPtrOutput) BranchName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com.
+// Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>.
 func (o WorkspaceGithubRepoPtrOutput) GitUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceGithubRepo) *string {
 		if v == nil {
@@ -2014,11 +2014,13 @@ func (o WorkspaceGithubRepoPtrOutput) RootFolder() pulumi.StringPtrOutput {
 }
 
 type WorkspaceIdentity struct {
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace.
+	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
 	PrincipalId *string `pulumi:"principalId"`
 	// The tenant id of the Azure AD Administrator of this Synapse Workspace.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Synapse Workspace. The only possible value is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be associated with this Synapse Workspace. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
 	Type string `pulumi:"type"`
 }
 
@@ -2034,11 +2036,13 @@ type WorkspaceIdentityInput interface {
 }
 
 type WorkspaceIdentityArgs struct {
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The tenant id of the Azure AD Administrator of this Synapse Workspace.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Synapse Workspace. The only possible value is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be associated with this Synapse Workspace. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2119,6 +2123,11 @@ func (o WorkspaceIdentityOutput) ToWorkspaceIdentityPtrOutputWithContext(ctx con
 	}).(WorkspaceIdentityPtrOutput)
 }
 
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace.
+func (o WorkspaceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkspaceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
 // The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
 func (o WorkspaceIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
@@ -2129,7 +2138,7 @@ func (o WorkspaceIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Synapse Workspace. The only possible value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be associated with this Synapse Workspace. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
 func (o WorkspaceIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkspaceIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2158,6 +2167,16 @@ func (o WorkspaceIdentityPtrOutput) Elem() WorkspaceIdentityOutput {
 	}).(WorkspaceIdentityOutput)
 }
 
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace.
+func (o WorkspaceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkspaceIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
 // The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
 func (o WorkspaceIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceIdentity) *string {
@@ -2178,7 +2197,7 @@ func (o WorkspaceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Synapse Workspace. The only possible value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be associated with this Synapse Workspace. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
 func (o WorkspaceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceIdentity) *string {
 		if v == nil {
@@ -2539,6 +2558,7 @@ func (o WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput) Enabled() pulum
 }
 
 type GetWorkspaceIdentity struct {
+	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
 	PrincipalId string `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
@@ -2559,6 +2579,7 @@ type GetWorkspaceIdentityInput interface {
 }
 
 type GetWorkspaceIdentityArgs struct {
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
@@ -2616,6 +2637,10 @@ func (o GetWorkspaceIdentityOutput) ToGetWorkspaceIdentityOutput() GetWorkspaceI
 
 func (o GetWorkspaceIdentityOutput) ToGetWorkspaceIdentityOutputWithContext(ctx context.Context) GetWorkspaceIdentityOutput {
 	return o
+}
+
+func (o GetWorkspaceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWorkspaceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
 // The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.

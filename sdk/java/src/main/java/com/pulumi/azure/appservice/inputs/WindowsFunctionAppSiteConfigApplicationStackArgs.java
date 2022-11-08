@@ -32,14 +32,14 @@ public final class WindowsFunctionAppSiteConfigApplicationStackArgs extends com.
     }
 
     /**
-     * The Version of Java to use. Supported versions include `8`, and `11`.
+     * The Version of Java to use. Supported versions include `8`, `11` &amp; `17` (In-Preview).
      * 
      */
     @Import(name="javaVersion")
     private @Nullable Output<String> javaVersion;
 
     /**
-     * @return The Version of Java to use. Supported versions include `8`, and `11`.
+     * @return The Version of Java to use. Supported versions include `8`, `11` &amp; `17` (In-Preview).
      * 
      */
     public Optional<Output<String>> javaVersion() {
@@ -157,7 +157,7 @@ public final class WindowsFunctionAppSiteConfigApplicationStackArgs extends com.
         }
 
         /**
-         * @param javaVersion The Version of Java to use. Supported versions include `8`, and `11`.
+         * @param javaVersion The Version of Java to use. Supported versions include `8`, `11` &amp; `17` (In-Preview).
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class WindowsFunctionAppSiteConfigApplicationStackArgs extends com.
         }
 
         /**
-         * @param javaVersion The Version of Java to use. Supported versions include `8`, and `11`.
+         * @param javaVersion The Version of Java to use. Supported versions include `8`, `11` &amp; `17` (In-Preview).
          * 
          * @return builder
          * 

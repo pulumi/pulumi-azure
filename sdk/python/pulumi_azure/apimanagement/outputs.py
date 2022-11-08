@@ -1188,7 +1188,6 @@ class ApiOperationRequestHeader(dict):
         :param Sequence['ApiOperationRequestHeaderExampleArgs'] examples: (Optional) One or more `example` blocks as defined above.
         :param str schema_id: The name of the Schema.
         :param str type_name: The type name defined by the Schema.
-               ---
         :param Sequence[str] values: One or more acceptable values for this Header.
         """
         pulumi.set(__self__, "name", name)
@@ -1268,7 +1267,6 @@ class ApiOperationRequestHeader(dict):
     def type_name(self) -> Optional[str]:
         """
         The type name defined by the Schema.
-        ---
         """
         return pulumi.get(self, "type_name")
 
@@ -2081,7 +2079,6 @@ class ApiOperationResponseHeader(dict):
         :param Sequence['ApiOperationResponseHeaderExampleArgs'] examples: (Optional) One or more `example` blocks as defined above.
         :param str schema_id: The name of the Schema.
         :param str type_name: The type name defined by the Schema.
-               ---
         :param Sequence[str] values: One or more acceptable values for this Header.
         """
         pulumi.set(__self__, "name", name)
@@ -2161,7 +2158,6 @@ class ApiOperationResponseHeader(dict):
     def type_name(self) -> Optional[str]:
         """
         The type name defined by the Schema.
-        ---
         """
         return pulumi.get(self, "type_name")
 

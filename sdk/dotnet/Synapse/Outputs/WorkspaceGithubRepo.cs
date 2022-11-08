@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Synapse.Outputs
         /// </summary>
         public readonly string BranchName;
         /// <summary>
-        /// Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com.
+        /// Specifies the GitHub Enterprise host name. For example: &lt;https://github.mydomain.com&gt;.
         /// </summary>
         public readonly string? GitUrl;
         /// <summary>

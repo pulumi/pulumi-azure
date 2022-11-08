@@ -10,6 +10,16 @@ export type Monitor = import("./monitor").Monitor;
 export const Monitor: typeof import("./monitor").Monitor = null as any;
 utilities.lazyLoad(exports, ["Monitor"], () => require("./monitor"));
 
+export { MonitorSsoConfigurationArgs, MonitorSsoConfigurationState } from "./monitorSsoConfiguration";
+export type MonitorSsoConfiguration = import("./monitorSsoConfiguration").MonitorSsoConfiguration;
+export const MonitorSsoConfiguration: typeof import("./monitorSsoConfiguration").MonitorSsoConfiguration = null as any;
+utilities.lazyLoad(exports, ["MonitorSsoConfiguration"], () => require("./monitorSsoConfiguration"));
+
+export { MonitorTagRuleArgs, MonitorTagRuleState } from "./monitorTagRule";
+export type MonitorTagRule = import("./monitorTagRule").MonitorTagRule;
+export const MonitorTagRule: typeof import("./monitorTagRule").MonitorTagRule = null as any;
+utilities.lazyLoad(exports, ["MonitorTagRule"], () => require("./monitorTagRule"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,9 +27,15 @@ const _module = {
         switch (type) {
             case "azure:datadog/monitor:Monitor":
                 return new Monitor(name, <any>undefined, { urn })
+            case "azure:datadog/monitorSsoConfiguration:MonitorSsoConfiguration":
+                return new MonitorSsoConfiguration(name, <any>undefined, { urn })
+            case "azure:datadog/monitorTagRule:MonitorTagRule":
+                return new MonitorTagRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("azure", "datadog/monitor", _module)
+pulumi.runtime.registerResourceModule("azure", "datadog/monitorSsoConfiguration", _module)
+pulumi.runtime.registerResourceModule("azure", "datadog/monitorTagRule", _module)

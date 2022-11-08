@@ -223,9 +223,6 @@ namespace Pulumi.Azure.Compute
         [Output("extensionsTimeBudget")]
         public Output<string?> ExtensionsTimeBudget { get; private set; } = null!;
 
-        /// <summary>
-        /// A `gallery_applications` block as defined below.
-        /// </summary>
         [Output("galleryApplications")]
         public Output<ImmutableArray<Outputs.WindowsVirtualMachineScaleSetGalleryApplication>> GalleryApplications { get; private set; } = null!;
 
@@ -634,10 +631,7 @@ namespace Pulumi.Azure.Compute
 
         [Input("galleryApplications")]
         private InputList<Inputs.WindowsVirtualMachineScaleSetGalleryApplicationArgs>? _galleryApplications;
-
-        /// <summary>
-        /// A `gallery_applications` block as defined below.
-        /// </summary>
+        [Obsolete(@"`gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0")]
         public InputList<Inputs.WindowsVirtualMachineScaleSetGalleryApplicationArgs> GalleryApplications
         {
             get => _galleryApplications ?? (_galleryApplications = new InputList<Inputs.WindowsVirtualMachineScaleSetGalleryApplicationArgs>());
@@ -1035,10 +1029,7 @@ namespace Pulumi.Azure.Compute
 
         [Input("galleryApplications")]
         private InputList<Inputs.WindowsVirtualMachineScaleSetGalleryApplicationGetArgs>? _galleryApplications;
-
-        /// <summary>
-        /// A `gallery_applications` block as defined below.
-        /// </summary>
+        [Obsolete(@"`gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0")]
         public InputList<Inputs.WindowsVirtualMachineScaleSetGalleryApplicationGetArgs> GalleryApplications
         {
             get => _galleryApplications ?? (_galleryApplications = new InputList<Inputs.WindowsVirtualMachineScaleSetGalleryApplicationGetArgs>());

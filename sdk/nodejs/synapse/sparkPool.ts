@@ -70,6 +70,14 @@ export class SparkPool extends pulumi.CustomResource {
      */
     public readonly libraryRequirement!: pulumi.Output<outputs.synapse.SparkPoolLibraryRequirement | undefined>;
     /**
+     * The maximum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
+     */
+    public readonly maxExecutors!: pulumi.Output<number | undefined>;
+    /**
+     * The minimum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
+     */
+    public readonly minExecutors!: pulumi.Output<number | undefined>;
+    /**
      * The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -133,6 +141,8 @@ export class SparkPool extends pulumi.CustomResource {
             resourceInputs["computeIsolationEnabled"] = state ? state.computeIsolationEnabled : undefined;
             resourceInputs["dynamicExecutorAllocationEnabled"] = state ? state.dynamicExecutorAllocationEnabled : undefined;
             resourceInputs["libraryRequirement"] = state ? state.libraryRequirement : undefined;
+            resourceInputs["maxExecutors"] = state ? state.maxExecutors : undefined;
+            resourceInputs["minExecutors"] = state ? state.minExecutors : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["nodeCount"] = state ? state.nodeCount : undefined;
             resourceInputs["nodeSize"] = state ? state.nodeSize : undefined;
@@ -161,6 +171,8 @@ export class SparkPool extends pulumi.CustomResource {
             resourceInputs["computeIsolationEnabled"] = args ? args.computeIsolationEnabled : undefined;
             resourceInputs["dynamicExecutorAllocationEnabled"] = args ? args.dynamicExecutorAllocationEnabled : undefined;
             resourceInputs["libraryRequirement"] = args ? args.libraryRequirement : undefined;
+            resourceInputs["maxExecutors"] = args ? args.maxExecutors : undefined;
+            resourceInputs["minExecutors"] = args ? args.minExecutors : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["nodeCount"] = args ? args.nodeCount : undefined;
             resourceInputs["nodeSize"] = args ? args.nodeSize : undefined;
@@ -206,6 +218,14 @@ export interface SparkPoolState {
      * A `libraryRequirement` block as defined below.
      */
     libraryRequirement?: pulumi.Input<inputs.synapse.SparkPoolLibraryRequirement>;
+    /**
+     * The maximum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
+     */
+    maxExecutors?: pulumi.Input<number>;
+    /**
+     * The minimum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
+     */
+    minExecutors?: pulumi.Input<number>;
     /**
      * The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
      */
@@ -280,6 +300,14 @@ export interface SparkPoolArgs {
      * A `libraryRequirement` block as defined below.
      */
     libraryRequirement?: pulumi.Input<inputs.synapse.SparkPoolLibraryRequirement>;
+    /**
+     * The maximum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
+     */
+    maxExecutors?: pulumi.Input<number>;
+    /**
+     * The minimum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
+     */
+    minExecutors?: pulumi.Input<number>;
     /**
      * The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
      */

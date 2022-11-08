@@ -241,6 +241,12 @@ namespace Pulumi.Azure.AppService
         public Output<string?> StorageAccountName { get; private set; } = null!;
 
         /// <summary>
+        /// One or more `storage_account` blocks as defined below.
+        /// </summary>
+        [Output("storageAccounts")]
+        public Output<ImmutableArray<Outputs.WindowsFunctionAppSlotStorageAccount>> StorageAccounts { get; private set; } = null!;
+
+        /// <summary>
         /// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
         /// </summary>
         [Output("storageKeyVaultSecretId")]
@@ -441,6 +447,18 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("storageAccountName")]
         public Input<string>? StorageAccountName { get; set; }
+
+        [Input("storageAccounts")]
+        private InputList<Inputs.WindowsFunctionAppSlotStorageAccountArgs>? _storageAccounts;
+
+        /// <summary>
+        /// One or more `storage_account` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.WindowsFunctionAppSlotStorageAccountArgs> StorageAccounts
+        {
+            get => _storageAccounts ?? (_storageAccounts = new InputList<Inputs.WindowsFunctionAppSlotStorageAccountArgs>());
+            set => _storageAccounts = value;
+        }
 
         /// <summary>
         /// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
@@ -677,6 +695,18 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("storageAccountName")]
         public Input<string>? StorageAccountName { get; set; }
+
+        [Input("storageAccounts")]
+        private InputList<Inputs.WindowsFunctionAppSlotStorageAccountGetArgs>? _storageAccounts;
+
+        /// <summary>
+        /// One or more `storage_account` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.WindowsFunctionAppSlotStorageAccountGetArgs> StorageAccounts
+        {
+            get => _storageAccounts ?? (_storageAccounts = new InputList<Inputs.WindowsFunctionAppSlotStorageAccountGetArgs>());
+            set => _storageAccounts = value;
+        }
 
         /// <summary>
         /// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.

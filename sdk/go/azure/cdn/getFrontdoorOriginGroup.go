@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to access information about an existing CDN FrontDoor Origin Group.
+// Use this data source to access information about an existing Front Door (standard/premium) Origin Group.
 //
 // ## Example Usage
 //
@@ -50,17 +50,17 @@ func LookupFrontdoorOriginGroup(ctx *pulumi.Context, args *LookupFrontdoorOrigin
 
 // A collection of arguments for invoking getFrontdoorOriginGroup.
 type LookupFrontdoorOriginGroupArgs struct {
-	// Specifies the name of the FrontDoor Origin Group.
+	// Specifies the name of the Front Door Origin Group.
 	Name string `pulumi:"name"`
-	// The name of the FrontDoor Profile within which CDN FrontDoor Origin Group exists.
+	// The name of the Front Door Profile within which Front Door Origin Group exists.
 	ProfileName string `pulumi:"profileName"`
-	// The name of the Resource Group where the CDN FrontDoor Profile exists.
+	// The name of the Resource Group where the Front Door Profile exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getFrontdoorOriginGroup.
 type LookupFrontdoorOriginGroupResult struct {
-	// Specifies the ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group exists.
+	// Specifies the ID of the Front Door Profile within which this Front Door Origin Group exists.
 	CdnFrontdoorProfileId string `pulumi:"cdnFrontdoorProfileId"`
 	// A `healthProbe` block as defined below.
 	HealthProbes []GetFrontdoorOriginGroupHealthProbe `pulumi:"healthProbes"`
@@ -91,11 +91,11 @@ func LookupFrontdoorOriginGroupOutput(ctx *pulumi.Context, args LookupFrontdoorO
 
 // A collection of arguments for invoking getFrontdoorOriginGroup.
 type LookupFrontdoorOriginGroupOutputArgs struct {
-	// Specifies the name of the FrontDoor Origin Group.
+	// Specifies the name of the Front Door Origin Group.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The name of the FrontDoor Profile within which CDN FrontDoor Origin Group exists.
+	// The name of the Front Door Profile within which Front Door Origin Group exists.
 	ProfileName pulumi.StringInput `pulumi:"profileName"`
-	// The name of the Resource Group where the CDN FrontDoor Profile exists.
+	// The name of the Resource Group where the Front Door Profile exists.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
@@ -118,7 +118,7 @@ func (o LookupFrontdoorOriginGroupResultOutput) ToLookupFrontdoorOriginGroupResu
 	return o
 }
 
-// Specifies the ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group exists.
+// Specifies the ID of the Front Door Profile within which this Front Door Origin Group exists.
 func (o LookupFrontdoorOriginGroupResultOutput) CdnFrontdoorProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFrontdoorOriginGroupResult) string { return v.CdnFrontdoorProfileId }).(pulumi.StringOutput)
 }

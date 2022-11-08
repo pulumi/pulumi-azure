@@ -18,14 +18,14 @@ public final class FrontdoorRuleActionsRouteConfigurationOverrideActionArgs exte
     public static final FrontdoorRuleActionsRouteConfigurationOverrideActionArgs Empty = new FrontdoorRuleActionsRouteConfigurationOverrideActionArgs();
 
     /**
-     * `HonorOrigin` Frontdoor will always honor origin response header directive. If the origin directive is missing, Frontdoor will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. Possible values include `HonorOrigin`, `OverrideAlways` or `OverrideIfOriginMissing`. Defaults to `HonorOrigin`.
+     * `HonorOrigin` the Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your Front Door Origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your Front Door Origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. `Disabled` the Front Door will not cache the response contents, irrespective of Front Door Origin response directives. Possible values include `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing` or `Disabled`. Defaults to `HonorOrigin`.
      * 
      */
     @Import(name="cacheBehavior")
     private @Nullable Output<String> cacheBehavior;
 
     /**
-     * @return `HonorOrigin` Frontdoor will always honor origin response header directive. If the origin directive is missing, Frontdoor will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. Possible values include `HonorOrigin`, `OverrideAlways` or `OverrideIfOriginMissing`. Defaults to `HonorOrigin`.
+     * @return `HonorOrigin` the Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your Front Door Origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your Front Door Origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. `Disabled` the Front Door will not cache the response contents, irrespective of Front Door Origin response directives. Possible values include `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing` or `Disabled`. Defaults to `HonorOrigin`.
      * 
      */
     public Optional<Output<String>> cacheBehavior() {
@@ -33,44 +33,44 @@ public final class FrontdoorRuleActionsRouteConfigurationOverrideActionArgs exte
     }
 
     /**
-     * When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`).
+     * When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`). Defaults to `1.12:00:00`.
      * 
      */
-    @Import(name="cacheDuration", required=true)
-    private Output<String> cacheDuration;
+    @Import(name="cacheDuration")
+    private @Nullable Output<String> cacheDuration;
 
     /**
-     * @return When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`).
+     * @return When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`). Defaults to `1.12:00:00`.
      * 
      */
-    public Output<String> cacheDuration() {
-        return this.cacheDuration;
+    public Optional<Output<String>> cacheDuration() {
+        return Optional.ofNullable(this.cacheDuration);
     }
 
     /**
-     * The origin group resource ID that the request should be routed to. This overrides the configuration specified in the Frontdoor endpoint route.
+     * The Front Door Origin Group resource ID that the request should be routed to. This overrides the configuration specified in the Front Door Endpoint route.
      * 
      */
-    @Import(name="cdnFrontdoorOriginGroupId", required=true)
-    private Output<String> cdnFrontdoorOriginGroupId;
+    @Import(name="cdnFrontdoorOriginGroupId")
+    private @Nullable Output<String> cdnFrontdoorOriginGroupId;
 
     /**
-     * @return The origin group resource ID that the request should be routed to. This overrides the configuration specified in the Frontdoor endpoint route.
+     * @return The Front Door Origin Group resource ID that the request should be routed to. This overrides the configuration specified in the Front Door Endpoint route.
      * 
      */
-    public Output<String> cdnFrontdoorOriginGroupId() {
-        return this.cdnFrontdoorOriginGroupId;
+    public Optional<Output<String>> cdnFrontdoorOriginGroupId() {
+        return Optional.ofNullable(this.cdnFrontdoorOriginGroupId);
     }
 
     /**
-     * Should Frontdoor dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
+     * Should the Front Door dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
      * 
      */
     @Import(name="compressionEnabled")
     private @Nullable Output<Boolean> compressionEnabled;
 
     /**
-     * @return Should Frontdoor dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
+     * @return Should the Front Door dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> compressionEnabled() {
@@ -153,7 +153,7 @@ public final class FrontdoorRuleActionsRouteConfigurationOverrideActionArgs exte
         }
 
         /**
-         * @param cacheBehavior `HonorOrigin` Frontdoor will always honor origin response header directive. If the origin directive is missing, Frontdoor will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. Possible values include `HonorOrigin`, `OverrideAlways` or `OverrideIfOriginMissing`. Defaults to `HonorOrigin`.
+         * @param cacheBehavior `HonorOrigin` the Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your Front Door Origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your Front Door Origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. `Disabled` the Front Door will not cache the response contents, irrespective of Front Door Origin response directives. Possible values include `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing` or `Disabled`. Defaults to `HonorOrigin`.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class FrontdoorRuleActionsRouteConfigurationOverrideActionArgs exte
         }
 
         /**
-         * @param cacheBehavior `HonorOrigin` Frontdoor will always honor origin response header directive. If the origin directive is missing, Frontdoor will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. Possible values include `HonorOrigin`, `OverrideAlways` or `OverrideIfOriginMissing`. Defaults to `HonorOrigin`.
+         * @param cacheBehavior `HonorOrigin` the Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your Front Door Origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your Front Door Origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. `Disabled` the Front Door will not cache the response contents, irrespective of Front Door Origin response directives. Possible values include `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing` or `Disabled`. Defaults to `HonorOrigin`.
          * 
          * @return builder
          * 
@@ -174,18 +174,18 @@ public final class FrontdoorRuleActionsRouteConfigurationOverrideActionArgs exte
         }
 
         /**
-         * @param cacheDuration When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`).
+         * @param cacheDuration When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`). Defaults to `1.12:00:00`.
          * 
          * @return builder
          * 
          */
-        public Builder cacheDuration(Output<String> cacheDuration) {
+        public Builder cacheDuration(@Nullable Output<String> cacheDuration) {
             $.cacheDuration = cacheDuration;
             return this;
         }
 
         /**
-         * @param cacheDuration When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`).
+         * @param cacheDuration When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`). Defaults to `1.12:00:00`.
          * 
          * @return builder
          * 
@@ -195,18 +195,18 @@ public final class FrontdoorRuleActionsRouteConfigurationOverrideActionArgs exte
         }
 
         /**
-         * @param cdnFrontdoorOriginGroupId The origin group resource ID that the request should be routed to. This overrides the configuration specified in the Frontdoor endpoint route.
+         * @param cdnFrontdoorOriginGroupId The Front Door Origin Group resource ID that the request should be routed to. This overrides the configuration specified in the Front Door Endpoint route.
          * 
          * @return builder
          * 
          */
-        public Builder cdnFrontdoorOriginGroupId(Output<String> cdnFrontdoorOriginGroupId) {
+        public Builder cdnFrontdoorOriginGroupId(@Nullable Output<String> cdnFrontdoorOriginGroupId) {
             $.cdnFrontdoorOriginGroupId = cdnFrontdoorOriginGroupId;
             return this;
         }
 
         /**
-         * @param cdnFrontdoorOriginGroupId The origin group resource ID that the request should be routed to. This overrides the configuration specified in the Frontdoor endpoint route.
+         * @param cdnFrontdoorOriginGroupId The Front Door Origin Group resource ID that the request should be routed to. This overrides the configuration specified in the Front Door Endpoint route.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class FrontdoorRuleActionsRouteConfigurationOverrideActionArgs exte
         }
 
         /**
-         * @param compressionEnabled Should Frontdoor dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
+         * @param compressionEnabled Should the Front Door dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class FrontdoorRuleActionsRouteConfigurationOverrideActionArgs exte
         }
 
         /**
-         * @param compressionEnabled Should Frontdoor dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
+         * @param compressionEnabled Should the Front Door dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -310,8 +310,6 @@ public final class FrontdoorRuleActionsRouteConfigurationOverrideActionArgs exte
         }
 
         public FrontdoorRuleActionsRouteConfigurationOverrideActionArgs build() {
-            $.cacheDuration = Objects.requireNonNull($.cacheDuration, "expected parameter 'cacheDuration' to be non-null");
-            $.cdnFrontdoorOriginGroupId = Objects.requireNonNull($.cdnFrontdoorOriginGroupId, "expected parameter 'cdnFrontdoorOriginGroupId' to be non-null");
             return $;
         }
     }

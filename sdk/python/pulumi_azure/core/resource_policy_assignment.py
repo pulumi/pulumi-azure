@@ -443,7 +443,7 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
         example_definition = azure.policy.Definition("exampleDefinition",
             policy_type="Custom",
             mode="All",
-            policy_rule=\"\"\"	{
+            policy_rule=\"\"\" {
             "if": {
               "not": {
                 "field": "location",
@@ -505,7 +505,7 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
         example_definition = azure.policy.Definition("exampleDefinition",
             policy_type="Custom",
             mode="All",
-            policy_rule=\"\"\"	{
+            policy_rule=\"\"\" {
             "if": {
               "not": {
                 "field": "location",

@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     policyType: "Custom",
  *     mode: "All",
  *     displayName: "my-policy-definition",
- *     policyRule: `	{
+ *     policyRule: ` {
  *     "if": {
  *       "not": {
  *         "field": "location",

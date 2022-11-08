@@ -111,8 +111,8 @@ namespace Pulumi.Azure.Synapse
     ///     var workspacePolicy = new Azure.KeyVault.AccessPolicy("workspacePolicy", new()
     ///     {
     ///         KeyVaultId = exampleKeyVault.Id,
-    ///         TenantId = exampleWorkspace.Identity.Apply(identity =&gt; identity.TenantId),
-    ///         ObjectId = exampleWorkspace.Identity.Apply(identity =&gt; identity.PrincipalId),
+    ///         TenantId = exampleWorkspace.Identity.Apply(identity =&gt; identity?.TenantId),
+    ///         ObjectId = exampleWorkspace.Identity.Apply(identity =&gt; identity?.PrincipalId),
     ///         KeyPermissions = new[]
     ///         {
     ///             "Get",

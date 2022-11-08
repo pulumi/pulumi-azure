@@ -42,6 +42,7 @@ import * as utilities from "../utilities";
  * const exampleFunctionAppActiveSlot = new azure.appservice.FunctionAppActiveSlot("exampleFunctionAppActiveSlot", {slotId: exampleWindowsFunctionAppSlot.id});
  * ```
  * ### Linux Function App
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";

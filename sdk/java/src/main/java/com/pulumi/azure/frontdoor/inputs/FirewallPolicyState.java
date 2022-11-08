@@ -97,14 +97,14 @@ public final class FirewallPolicyState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The Azure Region where this FrontDoor Firewall Policy exists.
+     * The Azure Region where this Front Door Firewall Policy exists.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return The Azure Region where this FrontDoor Firewall Policy exists.
+     * @return The Azure Region where this Front Door Firewall Policy exists.
      * 
      */
     public Optional<Output<String>> location() {
@@ -362,7 +362,7 @@ public final class FirewallPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param location The Azure Region where this FrontDoor Firewall Policy exists.
+         * @param location The Azure Region where this Front Door Firewall Policy exists.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class FirewallPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param location The Azure Region where this FrontDoor Firewall Policy exists.
+         * @param location The Azure Region where this Front Door Firewall Policy exists.
          * 
          * @return builder
          * 

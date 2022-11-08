@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class DataCollectionRuleDataSourcesSyslog {
@@ -25,6 +26,11 @@ public final class DataCollectionRuleDataSourcesSyslog {
      * 
      */
     private String name;
+    /**
+     * @return Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
+     * 
+     */
+    private @Nullable List<String> streams;
 
     private DataCollectionRuleDataSourcesSyslog() {}
     /**
@@ -48,6 +54,13 @@ public final class DataCollectionRuleDataSourcesSyslog {
     public String name() {
         return this.name;
     }
+    /**
+     * @return Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
+     * 
+     */
+    public List<String> streams() {
+        return this.streams == null ? List.of() : this.streams;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -61,12 +74,14 @@ public final class DataCollectionRuleDataSourcesSyslog {
         private List<String> facilityNames;
         private List<String> logLevels;
         private String name;
+        private @Nullable List<String> streams;
         public Builder() {}
         public Builder(DataCollectionRuleDataSourcesSyslog defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.facilityNames = defaults.facilityNames;
     	      this.logLevels = defaults.logLevels;
     	      this.name = defaults.name;
+    	      this.streams = defaults.streams;
         }
 
         @CustomType.Setter
@@ -90,11 +105,20 @@ public final class DataCollectionRuleDataSourcesSyslog {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
+        public Builder streams(@Nullable List<String> streams) {
+            this.streams = streams;
+            return this;
+        }
+        public Builder streams(String... streams) {
+            return streams(List.of(streams));
+        }
         public DataCollectionRuleDataSourcesSyslog build() {
             final var o = new DataCollectionRuleDataSourcesSyslog();
             o.facilityNames = facilityNames;
             o.logLevels = logLevels;
             o.name = name;
+            o.streams = streams;
             return o;
         }
     }

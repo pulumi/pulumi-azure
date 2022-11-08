@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.hdinsight.HBaseClusterArgs;
 import com.pulumi.azure.hdinsight.inputs.HBaseClusterState;
 import com.pulumi.azure.hdinsight.outputs.HBaseClusterComponentVersion;
+import com.pulumi.azure.hdinsight.outputs.HBaseClusterComputeIsolation;
 import com.pulumi.azure.hdinsight.outputs.HBaseClusterDiskEncryption;
 import com.pulumi.azure.hdinsight.outputs.HBaseClusterExtension;
 import com.pulumi.azure.hdinsight.outputs.HBaseClusterGateway;
@@ -160,6 +161,20 @@ public class HBaseCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<HBaseClusterComponentVersion> componentVersion() {
         return this.componentVersion;
+    }
+    /**
+     * A `compute_isolation` block as defined below.
+     * 
+     */
+    @Export(name="computeIsolation", type=HBaseClusterComputeIsolation.class, parameters={})
+    private Output</* @Nullable */ HBaseClusterComputeIsolation> computeIsolation;
+
+    /**
+     * @return A `compute_isolation` block as defined below.
+     * 
+     */
+    public Output<Optional<HBaseClusterComputeIsolation>> computeIsolation() {
+        return Codegen.optional(this.computeIsolation);
     }
     @Export(name="diskEncryptions", type=List.class, parameters={HBaseClusterDiskEncryption.class})
     private Output</* @Nullable */ List<HBaseClusterDiskEncryption>> diskEncryptions;

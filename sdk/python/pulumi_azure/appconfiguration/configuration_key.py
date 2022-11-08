@@ -390,6 +390,7 @@ class ConfigurationKey(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[appconf_dataowner]))
         ```
         ### `Vault` Type
+
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -498,6 +499,7 @@ class ConfigurationKey(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[appconf_dataowner]))
         ```
         ### `Vault` Type
+
         ```python
         import pulumi
         import pulumi_azure as azure

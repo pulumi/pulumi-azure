@@ -119,19 +119,19 @@ import (
 type ManagedDisk struct {
 	pulumi.CustomResourceState
 
-	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `sourceUri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `sourceResourceId`), `FromImage` (Copy a Platform Image, specified with `imageReferenceId`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `sourceResourceId`).
+	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
 	CreateOption pulumi.StringOutput `pulumi:"createOption"`
 	// The ID of the disk access resource for using private endpoints on disks.
 	DiskAccessId pulumi.StringPtrOutput `pulumi:"diskAccessId"`
 	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secureVmDiskEncryptionSetId`.
 	DiskEncryptionSetId pulumi.StringPtrOutput `pulumi:"diskEncryptionSetId"`
-	// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
+	// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
 	DiskIopsReadOnly pulumi.IntOutput `pulumi:"diskIopsReadOnly"`
-	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+	// The number of IOPS allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. One operation can transfer between 4k and 256k bytes.
 	DiskIopsReadWrite pulumi.IntOutput `pulumi:"diskIopsReadWrite"`
-	// The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
+	// The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. MBps means millions of bytes per second.
 	DiskMbpsReadOnly pulumi.IntOutput `pulumi:"diskMbpsReadOnly"`
-	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
+	// The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
 	DiskMbpsReadWrite pulumi.IntOutput `pulumi:"diskMbpsReadWrite"`
 	// Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
 	DiskSizeGb pulumi.IntOutput `pulumi:"diskSizeGb"`
@@ -167,7 +167,7 @@ type ManagedDisk struct {
 	SecureVmDiskEncryptionSetId pulumi.StringPtrOutput `pulumi:"secureVmDiskEncryptionSetId"`
 	// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
 	SecurityType pulumi.StringPtrOutput `pulumi:"securityType"`
-	// The ID of an existing Managed Disk to copy `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
+	// The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
 	SourceResourceId pulumi.StringPtrOutput `pulumi:"sourceResourceId"`
 	// URI to a valid VHD file to be used when `createOption` is `Import`.
 	SourceUri pulumi.StringOutput `pulumi:"sourceUri"`
@@ -223,19 +223,19 @@ func GetManagedDisk(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedDisk resources.
 type managedDiskState struct {
-	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `sourceUri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `sourceResourceId`), `FromImage` (Copy a Platform Image, specified with `imageReferenceId`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `sourceResourceId`).
+	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
 	CreateOption *string `pulumi:"createOption"`
 	// The ID of the disk access resource for using private endpoints on disks.
 	DiskAccessId *string `pulumi:"diskAccessId"`
 	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secureVmDiskEncryptionSetId`.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
-	// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
+	// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
 	DiskIopsReadOnly *int `pulumi:"diskIopsReadOnly"`
-	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+	// The number of IOPS allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. One operation can transfer between 4k and 256k bytes.
 	DiskIopsReadWrite *int `pulumi:"diskIopsReadWrite"`
-	// The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
+	// The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. MBps means millions of bytes per second.
 	DiskMbpsReadOnly *int `pulumi:"diskMbpsReadOnly"`
-	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
+	// The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
 	DiskMbpsReadWrite *int `pulumi:"diskMbpsReadWrite"`
 	// Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
@@ -271,7 +271,7 @@ type managedDiskState struct {
 	SecureVmDiskEncryptionSetId *string `pulumi:"secureVmDiskEncryptionSetId"`
 	// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
 	SecurityType *string `pulumi:"securityType"`
-	// The ID of an existing Managed Disk to copy `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
+	// The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
 	SourceResourceId *string `pulumi:"sourceResourceId"`
 	// URI to a valid VHD file to be used when `createOption` is `Import`.
 	SourceUri *string `pulumi:"sourceUri"`
@@ -290,19 +290,19 @@ type managedDiskState struct {
 }
 
 type ManagedDiskState struct {
-	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `sourceUri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `sourceResourceId`), `FromImage` (Copy a Platform Image, specified with `imageReferenceId`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `sourceResourceId`).
+	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
 	CreateOption pulumi.StringPtrInput
 	// The ID of the disk access resource for using private endpoints on disks.
 	DiskAccessId pulumi.StringPtrInput
 	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secureVmDiskEncryptionSetId`.
 	DiskEncryptionSetId pulumi.StringPtrInput
-	// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
+	// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
 	DiskIopsReadOnly pulumi.IntPtrInput
-	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+	// The number of IOPS allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. One operation can transfer between 4k and 256k bytes.
 	DiskIopsReadWrite pulumi.IntPtrInput
-	// The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
+	// The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. MBps means millions of bytes per second.
 	DiskMbpsReadOnly pulumi.IntPtrInput
-	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
+	// The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
 	DiskMbpsReadWrite pulumi.IntPtrInput
 	// Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
 	DiskSizeGb pulumi.IntPtrInput
@@ -338,7 +338,7 @@ type ManagedDiskState struct {
 	SecureVmDiskEncryptionSetId pulumi.StringPtrInput
 	// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
 	SecurityType pulumi.StringPtrInput
-	// The ID of an existing Managed Disk to copy `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
+	// The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
 	SourceResourceId pulumi.StringPtrInput
 	// URI to a valid VHD file to be used when `createOption` is `Import`.
 	SourceUri pulumi.StringPtrInput
@@ -361,19 +361,19 @@ func (ManagedDiskState) ElementType() reflect.Type {
 }
 
 type managedDiskArgs struct {
-	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `sourceUri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `sourceResourceId`), `FromImage` (Copy a Platform Image, specified with `imageReferenceId`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `sourceResourceId`).
+	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
 	CreateOption string `pulumi:"createOption"`
 	// The ID of the disk access resource for using private endpoints on disks.
 	DiskAccessId *string `pulumi:"diskAccessId"`
 	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secureVmDiskEncryptionSetId`.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
-	// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
+	// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
 	DiskIopsReadOnly *int `pulumi:"diskIopsReadOnly"`
-	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+	// The number of IOPS allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. One operation can transfer between 4k and 256k bytes.
 	DiskIopsReadWrite *int `pulumi:"diskIopsReadWrite"`
-	// The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
+	// The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. MBps means millions of bytes per second.
 	DiskMbpsReadOnly *int `pulumi:"diskMbpsReadOnly"`
-	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
+	// The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
 	DiskMbpsReadWrite *int `pulumi:"diskMbpsReadWrite"`
 	// Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
@@ -409,7 +409,7 @@ type managedDiskArgs struct {
 	SecureVmDiskEncryptionSetId *string `pulumi:"secureVmDiskEncryptionSetId"`
 	// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
 	SecurityType *string `pulumi:"securityType"`
-	// The ID of an existing Managed Disk to copy `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
+	// The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
 	SourceResourceId *string `pulumi:"sourceResourceId"`
 	// URI to a valid VHD file to be used when `createOption` is `Import`.
 	SourceUri *string `pulumi:"sourceUri"`
@@ -429,19 +429,19 @@ type managedDiskArgs struct {
 
 // The set of arguments for constructing a ManagedDisk resource.
 type ManagedDiskArgs struct {
-	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `sourceUri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `sourceResourceId`), `FromImage` (Copy a Platform Image, specified with `imageReferenceId`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `sourceResourceId`).
+	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
 	CreateOption pulumi.StringInput
 	// The ID of the disk access resource for using private endpoints on disks.
 	DiskAccessId pulumi.StringPtrInput
 	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secureVmDiskEncryptionSetId`.
 	DiskEncryptionSetId pulumi.StringPtrInput
-	// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
+	// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
 	DiskIopsReadOnly pulumi.IntPtrInput
-	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+	// The number of IOPS allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. One operation can transfer between 4k and 256k bytes.
 	DiskIopsReadWrite pulumi.IntPtrInput
-	// The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
+	// The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. MBps means millions of bytes per second.
 	DiskMbpsReadOnly pulumi.IntPtrInput
-	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
+	// The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
 	DiskMbpsReadWrite pulumi.IntPtrInput
 	// Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
 	DiskSizeGb pulumi.IntPtrInput
@@ -477,7 +477,7 @@ type ManagedDiskArgs struct {
 	SecureVmDiskEncryptionSetId pulumi.StringPtrInput
 	// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
 	SecurityType pulumi.StringPtrInput
-	// The ID of an existing Managed Disk to copy `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
+	// The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
 	SourceResourceId pulumi.StringPtrInput
 	// URI to a valid VHD file to be used when `createOption` is `Import`.
 	SourceUri pulumi.StringPtrInput
@@ -582,7 +582,7 @@ func (o ManagedDiskOutput) ToManagedDiskOutputWithContext(ctx context.Context) M
 	return o
 }
 
-// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `sourceUri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `sourceResourceId`), `FromImage` (Copy a Platform Image, specified with `imageReferenceId`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `sourceResourceId`).
+// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
 func (o ManagedDiskOutput) CreateOption() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringOutput { return v.CreateOption }).(pulumi.StringOutput)
 }
@@ -597,22 +597,22 @@ func (o ManagedDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringPtrOutput { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
 
-// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
+// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
 func (o ManagedDiskOutput) DiskIopsReadOnly() pulumi.IntOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.IntOutput { return v.DiskIopsReadOnly }).(pulumi.IntOutput)
 }
 
-// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+// The number of IOPS allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. One operation can transfer between 4k and 256k bytes.
 func (o ManagedDiskOutput) DiskIopsReadWrite() pulumi.IntOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.IntOutput { return v.DiskIopsReadWrite }).(pulumi.IntOutput)
 }
 
-// The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
+// The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. MBps means millions of bytes per second.
 func (o ManagedDiskOutput) DiskMbpsReadOnly() pulumi.IntOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.IntOutput { return v.DiskMbpsReadOnly }).(pulumi.IntOutput)
 }
 
-// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
+// The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
 func (o ManagedDiskOutput) DiskMbpsReadWrite() pulumi.IntOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.IntOutput { return v.DiskMbpsReadWrite }).(pulumi.IntOutput)
 }
@@ -702,7 +702,7 @@ func (o ManagedDiskOutput) SecurityType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringPtrOutput { return v.SecurityType }).(pulumi.StringPtrOutput)
 }
 
-// The ID of an existing Managed Disk to copy `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
+// The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
 func (o ManagedDiskOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringPtrOutput { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }

@@ -27,7 +27,7 @@ public final class DataCollectionRuleDataSourcesPerformanceCounter {
      */
     private Integer samplingFrequencyInSeconds;
     /**
-     * @return Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
+     * @return Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
      * 
      */
     private List<String> streams;
@@ -55,7 +55,7 @@ public final class DataCollectionRuleDataSourcesPerformanceCounter {
         return this.samplingFrequencyInSeconds;
     }
     /**
-     * @return Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
+     * @return Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
      * 
      */
     public List<String> streams() {

@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Cdn
     public static class GetFrontdoorProfile
     {
         /// <summary>
-        /// Use this data source to access information about an existing CDN FrontDoor Profile.
+        /// Use this data source to access information about an existing Front Door (standard/premium) Profile.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Cdn
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrontdoorProfileResult>("azure:cdn/getFrontdoorProfile:getFrontdoorProfile", args ?? new GetFrontdoorProfileArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to access information about an existing CDN FrontDoor Profile.
+        /// Use this data source to access information about an existing Front Door (standard/premium) Profile.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -72,13 +72,13 @@ namespace Pulumi.Azure.Cdn
     public sealed class GetFrontdoorProfileArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies the name of the FrontDoor Profile.
+        /// Specifies the name of the Front Door Profile.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where this FrontDoor Profile exists.
+        /// The name of the Resource Group where this Front Door Profile exists.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -92,13 +92,13 @@ namespace Pulumi.Azure.Cdn
     public sealed class GetFrontdoorProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies the name of the FrontDoor Profile.
+        /// Specifies the name of the Front Door Profile.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where this FrontDoor Profile exists.
+        /// The name of the Resource Group where this Front Door Profile exists.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -120,7 +120,7 @@ namespace Pulumi.Azure.Cdn
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// The UUID of this CDN FrontDoor Profile. This is the value that is used for the `X-Azure-FDID` attribute in the HTTP header.
+        /// The UUID of the Front Door Profile which will be sent in the HTTP Header as the `X-Azure-FDID` attribute.
         /// </summary>
         public readonly string ResourceGuid;
         /// <summary>
@@ -128,11 +128,11 @@ namespace Pulumi.Azure.Cdn
         /// </summary>
         public readonly int ResponseTimeoutSeconds;
         /// <summary>
-        /// Specifies the SKU for this CDN FrontDoor Profile.
+        /// Specifies the SKU for this Front Door Profile.
         /// </summary>
         public readonly string SkuName;
         /// <summary>
-        /// Specifies a mapping of Tags assigned to this CDN FrontDoor Profile.
+        /// Specifies a mapping of Tags assigned to this Front Door Profile.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

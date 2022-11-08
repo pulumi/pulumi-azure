@@ -85,7 +85,7 @@ type LinkedServiceWeb struct {
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	Password   pulumi.StringPtrOutput `pulumi:"password"`
-	// The URL of the web service endpoint (e.g. https://www.microsoft.com).
+	// The URL of the web service endpoint (e.g. <https://www.microsoft.com>).
 	Url      pulumi.StringOutput    `pulumi:"url"`
 	Username pulumi.StringPtrOutput `pulumi:"username"`
 }
@@ -146,7 +146,7 @@ type linkedServiceWebState struct {
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
 	Password   *string           `pulumi:"password"`
-	// The URL of the web service endpoint (e.g. https://www.microsoft.com).
+	// The URL of the web service endpoint (e.g. <https://www.microsoft.com>).
 	Url      *string `pulumi:"url"`
 	Username *string `pulumi:"username"`
 }
@@ -170,7 +170,7 @@ type LinkedServiceWebState struct {
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
 	Password   pulumi.StringPtrInput
-	// The URL of the web service endpoint (e.g. https://www.microsoft.com).
+	// The URL of the web service endpoint (e.g. <https://www.microsoft.com>).
 	Url      pulumi.StringPtrInput
 	Username pulumi.StringPtrInput
 }
@@ -198,7 +198,7 @@ type linkedServiceWebArgs struct {
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
 	Password   *string           `pulumi:"password"`
-	// The URL of the web service endpoint (e.g. https://www.microsoft.com).
+	// The URL of the web service endpoint (e.g. <https://www.microsoft.com>).
 	Url      string  `pulumi:"url"`
 	Username *string `pulumi:"username"`
 }
@@ -223,7 +223,7 @@ type LinkedServiceWebArgs struct {
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
 	Password   pulumi.StringPtrInput
-	// The URL of the web service endpoint (e.g. https://www.microsoft.com).
+	// The URL of the web service endpoint (e.g. <https://www.microsoft.com>).
 	Url      pulumi.StringInput
 	Username pulumi.StringPtrInput
 }
@@ -360,7 +360,7 @@ func (o LinkedServiceWebOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinkedServiceWeb) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The URL of the web service endpoint (e.g. https://www.microsoft.com).
+// The URL of the web service endpoint (e.g. <https://www.microsoft.com>).
 func (o LinkedServiceWebOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkedServiceWeb) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }

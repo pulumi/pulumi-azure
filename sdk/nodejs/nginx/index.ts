@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CertificateArgs, CertificateState } from "./certificate";
+export type Certificate = import("./certificate").Certificate;
+export const Certificate: typeof import("./certificate").Certificate = null as any;
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
+
+export { ConfigurationArgs, ConfigurationState } from "./configuration";
+export type Configuration = import("./configuration").Configuration;
+export const Configuration: typeof import("./configuration").Configuration = null as any;
+utilities.lazyLoad(exports, ["Configuration"], () => require("./configuration"));
+
 export { DeploymentArgs, DeploymentState } from "./deployment";
 export type Deployment = import("./deployment").Deployment;
 export const Deployment: typeof import("./deployment").Deployment = null as any;
@@ -15,6 +25,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:nginx/certificate:Certificate":
+                return new Certificate(name, <any>undefined, { urn })
+            case "azure:nginx/configuration:Configuration":
+                return new Configuration(name, <any>undefined, { urn })
             case "azure:nginx/deployment:Deployment":
                 return new Deployment(name, <any>undefined, { urn })
             default:
@@ -22,4 +36,6 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "nginx/certificate", _module)
+pulumi.runtime.registerResourceModule("azure", "nginx/configuration", _module)
 pulumi.runtime.registerResourceModule("azure", "nginx/deployment", _module)

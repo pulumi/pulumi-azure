@@ -21,16 +21,18 @@ func LookupNamespaceDisasterRecoveryConfig(ctx *pulumi.Context, args *LookupName
 
 // A collection of arguments for invoking getNamespaceDisasterRecoveryConfig.
 type LookupNamespaceDisasterRecoveryConfigArgs struct {
-	Name              string  `pulumi:"name"`
-	NamespaceId       *string `pulumi:"namespaceId"`
-	NamespaceName     *string `pulumi:"namespaceName"`
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	AliasAuthorizationRuleId *string `pulumi:"aliasAuthorizationRuleId"`
+	Name                     string  `pulumi:"name"`
+	NamespaceId              *string `pulumi:"namespaceId"`
+	NamespaceName            *string `pulumi:"namespaceName"`
+	ResourceGroupName        *string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getNamespaceDisasterRecoveryConfig.
 type LookupNamespaceDisasterRecoveryConfigResult struct {
-	DefaultPrimaryKey   string `pulumi:"defaultPrimaryKey"`
-	DefaultSecondaryKey string `pulumi:"defaultSecondaryKey"`
+	AliasAuthorizationRuleId *string `pulumi:"aliasAuthorizationRuleId"`
+	DefaultPrimaryKey        string  `pulumi:"defaultPrimaryKey"`
+	DefaultSecondaryKey      string  `pulumi:"defaultSecondaryKey"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                             string  `pulumi:"id"`
 	Name                           string  `pulumi:"name"`
@@ -57,10 +59,11 @@ func LookupNamespaceDisasterRecoveryConfigOutput(ctx *pulumi.Context, args Looku
 
 // A collection of arguments for invoking getNamespaceDisasterRecoveryConfig.
 type LookupNamespaceDisasterRecoveryConfigOutputArgs struct {
-	Name              pulumi.StringInput    `pulumi:"name"`
-	NamespaceId       pulumi.StringPtrInput `pulumi:"namespaceId"`
-	NamespaceName     pulumi.StringPtrInput `pulumi:"namespaceName"`
-	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
+	AliasAuthorizationRuleId pulumi.StringPtrInput `pulumi:"aliasAuthorizationRuleId"`
+	Name                     pulumi.StringInput    `pulumi:"name"`
+	NamespaceId              pulumi.StringPtrInput `pulumi:"namespaceId"`
+	NamespaceName            pulumi.StringPtrInput `pulumi:"namespaceName"`
+	ResourceGroupName        pulumi.StringPtrInput `pulumi:"resourceGroupName"`
 }
 
 func (LookupNamespaceDisasterRecoveryConfigOutputArgs) ElementType() reflect.Type {
@@ -80,6 +83,10 @@ func (o LookupNamespaceDisasterRecoveryConfigResultOutput) ToLookupNamespaceDisa
 
 func (o LookupNamespaceDisasterRecoveryConfigResultOutput) ToLookupNamespaceDisasterRecoveryConfigResultOutputWithContext(ctx context.Context) LookupNamespaceDisasterRecoveryConfigResultOutput {
 	return o
+}
+
+func (o LookupNamespaceDisasterRecoveryConfigResultOutput) AliasAuthorizationRuleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNamespaceDisasterRecoveryConfigResult) *string { return v.AliasAuthorizationRuleId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupNamespaceDisasterRecoveryConfigResultOutput) DefaultPrimaryKey() pulumi.StringOutput {

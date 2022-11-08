@@ -133,7 +133,6 @@ import javax.annotation.Nullable;
 public class SpringCloudConnection extends com.pulumi.resources.CustomResource {
     /**
      * The authentication info. An `authentication` block as defined below.
-     * ---
      * 
      */
     @Export(name="authentication", type=SpringCloudConnectionAuthentication.class, parameters={})
@@ -141,7 +140,6 @@ public class SpringCloudConnection extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The authentication info. An `authentication` block as defined below.
-     * ---
      * 
      */
     public Output<SpringCloudConnectionAuthentication> authentication() {

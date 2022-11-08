@@ -77,13 +77,6 @@ namespace Pulumi.Azure.SignalR
     /// 
     /// });
     /// ```
-    /// ## Attributes Reference:
-    /// 
-    /// The following attributes are exported:
-    /// 
-    /// * `id` - The ID of the Signalr Shared Private Link resource.
-    /// 
-    /// * `status` - The status of a private endpoint connection. Possible values are `Pending`, `Approved`, `Rejected` or `Disconnected`.
     /// 
     /// ## Import
     /// 
@@ -114,6 +107,9 @@ namespace Pulumi.Azure.SignalR
         [Output("signalrServiceId")]
         public Output<string> SignalrServiceId { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of a private endpoint connection. Possible values are `Pending`, `Approved`, `Rejected` or `Disconnected`.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -231,6 +227,9 @@ namespace Pulumi.Azure.SignalR
         [Input("signalrServiceId")]
         public Input<string>? SignalrServiceId { get; set; }
 
+        /// <summary>
+        /// The status of a private endpoint connection. Possible values are `Pending`, `Approved`, `Rejected` or `Disconnected`.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

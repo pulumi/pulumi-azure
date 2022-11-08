@@ -31,7 +31,7 @@ import (
 type FallbackRoute struct {
 	pulumi.CustomResourceState
 
-	// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+	// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
 	Condition pulumi.StringPtrOutput `pulumi:"condition"`
 	// Used to specify whether the fallback route is enabled.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
@@ -86,7 +86,7 @@ func GetFallbackRoute(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FallbackRoute resources.
 type fallbackRouteState struct {
-	// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+	// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
 	Condition *string `pulumi:"condition"`
 	// Used to specify whether the fallback route is enabled.
 	Enabled *bool `pulumi:"enabled"`
@@ -101,7 +101,7 @@ type fallbackRouteState struct {
 }
 
 type FallbackRouteState struct {
-	// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+	// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
 	Condition pulumi.StringPtrInput
 	// Used to specify whether the fallback route is enabled.
 	Enabled pulumi.BoolPtrInput
@@ -120,7 +120,7 @@ func (FallbackRouteState) ElementType() reflect.Type {
 }
 
 type fallbackRouteArgs struct {
-	// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+	// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
 	Condition *string `pulumi:"condition"`
 	// Used to specify whether the fallback route is enabled.
 	Enabled bool `pulumi:"enabled"`
@@ -136,7 +136,7 @@ type fallbackRouteArgs struct {
 
 // The set of arguments for constructing a FallbackRoute resource.
 type FallbackRouteArgs struct {
-	// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+	// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
 	Condition pulumi.StringPtrInput
 	// Used to specify whether the fallback route is enabled.
 	Enabled pulumi.BoolInput
@@ -237,7 +237,7 @@ func (o FallbackRouteOutput) ToFallbackRouteOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
 func (o FallbackRouteOutput) Condition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FallbackRoute) pulumi.StringPtrOutput { return v.Condition }).(pulumi.StringPtrOutput)
 }

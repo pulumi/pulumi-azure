@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Frontdoor Rule.
+// Manages a Front Door (standard/premium) Rule.
 //
 // !>**IMPORTANT:** The Rules resource **must** include a `dependsOn` meta-argument which references the `cdn.FrontdoorOrigin` and the `cdn.FrontdoorOriginGroup`.
 //
@@ -39,19 +39,19 @@ import (
 //
 // | Variable name | Description |
 // |---------------|-------------|
-// | `socketIp`      | The IP address of the direct connection to Azure Front Door edge. If the client used an HTTP proxy or a load balancer to send the request, the value of `socketIp` is the IP address of the proxy or load balancer. |
+// | `socketIp`      | The IP address of the direct connection to Front Door Profiles edge. If the client used an HTTP proxy or a load balancer to send the request, the value of `socketIp` is the IP address of the proxy or load balancer. |
 // | `clientIp`      | The IP address of the client that made the original request. If there was an `X-Forwarded-For` header in the request, then the client IP address is picked from the header. |
 // | `clientPort`    | The IP port of the client that made the request. |
 // | `hostname`       | The host name in the request from the client. |
 // | `geoCountry`    | Indicates the requester's country/region of origin through its country/region code. |
 // | `httpMethod`    | The method used to make the URL request, such as `GET` or `POST`. |
 // | `httpVersion`   | The request protocol. Usually `HTTP/1.0`, `HTTP/1.1`, or `HTTP/2.0`. |
-// | `queryString`   | The list of variable/value pairs that follows the "?" in the requested URL.<br/>For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `queryString` value will be `id=123&title=fabrikam`. |
+// | `queryString`   | The list of variable/value pairs that follows the "?" in the requested URL. For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `queryString` value will be `id=123&title=fabrikam`. |
 // | `requestScheme` | The request scheme: `http` or `https`. |
-// | `requestUri`    | The full original request URI (with arguments).<br/>For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `requestUri` value will be `/article.aspx?id=123&title=fabrikam`. |
+// | `requestUri`    | The full original request URI (with arguments). For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `requestUri` value will be `/article.aspx?id=123&title=fabrikam`. |
 // | `sslProtocol`   | The protocol of an established TLS connection. |
 // | `serverPort`    | The port of the server that accepted a request. |
-// | `urlPath`       | Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments.<br/>For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `uriPath` value will be `/article.aspx`. |
+// | `urlPath`       | Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments. For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `uriPath` value will be `/article.aspx`. |
 //
 // ### Action Server Variable Format
 //
@@ -138,7 +138,7 @@ import (
 //
 // ## Import
 //
-// cdn Rules can be imported using the `resource id`, e.g.
+// Front Door Rules can be imported using the `resource id`, e.g.
 //
 // ```sh
 //
@@ -152,15 +152,15 @@ type FrontdoorRule struct {
 	Actions FrontdoorRuleActionsOutput `pulumi:"actions"`
 	// If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
 	BehaviorOnMatch pulumi.StringPtrOutput `pulumi:"behaviorOnMatch"`
-	// The resource ID of the Frontdoor Rule Set for this Frontdoor Rule. Changing this forces a new Frontdoor Rule to be created.
+	// The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
 	CdnFrontdoorRuleSetId pulumi.StringOutput `pulumi:"cdnFrontdoorRuleSetId"`
-	// The name of the Frontdoor Rule Set containing this Frontdoor Rule.
+	// The name of the Front Door Rule Set containing this Front Door Rule.
 	CdnFrontdoorRuleSetName pulumi.StringOutput `pulumi:"cdnFrontdoorRuleSetName"`
 	// A `conditions` block as defined below.
 	Conditions FrontdoorRuleConditionsPtrOutput `pulumi:"conditions"`
-	// The name which should be used for this Frontdoor Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Frontdoor Rule to be created.
+	// The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The order in which the rules will be applied for the Frontdoor Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Frontdoor Rule with a lesser order value will be applied before a rule with a greater order value.
+	// The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
 	Order pulumi.IntOutput `pulumi:"order"`
 }
 
@@ -206,15 +206,15 @@ type frontdoorRuleState struct {
 	Actions *FrontdoorRuleActions `pulumi:"actions"`
 	// If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
 	BehaviorOnMatch *string `pulumi:"behaviorOnMatch"`
-	// The resource ID of the Frontdoor Rule Set for this Frontdoor Rule. Changing this forces a new Frontdoor Rule to be created.
+	// The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
 	CdnFrontdoorRuleSetId *string `pulumi:"cdnFrontdoorRuleSetId"`
-	// The name of the Frontdoor Rule Set containing this Frontdoor Rule.
+	// The name of the Front Door Rule Set containing this Front Door Rule.
 	CdnFrontdoorRuleSetName *string `pulumi:"cdnFrontdoorRuleSetName"`
 	// A `conditions` block as defined below.
 	Conditions *FrontdoorRuleConditions `pulumi:"conditions"`
-	// The name which should be used for this Frontdoor Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Frontdoor Rule to be created.
+	// The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
 	Name *string `pulumi:"name"`
-	// The order in which the rules will be applied for the Frontdoor Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Frontdoor Rule with a lesser order value will be applied before a rule with a greater order value.
+	// The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
 	Order *int `pulumi:"order"`
 }
 
@@ -223,15 +223,15 @@ type FrontdoorRuleState struct {
 	Actions FrontdoorRuleActionsPtrInput
 	// If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
 	BehaviorOnMatch pulumi.StringPtrInput
-	// The resource ID of the Frontdoor Rule Set for this Frontdoor Rule. Changing this forces a new Frontdoor Rule to be created.
+	// The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
 	CdnFrontdoorRuleSetId pulumi.StringPtrInput
-	// The name of the Frontdoor Rule Set containing this Frontdoor Rule.
+	// The name of the Front Door Rule Set containing this Front Door Rule.
 	CdnFrontdoorRuleSetName pulumi.StringPtrInput
 	// A `conditions` block as defined below.
 	Conditions FrontdoorRuleConditionsPtrInput
-	// The name which should be used for this Frontdoor Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Frontdoor Rule to be created.
+	// The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
 	Name pulumi.StringPtrInput
-	// The order in which the rules will be applied for the Frontdoor Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Frontdoor Rule with a lesser order value will be applied before a rule with a greater order value.
+	// The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
 	Order pulumi.IntPtrInput
 }
 
@@ -244,13 +244,13 @@ type frontdoorRuleArgs struct {
 	Actions FrontdoorRuleActions `pulumi:"actions"`
 	// If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
 	BehaviorOnMatch *string `pulumi:"behaviorOnMatch"`
-	// The resource ID of the Frontdoor Rule Set for this Frontdoor Rule. Changing this forces a new Frontdoor Rule to be created.
+	// The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
 	CdnFrontdoorRuleSetId string `pulumi:"cdnFrontdoorRuleSetId"`
 	// A `conditions` block as defined below.
 	Conditions *FrontdoorRuleConditions `pulumi:"conditions"`
-	// The name which should be used for this Frontdoor Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Frontdoor Rule to be created.
+	// The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
 	Name *string `pulumi:"name"`
-	// The order in which the rules will be applied for the Frontdoor Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Frontdoor Rule with a lesser order value will be applied before a rule with a greater order value.
+	// The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
 	Order int `pulumi:"order"`
 }
 
@@ -260,13 +260,13 @@ type FrontdoorRuleArgs struct {
 	Actions FrontdoorRuleActionsInput
 	// If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
 	BehaviorOnMatch pulumi.StringPtrInput
-	// The resource ID of the Frontdoor Rule Set for this Frontdoor Rule. Changing this forces a new Frontdoor Rule to be created.
+	// The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
 	CdnFrontdoorRuleSetId pulumi.StringInput
 	// A `conditions` block as defined below.
 	Conditions FrontdoorRuleConditionsPtrInput
-	// The name which should be used for this Frontdoor Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Frontdoor Rule to be created.
+	// The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
 	Name pulumi.StringPtrInput
-	// The order in which the rules will be applied for the Frontdoor Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Frontdoor Rule with a lesser order value will be applied before a rule with a greater order value.
+	// The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
 	Order pulumi.IntInput
 }
 
@@ -367,12 +367,12 @@ func (o FrontdoorRuleOutput) BehaviorOnMatch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRule) pulumi.StringPtrOutput { return v.BehaviorOnMatch }).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the Frontdoor Rule Set for this Frontdoor Rule. Changing this forces a new Frontdoor Rule to be created.
+// The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
 func (o FrontdoorRuleOutput) CdnFrontdoorRuleSetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorRule) pulumi.StringOutput { return v.CdnFrontdoorRuleSetId }).(pulumi.StringOutput)
 }
 
-// The name of the Frontdoor Rule Set containing this Frontdoor Rule.
+// The name of the Front Door Rule Set containing this Front Door Rule.
 func (o FrontdoorRuleOutput) CdnFrontdoorRuleSetName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorRule) pulumi.StringOutput { return v.CdnFrontdoorRuleSetName }).(pulumi.StringOutput)
 }
@@ -382,12 +382,12 @@ func (o FrontdoorRuleOutput) Conditions() FrontdoorRuleConditionsPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRule) FrontdoorRuleConditionsPtrOutput { return v.Conditions }).(FrontdoorRuleConditionsPtrOutput)
 }
 
-// The name which should be used for this Frontdoor Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Frontdoor Rule to be created.
+// The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
 func (o FrontdoorRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The order in which the rules will be applied for the Frontdoor Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Frontdoor Rule with a lesser order value will be applied before a rule with a greater order value.
+// The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
 func (o FrontdoorRuleOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v *FrontdoorRule) pulumi.IntOutput { return v.Order }).(pulumi.IntOutput)
 }

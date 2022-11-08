@@ -47,14 +47,14 @@ public final class FunctionAppSlotAuthSettingsGoogleArgs extends com.pulumi.reso
     }
 
     /**
-     * The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+     * The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. &lt;https://developers.google.com/identity/sign-in/web/&gt;
      * 
      */
     @Import(name="oauthScopes")
     private @Nullable Output<List<String>> oauthScopes;
 
     /**
-     * @return The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+     * @return The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. &lt;https://developers.google.com/identity/sign-in/web/&gt;
      * 
      */
     public Optional<Output<List<String>>> oauthScopes() {
@@ -130,7 +130,7 @@ public final class FunctionAppSlotAuthSettingsGoogleArgs extends com.pulumi.reso
         }
 
         /**
-         * @param oauthScopes The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+         * @param oauthScopes The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. &lt;https://developers.google.com/identity/sign-in/web/&gt;
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class FunctionAppSlotAuthSettingsGoogleArgs extends com.pulumi.reso
         }
 
         /**
-         * @param oauthScopes The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+         * @param oauthScopes The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. &lt;https://developers.google.com/identity/sign-in/web/&gt;
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class FunctionAppSlotAuthSettingsGoogleArgs extends com.pulumi.reso
         }
 
         /**
-         * @param oauthScopes The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+         * @param oauthScopes The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. &lt;https://developers.google.com/identity/sign-in/web/&gt;
          * 
          * @return builder
          * 

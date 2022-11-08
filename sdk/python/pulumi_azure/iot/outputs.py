@@ -23,6 +23,8 @@ __all__ = [
     'IoTHubRoute',
     'IoTHubSharedAccessPolicy',
     'IoTHubSku',
+    'IotHubDeviceUpdateAccountIdentity',
+    'IotHubDeviceUpdateInstanceDiagnosticStorageAccount',
     'IotHubDpsIpFilterRule',
     'IotHubDpsLinkedHub',
     'IotHubDpsSku',
@@ -438,7 +440,7 @@ class IoTHubFallbackRoute(dict):
                  endpoint_names: Optional[Sequence[str]] = None,
                  source: Optional[str] = None):
         """
-        :param str condition: The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+        :param str condition: The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
         :param bool enabled: Used to specify whether the fallback route is enabled.
         :param Sequence[str] endpoint_names: The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
         :param str source: The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `Invalid`, `DeviceMessages`, `TwinChangeEvents`, `DeviceLifecycleEvents`, `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`.
@@ -456,7 +458,7 @@ class IoTHubFallbackRoute(dict):
     @pulumi.getter
     def condition(self) -> Optional[str]:
         """
-        The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+        The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
         """
         return pulumi.get(self, "condition")
 
@@ -856,7 +858,7 @@ class IoTHubRoute(dict):
         :param Sequence[str] endpoint_names: The list of endpoints to which messages that satisfy the condition are routed.
         :param str name: The name of the route.
         :param str source: The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `Invalid`, `DeviceMessages`, `TwinChangeEvents`, `DeviceLifecycleEvents`, `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`.
-        :param str condition: The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+        :param str condition: The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "endpoint_names", endpoint_names)
@@ -901,7 +903,7 @@ class IoTHubRoute(dict):
     @pulumi.getter
     def condition(self) -> Optional[str]:
         """
-        The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+        The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
         """
         return pulumi.get(self, "condition")
 
@@ -1009,6 +1011,127 @@ class IoTHubSku(dict):
         The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class IotHubDeviceUpdateAccountIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IotHubDeviceUpdateAccountIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IotHubDeviceUpdateAccountIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IotHubDeviceUpdateAccountIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 identity_ids: Optional[Sequence[str]] = None,
+                 principal_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this IoT Hub Device Update Account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
+        :param Sequence[str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this IoT Hub Device Update Account.
+        :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this IoT Hub Device Update Account.
+        :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this IoT Hub Device Update Account.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the type of Managed Service Identity that should be configured on this IoT Hub Device Update Account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[str]]:
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this IoT Hub Device Update Account.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        """
+        The Principal ID for the Service Principal associated with the Managed Service Identity of this IoT Hub Device Update Account.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The Tenant ID for the Service Principal associated with the Managed Service Identity of this IoT Hub Device Update Account.
+        """
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class IotHubDeviceUpdateInstanceDiagnosticStorageAccount(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionString":
+            suggest = "connection_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IotHubDeviceUpdateInstanceDiagnosticStorageAccount. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IotHubDeviceUpdateInstanceDiagnosticStorageAccount.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IotHubDeviceUpdateInstanceDiagnosticStorageAccount.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection_string: str,
+                 id: str):
+        """
+        :param str connection_string: Connection String of the Diagnostic Storage Account.
+        :param str id: Resource ID of the Diagnostic Storage Account.
+        """
+        pulumi.set(__self__, "connection_string", connection_string)
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> str:
+        """
+        Connection String of the Diagnostic Storage Account.
+        """
+        return pulumi.get(self, "connection_string")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID of the Diagnostic Storage Account.
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type

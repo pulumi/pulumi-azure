@@ -20,33 +20,31 @@ class StreamInputEventHubArgs:
                  resource_group_name: pulumi.Input[str],
                  serialization: pulumi.Input['StreamInputEventHubSerializationArgs'],
                  servicebus_namespace: pulumi.Input[str],
-                 shared_access_policy_key: pulumi.Input[str],
-                 shared_access_policy_name: pulumi.Input[str],
                  stream_analytics_job_name: pulumi.Input[str],
                  authentication_mode: Optional[pulumi.Input[str]] = None,
                  eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 partition_key: Optional[pulumi.Input[str]] = None):
+                 partition_key: Optional[pulumi.Input[str]] = None,
+                 shared_access_policy_key: Optional[pulumi.Input[str]] = None,
+                 shared_access_policy_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a StreamInputEventHub resource.
         :param pulumi.Input[str] eventhub_name: The name of the Event Hub.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         :param pulumi.Input['StreamInputEventHubSerializationArgs'] serialization: A `serialization` block as defined below.
         :param pulumi.Input[str] servicebus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
-        :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy.
-        :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         :param pulumi.Input[str] eventhub_consumer_group_name: The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not set the input will use the Event Hub's default consumer group.
         :param pulumi.Input[str] name: The name of the Stream Input EventHub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partition_key: The property the input Event Hub has been partitioned by.
+        :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy.
+        :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
         """
         pulumi.set(__self__, "eventhub_name", eventhub_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "serialization", serialization)
         pulumi.set(__self__, "servicebus_namespace", servicebus_namespace)
-        pulumi.set(__self__, "shared_access_policy_key", shared_access_policy_key)
-        pulumi.set(__self__, "shared_access_policy_name", shared_access_policy_name)
         pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
         if authentication_mode is not None:
             pulumi.set(__self__, "authentication_mode", authentication_mode)
@@ -56,6 +54,10 @@ class StreamInputEventHubArgs:
             pulumi.set(__self__, "name", name)
         if partition_key is not None:
             pulumi.set(__self__, "partition_key", partition_key)
+        if shared_access_policy_key is not None:
+            pulumi.set(__self__, "shared_access_policy_key", shared_access_policy_key)
+        if shared_access_policy_name is not None:
+            pulumi.set(__self__, "shared_access_policy_name", shared_access_policy_name)
 
     @property
     @pulumi.getter(name="eventhubName")
@@ -104,30 +106,6 @@ class StreamInputEventHubArgs:
     @servicebus_namespace.setter
     def servicebus_namespace(self, value: pulumi.Input[str]):
         pulumi.set(self, "servicebus_namespace", value)
-
-    @property
-    @pulumi.getter(name="sharedAccessPolicyKey")
-    def shared_access_policy_key(self) -> pulumi.Input[str]:
-        """
-        The shared access policy key for the specified shared access policy.
-        """
-        return pulumi.get(self, "shared_access_policy_key")
-
-    @shared_access_policy_key.setter
-    def shared_access_policy_key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "shared_access_policy_key", value)
-
-    @property
-    @pulumi.getter(name="sharedAccessPolicyName")
-    def shared_access_policy_name(self) -> pulumi.Input[str]:
-        """
-        The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
-        """
-        return pulumi.get(self, "shared_access_policy_name")
-
-    @shared_access_policy_name.setter
-    def shared_access_policy_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "shared_access_policy_name", value)
 
     @property
     @pulumi.getter(name="streamAnalyticsJobName")
@@ -188,6 +166,30 @@ class StreamInputEventHubArgs:
     @partition_key.setter
     def partition_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "partition_key", value)
+
+    @property
+    @pulumi.getter(name="sharedAccessPolicyKey")
+    def shared_access_policy_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The shared access policy key for the specified shared access policy.
+        """
+        return pulumi.get(self, "shared_access_policy_key")
+
+    @shared_access_policy_key.setter
+    def shared_access_policy_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shared_access_policy_key", value)
+
+    @property
+    @pulumi.getter(name="sharedAccessPolicyName")
+    def shared_access_policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
+        """
+        return pulumi.get(self, "shared_access_policy_name")
+
+    @shared_access_policy_name.setter
+    def shared_access_policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shared_access_policy_name", value)
 
 
 @pulumi.input_type
@@ -558,11 +560,7 @@ class StreamInputEventHub(pulumi.CustomResource):
             if servicebus_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'servicebus_namespace'")
             __props__.__dict__["servicebus_namespace"] = servicebus_namespace
-            if shared_access_policy_key is None and not opts.urn:
-                raise TypeError("Missing required property 'shared_access_policy_key'")
             __props__.__dict__["shared_access_policy_key"] = shared_access_policy_key
-            if shared_access_policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'shared_access_policy_name'")
             __props__.__dict__["shared_access_policy_name"] = shared_access_policy_name
             if stream_analytics_job_name is None and not opts.urn:
                 raise TypeError("Missing required property 'stream_analytics_job_name'")
@@ -690,7 +688,7 @@ class StreamInputEventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sharedAccessPolicyKey")
-    def shared_access_policy_key(self) -> pulumi.Output[str]:
+    def shared_access_policy_key(self) -> pulumi.Output[Optional[str]]:
         """
         The shared access policy key for the specified shared access policy.
         """
@@ -698,7 +696,7 @@ class StreamInputEventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sharedAccessPolicyName")
-    def shared_access_policy_name(self) -> pulumi.Output[str]:
+    def shared_access_policy_name(self) -> pulumi.Output[Optional[str]]:
         """
         The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
         """

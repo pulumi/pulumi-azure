@@ -18,14 +18,14 @@ public final class IoTHubFallbackRouteArgs extends com.pulumi.resources.Resource
     public static final IoTHubFallbackRouteArgs Empty = new IoTHubFallbackRouteArgs();
 
     /**
-     * The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+     * The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: &lt;https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language&gt;.
      * 
      */
     @Import(name="condition")
     private @Nullable Output<String> condition;
 
     /**
-     * @return The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+     * @return The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: &lt;https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language&gt;.
      * 
      */
     public Optional<Output<String>> condition() {
@@ -105,7 +105,7 @@ public final class IoTHubFallbackRouteArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param condition The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+         * @param condition The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: &lt;https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language&gt;.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class IoTHubFallbackRouteArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param condition The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+         * @param condition The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: &lt;https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language&gt;.
          * 
          * @return builder
          * 

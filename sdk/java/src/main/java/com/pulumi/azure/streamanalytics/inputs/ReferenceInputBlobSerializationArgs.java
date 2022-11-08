@@ -31,14 +31,14 @@ public final class ReferenceInputBlobSerializationArgs extends com.pulumi.resour
     }
 
     /**
-     * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
+     * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ``(space), `,` (comma),`` (tab), `|` (pipe) and `;`.
      * 
      */
     @Import(name="fieldDelimiter")
     private @Nullable Output<String> fieldDelimiter;
 
     /**
-     * @return The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
+     * @return The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ``(space), `,` (comma),`` (tab), `|` (pipe) and `;`.
      * 
      */
     public Optional<Output<String>> fieldDelimiter() {
@@ -108,7 +108,7 @@ public final class ReferenceInputBlobSerializationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param fieldDelimiter The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
+         * @param fieldDelimiter The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ``(space), `,` (comma),`` (tab), `|` (pipe) and `;`.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class ReferenceInputBlobSerializationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param fieldDelimiter The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
+         * @param fieldDelimiter The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ``(space), `,` (comma),`` (tab), `|` (pipe) and `;`.
          * 
          * @return builder
          * 

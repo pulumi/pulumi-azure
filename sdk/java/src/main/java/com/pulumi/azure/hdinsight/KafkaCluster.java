@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.hdinsight.KafkaClusterArgs;
 import com.pulumi.azure.hdinsight.inputs.KafkaClusterState;
 import com.pulumi.azure.hdinsight.outputs.KafkaClusterComponentVersion;
+import com.pulumi.azure.hdinsight.outputs.KafkaClusterComputeIsolation;
 import com.pulumi.azure.hdinsight.outputs.KafkaClusterDiskEncryption;
 import com.pulumi.azure.hdinsight.outputs.KafkaClusterExtension;
 import com.pulumi.azure.hdinsight.outputs.KafkaClusterGateway;
@@ -163,6 +164,20 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<KafkaClusterComponentVersion> componentVersion() {
         return this.componentVersion;
+    }
+    /**
+     * A `compute_isolation` block as defined below.
+     * 
+     */
+    @Export(name="computeIsolation", type=KafkaClusterComputeIsolation.class, parameters={})
+    private Output</* @Nullable */ KafkaClusterComputeIsolation> computeIsolation;
+
+    /**
+     * @return A `compute_isolation` block as defined below.
+     * 
+     */
+    public Output<Optional<KafkaClusterComputeIsolation>> computeIsolation() {
+        return Codegen.optional(this.computeIsolation);
     }
     @Export(name="diskEncryptions", type=List.class, parameters={KafkaClusterDiskEncryption.class})
     private Output</* @Nullable */ List<KafkaClusterDiskEncryption>> diskEncryptions;

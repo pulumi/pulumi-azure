@@ -417,7 +417,7 @@ class PoolDataDiskArgs:
         """
         :param pulumi.Input[int] disk_size_gb: The initial disk size in GB when creating new data disk.
         :param pulumi.Input[int] lun: The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun. The value must be between 0 and 63, inclusive.
-        :param pulumi.Input[str] caching: Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
+        :param pulumi.Input[str] caching: Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: <https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/>.
         :param pulumi.Input[str] storage_account_type: The storage account type to be used for the data disk. If omitted, the default is "Standard_LRS". Values are: "Standard_LRS" - The data disk should use standard locally redundant storage. "Premium_LRS" - The data disk should use premium locally redundant storage.
         """
         pulumi.set(__self__, "disk_size_gb", disk_size_gb)
@@ -455,7 +455,7 @@ class PoolDataDiskArgs:
     @pulumi.getter
     def caching(self) -> Optional[pulumi.Input[str]]:
         """
-        Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
+        Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: <https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/>.
         """
         return pulumi.get(self, "caching")
 
@@ -1868,7 +1868,6 @@ class PoolStorageImageReferenceArgs:
                  version: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] id: Specifies the ID of the Custom Image which the virtual machines should be created from. Changing this forces a new resource to be created. See [official documentation](https://docs.microsoft.com/azure/batch/batch-custom-images) for more details.
-               ---
         :param pulumi.Input[str] offer: Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
         :param pulumi.Input[str] publisher: Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created.
@@ -1890,7 +1889,6 @@ class PoolStorageImageReferenceArgs:
     def id(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the ID of the Custom Image which the virtual machines should be created from. Changing this forces a new resource to be created. See [official documentation](https://docs.microsoft.com/azure/batch/batch-custom-images) for more details.
-        ---
         """
         return pulumi.get(self, "id")
 

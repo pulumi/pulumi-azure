@@ -511,7 +511,6 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
-     * &gt; **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
      * 
      */
     @Import(name="virtualNetworkType")
@@ -519,7 +518,6 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
-     * &gt; **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
      * 
      */
     public Optional<Output<String>> virtualNetworkType() {
@@ -1312,7 +1310,6 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param virtualNetworkType The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
-         * &gt; **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
          * 
          * @return builder
          * 
@@ -1324,7 +1321,6 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param virtualNetworkType The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
-         * &gt; **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
          * 
          * @return builder
          * 

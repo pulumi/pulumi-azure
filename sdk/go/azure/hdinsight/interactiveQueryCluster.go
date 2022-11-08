@@ -113,7 +113,9 @@ type InteractiveQueryCluster struct {
 	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
 	ClusterVersion pulumi.StringOutput `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
-	ComponentVersion InteractiveQueryClusterComponentVersionOutput    `pulumi:"componentVersion"`
+	ComponentVersion InteractiveQueryClusterComponentVersionOutput `pulumi:"componentVersion"`
+	// A `computeIsolation` block as defined below.
+	ComputeIsolation InteractiveQueryClusterComputeIsolationPtrOutput `pulumi:"computeIsolation"`
 	DiskEncryptions  InteractiveQueryClusterDiskEncryptionArrayOutput `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolOutput `pulumi:"encryptionInTransitEnabled"`
@@ -203,6 +205,8 @@ type interactiveQueryClusterState struct {
 	ClusterVersion *string `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
 	ComponentVersion *InteractiveQueryClusterComponentVersion `pulumi:"componentVersion"`
+	// A `computeIsolation` block as defined below.
+	ComputeIsolation *InteractiveQueryClusterComputeIsolation `pulumi:"computeIsolation"`
 	DiskEncryptions  []InteractiveQueryClusterDiskEncryption  `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled *bool `pulumi:"encryptionInTransitEnabled"`
@@ -246,6 +250,8 @@ type InteractiveQueryClusterState struct {
 	ClusterVersion pulumi.StringPtrInput
 	// A `componentVersion` block as defined below.
 	ComponentVersion InteractiveQueryClusterComponentVersionPtrInput
+	// A `computeIsolation` block as defined below.
+	ComputeIsolation InteractiveQueryClusterComputeIsolationPtrInput
 	DiskEncryptions  InteractiveQueryClusterDiskEncryptionArrayInput
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolPtrInput
@@ -293,7 +299,9 @@ type interactiveQueryClusterArgs struct {
 	ClusterVersion string `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
 	ComponentVersion InteractiveQueryClusterComponentVersion `pulumi:"componentVersion"`
-	DiskEncryptions  []InteractiveQueryClusterDiskEncryption `pulumi:"diskEncryptions"`
+	// A `computeIsolation` block as defined below.
+	ComputeIsolation *InteractiveQueryClusterComputeIsolation `pulumi:"computeIsolation"`
+	DiskEncryptions  []InteractiveQueryClusterDiskEncryption  `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled *bool `pulumi:"encryptionInTransitEnabled"`
 	// An `extension` block as defined below.
@@ -333,6 +341,8 @@ type InteractiveQueryClusterArgs struct {
 	ClusterVersion pulumi.StringInput
 	// A `componentVersion` block as defined below.
 	ComponentVersion InteractiveQueryClusterComponentVersionInput
+	// A `computeIsolation` block as defined below.
+	ComputeIsolation InteractiveQueryClusterComputeIsolationPtrInput
 	DiskEncryptions  InteractiveQueryClusterDiskEncryptionArrayInput
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolPtrInput
@@ -464,6 +474,13 @@ func (o InteractiveQueryClusterOutput) ComponentVersion() InteractiveQueryCluste
 	return o.ApplyT(func(v *InteractiveQueryCluster) InteractiveQueryClusterComponentVersionOutput {
 		return v.ComponentVersion
 	}).(InteractiveQueryClusterComponentVersionOutput)
+}
+
+// A `computeIsolation` block as defined below.
+func (o InteractiveQueryClusterOutput) ComputeIsolation() InteractiveQueryClusterComputeIsolationPtrOutput {
+	return o.ApplyT(func(v *InteractiveQueryCluster) InteractiveQueryClusterComputeIsolationPtrOutput {
+		return v.ComputeIsolation
+	}).(InteractiveQueryClusterComputeIsolationPtrOutput)
 }
 
 func (o InteractiveQueryClusterOutput) DiskEncryptions() InteractiveQueryClusterDiskEncryptionArrayOutput {

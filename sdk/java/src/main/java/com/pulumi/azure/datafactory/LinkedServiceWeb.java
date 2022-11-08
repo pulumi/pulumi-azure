@@ -196,14 +196,14 @@ public class LinkedServiceWeb extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.password);
     }
     /**
-     * The URL of the web service endpoint (e.g. https://www.microsoft.com).
+     * The URL of the web service endpoint (e.g. &lt;https://www.microsoft.com&gt;).
      * 
      */
     @Export(name="url", type=String.class, parameters={})
     private Output<String> url;
 
     /**
-     * @return The URL of the web service endpoint (e.g. https://www.microsoft.com).
+     * @return The URL of the web service endpoint (e.g. &lt;https://www.microsoft.com&gt;).
      * 
      */
     public Output<String> url() {

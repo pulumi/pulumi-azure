@@ -35,7 +35,7 @@ import (
 //				DisplayName: pulumi.String("acceptance test policy definition"),
 //				Metadata:    pulumi.String(fmt.Sprintf("    {\n    \"category\": \"General\"\n    }\n\n\n")),
 //				Mode:        pulumi.String("Indexed"),
-//				Parameters: pulumi.String(fmt.Sprintf(`	{
+//				Parameters: pulumi.String(fmt.Sprintf(` {
 //	    "allowedLocations": {
 //	      "type": "Array",
 //	      "metadata": {
@@ -48,7 +48,7 @@ import (
 //
 // `)),
 //
-//				PolicyRule: pulumi.String(fmt.Sprintf(`	{
+//				PolicyRule: pulumi.String(fmt.Sprintf(` {
 //	    "if": {
 //	      "not": {
 //	        "field": "location",

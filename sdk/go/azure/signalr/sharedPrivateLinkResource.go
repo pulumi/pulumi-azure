@@ -88,13 +88,6 @@ import (
 //	}
 //
 // ```
-// ## Attributes Reference:
-//
-// The following attributes are exported:
-//
-// * `id` - The ID of the Signalr Shared Private Link resource.
-//
-// * `status` - The status of a private endpoint connection. Possible values are `Pending`, `Approved`, `Rejected` or `Disconnected`.
 //
 // ## Import
 //
@@ -114,7 +107,8 @@ type SharedPrivateLinkResource struct {
 	RequestMessage pulumi.StringPtrOutput `pulumi:"requestMessage"`
 	// The id of the Signalr Service. Changing this forces a new resource to be created.
 	SignalrServiceId pulumi.StringOutput `pulumi:"signalrServiceId"`
-	Status           pulumi.StringOutput `pulumi:"status"`
+	// The status of a private endpoint connection. Possible values are `Pending`, `Approved`, `Rejected` or `Disconnected`.
+	Status pulumi.StringOutput `pulumi:"status"`
 	// The sub resource name which the Signalr Private Endpoint can connect to. Possible values are `sites`, `vault`. Changing this forces a new resource to be created.
 	SubResourceName pulumi.StringOutput `pulumi:"subResourceName"`
 	// The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
@@ -165,7 +159,8 @@ type sharedPrivateLinkResourceState struct {
 	RequestMessage *string `pulumi:"requestMessage"`
 	// The id of the Signalr Service. Changing this forces a new resource to be created.
 	SignalrServiceId *string `pulumi:"signalrServiceId"`
-	Status           *string `pulumi:"status"`
+	// The status of a private endpoint connection. Possible values are `Pending`, `Approved`, `Rejected` or `Disconnected`.
+	Status *string `pulumi:"status"`
 	// The sub resource name which the Signalr Private Endpoint can connect to. Possible values are `sites`, `vault`. Changing this forces a new resource to be created.
 	SubResourceName *string `pulumi:"subResourceName"`
 	// The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
@@ -179,7 +174,8 @@ type SharedPrivateLinkResourceState struct {
 	RequestMessage pulumi.StringPtrInput
 	// The id of the Signalr Service. Changing this forces a new resource to be created.
 	SignalrServiceId pulumi.StringPtrInput
-	Status           pulumi.StringPtrInput
+	// The status of a private endpoint connection. Possible values are `Pending`, `Approved`, `Rejected` or `Disconnected`.
+	Status pulumi.StringPtrInput
 	// The sub resource name which the Signalr Private Endpoint can connect to. Possible values are `sites`, `vault`. Changing this forces a new resource to be created.
 	SubResourceName pulumi.StringPtrInput
 	// The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
@@ -319,6 +315,7 @@ func (o SharedPrivateLinkResourceOutput) SignalrServiceId() pulumi.StringOutput 
 	return o.ApplyT(func(v *SharedPrivateLinkResource) pulumi.StringOutput { return v.SignalrServiceId }).(pulumi.StringOutput)
 }
 
+// The status of a private endpoint connection. Possible values are `Pending`, `Approved`, `Rejected` or `Disconnected`.
 func (o SharedPrivateLinkResourceOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *SharedPrivateLinkResource) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

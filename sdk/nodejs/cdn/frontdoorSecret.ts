@@ -67,7 +67,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Frontdoor Secrets can be imported using the `resource id`, e.g.
+ * Front Door Secrets can be imported using the `resource id`, e.g.
  *
  * ```sh
  *  $ pulumi import azure:cdn/frontdoorSecret:FrontdoorSecret example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/secrets/secrets1
@@ -102,19 +102,19 @@ export class FrontdoorSecret extends pulumi.CustomResource {
     }
 
     /**
-     * The Resource ID of the Frontdoor Profile. Changing this forces a new Frontdoor Secret to be created.
+     * The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
      */
     public readonly cdnFrontdoorProfileId!: pulumi.Output<string>;
     /**
-     * The name of the Frontdoor Profile containing this Frontdoor Secret.
+     * The name of the Front Door Profile containing this Front Door Secret.
      */
     public /*out*/ readonly cdnFrontdoorProfileName!: pulumi.Output<string>;
     /**
-     * The name which should be used for this Frontdoor Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Frontdoor Secret to be created.
+     * The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A `secret` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+     * A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
      */
     public readonly secret!: pulumi.Output<outputs.cdn.FrontdoorSecretSecret>;
 
@@ -158,19 +158,19 @@ export class FrontdoorSecret extends pulumi.CustomResource {
  */
 export interface FrontdoorSecretState {
     /**
-     * The Resource ID of the Frontdoor Profile. Changing this forces a new Frontdoor Secret to be created.
+     * The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
      */
     cdnFrontdoorProfileId?: pulumi.Input<string>;
     /**
-     * The name of the Frontdoor Profile containing this Frontdoor Secret.
+     * The name of the Front Door Profile containing this Front Door Secret.
      */
     cdnFrontdoorProfileName?: pulumi.Input<string>;
     /**
-     * The name which should be used for this Frontdoor Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Frontdoor Secret to be created.
+     * The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * A `secret` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+     * A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
      */
     secret?: pulumi.Input<inputs.cdn.FrontdoorSecretSecret>;
 }
@@ -180,15 +180,15 @@ export interface FrontdoorSecretState {
  */
 export interface FrontdoorSecretArgs {
     /**
-     * The Resource ID of the Frontdoor Profile. Changing this forces a new Frontdoor Secret to be created.
+     * The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
      */
     cdnFrontdoorProfileId: pulumi.Input<string>;
     /**
-     * The name which should be used for this Frontdoor Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Frontdoor Secret to be created.
+     * The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * A `secret` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+     * A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
      */
     secret: pulumi.Input<inputs.cdn.FrontdoorSecretSecret>;
 }

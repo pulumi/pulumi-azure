@@ -15,7 +15,7 @@ import java.util.Objects;
 @CustomType
 public final class GetFrontdoorOriginGroupResult {
     /**
-     * @return Specifies the ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group exists.
+     * @return Specifies the ID of the Front Door Profile within which this Front Door Origin Group exists.
      * 
      */
     private String cdnFrontdoorProfileId;
@@ -46,7 +46,7 @@ public final class GetFrontdoorOriginGroupResult {
 
     private GetFrontdoorOriginGroupResult() {}
     /**
-     * @return Specifies the ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group exists.
+     * @return Specifies the ID of the Front Door Profile within which this Front Door Origin Group exists.
      * 
      */
     public String cdnFrontdoorProfileId() {

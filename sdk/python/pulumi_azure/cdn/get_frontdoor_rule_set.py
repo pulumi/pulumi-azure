@@ -42,7 +42,7 @@ class GetFrontdoorRuleSetResult:
     @pulumi.getter(name="cdnFrontdoorProfileId")
     def cdn_frontdoor_profile_id(self) -> str:
         """
-        The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Rule Set exists.
+        The ID of the Front Door Profile within which this Front Door Rule Set exists.
         """
         return pulumi.get(self, "cdn_frontdoor_profile_id")
 
@@ -88,7 +88,7 @@ def get_frontdoor_rule_set(name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFrontdoorRuleSetResult:
     """
-    Gets information about an existing CDN FrontDoor Rule Set.
+    Use this data source to access information about an existing Front Door (standard/premium) Rule Set.
 
     ## Example Usage
 
@@ -102,9 +102,9 @@ def get_frontdoor_rule_set(name: Optional[str] = None,
     ```
 
 
-    :param str name: Specifies the name of the CDN FrontDoor Rule Set to retrieve.
-    :param str profile_name: Specifies the name of the CDN FrontDoor Profile where this CDN FrontDoor Rule Set exists.
-    :param str resource_group_name: Specifies the name of the Resource Group where the CDN FrontDoor Profile exists.
+    :param str name: Specifies the name of the Front Door Rule Set to retrieve.
+    :param str profile_name: Specifies the name of the Front Door Profile where this Front Door Rule Set exists.
+    :param str resource_group_name: Specifies the name of the Resource Group where the Front Door Profile exists.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -127,7 +127,7 @@ def get_frontdoor_rule_set_output(name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFrontdoorRuleSetResult]:
     """
-    Gets information about an existing CDN FrontDoor Rule Set.
+    Use this data source to access information about an existing Front Door (standard/premium) Rule Set.
 
     ## Example Usage
 
@@ -141,8 +141,8 @@ def get_frontdoor_rule_set_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: Specifies the name of the CDN FrontDoor Rule Set to retrieve.
-    :param str profile_name: Specifies the name of the CDN FrontDoor Profile where this CDN FrontDoor Rule Set exists.
-    :param str resource_group_name: Specifies the name of the Resource Group where the CDN FrontDoor Profile exists.
+    :param str name: Specifies the name of the Front Door Rule Set to retrieve.
+    :param str profile_name: Specifies the name of the Front Door Profile where this Front Door Rule Set exists.
+    :param str resource_group_name: Specifies the name of the Resource Group where the Front Door Profile exists.
     """
     ...

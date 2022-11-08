@@ -12,6 +12,7 @@ from . import outputs
 
 __all__ = [
     'HBaseClusterComponentVersion',
+    'HBaseClusterComputeIsolation',
     'HBaseClusterDiskEncryption',
     'HBaseClusterExtension',
     'HBaseClusterGateway',
@@ -35,6 +36,7 @@ __all__ = [
     'HBaseClusterStorageAccount',
     'HBaseClusterStorageAccountGen2',
     'HadoopClusterComponentVersion',
+    'HadoopClusterComputeIsolation',
     'HadoopClusterDiskEncryption',
     'HadoopClusterExtension',
     'HadoopClusterGateway',
@@ -63,6 +65,7 @@ __all__ = [
     'HadoopClusterStorageAccount',
     'HadoopClusterStorageAccountGen2',
     'InteractiveQueryClusterComponentVersion',
+    'InteractiveQueryClusterComputeIsolation',
     'InteractiveQueryClusterDiskEncryption',
     'InteractiveQueryClusterExtension',
     'InteractiveQueryClusterGateway',
@@ -87,6 +90,7 @@ __all__ = [
     'InteractiveQueryClusterStorageAccount',
     'InteractiveQueryClusterStorageAccountGen2',
     'KafkaClusterComponentVersion',
+    'KafkaClusterComputeIsolation',
     'KafkaClusterDiskEncryption',
     'KafkaClusterExtension',
     'KafkaClusterGateway',
@@ -110,6 +114,7 @@ __all__ = [
     'KafkaClusterStorageAccount',
     'KafkaClusterStorageAccountGen2',
     'SparkClusterComponentVersion',
+    'SparkClusterComputeIsolation',
     'SparkClusterDiskEncryption',
     'SparkClusterExtension',
     'SparkClusterGateway',
@@ -152,6 +157,52 @@ class HBaseClusterComponentVersion(dict):
         The version of HBase which should be used for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "hbase")
+
+
+@pulumi.output_type
+class HBaseClusterComputeIsolation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeIsolationEnabled":
+            suggest = "compute_isolation_enabled"
+        elif key == "hostSku":
+            suggest = "host_sku"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HBaseClusterComputeIsolation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HBaseClusterComputeIsolation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HBaseClusterComputeIsolation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compute_isolation_enabled: Optional[bool] = None,
+                 host_sku: Optional[str] = None):
+        """
+        :param str host_sku: The name of the host SKU.
+        """
+        if compute_isolation_enabled is not None:
+            pulumi.set(__self__, "compute_isolation_enabled", compute_isolation_enabled)
+        if host_sku is not None:
+            pulumi.set(__self__, "host_sku", host_sku)
+
+    @property
+    @pulumi.getter(name="computeIsolationEnabled")
+    def compute_isolation_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "compute_isolation_enabled")
+
+    @property
+    @pulumi.getter(name="hostSku")
+    def host_sku(self) -> Optional[str]:
+        """
+        The name of the host SKU.
+        """
+        return pulumi.get(self, "host_sku")
 
 
 @pulumi.output_type
@@ -1589,6 +1640,52 @@ class HadoopClusterComponentVersion(dict):
         The version of Hadoop which should be used for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "hadoop")
+
+
+@pulumi.output_type
+class HadoopClusterComputeIsolation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeIsolationEnabled":
+            suggest = "compute_isolation_enabled"
+        elif key == "hostSku":
+            suggest = "host_sku"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HadoopClusterComputeIsolation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HadoopClusterComputeIsolation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HadoopClusterComputeIsolation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compute_isolation_enabled: Optional[bool] = None,
+                 host_sku: Optional[str] = None):
+        """
+        :param str host_sku: The name of the host SKU.
+        """
+        if compute_isolation_enabled is not None:
+            pulumi.set(__self__, "compute_isolation_enabled", compute_isolation_enabled)
+        if host_sku is not None:
+            pulumi.set(__self__, "host_sku", host_sku)
+
+    @property
+    @pulumi.getter(name="computeIsolationEnabled")
+    def compute_isolation_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "compute_isolation_enabled")
+
+    @property
+    @pulumi.getter(name="hostSku")
+    def host_sku(self) -> Optional[str]:
+        """
+        The name of the host SKU.
+        """
+        return pulumi.get(self, "host_sku")
 
 
 @pulumi.output_type
@@ -3369,6 +3466,52 @@ class InteractiveQueryClusterComponentVersion(dict):
 
 
 @pulumi.output_type
+class InteractiveQueryClusterComputeIsolation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeIsolationEnabled":
+            suggest = "compute_isolation_enabled"
+        elif key == "hostSku":
+            suggest = "host_sku"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InteractiveQueryClusterComputeIsolation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InteractiveQueryClusterComputeIsolation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InteractiveQueryClusterComputeIsolation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compute_isolation_enabled: Optional[bool] = None,
+                 host_sku: Optional[str] = None):
+        """
+        :param str host_sku: The name of the host SKU.
+        """
+        if compute_isolation_enabled is not None:
+            pulumi.set(__self__, "compute_isolation_enabled", compute_isolation_enabled)
+        if host_sku is not None:
+            pulumi.set(__self__, "host_sku", host_sku)
+
+    @property
+    @pulumi.getter(name="computeIsolationEnabled")
+    def compute_isolation_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "compute_isolation_enabled")
+
+    @property
+    @pulumi.getter(name="hostSku")
+    def host_sku(self) -> Optional[str]:
+        """
+        The name of the host SKU.
+        """
+        return pulumi.get(self, "host_sku")
+
+
+@pulumi.output_type
 class InteractiveQueryClusterDiskEncryption(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -4863,6 +5006,52 @@ class KafkaClusterComponentVersion(dict):
         The version of Kafka which should be used for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "kafka")
+
+
+@pulumi.output_type
+class KafkaClusterComputeIsolation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeIsolationEnabled":
+            suggest = "compute_isolation_enabled"
+        elif key == "hostSku":
+            suggest = "host_sku"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KafkaClusterComputeIsolation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KafkaClusterComputeIsolation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KafkaClusterComputeIsolation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compute_isolation_enabled: Optional[bool] = None,
+                 host_sku: Optional[str] = None):
+        """
+        :param str host_sku: The name of the host SKU.
+        """
+        if compute_isolation_enabled is not None:
+            pulumi.set(__self__, "compute_isolation_enabled", compute_isolation_enabled)
+        if host_sku is not None:
+            pulumi.set(__self__, "host_sku", host_sku)
+
+    @property
+    @pulumi.getter(name="computeIsolationEnabled")
+    def compute_isolation_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "compute_isolation_enabled")
+
+    @property
+    @pulumi.getter(name="hostSku")
+    def host_sku(self) -> Optional[str]:
+        """
+        The name of the host SKU.
+        """
+        return pulumi.get(self, "host_sku")
 
 
 @pulumi.output_type
@@ -6365,6 +6554,52 @@ class SparkClusterComponentVersion(dict):
         The version of Spark which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "spark")
+
+
+@pulumi.output_type
+class SparkClusterComputeIsolation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeIsolationEnabled":
+            suggest = "compute_isolation_enabled"
+        elif key == "hostSku":
+            suggest = "host_sku"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SparkClusterComputeIsolation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SparkClusterComputeIsolation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SparkClusterComputeIsolation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compute_isolation_enabled: Optional[bool] = None,
+                 host_sku: Optional[str] = None):
+        """
+        :param str host_sku: The name of the host SKU.
+        """
+        if compute_isolation_enabled is not None:
+            pulumi.set(__self__, "compute_isolation_enabled", compute_isolation_enabled)
+        if host_sku is not None:
+            pulumi.set(__self__, "host_sku", host_sku)
+
+    @property
+    @pulumi.getter(name="computeIsolationEnabled")
+    def compute_isolation_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "compute_isolation_enabled")
+
+    @property
+    @pulumi.getter(name="hostSku")
+    def host_sku(self) -> Optional[str]:
+        """
+        The name of the host SKU.
+        """
+        return pulumi.get(self, "host_sku")
 
 
 @pulumi.output_type

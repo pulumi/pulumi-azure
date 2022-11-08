@@ -108,6 +108,10 @@ export class InteractiveQueryCluster extends pulumi.CustomResource {
      * A `componentVersion` block as defined below.
      */
     public readonly componentVersion!: pulumi.Output<outputs.hdinsight.InteractiveQueryClusterComponentVersion>;
+    /**
+     * A `computeIsolation` block as defined below.
+     */
+    public readonly computeIsolation!: pulumi.Output<outputs.hdinsight.InteractiveQueryClusterComputeIsolation | undefined>;
     public readonly diskEncryptions!: pulumi.Output<outputs.hdinsight.InteractiveQueryClusterDiskEncryption[] | undefined>;
     /**
      * Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
@@ -194,6 +198,7 @@ export class InteractiveQueryCluster extends pulumi.CustomResource {
             const state = argsOrState as InteractiveQueryClusterState | undefined;
             resourceInputs["clusterVersion"] = state ? state.clusterVersion : undefined;
             resourceInputs["componentVersion"] = state ? state.componentVersion : undefined;
+            resourceInputs["computeIsolation"] = state ? state.computeIsolation : undefined;
             resourceInputs["diskEncryptions"] = state ? state.diskEncryptions : undefined;
             resourceInputs["encryptionInTransitEnabled"] = state ? state.encryptionInTransitEnabled : undefined;
             resourceInputs["extension"] = state ? state.extension : undefined;
@@ -235,6 +240,7 @@ export class InteractiveQueryCluster extends pulumi.CustomResource {
             }
             resourceInputs["clusterVersion"] = args ? args.clusterVersion : undefined;
             resourceInputs["componentVersion"] = args ? args.componentVersion : undefined;
+            resourceInputs["computeIsolation"] = args ? args.computeIsolation : undefined;
             resourceInputs["diskEncryptions"] = args ? args.diskEncryptions : undefined;
             resourceInputs["encryptionInTransitEnabled"] = args ? args.encryptionInTransitEnabled : undefined;
             resourceInputs["extension"] = args ? args.extension : undefined;
@@ -272,6 +278,10 @@ export interface InteractiveQueryClusterState {
      * A `componentVersion` block as defined below.
      */
     componentVersion?: pulumi.Input<inputs.hdinsight.InteractiveQueryClusterComponentVersion>;
+    /**
+     * A `computeIsolation` block as defined below.
+     */
+    computeIsolation?: pulumi.Input<inputs.hdinsight.InteractiveQueryClusterComputeIsolation>;
     diskEncryptions?: pulumi.Input<pulumi.Input<inputs.hdinsight.InteractiveQueryClusterDiskEncryption>[]>;
     /**
      * Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
@@ -356,6 +366,10 @@ export interface InteractiveQueryClusterArgs {
      * A `componentVersion` block as defined below.
      */
     componentVersion: pulumi.Input<inputs.hdinsight.InteractiveQueryClusterComponentVersion>;
+    /**
+     * A `computeIsolation` block as defined below.
+     */
+    computeIsolation?: pulumi.Input<inputs.hdinsight.InteractiveQueryClusterComputeIsolation>;
     diskEncryptions?: pulumi.Input<pulumi.Input<inputs.hdinsight.InteractiveQueryClusterDiskEncryption>[]>;
     /**
      * Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.

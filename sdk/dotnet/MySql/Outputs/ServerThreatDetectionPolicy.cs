@@ -38,7 +38,7 @@ namespace Pulumi.Azure.MySql.Outputs
         /// </summary>
         public readonly string? StorageAccountAccessKey;
         /// <summary>
-        /// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+        /// Specifies the blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Threat Detection audit logs.
         /// </summary>
         public readonly string? StorageEndpoint;
 

@@ -10,12 +10,106 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'ConfigurationConfigFile',
+    'ConfigurationProtectedFile',
     'DeploymentFrontendPrivate',
     'DeploymentFrontendPublic',
     'DeploymentIdentity',
     'DeploymentLoggingStorageAccount',
     'DeploymentNetworkInterface',
 ]
+
+@pulumi.output_type
+class ConfigurationConfigFile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "virtualPath":
+            suggest = "virtual_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationConfigFile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationConfigFile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationConfigFile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content: str,
+                 virtual_path: str):
+        """
+        :param str content: Specifies the base-64 encoded contents of this config file (Sensitive).
+        :param str virtual_path: Specify the path of this config file.
+        """
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "virtual_path", virtual_path)
+
+    @property
+    @pulumi.getter
+    def content(self) -> str:
+        """
+        Specifies the base-64 encoded contents of this config file (Sensitive).
+        """
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="virtualPath")
+    def virtual_path(self) -> str:
+        """
+        Specify the path of this config file.
+        """
+        return pulumi.get(self, "virtual_path")
+
+
+@pulumi.output_type
+class ConfigurationProtectedFile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "virtualPath":
+            suggest = "virtual_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationProtectedFile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationProtectedFile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationProtectedFile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content: str,
+                 virtual_path: str):
+        """
+        :param str content: Specifies the base-64 encoded contents of this config file.
+        :param str virtual_path: Specify the path of this config file.
+        """
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "virtual_path", virtual_path)
+
+    @property
+    @pulumi.getter
+    def content(self) -> str:
+        """
+        Specifies the base-64 encoded contents of this config file.
+        """
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="virtualPath")
+    def virtual_path(self) -> str:
+        """
+        Specify the path of this config file.
+        """
+        return pulumi.get(self, "virtual_path")
+
 
 @pulumi.output_type
 class DeploymentFrontendPrivate(dict):

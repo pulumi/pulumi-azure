@@ -124,7 +124,6 @@ type SpringCloudConnection struct {
 	pulumi.CustomResourceState
 
 	// The authentication info. An `authentication` block as defined below.
-	// ---
 	Authentication SpringCloudConnectionAuthenticationOutput `pulumi:"authentication"`
 	// The application client type. Possible values are `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs`, `springBoot`.
 	ClientType pulumi.StringPtrOutput `pulumi:"clientType"`
@@ -177,7 +176,6 @@ func GetSpringCloudConnection(ctx *pulumi.Context,
 // Input properties used for looking up and filtering SpringCloudConnection resources.
 type springCloudConnectionState struct {
 	// The authentication info. An `authentication` block as defined below.
-	// ---
 	Authentication *SpringCloudConnectionAuthentication `pulumi:"authentication"`
 	// The application client type. Possible values are `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs`, `springBoot`.
 	ClientType *string `pulumi:"clientType"`
@@ -193,7 +191,6 @@ type springCloudConnectionState struct {
 
 type SpringCloudConnectionState struct {
 	// The authentication info. An `authentication` block as defined below.
-	// ---
 	Authentication SpringCloudConnectionAuthenticationPtrInput
 	// The application client type. Possible values are `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs`, `springBoot`.
 	ClientType pulumi.StringPtrInput
@@ -213,7 +210,6 @@ func (SpringCloudConnectionState) ElementType() reflect.Type {
 
 type springCloudConnectionArgs struct {
 	// The authentication info. An `authentication` block as defined below.
-	// ---
 	Authentication SpringCloudConnectionAuthentication `pulumi:"authentication"`
 	// The application client type. Possible values are `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs`, `springBoot`.
 	ClientType *string `pulumi:"clientType"`
@@ -230,7 +226,6 @@ type springCloudConnectionArgs struct {
 // The set of arguments for constructing a SpringCloudConnection resource.
 type SpringCloudConnectionArgs struct {
 	// The authentication info. An `authentication` block as defined below.
-	// ---
 	Authentication SpringCloudConnectionAuthenticationInput
 	// The application client type. Possible values are `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs`, `springBoot`.
 	ClientType pulumi.StringPtrInput
@@ -332,7 +327,6 @@ func (o SpringCloudConnectionOutput) ToSpringCloudConnectionOutputWithContext(ct
 }
 
 // The authentication info. An `authentication` block as defined below.
-// ---
 func (o SpringCloudConnectionOutput) Authentication() SpringCloudConnectionAuthenticationOutput {
 	return o.ApplyT(func(v *SpringCloudConnection) SpringCloudConnectionAuthenticationOutput { return v.Authentication }).(SpringCloudConnectionAuthenticationOutput)
 }

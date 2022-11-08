@@ -140,30 +140,30 @@ public final class StreamInputEventHubArgs extends com.pulumi.resources.Resource
      * The shared access policy key for the specified shared access policy.
      * 
      */
-    @Import(name="sharedAccessPolicyKey", required=true)
-    private Output<String> sharedAccessPolicyKey;
+    @Import(name="sharedAccessPolicyKey")
+    private @Nullable Output<String> sharedAccessPolicyKey;
 
     /**
      * @return The shared access policy key for the specified shared access policy.
      * 
      */
-    public Output<String> sharedAccessPolicyKey() {
-        return this.sharedAccessPolicyKey;
+    public Optional<Output<String>> sharedAccessPolicyKey() {
+        return Optional.ofNullable(this.sharedAccessPolicyKey);
     }
 
     /**
      * The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
      * 
      */
-    @Import(name="sharedAccessPolicyName", required=true)
-    private Output<String> sharedAccessPolicyName;
+    @Import(name="sharedAccessPolicyName")
+    private @Nullable Output<String> sharedAccessPolicyName;
 
     /**
      * @return The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
      * 
      */
-    public Output<String> sharedAccessPolicyName() {
-        return this.sharedAccessPolicyName;
+    public Optional<Output<String>> sharedAccessPolicyName() {
+        return Optional.ofNullable(this.sharedAccessPolicyName);
     }
 
     /**
@@ -389,7 +389,7 @@ public final class StreamInputEventHubArgs extends com.pulumi.resources.Resource
          * @return builder
          * 
          */
-        public Builder sharedAccessPolicyKey(Output<String> sharedAccessPolicyKey) {
+        public Builder sharedAccessPolicyKey(@Nullable Output<String> sharedAccessPolicyKey) {
             $.sharedAccessPolicyKey = sharedAccessPolicyKey;
             return this;
         }
@@ -410,7 +410,7 @@ public final class StreamInputEventHubArgs extends com.pulumi.resources.Resource
          * @return builder
          * 
          */
-        public Builder sharedAccessPolicyName(Output<String> sharedAccessPolicyName) {
+        public Builder sharedAccessPolicyName(@Nullable Output<String> sharedAccessPolicyName) {
             $.sharedAccessPolicyName = sharedAccessPolicyName;
             return this;
         }
@@ -451,8 +451,6 @@ public final class StreamInputEventHubArgs extends com.pulumi.resources.Resource
             $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
             $.serialization = Objects.requireNonNull($.serialization, "expected parameter 'serialization' to be non-null");
             $.servicebusNamespace = Objects.requireNonNull($.servicebusNamespace, "expected parameter 'servicebusNamespace' to be non-null");
-            $.sharedAccessPolicyKey = Objects.requireNonNull($.sharedAccessPolicyKey, "expected parameter 'sharedAccessPolicyKey' to be non-null");
-            $.sharedAccessPolicyName = Objects.requireNonNull($.sharedAccessPolicyName, "expected parameter 'sharedAccessPolicyName' to be non-null");
             $.streamAnalyticsJobName = Objects.requireNonNull($.streamAnalyticsJobName, "expected parameter 'streamAnalyticsJobName' to be non-null");
             return $;
         }

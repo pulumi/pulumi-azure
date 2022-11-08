@@ -12,12 +12,12 @@ import java.util.Objects;
 @CustomType
 public final class GetFrontdoorEndpointResult {
     /**
-     * @return Specifies whether this CDN FrontDoor Endpoint is enabled or not.
+     * @return Specifies whether this Front Door Endpoint is enabled or not.
      * 
      */
     private Boolean enabled;
     /**
-     * @return Specifies the host name of the CDN FrontDoor Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
+     * @return Specifies the host name of the Front Door Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
      * 
      */
     private String hostName;
@@ -30,21 +30,21 @@ public final class GetFrontdoorEndpointResult {
     private String profileName;
     private String resourceGroupName;
     /**
-     * @return Specifies a mapping of Tags assigned to this CDN FrontDoor Endpoint.
+     * @return Specifies a mapping of Tags assigned to this Front Door Endpoint.
      * 
      */
     private Map<String,String> tags;
 
     private GetFrontdoorEndpointResult() {}
     /**
-     * @return Specifies whether this CDN FrontDoor Endpoint is enabled or not.
+     * @return Specifies whether this Front Door Endpoint is enabled or not.
      * 
      */
     public Boolean enabled() {
         return this.enabled;
     }
     /**
-     * @return Specifies the host name of the CDN FrontDoor Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
+     * @return Specifies the host name of the Front Door Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
      * 
      */
     public String hostName() {
@@ -67,7 +67,7 @@ public final class GetFrontdoorEndpointResult {
         return this.resourceGroupName;
     }
     /**
-     * @return Specifies a mapping of Tags assigned to this CDN FrontDoor Endpoint.
+     * @return Specifies a mapping of Tags assigned to this Front Door Endpoint.
      * 
      */
     public Map<String,String> tags() {

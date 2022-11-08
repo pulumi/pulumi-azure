@@ -5,6 +5,7 @@ package com.pulumi.azure.logicapps.outputs;
 
 import com.pulumi.azure.logicapps.outputs.StandardSiteConfigCors;
 import com.pulumi.azure.logicapps.outputs.StandardSiteConfigIpRestriction;
+import com.pulumi.azure.logicapps.outputs.StandardSiteConfigScmIpRestriction;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -81,6 +82,26 @@ public final class StandardSiteConfig {
      * 
      */
     private @Nullable Boolean runtimeScaleMonitoringEnabled;
+    /**
+     * @return A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
+     * 
+     */
+    private @Nullable List<StandardSiteConfigScmIpRestriction> scmIpRestrictions;
+    /**
+     * @return Configures the minimum version of TLS required for SSL requests to the SCM site.
+     * 
+     */
+    private @Nullable String scmMinTlsVersion;
+    /**
+     * @return The type of Source Control used by the Logic App in use by the Windows Function App. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+     * 
+     */
+    private @Nullable String scmType;
+    /**
+     * @return Should the Logic App `ip_restriction` configuration be used for the SCM too. Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean scmUseMainIpRestriction;
     /**
      * @return Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
      * 
@@ -190,6 +211,34 @@ public final class StandardSiteConfig {
         return Optional.ofNullable(this.runtimeScaleMonitoringEnabled);
     }
     /**
+     * @return A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
+     * 
+     */
+    public List<StandardSiteConfigScmIpRestriction> scmIpRestrictions() {
+        return this.scmIpRestrictions == null ? List.of() : this.scmIpRestrictions;
+    }
+    /**
+     * @return Configures the minimum version of TLS required for SSL requests to the SCM site.
+     * 
+     */
+    public Optional<String> scmMinTlsVersion() {
+        return Optional.ofNullable(this.scmMinTlsVersion);
+    }
+    /**
+     * @return The type of Source Control used by the Logic App in use by the Windows Function App. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+     * 
+     */
+    public Optional<String> scmType() {
+        return Optional.ofNullable(this.scmType);
+    }
+    /**
+     * @return Should the Logic App `ip_restriction` configuration be used for the SCM too. Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> scmUseMainIpRestriction() {
+        return Optional.ofNullable(this.scmUseMainIpRestriction);
+    }
+    /**
      * @return Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
      * 
      */
@@ -233,6 +282,10 @@ public final class StandardSiteConfig {
         private @Nullable String minTlsVersion;
         private @Nullable Integer preWarmedInstanceCount;
         private @Nullable Boolean runtimeScaleMonitoringEnabled;
+        private @Nullable List<StandardSiteConfigScmIpRestriction> scmIpRestrictions;
+        private @Nullable String scmMinTlsVersion;
+        private @Nullable String scmType;
+        private @Nullable Boolean scmUseMainIpRestriction;
         private @Nullable Boolean use32BitWorkerProcess;
         private @Nullable Boolean vnetRouteAllEnabled;
         private @Nullable Boolean websocketsEnabled;
@@ -252,6 +305,10 @@ public final class StandardSiteConfig {
     	      this.minTlsVersion = defaults.minTlsVersion;
     	      this.preWarmedInstanceCount = defaults.preWarmedInstanceCount;
     	      this.runtimeScaleMonitoringEnabled = defaults.runtimeScaleMonitoringEnabled;
+    	      this.scmIpRestrictions = defaults.scmIpRestrictions;
+    	      this.scmMinTlsVersion = defaults.scmMinTlsVersion;
+    	      this.scmType = defaults.scmType;
+    	      this.scmUseMainIpRestriction = defaults.scmUseMainIpRestriction;
     	      this.use32BitWorkerProcess = defaults.use32BitWorkerProcess;
     	      this.vnetRouteAllEnabled = defaults.vnetRouteAllEnabled;
     	      this.websocketsEnabled = defaults.websocketsEnabled;
@@ -326,6 +383,29 @@ public final class StandardSiteConfig {
             return this;
         }
         @CustomType.Setter
+        public Builder scmIpRestrictions(@Nullable List<StandardSiteConfigScmIpRestriction> scmIpRestrictions) {
+            this.scmIpRestrictions = scmIpRestrictions;
+            return this;
+        }
+        public Builder scmIpRestrictions(StandardSiteConfigScmIpRestriction... scmIpRestrictions) {
+            return scmIpRestrictions(List.of(scmIpRestrictions));
+        }
+        @CustomType.Setter
+        public Builder scmMinTlsVersion(@Nullable String scmMinTlsVersion) {
+            this.scmMinTlsVersion = scmMinTlsVersion;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder scmType(@Nullable String scmType) {
+            this.scmType = scmType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder scmUseMainIpRestriction(@Nullable Boolean scmUseMainIpRestriction) {
+            this.scmUseMainIpRestriction = scmUseMainIpRestriction;
+            return this;
+        }
+        @CustomType.Setter
         public Builder use32BitWorkerProcess(@Nullable Boolean use32BitWorkerProcess) {
             this.use32BitWorkerProcess = use32BitWorkerProcess;
             return this;
@@ -355,6 +435,10 @@ public final class StandardSiteConfig {
             o.minTlsVersion = minTlsVersion;
             o.preWarmedInstanceCount = preWarmedInstanceCount;
             o.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
+            o.scmIpRestrictions = scmIpRestrictions;
+            o.scmMinTlsVersion = scmMinTlsVersion;
+            o.scmType = scmType;
+            o.scmUseMainIpRestriction = scmUseMainIpRestriction;
             o.use32BitWorkerProcess = use32BitWorkerProcess;
             o.vnetRouteAllEnabled = vnetRouteAllEnabled;
             o.websocketsEnabled = websocketsEnabled;

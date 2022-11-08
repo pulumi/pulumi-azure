@@ -17,7 +17,7 @@ public final class ReferenceInputBlobSerialization {
      */
     private @Nullable String encoding;
     /**
-     * @return The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
+     * @return The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ``(space), `,` (comma),`` (tab), `|` (pipe) and `;`.
      * 
      */
     private @Nullable String fieldDelimiter;
@@ -36,7 +36,7 @@ public final class ReferenceInputBlobSerialization {
         return Optional.ofNullable(this.encoding);
     }
     /**
-     * @return The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
+     * @return The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ``(space), `,` (comma),`` (tab), `|` (pipe) and `;`.
      * 
      */
     public Optional<String> fieldDelimiter() {

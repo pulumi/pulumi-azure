@@ -61,6 +61,12 @@ namespace Pulumi.Azure.MSSql
     public partial class VirtualMachine : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// An `assessment` block as defined below.
+        /// </summary>
+        [Output("assessment")]
+        public Output<Outputs.VirtualMachineAssessment?> Assessment { get; private set; } = null!;
+
+        /// <summary>
         /// An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
         /// </summary>
         [Output("autoBackup")]
@@ -179,6 +185,12 @@ namespace Pulumi.Azure.MSSql
     public sealed class VirtualMachineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// An `assessment` block as defined below.
+        /// </summary>
+        [Input("assessment")]
+        public Input<Inputs.VirtualMachineAssessmentArgs>? Assessment { get; set; }
+
+        /// <summary>
         /// An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
         /// </summary>
         [Input("autoBackup")]
@@ -264,6 +276,12 @@ namespace Pulumi.Azure.MSSql
 
     public sealed class VirtualMachineState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An `assessment` block as defined below.
+        /// </summary>
+        [Input("assessment")]
+        public Input<Inputs.VirtualMachineAssessmentGetArgs>? Assessment { get; set; }
+
         /// <summary>
         /// An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
         /// </summary>

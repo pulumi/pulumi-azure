@@ -44,7 +44,7 @@ type LinkedServiceAzureSearch struct {
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// The key of the Azure Search Service.
 	SearchServiceKey pulumi.StringOutput `pulumi:"searchServiceKey"`
-	// The URL of the Search Service endpoint (e.g. https://{searchServiceName}.search.windows.net).
+	// The URL of the Search Service endpoint (e.g. <https://{searchServiceName}.search.windows.net>).
 	Url pulumi.StringOutput `pulumi:"url"`
 }
 
@@ -105,7 +105,7 @@ type linkedServiceAzureSearchState struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// The key of the Azure Search Service.
 	SearchServiceKey *string `pulumi:"searchServiceKey"`
-	// The URL of the Search Service endpoint (e.g. https://{searchServiceName}.search.windows.net).
+	// The URL of the Search Service endpoint (e.g. <https://{searchServiceName}.search.windows.net>).
 	Url *string `pulumi:"url"`
 }
 
@@ -129,7 +129,7 @@ type LinkedServiceAzureSearchState struct {
 	Parameters pulumi.StringMapInput
 	// The key of the Azure Search Service.
 	SearchServiceKey pulumi.StringPtrInput
-	// The URL of the Search Service endpoint (e.g. https://{searchServiceName}.search.windows.net).
+	// The URL of the Search Service endpoint (e.g. <https://{searchServiceName}.search.windows.net>).
 	Url pulumi.StringPtrInput
 }
 
@@ -155,7 +155,7 @@ type linkedServiceAzureSearchArgs struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// The key of the Azure Search Service.
 	SearchServiceKey string `pulumi:"searchServiceKey"`
-	// The URL of the Search Service endpoint (e.g. https://{searchServiceName}.search.windows.net).
+	// The URL of the Search Service endpoint (e.g. <https://{searchServiceName}.search.windows.net>).
 	Url string `pulumi:"url"`
 }
 
@@ -178,7 +178,7 @@ type LinkedServiceAzureSearchArgs struct {
 	Parameters pulumi.StringMapInput
 	// The key of the Azure Search Service.
 	SearchServiceKey pulumi.StringInput
-	// The URL of the Search Service endpoint (e.g. https://{searchServiceName}.search.windows.net).
+	// The URL of the Search Service endpoint (e.g. <https://{searchServiceName}.search.windows.net>).
 	Url pulumi.StringInput
 }
 
@@ -315,7 +315,7 @@ func (o LinkedServiceAzureSearchOutput) SearchServiceKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureSearch) pulumi.StringOutput { return v.SearchServiceKey }).(pulumi.StringOutput)
 }
 
-// The URL of the Search Service endpoint (e.g. https://{searchServiceName}.search.windows.net).
+// The URL of the Search Service endpoint (e.g. <https://{searchServiceName}.search.windows.net>).
 func (o LinkedServiceAzureSearchOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureSearch) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }

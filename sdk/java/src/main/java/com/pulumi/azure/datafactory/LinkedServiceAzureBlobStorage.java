@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### With SAS URI And SAS Token.
+ * ### With SAS URI And SAS Token
  * ```java
  * package generated_program;
  * 

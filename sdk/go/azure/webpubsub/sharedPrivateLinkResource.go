@@ -86,13 +86,6 @@ import (
 //	}
 //
 // ```
-// ## Attributes Reference:
-//
-// The following attributes are exported:
-//
-// * `id` - The ID of the Web Pubsub Shared Private Link resource.
-//
-// * `status` - The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
 //
 // ## Import
 //
@@ -110,7 +103,8 @@ type SharedPrivateLinkResource struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specify the request message for requesting approval of the Shared Private Link Enabled Remote Resource.
 	RequestMessage pulumi.StringPtrOutput `pulumi:"requestMessage"`
-	Status         pulumi.StringOutput    `pulumi:"status"`
+	// The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
+	Status pulumi.StringOutput `pulumi:"status"`
 	// Specify the sub resource name which the Web Pubsub Private Endpoint is able to connect to. Changing this forces a new resource to be created.
 	SubresourceName pulumi.StringOutput `pulumi:"subresourceName"`
 	// Specify the ID of the Shared Private Link Enabled Remote Resource which this Web Pubsub Private Endpoint should be connected to. Changing this forces a new resource to be created.
@@ -161,7 +155,8 @@ type sharedPrivateLinkResourceState struct {
 	Name *string `pulumi:"name"`
 	// Specify the request message for requesting approval of the Shared Private Link Enabled Remote Resource.
 	RequestMessage *string `pulumi:"requestMessage"`
-	Status         *string `pulumi:"status"`
+	// The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
+	Status *string `pulumi:"status"`
 	// Specify the sub resource name which the Web Pubsub Private Endpoint is able to connect to. Changing this forces a new resource to be created.
 	SubresourceName *string `pulumi:"subresourceName"`
 	// Specify the ID of the Shared Private Link Enabled Remote Resource which this Web Pubsub Private Endpoint should be connected to. Changing this forces a new resource to be created.
@@ -175,7 +170,8 @@ type SharedPrivateLinkResourceState struct {
 	Name pulumi.StringPtrInput
 	// Specify the request message for requesting approval of the Shared Private Link Enabled Remote Resource.
 	RequestMessage pulumi.StringPtrInput
-	Status         pulumi.StringPtrInput
+	// The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
+	Status pulumi.StringPtrInput
 	// Specify the sub resource name which the Web Pubsub Private Endpoint is able to connect to. Changing this forces a new resource to be created.
 	SubresourceName pulumi.StringPtrInput
 	// Specify the ID of the Shared Private Link Enabled Remote Resource which this Web Pubsub Private Endpoint should be connected to. Changing this forces a new resource to be created.
@@ -312,6 +308,7 @@ func (o SharedPrivateLinkResourceOutput) RequestMessage() pulumi.StringPtrOutput
 	return o.ApplyT(func(v *SharedPrivateLinkResource) pulumi.StringPtrOutput { return v.RequestMessage }).(pulumi.StringPtrOutput)
 }
 
+// The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
 func (o SharedPrivateLinkResourceOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *SharedPrivateLinkResource) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

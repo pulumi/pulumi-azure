@@ -14,14 +14,14 @@ public final class GetFrontdoorOriginGroupArgs extends com.pulumi.resources.Invo
     public static final GetFrontdoorOriginGroupArgs Empty = new GetFrontdoorOriginGroupArgs();
 
     /**
-     * Specifies the name of the FrontDoor Origin Group.
+     * Specifies the name of the Front Door Origin Group.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the FrontDoor Origin Group.
+     * @return Specifies the name of the Front Door Origin Group.
      * 
      */
     public Output<String> name() {
@@ -29,14 +29,14 @@ public final class GetFrontdoorOriginGroupArgs extends com.pulumi.resources.Invo
     }
 
     /**
-     * The name of the FrontDoor Profile within which CDN FrontDoor Origin Group exists.
+     * The name of the Front Door Profile within which Front Door Origin Group exists.
      * 
      */
     @Import(name="profileName", required=true)
     private Output<String> profileName;
 
     /**
-     * @return The name of the FrontDoor Profile within which CDN FrontDoor Origin Group exists.
+     * @return The name of the Front Door Profile within which Front Door Origin Group exists.
      * 
      */
     public Output<String> profileName() {
@@ -44,14 +44,14 @@ public final class GetFrontdoorOriginGroupArgs extends com.pulumi.resources.Invo
     }
 
     /**
-     * The name of the Resource Group where the CDN FrontDoor Profile exists.
+     * The name of the Resource Group where the Front Door Profile exists.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the CDN FrontDoor Profile exists.
+     * @return The name of the Resource Group where the Front Door Profile exists.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -85,7 +85,7 @@ public final class GetFrontdoorOriginGroupArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param name Specifies the name of the FrontDoor Origin Group.
+         * @param name Specifies the name of the Front Door Origin Group.
          * 
          * @return builder
          * 
@@ -96,7 +96,7 @@ public final class GetFrontdoorOriginGroupArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param name Specifies the name of the FrontDoor Origin Group.
+         * @param name Specifies the name of the Front Door Origin Group.
          * 
          * @return builder
          * 
@@ -106,7 +106,7 @@ public final class GetFrontdoorOriginGroupArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param profileName The name of the FrontDoor Profile within which CDN FrontDoor Origin Group exists.
+         * @param profileName The name of the Front Door Profile within which Front Door Origin Group exists.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class GetFrontdoorOriginGroupArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param profileName The name of the FrontDoor Profile within which CDN FrontDoor Origin Group exists.
+         * @param profileName The name of the Front Door Profile within which Front Door Origin Group exists.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class GetFrontdoorOriginGroupArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the CDN FrontDoor Profile exists.
+         * @param resourceGroupName The name of the Resource Group where the Front Door Profile exists.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class GetFrontdoorOriginGroupArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the CDN FrontDoor Profile exists.
+         * @param resourceGroupName The name of the Resource Group where the Front Door Profile exists.
          * 
          * @return builder
          * 

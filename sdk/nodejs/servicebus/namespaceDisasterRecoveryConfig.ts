@@ -28,9 +28,16 @@ import * as utilities from "../utilities";
  *     sku: "Premium",
  *     capacity: 1,
  * });
+ * const exampleNamespaceAuthorizationRule = new azure.servicebus.NamespaceAuthorizationRule("exampleNamespaceAuthorizationRule", {
+ *     namespaceId: azurerm_servicebus_namespace.example.id,
+ *     listen: true,
+ *     send: true,
+ *     manage: false,
+ * });
  * const exampleNamespaceDisasterRecoveryConfig = new azure.servicebus.NamespaceDisasterRecoveryConfig("exampleNamespaceDisasterRecoveryConfig", {
  *     primaryNamespaceId: primary.id,
  *     partnerNamespaceId: secondary.id,
+ *     aliasAuthorizationRuleId: exampleNamespaceAuthorizationRule.id,
  * });
  * ```
  *
@@ -70,6 +77,10 @@ export class NamespaceDisasterRecoveryConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === NamespaceDisasterRecoveryConfig.__pulumiType;
     }
 
+    /**
+     * The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
+     */
+    public readonly aliasAuthorizationRuleId!: pulumi.Output<string | undefined>;
     /**
      * The primary access key for the authorization rule `RootManageSharedAccessKey`.
      */
@@ -112,6 +123,7 @@ export class NamespaceDisasterRecoveryConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NamespaceDisasterRecoveryConfigState | undefined;
+            resourceInputs["aliasAuthorizationRuleId"] = state ? state.aliasAuthorizationRuleId : undefined;
             resourceInputs["defaultPrimaryKey"] = state ? state.defaultPrimaryKey : undefined;
             resourceInputs["defaultSecondaryKey"] = state ? state.defaultSecondaryKey : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -127,6 +139,7 @@ export class NamespaceDisasterRecoveryConfig extends pulumi.CustomResource {
             if ((!args || args.primaryNamespaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'primaryNamespaceId'");
             }
+            resourceInputs["aliasAuthorizationRuleId"] = args ? args.aliasAuthorizationRuleId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["partnerNamespaceId"] = args ? args.partnerNamespaceId : undefined;
             resourceInputs["primaryNamespaceId"] = args ? args.primaryNamespaceId : undefined;
@@ -144,6 +157,10 @@ export class NamespaceDisasterRecoveryConfig extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NamespaceDisasterRecoveryConfig resources.
  */
 export interface NamespaceDisasterRecoveryConfigState {
+    /**
+     * The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
+     */
+    aliasAuthorizationRuleId?: pulumi.Input<string>;
     /**
      * The primary access key for the authorization rule `RootManageSharedAccessKey`.
      */
@@ -178,6 +195,10 @@ export interface NamespaceDisasterRecoveryConfigState {
  * The set of arguments for constructing a NamespaceDisasterRecoveryConfig resource.
  */
 export interface NamespaceDisasterRecoveryConfigArgs {
+    /**
+     * The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
+     */
+    aliasAuthorizationRuleId?: pulumi.Input<string>;
     /**
      * Specifies the name of the Disaster Recovery Config. This is the alias DNS name that will be created. Changing this forces a new resource to be created.
      */

@@ -48,14 +48,14 @@ public final class CustomHttpsConfigurationArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The ID of the FrontDoor Frontend Endpoint which this configuration refers to.
+     * The ID of the Front Door Frontend Endpoint which this configuration refers to.
      * 
      */
     @Import(name="frontendEndpointId", required=true)
     private Output<String> frontendEndpointId;
 
     /**
-     * @return The ID of the FrontDoor Frontend Endpoint which this configuration refers to.
+     * @return The ID of the Front Door Frontend Endpoint which this configuration refers to.
      * 
      */
     public Output<String> frontendEndpointId() {
@@ -131,7 +131,7 @@ public final class CustomHttpsConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param frontendEndpointId The ID of the FrontDoor Frontend Endpoint which this configuration refers to.
+         * @param frontendEndpointId The ID of the Front Door Frontend Endpoint which this configuration refers to.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class CustomHttpsConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param frontendEndpointId The ID of the FrontDoor Frontend Endpoint which this configuration refers to.
+         * @param frontendEndpointId The ID of the Front Door Frontend Endpoint which this configuration refers to.
          * 
          * @return builder
          * 

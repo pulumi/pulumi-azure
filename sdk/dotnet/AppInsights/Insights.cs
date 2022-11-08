@@ -137,6 +137,9 @@ namespace Pulumi.Azure.AppInsights
         [Output("instrumentationKey")]
         public Output<string> InstrumentationKey { get; private set; } = null!;
 
+        /// <summary>
+        /// Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
+        /// </summary>
         [Output("internetIngestionEnabled")]
         public Output<bool?> InternetIngestionEnabled { get; private set; } = null!;
 
@@ -272,6 +275,9 @@ namespace Pulumi.Azure.AppInsights
         [Input("forceCustomerStorageForProfiler")]
         public Input<bool>? ForceCustomerStorageForProfiler { get; set; }
 
+        /// <summary>
+        /// Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
+        /// </summary>
         [Input("internetIngestionEnabled")]
         public Input<bool>? InternetIngestionEnabled { get; set; }
 
@@ -393,6 +399,9 @@ namespace Pulumi.Azure.AppInsights
         [Input("instrumentationKey")]
         public Input<string>? InstrumentationKey { get; set; }
 
+        /// <summary>
+        /// Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
+        /// </summary>
         [Input("internetIngestionEnabled")]
         public Input<bool>? InternetIngestionEnabled { get; set; }
 

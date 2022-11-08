@@ -133,14 +133,14 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
         return Codegen.optional(this.enabled);
     }
     /**
-     * How often the scheduled query rule is evaluated, represented in ISO 8601 duration format.
+     * How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
      * 
      */
     @Export(name="evaluationFrequency", type=String.class, parameters={})
     private Output</* @Nullable */ String> evaluationFrequency;
 
     /**
-     * @return How often the scheduled query rule is evaluated, represented in ISO 8601 duration format.
+     * @return How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
      * 
      */
     public Output<Optional<String>> evaluationFrequency() {
@@ -189,14 +189,14 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
         return this.location;
     }
     /**
-     * Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired.
+     * Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
      * 
      */
     @Export(name="muteActionsAfterAlertDuration", type=String.class, parameters={})
     private Output</* @Nullable */ String> muteActionsAfterAlertDuration;
 
     /**
-     * @return Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired.
+     * @return Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
      * 
      */
     public Output<Optional<String>> muteActionsAfterAlertDuration() {
@@ -217,14 +217,14 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
         return this.name;
     }
     /**
-     * If specified then overrides the query time range, default is `window_duration`*`number_of_evaluation_periods`.
+     * Set this if the alert evaluation period is different from the query time range. If not specified, the value is `window_duration`*`number_of_evaluation_periods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
      * 
      */
     @Export(name="queryTimeRangeOverride", type=String.class, parameters={})
     private Output</* @Nullable */ String> queryTimeRangeOverride;
 
     /**
-     * @return If specified then overrides the query time range, default is `window_duration`*`number_of_evaluation_periods`.
+     * @return Set this if the alert evaluation period is different from the query time range. If not specified, the value is `window_duration`*`number_of_evaluation_periods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
      * 
      */
     public Output<Optional<String>> queryTimeRangeOverride() {
@@ -315,14 +315,14 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
         return Codegen.optional(this.targetResourceTypes);
     }
     /**
-     * Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+     * Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). If `evaluation_frequency` is `PT1M`, possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, and `PT6H`. Otherwise, possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`, and `P2D`.
      * 
      */
     @Export(name="windowDuration", type=String.class, parameters={})
     private Output<String> windowDuration;
 
     /**
-     * @return Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+     * @return Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). If `evaluation_frequency` is `PT1M`, possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, and `PT6H`. Otherwise, possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`, and `P2D`.
      * 
      */
     public Output<String> windowDuration() {

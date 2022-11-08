@@ -126,7 +126,7 @@ type WorkspaceSecurityAlertPolicy struct {
 	RetentionDays pulumi.IntPtrOutput `pulumi:"retentionDays"`
 	// Specifies the identifier key of the Threat Detection audit storage account.
 	StorageAccountAccessKey pulumi.StringPtrOutput `pulumi:"storageAccountAccessKey"`
-	// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+	// Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
 	StorageEndpoint pulumi.StringPtrOutput `pulumi:"storageEndpoint"`
 	// Specifies the ID of the Synapse Workspace. Changing this forces a new resource to be created.
 	SynapseWorkspaceId pulumi.StringOutput `pulumi:"synapseWorkspaceId"`
@@ -179,7 +179,7 @@ type workspaceSecurityAlertPolicyState struct {
 	RetentionDays *int `pulumi:"retentionDays"`
 	// Specifies the identifier key of the Threat Detection audit storage account.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
-	// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+	// Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
 	StorageEndpoint *string `pulumi:"storageEndpoint"`
 	// Specifies the ID of the Synapse Workspace. Changing this forces a new resource to be created.
 	SynapseWorkspaceId *string `pulumi:"synapseWorkspaceId"`
@@ -198,7 +198,7 @@ type WorkspaceSecurityAlertPolicyState struct {
 	RetentionDays pulumi.IntPtrInput
 	// Specifies the identifier key of the Threat Detection audit storage account.
 	StorageAccountAccessKey pulumi.StringPtrInput
-	// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+	// Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
 	StorageEndpoint pulumi.StringPtrInput
 	// Specifies the ID of the Synapse Workspace. Changing this forces a new resource to be created.
 	SynapseWorkspaceId pulumi.StringPtrInput
@@ -221,7 +221,7 @@ type workspaceSecurityAlertPolicyArgs struct {
 	RetentionDays *int `pulumi:"retentionDays"`
 	// Specifies the identifier key of the Threat Detection audit storage account.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
-	// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+	// Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
 	StorageEndpoint *string `pulumi:"storageEndpoint"`
 	// Specifies the ID of the Synapse Workspace. Changing this forces a new resource to be created.
 	SynapseWorkspaceId string `pulumi:"synapseWorkspaceId"`
@@ -241,7 +241,7 @@ type WorkspaceSecurityAlertPolicyArgs struct {
 	RetentionDays pulumi.IntPtrInput
 	// Specifies the identifier key of the Threat Detection audit storage account.
 	StorageAccountAccessKey pulumi.StringPtrInput
-	// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+	// Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
 	StorageEndpoint pulumi.StringPtrInput
 	// Specifies the ID of the Synapse Workspace. Changing this forces a new resource to be created.
 	SynapseWorkspaceId pulumi.StringInput
@@ -364,7 +364,7 @@ func (o WorkspaceSecurityAlertPolicyOutput) StorageAccountAccessKey() pulumi.Str
 	return o.ApplyT(func(v *WorkspaceSecurityAlertPolicy) pulumi.StringPtrOutput { return v.StorageAccountAccessKey }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+// Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
 func (o WorkspaceSecurityAlertPolicyOutput) StorageEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceSecurityAlertPolicy) pulumi.StringPtrOutput { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
 }

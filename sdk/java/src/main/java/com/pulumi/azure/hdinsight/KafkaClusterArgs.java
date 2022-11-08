@@ -4,6 +4,7 @@
 package com.pulumi.azure.hdinsight;
 
 import com.pulumi.azure.hdinsight.inputs.KafkaClusterComponentVersionArgs;
+import com.pulumi.azure.hdinsight.inputs.KafkaClusterComputeIsolationArgs;
 import com.pulumi.azure.hdinsight.inputs.KafkaClusterDiskEncryptionArgs;
 import com.pulumi.azure.hdinsight.inputs.KafkaClusterExtensionArgs;
 import com.pulumi.azure.hdinsight.inputs.KafkaClusterGatewayArgs;
@@ -58,6 +59,21 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<KafkaClusterComponentVersionArgs> componentVersion() {
         return this.componentVersion;
+    }
+
+    /**
+     * A `compute_isolation` block as defined below.
+     * 
+     */
+    @Import(name="computeIsolation")
+    private @Nullable Output<KafkaClusterComputeIsolationArgs> computeIsolation;
+
+    /**
+     * @return A `compute_isolation` block as defined below.
+     * 
+     */
+    public Optional<Output<KafkaClusterComputeIsolationArgs>> computeIsolation() {
+        return Optional.ofNullable(this.computeIsolation);
     }
 
     @Import(name="diskEncryptions")
@@ -327,6 +343,7 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
     private KafkaClusterArgs(KafkaClusterArgs $) {
         this.clusterVersion = $.clusterVersion;
         this.componentVersion = $.componentVersion;
+        this.computeIsolation = $.computeIsolation;
         this.diskEncryptions = $.diskEncryptions;
         this.encryptionInTransitEnabled = $.encryptionInTransitEnabled;
         this.extension = $.extension;
@@ -405,6 +422,27 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder componentVersion(KafkaClusterComponentVersionArgs componentVersion) {
             return componentVersion(Output.of(componentVersion));
+        }
+
+        /**
+         * @param computeIsolation A `compute_isolation` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder computeIsolation(@Nullable Output<KafkaClusterComputeIsolationArgs> computeIsolation) {
+            $.computeIsolation = computeIsolation;
+            return this;
+        }
+
+        /**
+         * @param computeIsolation A `compute_isolation` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder computeIsolation(KafkaClusterComputeIsolationArgs computeIsolation) {
+            return computeIsolation(Output.of(computeIsolation));
         }
 
         public Builder diskEncryptions(@Nullable Output<List<KafkaClusterDiskEncryptionArgs>> diskEncryptions) {

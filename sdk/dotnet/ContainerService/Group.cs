@@ -12,6 +12,8 @@ namespace Pulumi.Azure.ContainerService
     /// <summary>
     /// Manages as an Azure Container Group instance.
     /// 
+    /// &gt; **Note** `network_profile_id` is [deprecated](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-vnet) by Azure. For users who want to continue to manage existing `azure.containerservice.Group` that rely on `network_profile_id`, please stay on provider versions prior to v3.16.0. Otherwise, use `subnet_ids` instead.
+    /// 
     /// ## Example Usage
     /// 
     /// This example provisions a Basic Container.
@@ -105,6 +107,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> DnsNameLabel { get; private set; } = null!;
 
         /// <summary>
+        /// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("dnsNameLabelReusePolicy")]
+        public Output<string?> DnsNameLabelReusePolicy { get; private set; } = null!;
+
+        /// <summary>
         /// Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("exposedPorts")]
@@ -141,7 +149,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> IpAddress { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
+        /// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
         /// </summary>
         [Output("ipAddressType")]
         public Output<string?> IpAddressType { get; private set; } = null!;
@@ -164,11 +172,8 @@ namespace Pulumi.Azure.ContainerService
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Network profile ID for deploying to a virtual network.
-        /// </summary>
         [Output("networkProfileId")]
-        public Output<string?> NetworkProfileId { get; private set; } = null!;
+        public Output<string> NetworkProfileId { get; private set; } = null!;
 
         /// <summary>
         /// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
@@ -189,10 +194,22 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> RestartPolicy { get; private set; } = null!;
 
         /// <summary>
+        /// The subnet resource IDs for a container group. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("subnetIds")]
+        public Output<string?> SubnetIds { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of Availability Zones in which this Container Group is located.
+        /// </summary>
+        [Output("zones")]
+        public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
 
 
         /// <summary>
@@ -270,6 +287,12 @@ namespace Pulumi.Azure.ContainerService
         [Input("dnsNameLabel")]
         public Input<string>? DnsNameLabel { get; set; }
 
+        /// <summary>
+        /// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("dnsNameLabelReusePolicy")]
+        public Input<string>? DnsNameLabelReusePolicy { get; set; }
+
         [Input("exposedPorts")]
         private InputList<Inputs.GroupExposedPortArgs>? _exposedPorts;
 
@@ -313,7 +336,7 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
+        /// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
@@ -336,9 +359,6 @@ namespace Pulumi.Azure.ContainerService
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Network profile ID for deploying to a virtual network.
-        /// </summary>
         [Input("networkProfileId")]
         public Input<string>? NetworkProfileId { get; set; }
 
@@ -360,6 +380,12 @@ namespace Pulumi.Azure.ContainerService
         [Input("restartPolicy")]
         public Input<string>? RestartPolicy { get; set; }
 
+        /// <summary>
+        /// The subnet resource IDs for a container group. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("subnetIds")]
+        public Input<string>? SubnetIds { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -370,6 +396,18 @@ namespace Pulumi.Azure.ContainerService
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("zones")]
+        private InputList<string>? _zones;
+
+        /// <summary>
+        /// A list of Availability Zones in which this Container Group is located.
+        /// </summary>
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
         }
 
         public GroupArgs()
@@ -409,6 +447,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("dnsNameLabel")]
         public Input<string>? DnsNameLabel { get; set; }
+
+        /// <summary>
+        /// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("dnsNameLabelReusePolicy")]
+        public Input<string>? DnsNameLabelReusePolicy { get; set; }
 
         [Input("exposedPorts")]
         private InputList<Inputs.GroupExposedPortGetArgs>? _exposedPorts;
@@ -465,7 +509,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? IpAddress { get; set; }
 
         /// <summary>
-        /// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
+        /// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
@@ -488,9 +532,6 @@ namespace Pulumi.Azure.ContainerService
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Network profile ID for deploying to a virtual network.
-        /// </summary>
         [Input("networkProfileId")]
         public Input<string>? NetworkProfileId { get; set; }
 
@@ -512,6 +553,12 @@ namespace Pulumi.Azure.ContainerService
         [Input("restartPolicy")]
         public Input<string>? RestartPolicy { get; set; }
 
+        /// <summary>
+        /// The subnet resource IDs for a container group. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("subnetIds")]
+        public Input<string>? SubnetIds { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -522,6 +569,18 @@ namespace Pulumi.Azure.ContainerService
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("zones")]
+        private InputList<string>? _zones;
+
+        /// <summary>
+        /// A list of Availability Zones in which this Container Group is located.
+        /// </summary>
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
         }
 
         public GroupState()

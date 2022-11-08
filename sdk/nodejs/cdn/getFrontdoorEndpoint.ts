@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access information about an existing CDN FrontDoor Endpoint.
+ * Use this data source to access information about an existing Front Door (standard/premium) Endpoint.
  *
  * ## Example Usage
  *
@@ -38,15 +38,15 @@ export function getFrontdoorEndpoint(args: GetFrontdoorEndpointArgs, opts?: pulu
  */
 export interface GetFrontdoorEndpointArgs {
     /**
-     * Specifies the name of the FrontDoor Endpoint.
+     * Specifies the name of the Front Door Endpoint.
      */
     name: string;
     /**
-     * The name of the FrontDoor Profile within which CDN FrontDoor Endpoint exists.
+     * The name of the Front Door Profile within which Front Door Endpoint exists.
      */
     profileName: string;
     /**
-     * The name of the Resource Group where the CDN FrontDoor Profile exists.
+     * The name of the Resource Group where the Front Door Profile exists.
      */
     resourceGroupName: string;
 }
@@ -56,11 +56,11 @@ export interface GetFrontdoorEndpointArgs {
  */
 export interface GetFrontdoorEndpointResult {
     /**
-     * Specifies whether this CDN FrontDoor Endpoint is enabled or not.
+     * Specifies whether this Front Door Endpoint is enabled or not.
      */
     readonly enabled: boolean;
     /**
-     * Specifies the host name of the CDN FrontDoor Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
+     * Specifies the host name of the Front Door Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
      */
     readonly hostName: string;
     /**
@@ -71,7 +71,7 @@ export interface GetFrontdoorEndpointResult {
     readonly profileName: string;
     readonly resourceGroupName: string;
     /**
-     * Specifies a mapping of Tags assigned to this CDN FrontDoor Endpoint.
+     * Specifies a mapping of Tags assigned to this Front Door Endpoint.
      */
     readonly tags: {[key: string]: string};
 }
@@ -85,15 +85,15 @@ export function getFrontdoorEndpointOutput(args: GetFrontdoorEndpointOutputArgs,
  */
 export interface GetFrontdoorEndpointOutputArgs {
     /**
-     * Specifies the name of the FrontDoor Endpoint.
+     * Specifies the name of the Front Door Endpoint.
      */
     name: pulumi.Input<string>;
     /**
-     * The name of the FrontDoor Profile within which CDN FrontDoor Endpoint exists.
+     * The name of the Front Door Profile within which Front Door Endpoint exists.
      */
     profileName: pulumi.Input<string>;
     /**
-     * The name of the Resource Group where the CDN FrontDoor Profile exists.
+     * The name of the Resource Group where the Front Door Profile exists.
      */
     resourceGroupName: pulumi.Input<string>;
 }

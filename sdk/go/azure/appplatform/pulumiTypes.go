@@ -1450,7 +1450,6 @@ func (o SpringCloudConfigurationServiceRepositoryArrayOutput) Index(i pulumi.Int
 
 type SpringCloudConnectionAuthentication struct {
 	// Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
-	// ---
 	Certificate *string `pulumi:"certificate"`
 	// Client ID for `userAssignedIdentity` or `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`. When `type` is set to `userAssignedIdentity`, `clientId` and `subscriptionId` should be either both specified or both not specified.
 	ClientId *string `pulumi:"clientId"`
@@ -1479,7 +1478,6 @@ type SpringCloudConnectionAuthenticationInput interface {
 
 type SpringCloudConnectionAuthenticationArgs struct {
 	// Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
-	// ---
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// Client ID for `userAssignedIdentity` or `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`. When `type` is set to `userAssignedIdentity`, `clientId` and `subscriptionId` should be either both specified or both not specified.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
@@ -1573,7 +1571,6 @@ func (o SpringCloudConnectionAuthenticationOutput) ToSpringCloudConnectionAuthen
 }
 
 // Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
-// ---
 func (o SpringCloudConnectionAuthenticationOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpringCloudConnectionAuthentication) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }
@@ -1633,7 +1630,6 @@ func (o SpringCloudConnectionAuthenticationPtrOutput) Elem() SpringCloudConnecti
 }
 
 // Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
-// ---
 func (o SpringCloudConnectionAuthenticationPtrOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpringCloudConnectionAuthentication) *string {
 		if v == nil {

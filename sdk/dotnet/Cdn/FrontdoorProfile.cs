@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cdn
 {
     /// <summary>
-    /// Manages a CDN FrontDoor Profile which contains a collection of CDN FrontDoor Endpoints.
+    /// Manages a Front Door (standard/premium) Profile which contains a collection of endpoints and origin groups.
     /// 
     /// ## Example Usage
     /// 
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// ## Import
     /// 
-    /// CDN FrontDoor Profiles can be imported using the `resource id`, e.g.
+    /// Front Door Profiles can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import azure:cdn/frontdoorProfile:FrontdoorProfile example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Cdn/profiles/myprofile1
@@ -51,19 +51,19 @@ namespace Pulumi.Azure.Cdn
     public partial class FrontdoorProfile : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the name of the FrontDoor Profile. Changing this forces a new resource to be created.
+        /// Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where this FrontDoor Profile should exist. Changing this forces a new resource to be created.
+        /// The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The UUID of this CDN FrontDoor Profile.
+        /// The UUID of this Front Door Profile which will be sent in the HTTP Header as the `X-Azure-FDID` attribute.
         /// </summary>
         [Output("resourceGuid")]
         public Output<string> ResourceGuid { get; private set; } = null!;
@@ -75,7 +75,7 @@ namespace Pulumi.Azure.Cdn
         public Output<int?> ResponseTimeoutSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the SKU for this CDN FrontDoor Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+        /// Specifies the SKU for this Front Door Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
@@ -133,13 +133,13 @@ namespace Pulumi.Azure.Cdn
     public sealed class FrontdoorProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of the FrontDoor Profile. Changing this forces a new resource to be created.
+        /// Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group where this FrontDoor Profile should exist. Changing this forces a new resource to be created.
+        /// The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.Azure.Cdn
         public Input<int>? ResponseTimeoutSeconds { get; set; }
 
         /// <summary>
-        /// Specifies the SKU for this CDN FrontDoor Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+        /// Specifies the SKU for this Front Door Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
@@ -177,19 +177,19 @@ namespace Pulumi.Azure.Cdn
     public sealed class FrontdoorProfileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of the FrontDoor Profile. Changing this forces a new resource to be created.
+        /// Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group where this FrontDoor Profile should exist. Changing this forces a new resource to be created.
+        /// The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The UUID of this CDN FrontDoor Profile.
+        /// The UUID of this Front Door Profile which will be sent in the HTTP Header as the `X-Azure-FDID` attribute.
         /// </summary>
         [Input("resourceGuid")]
         public Input<string>? ResourceGuid { get; set; }
@@ -201,7 +201,7 @@ namespace Pulumi.Azure.Cdn
         public Input<int>? ResponseTimeoutSeconds { get; set; }
 
         /// <summary>
-        /// Specifies the SKU for this CDN FrontDoor Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+        /// Specifies the SKU for this Front Door Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }

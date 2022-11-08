@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *     accountName: exampleAccount.then(exampleAccount => exampleAccount.name),
  *     databaseName: exampleSqlDatabase.name,
  *     containerName: exampleSqlContainer.name,
- *     body: "  	function () { var context = getContext(); var response = context.getResponse(); response.setBody('Hello, World'); }\n",
+ *     body: "   function () { var context = getContext(); var response = context.getResponse(); response.setBody('Hello, World'); }\n",
  * });
  * ```
  *

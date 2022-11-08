@@ -67,7 +67,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<Inputs.SlotAuthSettingsGoogleArgs>? Google { get; set; }
 
         /// <summary>
-        /// Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+        /// Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. &lt;https://sts.windows.net/{tenant-guid}/&gt;.
         /// </summary>
         [Input("issuer")]
         public Input<string>? Issuer { get; set; }

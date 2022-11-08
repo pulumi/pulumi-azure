@@ -134,14 +134,14 @@ public final class GremlinGraphState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Define a partition key version. Changing this forces a new resource to be created. Possible values are ` 1  `and `2`. This should be set to `2` in order to use large partition keys.
+     * Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
      * 
      */
     @Import(name="partitionKeyVersion")
     private @Nullable Output<Integer> partitionKeyVersion;
 
     /**
-     * @return Define a partition key version. Changing this forces a new resource to be created. Possible values are ` 1  `and `2`. This should be set to `2` in order to use large partition keys.
+     * @return Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
      * 
      */
     public Optional<Output<Integer>> partitionKeyVersion() {
@@ -385,7 +385,7 @@ public final class GremlinGraphState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param partitionKeyVersion Define a partition key version. Changing this forces a new resource to be created. Possible values are ` 1  `and `2`. This should be set to `2` in order to use large partition keys.
+         * @param partitionKeyVersion Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
          * 
          * @return builder
          * 
@@ -396,7 +396,7 @@ public final class GremlinGraphState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param partitionKeyVersion Define a partition key version. Changing this forces a new resource to be created. Possible values are ` 1  `and `2`. This should be set to `2` in order to use large partition keys.
+         * @param partitionKeyVersion Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
          * 
          * @return builder
          * 

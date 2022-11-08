@@ -74,6 +74,7 @@ import (
 //
 // ```
 // ### `Vault` Type
+//
 // ```go
 // package main
 //

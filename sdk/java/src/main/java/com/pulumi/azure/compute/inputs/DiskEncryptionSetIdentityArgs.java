@@ -6,6 +6,7 @@ package com.pulumi.azure.compute.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class DiskEncryptionSetIdentityArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DiskEncryptionSetIdentityArgs Empty = new DiskEncryptionSetIdentityArgs();
+
+    /**
+     * A list of User Assigned Managed Identity IDs to be assigned to this Disk Encryption Set.
+     * 
+     */
+    @Import(name="identityIds")
+    private @Nullable Output<List<String>> identityIds;
+
+    /**
+     * @return A list of User Assigned Managed Identity IDs to be assigned to this Disk Encryption Set.
+     * 
+     */
+    public Optional<Output<List<String>>> identityIds() {
+        return Optional.ofNullable(this.identityIds);
+    }
 
     /**
      * The (Client) ID of the Service Principal.
@@ -46,14 +62,14 @@ public final class DiskEncryptionSetIdentityArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The type of Managed Service Identity that is configured on this Disk Encryption Set. The only possible value is `SystemAssigned`.
+     * The type of Managed Service Identity that is configured on this Disk Encryption Set.  Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of Managed Service Identity that is configured on this Disk Encryption Set. The only possible value is `SystemAssigned`.
+     * @return The type of Managed Service Identity that is configured on this Disk Encryption Set.  Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
      * 
      */
     public Output<String> type() {
@@ -63,6 +79,7 @@ public final class DiskEncryptionSetIdentityArgs extends com.pulumi.resources.Re
     private DiskEncryptionSetIdentityArgs() {}
 
     private DiskEncryptionSetIdentityArgs(DiskEncryptionSetIdentityArgs $) {
+        this.identityIds = $.identityIds;
         this.principalId = $.principalId;
         this.tenantId = $.tenantId;
         this.type = $.type;
@@ -84,6 +101,37 @@ public final class DiskEncryptionSetIdentityArgs extends com.pulumi.resources.Re
 
         public Builder(DiskEncryptionSetIdentityArgs defaults) {
             $ = new DiskEncryptionSetIdentityArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this Disk Encryption Set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityIds(@Nullable Output<List<String>> identityIds) {
+            $.identityIds = identityIds;
+            return this;
+        }
+
+        /**
+         * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this Disk Encryption Set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityIds(List<String> identityIds) {
+            return identityIds(Output.of(identityIds));
+        }
+
+        /**
+         * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this Disk Encryption Set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityIds(String... identityIds) {
+            return identityIds(List.of(identityIds));
         }
 
         /**
@@ -129,7 +177,7 @@ public final class DiskEncryptionSetIdentityArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param type The type of Managed Service Identity that is configured on this Disk Encryption Set. The only possible value is `SystemAssigned`.
+         * @param type The type of Managed Service Identity that is configured on this Disk Encryption Set.  Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          * 
          * @return builder
          * 
@@ -140,7 +188,7 @@ public final class DiskEncryptionSetIdentityArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param type The type of Managed Service Identity that is configured on this Disk Encryption Set. The only possible value is `SystemAssigned`.
+         * @param type The type of Managed Service Identity that is configured on this Disk Encryption Set.  Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          * 
          * @return builder
          * 

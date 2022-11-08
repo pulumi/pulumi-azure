@@ -19,7 +19,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a CDN FrontDoor Origin Group.
+ * Manages a Front Door (standard/premium) Origin Group.
  * 
  * ## Example Usage
  * ```java
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CDN FrontDoor Origin Groups can be imported using the `resource id`, e.g.
+ * Front Door Origin Groups can be imported using the `resource id`, e.g.
  * 
  * ```sh
  *  $ pulumi import azure:cdn/frontdoorOriginGroup:FrontdoorOriginGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/originGroups/originGroup1
@@ -90,14 +90,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:cdn/frontdoorOriginGroup:FrontdoorOriginGroup")
 public class FrontdoorOriginGroup extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group should exist. Changing this forces a new CDN FrontDoor Origin Group to be created.
+     * The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
      * 
      */
     @Export(name="cdnFrontdoorProfileId", type=String.class, parameters={})
     private Output<String> cdnFrontdoorProfileId;
 
     /**
-     * @return The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group should exist. Changing this forces a new CDN FrontDoor Origin Group to be created.
+     * @return The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
      * 
      */
     public Output<String> cdnFrontdoorProfileId() {
@@ -132,14 +132,14 @@ public class FrontdoorOriginGroup extends com.pulumi.resources.CustomResource {
         return this.loadBalancing;
     }
     /**
-     * The name which should be used for this CDN FrontDoor Origin Group. Changing this forces a new CDN FrontDoor Origin Group to be created.
+     * The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this CDN FrontDoor Origin Group. Changing this forces a new CDN FrontDoor Origin Group to be created.
+     * @return The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
      * 
      */
     public Output<String> name() {

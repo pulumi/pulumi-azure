@@ -34,14 +34,14 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+     * The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
      * 
      */
     @Import(name="cdnFrontdoorCustomDomainIds")
     private @Nullable Output<List<String>> cdnFrontdoorCustomDomainIds;
 
     /**
-     * @return The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+     * @return The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
      * 
      */
     public Optional<Output<List<String>>> cdnFrontdoorCustomDomainIds() {
@@ -49,14 +49,14 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The resource ID of the CDN FrontDoor Endpoint where this CDN FrontDoor Route should exist. Changing this forces a new Frontdoor Route to be created.
+     * The resource ID of the Front Door Endpoint where this Front Door Route should exist. Changing this forces a new Front Door Route to be created.
      * 
      */
     @Import(name="cdnFrontdoorEndpointId")
     private @Nullable Output<String> cdnFrontdoorEndpointId;
 
     /**
-     * @return The resource ID of the CDN FrontDoor Endpoint where this CDN FrontDoor Route should exist. Changing this forces a new Frontdoor Route to be created.
+     * @return The resource ID of the Front Door Endpoint where this Front Door Route should exist. Changing this forces a new Front Door Route to be created.
      * 
      */
     public Optional<Output<String>> cdnFrontdoorEndpointId() {
@@ -64,14 +64,14 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The resource ID of the CDN FrontDoor Origin Group where this CDN FrontDoor Route should be created.
+     * The resource ID of the Front Door Origin Group where this Front Door Route should be created.
      * 
      */
     @Import(name="cdnFrontdoorOriginGroupId")
     private @Nullable Output<String> cdnFrontdoorOriginGroupId;
 
     /**
-     * @return The resource ID of the CDN FrontDoor Origin Group where this CDN FrontDoor Route should be created.
+     * @return The resource ID of the Front Door Origin Group where this Front Door Route should be created.
      * 
      */
     public Optional<Output<String>> cdnFrontdoorOriginGroupId() {
@@ -79,14 +79,14 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * One or more Frontdoor Origin resource IDs that this Frontdoor Route will link to.
+     * One or more Front Door Origin resource IDs that this Front Door Route will link to.
      * 
      */
     @Import(name="cdnFrontdoorOriginIds")
     private @Nullable Output<List<String>> cdnFrontdoorOriginIds;
 
     /**
-     * @return One or more Frontdoor Origin resource IDs that this Frontdoor Route will link to.
+     * @return One or more Front Door Origin resource IDs that this Front Door Route will link to.
      * 
      */
     public Optional<Output<List<String>>> cdnFrontdoorOriginIds() {
@@ -94,14 +94,14 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A directory path on the origin that Frontdoor can use to retrieve content from (e.g. `contoso.cloudapp.net/originpath`).
+     * A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
      * 
      */
     @Import(name="cdnFrontdoorOriginPath")
     private @Nullable Output<String> cdnFrontdoorOriginPath;
 
     /**
-     * @return A directory path on the origin that Frontdoor can use to retrieve content from (e.g. `contoso.cloudapp.net/originpath`).
+     * @return A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
      * 
      */
     public Optional<Output<String>> cdnFrontdoorOriginPath() {
@@ -109,14 +109,14 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A list of the CDN FrontDoor Rule Set IDs which should be assigned to this CDN FrontDoor Route.
+     * A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route.
      * 
      */
     @Import(name="cdnFrontdoorRuleSetIds")
     private @Nullable Output<List<String>> cdnFrontdoorRuleSetIds;
 
     /**
-     * @return A list of the CDN FrontDoor Rule Set IDs which should be assigned to this CDN FrontDoor Route.
+     * @return A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route.
      * 
      */
     public Optional<Output<List<String>>> cdnFrontdoorRuleSetIds() {
@@ -124,14 +124,14 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Is this Frontdoor Route enabled? Possible values are `true` or `false`. Defaults to `true`.
+     * Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Is this Frontdoor Route enabled? Possible values are `true` or `false`. Defaults to `true`.
+     * @return Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -169,14 +169,14 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+     * Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
      * 
      */
     @Import(name="linkToDefaultDomain")
     private @Nullable Output<Boolean> linkToDefaultDomain;
 
     /**
-     * @return Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+     * @return Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> linkToDefaultDomain() {
@@ -184,14 +184,14 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+     * The name which should be used for this Front Door Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Front Door Route to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+     * @return The name which should be used for this Front Door Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Front Door Route to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -214,14 +214,14 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * One or more Protocols supported by this Frontdoor Route. Possible values are `Http` or `Https`.
+     * One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
      * 
      */
     @Import(name="supportedProtocols")
     private @Nullable Output<List<String>> supportedProtocols;
 
     /**
-     * @return One or more Protocols supported by this Frontdoor Route. Possible values are `Http` or `Https`.
+     * @return One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
      * 
      */
     public Optional<Output<List<String>>> supportedProtocols() {
@@ -287,7 +287,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cdnFrontdoorCustomDomainIds The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+         * @param cdnFrontdoorCustomDomainIds The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
          * 
          * @return builder
          * 
@@ -298,7 +298,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cdnFrontdoorCustomDomainIds The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+         * @param cdnFrontdoorCustomDomainIds The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
          * 
          * @return builder
          * 
@@ -308,7 +308,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cdnFrontdoorCustomDomainIds The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+         * @param cdnFrontdoorCustomDomainIds The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cdnFrontdoorEndpointId The resource ID of the CDN FrontDoor Endpoint where this CDN FrontDoor Route should exist. Changing this forces a new Frontdoor Route to be created.
+         * @param cdnFrontdoorEndpointId The resource ID of the Front Door Endpoint where this Front Door Route should exist. Changing this forces a new Front Door Route to be created.
          * 
          * @return builder
          * 
@@ -329,7 +329,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cdnFrontdoorEndpointId The resource ID of the CDN FrontDoor Endpoint where this CDN FrontDoor Route should exist. Changing this forces a new Frontdoor Route to be created.
+         * @param cdnFrontdoorEndpointId The resource ID of the Front Door Endpoint where this Front Door Route should exist. Changing this forces a new Front Door Route to be created.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cdnFrontdoorOriginGroupId The resource ID of the CDN FrontDoor Origin Group where this CDN FrontDoor Route should be created.
+         * @param cdnFrontdoorOriginGroupId The resource ID of the Front Door Origin Group where this Front Door Route should be created.
          * 
          * @return builder
          * 
@@ -350,7 +350,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cdnFrontdoorOriginGroupId The resource ID of the CDN FrontDoor Origin Group where this CDN FrontDoor Route should be created.
+         * @param cdnFrontdoorOriginGroupId The resource ID of the Front Door Origin Group where this Front Door Route should be created.
          * 
          * @return builder
          * 
@@ -360,7 +360,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cdnFrontdoorOriginIds One or more Frontdoor Origin resource IDs that this Frontdoor Route will link to.
+         * @param cdnFrontdoorOriginIds One or more Front Door Origin resource IDs that this Front Door Route will link to.
          * 
          * @return builder
          * 
@@ -371,7 +371,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cdnFrontdoorOriginIds One or more Frontdoor Origin resource IDs that this Frontdoor Route will link to.
+         * @param cdnFrontdoorOriginIds One or more Front Door Origin resource IDs that this Front Door Route will link to.
          * 
          * @return builder
          * 
@@ -381,7 +381,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cdnFrontdoorOriginIds One or more Frontdoor Origin resource IDs that this Frontdoor Route will link to.
+         * @param cdnFrontdoorOriginIds One or more Front Door Origin resource IDs that this Front Door Route will link to.
          * 
          * @return builder
          * 
@@ -391,7 +391,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cdnFrontdoorOriginPath A directory path on the origin that Frontdoor can use to retrieve content from (e.g. `contoso.cloudapp.net/originpath`).
+         * @param cdnFrontdoorOriginPath A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
          * 
          * @return builder
          * 
@@ -402,7 +402,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cdnFrontdoorOriginPath A directory path on the origin that Frontdoor can use to retrieve content from (e.g. `contoso.cloudapp.net/originpath`).
+         * @param cdnFrontdoorOriginPath A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
          * 
          * @return builder
          * 
@@ -412,7 +412,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cdnFrontdoorRuleSetIds A list of the CDN FrontDoor Rule Set IDs which should be assigned to this CDN FrontDoor Route.
+         * @param cdnFrontdoorRuleSetIds A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route.
          * 
          * @return builder
          * 
@@ -423,7 +423,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cdnFrontdoorRuleSetIds A list of the CDN FrontDoor Rule Set IDs which should be assigned to this CDN FrontDoor Route.
+         * @param cdnFrontdoorRuleSetIds A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route.
          * 
          * @return builder
          * 
@@ -433,7 +433,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cdnFrontdoorRuleSetIds A list of the CDN FrontDoor Rule Set IDs which should be assigned to this CDN FrontDoor Route.
+         * @param cdnFrontdoorRuleSetIds A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route.
          * 
          * @return builder
          * 
@@ -443,7 +443,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param enabled Is this Frontdoor Route enabled? Possible values are `true` or `false`. Defaults to `true`.
+         * @param enabled Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -454,7 +454,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param enabled Is this Frontdoor Route enabled? Possible values are `true` or `false`. Defaults to `true`.
+         * @param enabled Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -506,7 +506,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param linkToDefaultDomain Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+         * @param linkToDefaultDomain Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -517,7 +517,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param linkToDefaultDomain Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+         * @param linkToDefaultDomain Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -527,7 +527,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+         * @param name The name which should be used for this Front Door Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Front Door Route to be created.
          * 
          * @return builder
          * 
@@ -538,7 +538,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+         * @param name The name which should be used for this Front Door Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Front Door Route to be created.
          * 
          * @return builder
          * 
@@ -579,7 +579,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param supportedProtocols One or more Protocols supported by this Frontdoor Route. Possible values are `Http` or `Https`.
+         * @param supportedProtocols One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
          * 
          * @return builder
          * 
@@ -590,7 +590,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param supportedProtocols One or more Protocols supported by this Frontdoor Route. Possible values are `Http` or `Https`.
+         * @param supportedProtocols One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
          * 
          * @return builder
          * 
@@ -600,7 +600,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param supportedProtocols One or more Protocols supported by this Frontdoor Route. Possible values are `Http` or `Https`.
+         * @param supportedProtocols One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
          * 
          * @return builder
          * 

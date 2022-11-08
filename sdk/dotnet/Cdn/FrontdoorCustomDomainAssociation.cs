@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cdn
 {
     /// <summary>
-    /// Manages the association between a CDN FrontDoor Custom Domain and one or more CDN FrontDoor Routes.
+    /// Manages the association between a Front Door (standard/premium) Custom Domain and one or more Front Door (standard/premium) Routes.
     /// 
     /// ## Example Usage
     /// 
@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// ## Import
     /// 
-    /// Frontdoor Routes can be imported using the `resource id`, e.g.
+    /// Front Door Custom Domain Associations can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import azure:cdn/frontdoorCustomDomainAssociation:FrontdoorCustomDomainAssociation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/associations/assoc1
@@ -46,13 +46,13 @@ namespace Pulumi.Azure.Cdn
     public partial class FrontdoorCustomDomainAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the CDN FrontDoor Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
+        /// The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
         /// </summary>
         [Output("cdnFrontdoorCustomDomainId")]
         public Output<string> CdnFrontdoorCustomDomainId { get; private set; } = null!;
 
         /// <summary>
-        /// One or more IDs of the CDN FrontDoor Route to which the CDN FrontDoor Custom Domain is associated with.
+        /// One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
         /// </summary>
         [Output("cdnFrontdoorRouteIds")]
         public Output<ImmutableArray<string>> CdnFrontdoorRouteIds { get; private set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.Azure.Cdn
     public sealed class FrontdoorCustomDomainAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the CDN FrontDoor Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
+        /// The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
         /// </summary>
         [Input("cdnFrontdoorCustomDomainId", required: true)]
         public Input<string> CdnFrontdoorCustomDomainId { get; set; } = null!;
@@ -113,7 +113,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<string>? _cdnFrontdoorRouteIds;
 
         /// <summary>
-        /// One or more IDs of the CDN FrontDoor Route to which the CDN FrontDoor Custom Domain is associated with.
+        /// One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
         /// </summary>
         public InputList<string> CdnFrontdoorRouteIds
         {
@@ -130,7 +130,7 @@ namespace Pulumi.Azure.Cdn
     public sealed class FrontdoorCustomDomainAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the CDN FrontDoor Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
+        /// The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
         /// </summary>
         [Input("cdnFrontdoorCustomDomainId")]
         public Input<string>? CdnFrontdoorCustomDomainId { get; set; }
@@ -139,7 +139,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<string>? _cdnFrontdoorRouteIds;
 
         /// <summary>
-        /// One or more IDs of the CDN FrontDoor Route to which the CDN FrontDoor Custom Domain is associated with.
+        /// One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
         /// </summary>
         public InputList<string> CdnFrontdoorRouteIds
         {

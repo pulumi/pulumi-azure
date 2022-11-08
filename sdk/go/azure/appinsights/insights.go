@@ -124,7 +124,8 @@ type Insights struct {
 	// Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
 	ForceCustomerStorageForProfiler pulumi.BoolPtrOutput `pulumi:"forceCustomerStorageForProfiler"`
 	// The Instrumentation Key for this Application Insights component. (Sensitive)
-	InstrumentationKey       pulumi.StringOutput  `pulumi:"instrumentationKey"`
+	InstrumentationKey pulumi.StringOutput `pulumi:"instrumentationKey"`
+	// Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
 	InternetIngestionEnabled pulumi.BoolPtrOutput `pulumi:"internetIngestionEnabled"`
 	// Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
 	InternetQueryEnabled pulumi.BoolPtrOutput `pulumi:"internetQueryEnabled"`
@@ -198,8 +199,9 @@ type insightsState struct {
 	// Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
 	ForceCustomerStorageForProfiler *bool `pulumi:"forceCustomerStorageForProfiler"`
 	// The Instrumentation Key for this Application Insights component. (Sensitive)
-	InstrumentationKey       *string `pulumi:"instrumentationKey"`
-	InternetIngestionEnabled *bool   `pulumi:"internetIngestionEnabled"`
+	InstrumentationKey *string `pulumi:"instrumentationKey"`
+	// Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
+	InternetIngestionEnabled *bool `pulumi:"internetIngestionEnabled"`
 	// Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
 	InternetQueryEnabled *bool `pulumi:"internetQueryEnabled"`
 	// Disable Non-Azure AD based Auth. Defaults to `false`.
@@ -238,7 +240,8 @@ type InsightsState struct {
 	// Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
 	ForceCustomerStorageForProfiler pulumi.BoolPtrInput
 	// The Instrumentation Key for this Application Insights component. (Sensitive)
-	InstrumentationKey       pulumi.StringPtrInput
+	InstrumentationKey pulumi.StringPtrInput
+	// Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
 	InternetIngestionEnabled pulumi.BoolPtrInput
 	// Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
 	InternetQueryEnabled pulumi.BoolPtrInput
@@ -277,7 +280,8 @@ type insightsArgs struct {
 	DisableIpMasking *bool `pulumi:"disableIpMasking"`
 	// Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
 	ForceCustomerStorageForProfiler *bool `pulumi:"forceCustomerStorageForProfiler"`
-	InternetIngestionEnabled        *bool `pulumi:"internetIngestionEnabled"`
+	// Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
+	InternetIngestionEnabled *bool `pulumi:"internetIngestionEnabled"`
 	// Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
 	InternetQueryEnabled *bool `pulumi:"internetQueryEnabled"`
 	// Disable Non-Azure AD based Auth. Defaults to `false`.
@@ -312,7 +316,8 @@ type InsightsArgs struct {
 	DisableIpMasking pulumi.BoolPtrInput
 	// Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
 	ForceCustomerStorageForProfiler pulumi.BoolPtrInput
-	InternetIngestionEnabled        pulumi.BoolPtrInput
+	// Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
+	InternetIngestionEnabled pulumi.BoolPtrInput
 	// Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
 	InternetQueryEnabled pulumi.BoolPtrInput
 	// Disable Non-Azure AD based Auth. Defaults to `false`.
@@ -462,6 +467,7 @@ func (o InsightsOutput) InstrumentationKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Insights) pulumi.StringOutput { return v.InstrumentationKey }).(pulumi.StringOutput)
 }
 
+// Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
 func (o InsightsOutput) InternetIngestionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Insights) pulumi.BoolPtrOutput { return v.InternetIngestionEnabled }).(pulumi.BoolPtrOutput)
 }

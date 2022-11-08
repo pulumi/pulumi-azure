@@ -95,15 +95,15 @@ public final class DatasetParquetAzureBlobStorageLocationArgs extends com.pulumi
      * The folder path to the file on the web server.
      * 
      */
-    @Import(name="path", required=true)
-    private Output<String> path;
+    @Import(name="path")
+    private @Nullable Output<String> path;
 
     /**
      * @return The folder path to the file on the web server.
      * 
      */
-    public Output<String> path() {
-        return this.path;
+    public Optional<Output<String>> path() {
+        return Optional.ofNullable(this.path);
     }
 
     private DatasetParquetAzureBlobStorageLocationArgs() {}
@@ -246,7 +246,7 @@ public final class DatasetParquetAzureBlobStorageLocationArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder path(Output<String> path) {
+        public Builder path(@Nullable Output<String> path) {
             $.path = path;
             return this;
         }
@@ -263,7 +263,6 @@ public final class DatasetParquetAzureBlobStorageLocationArgs extends com.pulumi
 
         public DatasetParquetAzureBlobStorageLocationArgs build() {
             $.container = Objects.requireNonNull($.container, "expected parameter 'container' to be non-null");
-            $.path = Objects.requireNonNull($.path, "expected parameter 'path' to be non-null");
             return $;
         }
     }

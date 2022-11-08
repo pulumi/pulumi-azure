@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Gets information about an existing CDN FrontDoor Rule Set.
+// Use this data source to access information about an existing Front Door (standard/premium) Rule Set.
 //
 // ## Example Usage
 //
@@ -50,17 +50,17 @@ func LookupFrontdoorRuleSet(ctx *pulumi.Context, args *LookupFrontdoorRuleSetArg
 
 // A collection of arguments for invoking getFrontdoorRuleSet.
 type LookupFrontdoorRuleSetArgs struct {
-	// Specifies the name of the CDN FrontDoor Rule Set to retrieve.
+	// Specifies the name of the Front Door Rule Set to retrieve.
 	Name string `pulumi:"name"`
-	// Specifies the name of the CDN FrontDoor Profile where this CDN FrontDoor Rule Set exists.
+	// Specifies the name of the Front Door Profile where this Front Door Rule Set exists.
 	ProfileName string `pulumi:"profileName"`
-	// Specifies the name of the Resource Group where the CDN FrontDoor Profile exists.
+	// Specifies the name of the Resource Group where the Front Door Profile exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getFrontdoorRuleSet.
 type LookupFrontdoorRuleSetResult struct {
-	// The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Rule Set exists.
+	// The ID of the Front Door Profile within which this Front Door Rule Set exists.
 	CdnFrontdoorProfileId string `pulumi:"cdnFrontdoorProfileId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                string `pulumi:"id"`
@@ -84,11 +84,11 @@ func LookupFrontdoorRuleSetOutput(ctx *pulumi.Context, args LookupFrontdoorRuleS
 
 // A collection of arguments for invoking getFrontdoorRuleSet.
 type LookupFrontdoorRuleSetOutputArgs struct {
-	// Specifies the name of the CDN FrontDoor Rule Set to retrieve.
+	// Specifies the name of the Front Door Rule Set to retrieve.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Specifies the name of the CDN FrontDoor Profile where this CDN FrontDoor Rule Set exists.
+	// Specifies the name of the Front Door Profile where this Front Door Rule Set exists.
 	ProfileName pulumi.StringInput `pulumi:"profileName"`
-	// Specifies the name of the Resource Group where the CDN FrontDoor Profile exists.
+	// Specifies the name of the Resource Group where the Front Door Profile exists.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
@@ -111,7 +111,7 @@ func (o LookupFrontdoorRuleSetResultOutput) ToLookupFrontdoorRuleSetResultOutput
 	return o
 }
 
-// The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Rule Set exists.
+// The ID of the Front Door Profile within which this Front Door Rule Set exists.
 func (o LookupFrontdoorRuleSetResultOutput) CdnFrontdoorProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFrontdoorRuleSetResult) string { return v.CdnFrontdoorProfileId }).(pulumi.StringOutput)
 }

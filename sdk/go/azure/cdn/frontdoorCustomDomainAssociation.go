@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages the association between a CDN FrontDoor Custom Domain and one or more CDN FrontDoor Routes.
+// Manages the association between a Front Door (standard/premium) Custom Domain and one or more Front Door (standard/premium) Routes.
 //
 // ## Example Usage
 //
@@ -45,7 +45,7 @@ import (
 //
 // ## Import
 //
-// Frontdoor Routes can be imported using the `resource id`, e.g.
+// Front Door Custom Domain Associations can be imported using the `resource id`, e.g.
 //
 // ```sh
 //
@@ -55,9 +55,9 @@ import (
 type FrontdoorCustomDomainAssociation struct {
 	pulumi.CustomResourceState
 
-	// The ID of the CDN FrontDoor Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
+	// The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
 	CdnFrontdoorCustomDomainId pulumi.StringOutput `pulumi:"cdnFrontdoorCustomDomainId"`
-	// One or more IDs of the CDN FrontDoor Route to which the CDN FrontDoor Custom Domain is associated with.
+	// One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
 	CdnFrontdoorRouteIds pulumi.StringArrayOutput `pulumi:"cdnFrontdoorRouteIds"`
 }
 
@@ -96,16 +96,16 @@ func GetFrontdoorCustomDomainAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FrontdoorCustomDomainAssociation resources.
 type frontdoorCustomDomainAssociationState struct {
-	// The ID of the CDN FrontDoor Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
+	// The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
 	CdnFrontdoorCustomDomainId *string `pulumi:"cdnFrontdoorCustomDomainId"`
-	// One or more IDs of the CDN FrontDoor Route to which the CDN FrontDoor Custom Domain is associated with.
+	// One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
 	CdnFrontdoorRouteIds []string `pulumi:"cdnFrontdoorRouteIds"`
 }
 
 type FrontdoorCustomDomainAssociationState struct {
-	// The ID of the CDN FrontDoor Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
+	// The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
 	CdnFrontdoorCustomDomainId pulumi.StringPtrInput
-	// One or more IDs of the CDN FrontDoor Route to which the CDN FrontDoor Custom Domain is associated with.
+	// One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
 	CdnFrontdoorRouteIds pulumi.StringArrayInput
 }
 
@@ -114,17 +114,17 @@ func (FrontdoorCustomDomainAssociationState) ElementType() reflect.Type {
 }
 
 type frontdoorCustomDomainAssociationArgs struct {
-	// The ID of the CDN FrontDoor Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
+	// The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
 	CdnFrontdoorCustomDomainId string `pulumi:"cdnFrontdoorCustomDomainId"`
-	// One or more IDs of the CDN FrontDoor Route to which the CDN FrontDoor Custom Domain is associated with.
+	// One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
 	CdnFrontdoorRouteIds []string `pulumi:"cdnFrontdoorRouteIds"`
 }
 
 // The set of arguments for constructing a FrontdoorCustomDomainAssociation resource.
 type FrontdoorCustomDomainAssociationArgs struct {
-	// The ID of the CDN FrontDoor Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
+	// The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
 	CdnFrontdoorCustomDomainId pulumi.StringInput
-	// One or more IDs of the CDN FrontDoor Route to which the CDN FrontDoor Custom Domain is associated with.
+	// One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
 	CdnFrontdoorRouteIds pulumi.StringArrayInput
 }
 
@@ -215,12 +215,12 @@ func (o FrontdoorCustomDomainAssociationOutput) ToFrontdoorCustomDomainAssociati
 	return o
 }
 
-// The ID of the CDN FrontDoor Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
+// The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
 func (o FrontdoorCustomDomainAssociationOutput) CdnFrontdoorCustomDomainId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorCustomDomainAssociation) pulumi.StringOutput { return v.CdnFrontdoorCustomDomainId }).(pulumi.StringOutput)
 }
 
-// One or more IDs of the CDN FrontDoor Route to which the CDN FrontDoor Custom Domain is associated with.
+// One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
 func (o FrontdoorCustomDomainAssociationOutput) CdnFrontdoorRouteIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FrontdoorCustomDomainAssociation) pulumi.StringArrayOutput { return v.CdnFrontdoorRouteIds }).(pulumi.StringArrayOutput)
 }

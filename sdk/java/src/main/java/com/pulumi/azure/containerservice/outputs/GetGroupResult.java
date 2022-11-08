@@ -3,10 +3,13 @@
 
 package com.pulumi.azure.containerservice.outputs;
 
+import com.pulumi.azure.containerservice.outputs.GetGroupIdentity;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGroupResult {
@@ -21,6 +24,11 @@ public final class GetGroupResult {
      */
     private String id;
     /**
+     * @return A `identity` block as defined below.
+     * 
+     */
+    private List<GetGroupIdentity> identities;
+    /**
      * @return The IP address allocated to the Container Group instance.
      * 
      */
@@ -33,10 +41,20 @@ public final class GetGroupResult {
     private String name;
     private String resourceGroupName;
     /**
+     * @return The subnet resource IDs for a container group.
+     * 
+     */
+    private List<String> subnetIds;
+    /**
      * @return A mapping of tags assigned to the Container Group instance.
      * 
      */
     private Map<String,String> tags;
+    /**
+     * @return A list of Availability Zones in which this Container Group is located.
+     * 
+     */
+    private @Nullable List<String> zones;
 
     private GetGroupResult() {}
     /**
@@ -52,6 +70,13 @@ public final class GetGroupResult {
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return A `identity` block as defined below.
+     * 
+     */
+    public List<GetGroupIdentity> identities() {
+        return this.identities;
     }
     /**
      * @return The IP address allocated to the Container Group instance.
@@ -74,11 +99,25 @@ public final class GetGroupResult {
         return this.resourceGroupName;
     }
     /**
+     * @return The subnet resource IDs for a container group.
+     * 
+     */
+    public List<String> subnetIds() {
+        return this.subnetIds;
+    }
+    /**
      * @return A mapping of tags assigned to the Container Group instance.
      * 
      */
     public Map<String,String> tags() {
         return this.tags;
+    }
+    /**
+     * @return A list of Availability Zones in which this Container Group is located.
+     * 
+     */
+    public List<String> zones() {
+        return this.zones == null ? List.of() : this.zones;
     }
 
     public static Builder builder() {
@@ -92,21 +131,27 @@ public final class GetGroupResult {
     public static final class Builder {
         private String fqdn;
         private String id;
+        private List<GetGroupIdentity> identities;
         private String ipAddress;
         private String location;
         private String name;
         private String resourceGroupName;
+        private List<String> subnetIds;
         private Map<String,String> tags;
+        private @Nullable List<String> zones;
         public Builder() {}
         public Builder(GetGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fqdn = defaults.fqdn;
     	      this.id = defaults.id;
+    	      this.identities = defaults.identities;
     	      this.ipAddress = defaults.ipAddress;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
     	      this.resourceGroupName = defaults.resourceGroupName;
+    	      this.subnetIds = defaults.subnetIds;
     	      this.tags = defaults.tags;
+    	      this.zones = defaults.zones;
         }
 
         @CustomType.Setter
@@ -118,6 +163,14 @@ public final class GetGroupResult {
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
+        }
+        @CustomType.Setter
+        public Builder identities(List<GetGroupIdentity> identities) {
+            this.identities = Objects.requireNonNull(identities);
+            return this;
+        }
+        public Builder identities(GetGroupIdentity... identities) {
+            return identities(List.of(identities));
         }
         @CustomType.Setter
         public Builder ipAddress(String ipAddress) {
@@ -140,19 +193,38 @@ public final class GetGroupResult {
             return this;
         }
         @CustomType.Setter
+        public Builder subnetIds(List<String> subnetIds) {
+            this.subnetIds = Objects.requireNonNull(subnetIds);
+            return this;
+        }
+        public Builder subnetIds(String... subnetIds) {
+            return subnetIds(List.of(subnetIds));
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
+        }
+        @CustomType.Setter
+        public Builder zones(@Nullable List<String> zones) {
+            this.zones = zones;
+            return this;
+        }
+        public Builder zones(String... zones) {
+            return zones(List.of(zones));
         }
         public GetGroupResult build() {
             final var o = new GetGroupResult();
             o.fqdn = fqdn;
             o.id = id;
+            o.identities = identities;
             o.ipAddress = ipAddress;
             o.location = location;
             o.name = name;
             o.resourceGroupName = resourceGroupName;
+            o.subnetIds = subnetIds;
             o.tags = tags;
+            o.zones = zones;
             return o;
         }
     }

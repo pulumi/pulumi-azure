@@ -19,7 +19,7 @@ public final class GetFrontdoorProfileResult {
     private String name;
     private String resourceGroupName;
     /**
-     * @return The UUID of this CDN FrontDoor Profile. This is the value that is used for the `X-Azure-FDID` attribute in the HTTP header.
+     * @return The UUID of the Front Door Profile which will be sent in the HTTP Header as the `X-Azure-FDID` attribute.
      * 
      */
     private String resourceGuid;
@@ -29,12 +29,12 @@ public final class GetFrontdoorProfileResult {
      */
     private Integer responseTimeoutSeconds;
     /**
-     * @return Specifies the SKU for this CDN FrontDoor Profile.
+     * @return Specifies the SKU for this Front Door Profile.
      * 
      */
     private String skuName;
     /**
-     * @return Specifies a mapping of Tags assigned to this CDN FrontDoor Profile.
+     * @return Specifies a mapping of Tags assigned to this Front Door Profile.
      * 
      */
     private Map<String,String> tags;
@@ -54,7 +54,7 @@ public final class GetFrontdoorProfileResult {
         return this.resourceGroupName;
     }
     /**
-     * @return The UUID of this CDN FrontDoor Profile. This is the value that is used for the `X-Azure-FDID` attribute in the HTTP header.
+     * @return The UUID of the Front Door Profile which will be sent in the HTTP Header as the `X-Azure-FDID` attribute.
      * 
      */
     public String resourceGuid() {
@@ -68,14 +68,14 @@ public final class GetFrontdoorProfileResult {
         return this.responseTimeoutSeconds;
     }
     /**
-     * @return Specifies the SKU for this CDN FrontDoor Profile.
+     * @return Specifies the SKU for this Front Door Profile.
      * 
      */
     public String skuName() {
         return this.skuName;
     }
     /**
-     * @return Specifies a mapping of Tags assigned to this CDN FrontDoor Profile.
+     * @return Specifies a mapping of Tags assigned to this Front Door Profile.
      * 
      */
     public Map<String,String> tags() {

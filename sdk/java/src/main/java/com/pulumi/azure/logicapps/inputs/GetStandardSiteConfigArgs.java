@@ -5,6 +5,7 @@ package com.pulumi.azure.logicapps.inputs;
 
 import com.pulumi.azure.logicapps.inputs.GetStandardSiteConfigCorsArgs;
 import com.pulumi.azure.logicapps.inputs.GetStandardSiteConfigIpRestrictionArgs;
+import com.pulumi.azure.logicapps.inputs.GetStandardSiteConfigScmIpRestrictionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -111,6 +112,34 @@ public final class GetStandardSiteConfigArgs extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.runtimeScaleMonitoringEnabled);
     }
 
+    @Import(name="scmIpRestrictions", required=true)
+    private Output<List<GetStandardSiteConfigScmIpRestrictionArgs>> scmIpRestrictions;
+
+    public Output<List<GetStandardSiteConfigScmIpRestrictionArgs>> scmIpRestrictions() {
+        return this.scmIpRestrictions;
+    }
+
+    @Import(name="scmMinTlsVersion", required=true)
+    private Output<String> scmMinTlsVersion;
+
+    public Output<String> scmMinTlsVersion() {
+        return this.scmMinTlsVersion;
+    }
+
+    @Import(name="scmType", required=true)
+    private Output<String> scmType;
+
+    public Output<String> scmType() {
+        return this.scmType;
+    }
+
+    @Import(name="scmUseMainIpRestriction")
+    private @Nullable Output<Boolean> scmUseMainIpRestriction;
+
+    public Optional<Output<Boolean>> scmUseMainIpRestriction() {
+        return Optional.ofNullable(this.scmUseMainIpRestriction);
+    }
+
     @Import(name="use32BitWorkerProcess")
     private @Nullable Output<Boolean> use32BitWorkerProcess;
 
@@ -148,6 +177,10 @@ public final class GetStandardSiteConfigArgs extends com.pulumi.resources.Resour
         this.minTlsVersion = $.minTlsVersion;
         this.preWarmedInstanceCount = $.preWarmedInstanceCount;
         this.runtimeScaleMonitoringEnabled = $.runtimeScaleMonitoringEnabled;
+        this.scmIpRestrictions = $.scmIpRestrictions;
+        this.scmMinTlsVersion = $.scmMinTlsVersion;
+        this.scmType = $.scmType;
+        this.scmUseMainIpRestriction = $.scmUseMainIpRestriction;
         this.use32BitWorkerProcess = $.use32BitWorkerProcess;
         this.vnetRouteAllEnabled = $.vnetRouteAllEnabled;
         this.websocketsEnabled = $.websocketsEnabled;
@@ -292,6 +325,46 @@ public final class GetStandardSiteConfigArgs extends com.pulumi.resources.Resour
             return runtimeScaleMonitoringEnabled(Output.of(runtimeScaleMonitoringEnabled));
         }
 
+        public Builder scmIpRestrictions(Output<List<GetStandardSiteConfigScmIpRestrictionArgs>> scmIpRestrictions) {
+            $.scmIpRestrictions = scmIpRestrictions;
+            return this;
+        }
+
+        public Builder scmIpRestrictions(List<GetStandardSiteConfigScmIpRestrictionArgs> scmIpRestrictions) {
+            return scmIpRestrictions(Output.of(scmIpRestrictions));
+        }
+
+        public Builder scmIpRestrictions(GetStandardSiteConfigScmIpRestrictionArgs... scmIpRestrictions) {
+            return scmIpRestrictions(List.of(scmIpRestrictions));
+        }
+
+        public Builder scmMinTlsVersion(Output<String> scmMinTlsVersion) {
+            $.scmMinTlsVersion = scmMinTlsVersion;
+            return this;
+        }
+
+        public Builder scmMinTlsVersion(String scmMinTlsVersion) {
+            return scmMinTlsVersion(Output.of(scmMinTlsVersion));
+        }
+
+        public Builder scmType(Output<String> scmType) {
+            $.scmType = scmType;
+            return this;
+        }
+
+        public Builder scmType(String scmType) {
+            return scmType(Output.of(scmType));
+        }
+
+        public Builder scmUseMainIpRestriction(@Nullable Output<Boolean> scmUseMainIpRestriction) {
+            $.scmUseMainIpRestriction = scmUseMainIpRestriction;
+            return this;
+        }
+
+        public Builder scmUseMainIpRestriction(Boolean scmUseMainIpRestriction) {
+            return scmUseMainIpRestriction(Output.of(scmUseMainIpRestriction));
+        }
+
         public Builder use32BitWorkerProcess(@Nullable Output<Boolean> use32BitWorkerProcess) {
             $.use32BitWorkerProcess = use32BitWorkerProcess;
             return this;
@@ -328,6 +401,9 @@ public final class GetStandardSiteConfigArgs extends com.pulumi.resources.Resour
             $.linuxFxVersion = Objects.requireNonNull($.linuxFxVersion, "expected parameter 'linuxFxVersion' to be non-null");
             $.minTlsVersion = Objects.requireNonNull($.minTlsVersion, "expected parameter 'minTlsVersion' to be non-null");
             $.preWarmedInstanceCount = Objects.requireNonNull($.preWarmedInstanceCount, "expected parameter 'preWarmedInstanceCount' to be non-null");
+            $.scmIpRestrictions = Objects.requireNonNull($.scmIpRestrictions, "expected parameter 'scmIpRestrictions' to be non-null");
+            $.scmMinTlsVersion = Objects.requireNonNull($.scmMinTlsVersion, "expected parameter 'scmMinTlsVersion' to be non-null");
+            $.scmType = Objects.requireNonNull($.scmType, "expected parameter 'scmType' to be non-null");
             $.vnetRouteAllEnabled = Objects.requireNonNull($.vnetRouteAllEnabled, "expected parameter 'vnetRouteAllEnabled' to be non-null");
             return $;
         }

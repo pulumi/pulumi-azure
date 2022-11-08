@@ -25,11 +25,11 @@ class FrontdoorRuleArgs:
         """
         The set of arguments for constructing a FrontdoorRule resource.
         :param pulumi.Input['FrontdoorRuleActionsArgs'] actions: An `actions` block as defined below.
-        :param pulumi.Input[str] cdn_frontdoor_rule_set_id: The resource ID of the Frontdoor Rule Set for this Frontdoor Rule. Changing this forces a new Frontdoor Rule to be created.
-        :param pulumi.Input[int] order: The order in which the rules will be applied for the Frontdoor Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Frontdoor Rule with a lesser order value will be applied before a rule with a greater order value.
+        :param pulumi.Input[str] cdn_frontdoor_rule_set_id: The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+        :param pulumi.Input[int] order: The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
         :param pulumi.Input[str] behavior_on_match: If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
         :param pulumi.Input['FrontdoorRuleConditionsArgs'] conditions: A `conditions` block as defined below.
-        :param pulumi.Input[str] name: The name which should be used for this Frontdoor Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Frontdoor Rule to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "cdn_frontdoor_rule_set_id", cdn_frontdoor_rule_set_id)
@@ -57,7 +57,7 @@ class FrontdoorRuleArgs:
     @pulumi.getter(name="cdnFrontdoorRuleSetId")
     def cdn_frontdoor_rule_set_id(self) -> pulumi.Input[str]:
         """
-        The resource ID of the Frontdoor Rule Set for this Frontdoor Rule. Changing this forces a new Frontdoor Rule to be created.
+        The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_rule_set_id")
 
@@ -69,7 +69,7 @@ class FrontdoorRuleArgs:
     @pulumi.getter
     def order(self) -> pulumi.Input[int]:
         """
-        The order in which the rules will be applied for the Frontdoor Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Frontdoor Rule with a lesser order value will be applied before a rule with a greater order value.
+        The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
         """
         return pulumi.get(self, "order")
 
@@ -105,7 +105,7 @@ class FrontdoorRuleArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Frontdoor Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Frontdoor Rule to be created.
+        The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
         """
         return pulumi.get(self, "name")
 
@@ -128,11 +128,11 @@ class _FrontdoorRuleState:
         Input properties used for looking up and filtering FrontdoorRule resources.
         :param pulumi.Input['FrontdoorRuleActionsArgs'] actions: An `actions` block as defined below.
         :param pulumi.Input[str] behavior_on_match: If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
-        :param pulumi.Input[str] cdn_frontdoor_rule_set_id: The resource ID of the Frontdoor Rule Set for this Frontdoor Rule. Changing this forces a new Frontdoor Rule to be created.
-        :param pulumi.Input[str] cdn_frontdoor_rule_set_name: The name of the Frontdoor Rule Set containing this Frontdoor Rule.
+        :param pulumi.Input[str] cdn_frontdoor_rule_set_id: The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+        :param pulumi.Input[str] cdn_frontdoor_rule_set_name: The name of the Front Door Rule Set containing this Front Door Rule.
         :param pulumi.Input['FrontdoorRuleConditionsArgs'] conditions: A `conditions` block as defined below.
-        :param pulumi.Input[str] name: The name which should be used for this Frontdoor Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Frontdoor Rule to be created.
-        :param pulumi.Input[int] order: The order in which the rules will be applied for the Frontdoor Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Frontdoor Rule with a lesser order value will be applied before a rule with a greater order value.
+        :param pulumi.Input[str] name: The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
+        :param pulumi.Input[int] order: The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
         """
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -177,7 +177,7 @@ class _FrontdoorRuleState:
     @pulumi.getter(name="cdnFrontdoorRuleSetId")
     def cdn_frontdoor_rule_set_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The resource ID of the Frontdoor Rule Set for this Frontdoor Rule. Changing this forces a new Frontdoor Rule to be created.
+        The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_rule_set_id")
 
@@ -189,7 +189,7 @@ class _FrontdoorRuleState:
     @pulumi.getter(name="cdnFrontdoorRuleSetName")
     def cdn_frontdoor_rule_set_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Frontdoor Rule Set containing this Frontdoor Rule.
+        The name of the Front Door Rule Set containing this Front Door Rule.
         """
         return pulumi.get(self, "cdn_frontdoor_rule_set_name")
 
@@ -213,7 +213,7 @@ class _FrontdoorRuleState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Frontdoor Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Frontdoor Rule to be created.
+        The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
         """
         return pulumi.get(self, "name")
 
@@ -225,7 +225,7 @@ class _FrontdoorRuleState:
     @pulumi.getter
     def order(self) -> Optional[pulumi.Input[int]]:
         """
-        The order in which the rules will be applied for the Frontdoor Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Frontdoor Rule with a lesser order value will be applied before a rule with a greater order value.
+        The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
         """
         return pulumi.get(self, "order")
 
@@ -247,7 +247,7 @@ class FrontdoorRule(pulumi.CustomResource):
                  order: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Manages a Frontdoor Rule.
+        Manages a Front Door (standard/premium) Rule.
 
         !>**IMPORTANT:** The Rules resource **must** include a `depends_on` meta-argument which references the `cdn.FrontdoorOrigin` and the `cdn.FrontdoorOriginGroup`.
 
@@ -275,19 +275,19 @@ class FrontdoorRule(pulumi.CustomResource):
 
         | Variable name | Description |
         |---------------|-------------|
-        | `socket_ip`      | The IP address of the direct connection to Azure Front Door edge. If the client used an HTTP proxy or a load balancer to send the request, the value of `socket_ip` is the IP address of the proxy or load balancer. |
+        | `socket_ip`      | The IP address of the direct connection to Front Door Profiles edge. If the client used an HTTP proxy or a load balancer to send the request, the value of `socket_ip` is the IP address of the proxy or load balancer. |
         | `client_ip`      | The IP address of the client that made the original request. If there was an `X-Forwarded-For` header in the request, then the client IP address is picked from the header. |
         | `client_port`    | The IP port of the client that made the request. |
         | `hostname`       | The host name in the request from the client. |
         | `geo_country`    | Indicates the requester's country/region of origin through its country/region code. |
         | `http_method`    | The method used to make the URL request, such as `GET` or `POST`. |
         | `http_version`   | The request protocol. Usually `HTTP/1.0`, `HTTP/1.1`, or `HTTP/2.0`. |
-        | `query_string`   | The list of variable/value pairs that follows the "?" in the requested URL.<br/>For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `query_string` value will be `id=123&title=fabrikam`. |
+        | `query_string`   | The list of variable/value pairs that follows the "?" in the requested URL. For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `query_string` value will be `id=123&title=fabrikam`. |
         | `request_scheme` | The request scheme: `http` or `https`. |
-        | `request_uri`    | The full original request URI (with arguments).<br/>For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `request_uri` value will be `/article.aspx?id=123&title=fabrikam`. |
+        | `request_uri`    | The full original request URI (with arguments). For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `request_uri` value will be `/article.aspx?id=123&title=fabrikam`. |
         | `ssl_protocol`   | The protocol of an established TLS connection. |
         | `server_port`    | The port of the server that accepted a request. |
-        | `url_path`       | Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments.<br/>For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `uri_path` value will be `/article.aspx`. |
+        | `url_path`       | Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments. For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `uri_path` value will be `/article.aspx`. |
 
         ### Action Server Variable Format
 
@@ -374,7 +374,7 @@ class FrontdoorRule(pulumi.CustomResource):
 
         ## Import
 
-        cdn Rules can be imported using the `resource id`, e.g.
+        Front Door Rules can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:cdn/frontdoorRule:FrontdoorRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/ruleSets/ruleSet1/rules/rule1
@@ -384,10 +384,10 @@ class FrontdoorRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['FrontdoorRuleActionsArgs']] actions: An `actions` block as defined below.
         :param pulumi.Input[str] behavior_on_match: If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
-        :param pulumi.Input[str] cdn_frontdoor_rule_set_id: The resource ID of the Frontdoor Rule Set for this Frontdoor Rule. Changing this forces a new Frontdoor Rule to be created.
+        :param pulumi.Input[str] cdn_frontdoor_rule_set_id: The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
         :param pulumi.Input[pulumi.InputType['FrontdoorRuleConditionsArgs']] conditions: A `conditions` block as defined below.
-        :param pulumi.Input[str] name: The name which should be used for this Frontdoor Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Frontdoor Rule to be created.
-        :param pulumi.Input[int] order: The order in which the rules will be applied for the Frontdoor Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Frontdoor Rule with a lesser order value will be applied before a rule with a greater order value.
+        :param pulumi.Input[str] name: The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
+        :param pulumi.Input[int] order: The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
         """
         ...
     @overload
@@ -396,7 +396,7 @@ class FrontdoorRule(pulumi.CustomResource):
                  args: FrontdoorRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Frontdoor Rule.
+        Manages a Front Door (standard/premium) Rule.
 
         !>**IMPORTANT:** The Rules resource **must** include a `depends_on` meta-argument which references the `cdn.FrontdoorOrigin` and the `cdn.FrontdoorOriginGroup`.
 
@@ -424,19 +424,19 @@ class FrontdoorRule(pulumi.CustomResource):
 
         | Variable name | Description |
         |---------------|-------------|
-        | `socket_ip`      | The IP address of the direct connection to Azure Front Door edge. If the client used an HTTP proxy or a load balancer to send the request, the value of `socket_ip` is the IP address of the proxy or load balancer. |
+        | `socket_ip`      | The IP address of the direct connection to Front Door Profiles edge. If the client used an HTTP proxy or a load balancer to send the request, the value of `socket_ip` is the IP address of the proxy or load balancer. |
         | `client_ip`      | The IP address of the client that made the original request. If there was an `X-Forwarded-For` header in the request, then the client IP address is picked from the header. |
         | `client_port`    | The IP port of the client that made the request. |
         | `hostname`       | The host name in the request from the client. |
         | `geo_country`    | Indicates the requester's country/region of origin through its country/region code. |
         | `http_method`    | The method used to make the URL request, such as `GET` or `POST`. |
         | `http_version`   | The request protocol. Usually `HTTP/1.0`, `HTTP/1.1`, or `HTTP/2.0`. |
-        | `query_string`   | The list of variable/value pairs that follows the "?" in the requested URL.<br/>For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `query_string` value will be `id=123&title=fabrikam`. |
+        | `query_string`   | The list of variable/value pairs that follows the "?" in the requested URL. For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `query_string` value will be `id=123&title=fabrikam`. |
         | `request_scheme` | The request scheme: `http` or `https`. |
-        | `request_uri`    | The full original request URI (with arguments).<br/>For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `request_uri` value will be `/article.aspx?id=123&title=fabrikam`. |
+        | `request_uri`    | The full original request URI (with arguments). For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `request_uri` value will be `/article.aspx?id=123&title=fabrikam`. |
         | `ssl_protocol`   | The protocol of an established TLS connection. |
         | `server_port`    | The port of the server that accepted a request. |
-        | `url_path`       | Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments.<br/>For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `uri_path` value will be `/article.aspx`. |
+        | `url_path`       | Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments. For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `uri_path` value will be `/article.aspx`. |
 
         ### Action Server Variable Format
 
@@ -523,7 +523,7 @@ class FrontdoorRule(pulumi.CustomResource):
 
         ## Import
 
-        cdn Rules can be imported using the `resource id`, e.g.
+        Front Door Rules can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:cdn/frontdoorRule:FrontdoorRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/ruleSets/ruleSet1/rules/rule1
@@ -598,11 +598,11 @@ class FrontdoorRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['FrontdoorRuleActionsArgs']] actions: An `actions` block as defined below.
         :param pulumi.Input[str] behavior_on_match: If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
-        :param pulumi.Input[str] cdn_frontdoor_rule_set_id: The resource ID of the Frontdoor Rule Set for this Frontdoor Rule. Changing this forces a new Frontdoor Rule to be created.
-        :param pulumi.Input[str] cdn_frontdoor_rule_set_name: The name of the Frontdoor Rule Set containing this Frontdoor Rule.
+        :param pulumi.Input[str] cdn_frontdoor_rule_set_id: The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+        :param pulumi.Input[str] cdn_frontdoor_rule_set_name: The name of the Front Door Rule Set containing this Front Door Rule.
         :param pulumi.Input[pulumi.InputType['FrontdoorRuleConditionsArgs']] conditions: A `conditions` block as defined below.
-        :param pulumi.Input[str] name: The name which should be used for this Frontdoor Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Frontdoor Rule to be created.
-        :param pulumi.Input[int] order: The order in which the rules will be applied for the Frontdoor Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Frontdoor Rule with a lesser order value will be applied before a rule with a greater order value.
+        :param pulumi.Input[str] name: The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
+        :param pulumi.Input[int] order: The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -637,7 +637,7 @@ class FrontdoorRule(pulumi.CustomResource):
     @pulumi.getter(name="cdnFrontdoorRuleSetId")
     def cdn_frontdoor_rule_set_id(self) -> pulumi.Output[str]:
         """
-        The resource ID of the Frontdoor Rule Set for this Frontdoor Rule. Changing this forces a new Frontdoor Rule to be created.
+        The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_rule_set_id")
 
@@ -645,7 +645,7 @@ class FrontdoorRule(pulumi.CustomResource):
     @pulumi.getter(name="cdnFrontdoorRuleSetName")
     def cdn_frontdoor_rule_set_name(self) -> pulumi.Output[str]:
         """
-        The name of the Frontdoor Rule Set containing this Frontdoor Rule.
+        The name of the Front Door Rule Set containing this Front Door Rule.
         """
         return pulumi.get(self, "cdn_frontdoor_rule_set_name")
 
@@ -661,7 +661,7 @@ class FrontdoorRule(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name which should be used for this Frontdoor Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Frontdoor Rule to be created.
+        The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
         """
         return pulumi.get(self, "name")
 
@@ -669,7 +669,7 @@ class FrontdoorRule(pulumi.CustomResource):
     @pulumi.getter
     def order(self) -> pulumi.Output[int]:
         """
-        The order in which the rules will be applied for the Frontdoor Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Frontdoor Rule with a lesser order value will be applied before a rule with a greater order value.
+        The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
         """
         return pulumi.get(self, "order")
 

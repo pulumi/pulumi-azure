@@ -5236,7 +5236,7 @@ type DatasetParquetAzureBlobStorageLocation struct {
 	// The filename of the file on the web server.
 	Filename *string `pulumi:"filename"`
 	// The folder path to the file on the web server.
-	Path string `pulumi:"path"`
+	Path *string `pulumi:"path"`
 }
 
 // DatasetParquetAzureBlobStorageLocationInput is an input type that accepts DatasetParquetAzureBlobStorageLocationArgs and DatasetParquetAzureBlobStorageLocationOutput values.
@@ -5262,7 +5262,7 @@ type DatasetParquetAzureBlobStorageLocationArgs struct {
 	// The filename of the file on the web server.
 	Filename pulumi.StringPtrInput `pulumi:"filename"`
 	// The folder path to the file on the web server.
-	Path pulumi.StringInput `pulumi:"path"`
+	Path pulumi.StringPtrInput `pulumi:"path"`
 }
 
 func (DatasetParquetAzureBlobStorageLocationArgs) ElementType() reflect.Type {
@@ -5368,8 +5368,8 @@ func (o DatasetParquetAzureBlobStorageLocationOutput) Filename() pulumi.StringPt
 }
 
 // The folder path to the file on the web server.
-func (o DatasetParquetAzureBlobStorageLocationOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetParquetAzureBlobStorageLocation) string { return v.Path }).(pulumi.StringOutput)
+func (o DatasetParquetAzureBlobStorageLocationOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetParquetAzureBlobStorageLocation) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 type DatasetParquetAzureBlobStorageLocationPtrOutput struct{ *pulumi.OutputState }
@@ -5452,7 +5452,7 @@ func (o DatasetParquetAzureBlobStorageLocationPtrOutput) Path() pulumi.StringPtr
 		if v == nil {
 			return nil
 		}
-		return &v.Path
+		return v.Path
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5464,7 +5464,8 @@ type DatasetParquetHttpServerLocation struct {
 	// The filename of the file on the web server.
 	Filename string `pulumi:"filename"`
 	// The folder path to the file on the web server.
-	Path string `pulumi:"path"`
+	// ---
+	Path *string `pulumi:"path"`
 	// The base URL to the web server hosting the file.
 	RelativeUrl string `pulumi:"relativeUrl"`
 }
@@ -5488,7 +5489,8 @@ type DatasetParquetHttpServerLocationArgs struct {
 	// The filename of the file on the web server.
 	Filename pulumi.StringInput `pulumi:"filename"`
 	// The folder path to the file on the web server.
-	Path pulumi.StringInput `pulumi:"path"`
+	// ---
+	Path pulumi.StringPtrInput `pulumi:"path"`
 	// The base URL to the web server hosting the file.
 	RelativeUrl pulumi.StringInput `pulumi:"relativeUrl"`
 }
@@ -5586,8 +5588,9 @@ func (o DatasetParquetHttpServerLocationOutput) Filename() pulumi.StringOutput {
 }
 
 // The folder path to the file on the web server.
-func (o DatasetParquetHttpServerLocationOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetParquetHttpServerLocation) string { return v.Path }).(pulumi.StringOutput)
+// ---
+func (o DatasetParquetHttpServerLocationOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetParquetHttpServerLocation) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 // The base URL to the web server hosting the file.
@@ -5650,12 +5653,13 @@ func (o DatasetParquetHttpServerLocationPtrOutput) Filename() pulumi.StringPtrOu
 }
 
 // The folder path to the file on the web server.
+// ---
 func (o DatasetParquetHttpServerLocationPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetParquetHttpServerLocation) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Path
+		return v.Path
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6143,7 +6147,7 @@ type FactoryGithubConfiguration struct {
 	AccountName string `pulumi:"accountName"`
 	// Specifies the branch of the repository to get code from.
 	BranchName string `pulumi:"branchName"`
-	// Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com. Use https://github.com for open source repositories.
+	// Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
 	GitUrl string `pulumi:"gitUrl"`
 	// Specifies the name of the git repository.
 	RepositoryName string `pulumi:"repositoryName"`
@@ -6167,7 +6171,7 @@ type FactoryGithubConfigurationArgs struct {
 	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// Specifies the branch of the repository to get code from.
 	BranchName pulumi.StringInput `pulumi:"branchName"`
-	// Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com. Use https://github.com for open source repositories.
+	// Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
 	GitUrl pulumi.StringInput `pulumi:"gitUrl"`
 	// Specifies the name of the git repository.
 	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
@@ -6262,7 +6266,7 @@ func (o FactoryGithubConfigurationOutput) BranchName() pulumi.StringOutput {
 	return o.ApplyT(func(v FactoryGithubConfiguration) string { return v.BranchName }).(pulumi.StringOutput)
 }
 
-// Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com. Use https://github.com for open source repositories.
+// Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
 func (o FactoryGithubConfigurationOutput) GitUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v FactoryGithubConfiguration) string { return v.GitUrl }).(pulumi.StringOutput)
 }
@@ -6321,7 +6325,7 @@ func (o FactoryGithubConfigurationPtrOutput) BranchName() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com. Use https://github.com for open source repositories.
+// Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
 func (o FactoryGithubConfigurationPtrOutput) GitUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FactoryGithubConfiguration) *string {
 		if v == nil {

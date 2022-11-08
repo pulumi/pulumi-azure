@@ -80,6 +80,16 @@ export type IotHubCertificate = import("./iotHubCertificate").IotHubCertificate;
 export const IotHubCertificate: typeof import("./iotHubCertificate").IotHubCertificate = null as any;
 utilities.lazyLoad(exports, ["IotHubCertificate"], () => require("./iotHubCertificate"));
 
+export { IotHubDeviceUpdateAccountArgs, IotHubDeviceUpdateAccountState } from "./iotHubDeviceUpdateAccount";
+export type IotHubDeviceUpdateAccount = import("./iotHubDeviceUpdateAccount").IotHubDeviceUpdateAccount;
+export const IotHubDeviceUpdateAccount: typeof import("./iotHubDeviceUpdateAccount").IotHubDeviceUpdateAccount = null as any;
+utilities.lazyLoad(exports, ["IotHubDeviceUpdateAccount"], () => require("./iotHubDeviceUpdateAccount"));
+
+export { IotHubDeviceUpdateInstanceArgs, IotHubDeviceUpdateInstanceState } from "./iotHubDeviceUpdateInstance";
+export type IotHubDeviceUpdateInstance = import("./iotHubDeviceUpdateInstance").IotHubDeviceUpdateInstance;
+export const IotHubDeviceUpdateInstance: typeof import("./iotHubDeviceUpdateInstance").IotHubDeviceUpdateInstance = null as any;
+utilities.lazyLoad(exports, ["IotHubDeviceUpdateInstance"], () => require("./iotHubDeviceUpdateInstance"));
+
 export { IotHubDpsArgs, IotHubDpsState } from "./iotHubDps";
 export type IotHubDps = import("./iotHubDps").IotHubDps;
 export const IotHubDps: typeof import("./iotHubDps").IotHubDps = null as any;
@@ -163,6 +173,10 @@ const _module = {
                 return new IoTHub(name, <any>undefined, { urn })
             case "azure:iot/iotHubCertificate:IotHubCertificate":
                 return new IotHubCertificate(name, <any>undefined, { urn })
+            case "azure:iot/iotHubDeviceUpdateAccount:IotHubDeviceUpdateAccount":
+                return new IotHubDeviceUpdateAccount(name, <any>undefined, { urn })
+            case "azure:iot/iotHubDeviceUpdateInstance:IotHubDeviceUpdateInstance":
+                return new IotHubDeviceUpdateInstance(name, <any>undefined, { urn })
             case "azure:iot/iotHubDps:IotHubDps":
                 return new IotHubDps(name, <any>undefined, { urn })
             case "azure:iot/route:Route":
@@ -201,6 +215,8 @@ pulumi.runtime.registerResourceModule("azure", "iot/enrichment", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/fallbackRoute", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/ioTHub", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/iotHubCertificate", _module)
+pulumi.runtime.registerResourceModule("azure", "iot/iotHubDeviceUpdateAccount", _module)
+pulumi.runtime.registerResourceModule("azure", "iot/iotHubDeviceUpdateInstance", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/iotHubDps", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/route", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/securityDeviceGroup", _module)

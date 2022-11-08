@@ -11,7 +11,7 @@ import (
 )
 
 type DicomServiceAuthentication struct {
-	// The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+	// The intended audience to receive authentication tokens for the service. The default value is <https://dicom.azurehealthcareapis.azure.com>
 	Audiences []string `pulumi:"audiences"`
 	Authority *string  `pulumi:"authority"`
 }
@@ -28,7 +28,7 @@ type DicomServiceAuthenticationInput interface {
 }
 
 type DicomServiceAuthenticationArgs struct {
-	// The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+	// The intended audience to receive authentication tokens for the service. The default value is <https://dicom.azurehealthcareapis.azure.com>
 	Audiences pulumi.StringArrayInput `pulumi:"audiences"`
 	Authority pulumi.StringPtrInput   `pulumi:"authority"`
 }
@@ -84,7 +84,7 @@ func (o DicomServiceAuthenticationOutput) ToDicomServiceAuthenticationOutputWith
 	return o
 }
 
-// The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+// The intended audience to receive authentication tokens for the service. The default value is <https://dicom.azurehealthcareapis.azure.com>
 func (o DicomServiceAuthenticationOutput) Audiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DicomServiceAuthentication) []string { return v.Audiences }).(pulumi.StringArrayOutput)
 }
@@ -406,7 +406,7 @@ func (o DicomServicePrivateEndpointArrayOutput) Index(i pulumi.IntInput) DicomSe
 }
 
 type FhirServiceAuthentication struct {
-	// The intended audience to receive authentication tokens for the service. The default value is https://<name>.fhir.azurehealthcareapis.com
+	// The intended audience to receive authentication tokens for the service. The default value is `https://<name>.fhir.azurehealthcareapis.com`.
 	Audience          string `pulumi:"audience"`
 	Authority         string `pulumi:"authority"`
 	SmartProxyEnabled *bool  `pulumi:"smartProxyEnabled"`
@@ -424,7 +424,7 @@ type FhirServiceAuthenticationInput interface {
 }
 
 type FhirServiceAuthenticationArgs struct {
-	// The intended audience to receive authentication tokens for the service. The default value is https://<name>.fhir.azurehealthcareapis.com
+	// The intended audience to receive authentication tokens for the service. The default value is `https://<name>.fhir.azurehealthcareapis.com`.
 	Audience          pulumi.StringInput  `pulumi:"audience"`
 	Authority         pulumi.StringInput  `pulumi:"authority"`
 	SmartProxyEnabled pulumi.BoolPtrInput `pulumi:"smartProxyEnabled"`
@@ -507,7 +507,7 @@ func (o FhirServiceAuthenticationOutput) ToFhirServiceAuthenticationPtrOutputWit
 	}).(FhirServiceAuthenticationPtrOutput)
 }
 
-// The intended audience to receive authentication tokens for the service. The default value is https://<name>.fhir.azurehealthcareapis.com
+// The intended audience to receive authentication tokens for the service. The default value is `https://<name>.fhir.azurehealthcareapis.com`.
 func (o FhirServiceAuthenticationOutput) Audience() pulumi.StringOutput {
 	return o.ApplyT(func(v FhirServiceAuthentication) string { return v.Audience }).(pulumi.StringOutput)
 }
@@ -544,7 +544,7 @@ func (o FhirServiceAuthenticationPtrOutput) Elem() FhirServiceAuthenticationOutp
 	}).(FhirServiceAuthenticationOutput)
 }
 
-// The intended audience to receive authentication tokens for the service. The default value is https://<name>.fhir.azurehealthcareapis.com
+// The intended audience to receive authentication tokens for the service. The default value is `https://<name>.fhir.azurehealthcareapis.com`.
 func (o FhirServiceAuthenticationPtrOutput) Audience() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FhirServiceAuthentication) *string {
 		if v == nil {
@@ -1741,7 +1741,7 @@ func (o WorkspacePrivateEndpointConnectionArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetDicomServiceAuthentication struct {
-	// The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+	// The intended audience to receive authentication tokens for the service. The default value is <https://dicom.azurehealthcareapis.azure.com>
 	Audiences []string `pulumi:"audiences"`
 	Authority string   `pulumi:"authority"`
 }
@@ -1758,7 +1758,7 @@ type GetDicomServiceAuthenticationInput interface {
 }
 
 type GetDicomServiceAuthenticationArgs struct {
-	// The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+	// The intended audience to receive authentication tokens for the service. The default value is <https://dicom.azurehealthcareapis.azure.com>
 	Audiences pulumi.StringArrayInput `pulumi:"audiences"`
 	Authority pulumi.StringInput      `pulumi:"authority"`
 }
@@ -1814,7 +1814,7 @@ func (o GetDicomServiceAuthenticationOutput) ToGetDicomServiceAuthenticationOutp
 	return o
 }
 
-// The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+// The intended audience to receive authentication tokens for the service. The default value is <https://dicom.azurehealthcareapis.azure.com>
 func (o GetDicomServiceAuthenticationOutput) Audiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDicomServiceAuthentication) []string { return v.Audiences }).(pulumi.StringArrayOutput)
 }
@@ -2062,7 +2062,7 @@ func (o GetDicomServicePrivateEndpointArrayOutput) Index(i pulumi.IntInput) GetD
 }
 
 type GetFhirServiceAuthentication struct {
-	// The intended audience to receive authentication tokens for the service. The default value is https://<name>.fhir.azurehealthcareapis.com
+	// The intended audience to receive authentication tokens for the service. The default value is `https://<name>.fhir.azurehealthcareapis.com`.
 	Audience          string `pulumi:"audience"`
 	Authority         string `pulumi:"authority"`
 	SmartProxyEnabled bool   `pulumi:"smartProxyEnabled"`
@@ -2080,7 +2080,7 @@ type GetFhirServiceAuthenticationInput interface {
 }
 
 type GetFhirServiceAuthenticationArgs struct {
-	// The intended audience to receive authentication tokens for the service. The default value is https://<name>.fhir.azurehealthcareapis.com
+	// The intended audience to receive authentication tokens for the service. The default value is `https://<name>.fhir.azurehealthcareapis.com`.
 	Audience          pulumi.StringInput `pulumi:"audience"`
 	Authority         pulumi.StringInput `pulumi:"authority"`
 	SmartProxyEnabled pulumi.BoolInput   `pulumi:"smartProxyEnabled"`
@@ -2137,7 +2137,7 @@ func (o GetFhirServiceAuthenticationOutput) ToGetFhirServiceAuthenticationOutput
 	return o
 }
 
-// The intended audience to receive authentication tokens for the service. The default value is https://<name>.fhir.azurehealthcareapis.com
+// The intended audience to receive authentication tokens for the service. The default value is `https://<name>.fhir.azurehealthcareapis.com`.
 func (o GetFhirServiceAuthenticationOutput) Audience() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFhirServiceAuthentication) string { return v.Audience }).(pulumi.StringOutput)
 }

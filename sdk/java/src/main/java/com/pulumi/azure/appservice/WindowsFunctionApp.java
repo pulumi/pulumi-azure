@@ -13,6 +13,7 @@ import com.pulumi.azure.appservice.outputs.WindowsFunctionAppIdentity;
 import com.pulumi.azure.appservice.outputs.WindowsFunctionAppSiteConfig;
 import com.pulumi.azure.appservice.outputs.WindowsFunctionAppSiteCredential;
 import com.pulumi.azure.appservice.outputs.WindowsFunctionAppStickySettings;
+import com.pulumi.azure.appservice.outputs.WindowsFunctionAppStorageAccount;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -532,6 +533,20 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> storageAccountName() {
         return Codegen.optional(this.storageAccountName);
+    }
+    /**
+     * One or more `storage_account` blocks as defined below.
+     * 
+     */
+    @Export(name="storageAccounts", type=List.class, parameters={WindowsFunctionAppStorageAccount.class})
+    private Output</* @Nullable */ List<WindowsFunctionAppStorageAccount>> storageAccounts;
+
+    /**
+     * @return One or more `storage_account` blocks as defined below.
+     * 
+     */
+    public Output<Optional<List<WindowsFunctionAppStorageAccount>>> storageAccounts() {
+        return Codegen.optional(this.storageAccounts);
     }
     /**
      * The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.

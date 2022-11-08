@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.hdinsight.SparkClusterArgs;
 import com.pulumi.azure.hdinsight.inputs.SparkClusterState;
 import com.pulumi.azure.hdinsight.outputs.SparkClusterComponentVersion;
+import com.pulumi.azure.hdinsight.outputs.SparkClusterComputeIsolation;
 import com.pulumi.azure.hdinsight.outputs.SparkClusterDiskEncryption;
 import com.pulumi.azure.hdinsight.outputs.SparkClusterExtension;
 import com.pulumi.azure.hdinsight.outputs.SparkClusterGateway;
@@ -161,6 +162,20 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<SparkClusterComponentVersion> componentVersion() {
         return this.componentVersion;
+    }
+    /**
+     * A `compute_isolation` block as defined below.
+     * 
+     */
+    @Export(name="computeIsolation", type=SparkClusterComputeIsolation.class, parameters={})
+    private Output</* @Nullable */ SparkClusterComputeIsolation> computeIsolation;
+
+    /**
+     * @return A `compute_isolation` block as defined below.
+     * 
+     */
+    public Output<Optional<SparkClusterComputeIsolation>> computeIsolation() {
+        return Codegen.optional(this.computeIsolation);
     }
     @Export(name="diskEncryptions", type=List.class, parameters={SparkClusterDiskEncryption.class})
     private Output</* @Nullable */ List<SparkClusterDiskEncryption>> diskEncryptions;

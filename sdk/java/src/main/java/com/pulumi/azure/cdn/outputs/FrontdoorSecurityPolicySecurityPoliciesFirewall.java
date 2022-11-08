@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class FrontdoorSecurityPolicySecurityPoliciesFirewall {
     /**
-     * @return An `association` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+     * @return An `association` block as defined below. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
     private FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation association;
     /**
-     * @return The Resource Id of the Frontdoor Firewall Policy that should be linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+     * @return The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
     private String cdnFrontdoorFirewallPolicyId;
 
     private FrontdoorSecurityPolicySecurityPoliciesFirewall() {}
     /**
-     * @return An `association` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+     * @return An `association` block as defined below. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
     public FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation association() {
         return this.association;
     }
     /**
-     * @return The Resource Id of the Frontdoor Firewall Policy that should be linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+     * @return The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
     public String cdnFrontdoorFirewallPolicyId() {

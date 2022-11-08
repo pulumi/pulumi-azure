@@ -530,7 +530,7 @@ class WorkspaceGithubRepoArgs:
         :param pulumi.Input[str] branch_name: Specifies the collaboration branch of the repository to get code from.
         :param pulumi.Input[str] repository_name: Specifies the name of the git repository.
         :param pulumi.Input[str] root_folder: Specifies the root folder within the repository. Set to `/` for the top level.
-        :param pulumi.Input[str] git_url: Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com.
+        :param pulumi.Input[str] git_url: Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>.
         :param pulumi.Input[str] last_commit_id: The last commit ID.
         """
         pulumi.set(__self__, "account_name", account_name)
@@ -594,7 +594,7 @@ class WorkspaceGithubRepoArgs:
     @pulumi.getter(name="gitUrl")
     def git_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com.
+        Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>.
         """
         return pulumi.get(self, "git_url")
 
@@ -619,14 +619,18 @@ class WorkspaceGithubRepoArgs:
 class WorkspaceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Synapse Workspace. The only possible value is `SystemAssigned`.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be associated with this Synapse Workspace. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace.
         :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
         :param pulumi.Input[str] tenant_id: The tenant id of the Azure AD Administrator of this Synapse Workspace.
         """
         pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
@@ -636,13 +640,25 @@ class WorkspaceIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Specifies the type of Managed Service Identity that should be configured on this Synapse Workspace. The only possible value is `SystemAssigned`.
+        Specifies the type of Managed Service Identity that should be associated with this Synapse Workspace. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identity_ids", value)
 
     @property
     @pulumi.getter(name="principalId")

@@ -14,6 +14,7 @@ namespace Pulumi.Azure.Datadog
     /// 
     /// ## Example Usage
     /// ### Monitor creation with linking to Datadog organization
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using Pulumi;
@@ -54,6 +55,7 @@ namespace Pulumi.Azure.Datadog
     /// To enable metrics flow, perform role assignment on the identity created above. `Monitoring reader(43d0d8ad-25c7-4714-9337-8ba259a9fe05)` role is required .
     /// 
     /// ### Role assignment on the monitor created
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using Pulumi;

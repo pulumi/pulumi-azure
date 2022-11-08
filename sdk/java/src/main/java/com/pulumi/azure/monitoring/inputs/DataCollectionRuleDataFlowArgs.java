@@ -30,14 +30,14 @@ public final class DataCollectionRuleDataFlowArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Specifies a list of streams. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+     * Specifies a list of streams. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
      * 
      */
     @Import(name="streams", required=true)
     private Output<List<String>> streams;
 
     /**
-     * @return Specifies a list of streams. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+     * @return Specifies a list of streams. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
      * 
      */
     public Output<List<String>> streams() {
@@ -101,7 +101,7 @@ public final class DataCollectionRuleDataFlowArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param streams Specifies a list of streams. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+         * @param streams Specifies a list of streams. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class DataCollectionRuleDataFlowArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param streams Specifies a list of streams. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+         * @param streams Specifies a list of streams. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class DataCollectionRuleDataFlowArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param streams Specifies a list of streams. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+         * @param streams Specifies a list of streams. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
          * 
          * @return builder
          * 

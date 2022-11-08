@@ -32,7 +32,7 @@ namespace Pulumi.Azure.Management
     ///         Mode = "All",
     ///         DisplayName = "my-policy-definition",
     ///         ManagementGroupId = exampleGroup.Id,
-    ///         PolicyRule = @"	{
+    ///         PolicyRule = @" {
     ///     ""if"": {
     ///       ""not"": {
     ///         ""field"": ""location"",

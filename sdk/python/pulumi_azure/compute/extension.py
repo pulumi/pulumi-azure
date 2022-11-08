@@ -491,9 +491,9 @@ class Extension(pulumi.CustomResource):
             publisher="Microsoft.Azure.Extensions",
             type="CustomScript",
             type_handler_version="2.0",
-            settings=\"\"\"	{
-        		"commandToExecute": "hostname && uptime"
-        	}
+            settings=\"\"\" {
+          "commandToExecute": "hostname && uptime"
+         }
         \"\"\",
             tags={
                 "environment": "Production",
@@ -609,9 +609,9 @@ class Extension(pulumi.CustomResource):
             publisher="Microsoft.Azure.Extensions",
             type="CustomScript",
             type_handler_version="2.0",
-            settings=\"\"\"	{
-        		"commandToExecute": "hostname && uptime"
-        	}
+            settings=\"\"\" {
+          "commandToExecute": "hostname && uptime"
+         }
         \"\"\",
             tags={
                 "environment": "Production",

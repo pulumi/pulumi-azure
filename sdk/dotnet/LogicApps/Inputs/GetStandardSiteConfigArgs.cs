@@ -56,6 +56,23 @@ namespace Pulumi.Azure.LogicApps.Inputs
         [Input("runtimeScaleMonitoringEnabled")]
         public Input<bool>? RuntimeScaleMonitoringEnabled { get; set; }
 
+        [Input("scmIpRestrictions", required: true)]
+        private InputList<Inputs.GetStandardSiteConfigScmIpRestrictionInputArgs>? _scmIpRestrictions;
+        public InputList<Inputs.GetStandardSiteConfigScmIpRestrictionInputArgs> ScmIpRestrictions
+        {
+            get => _scmIpRestrictions ?? (_scmIpRestrictions = new InputList<Inputs.GetStandardSiteConfigScmIpRestrictionInputArgs>());
+            set => _scmIpRestrictions = value;
+        }
+
+        [Input("scmMinTlsVersion", required: true)]
+        public Input<string> ScmMinTlsVersion { get; set; } = null!;
+
+        [Input("scmType", required: true)]
+        public Input<string> ScmType { get; set; } = null!;
+
+        [Input("scmUseMainIpRestriction")]
+        public Input<bool>? ScmUseMainIpRestriction { get; set; }
+
         [Input("use32BitWorkerProcess")]
         public Input<bool>? Use32BitWorkerProcess { get; set; }
 

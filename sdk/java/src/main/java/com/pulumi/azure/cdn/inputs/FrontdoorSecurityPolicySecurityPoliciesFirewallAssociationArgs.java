@@ -16,14 +16,14 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArg
     public static final FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs Empty = new FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs();
 
     /**
-     * One or more `domain` blocks as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+     * One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
     @Import(name="domains", required=true)
     private Output<List<FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs>> domains;
 
     /**
-     * @return One or more `domain` blocks as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+     * @return One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
     public Output<List<FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs>> domains() {
@@ -31,14 +31,14 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArg
     }
 
     /**
-     * The list of paths to match for this firewall policy. Possilbe value includes `/*`. Changing this forces a new Frontdoor Security Policy to be created.
+     * The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
     @Import(name="patternsToMatch", required=true)
     private Output<String> patternsToMatch;
 
     /**
-     * @return The list of paths to match for this firewall policy. Possilbe value includes `/*`. Changing this forces a new Frontdoor Security Policy to be created.
+     * @return The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
     public Output<String> patternsToMatch() {
@@ -71,7 +71,7 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArg
         }
 
         /**
-         * @param domains One or more `domain` blocks as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+         * @param domains One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArg
         }
 
         /**
-         * @param domains One or more `domain` blocks as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+         * @param domains One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArg
         }
 
         /**
-         * @param domains One or more `domain` blocks as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+         * @param domains One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArg
         }
 
         /**
-         * @param patternsToMatch The list of paths to match for this firewall policy. Possilbe value includes `/*`. Changing this forces a new Frontdoor Security Policy to be created.
+         * @param patternsToMatch The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArg
         }
 
         /**
-         * @param patternsToMatch The list of paths to match for this firewall policy. Possilbe value includes `/*`. Changing this forces a new Frontdoor Security Policy to be created.
+         * @param patternsToMatch The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
          * 
          * @return builder
          * 

@@ -109,8 +109,8 @@ import * as utilities from "../utilities";
  * });
  * const workspacePolicy = new azure.keyvault.AccessPolicy("workspacePolicy", {
  *     keyVaultId: exampleKeyVault.id,
- *     tenantId: exampleWorkspace.identity.apply(identity => identity.tenantId),
- *     objectId: exampleWorkspace.identity.apply(identity => identity.principalId),
+ *     tenantId: exampleWorkspace.identity.apply(identity => identity?.tenantId),
+ *     objectId: exampleWorkspace.identity.apply(identity => identity?.principalId),
  *     keyPermissions: [
  *         "Get",
  *         "WrapKey",
@@ -202,7 +202,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.synapse.WorkspaceIdentity>;
+    public readonly identity!: pulumi.Output<outputs.synapse.WorkspaceIdentity | undefined>;
     /**
      * Allowed AAD Tenant Ids For Linking.
      */
@@ -240,13 +240,13 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly sqlAadAdmin!: pulumi.Output<outputs.synapse.WorkspaceSqlAadAdmin>;
     /**
-     * Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
+     * Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
      */
-    public readonly sqlAdministratorLogin!: pulumi.Output<string>;
+    public readonly sqlAdministratorLogin!: pulumi.Output<string | undefined>;
     /**
-     * The Password associated with the `sqlAdministratorLogin` for the SQL administrator.
+     * The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
      */
-    public readonly sqlAdministratorLoginPassword!: pulumi.Output<string>;
+    public readonly sqlAdministratorLoginPassword!: pulumi.Output<string | undefined>;
     /**
      * Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
      */
@@ -297,17 +297,8 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as WorkspaceArgs | undefined;
-            if ((!args || args.identity === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'identity'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if ((!args || args.sqlAdministratorLogin === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sqlAdministratorLogin'");
-            }
-            if ((!args || args.sqlAdministratorLoginPassword === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sqlAdministratorLoginPassword'");
             }
             if ((!args || args.storageDataLakeGen2FilesystemId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageDataLakeGen2FilesystemId'");
@@ -413,11 +404,11 @@ export interface WorkspaceState {
      */
     sqlAadAdmin?: pulumi.Input<inputs.synapse.WorkspaceSqlAadAdmin>;
     /**
-     * Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
+     * Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
      */
     sqlAdministratorLogin?: pulumi.Input<string>;
     /**
-     * The Password associated with the `sqlAdministratorLogin` for the SQL administrator.
+     * The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
      */
     sqlAdministratorLoginPassword?: pulumi.Input<string>;
     /**
@@ -465,7 +456,7 @@ export interface WorkspaceArgs {
     /**
      * An `identity` block as defined below.
      */
-    identity: pulumi.Input<inputs.synapse.WorkspaceIdentity>;
+    identity?: pulumi.Input<inputs.synapse.WorkspaceIdentity>;
     /**
      * Allowed AAD Tenant Ids For Linking.
      */
@@ -503,13 +494,13 @@ export interface WorkspaceArgs {
      */
     sqlAadAdmin?: pulumi.Input<inputs.synapse.WorkspaceSqlAadAdmin>;
     /**
-     * Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
+     * Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
      */
-    sqlAdministratorLogin: pulumi.Input<string>;
+    sqlAdministratorLogin?: pulumi.Input<string>;
     /**
-     * The Password associated with the `sqlAdministratorLogin` for the SQL administrator.
+     * The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
      */
-    sqlAdministratorLoginPassword: pulumi.Input<string>;
+    sqlAdministratorLoginPassword?: pulumi.Input<string>;
     /**
      * Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
      */

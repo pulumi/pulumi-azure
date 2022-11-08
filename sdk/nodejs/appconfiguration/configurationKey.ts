@@ -37,6 +37,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  * ### `Vault` Type
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";

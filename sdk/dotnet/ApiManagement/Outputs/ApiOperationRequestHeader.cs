@@ -43,7 +43,6 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         public readonly string Type;
         /// <summary>
         /// The type name defined by the Schema.
-        /// ---
         /// </summary>
         public readonly string? TypeName;
         /// <summary>

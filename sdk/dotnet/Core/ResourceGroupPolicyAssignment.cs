@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Core
     ///         PolicyType = "Custom",
     ///         Mode = "All",
     ///         DisplayName = "my-policy-definition",
-    ///         PolicyRule = @"	{
+    ///         PolicyRule = @" {
     ///     ""if"": {
     ///       ""not"": {
     ///         ""field"": ""location"",

@@ -443,7 +443,7 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
             policy_type="Custom",
             mode="All",
             display_name="my-policy-definition",
-            policy_rule=\"\"\"	{
+            policy_rule=\"\"\" {
             "if": {
               "not": {
                 "field": "location",
@@ -512,7 +512,7 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
             policy_type="Custom",
             mode="All",
             display_name="my-policy-definition",
-            policy_rule=\"\"\"	{
+            policy_rule=\"\"\" {
             "if": {
               "not": {
                 "field": "location",

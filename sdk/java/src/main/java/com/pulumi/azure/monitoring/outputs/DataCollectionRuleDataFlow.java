@@ -16,7 +16,7 @@ public final class DataCollectionRuleDataFlow {
      */
     private List<String> destinations;
     /**
-     * @return Specifies a list of streams. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+     * @return Specifies a list of streams. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
      * 
      */
     private List<String> streams;
@@ -30,7 +30,7 @@ public final class DataCollectionRuleDataFlow {
         return this.destinations;
     }
     /**
-     * @return Specifies a list of streams. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+     * @return Specifies a list of streams. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
      * 
      */
     public List<String> streams() {

@@ -22,7 +22,7 @@ public final class FrontdoorOriginPrivateLink {
      */
     private String privateLinkTargetId;
     /**
-     * @return Specifies the request message that will be submitted to the `private_link_target_id` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN Frontdoor Private Link Origin`.
+     * @return Specifies the request message that will be submitted to the `private_link_target_id` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for Front Door Private Link Origin`.
      * 
      */
     private @Nullable String requestMessage;
@@ -48,7 +48,7 @@ public final class FrontdoorOriginPrivateLink {
         return this.privateLinkTargetId;
     }
     /**
-     * @return Specifies the request message that will be submitted to the `private_link_target_id` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN Frontdoor Private Link Origin`.
+     * @return Specifies the request message that will be submitted to the `private_link_target_id` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for Front Door Private Link Origin`.
      * 
      */
     public Optional<String> requestMessage() {

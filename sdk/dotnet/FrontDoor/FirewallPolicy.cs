@@ -213,7 +213,7 @@ namespace Pulumi.Azure.FrontDoor
         public Output<ImmutableArray<string>> FrontendEndpointIds { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure Region where this FrontDoor Firewall Policy exists.
+        /// The Azure Region where this Front Door Firewall Policy exists.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -429,7 +429,7 @@ namespace Pulumi.Azure.FrontDoor
         }
 
         /// <summary>
-        /// The Azure Region where this FrontDoor Firewall Policy exists.
+        /// The Azure Region where this Front Door Firewall Policy exists.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

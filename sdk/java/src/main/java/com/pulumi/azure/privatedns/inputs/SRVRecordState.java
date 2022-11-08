@@ -94,9 +94,17 @@ public final class SRVRecordState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * The Time To Live (TTL) of the DNS record in seconds.
+     * 
+     */
     @Import(name="ttl")
     private @Nullable Output<Integer> ttl;
 
+    /**
+     * @return The Time To Live (TTL) of the DNS record in seconds.
+     * 
+     */
     public Optional<Output<Integer>> ttl() {
         return Optional.ofNullable(this.ttl);
     }
@@ -261,11 +269,23 @@ public final class SRVRecordState extends com.pulumi.resources.ResourceArgs {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param ttl The Time To Live (TTL) of the DNS record in seconds.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ttl(@Nullable Output<Integer> ttl) {
             $.ttl = ttl;
             return this;
         }
 
+        /**
+         * @param ttl The Time To Live (TTL) of the DNS record in seconds.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ttl(Integer ttl) {
             return ttl(Output.of(ttl));
         }

@@ -72,13 +72,6 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ## Attributes Reference:
- * 
- * The following attributes are exported:
- * 
- * * `id` - The ID of the Azure Search Shared Private Link resource.
- * 
- * * `status` - The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
  * 
  * ## Import
  * 
@@ -133,9 +126,17 @@ public class SharedPrivateLinkService extends com.pulumi.resources.CustomResourc
     public Output<String> searchServiceId() {
         return this.searchServiceId;
     }
+    /**
+     * The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
+     * 
+     */
     @Export(name="status", type=String.class, parameters={})
     private Output<String> status;
 
+    /**
+     * @return The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
+     * 
+     */
     public Output<String> status() {
         return this.status;
     }

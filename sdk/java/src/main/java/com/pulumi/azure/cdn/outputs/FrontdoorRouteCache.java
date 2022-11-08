@@ -24,7 +24,7 @@ public final class FrontdoorRouteCache {
      */
     private @Nullable List<String> contentTypesToCompresses;
     /**
-     * @return Defines how the Frontdoor will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
+     * @return Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
      * 
      */
     private @Nullable String queryStringCachingBehavior;
@@ -50,7 +50,7 @@ public final class FrontdoorRouteCache {
         return this.contentTypesToCompresses == null ? List.of() : this.contentTypesToCompresses;
     }
     /**
-     * @return Defines how the Frontdoor will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
+     * @return Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
      * 
      */
     public Optional<String> queryStringCachingBehavior() {

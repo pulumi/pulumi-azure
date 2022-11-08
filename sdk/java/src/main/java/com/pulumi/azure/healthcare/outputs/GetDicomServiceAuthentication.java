@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetDicomServiceAuthentication {
     /**
-     * @return The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+     * @return The intended audience to receive authentication tokens for the service. The default value is &lt;https://dicom.azurehealthcareapis.azure.com&gt;
      * 
      */
     private List<String> audiences;
@@ -19,7 +19,7 @@ public final class GetDicomServiceAuthentication {
 
     private GetDicomServiceAuthentication() {}
     /**
-     * @return The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+     * @return The intended audience to receive authentication tokens for the service. The default value is &lt;https://dicom.azurehealthcareapis.azure.com&gt;
      * 
      */
     public List<String> audiences() {

@@ -72,6 +72,8 @@ import (
 type VirtualMachine struct {
 	pulumi.CustomResourceState
 
+	// An `assessment` block as defined below.
+	Assessment VirtualMachineAssessmentPtrOutput `pulumi:"assessment"`
 	// An `autoBackup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
 	AutoBackup VirtualMachineAutoBackupPtrOutput `pulumi:"autoBackup"`
 	// An `autoPatching` block as defined below.
@@ -133,6 +135,8 @@ func GetVirtualMachine(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualMachine resources.
 type virtualMachineState struct {
+	// An `assessment` block as defined below.
+	Assessment *VirtualMachineAssessment `pulumi:"assessment"`
 	// An `autoBackup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
 	AutoBackup *VirtualMachineAutoBackup `pulumi:"autoBackup"`
 	// An `autoPatching` block as defined below.
@@ -160,6 +164,8 @@ type virtualMachineState struct {
 }
 
 type VirtualMachineState struct {
+	// An `assessment` block as defined below.
+	Assessment VirtualMachineAssessmentPtrInput
 	// An `autoBackup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
 	AutoBackup VirtualMachineAutoBackupPtrInput
 	// An `autoPatching` block as defined below.
@@ -191,6 +197,8 @@ func (VirtualMachineState) ElementType() reflect.Type {
 }
 
 type virtualMachineArgs struct {
+	// An `assessment` block as defined below.
+	Assessment *VirtualMachineAssessment `pulumi:"assessment"`
 	// An `autoBackup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
 	AutoBackup *VirtualMachineAutoBackup `pulumi:"autoBackup"`
 	// An `autoPatching` block as defined below.
@@ -219,6 +227,8 @@ type virtualMachineArgs struct {
 
 // The set of arguments for constructing a VirtualMachine resource.
 type VirtualMachineArgs struct {
+	// An `assessment` block as defined below.
+	Assessment VirtualMachineAssessmentPtrInput
 	// An `autoBackup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
 	AutoBackup VirtualMachineAutoBackupPtrInput
 	// An `autoPatching` block as defined below.
@@ -330,6 +340,11 @@ func (o VirtualMachineOutput) ToVirtualMachineOutput() VirtualMachineOutput {
 
 func (o VirtualMachineOutput) ToVirtualMachineOutputWithContext(ctx context.Context) VirtualMachineOutput {
 	return o
+}
+
+// An `assessment` block as defined below.
+func (o VirtualMachineOutput) Assessment() VirtualMachineAssessmentPtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) VirtualMachineAssessmentPtrOutput { return v.Assessment }).(VirtualMachineAssessmentPtrOutput)
 }
 
 // An `autoBackup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.

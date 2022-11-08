@@ -105,7 +105,6 @@ export class Connection extends pulumi.CustomResource {
     public readonly appServiceId!: pulumi.Output<string>;
     /**
      * The authentication info. An `authentication` block as defined below.
-     * ---
      */
     public readonly authentication!: pulumi.Output<outputs.appservice.ConnectionAuthentication>;
     /**
@@ -177,7 +176,6 @@ export interface ConnectionState {
     appServiceId?: pulumi.Input<string>;
     /**
      * The authentication info. An `authentication` block as defined below.
-     * ---
      */
     authentication?: pulumi.Input<inputs.appservice.ConnectionAuthentication>;
     /**
@@ -208,7 +206,6 @@ export interface ConnectionArgs {
     appServiceId: pulumi.Input<string>;
     /**
      * The authentication info. An `authentication` block as defined below.
-     * ---
      */
     authentication: pulumi.Input<inputs.appservice.ConnectionAuthentication>;
     /**

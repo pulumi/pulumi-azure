@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -29,6 +30,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.servicebus.Namespace;
  * import com.pulumi.azure.servicebus.NamespaceArgs;
+ * import com.pulumi.azure.servicebus.NamespaceAuthorizationRule;
+ * import com.pulumi.azure.servicebus.NamespaceAuthorizationRuleArgs;
  * import com.pulumi.azure.servicebus.NamespaceDisasterRecoveryConfig;
  * import com.pulumi.azure.servicebus.NamespaceDisasterRecoveryConfigArgs;
  * import java.util.List;
@@ -62,9 +65,17 @@ import javax.annotation.Nullable;
  *             .capacity(&#34;1&#34;)
  *             .build());
  * 
+ *         var exampleNamespaceAuthorizationRule = new NamespaceAuthorizationRule(&#34;exampleNamespaceAuthorizationRule&#34;, NamespaceAuthorizationRuleArgs.builder()        
+ *             .namespaceId(azurerm_servicebus_namespace.example().id())
+ *             .listen(true)
+ *             .send(true)
+ *             .manage(false)
+ *             .build());
+ * 
  *         var exampleNamespaceDisasterRecoveryConfig = new NamespaceDisasterRecoveryConfig(&#34;exampleNamespaceDisasterRecoveryConfig&#34;, NamespaceDisasterRecoveryConfigArgs.builder()        
  *             .primaryNamespaceId(primary.id())
  *             .partnerNamespaceId(secondary.id())
+ *             .aliasAuthorizationRuleId(exampleNamespaceAuthorizationRule.id())
  *             .build());
  * 
  *     }
@@ -82,6 +93,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:servicebus/namespaceDisasterRecoveryConfig:NamespaceDisasterRecoveryConfig")
 public class NamespaceDisasterRecoveryConfig extends com.pulumi.resources.CustomResource {
+    /**
+     * The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
+     * 
+     */
+    @Export(name="aliasAuthorizationRuleId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> aliasAuthorizationRuleId;
+
+    /**
+     * @return The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
+     * 
+     */
+    public Output<Optional<String>> aliasAuthorizationRuleId() {
+        return Codegen.optional(this.aliasAuthorizationRuleId);
+    }
     /**
      * The primary access key for the authorization rule `RootManageSharedAccessKey`.
      * 

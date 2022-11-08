@@ -152,7 +152,6 @@ export class LiveEvent extends pulumi.CustomResource {
     public readonly transcriptionLanguages!: pulumi.Output<string[] | undefined>;
     /**
      * Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. Changing this forces a new Live Event to be created.
-     * ---
      */
     public readonly useStaticHostname!: pulumi.Output<boolean | undefined>;
 
@@ -272,7 +271,6 @@ export interface LiveEventState {
     transcriptionLanguages?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. Changing this forces a new Live Event to be created.
-     * ---
      */
     useStaticHostname?: pulumi.Input<boolean>;
 }
@@ -335,7 +333,6 @@ export interface LiveEventArgs {
     transcriptionLanguages?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. Changing this forces a new Live Event to be created.
-     * ---
      */
     useStaticHostname?: pulumi.Input<boolean>;
 }

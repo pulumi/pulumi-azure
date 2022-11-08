@@ -20,14 +20,14 @@ public final class FrontdoorOriginGroupState extends com.pulumi.resources.Resour
     public static final FrontdoorOriginGroupState Empty = new FrontdoorOriginGroupState();
 
     /**
-     * The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group should exist. Changing this forces a new CDN FrontDoor Origin Group to be created.
+     * The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
      * 
      */
     @Import(name="cdnFrontdoorProfileId")
     private @Nullable Output<String> cdnFrontdoorProfileId;
 
     /**
-     * @return The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group should exist. Changing this forces a new CDN FrontDoor Origin Group to be created.
+     * @return The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
      * 
      */
     public Optional<Output<String>> cdnFrontdoorProfileId() {
@@ -65,14 +65,14 @@ public final class FrontdoorOriginGroupState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The name which should be used for this CDN FrontDoor Origin Group. Changing this forces a new CDN FrontDoor Origin Group to be created.
+     * The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this CDN FrontDoor Origin Group. Changing this forces a new CDN FrontDoor Origin Group to be created.
+     * @return The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -139,7 +139,7 @@ public final class FrontdoorOriginGroupState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param cdnFrontdoorProfileId The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group should exist. Changing this forces a new CDN FrontDoor Origin Group to be created.
+         * @param cdnFrontdoorProfileId The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class FrontdoorOriginGroupState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param cdnFrontdoorProfileId The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group should exist. Changing this forces a new CDN FrontDoor Origin Group to be created.
+         * @param cdnFrontdoorProfileId The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class FrontdoorOriginGroupState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The name which should be used for this CDN FrontDoor Origin Group. Changing this forces a new CDN FrontDoor Origin Group to be created.
+         * @param name The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class FrontdoorOriginGroupState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The name which should be used for this CDN FrontDoor Origin Group. Changing this forces a new CDN FrontDoor Origin Group to be created.
+         * @param name The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
          * 
          * @return builder
          * 

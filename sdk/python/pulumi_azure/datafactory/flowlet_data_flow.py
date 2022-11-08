@@ -33,7 +33,7 @@ class FlowletDataFlowArgs:
         :param pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArgs']]] sources: One or more `source` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Flowlet Data Flow.
         :param pulumi.Input[str] description: The description for the Data Factory Flowlet Data Flow.
-        :param pulumi.Input[str] folder: The folder that this Data Flow is in. If not specified, the Data Flow will appear at the 
+        :param pulumi.Input[str] folder: The folder that this Data Flow is in. If not specified, the Data Flow will appear at the
                root level.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
         :param pulumi.Input[str] script: The script for the Data Factory Flowlet Data Flow.
@@ -122,7 +122,7 @@ class FlowletDataFlowArgs:
     @pulumi.getter
     def folder(self) -> Optional[pulumi.Input[str]]:
         """
-        The folder that this Data Flow is in. If not specified, the Data Flow will appear at the 
+        The folder that this Data Flow is in. If not specified, the Data Flow will appear at the
         root level.
         """
         return pulumi.get(self, "folder")
@@ -198,7 +198,7 @@ class _FlowletDataFlowState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Flowlet Data Flow.
         :param pulumi.Input[str] data_factory_id: The ID of Data Factory in which to associate the Data Flow with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Flowlet Data Flow.
-        :param pulumi.Input[str] folder: The folder that this Data Flow is in. If not specified, the Data Flow will appear at the 
+        :param pulumi.Input[str] folder: The folder that this Data Flow is in. If not specified, the Data Flow will appear at the
                root level.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
         :param pulumi.Input[str] script: The script for the Data Factory Flowlet Data Flow.
@@ -268,7 +268,7 @@ class _FlowletDataFlowState:
     @pulumi.getter
     def folder(self) -> Optional[pulumi.Input[str]]:
         """
-        The folder that this Data Flow is in. If not specified, the Data Flow will appear at the 
+        The folder that this Data Flow is in. If not specified, the Data Flow will appear at the
         root level.
         """
         return pulumi.get(self, "folder")
@@ -508,7 +508,7 @@ class FlowletDataFlow(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Flowlet Data Flow.
         :param pulumi.Input[str] data_factory_id: The ID of Data Factory in which to associate the Data Flow with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Flowlet Data Flow.
-        :param pulumi.Input[str] folder: The folder that this Data Flow is in. If not specified, the Data Flow will appear at the 
+        :param pulumi.Input[str] folder: The folder that this Data Flow is in. If not specified, the Data Flow will appear at the
                root level.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
         :param pulumi.Input[str] script: The script for the Data Factory Flowlet Data Flow.
@@ -740,7 +740,7 @@ class FlowletDataFlow(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Flowlet Data Flow.
         :param pulumi.Input[str] data_factory_id: The ID of Data Factory in which to associate the Data Flow with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Flowlet Data Flow.
-        :param pulumi.Input[str] folder: The folder that this Data Flow is in. If not specified, the Data Flow will appear at the 
+        :param pulumi.Input[str] folder: The folder that this Data Flow is in. If not specified, the Data Flow will appear at the
                root level.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
         :param pulumi.Input[str] script: The script for the Data Factory Flowlet Data Flow.
@@ -793,7 +793,7 @@ class FlowletDataFlow(pulumi.CustomResource):
     @pulumi.getter
     def folder(self) -> pulumi.Output[Optional[str]]:
         """
-        The folder that this Data Flow is in. If not specified, the Data Flow will appear at the 
+        The folder that this Data Flow is in. If not specified, the Data Flow will appear at the
         root level.
         """
         return pulumi.get(self, "folder")

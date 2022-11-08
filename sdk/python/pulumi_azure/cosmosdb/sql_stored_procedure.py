@@ -251,7 +251,7 @@ class SqlStoredProcedure(pulumi.CustomResource):
             account_name=example_account.name,
             database_name=example_sql_database.name,
             container_name=example_sql_container.name,
-            body="  	function () { var context = getContext(); var response = context.getResponse(); response.setBody('Hello, World'); }\\n")
+            body="   function () { var context = getContext(); var response = context.getResponse(); response.setBody('Hello, World'); }\\n")
         ```
 
         ## Import
@@ -302,7 +302,7 @@ class SqlStoredProcedure(pulumi.CustomResource):
             account_name=example_account.name,
             database_name=example_sql_database.name,
             container_name=example_sql_container.name,
-            body="  	function () { var context = getContext(); var response = context.getResponse(); response.setBody('Hello, World'); }\\n")
+            body="   function () { var context = getContext(); var response = context.getResponse(); response.setBody('Hello, World'); }\\n")
         ```
 
         ## Import

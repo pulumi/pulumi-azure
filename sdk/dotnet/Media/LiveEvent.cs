@@ -188,7 +188,6 @@ namespace Pulumi.Azure.Media
 
         /// <summary>
         /// Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. Changing this forces a new Live Event to be created.
-        /// ---
         /// </summary>
         [Output("useStaticHostname")]
         public Output<bool?> UseStaticHostname { get; private set; } = null!;
@@ -331,7 +330,6 @@ namespace Pulumi.Azure.Media
 
         /// <summary>
         /// Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. Changing this forces a new Live Event to be created.
-        /// ---
         /// </summary>
         [Input("useStaticHostname")]
         public Input<bool>? UseStaticHostname { get; set; }
@@ -436,7 +434,6 @@ namespace Pulumi.Azure.Media
 
         /// <summary>
         /// Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. Changing this forces a new Live Event to be created.
-        /// ---
         /// </summary>
         [Input("useStaticHostname")]
         public Input<bool>? UseStaticHostname { get; set; }

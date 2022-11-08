@@ -14,7 +14,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
     public sealed class StandardIdentity
     {
         /// <summary>
-        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>

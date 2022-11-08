@@ -624,7 +624,7 @@ type DatabaseThreatDetectionPolicy struct {
 	State *string `pulumi:"state"`
 	// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
-	// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+	// Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
 	StorageEndpoint *string `pulumi:"storageEndpoint"`
 }
 
@@ -652,7 +652,7 @@ type DatabaseThreatDetectionPolicyArgs struct {
 	State pulumi.StringPtrInput `pulumi:"state"`
 	// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
 	StorageAccountAccessKey pulumi.StringPtrInput `pulumi:"storageAccountAccessKey"`
-	// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+	// Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
 	StorageEndpoint pulumi.StringPtrInput `pulumi:"storageEndpoint"`
 }
 
@@ -763,7 +763,7 @@ func (o DatabaseThreatDetectionPolicyOutput) StorageAccountAccessKey() pulumi.St
 	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.StorageAccountAccessKey }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+// Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
 func (o DatabaseThreatDetectionPolicyOutput) StorageEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
 }
@@ -852,7 +852,7 @@ func (o DatabaseThreatDetectionPolicyPtrOutput) StorageAccountAccessKey() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+// Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
 func (o DatabaseThreatDetectionPolicyPtrOutput) StorageEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) *string {
 		if v == nil {
@@ -2755,6 +2755,375 @@ func (o ServerVulnerabilityAssessmentRecurringScansPtrOutput) Enabled() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
+type VirtualMachineAssessment struct {
+	// Should Assessment be enabled? Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
+	// Should Assessment be run immediately? Defaults to `false`.
+	RunImmediately *bool `pulumi:"runImmediately"`
+	// An `schedule` block as defined below.
+	Schedule *VirtualMachineAssessmentSchedule `pulumi:"schedule"`
+}
+
+// VirtualMachineAssessmentInput is an input type that accepts VirtualMachineAssessmentArgs and VirtualMachineAssessmentOutput values.
+// You can construct a concrete instance of `VirtualMachineAssessmentInput` via:
+//
+//	VirtualMachineAssessmentArgs{...}
+type VirtualMachineAssessmentInput interface {
+	pulumi.Input
+
+	ToVirtualMachineAssessmentOutput() VirtualMachineAssessmentOutput
+	ToVirtualMachineAssessmentOutputWithContext(context.Context) VirtualMachineAssessmentOutput
+}
+
+type VirtualMachineAssessmentArgs struct {
+	// Should Assessment be enabled? Defaults to `true`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Should Assessment be run immediately? Defaults to `false`.
+	RunImmediately pulumi.BoolPtrInput `pulumi:"runImmediately"`
+	// An `schedule` block as defined below.
+	Schedule VirtualMachineAssessmentSchedulePtrInput `pulumi:"schedule"`
+}
+
+func (VirtualMachineAssessmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineAssessment)(nil)).Elem()
+}
+
+func (i VirtualMachineAssessmentArgs) ToVirtualMachineAssessmentOutput() VirtualMachineAssessmentOutput {
+	return i.ToVirtualMachineAssessmentOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineAssessmentArgs) ToVirtualMachineAssessmentOutputWithContext(ctx context.Context) VirtualMachineAssessmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAssessmentOutput)
+}
+
+func (i VirtualMachineAssessmentArgs) ToVirtualMachineAssessmentPtrOutput() VirtualMachineAssessmentPtrOutput {
+	return i.ToVirtualMachineAssessmentPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineAssessmentArgs) ToVirtualMachineAssessmentPtrOutputWithContext(ctx context.Context) VirtualMachineAssessmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAssessmentOutput).ToVirtualMachineAssessmentPtrOutputWithContext(ctx)
+}
+
+// VirtualMachineAssessmentPtrInput is an input type that accepts VirtualMachineAssessmentArgs, VirtualMachineAssessmentPtr and VirtualMachineAssessmentPtrOutput values.
+// You can construct a concrete instance of `VirtualMachineAssessmentPtrInput` via:
+//
+//	        VirtualMachineAssessmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type VirtualMachineAssessmentPtrInput interface {
+	pulumi.Input
+
+	ToVirtualMachineAssessmentPtrOutput() VirtualMachineAssessmentPtrOutput
+	ToVirtualMachineAssessmentPtrOutputWithContext(context.Context) VirtualMachineAssessmentPtrOutput
+}
+
+type virtualMachineAssessmentPtrType VirtualMachineAssessmentArgs
+
+func VirtualMachineAssessmentPtr(v *VirtualMachineAssessmentArgs) VirtualMachineAssessmentPtrInput {
+	return (*virtualMachineAssessmentPtrType)(v)
+}
+
+func (*virtualMachineAssessmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineAssessment)(nil)).Elem()
+}
+
+func (i *virtualMachineAssessmentPtrType) ToVirtualMachineAssessmentPtrOutput() VirtualMachineAssessmentPtrOutput {
+	return i.ToVirtualMachineAssessmentPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualMachineAssessmentPtrType) ToVirtualMachineAssessmentPtrOutputWithContext(ctx context.Context) VirtualMachineAssessmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAssessmentPtrOutput)
+}
+
+type VirtualMachineAssessmentOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineAssessmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineAssessment)(nil)).Elem()
+}
+
+func (o VirtualMachineAssessmentOutput) ToVirtualMachineAssessmentOutput() VirtualMachineAssessmentOutput {
+	return o
+}
+
+func (o VirtualMachineAssessmentOutput) ToVirtualMachineAssessmentOutputWithContext(ctx context.Context) VirtualMachineAssessmentOutput {
+	return o
+}
+
+func (o VirtualMachineAssessmentOutput) ToVirtualMachineAssessmentPtrOutput() VirtualMachineAssessmentPtrOutput {
+	return o.ToVirtualMachineAssessmentPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualMachineAssessmentOutput) ToVirtualMachineAssessmentPtrOutputWithContext(ctx context.Context) VirtualMachineAssessmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineAssessment) *VirtualMachineAssessment {
+		return &v
+	}).(VirtualMachineAssessmentPtrOutput)
+}
+
+// Should Assessment be enabled? Defaults to `true`.
+func (o VirtualMachineAssessmentOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualMachineAssessment) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Should Assessment be run immediately? Defaults to `false`.
+func (o VirtualMachineAssessmentOutput) RunImmediately() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualMachineAssessment) *bool { return v.RunImmediately }).(pulumi.BoolPtrOutput)
+}
+
+// An `schedule` block as defined below.
+func (o VirtualMachineAssessmentOutput) Schedule() VirtualMachineAssessmentSchedulePtrOutput {
+	return o.ApplyT(func(v VirtualMachineAssessment) *VirtualMachineAssessmentSchedule { return v.Schedule }).(VirtualMachineAssessmentSchedulePtrOutput)
+}
+
+type VirtualMachineAssessmentPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineAssessmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineAssessment)(nil)).Elem()
+}
+
+func (o VirtualMachineAssessmentPtrOutput) ToVirtualMachineAssessmentPtrOutput() VirtualMachineAssessmentPtrOutput {
+	return o
+}
+
+func (o VirtualMachineAssessmentPtrOutput) ToVirtualMachineAssessmentPtrOutputWithContext(ctx context.Context) VirtualMachineAssessmentPtrOutput {
+	return o
+}
+
+func (o VirtualMachineAssessmentPtrOutput) Elem() VirtualMachineAssessmentOutput {
+	return o.ApplyT(func(v *VirtualMachineAssessment) VirtualMachineAssessment {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineAssessment
+		return ret
+	}).(VirtualMachineAssessmentOutput)
+}
+
+// Should Assessment be enabled? Defaults to `true`.
+func (o VirtualMachineAssessmentPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineAssessment) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should Assessment be run immediately? Defaults to `false`.
+func (o VirtualMachineAssessmentPtrOutput) RunImmediately() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineAssessment) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RunImmediately
+	}).(pulumi.BoolPtrOutput)
+}
+
+// An `schedule` block as defined below.
+func (o VirtualMachineAssessmentPtrOutput) Schedule() VirtualMachineAssessmentSchedulePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineAssessment) *VirtualMachineAssessmentSchedule {
+		if v == nil {
+			return nil
+		}
+		return v.Schedule
+	}).(VirtualMachineAssessmentSchedulePtrOutput)
+}
+
+type VirtualMachineAssessmentSchedule struct {
+	// What day of the week the assessment will be run. Default value is `Monday`.
+	DayOfWeek string `pulumi:"dayOfWeek"`
+	// How many months between assessment runs. Valid values are between `1` and `5`.
+	MonthlyOccurrence *int `pulumi:"monthlyOccurrence"`
+	// What time the assessment will be run. Must be in the format `HH:mm`.
+	StartTime string `pulumi:"startTime"`
+	// How many weeks between assessment runs. Valid values are between `1` and `6`.
+	WeeklyInterval *int `pulumi:"weeklyInterval"`
+}
+
+// VirtualMachineAssessmentScheduleInput is an input type that accepts VirtualMachineAssessmentScheduleArgs and VirtualMachineAssessmentScheduleOutput values.
+// You can construct a concrete instance of `VirtualMachineAssessmentScheduleInput` via:
+//
+//	VirtualMachineAssessmentScheduleArgs{...}
+type VirtualMachineAssessmentScheduleInput interface {
+	pulumi.Input
+
+	ToVirtualMachineAssessmentScheduleOutput() VirtualMachineAssessmentScheduleOutput
+	ToVirtualMachineAssessmentScheduleOutputWithContext(context.Context) VirtualMachineAssessmentScheduleOutput
+}
+
+type VirtualMachineAssessmentScheduleArgs struct {
+	// What day of the week the assessment will be run. Default value is `Monday`.
+	DayOfWeek pulumi.StringInput `pulumi:"dayOfWeek"`
+	// How many months between assessment runs. Valid values are between `1` and `5`.
+	MonthlyOccurrence pulumi.IntPtrInput `pulumi:"monthlyOccurrence"`
+	// What time the assessment will be run. Must be in the format `HH:mm`.
+	StartTime pulumi.StringInput `pulumi:"startTime"`
+	// How many weeks between assessment runs. Valid values are between `1` and `6`.
+	WeeklyInterval pulumi.IntPtrInput `pulumi:"weeklyInterval"`
+}
+
+func (VirtualMachineAssessmentScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineAssessmentSchedule)(nil)).Elem()
+}
+
+func (i VirtualMachineAssessmentScheduleArgs) ToVirtualMachineAssessmentScheduleOutput() VirtualMachineAssessmentScheduleOutput {
+	return i.ToVirtualMachineAssessmentScheduleOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineAssessmentScheduleArgs) ToVirtualMachineAssessmentScheduleOutputWithContext(ctx context.Context) VirtualMachineAssessmentScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAssessmentScheduleOutput)
+}
+
+func (i VirtualMachineAssessmentScheduleArgs) ToVirtualMachineAssessmentSchedulePtrOutput() VirtualMachineAssessmentSchedulePtrOutput {
+	return i.ToVirtualMachineAssessmentSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineAssessmentScheduleArgs) ToVirtualMachineAssessmentSchedulePtrOutputWithContext(ctx context.Context) VirtualMachineAssessmentSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAssessmentScheduleOutput).ToVirtualMachineAssessmentSchedulePtrOutputWithContext(ctx)
+}
+
+// VirtualMachineAssessmentSchedulePtrInput is an input type that accepts VirtualMachineAssessmentScheduleArgs, VirtualMachineAssessmentSchedulePtr and VirtualMachineAssessmentSchedulePtrOutput values.
+// You can construct a concrete instance of `VirtualMachineAssessmentSchedulePtrInput` via:
+//
+//	        VirtualMachineAssessmentScheduleArgs{...}
+//
+//	or:
+//
+//	        nil
+type VirtualMachineAssessmentSchedulePtrInput interface {
+	pulumi.Input
+
+	ToVirtualMachineAssessmentSchedulePtrOutput() VirtualMachineAssessmentSchedulePtrOutput
+	ToVirtualMachineAssessmentSchedulePtrOutputWithContext(context.Context) VirtualMachineAssessmentSchedulePtrOutput
+}
+
+type virtualMachineAssessmentSchedulePtrType VirtualMachineAssessmentScheduleArgs
+
+func VirtualMachineAssessmentSchedulePtr(v *VirtualMachineAssessmentScheduleArgs) VirtualMachineAssessmentSchedulePtrInput {
+	return (*virtualMachineAssessmentSchedulePtrType)(v)
+}
+
+func (*virtualMachineAssessmentSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineAssessmentSchedule)(nil)).Elem()
+}
+
+func (i *virtualMachineAssessmentSchedulePtrType) ToVirtualMachineAssessmentSchedulePtrOutput() VirtualMachineAssessmentSchedulePtrOutput {
+	return i.ToVirtualMachineAssessmentSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualMachineAssessmentSchedulePtrType) ToVirtualMachineAssessmentSchedulePtrOutputWithContext(ctx context.Context) VirtualMachineAssessmentSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAssessmentSchedulePtrOutput)
+}
+
+type VirtualMachineAssessmentScheduleOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineAssessmentScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineAssessmentSchedule)(nil)).Elem()
+}
+
+func (o VirtualMachineAssessmentScheduleOutput) ToVirtualMachineAssessmentScheduleOutput() VirtualMachineAssessmentScheduleOutput {
+	return o
+}
+
+func (o VirtualMachineAssessmentScheduleOutput) ToVirtualMachineAssessmentScheduleOutputWithContext(ctx context.Context) VirtualMachineAssessmentScheduleOutput {
+	return o
+}
+
+func (o VirtualMachineAssessmentScheduleOutput) ToVirtualMachineAssessmentSchedulePtrOutput() VirtualMachineAssessmentSchedulePtrOutput {
+	return o.ToVirtualMachineAssessmentSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualMachineAssessmentScheduleOutput) ToVirtualMachineAssessmentSchedulePtrOutputWithContext(ctx context.Context) VirtualMachineAssessmentSchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineAssessmentSchedule) *VirtualMachineAssessmentSchedule {
+		return &v
+	}).(VirtualMachineAssessmentSchedulePtrOutput)
+}
+
+// What day of the week the assessment will be run. Default value is `Monday`.
+func (o VirtualMachineAssessmentScheduleOutput) DayOfWeek() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineAssessmentSchedule) string { return v.DayOfWeek }).(pulumi.StringOutput)
+}
+
+// How many months between assessment runs. Valid values are between `1` and `5`.
+func (o VirtualMachineAssessmentScheduleOutput) MonthlyOccurrence() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VirtualMachineAssessmentSchedule) *int { return v.MonthlyOccurrence }).(pulumi.IntPtrOutput)
+}
+
+// What time the assessment will be run. Must be in the format `HH:mm`.
+func (o VirtualMachineAssessmentScheduleOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineAssessmentSchedule) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
+// How many weeks between assessment runs. Valid values are between `1` and `6`.
+func (o VirtualMachineAssessmentScheduleOutput) WeeklyInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VirtualMachineAssessmentSchedule) *int { return v.WeeklyInterval }).(pulumi.IntPtrOutput)
+}
+
+type VirtualMachineAssessmentSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineAssessmentSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineAssessmentSchedule)(nil)).Elem()
+}
+
+func (o VirtualMachineAssessmentSchedulePtrOutput) ToVirtualMachineAssessmentSchedulePtrOutput() VirtualMachineAssessmentSchedulePtrOutput {
+	return o
+}
+
+func (o VirtualMachineAssessmentSchedulePtrOutput) ToVirtualMachineAssessmentSchedulePtrOutputWithContext(ctx context.Context) VirtualMachineAssessmentSchedulePtrOutput {
+	return o
+}
+
+func (o VirtualMachineAssessmentSchedulePtrOutput) Elem() VirtualMachineAssessmentScheduleOutput {
+	return o.ApplyT(func(v *VirtualMachineAssessmentSchedule) VirtualMachineAssessmentSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineAssessmentSchedule
+		return ret
+	}).(VirtualMachineAssessmentScheduleOutput)
+}
+
+// What day of the week the assessment will be run. Default value is `Monday`.
+func (o VirtualMachineAssessmentSchedulePtrOutput) DayOfWeek() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineAssessmentSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DayOfWeek
+	}).(pulumi.StringPtrOutput)
+}
+
+// How many months between assessment runs. Valid values are between `1` and `5`.
+func (o VirtualMachineAssessmentSchedulePtrOutput) MonthlyOccurrence() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineAssessmentSchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MonthlyOccurrence
+	}).(pulumi.IntPtrOutput)
+}
+
+// What time the assessment will be run. Must be in the format `HH:mm`.
+func (o VirtualMachineAssessmentSchedulePtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineAssessmentSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// How many weeks between assessment runs. Valid values are between `1` and `6`.
+func (o VirtualMachineAssessmentSchedulePtrOutput) WeeklyInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineAssessmentSchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return v.WeeklyInterval
+	}).(pulumi.IntPtrOutput)
+}
+
 type VirtualMachineAutoBackup struct {
 	// Enable or disable encryption for backups. Defaults to `false`.
 	EncryptionEnabled *bool `pulumi:"encryptionEnabled"`
@@ -3007,13 +3376,13 @@ func (o VirtualMachineAutoBackupPtrOutput) SystemDatabasesBackupEnabled() pulumi
 }
 
 type VirtualMachineAutoBackupManualSchedule struct {
-	// Frequency of full backups. Valid values include `Daily` or `Weekly`. Required when `backupScheduleAutomated` is false.
+	// Frequency of full backups. Valid values include `Daily` or `Weekly`.
 	FullBackupFrequency string `pulumi:"fullBackupFrequency"`
-	// Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`. Required when `backupScheduleAutomated` is false.
+	// Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`.
 	FullBackupStartHour int `pulumi:"fullBackupStartHour"`
-	// Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`. Required when `backupScheduleAutomated` is false.
+	// Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`.
 	FullBackupWindowInHours int `pulumi:"fullBackupWindowInHours"`
-	// Frequency of log backups, in minutes. Valid values are from `5` to `60`. Required when `backupScheduleAutomated` is false.
+	// Frequency of log backups, in minutes. Valid values are from `5` to `60`.
 	LogBackupFrequencyInMinutes int `pulumi:"logBackupFrequencyInMinutes"`
 }
 
@@ -3029,13 +3398,13 @@ type VirtualMachineAutoBackupManualScheduleInput interface {
 }
 
 type VirtualMachineAutoBackupManualScheduleArgs struct {
-	// Frequency of full backups. Valid values include `Daily` or `Weekly`. Required when `backupScheduleAutomated` is false.
+	// Frequency of full backups. Valid values include `Daily` or `Weekly`.
 	FullBackupFrequency pulumi.StringInput `pulumi:"fullBackupFrequency"`
-	// Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`. Required when `backupScheduleAutomated` is false.
+	// Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`.
 	FullBackupStartHour pulumi.IntInput `pulumi:"fullBackupStartHour"`
-	// Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`. Required when `backupScheduleAutomated` is false.
+	// Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`.
 	FullBackupWindowInHours pulumi.IntInput `pulumi:"fullBackupWindowInHours"`
-	// Frequency of log backups, in minutes. Valid values are from `5` to `60`. Required when `backupScheduleAutomated` is false.
+	// Frequency of log backups, in minutes. Valid values are from `5` to `60`.
 	LogBackupFrequencyInMinutes pulumi.IntInput `pulumi:"logBackupFrequencyInMinutes"`
 }
 
@@ -3116,22 +3485,22 @@ func (o VirtualMachineAutoBackupManualScheduleOutput) ToVirtualMachineAutoBackup
 	}).(VirtualMachineAutoBackupManualSchedulePtrOutput)
 }
 
-// Frequency of full backups. Valid values include `Daily` or `Weekly`. Required when `backupScheduleAutomated` is false.
+// Frequency of full backups. Valid values include `Daily` or `Weekly`.
 func (o VirtualMachineAutoBackupManualScheduleOutput) FullBackupFrequency() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineAutoBackupManualSchedule) string { return v.FullBackupFrequency }).(pulumi.StringOutput)
 }
 
-// Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`. Required when `backupScheduleAutomated` is false.
+// Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`.
 func (o VirtualMachineAutoBackupManualScheduleOutput) FullBackupStartHour() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualMachineAutoBackupManualSchedule) int { return v.FullBackupStartHour }).(pulumi.IntOutput)
 }
 
-// Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`. Required when `backupScheduleAutomated` is false.
+// Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`.
 func (o VirtualMachineAutoBackupManualScheduleOutput) FullBackupWindowInHours() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualMachineAutoBackupManualSchedule) int { return v.FullBackupWindowInHours }).(pulumi.IntOutput)
 }
 
-// Frequency of log backups, in minutes. Valid values are from `5` to `60`. Required when `backupScheduleAutomated` is false.
+// Frequency of log backups, in minutes. Valid values are from `5` to `60`.
 func (o VirtualMachineAutoBackupManualScheduleOutput) LogBackupFrequencyInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualMachineAutoBackupManualSchedule) int { return v.LogBackupFrequencyInMinutes }).(pulumi.IntOutput)
 }
@@ -3160,7 +3529,7 @@ func (o VirtualMachineAutoBackupManualSchedulePtrOutput) Elem() VirtualMachineAu
 	}).(VirtualMachineAutoBackupManualScheduleOutput)
 }
 
-// Frequency of full backups. Valid values include `Daily` or `Weekly`. Required when `backupScheduleAutomated` is false.
+// Frequency of full backups. Valid values include `Daily` or `Weekly`.
 func (o VirtualMachineAutoBackupManualSchedulePtrOutput) FullBackupFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineAutoBackupManualSchedule) *string {
 		if v == nil {
@@ -3170,7 +3539,7 @@ func (o VirtualMachineAutoBackupManualSchedulePtrOutput) FullBackupFrequency() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`. Required when `backupScheduleAutomated` is false.
+// Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`.
 func (o VirtualMachineAutoBackupManualSchedulePtrOutput) FullBackupStartHour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineAutoBackupManualSchedule) *int {
 		if v == nil {
@@ -3180,7 +3549,7 @@ func (o VirtualMachineAutoBackupManualSchedulePtrOutput) FullBackupStartHour() p
 	}).(pulumi.IntPtrOutput)
 }
 
-// Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`. Required when `backupScheduleAutomated` is false.
+// Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`.
 func (o VirtualMachineAutoBackupManualSchedulePtrOutput) FullBackupWindowInHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineAutoBackupManualSchedule) *int {
 		if v == nil {
@@ -3190,7 +3559,7 @@ func (o VirtualMachineAutoBackupManualSchedulePtrOutput) FullBackupWindowInHours
 	}).(pulumi.IntPtrOutput)
 }
 
-// Frequency of log backups, in minutes. Valid values are from `5` to `60`. Required when `backupScheduleAutomated` is false.
+// Frequency of log backups, in minutes. Valid values are from `5` to `60`.
 func (o VirtualMachineAutoBackupManualSchedulePtrOutput) LogBackupFrequencyInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineAutoBackupManualSchedule) *int {
 		if v == nil {
@@ -3578,7 +3947,7 @@ type VirtualMachineStorageConfiguration struct {
 	LogSettings *VirtualMachineStorageConfigurationLogSettings `pulumi:"logSettings"`
 	// The type of storage workload. Valid values include `GENERAL`, `OLTP`, or `DW`.
 	StorageWorkloadType string `pulumi:"storageWorkloadType"`
-	// An `storageSettings` as defined below.
+	// An `tempDbSettings` as defined below.
 	TempDbSettings *VirtualMachineStorageConfigurationTempDbSettings `pulumi:"tempDbSettings"`
 }
 
@@ -3602,7 +3971,7 @@ type VirtualMachineStorageConfigurationArgs struct {
 	LogSettings VirtualMachineStorageConfigurationLogSettingsPtrInput `pulumi:"logSettings"`
 	// The type of storage workload. Valid values include `GENERAL`, `OLTP`, or `DW`.
 	StorageWorkloadType pulumi.StringInput `pulumi:"storageWorkloadType"`
-	// An `storageSettings` as defined below.
+	// An `tempDbSettings` as defined below.
 	TempDbSettings VirtualMachineStorageConfigurationTempDbSettingsPtrInput `pulumi:"tempDbSettings"`
 }
 
@@ -3707,7 +4076,7 @@ func (o VirtualMachineStorageConfigurationOutput) StorageWorkloadType() pulumi.S
 	return o.ApplyT(func(v VirtualMachineStorageConfiguration) string { return v.StorageWorkloadType }).(pulumi.StringOutput)
 }
 
-// An `storageSettings` as defined below.
+// An `tempDbSettings` as defined below.
 func (o VirtualMachineStorageConfigurationOutput) TempDbSettings() VirtualMachineStorageConfigurationTempDbSettingsPtrOutput {
 	return o.ApplyT(func(v VirtualMachineStorageConfiguration) *VirtualMachineStorageConfigurationTempDbSettings {
 		return v.TempDbSettings
@@ -3778,7 +4147,7 @@ func (o VirtualMachineStorageConfigurationPtrOutput) StorageWorkloadType() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// An `storageSettings` as defined below.
+// An `tempDbSettings` as defined below.
 func (o VirtualMachineStorageConfigurationPtrOutput) TempDbSettings() VirtualMachineStorageConfigurationTempDbSettingsPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineStorageConfiguration) *VirtualMachineStorageConfigurationTempDbSettings {
 		if v == nil {
@@ -4101,8 +4470,18 @@ func (o VirtualMachineStorageConfigurationLogSettingsPtrOutput) Luns() pulumi.In
 }
 
 type VirtualMachineStorageConfigurationTempDbSettings struct {
+	// The SQL Server default file count. This value defaults to `8`
+	DataFileCount *int `pulumi:"dataFileCount"`
+	// The SQL Server default file size - This value defaults to `512`
+	DataFileGrowthInMb *int `pulumi:"dataFileGrowthInMb"`
+	// The SQL Server default file size - This value defaults to `256`
+	DataFileSizeMb *int `pulumi:"dataFileSizeMb"`
 	// The SQL Server default path
 	DefaultFilePath string `pulumi:"defaultFilePath"`
+	// The SQL Server default file size - This value defaults to `512`
+	LogFileGrowthMb *int `pulumi:"logFileGrowthMb"`
+	// The SQL Server default file size - This value defaults to `256`
+	LogFileSizeMb *int `pulumi:"logFileSizeMb"`
 	// A list of Logical Unit Numbers for the disks.
 	Luns []int `pulumi:"luns"`
 }
@@ -4119,8 +4498,18 @@ type VirtualMachineStorageConfigurationTempDbSettingsInput interface {
 }
 
 type VirtualMachineStorageConfigurationTempDbSettingsArgs struct {
+	// The SQL Server default file count. This value defaults to `8`
+	DataFileCount pulumi.IntPtrInput `pulumi:"dataFileCount"`
+	// The SQL Server default file size - This value defaults to `512`
+	DataFileGrowthInMb pulumi.IntPtrInput `pulumi:"dataFileGrowthInMb"`
+	// The SQL Server default file size - This value defaults to `256`
+	DataFileSizeMb pulumi.IntPtrInput `pulumi:"dataFileSizeMb"`
 	// The SQL Server default path
 	DefaultFilePath pulumi.StringInput `pulumi:"defaultFilePath"`
+	// The SQL Server default file size - This value defaults to `512`
+	LogFileGrowthMb pulumi.IntPtrInput `pulumi:"logFileGrowthMb"`
+	// The SQL Server default file size - This value defaults to `256`
+	LogFileSizeMb pulumi.IntPtrInput `pulumi:"logFileSizeMb"`
 	// A list of Logical Unit Numbers for the disks.
 	Luns pulumi.IntArrayInput `pulumi:"luns"`
 }
@@ -4202,9 +4591,34 @@ func (o VirtualMachineStorageConfigurationTempDbSettingsOutput) ToVirtualMachine
 	}).(VirtualMachineStorageConfigurationTempDbSettingsPtrOutput)
 }
 
+// The SQL Server default file count. This value defaults to `8`
+func (o VirtualMachineStorageConfigurationTempDbSettingsOutput) DataFileCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VirtualMachineStorageConfigurationTempDbSettings) *int { return v.DataFileCount }).(pulumi.IntPtrOutput)
+}
+
+// The SQL Server default file size - This value defaults to `512`
+func (o VirtualMachineStorageConfigurationTempDbSettingsOutput) DataFileGrowthInMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VirtualMachineStorageConfigurationTempDbSettings) *int { return v.DataFileGrowthInMb }).(pulumi.IntPtrOutput)
+}
+
+// The SQL Server default file size - This value defaults to `256`
+func (o VirtualMachineStorageConfigurationTempDbSettingsOutput) DataFileSizeMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VirtualMachineStorageConfigurationTempDbSettings) *int { return v.DataFileSizeMb }).(pulumi.IntPtrOutput)
+}
+
 // The SQL Server default path
 func (o VirtualMachineStorageConfigurationTempDbSettingsOutput) DefaultFilePath() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineStorageConfigurationTempDbSettings) string { return v.DefaultFilePath }).(pulumi.StringOutput)
+}
+
+// The SQL Server default file size - This value defaults to `512`
+func (o VirtualMachineStorageConfigurationTempDbSettingsOutput) LogFileGrowthMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VirtualMachineStorageConfigurationTempDbSettings) *int { return v.LogFileGrowthMb }).(pulumi.IntPtrOutput)
+}
+
+// The SQL Server default file size - This value defaults to `256`
+func (o VirtualMachineStorageConfigurationTempDbSettingsOutput) LogFileSizeMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VirtualMachineStorageConfigurationTempDbSettings) *int { return v.LogFileSizeMb }).(pulumi.IntPtrOutput)
 }
 
 // A list of Logical Unit Numbers for the disks.
@@ -4236,6 +4650,36 @@ func (o VirtualMachineStorageConfigurationTempDbSettingsPtrOutput) Elem() Virtua
 	}).(VirtualMachineStorageConfigurationTempDbSettingsOutput)
 }
 
+// The SQL Server default file count. This value defaults to `8`
+func (o VirtualMachineStorageConfigurationTempDbSettingsPtrOutput) DataFileCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineStorageConfigurationTempDbSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DataFileCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The SQL Server default file size - This value defaults to `512`
+func (o VirtualMachineStorageConfigurationTempDbSettingsPtrOutput) DataFileGrowthInMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineStorageConfigurationTempDbSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DataFileGrowthInMb
+	}).(pulumi.IntPtrOutput)
+}
+
+// The SQL Server default file size - This value defaults to `256`
+func (o VirtualMachineStorageConfigurationTempDbSettingsPtrOutput) DataFileSizeMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineStorageConfigurationTempDbSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DataFileSizeMb
+	}).(pulumi.IntPtrOutput)
+}
+
 // The SQL Server default path
 func (o VirtualMachineStorageConfigurationTempDbSettingsPtrOutput) DefaultFilePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineStorageConfigurationTempDbSettings) *string {
@@ -4244,6 +4688,26 @@ func (o VirtualMachineStorageConfigurationTempDbSettingsPtrOutput) DefaultFilePa
 		}
 		return &v.DefaultFilePath
 	}).(pulumi.StringPtrOutput)
+}
+
+// The SQL Server default file size - This value defaults to `512`
+func (o VirtualMachineStorageConfigurationTempDbSettingsPtrOutput) LogFileGrowthMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineStorageConfigurationTempDbSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.LogFileGrowthMb
+	}).(pulumi.IntPtrOutput)
+}
+
+// The SQL Server default file size - This value defaults to `256`
+func (o VirtualMachineStorageConfigurationTempDbSettingsPtrOutput) LogFileSizeMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineStorageConfigurationTempDbSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.LogFileSizeMb
+	}).(pulumi.IntPtrOutput)
 }
 
 // A list of Logical Unit Numbers for the disks.
@@ -4652,6 +5116,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerIdentityPtrInput)(nil)).Elem(), ServerIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerVulnerabilityAssessmentRecurringScansInput)(nil)).Elem(), ServerVulnerabilityAssessmentRecurringScansArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerVulnerabilityAssessmentRecurringScansPtrInput)(nil)).Elem(), ServerVulnerabilityAssessmentRecurringScansArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineAssessmentInput)(nil)).Elem(), VirtualMachineAssessmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineAssessmentPtrInput)(nil)).Elem(), VirtualMachineAssessmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineAssessmentScheduleInput)(nil)).Elem(), VirtualMachineAssessmentScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineAssessmentSchedulePtrInput)(nil)).Elem(), VirtualMachineAssessmentScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineAutoBackupInput)(nil)).Elem(), VirtualMachineAutoBackupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineAutoBackupPtrInput)(nil)).Elem(), VirtualMachineAutoBackupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineAutoBackupManualScheduleInput)(nil)).Elem(), VirtualMachineAutoBackupManualScheduleArgs{})
@@ -4706,6 +5174,10 @@ func init() {
 	pulumi.RegisterOutputType(ServerIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ServerVulnerabilityAssessmentRecurringScansOutput{})
 	pulumi.RegisterOutputType(ServerVulnerabilityAssessmentRecurringScansPtrOutput{})
+	pulumi.RegisterOutputType(VirtualMachineAssessmentOutput{})
+	pulumi.RegisterOutputType(VirtualMachineAssessmentPtrOutput{})
+	pulumi.RegisterOutputType(VirtualMachineAssessmentScheduleOutput{})
+	pulumi.RegisterOutputType(VirtualMachineAssessmentSchedulePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineAutoBackupOutput{})
 	pulumi.RegisterOutputType(VirtualMachineAutoBackupPtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineAutoBackupManualScheduleOutput{})

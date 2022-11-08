@@ -126,7 +126,7 @@ export class SqlContainer extends pulumi.CustomResource {
      */
     public readonly partitionKeyPath!: pulumi.Output<string>;
     /**
-     * Define a partition key version. Changing this forces a new resource to be created. Possible values are `1 `and `2`. This should be set to `2` in order to use large partition keys.
+     * Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
      */
     public readonly partitionKeyVersion!: pulumi.Output<number | undefined>;
     /**
@@ -242,7 +242,7 @@ export interface SqlContainerState {
      */
     partitionKeyPath?: pulumi.Input<string>;
     /**
-     * Define a partition key version. Changing this forces a new resource to be created. Possible values are `1 `and `2`. This should be set to `2` in order to use large partition keys.
+     * Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
      */
     partitionKeyVersion?: pulumi.Input<number>;
     /**
@@ -300,7 +300,7 @@ export interface SqlContainerArgs {
      */
     partitionKeyPath: pulumi.Input<string>;
     /**
-     * Define a partition key version. Changing this forces a new resource to be created. Possible values are `1 `and `2`. This should be set to `2` in order to use large partition keys.
+     * Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
      */
     partitionKeyVersion?: pulumi.Input<number>;
     /**

@@ -20,14 +20,14 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
     public static final ManagedDiskState Empty = new ManagedDiskState();
 
     /**
-     * The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `source_uri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `source_resource_id`), `FromImage` (Copy a Platform Image, specified with `image_reference_id`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `source_resource_id`).
+     * The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
      * 
      */
     @Import(name="createOption")
     private @Nullable Output<String> createOption;
 
     /**
-     * @return The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `source_uri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `source_resource_id`), `FromImage` (Copy a Platform Image, specified with `image_reference_id`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `source_resource_id`).
+     * @return The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
      * 
      */
     public Optional<Output<String>> createOption() {
@@ -65,14 +65,14 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
+     * The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
      * 
      */
     @Import(name="diskIopsReadOnly")
     private @Nullable Output<Integer> diskIopsReadOnly;
 
     /**
-     * @return The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
+     * @return The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
      * 
      */
     public Optional<Output<Integer>> diskIopsReadOnly() {
@@ -80,14 +80,14 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+     * The number of IOPS allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. One operation can transfer between 4k and 256k bytes.
      * 
      */
     @Import(name="diskIopsReadWrite")
     private @Nullable Output<Integer> diskIopsReadWrite;
 
     /**
-     * @return The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+     * @return The number of IOPS allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. One operation can transfer between 4k and 256k bytes.
      * 
      */
     public Optional<Output<Integer>> diskIopsReadWrite() {
@@ -95,14 +95,14 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
+     * The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. MBps means millions of bytes per second.
      * 
      */
     @Import(name="diskMbpsReadOnly")
     private @Nullable Output<Integer> diskMbpsReadOnly;
 
     /**
-     * @return The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
+     * @return The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. MBps means millions of bytes per second.
      * 
      */
     public Optional<Output<Integer>> diskMbpsReadOnly() {
@@ -110,14 +110,14 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
+     * The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
      * 
      */
     @Import(name="diskMbpsReadWrite")
     private @Nullable Output<Integer> diskMbpsReadWrite;
 
     /**
-     * @return The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
+     * @return The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
      * 
      */
     public Optional<Output<Integer>> diskMbpsReadWrite() {
@@ -380,14 +380,14 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of an existing Managed Disk to copy `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
+     * The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
      * 
      */
     @Import(name="sourceResourceId")
     private @Nullable Output<String> sourceResourceId;
 
     /**
-     * @return The ID of an existing Managed Disk to copy `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
+     * @return The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
      * 
      */
     public Optional<Output<String>> sourceResourceId() {
@@ -555,7 +555,7 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createOption The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `source_uri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `source_resource_id`), `FromImage` (Copy a Platform Image, specified with `image_reference_id`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `source_resource_id`).
+         * @param createOption The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
          * 
          * @return builder
          * 
@@ -566,7 +566,7 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createOption The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `source_uri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `source_resource_id`), `FromImage` (Copy a Platform Image, specified with `image_reference_id`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `source_resource_id`).
+         * @param createOption The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
          * 
          * @return builder
          * 
@@ -618,7 +618,7 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param diskIopsReadOnly The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
+         * @param diskIopsReadOnly The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
          * 
          * @return builder
          * 
@@ -629,7 +629,7 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param diskIopsReadOnly The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
+         * @param diskIopsReadOnly The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
          * 
          * @return builder
          * 
@@ -639,7 +639,7 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param diskIopsReadWrite The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+         * @param diskIopsReadWrite The number of IOPS allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. One operation can transfer between 4k and 256k bytes.
          * 
          * @return builder
          * 
@@ -650,7 +650,7 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param diskIopsReadWrite The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+         * @param diskIopsReadWrite The number of IOPS allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. One operation can transfer between 4k and 256k bytes.
          * 
          * @return builder
          * 
@@ -660,7 +660,7 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param diskMbpsReadOnly The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
+         * @param diskMbpsReadOnly The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. MBps means millions of bytes per second.
          * 
          * @return builder
          * 
@@ -671,7 +671,7 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param diskMbpsReadOnly The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
+         * @param diskMbpsReadOnly The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. MBps means millions of bytes per second.
          * 
          * @return builder
          * 
@@ -681,7 +681,7 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param diskMbpsReadWrite The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
+         * @param diskMbpsReadWrite The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
          * 
          * @return builder
          * 
@@ -692,7 +692,7 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param diskMbpsReadWrite The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
+         * @param diskMbpsReadWrite The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
          * 
          * @return builder
          * 
@@ -1059,7 +1059,7 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceResourceId The ID of an existing Managed Disk to copy `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
+         * @param sourceResourceId The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
          * 
          * @return builder
          * 
@@ -1070,7 +1070,7 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceResourceId The ID of an existing Managed Disk to copy `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
+         * @param sourceResourceId The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
          * 
          * @return builder
          * 

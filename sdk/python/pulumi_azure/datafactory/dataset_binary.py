@@ -42,7 +42,6 @@ class DatasetBinaryArgs:
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Specifies a list of parameters to associate with the Data Factory Binary Dataset.
         :param pulumi.Input['DatasetBinarySftpServerLocationArgs'] sftp_server_location: A `sftp_server_location` block as defined below.
-               ---
         """
         pulumi.set(__self__, "data_factory_id", data_factory_id)
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -204,7 +203,6 @@ class DatasetBinaryArgs:
     def sftp_server_location(self) -> Optional[pulumi.Input['DatasetBinarySftpServerLocationArgs']]:
         """
         A `sftp_server_location` block as defined below.
-        ---
         """
         return pulumi.get(self, "sftp_server_location")
 
@@ -242,7 +240,6 @@ class _DatasetBinaryState:
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Specifies a list of parameters to associate with the Data Factory Binary Dataset.
         :param pulumi.Input['DatasetBinarySftpServerLocationArgs'] sftp_server_location: A `sftp_server_location` block as defined below.
-               ---
         """
         if additional_properties is not None:
             pulumi.set(__self__, "additional_properties", additional_properties)
@@ -406,7 +403,6 @@ class _DatasetBinaryState:
     def sftp_server_location(self) -> Optional[pulumi.Input['DatasetBinarySftpServerLocationArgs']]:
         """
         A `sftp_server_location` block as defined below.
-        ---
         """
         return pulumi.get(self, "sftp_server_location")
 
@@ -484,7 +480,6 @@ class DatasetBinary(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Specifies a list of parameters to associate with the Data Factory Binary Dataset.
         :param pulumi.Input[pulumi.InputType['DatasetBinarySftpServerLocationArgs']] sftp_server_location: A `sftp_server_location` block as defined below.
-               ---
         """
         ...
     @overload
@@ -622,7 +617,6 @@ class DatasetBinary(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Specifies a list of parameters to associate with the Data Factory Binary Dataset.
         :param pulumi.Input[pulumi.InputType['DatasetBinarySftpServerLocationArgs']] sftp_server_location: A `sftp_server_location` block as defined below.
-               ---
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -735,7 +729,6 @@ class DatasetBinary(pulumi.CustomResource):
     def sftp_server_location(self) -> pulumi.Output[Optional['outputs.DatasetBinarySftpServerLocation']]:
         """
         A `sftp_server_location` block as defined below.
-        ---
         """
         return pulumi.get(self, "sftp_server_location")
 

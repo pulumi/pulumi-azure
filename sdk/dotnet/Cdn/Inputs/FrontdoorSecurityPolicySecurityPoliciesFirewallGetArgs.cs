@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Cdn.Inputs
     public sealed class FrontdoorSecurityPolicySecurityPoliciesFirewallGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `association` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+        /// An `association` block as defined below. Changing this forces a new Front Door Security Policy to be created.
         /// </summary>
         [Input("association", required: true)]
         public Input<Inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationGetArgs> Association { get; set; } = null!;
 
         /// <summary>
-        /// The Resource Id of the Frontdoor Firewall Policy that should be linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+        /// The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
         /// </summary>
         [Input("cdnFrontdoorFirewallPolicyId", required: true)]
         public Input<string> CdnFrontdoorFirewallPolicyId { get; set; } = null!;

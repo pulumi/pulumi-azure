@@ -153,14 +153,14 @@ public class SpringCloudContainerDeployment extends com.pulumi.resources.CustomR
         return Codegen.optional(this.environmentVariables);
     }
     /**
-     * Container image of the custom container. This should be in the form of &lt;repository&gt;:&lt;tag&gt; without the server name of the registry.
+     * Container image of the custom container. This should be in the form of `&lt;repository&gt;:&lt;tag&gt;` without the server name of the registry.
      * 
      */
     @Export(name="image", type=String.class, parameters={})
     private Output<String> image;
 
     /**
-     * @return Container image of the custom container. This should be in the form of &lt;repository&gt;:&lt;tag&gt; without the server name of the registry.
+     * @return Container image of the custom container. This should be in the form of `&lt;repository&gt;:&lt;tag&gt;` without the server name of the registry.
      * 
      */
     public Output<String> image() {

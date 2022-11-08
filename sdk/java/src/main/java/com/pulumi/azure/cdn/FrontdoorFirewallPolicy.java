@@ -21,7 +21,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages an Azure CDN Front Door Firewall Policy instance.
+ * Manages a Front Door (standard/premium) Firewall Policy instance.
  * 
  * ## Example Usage
  * ```java
@@ -161,7 +161,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Frontdoor Firewall Policy can be imported using the `resource id`, e.g.
+ * Front Door Firewall Policies can be imported using the `resource id`, e.g.
  * 
  * ```sh
  *  $ pulumi import azure:cdn/frontdoorFirewallPolicy:FrontdoorFirewallPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/frontdoorWebApplicationFirewallPolicies/firewallPolicy1
@@ -213,28 +213,28 @@ public class FrontdoorFirewallPolicy extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.customRules);
     }
     /**
-     * Is the Cdn Frontdoor firewall policy enabled? Defaults to `true`.
+     * Is the Front Door Firewall Policy enabled? Defaults to `true`.
      * 
      */
     @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Is the Cdn Frontdoor firewall policy enabled? Defaults to `true`.
+     * @return Is the Front Door Firewall Policy enabled? Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
     /**
-     * The Cdn Frontend Endpoints associated with this Cdn Frontdoor Firewall policy.
+     * The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
      * 
      */
     @Export(name="frontendEndpointIds", type=List.class, parameters={String.class})
     private Output<List<String>> frontendEndpointIds;
 
     /**
-     * @return The Cdn Frontend Endpoints associated with this Cdn Frontdoor Firewall policy.
+     * @return The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
      * 
      */
     public Output<List<String>> frontendEndpointIds() {
@@ -255,14 +255,14 @@ public class FrontdoorFirewallPolicy extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.managedRules);
     }
     /**
-     * The Cdn Frontdoor firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+     * The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
      * 
      */
     @Export(name="mode", type=String.class, parameters={})
     private Output<String> mode;
 
     /**
-     * @return The Cdn Frontdoor firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+     * @return The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
      * 
      */
     public Output<String> mode() {
@@ -311,28 +311,28 @@ public class FrontdoorFirewallPolicy extends com.pulumi.resources.CustomResource
         return this.resourceGroupName;
     }
     /**
-     * The sku&#39;s pricing tier for this Cdn Frontdoor firewall policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+     * The sku&#39;s pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
      * 
      */
     @Export(name="skuName", type=String.class, parameters={})
     private Output<String> skuName;
 
     /**
-     * @return The sku&#39;s pricing tier for this Cdn Frontdoor firewall policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+     * @return The sku&#39;s pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
      * 
      */
     public Output<String> skuName() {
         return this.skuName;
     }
     /**
-     * A mapping of tags to assign to the Cdn Frontdoor firewall policy.
+     * A mapping of tags to assign to the Front Door Firewall Policy.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags to assign to the Cdn Frontdoor firewall policy.
+     * @return A mapping of tags to assign to the Front Door Firewall Policy.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

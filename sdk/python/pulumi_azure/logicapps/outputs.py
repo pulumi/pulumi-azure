@@ -26,6 +26,8 @@ __all__ = [
     'StandardSiteConfigCors',
     'StandardSiteConfigIpRestriction',
     'StandardSiteConfigIpRestrictionHeaders',
+    'StandardSiteConfigScmIpRestriction',
+    'StandardSiteConfigScmIpRestrictionHeaders',
     'StandardSiteCredential',
     'TriggerRecurrenceSchedule',
     'WorkflowAccessControl',
@@ -42,6 +44,8 @@ __all__ = [
     'GetStandardSiteConfigCorsResult',
     'GetStandardSiteConfigIpRestrictionResult',
     'GetStandardSiteConfigIpRestrictionHeadersResult',
+    'GetStandardSiteConfigScmIpRestrictionResult',
+    'GetStandardSiteConfigScmIpRestrictionHeadersResult',
     'GetStandardSiteCredentialResult',
     'GetWorkflowIdentityResult',
 ]
@@ -588,7 +592,7 @@ class StandardIdentity(dict):
                  tenant_id: Optional[str] = None):
         """
         :param str type: Specifies the type of Managed Service Identity that should be configured on this Logic App Standard. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
-        :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+        :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
         :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
         """
@@ -612,7 +616,7 @@ class StandardIdentity(dict):
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -662,6 +666,14 @@ class StandardSiteConfig(dict):
             suggest = "pre_warmed_instance_count"
         elif key == "runtimeScaleMonitoringEnabled":
             suggest = "runtime_scale_monitoring_enabled"
+        elif key == "scmIpRestrictions":
+            suggest = "scm_ip_restrictions"
+        elif key == "scmMinTlsVersion":
+            suggest = "scm_min_tls_version"
+        elif key == "scmType":
+            suggest = "scm_type"
+        elif key == "scmUseMainIpRestriction":
+            suggest = "scm_use_main_ip_restriction"
         elif key == "use32BitWorkerProcess":
             suggest = "use32_bit_worker_process"
         elif key == "vnetRouteAllEnabled":
@@ -694,6 +706,10 @@ class StandardSiteConfig(dict):
                  min_tls_version: Optional[str] = None,
                  pre_warmed_instance_count: Optional[int] = None,
                  runtime_scale_monitoring_enabled: Optional[bool] = None,
+                 scm_ip_restrictions: Optional[Sequence['outputs.StandardSiteConfigScmIpRestriction']] = None,
+                 scm_min_tls_version: Optional[str] = None,
+                 scm_type: Optional[str] = None,
+                 scm_use_main_ip_restriction: Optional[bool] = None,
                  use32_bit_worker_process: Optional[bool] = None,
                  vnet_route_all_enabled: Optional[bool] = None,
                  websockets_enabled: Optional[bool] = None):
@@ -711,6 +727,10 @@ class StandardSiteConfig(dict):
         :param str min_tls_version: The minimum supported TLS version for the Logic App Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
         :param int pre_warmed_instance_count: The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
         :param bool runtime_scale_monitoring_enabled: Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
+        :param Sequence['StandardSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
+        :param str scm_min_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site.
+        :param str scm_type: The type of Source Control used by the Logic App in use by the Windows Function App. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+        :param bool scm_use_main_ip_restriction: Should the Logic App `ip_restriction` configuration be used for the SCM too. Defaults to `false`.
         :param bool use32_bit_worker_process: Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
         :param bool vnet_route_all_enabled: Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
         :param bool websockets_enabled: Should WebSockets be enabled?
@@ -741,6 +761,14 @@ class StandardSiteConfig(dict):
             pulumi.set(__self__, "pre_warmed_instance_count", pre_warmed_instance_count)
         if runtime_scale_monitoring_enabled is not None:
             pulumi.set(__self__, "runtime_scale_monitoring_enabled", runtime_scale_monitoring_enabled)
+        if scm_ip_restrictions is not None:
+            pulumi.set(__self__, "scm_ip_restrictions", scm_ip_restrictions)
+        if scm_min_tls_version is not None:
+            pulumi.set(__self__, "scm_min_tls_version", scm_min_tls_version)
+        if scm_type is not None:
+            pulumi.set(__self__, "scm_type", scm_type)
+        if scm_use_main_ip_restriction is not None:
+            pulumi.set(__self__, "scm_use_main_ip_restriction", scm_use_main_ip_restriction)
         if use32_bit_worker_process is not None:
             pulumi.set(__self__, "use32_bit_worker_process", use32_bit_worker_process)
         if vnet_route_all_enabled is not None:
@@ -851,6 +879,38 @@ class StandardSiteConfig(dict):
         Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
         """
         return pulumi.get(self, "runtime_scale_monitoring_enabled")
+
+    @property
+    @pulumi.getter(name="scmIpRestrictions")
+    def scm_ip_restrictions(self) -> Optional[Sequence['outputs.StandardSiteConfigScmIpRestriction']]:
+        """
+        A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
+        """
+        return pulumi.get(self, "scm_ip_restrictions")
+
+    @property
+    @pulumi.getter(name="scmMinTlsVersion")
+    def scm_min_tls_version(self) -> Optional[str]:
+        """
+        Configures the minimum version of TLS required for SSL requests to the SCM site.
+        """
+        return pulumi.get(self, "scm_min_tls_version")
+
+    @property
+    @pulumi.getter(name="scmType")
+    def scm_type(self) -> Optional[str]:
+        """
+        The type of Source Control used by the Logic App in use by the Windows Function App. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+        """
+        return pulumi.get(self, "scm_type")
+
+    @property
+    @pulumi.getter(name="scmUseMainIpRestriction")
+    def scm_use_main_ip_restriction(self) -> Optional[bool]:
+        """
+        Should the Logic App `ip_restriction` configuration be used for the SCM too. Defaults to `false`.
+        """
+        return pulumi.get(self, "scm_use_main_ip_restriction")
 
     @property
     @pulumi.getter(name="use32BitWorkerProcess")
@@ -1061,6 +1121,196 @@ class StandardSiteConfigIpRestrictionHeaders(dict):
 
     def get(self, key: str, default = None) -> Any:
         StandardSiteConfigIpRestrictionHeaders.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 x_azure_fdids: Optional[Sequence[str]] = None,
+                 x_fd_health_probe: Optional[str] = None,
+                 x_forwarded_fors: Optional[Sequence[str]] = None,
+                 x_forwarded_hosts: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] x_azure_fdids: A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+        :param str x_fd_health_probe: A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+        :param Sequence[str] x_forwarded_fors: A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+        :param Sequence[str] x_forwarded_hosts: A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+        """
+        if x_azure_fdids is not None:
+            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        if x_fd_health_probe is not None:
+            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+        if x_forwarded_fors is not None:
+            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        if x_forwarded_hosts is not None:
+            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+
+    @property
+    @pulumi.getter(name="xAzureFdids")
+    def x_azure_fdids(self) -> Optional[Sequence[str]]:
+        """
+        A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+        """
+        return pulumi.get(self, "x_azure_fdids")
+
+    @property
+    @pulumi.getter(name="xFdHealthProbe")
+    def x_fd_health_probe(self) -> Optional[str]:
+        """
+        A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+        """
+        return pulumi.get(self, "x_fd_health_probe")
+
+    @property
+    @pulumi.getter(name="xForwardedFors")
+    def x_forwarded_fors(self) -> Optional[Sequence[str]]:
+        """
+        A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+        """
+        return pulumi.get(self, "x_forwarded_fors")
+
+    @property
+    @pulumi.getter(name="xForwardedHosts")
+    def x_forwarded_hosts(self) -> Optional[Sequence[str]]:
+        """
+        A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+        """
+        return pulumi.get(self, "x_forwarded_hosts")
+
+
+@pulumi.output_type
+class StandardSiteConfigScmIpRestriction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "serviceTag":
+            suggest = "service_tag"
+        elif key == "virtualNetworkSubnetId":
+            suggest = "virtual_network_subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StandardSiteConfigScmIpRestriction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StandardSiteConfigScmIpRestriction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StandardSiteConfigScmIpRestriction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: Optional[str] = None,
+                 headers: Optional['outputs.StandardSiteConfigScmIpRestrictionHeaders'] = None,
+                 ip_address: Optional[str] = None,
+                 name: Optional[str] = None,
+                 priority: Optional[int] = None,
+                 service_tag: Optional[str] = None,
+                 virtual_network_subnet_id: Optional[str] = None):
+        """
+        :param str action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        :param 'StandardSiteConfigScmIpRestrictionHeadersArgs' headers: The headers for this specific `ip_restriction` as defined below.
+        :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
+        :param str name: The name for this IP Restriction.
+        :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+        :param str service_tag: The Service Tag used for this IP Restriction.
+        :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
+        if virtual_network_subnet_id is not None:
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional['outputs.StandardSiteConfigScmIpRestrictionHeaders']:
+        """
+        The headers for this specific `ip_restriction` as defined below.
+        """
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[str]:
+        """
+        The IP Address used for this IP Restriction in CIDR notation.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name for this IP Restriction.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[int]:
+        """
+        The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[str]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> Optional[str]:
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
+
+@pulumi.output_type
+class StandardSiteConfigScmIpRestrictionHeaders(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "xAzureFdids":
+            suggest = "x_azure_fdids"
+        elif key == "xFdHealthProbe":
+            suggest = "x_fd_health_probe"
+        elif key == "xForwardedFors":
+            suggest = "x_forwarded_fors"
+        elif key == "xForwardedHosts":
+            suggest = "x_forwarded_hosts"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StandardSiteConfigScmIpRestrictionHeaders. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StandardSiteConfigScmIpRestrictionHeaders.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StandardSiteConfigScmIpRestrictionHeaders.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1657,12 +1907,16 @@ class GetStandardSiteConfigResult(dict):
                  linux_fx_version: str,
                  min_tls_version: str,
                  pre_warmed_instance_count: int,
+                 scm_ip_restrictions: Sequence['outputs.GetStandardSiteConfigScmIpRestrictionResult'],
+                 scm_min_tls_version: str,
+                 scm_type: str,
                  vnet_route_all_enabled: bool,
                  always_on: Optional[bool] = None,
                  dotnet_framework_version: Optional[str] = None,
                  health_check_path: Optional[str] = None,
                  http2_enabled: Optional[bool] = None,
                  runtime_scale_monitoring_enabled: Optional[bool] = None,
+                 scm_use_main_ip_restriction: Optional[bool] = None,
                  use32_bit_worker_process: Optional[bool] = None,
                  websockets_enabled: Optional[bool] = None):
         pulumi.set(__self__, "app_scale_limit", app_scale_limit)
@@ -1673,6 +1927,9 @@ class GetStandardSiteConfigResult(dict):
         pulumi.set(__self__, "linux_fx_version", linux_fx_version)
         pulumi.set(__self__, "min_tls_version", min_tls_version)
         pulumi.set(__self__, "pre_warmed_instance_count", pre_warmed_instance_count)
+        pulumi.set(__self__, "scm_ip_restrictions", scm_ip_restrictions)
+        pulumi.set(__self__, "scm_min_tls_version", scm_min_tls_version)
+        pulumi.set(__self__, "scm_type", scm_type)
         pulumi.set(__self__, "vnet_route_all_enabled", vnet_route_all_enabled)
         if always_on is not None:
             pulumi.set(__self__, "always_on", always_on)
@@ -1684,6 +1941,8 @@ class GetStandardSiteConfigResult(dict):
             pulumi.set(__self__, "http2_enabled", http2_enabled)
         if runtime_scale_monitoring_enabled is not None:
             pulumi.set(__self__, "runtime_scale_monitoring_enabled", runtime_scale_monitoring_enabled)
+        if scm_use_main_ip_restriction is not None:
+            pulumi.set(__self__, "scm_use_main_ip_restriction", scm_use_main_ip_restriction)
         if use32_bit_worker_process is not None:
             pulumi.set(__self__, "use32_bit_worker_process", use32_bit_worker_process)
         if websockets_enabled is not None:
@@ -1730,6 +1989,21 @@ class GetStandardSiteConfigResult(dict):
         return pulumi.get(self, "pre_warmed_instance_count")
 
     @property
+    @pulumi.getter(name="scmIpRestrictions")
+    def scm_ip_restrictions(self) -> Sequence['outputs.GetStandardSiteConfigScmIpRestrictionResult']:
+        return pulumi.get(self, "scm_ip_restrictions")
+
+    @property
+    @pulumi.getter(name="scmMinTlsVersion")
+    def scm_min_tls_version(self) -> str:
+        return pulumi.get(self, "scm_min_tls_version")
+
+    @property
+    @pulumi.getter(name="scmType")
+    def scm_type(self) -> str:
+        return pulumi.get(self, "scm_type")
+
+    @property
     @pulumi.getter(name="vnetRouteAllEnabled")
     def vnet_route_all_enabled(self) -> bool:
         return pulumi.get(self, "vnet_route_all_enabled")
@@ -1758,6 +2032,11 @@ class GetStandardSiteConfigResult(dict):
     @pulumi.getter(name="runtimeScaleMonitoringEnabled")
     def runtime_scale_monitoring_enabled(self) -> Optional[bool]:
         return pulumi.get(self, "runtime_scale_monitoring_enabled")
+
+    @property
+    @pulumi.getter(name="scmUseMainIpRestriction")
+    def scm_use_main_ip_restriction(self) -> Optional[bool]:
+        return pulumi.get(self, "scm_use_main_ip_restriction")
 
     @property
     @pulumi.getter(name="use32BitWorkerProcess")
@@ -1857,6 +2136,108 @@ class GetStandardSiteConfigIpRestrictionResult(dict):
 
 @pulumi.output_type
 class GetStandardSiteConfigIpRestrictionHeadersResult(dict):
+    def __init__(__self__, *,
+                 x_azure_fdids: Optional[Sequence[str]] = None,
+                 x_fd_health_probe: Optional[str] = None,
+                 x_forwarded_fors: Optional[Sequence[str]] = None,
+                 x_forwarded_hosts: Optional[Sequence[str]] = None):
+        if x_azure_fdids is not None:
+            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        if x_fd_health_probe is not None:
+            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+        if x_forwarded_fors is not None:
+            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        if x_forwarded_hosts is not None:
+            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+
+    @property
+    @pulumi.getter(name="xAzureFdids")
+    def x_azure_fdids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "x_azure_fdids")
+
+    @property
+    @pulumi.getter(name="xFdHealthProbe")
+    def x_fd_health_probe(self) -> Optional[str]:
+        return pulumi.get(self, "x_fd_health_probe")
+
+    @property
+    @pulumi.getter(name="xForwardedFors")
+    def x_forwarded_fors(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "x_forwarded_fors")
+
+    @property
+    @pulumi.getter(name="xForwardedHosts")
+    def x_forwarded_hosts(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "x_forwarded_hosts")
+
+
+@pulumi.output_type
+class GetStandardSiteConfigScmIpRestrictionResult(dict):
+    def __init__(__self__, *,
+                 headers: 'outputs.GetStandardSiteConfigScmIpRestrictionHeadersResult',
+                 name: str,
+                 action: Optional[str] = None,
+                 ip_address: Optional[str] = None,
+                 priority: Optional[int] = None,
+                 service_tag: Optional[str] = None,
+                 virtual_network_subnet_id: Optional[str] = None):
+        """
+        :param str name: The name of this Logic App.
+        """
+        pulumi.set(__self__, "headers", headers)
+        pulumi.set(__self__, "name", name)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
+        if virtual_network_subnet_id is not None:
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> 'outputs.GetStandardSiteConfigScmIpRestrictionHeadersResult':
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of this Logic App.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[str]:
+        return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[int]:
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[str]:
+        return pulumi.get(self, "service_tag")
+
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> Optional[str]:
+        return pulumi.get(self, "virtual_network_subnet_id")
+
+
+@pulumi.output_type
+class GetStandardSiteConfigScmIpRestrictionHeadersResult(dict):
     def __init__(__self__, *,
                  x_azure_fdids: Optional[Sequence[str]] = None,
                  x_fd_health_probe: Optional[str] = None,

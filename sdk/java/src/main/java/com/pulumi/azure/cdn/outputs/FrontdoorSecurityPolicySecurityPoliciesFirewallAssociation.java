@@ -12,26 +12,26 @@ import java.util.Objects;
 @CustomType
 public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation {
     /**
-     * @return One or more `domain` blocks as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+     * @return One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
     private List<FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain> domains;
     /**
-     * @return The list of paths to match for this firewall policy. Possilbe value includes `/*`. Changing this forces a new Frontdoor Security Policy to be created.
+     * @return The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
     private String patternsToMatch;
 
     private FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation() {}
     /**
-     * @return One or more `domain` blocks as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+     * @return One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
     public List<FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain> domains() {
         return this.domains;
     }
     /**
-     * @return The list of paths to match for this firewall policy. Possilbe value includes `/*`. Changing this forces a new Frontdoor Security Policy to be created.
+     * @return The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
     public String patternsToMatch() {

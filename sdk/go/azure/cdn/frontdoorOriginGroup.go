@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a CDN FrontDoor Origin Group.
+// Manages a Front Door (standard/premium) Origin Group.
 //
 // ## Example Usage
 //
@@ -67,7 +67,7 @@ import (
 //
 // ## Import
 //
-// CDN FrontDoor Origin Groups can be imported using the `resource id`, e.g.
+// Front Door Origin Groups can be imported using the `resource id`, e.g.
 //
 // ```sh
 //
@@ -77,13 +77,13 @@ import (
 type FrontdoorOriginGroup struct {
 	pulumi.CustomResourceState
 
-	// The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group should exist. Changing this forces a new CDN FrontDoor Origin Group to be created.
+	// The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
 	CdnFrontdoorProfileId pulumi.StringOutput `pulumi:"cdnFrontdoorProfileId"`
 	// A `healthProbe` block as defined below.
 	HealthProbe FrontdoorOriginGroupHealthProbePtrOutput `pulumi:"healthProbe"`
 	// A `loadBalancing` block as defined below.
 	LoadBalancing FrontdoorOriginGroupLoadBalancingOutput `pulumi:"loadBalancing"`
-	// The name which should be used for this CDN FrontDoor Origin Group. Changing this forces a new CDN FrontDoor Origin Group to be created.
+	// The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
 	RestoreTrafficTimeToHealedOrNewEndpointInMinutes pulumi.IntPtrOutput `pulumi:"restoreTrafficTimeToHealedOrNewEndpointInMinutes"`
@@ -126,13 +126,13 @@ func GetFrontdoorOriginGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FrontdoorOriginGroup resources.
 type frontdoorOriginGroupState struct {
-	// The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group should exist. Changing this forces a new CDN FrontDoor Origin Group to be created.
+	// The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
 	CdnFrontdoorProfileId *string `pulumi:"cdnFrontdoorProfileId"`
 	// A `healthProbe` block as defined below.
 	HealthProbe *FrontdoorOriginGroupHealthProbe `pulumi:"healthProbe"`
 	// A `loadBalancing` block as defined below.
 	LoadBalancing *FrontdoorOriginGroupLoadBalancing `pulumi:"loadBalancing"`
-	// The name which should be used for this CDN FrontDoor Origin Group. Changing this forces a new CDN FrontDoor Origin Group to be created.
+	// The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
 	RestoreTrafficTimeToHealedOrNewEndpointInMinutes *int `pulumi:"restoreTrafficTimeToHealedOrNewEndpointInMinutes"`
@@ -141,13 +141,13 @@ type frontdoorOriginGroupState struct {
 }
 
 type FrontdoorOriginGroupState struct {
-	// The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group should exist. Changing this forces a new CDN FrontDoor Origin Group to be created.
+	// The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
 	CdnFrontdoorProfileId pulumi.StringPtrInput
 	// A `healthProbe` block as defined below.
 	HealthProbe FrontdoorOriginGroupHealthProbePtrInput
 	// A `loadBalancing` block as defined below.
 	LoadBalancing FrontdoorOriginGroupLoadBalancingPtrInput
-	// The name which should be used for this CDN FrontDoor Origin Group. Changing this forces a new CDN FrontDoor Origin Group to be created.
+	// The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
 	RestoreTrafficTimeToHealedOrNewEndpointInMinutes pulumi.IntPtrInput
@@ -160,13 +160,13 @@ func (FrontdoorOriginGroupState) ElementType() reflect.Type {
 }
 
 type frontdoorOriginGroupArgs struct {
-	// The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group should exist. Changing this forces a new CDN FrontDoor Origin Group to be created.
+	// The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
 	CdnFrontdoorProfileId string `pulumi:"cdnFrontdoorProfileId"`
 	// A `healthProbe` block as defined below.
 	HealthProbe *FrontdoorOriginGroupHealthProbe `pulumi:"healthProbe"`
 	// A `loadBalancing` block as defined below.
 	LoadBalancing FrontdoorOriginGroupLoadBalancing `pulumi:"loadBalancing"`
-	// The name which should be used for this CDN FrontDoor Origin Group. Changing this forces a new CDN FrontDoor Origin Group to be created.
+	// The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
 	RestoreTrafficTimeToHealedOrNewEndpointInMinutes *int `pulumi:"restoreTrafficTimeToHealedOrNewEndpointInMinutes"`
@@ -176,13 +176,13 @@ type frontdoorOriginGroupArgs struct {
 
 // The set of arguments for constructing a FrontdoorOriginGroup resource.
 type FrontdoorOriginGroupArgs struct {
-	// The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group should exist. Changing this forces a new CDN FrontDoor Origin Group to be created.
+	// The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
 	CdnFrontdoorProfileId pulumi.StringInput
 	// A `healthProbe` block as defined below.
 	HealthProbe FrontdoorOriginGroupHealthProbePtrInput
 	// A `loadBalancing` block as defined below.
 	LoadBalancing FrontdoorOriginGroupLoadBalancingInput
-	// The name which should be used for this CDN FrontDoor Origin Group. Changing this forces a new CDN FrontDoor Origin Group to be created.
+	// The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
 	RestoreTrafficTimeToHealedOrNewEndpointInMinutes pulumi.IntPtrInput
@@ -277,7 +277,7 @@ func (o FrontdoorOriginGroupOutput) ToFrontdoorOriginGroupOutputWithContext(ctx 
 	return o
 }
 
-// The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group should exist. Changing this forces a new CDN FrontDoor Origin Group to be created.
+// The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
 func (o FrontdoorOriginGroupOutput) CdnFrontdoorProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorOriginGroup) pulumi.StringOutput { return v.CdnFrontdoorProfileId }).(pulumi.StringOutput)
 }
@@ -292,7 +292,7 @@ func (o FrontdoorOriginGroupOutput) LoadBalancing() FrontdoorOriginGroupLoadBala
 	return o.ApplyT(func(v *FrontdoorOriginGroup) FrontdoorOriginGroupLoadBalancingOutput { return v.LoadBalancing }).(FrontdoorOriginGroupLoadBalancingOutput)
 }
 
-// The name which should be used for this CDN FrontDoor Origin Group. Changing this forces a new CDN FrontDoor Origin Group to be created.
+// The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
 func (o FrontdoorOriginGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorOriginGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

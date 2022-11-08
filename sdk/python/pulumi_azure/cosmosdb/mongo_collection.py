@@ -32,7 +32,7 @@ class MongoCollectionArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] analytical_storage_ttl: The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         :param pulumi.Input[int] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
-               * # `index` - (Optional) One or more `index` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArgs']]] indices: One or more `index` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys.
         """
@@ -113,7 +113,6 @@ class MongoCollectionArgs:
     def default_ttl_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
-        * # `index` - (Optional) One or more `index` blocks as defined below.
         """
         return pulumi.get(self, "default_ttl_seconds")
 
@@ -124,6 +123,9 @@ class MongoCollectionArgs:
     @property
     @pulumi.getter
     def indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArgs']]]]:
+        """
+        One or more `index` blocks as defined below.
+        """
         return pulumi.get(self, "indices")
 
     @indices.setter
@@ -183,7 +185,7 @@ class _MongoCollectionState:
         :param pulumi.Input[int] analytical_storage_ttl: The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
-               * # `index` - (Optional) One or more `index` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArgs']]] indices: One or more `index` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys.
@@ -259,7 +261,6 @@ class _MongoCollectionState:
     def default_ttl_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
-        * # `index` - (Optional) One or more `index` blocks as defined below.
         """
         return pulumi.get(self, "default_ttl_seconds")
 
@@ -270,6 +271,9 @@ class _MongoCollectionState:
     @property
     @pulumi.getter
     def indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArgs']]]]:
+        """
+        One or more `index` blocks as defined below.
+        """
         return pulumi.get(self, "indices")
 
     @indices.setter
@@ -390,7 +394,7 @@ class MongoCollection(pulumi.CustomResource):
         :param pulumi.Input[int] analytical_storage_ttl: The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
-               * # `index` - (Optional) One or more `index` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoCollectionIndexArgs']]]] indices: One or more `index` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys.
@@ -518,7 +522,7 @@ class MongoCollection(pulumi.CustomResource):
         :param pulumi.Input[int] analytical_storage_ttl: The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
-               * # `index` - (Optional) One or more `index` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoCollectionIndexArgs']]]] indices: One or more `index` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys.
@@ -572,13 +576,15 @@ class MongoCollection(pulumi.CustomResource):
     def default_ttl_seconds(self) -> pulumi.Output[Optional[int]]:
         """
         The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
-        * # `index` - (Optional) One or more `index` blocks as defined below.
         """
         return pulumi.get(self, "default_ttl_seconds")
 
     @property
     @pulumi.getter
     def indices(self) -> pulumi.Output[Optional[Sequence['outputs.MongoCollectionIndex']]]:
+        """
+        One or more `index` blocks as defined below.
+        """
         return pulumi.get(self, "indices")
 
     @property

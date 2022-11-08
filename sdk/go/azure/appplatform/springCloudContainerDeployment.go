@@ -97,7 +97,7 @@ type SpringCloudContainerDeployment struct {
 	Commands pulumi.StringArrayOutput `pulumi:"commands"`
 	// Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
 	EnvironmentVariables pulumi.StringMapOutput `pulumi:"environmentVariables"`
-	// Container image of the custom container. This should be in the form of <repository>:<tag> without the server name of the registry.
+	// Container image of the custom container. This should be in the form of `<repository>:<tag>` without the server name of the registry.
 	Image pulumi.StringOutput `pulumi:"image"`
 	// Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
 	InstanceCount pulumi.IntPtrOutput `pulumi:"instanceCount"`
@@ -159,7 +159,7 @@ type springCloudContainerDeploymentState struct {
 	Commands []string `pulumi:"commands"`
 	// Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
-	// Container image of the custom container. This should be in the form of <repository>:<tag> without the server name of the registry.
+	// Container image of the custom container. This should be in the form of `<repository>:<tag>` without the server name of the registry.
 	Image *string `pulumi:"image"`
 	// Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
 	InstanceCount *int `pulumi:"instanceCount"`
@@ -184,7 +184,7 @@ type SpringCloudContainerDeploymentState struct {
 	Commands pulumi.StringArrayInput
 	// Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
 	EnvironmentVariables pulumi.StringMapInput
-	// Container image of the custom container. This should be in the form of <repository>:<tag> without the server name of the registry.
+	// Container image of the custom container. This should be in the form of `<repository>:<tag>` without the server name of the registry.
 	Image pulumi.StringPtrInput
 	// Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
 	InstanceCount pulumi.IntPtrInput
@@ -213,7 +213,7 @@ type springCloudContainerDeploymentArgs struct {
 	Commands []string `pulumi:"commands"`
 	// Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
-	// Container image of the custom container. This should be in the form of <repository>:<tag> without the server name of the registry.
+	// Container image of the custom container. This should be in the form of `<repository>:<tag>` without the server name of the registry.
 	Image string `pulumi:"image"`
 	// Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
 	InstanceCount *int `pulumi:"instanceCount"`
@@ -239,7 +239,7 @@ type SpringCloudContainerDeploymentArgs struct {
 	Commands pulumi.StringArrayInput
 	// Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
 	EnvironmentVariables pulumi.StringMapInput
-	// Container image of the custom container. This should be in the form of <repository>:<tag> without the server name of the registry.
+	// Container image of the custom container. This should be in the form of `<repository>:<tag>` without the server name of the registry.
 	Image pulumi.StringInput
 	// Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
 	InstanceCount pulumi.IntPtrInput
@@ -362,7 +362,7 @@ func (o SpringCloudContainerDeploymentOutput) EnvironmentVariables() pulumi.Stri
 	return o.ApplyT(func(v *SpringCloudContainerDeployment) pulumi.StringMapOutput { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
 }
 
-// Container image of the custom container. This should be in the form of <repository>:<tag> without the server name of the registry.
+// Container image of the custom container. This should be in the form of `<repository>:<tag>` without the server name of the registry.
 func (o SpringCloudContainerDeploymentOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpringCloudContainerDeployment) pulumi.StringOutput { return v.Image }).(pulumi.StringOutput)
 }

@@ -43,13 +43,6 @@ import * as utilities from "../utilities";
  *     targetResourceId: exampleKeyVault.id,
  * });
  * ```
- * ## Attributes Reference:
- *
- * The following attributes are exported:
- *
- * * `id` - The ID of the Signalr Shared Private Link resource.
- *
- * * `status` - The status of a private endpoint connection. Possible values are `Pending`, `Approved`, `Rejected` or `Disconnected`.
  *
  * ## Import
  *
@@ -99,6 +92,9 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
      * The id of the Signalr Service. Changing this forces a new resource to be created.
      */
     public readonly signalrServiceId!: pulumi.Output<string>;
+    /**
+     * The status of a private endpoint connection. Possible values are `Pending`, `Approved`, `Rejected` or `Disconnected`.
+     */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * The sub resource name which the Signalr Private Endpoint can connect to. Possible values are `sites`, `vault`. Changing this forces a new resource to be created.
@@ -167,6 +163,9 @@ export interface SharedPrivateLinkResourceState {
      * The id of the Signalr Service. Changing this forces a new resource to be created.
      */
     signalrServiceId?: pulumi.Input<string>;
+    /**
+     * The status of a private endpoint connection. Possible values are `Pending`, `Approved`, `Rejected` or `Disconnected`.
+     */
     status?: pulumi.Input<string>;
     /**
      * The sub resource name which the Signalr Private Endpoint can connect to. Possible values are `sites`, `vault`. Changing this forces a new resource to be created.

@@ -21,9 +21,9 @@ type HubEventHandler struct {
 	// comes in. Example: `http://example.com/api/{hub}/{event}`.
 	UrlTemplate string `pulumi:"urlTemplate"`
 	// Specify the matching event names. There are 3 kind of patterns supported:
-	// - `*` matches any event name
-	// - `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2`
-	// - The single event name, for example `event1`, it matches `event1`.
+	// * `*` matches any event name
+	// * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2`
+	// * The single event name, for example `event1`, it matches `event1`.
 	UserEventPattern *string `pulumi:"userEventPattern"`
 }
 
@@ -49,9 +49,9 @@ type HubEventHandlerArgs struct {
 	// comes in. Example: `http://example.com/api/{hub}/{event}`.
 	UrlTemplate pulumi.StringInput `pulumi:"urlTemplate"`
 	// Specify the matching event names. There are 3 kind of patterns supported:
-	// - `*` matches any event name
-	// - `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2`
-	// - The single event name, for example `event1`, it matches `event1`.
+	// * `*` matches any event name
+	// * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2`
+	// * The single event name, for example `event1`, it matches `event1`.
 	UserEventPattern pulumi.StringPtrInput `pulumi:"userEventPattern"`
 }
 
@@ -125,9 +125,9 @@ func (o HubEventHandlerOutput) UrlTemplate() pulumi.StringOutput {
 }
 
 // Specify the matching event names. There are 3 kind of patterns supported:
-// - `*` matches any event name
-// - `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2`
-// - The single event name, for example `event1`, it matches `event1`.
+// * `*` matches any event name
+// * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2`
+// * The single event name, for example `event1`, it matches `event1`.
 func (o HubEventHandlerOutput) UserEventPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HubEventHandler) *string { return v.UserEventPattern }).(pulumi.StringPtrOutput)
 }

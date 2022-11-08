@@ -14,7 +14,6 @@ namespace Pulumi.Azure.Batch.Inputs
     {
         /// <summary>
         /// Specifies the ID of the Custom Image which the virtual machines should be created from. Changing this forces a new resource to be created. See [official documentation](https://docs.microsoft.com/azure/batch/batch-custom-images) for more details.
-        /// ---
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

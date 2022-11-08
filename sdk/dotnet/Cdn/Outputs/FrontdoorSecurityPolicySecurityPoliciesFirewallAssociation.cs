@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation
     {
         /// <summary>
-        /// One or more `domain` blocks as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+        /// One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
         /// </summary>
         public readonly ImmutableArray<Outputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain> Domains;
         /// <summary>
-        /// The list of paths to match for this firewall policy. Possilbe value includes `/*`. Changing this forces a new Frontdoor Security Policy to be created.
+        /// The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
         /// </summary>
         public readonly string PatternsToMatch;
 

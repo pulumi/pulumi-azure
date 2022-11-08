@@ -226,28 +226,28 @@ public class StreamInputEventHub extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sharedAccessPolicyKey", type=String.class, parameters={})
-    private Output<String> sharedAccessPolicyKey;
+    private Output</* @Nullable */ String> sharedAccessPolicyKey;
 
     /**
      * @return The shared access policy key for the specified shared access policy.
      * 
      */
-    public Output<String> sharedAccessPolicyKey() {
-        return this.sharedAccessPolicyKey;
+    public Output<Optional<String>> sharedAccessPolicyKey() {
+        return Codegen.optional(this.sharedAccessPolicyKey);
     }
     /**
      * The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
      * 
      */
     @Export(name="sharedAccessPolicyName", type=String.class, parameters={})
-    private Output<String> sharedAccessPolicyName;
+    private Output</* @Nullable */ String> sharedAccessPolicyName;
 
     /**
      * @return The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
      * 
      */
-    public Output<String> sharedAccessPolicyName() {
-        return this.sharedAccessPolicyName;
+    public Output<Optional<String>> sharedAccessPolicyName() {
+        return Codegen.optional(this.sharedAccessPolicyName);
     }
     /**
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.

@@ -57,14 +57,14 @@ public class CustomHttpsConfiguration extends com.pulumi.resources.CustomResourc
         return this.customHttpsProvisioningEnabled;
     }
     /**
-     * The ID of the FrontDoor Frontend Endpoint which this configuration refers to.
+     * The ID of the Front Door Frontend Endpoint which this configuration refers to.
      * 
      */
     @Export(name="frontendEndpointId", type=String.class, parameters={})
     private Output<String> frontendEndpointId;
 
     /**
-     * @return The ID of the FrontDoor Frontend Endpoint which this configuration refers to.
+     * @return The ID of the Front Door Frontend Endpoint which this configuration refers to.
      * 
      */
     public Output<String> frontendEndpointId() {

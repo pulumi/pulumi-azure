@@ -36,6 +36,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  * ### With Storage Account Behind VNet And Firewall
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -181,7 +182,7 @@ export class ServerExtendedAuditingPolicy extends pulumi.CustomResource {
      */
     public readonly storageAccountSubscriptionId!: pulumi.Output<string | undefined>;
     /**
-     * The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+     * The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
      */
     public readonly storageEndpoint!: pulumi.Output<string | undefined>;
 
@@ -258,7 +259,7 @@ export interface ServerExtendedAuditingPolicyState {
      */
     storageAccountSubscriptionId?: pulumi.Input<string>;
     /**
-     * The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+     * The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
      */
     storageEndpoint?: pulumi.Input<string>;
 }
@@ -296,7 +297,7 @@ export interface ServerExtendedAuditingPolicyArgs {
      */
     storageAccountSubscriptionId?: pulumi.Input<string>;
     /**
-     * The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+     * The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
      */
     storageEndpoint?: pulumi.Input<string>;
 }

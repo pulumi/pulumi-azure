@@ -114,7 +114,9 @@ type KafkaCluster struct {
 	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
 	ClusterVersion pulumi.StringOutput `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
-	ComponentVersion KafkaClusterComponentVersionOutput    `pulumi:"componentVersion"`
+	ComponentVersion KafkaClusterComponentVersionOutput `pulumi:"componentVersion"`
+	// A `computeIsolation` block as defined below.
+	ComputeIsolation KafkaClusterComputeIsolationPtrOutput `pulumi:"computeIsolation"`
 	DiskEncryptions  KafkaClusterDiskEncryptionArrayOutput `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolPtrOutput `pulumi:"encryptionInTransitEnabled"`
@@ -209,6 +211,8 @@ type kafkaClusterState struct {
 	ClusterVersion *string `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
 	ComponentVersion *KafkaClusterComponentVersion `pulumi:"componentVersion"`
+	// A `computeIsolation` block as defined below.
+	ComputeIsolation *KafkaClusterComputeIsolation `pulumi:"computeIsolation"`
 	DiskEncryptions  []KafkaClusterDiskEncryption  `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled *bool `pulumi:"encryptionInTransitEnabled"`
@@ -257,6 +261,8 @@ type KafkaClusterState struct {
 	ClusterVersion pulumi.StringPtrInput
 	// A `componentVersion` block as defined below.
 	ComponentVersion KafkaClusterComponentVersionPtrInput
+	// A `computeIsolation` block as defined below.
+	ComputeIsolation KafkaClusterComputeIsolationPtrInput
 	DiskEncryptions  KafkaClusterDiskEncryptionArrayInput
 	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolPtrInput
@@ -309,7 +315,9 @@ type kafkaClusterArgs struct {
 	ClusterVersion string `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
 	ComponentVersion KafkaClusterComponentVersion `pulumi:"componentVersion"`
-	DiskEncryptions  []KafkaClusterDiskEncryption `pulumi:"diskEncryptions"`
+	// A `computeIsolation` block as defined below.
+	ComputeIsolation *KafkaClusterComputeIsolation `pulumi:"computeIsolation"`
+	DiskEncryptions  []KafkaClusterDiskEncryption  `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled *bool `pulumi:"encryptionInTransitEnabled"`
 	// An `extension` block as defined below.
@@ -352,6 +360,8 @@ type KafkaClusterArgs struct {
 	ClusterVersion pulumi.StringInput
 	// A `componentVersion` block as defined below.
 	ComponentVersion KafkaClusterComponentVersionInput
+	// A `computeIsolation` block as defined below.
+	ComputeIsolation KafkaClusterComputeIsolationPtrInput
 	DiskEncryptions  KafkaClusterDiskEncryptionArrayInput
 	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolPtrInput
@@ -484,6 +494,11 @@ func (o KafkaClusterOutput) ClusterVersion() pulumi.StringOutput {
 // A `componentVersion` block as defined below.
 func (o KafkaClusterOutput) ComponentVersion() KafkaClusterComponentVersionOutput {
 	return o.ApplyT(func(v *KafkaCluster) KafkaClusterComponentVersionOutput { return v.ComponentVersion }).(KafkaClusterComponentVersionOutput)
+}
+
+// A `computeIsolation` block as defined below.
+func (o KafkaClusterOutput) ComputeIsolation() KafkaClusterComputeIsolationPtrOutput {
+	return o.ApplyT(func(v *KafkaCluster) KafkaClusterComputeIsolationPtrOutput { return v.ComputeIsolation }).(KafkaClusterComputeIsolationPtrOutput)
 }
 
 func (o KafkaClusterOutput) DiskEncryptions() KafkaClusterDiskEncryptionArrayOutput {

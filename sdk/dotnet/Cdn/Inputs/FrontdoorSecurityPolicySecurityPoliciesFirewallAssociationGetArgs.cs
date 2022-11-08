@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainGetArgs>? _domains;
 
         /// <summary>
-        /// One or more `domain` blocks as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+        /// One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
         /// </summary>
         public InputList<Inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainGetArgs> Domains
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         }
 
         /// <summary>
-        /// The list of paths to match for this firewall policy. Possilbe value includes `/*`. Changing this forces a new Frontdoor Security Policy to be created.
+        /// The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
         /// </summary>
         [Input("patternsToMatch", required: true)]
         public Input<string> PatternsToMatch { get; set; } = null!;

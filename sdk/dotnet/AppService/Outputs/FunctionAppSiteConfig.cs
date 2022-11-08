@@ -51,7 +51,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.FunctionAppSiteConfigIpRestriction> IpRestrictions;
         /// <summary>
-        /// Java version hosted by the function app in Azure. Possible values are `1.8`, `11`.
+        /// Java version hosted by the function app in Azure. Possible values are `1.8`, `11` &amp; `17` (In-Preview).
         /// </summary>
         public readonly string? JavaVersion;
         /// <summary>

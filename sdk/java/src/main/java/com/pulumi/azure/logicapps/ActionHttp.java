@@ -147,6 +147,20 @@ public class ActionHttp extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
+     * 
+     */
+    @Export(name="queries", type=Map.class, parameters={String.class, String.class})
+    private Output</* @Nullable */ Map<String,String>> queries;
+
+    /**
+     * @return Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
+     * 
+     */
+    public Output<Optional<Map<String,String>>> queries() {
+        return Codegen.optional(this.queries);
+    }
+    /**
      * Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
      * 
      */

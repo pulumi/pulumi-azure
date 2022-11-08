@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.hdinsight.HadoopClusterArgs;
 import com.pulumi.azure.hdinsight.inputs.HadoopClusterState;
 import com.pulumi.azure.hdinsight.outputs.HadoopClusterComponentVersion;
+import com.pulumi.azure.hdinsight.outputs.HadoopClusterComputeIsolation;
 import com.pulumi.azure.hdinsight.outputs.HadoopClusterDiskEncryption;
 import com.pulumi.azure.hdinsight.outputs.HadoopClusterExtension;
 import com.pulumi.azure.hdinsight.outputs.HadoopClusterGateway;
@@ -160,6 +161,20 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<HadoopClusterComponentVersion> componentVersion() {
         return this.componentVersion;
+    }
+    /**
+     * A `compute_isolation` block as defined below.
+     * 
+     */
+    @Export(name="computeIsolation", type=HadoopClusterComputeIsolation.class, parameters={})
+    private Output</* @Nullable */ HadoopClusterComputeIsolation> computeIsolation;
+
+    /**
+     * @return A `compute_isolation` block as defined below.
+     * 
+     */
+    public Output<Optional<HadoopClusterComputeIsolation>> computeIsolation() {
+        return Codegen.optional(this.computeIsolation);
     }
     @Export(name="diskEncryptions", type=List.class, parameters={HadoopClusterDiskEncryption.class})
     private Output</* @Nullable */ List<HadoopClusterDiskEncryption>> diskEncryptions;

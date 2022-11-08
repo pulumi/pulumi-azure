@@ -100,6 +100,7 @@ import * as utilities from "../utilities";
  *     version: "~3",
  * });
  * ```
+ *
  * > **Note:** Version `~3` or `~4` is required for Linux Function Apps.
  *
  * ## Import

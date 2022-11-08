@@ -455,6 +455,457 @@ func (o MonitorIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type MonitorTagRuleLog struct {
+	// Whether AAD logs should be sent for the Monitor resource?
+	AadLogEnabled *bool `pulumi:"aadLogEnabled"`
+	// A `filter` block as defined below.
+	Filters []MonitorTagRuleLogFilter `pulumi:"filters"`
+	// Whether Azure resource logs should be sent for the Monitor resource?
+	ResourceLogEnabled *bool `pulumi:"resourceLogEnabled"`
+	// Whether Azure subscription logs should be sent for the Monitor resource?
+	SubscriptionLogEnabled *bool `pulumi:"subscriptionLogEnabled"`
+}
+
+// MonitorTagRuleLogInput is an input type that accepts MonitorTagRuleLogArgs and MonitorTagRuleLogOutput values.
+// You can construct a concrete instance of `MonitorTagRuleLogInput` via:
+//
+//	MonitorTagRuleLogArgs{...}
+type MonitorTagRuleLogInput interface {
+	pulumi.Input
+
+	ToMonitorTagRuleLogOutput() MonitorTagRuleLogOutput
+	ToMonitorTagRuleLogOutputWithContext(context.Context) MonitorTagRuleLogOutput
+}
+
+type MonitorTagRuleLogArgs struct {
+	// Whether AAD logs should be sent for the Monitor resource?
+	AadLogEnabled pulumi.BoolPtrInput `pulumi:"aadLogEnabled"`
+	// A `filter` block as defined below.
+	Filters MonitorTagRuleLogFilterArrayInput `pulumi:"filters"`
+	// Whether Azure resource logs should be sent for the Monitor resource?
+	ResourceLogEnabled pulumi.BoolPtrInput `pulumi:"resourceLogEnabled"`
+	// Whether Azure subscription logs should be sent for the Monitor resource?
+	SubscriptionLogEnabled pulumi.BoolPtrInput `pulumi:"subscriptionLogEnabled"`
+}
+
+func (MonitorTagRuleLogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorTagRuleLog)(nil)).Elem()
+}
+
+func (i MonitorTagRuleLogArgs) ToMonitorTagRuleLogOutput() MonitorTagRuleLogOutput {
+	return i.ToMonitorTagRuleLogOutputWithContext(context.Background())
+}
+
+func (i MonitorTagRuleLogArgs) ToMonitorTagRuleLogOutputWithContext(ctx context.Context) MonitorTagRuleLogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorTagRuleLogOutput)
+}
+
+// MonitorTagRuleLogArrayInput is an input type that accepts MonitorTagRuleLogArray and MonitorTagRuleLogArrayOutput values.
+// You can construct a concrete instance of `MonitorTagRuleLogArrayInput` via:
+//
+//	MonitorTagRuleLogArray{ MonitorTagRuleLogArgs{...} }
+type MonitorTagRuleLogArrayInput interface {
+	pulumi.Input
+
+	ToMonitorTagRuleLogArrayOutput() MonitorTagRuleLogArrayOutput
+	ToMonitorTagRuleLogArrayOutputWithContext(context.Context) MonitorTagRuleLogArrayOutput
+}
+
+type MonitorTagRuleLogArray []MonitorTagRuleLogInput
+
+func (MonitorTagRuleLogArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonitorTagRuleLog)(nil)).Elem()
+}
+
+func (i MonitorTagRuleLogArray) ToMonitorTagRuleLogArrayOutput() MonitorTagRuleLogArrayOutput {
+	return i.ToMonitorTagRuleLogArrayOutputWithContext(context.Background())
+}
+
+func (i MonitorTagRuleLogArray) ToMonitorTagRuleLogArrayOutputWithContext(ctx context.Context) MonitorTagRuleLogArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorTagRuleLogArrayOutput)
+}
+
+type MonitorTagRuleLogOutput struct{ *pulumi.OutputState }
+
+func (MonitorTagRuleLogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorTagRuleLog)(nil)).Elem()
+}
+
+func (o MonitorTagRuleLogOutput) ToMonitorTagRuleLogOutput() MonitorTagRuleLogOutput {
+	return o
+}
+
+func (o MonitorTagRuleLogOutput) ToMonitorTagRuleLogOutputWithContext(ctx context.Context) MonitorTagRuleLogOutput {
+	return o
+}
+
+// Whether AAD logs should be sent for the Monitor resource?
+func (o MonitorTagRuleLogOutput) AadLogEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MonitorTagRuleLog) *bool { return v.AadLogEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// A `filter` block as defined below.
+func (o MonitorTagRuleLogOutput) Filters() MonitorTagRuleLogFilterArrayOutput {
+	return o.ApplyT(func(v MonitorTagRuleLog) []MonitorTagRuleLogFilter { return v.Filters }).(MonitorTagRuleLogFilterArrayOutput)
+}
+
+// Whether Azure resource logs should be sent for the Monitor resource?
+func (o MonitorTagRuleLogOutput) ResourceLogEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MonitorTagRuleLog) *bool { return v.ResourceLogEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether Azure subscription logs should be sent for the Monitor resource?
+func (o MonitorTagRuleLogOutput) SubscriptionLogEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MonitorTagRuleLog) *bool { return v.SubscriptionLogEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type MonitorTagRuleLogArrayOutput struct{ *pulumi.OutputState }
+
+func (MonitorTagRuleLogArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonitorTagRuleLog)(nil)).Elem()
+}
+
+func (o MonitorTagRuleLogArrayOutput) ToMonitorTagRuleLogArrayOutput() MonitorTagRuleLogArrayOutput {
+	return o
+}
+
+func (o MonitorTagRuleLogArrayOutput) ToMonitorTagRuleLogArrayOutputWithContext(ctx context.Context) MonitorTagRuleLogArrayOutput {
+	return o
+}
+
+func (o MonitorTagRuleLogArrayOutput) Index(i pulumi.IntInput) MonitorTagRuleLogOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MonitorTagRuleLog {
+		return vs[0].([]MonitorTagRuleLog)[vs[1].(int)]
+	}).(MonitorTagRuleLogOutput)
+}
+
+type MonitorTagRuleLogFilter struct {
+	// Allowed values Include or Exclude.
+	Action string `pulumi:"action"`
+	// Name of the Tag.
+	Name string `pulumi:"name"`
+	// Value of the Tag.
+	Value string `pulumi:"value"`
+}
+
+// MonitorTagRuleLogFilterInput is an input type that accepts MonitorTagRuleLogFilterArgs and MonitorTagRuleLogFilterOutput values.
+// You can construct a concrete instance of `MonitorTagRuleLogFilterInput` via:
+//
+//	MonitorTagRuleLogFilterArgs{...}
+type MonitorTagRuleLogFilterInput interface {
+	pulumi.Input
+
+	ToMonitorTagRuleLogFilterOutput() MonitorTagRuleLogFilterOutput
+	ToMonitorTagRuleLogFilterOutputWithContext(context.Context) MonitorTagRuleLogFilterOutput
+}
+
+type MonitorTagRuleLogFilterArgs struct {
+	// Allowed values Include or Exclude.
+	Action pulumi.StringInput `pulumi:"action"`
+	// Name of the Tag.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Value of the Tag.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (MonitorTagRuleLogFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorTagRuleLogFilter)(nil)).Elem()
+}
+
+func (i MonitorTagRuleLogFilterArgs) ToMonitorTagRuleLogFilterOutput() MonitorTagRuleLogFilterOutput {
+	return i.ToMonitorTagRuleLogFilterOutputWithContext(context.Background())
+}
+
+func (i MonitorTagRuleLogFilterArgs) ToMonitorTagRuleLogFilterOutputWithContext(ctx context.Context) MonitorTagRuleLogFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorTagRuleLogFilterOutput)
+}
+
+// MonitorTagRuleLogFilterArrayInput is an input type that accepts MonitorTagRuleLogFilterArray and MonitorTagRuleLogFilterArrayOutput values.
+// You can construct a concrete instance of `MonitorTagRuleLogFilterArrayInput` via:
+//
+//	MonitorTagRuleLogFilterArray{ MonitorTagRuleLogFilterArgs{...} }
+type MonitorTagRuleLogFilterArrayInput interface {
+	pulumi.Input
+
+	ToMonitorTagRuleLogFilterArrayOutput() MonitorTagRuleLogFilterArrayOutput
+	ToMonitorTagRuleLogFilterArrayOutputWithContext(context.Context) MonitorTagRuleLogFilterArrayOutput
+}
+
+type MonitorTagRuleLogFilterArray []MonitorTagRuleLogFilterInput
+
+func (MonitorTagRuleLogFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonitorTagRuleLogFilter)(nil)).Elem()
+}
+
+func (i MonitorTagRuleLogFilterArray) ToMonitorTagRuleLogFilterArrayOutput() MonitorTagRuleLogFilterArrayOutput {
+	return i.ToMonitorTagRuleLogFilterArrayOutputWithContext(context.Background())
+}
+
+func (i MonitorTagRuleLogFilterArray) ToMonitorTagRuleLogFilterArrayOutputWithContext(ctx context.Context) MonitorTagRuleLogFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorTagRuleLogFilterArrayOutput)
+}
+
+type MonitorTagRuleLogFilterOutput struct{ *pulumi.OutputState }
+
+func (MonitorTagRuleLogFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorTagRuleLogFilter)(nil)).Elem()
+}
+
+func (o MonitorTagRuleLogFilterOutput) ToMonitorTagRuleLogFilterOutput() MonitorTagRuleLogFilterOutput {
+	return o
+}
+
+func (o MonitorTagRuleLogFilterOutput) ToMonitorTagRuleLogFilterOutputWithContext(ctx context.Context) MonitorTagRuleLogFilterOutput {
+	return o
+}
+
+// Allowed values Include or Exclude.
+func (o MonitorTagRuleLogFilterOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitorTagRuleLogFilter) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// Name of the Tag.
+func (o MonitorTagRuleLogFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitorTagRuleLogFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Value of the Tag.
+func (o MonitorTagRuleLogFilterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitorTagRuleLogFilter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type MonitorTagRuleLogFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (MonitorTagRuleLogFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonitorTagRuleLogFilter)(nil)).Elem()
+}
+
+func (o MonitorTagRuleLogFilterArrayOutput) ToMonitorTagRuleLogFilterArrayOutput() MonitorTagRuleLogFilterArrayOutput {
+	return o
+}
+
+func (o MonitorTagRuleLogFilterArrayOutput) ToMonitorTagRuleLogFilterArrayOutputWithContext(ctx context.Context) MonitorTagRuleLogFilterArrayOutput {
+	return o
+}
+
+func (o MonitorTagRuleLogFilterArrayOutput) Index(i pulumi.IntInput) MonitorTagRuleLogFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MonitorTagRuleLogFilter {
+		return vs[0].([]MonitorTagRuleLogFilter)[vs[1].(int)]
+	}).(MonitorTagRuleLogFilterOutput)
+}
+
+type MonitorTagRuleMetric struct {
+	// A `filter` block as defined below.
+	Filters []MonitorTagRuleMetricFilter `pulumi:"filters"`
+}
+
+// MonitorTagRuleMetricInput is an input type that accepts MonitorTagRuleMetricArgs and MonitorTagRuleMetricOutput values.
+// You can construct a concrete instance of `MonitorTagRuleMetricInput` via:
+//
+//	MonitorTagRuleMetricArgs{...}
+type MonitorTagRuleMetricInput interface {
+	pulumi.Input
+
+	ToMonitorTagRuleMetricOutput() MonitorTagRuleMetricOutput
+	ToMonitorTagRuleMetricOutputWithContext(context.Context) MonitorTagRuleMetricOutput
+}
+
+type MonitorTagRuleMetricArgs struct {
+	// A `filter` block as defined below.
+	Filters MonitorTagRuleMetricFilterArrayInput `pulumi:"filters"`
+}
+
+func (MonitorTagRuleMetricArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorTagRuleMetric)(nil)).Elem()
+}
+
+func (i MonitorTagRuleMetricArgs) ToMonitorTagRuleMetricOutput() MonitorTagRuleMetricOutput {
+	return i.ToMonitorTagRuleMetricOutputWithContext(context.Background())
+}
+
+func (i MonitorTagRuleMetricArgs) ToMonitorTagRuleMetricOutputWithContext(ctx context.Context) MonitorTagRuleMetricOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorTagRuleMetricOutput)
+}
+
+// MonitorTagRuleMetricArrayInput is an input type that accepts MonitorTagRuleMetricArray and MonitorTagRuleMetricArrayOutput values.
+// You can construct a concrete instance of `MonitorTagRuleMetricArrayInput` via:
+//
+//	MonitorTagRuleMetricArray{ MonitorTagRuleMetricArgs{...} }
+type MonitorTagRuleMetricArrayInput interface {
+	pulumi.Input
+
+	ToMonitorTagRuleMetricArrayOutput() MonitorTagRuleMetricArrayOutput
+	ToMonitorTagRuleMetricArrayOutputWithContext(context.Context) MonitorTagRuleMetricArrayOutput
+}
+
+type MonitorTagRuleMetricArray []MonitorTagRuleMetricInput
+
+func (MonitorTagRuleMetricArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonitorTagRuleMetric)(nil)).Elem()
+}
+
+func (i MonitorTagRuleMetricArray) ToMonitorTagRuleMetricArrayOutput() MonitorTagRuleMetricArrayOutput {
+	return i.ToMonitorTagRuleMetricArrayOutputWithContext(context.Background())
+}
+
+func (i MonitorTagRuleMetricArray) ToMonitorTagRuleMetricArrayOutputWithContext(ctx context.Context) MonitorTagRuleMetricArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorTagRuleMetricArrayOutput)
+}
+
+type MonitorTagRuleMetricOutput struct{ *pulumi.OutputState }
+
+func (MonitorTagRuleMetricOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorTagRuleMetric)(nil)).Elem()
+}
+
+func (o MonitorTagRuleMetricOutput) ToMonitorTagRuleMetricOutput() MonitorTagRuleMetricOutput {
+	return o
+}
+
+func (o MonitorTagRuleMetricOutput) ToMonitorTagRuleMetricOutputWithContext(ctx context.Context) MonitorTagRuleMetricOutput {
+	return o
+}
+
+// A `filter` block as defined below.
+func (o MonitorTagRuleMetricOutput) Filters() MonitorTagRuleMetricFilterArrayOutput {
+	return o.ApplyT(func(v MonitorTagRuleMetric) []MonitorTagRuleMetricFilter { return v.Filters }).(MonitorTagRuleMetricFilterArrayOutput)
+}
+
+type MonitorTagRuleMetricArrayOutput struct{ *pulumi.OutputState }
+
+func (MonitorTagRuleMetricArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonitorTagRuleMetric)(nil)).Elem()
+}
+
+func (o MonitorTagRuleMetricArrayOutput) ToMonitorTagRuleMetricArrayOutput() MonitorTagRuleMetricArrayOutput {
+	return o
+}
+
+func (o MonitorTagRuleMetricArrayOutput) ToMonitorTagRuleMetricArrayOutputWithContext(ctx context.Context) MonitorTagRuleMetricArrayOutput {
+	return o
+}
+
+func (o MonitorTagRuleMetricArrayOutput) Index(i pulumi.IntInput) MonitorTagRuleMetricOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MonitorTagRuleMetric {
+		return vs[0].([]MonitorTagRuleMetric)[vs[1].(int)]
+	}).(MonitorTagRuleMetricOutput)
+}
+
+type MonitorTagRuleMetricFilter struct {
+	// Allowed values Include or Exclude.
+	Action string `pulumi:"action"`
+	// Name of the Tag.
+	Name string `pulumi:"name"`
+	// Value of the Tag.
+	Value string `pulumi:"value"`
+}
+
+// MonitorTagRuleMetricFilterInput is an input type that accepts MonitorTagRuleMetricFilterArgs and MonitorTagRuleMetricFilterOutput values.
+// You can construct a concrete instance of `MonitorTagRuleMetricFilterInput` via:
+//
+//	MonitorTagRuleMetricFilterArgs{...}
+type MonitorTagRuleMetricFilterInput interface {
+	pulumi.Input
+
+	ToMonitorTagRuleMetricFilterOutput() MonitorTagRuleMetricFilterOutput
+	ToMonitorTagRuleMetricFilterOutputWithContext(context.Context) MonitorTagRuleMetricFilterOutput
+}
+
+type MonitorTagRuleMetricFilterArgs struct {
+	// Allowed values Include or Exclude.
+	Action pulumi.StringInput `pulumi:"action"`
+	// Name of the Tag.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Value of the Tag.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (MonitorTagRuleMetricFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorTagRuleMetricFilter)(nil)).Elem()
+}
+
+func (i MonitorTagRuleMetricFilterArgs) ToMonitorTagRuleMetricFilterOutput() MonitorTagRuleMetricFilterOutput {
+	return i.ToMonitorTagRuleMetricFilterOutputWithContext(context.Background())
+}
+
+func (i MonitorTagRuleMetricFilterArgs) ToMonitorTagRuleMetricFilterOutputWithContext(ctx context.Context) MonitorTagRuleMetricFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorTagRuleMetricFilterOutput)
+}
+
+// MonitorTagRuleMetricFilterArrayInput is an input type that accepts MonitorTagRuleMetricFilterArray and MonitorTagRuleMetricFilterArrayOutput values.
+// You can construct a concrete instance of `MonitorTagRuleMetricFilterArrayInput` via:
+//
+//	MonitorTagRuleMetricFilterArray{ MonitorTagRuleMetricFilterArgs{...} }
+type MonitorTagRuleMetricFilterArrayInput interface {
+	pulumi.Input
+
+	ToMonitorTagRuleMetricFilterArrayOutput() MonitorTagRuleMetricFilterArrayOutput
+	ToMonitorTagRuleMetricFilterArrayOutputWithContext(context.Context) MonitorTagRuleMetricFilterArrayOutput
+}
+
+type MonitorTagRuleMetricFilterArray []MonitorTagRuleMetricFilterInput
+
+func (MonitorTagRuleMetricFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonitorTagRuleMetricFilter)(nil)).Elem()
+}
+
+func (i MonitorTagRuleMetricFilterArray) ToMonitorTagRuleMetricFilterArrayOutput() MonitorTagRuleMetricFilterArrayOutput {
+	return i.ToMonitorTagRuleMetricFilterArrayOutputWithContext(context.Background())
+}
+
+func (i MonitorTagRuleMetricFilterArray) ToMonitorTagRuleMetricFilterArrayOutputWithContext(ctx context.Context) MonitorTagRuleMetricFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorTagRuleMetricFilterArrayOutput)
+}
+
+type MonitorTagRuleMetricFilterOutput struct{ *pulumi.OutputState }
+
+func (MonitorTagRuleMetricFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorTagRuleMetricFilter)(nil)).Elem()
+}
+
+func (o MonitorTagRuleMetricFilterOutput) ToMonitorTagRuleMetricFilterOutput() MonitorTagRuleMetricFilterOutput {
+	return o
+}
+
+func (o MonitorTagRuleMetricFilterOutput) ToMonitorTagRuleMetricFilterOutputWithContext(ctx context.Context) MonitorTagRuleMetricFilterOutput {
+	return o
+}
+
+// Allowed values Include or Exclude.
+func (o MonitorTagRuleMetricFilterOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitorTagRuleMetricFilter) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// Name of the Tag.
+func (o MonitorTagRuleMetricFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitorTagRuleMetricFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Value of the Tag.
+func (o MonitorTagRuleMetricFilterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitorTagRuleMetricFilter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type MonitorTagRuleMetricFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (MonitorTagRuleMetricFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonitorTagRuleMetricFilter)(nil)).Elem()
+}
+
+func (o MonitorTagRuleMetricFilterArrayOutput) ToMonitorTagRuleMetricFilterArrayOutput() MonitorTagRuleMetricFilterArrayOutput {
+	return o
+}
+
+func (o MonitorTagRuleMetricFilterArrayOutput) ToMonitorTagRuleMetricFilterArrayOutputWithContext(ctx context.Context) MonitorTagRuleMetricFilterArrayOutput {
+	return o
+}
+
+func (o MonitorTagRuleMetricFilterArrayOutput) Index(i pulumi.IntInput) MonitorTagRuleMetricFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MonitorTagRuleMetricFilter {
+		return vs[0].([]MonitorTagRuleMetricFilter)[vs[1].(int)]
+	}).(MonitorTagRuleMetricFilterOutput)
+}
+
 type MonitorUser struct {
 	// Email of the user used by Datadog for contacting them if needed. Changing this forces a new Datadog Monitor to be created.
 	Email string `pulumi:"email"`
@@ -635,12 +1086,28 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorDatadogOrganizationPtrInput)(nil)).Elem(), MonitorDatadogOrganizationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorIdentityInput)(nil)).Elem(), MonitorIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorIdentityPtrInput)(nil)).Elem(), MonitorIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorTagRuleLogInput)(nil)).Elem(), MonitorTagRuleLogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorTagRuleLogArrayInput)(nil)).Elem(), MonitorTagRuleLogArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorTagRuleLogFilterInput)(nil)).Elem(), MonitorTagRuleLogFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorTagRuleLogFilterArrayInput)(nil)).Elem(), MonitorTagRuleLogFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorTagRuleMetricInput)(nil)).Elem(), MonitorTagRuleMetricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorTagRuleMetricArrayInput)(nil)).Elem(), MonitorTagRuleMetricArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorTagRuleMetricFilterInput)(nil)).Elem(), MonitorTagRuleMetricFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorTagRuleMetricFilterArrayInput)(nil)).Elem(), MonitorTagRuleMetricFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorUserInput)(nil)).Elem(), MonitorUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorUserPtrInput)(nil)).Elem(), MonitorUserArgs{})
 	pulumi.RegisterOutputType(MonitorDatadogOrganizationOutput{})
 	pulumi.RegisterOutputType(MonitorDatadogOrganizationPtrOutput{})
 	pulumi.RegisterOutputType(MonitorIdentityOutput{})
 	pulumi.RegisterOutputType(MonitorIdentityPtrOutput{})
+	pulumi.RegisterOutputType(MonitorTagRuleLogOutput{})
+	pulumi.RegisterOutputType(MonitorTagRuleLogArrayOutput{})
+	pulumi.RegisterOutputType(MonitorTagRuleLogFilterOutput{})
+	pulumi.RegisterOutputType(MonitorTagRuleLogFilterArrayOutput{})
+	pulumi.RegisterOutputType(MonitorTagRuleMetricOutput{})
+	pulumi.RegisterOutputType(MonitorTagRuleMetricArrayOutput{})
+	pulumi.RegisterOutputType(MonitorTagRuleMetricFilterOutput{})
+	pulumi.RegisterOutputType(MonitorTagRuleMetricFilterArrayOutput{})
 	pulumi.RegisterOutputType(MonitorUserOutput{})
 	pulumi.RegisterOutputType(MonitorUserPtrOutput{})
 }

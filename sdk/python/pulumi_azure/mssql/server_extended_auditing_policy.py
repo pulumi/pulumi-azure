@@ -31,7 +31,7 @@ class ServerExtendedAuditingPolicyArgs:
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[bool] storage_account_access_key_is_secondary: Is `storage_account_access_key` value the storage's secondary key?
         :param pulumi.Input[str] storage_account_subscription_id: The ID of the Subscription containing the Storage Account.
-        :param pulumi.Input[str] storage_endpoint: The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+        :param pulumi.Input[str] storage_endpoint: The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
         """
         pulumi.set(__self__, "server_id", server_id)
         if enabled is not None:
@@ -137,7 +137,7 @@ class ServerExtendedAuditingPolicyArgs:
     @pulumi.getter(name="storageEndpoint")
     def storage_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+        The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
         """
         return pulumi.get(self, "storage_endpoint")
 
@@ -166,7 +166,7 @@ class _ServerExtendedAuditingPolicyState:
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[bool] storage_account_access_key_is_secondary: Is `storage_account_access_key` value the storage's secondary key?
         :param pulumi.Input[str] storage_account_subscription_id: The ID of the Subscription containing the Storage Account.
-        :param pulumi.Input[str] storage_endpoint: The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+        :param pulumi.Input[str] storage_endpoint: The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -273,7 +273,7 @@ class _ServerExtendedAuditingPolicyState:
     @pulumi.getter(name="storageEndpoint")
     def storage_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+        The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
         """
         return pulumi.get(self, "storage_endpoint")
 
@@ -325,6 +325,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             retention_in_days=6)
         ```
         ### With Storage Account Behind VNet And Firewall
+
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -413,7 +414,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[bool] storage_account_access_key_is_secondary: Is `storage_account_access_key` value the storage's secondary key?
         :param pulumi.Input[str] storage_account_subscription_id: The ID of the Subscription containing the Storage Account.
-        :param pulumi.Input[str] storage_endpoint: The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+        :param pulumi.Input[str] storage_endpoint: The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
         """
         ...
     @overload
@@ -450,6 +451,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             retention_in_days=6)
         ```
         ### With Storage Account Behind VNet And Firewall
+
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -603,7 +605,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[bool] storage_account_access_key_is_secondary: Is `storage_account_access_key` value the storage's secondary key?
         :param pulumi.Input[str] storage_account_subscription_id: The ID of the Subscription containing the Storage Account.
-        :param pulumi.Input[str] storage_endpoint: The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+        :param pulumi.Input[str] storage_endpoint: The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -679,7 +681,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
     @pulumi.getter(name="storageEndpoint")
     def storage_endpoint(self) -> pulumi.Output[Optional[str]]:
         """
-        The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+        The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
         """
         return pulumi.get(self, "storage_endpoint")
 

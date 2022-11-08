@@ -142,9 +142,9 @@ import javax.annotation.Nullable;
  *             .type(&#34;CustomScript&#34;)
  *             .typeHandlerVersion(&#34;2.0&#34;)
  *             .settings(&#34;&#34;&#34;
- * 	{
- * 		&#34;commandToExecute&#34;: &#34;hostname &amp;&amp; uptime&#34;
- * 	}
+ *  {
+ *   &#34;commandToExecute&#34;: &#34;hostname &amp;&amp; uptime&#34;
+ *  }
  *             &#34;&#34;&#34;)
  *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
  *             .build());

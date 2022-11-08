@@ -29,7 +29,7 @@ class LinkedServiceWebArgs:
         The set of arguments for constructing a LinkedServiceWeb resource.
         :param pulumi.Input[str] authentication_type: The type of authentication used to connect to the web table source. Valid options are `Anonymous`, `Basic` and `ClientCertificate`.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        :param pulumi.Input[str] url: The URL of the web service endpoint (e.g. https://www.microsoft.com).
+        :param pulumi.Input[str] url: The URL of the web service endpoint (e.g. <https://www.microsoft.com>).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
@@ -86,7 +86,7 @@ class LinkedServiceWebArgs:
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
         """
-        The URL of the web service endpoint (e.g. https://www.microsoft.com).
+        The URL of the web service endpoint (e.g. <https://www.microsoft.com>).
         """
         return pulumi.get(self, "url")
 
@@ -211,7 +211,7 @@ class _LinkedServiceWebState:
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
                factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
-        :param pulumi.Input[str] url: The URL of the web service endpoint (e.g. https://www.microsoft.com).
+        :param pulumi.Input[str] url: The URL of the web service endpoint (e.g. <https://www.microsoft.com>).
         """
         if additional_properties is not None:
             pulumi.set(__self__, "additional_properties", additional_properties)
@@ -346,7 +346,7 @@ class _LinkedServiceWebState:
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
         """
-        The URL of the web service endpoint (e.g. https://www.microsoft.com).
+        The URL of the web service endpoint (e.g. <https://www.microsoft.com>).
         """
         return pulumi.get(self, "url")
 
@@ -419,7 +419,7 @@ class LinkedServiceWeb(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
                factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
-        :param pulumi.Input[str] url: The URL of the web service endpoint (e.g. https://www.microsoft.com).
+        :param pulumi.Input[str] url: The URL of the web service endpoint (e.g. <https://www.microsoft.com>).
         """
         ...
     @overload
@@ -543,7 +543,7 @@ class LinkedServiceWeb(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
                factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
-        :param pulumi.Input[str] url: The URL of the web service endpoint (e.g. https://www.microsoft.com).
+        :param pulumi.Input[str] url: The URL of the web service endpoint (e.g. <https://www.microsoft.com>).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -636,7 +636,7 @@ class LinkedServiceWeb(pulumi.CustomResource):
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
         """
-        The URL of the web service endpoint (e.g. https://www.microsoft.com).
+        The URL of the web service endpoint (e.g. <https://www.microsoft.com>).
         """
         return pulumi.get(self, "url")
 

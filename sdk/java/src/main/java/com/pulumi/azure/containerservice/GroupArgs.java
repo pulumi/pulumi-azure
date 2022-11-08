@@ -85,6 +85,21 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="dnsNameLabelReusePolicy")
+    private @Nullable Output<String> dnsNameLabelReusePolicy;
+
+    /**
+     * @return The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> dnsNameLabelReusePolicy() {
+        return Optional.ofNullable(this.dnsNameLabelReusePolicy);
+    }
+
+    /**
      * Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
@@ -145,14 +160,14 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
+     * Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
      * 
      */
     @Import(name="ipAddressType")
     private @Nullable Output<String> ipAddressType;
 
     /**
-     * @return Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
+     * @return Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
      * 
      */
     public Optional<Output<String>> ipAddressType() {
@@ -205,16 +220,20 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Network profile ID for deploying to a virtual network.
+     * @deprecated
+     * the &#39;network_profile_id&#39; has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the &#39;subnet_id&#39; field instead
      * 
      */
+    @Deprecated /* the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead */
     @Import(name="networkProfileId")
     private @Nullable Output<String> networkProfileId;
 
     /**
-     * @return Network profile ID for deploying to a virtual network.
+     * @deprecated
+     * the &#39;network_profile_id&#39; has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the &#39;subnet_id&#39; field instead
      * 
      */
+    @Deprecated /* the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead */
     public Optional<Output<String>> networkProfileId() {
         return Optional.ofNullable(this.networkProfileId);
     }
@@ -265,6 +284,21 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The subnet resource IDs for a container group. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="subnetIds")
+    private @Nullable Output<String> subnetIds;
+
+    /**
+     * @return The subnet resource IDs for a container group. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> subnetIds() {
+        return Optional.ofNullable(this.subnetIds);
+    }
+
+    /**
      * A mapping of tags to assign to the resource.
      * 
      */
@@ -279,6 +313,21 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * A list of Availability Zones in which this Container Group is located.
+     * 
+     */
+    @Import(name="zones")
+    private @Nullable Output<List<String>> zones;
+
+    /**
+     * @return A list of Availability Zones in which this Container Group is located.
+     * 
+     */
+    public Optional<Output<List<String>>> zones() {
+        return Optional.ofNullable(this.zones);
+    }
+
     private GroupArgs() {}
 
     private GroupArgs(GroupArgs $) {
@@ -286,6 +335,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         this.diagnostics = $.diagnostics;
         this.dnsConfig = $.dnsConfig;
         this.dnsNameLabel = $.dnsNameLabel;
+        this.dnsNameLabelReusePolicy = $.dnsNameLabelReusePolicy;
         this.exposedPorts = $.exposedPorts;
         this.identity = $.identity;
         this.imageRegistryCredentials = $.imageRegistryCredentials;
@@ -298,7 +348,9 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         this.osType = $.osType;
         this.resourceGroupName = $.resourceGroupName;
         this.restartPolicy = $.restartPolicy;
+        this.subnetIds = $.subnetIds;
         this.tags = $.tags;
+        this.zones = $.zones;
     }
 
     public static Builder builder() {
@@ -411,6 +463,27 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder dnsNameLabel(String dnsNameLabel) {
             return dnsNameLabel(Output.of(dnsNameLabel));
+        }
+
+        /**
+         * @param dnsNameLabelReusePolicy The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dnsNameLabelReusePolicy(@Nullable Output<String> dnsNameLabelReusePolicy) {
+            $.dnsNameLabelReusePolicy = dnsNameLabelReusePolicy;
+            return this;
+        }
+
+        /**
+         * @param dnsNameLabelReusePolicy The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dnsNameLabelReusePolicy(String dnsNameLabelReusePolicy) {
+            return dnsNameLabelReusePolicy(Output.of(dnsNameLabelReusePolicy));
         }
 
         /**
@@ -528,7 +601,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddressType Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
+         * @param ipAddressType Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
          * 
          * @return builder
          * 
@@ -539,7 +612,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddressType Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
+         * @param ipAddressType Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
          * 
          * @return builder
          * 
@@ -612,22 +685,26 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkProfileId Network profile ID for deploying to a virtual network.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * the &#39;network_profile_id&#39; has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the &#39;subnet_id&#39; field instead
+         * 
          */
+        @Deprecated /* the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead */
         public Builder networkProfileId(@Nullable Output<String> networkProfileId) {
             $.networkProfileId = networkProfileId;
             return this;
         }
 
         /**
-         * @param networkProfileId Network profile ID for deploying to a virtual network.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * the &#39;network_profile_id&#39; has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the &#39;subnet_id&#39; field instead
+         * 
          */
+        @Deprecated /* the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead */
         public Builder networkProfileId(String networkProfileId) {
             return networkProfileId(Output.of(networkProfileId));
         }
@@ -696,6 +773,27 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param subnetIds The subnet resource IDs for a container group. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subnetIds(@Nullable Output<String> subnetIds) {
+            $.subnetIds = subnetIds;
+            return this;
+        }
+
+        /**
+         * @param subnetIds The subnet resource IDs for a container group. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subnetIds(String subnetIds) {
+            return subnetIds(Output.of(subnetIds));
+        }
+
+        /**
          * @param tags A mapping of tags to assign to the resource.
          * 
          * @return builder
@@ -714,6 +812,37 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param zones A list of Availability Zones in which this Container Group is located.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zones(@Nullable Output<List<String>> zones) {
+            $.zones = zones;
+            return this;
+        }
+
+        /**
+         * @param zones A list of Availability Zones in which this Container Group is located.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zones(List<String> zones) {
+            return zones(Output.of(zones));
+        }
+
+        /**
+         * @param zones A list of Availability Zones in which this Container Group is located.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zones(String... zones) {
+            return zones(List.of(zones));
         }
 
         public GroupArgs build() {

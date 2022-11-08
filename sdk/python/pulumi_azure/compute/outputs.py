@@ -281,7 +281,9 @@ class DiskEncryptionSetIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "principalId":
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
             suggest = "principal_id"
         elif key == "tenantId":
             suggest = "tenant_id"
@@ -299,14 +301,18 @@ class DiskEncryptionSetIdentity(dict):
 
     def __init__(__self__, *,
                  type: str,
+                 identity_ids: Optional[Sequence[str]] = None,
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: The type of Managed Service Identity that is configured on this Disk Encryption Set. The only possible value is `SystemAssigned`.
+        :param str type: The type of Managed Service Identity that is configured on this Disk Encryption Set.  Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param Sequence[str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Disk Encryption Set.
         :param str principal_id: The (Client) ID of the Service Principal.
         :param str tenant_id: The ID of the Tenant the Service Principal is assigned in.
         """
         pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
@@ -316,9 +322,17 @@ class DiskEncryptionSetIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of Managed Service Identity that is configured on this Disk Encryption Set. The only possible value is `SystemAssigned`.
+        The type of Managed Service Identity that is configured on this Disk Encryption Set.  Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[str]]:
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this Disk Encryption Set.
+        """
+        return pulumi.get(self, "identity_ids")
 
     @property
     @pulumi.getter(name="principalId")
@@ -1691,8 +1705,6 @@ class LinuxVirtualMachineScaleSetGalleryApplication(dict):
                  order: Optional[int] = None,
                  tag: Optional[str] = None):
         """
-        :param str package_reference_id: Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
-        :param str configuration_reference_blob_uri: Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
         :param int order: Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
         :param str tag: Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
         """
@@ -1707,17 +1719,11 @@ class LinuxVirtualMachineScaleSetGalleryApplication(dict):
     @property
     @pulumi.getter(name="packageReferenceId")
     def package_reference_id(self) -> str:
-        """
-        Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "package_reference_id")
 
     @property
     @pulumi.getter(name="configurationReferenceBlobUri")
     def configuration_reference_blob_uri(self) -> Optional[str]:
-        """
-        Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "configuration_reference_blob_uri")
 
     @property
@@ -8171,8 +8177,6 @@ class WindowsVirtualMachineScaleSetGalleryApplication(dict):
                  order: Optional[int] = None,
                  tag: Optional[str] = None):
         """
-        :param str package_reference_id: Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
-        :param str configuration_reference_blob_uri: Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
         :param int order: Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
         :param str tag: Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
         """
@@ -8187,17 +8191,11 @@ class WindowsVirtualMachineScaleSetGalleryApplication(dict):
     @property
     @pulumi.getter(name="packageReferenceId")
     def package_reference_id(self) -> str:
-        """
-        Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "package_reference_id")
 
     @property
     @pulumi.getter(name="configurationReferenceBlobUri")
     def configuration_reference_blob_uri(self) -> Optional[str]:
-        """
-        Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "configuration_reference_blob_uri")
 
     @property

@@ -60,6 +60,18 @@ namespace Pulumi.Azure.Synapse
         public Output<Outputs.SparkPoolLibraryRequirement?> LibraryRequirement { get; private set; } = null!;
 
         /// <summary>
+        /// The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
+        /// </summary>
+        [Output("maxExecutors")]
+        public Output<int?> MaxExecutors { get; private set; } = null!;
+
+        /// <summary>
+        /// The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
+        /// </summary>
+        [Output("minExecutors")]
+        public Output<int?> MinExecutors { get; private set; } = null!;
+
+        /// <summary>
         /// The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
         /// </summary>
         [Output("name")]
@@ -208,6 +220,18 @@ namespace Pulumi.Azure.Synapse
         public Input<Inputs.SparkPoolLibraryRequirementArgs>? LibraryRequirement { get; set; }
 
         /// <summary>
+        /// The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
+        /// </summary>
+        [Input("maxExecutors")]
+        public Input<int>? MaxExecutors { get; set; }
+
+        /// <summary>
+        /// The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
+        /// </summary>
+        [Input("minExecutors")]
+        public Input<int>? MinExecutors { get; set; }
+
+        /// <summary>
         /// The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
         /// </summary>
         [Input("name")]
@@ -322,6 +346,18 @@ namespace Pulumi.Azure.Synapse
         /// </summary>
         [Input("libraryRequirement")]
         public Input<Inputs.SparkPoolLibraryRequirementGetArgs>? LibraryRequirement { get; set; }
+
+        /// <summary>
+        /// The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
+        /// </summary>
+        [Input("maxExecutors")]
+        public Input<int>? MaxExecutors { get; set; }
+
+        /// <summary>
+        /// The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
+        /// </summary>
+        [Input("minExecutors")]
+        public Input<int>? MinExecutors { get; set; }
 
         /// <summary>
         /// The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.

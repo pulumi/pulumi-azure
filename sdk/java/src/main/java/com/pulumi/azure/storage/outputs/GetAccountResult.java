@@ -44,7 +44,6 @@ public final class GetAccountResult {
     private Boolean allowNestedItemsToBePublic;
     /**
      * @return A `azure_files_authentication` block as documented below.
-     * ---
      * 
      */
     private List<GetAccountAzureFilesAuthentication> azureFilesAuthentications;
@@ -315,7 +314,6 @@ public final class GetAccountResult {
     }
     /**
      * @return A `azure_files_authentication` block as documented below.
-     * ---
      * 
      */
     public List<GetAccountAzureFilesAuthentication> azureFilesAuthentications() {

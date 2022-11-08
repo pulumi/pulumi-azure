@@ -52,7 +52,7 @@ export class CustomHttpsConfiguration extends pulumi.CustomResource {
      */
     public readonly customHttpsProvisioningEnabled!: pulumi.Output<boolean>;
     /**
-     * The ID of the FrontDoor Frontend Endpoint which this configuration refers to.
+     * The ID of the Front Door Frontend Endpoint which this configuration refers to.
      */
     public readonly frontendEndpointId!: pulumi.Output<string>;
 
@@ -102,7 +102,7 @@ export interface CustomHttpsConfigurationState {
      */
     customHttpsProvisioningEnabled?: pulumi.Input<boolean>;
     /**
-     * The ID of the FrontDoor Frontend Endpoint which this configuration refers to.
+     * The ID of the Front Door Frontend Endpoint which this configuration refers to.
      */
     frontendEndpointId?: pulumi.Input<string>;
 }
@@ -120,7 +120,7 @@ export interface CustomHttpsConfigurationArgs {
      */
     customHttpsProvisioningEnabled: pulumi.Input<boolean>;
     /**
-     * The ID of the FrontDoor Frontend Endpoint which this configuration refers to.
+     * The ID of the Front Door Frontend Endpoint which this configuration refers to.
      */
     frontendEndpointId: pulumi.Input<string>;
 }

@@ -113,6 +113,9 @@ export class Insights extends pulumi.CustomResource {
      * The Instrumentation Key for this Application Insights component. (Sensitive)
      */
     public /*out*/ readonly instrumentationKey!: pulumi.Output<string>;
+    /**
+     * Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
+     */
     public readonly internetIngestionEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
@@ -252,6 +255,9 @@ export interface InsightsState {
      * The Instrumentation Key for this Application Insights component. (Sensitive)
      */
     instrumentationKey?: pulumi.Input<string>;
+    /**
+     * Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
+     */
     internetIngestionEnabled?: pulumi.Input<boolean>;
     /**
      * Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
@@ -317,6 +323,9 @@ export interface InsightsArgs {
      * Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
      */
     forceCustomerStorageForProfiler?: pulumi.Input<boolean>;
+    /**
+     * Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
+     */
     internetIngestionEnabled?: pulumi.Input<boolean>;
     /**
      * Should the Application Insights component support querying over the Public Internet? Defaults to `true`.

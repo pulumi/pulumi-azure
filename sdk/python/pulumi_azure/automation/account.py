@@ -187,7 +187,6 @@ class _AccountState:
         :param pulumi.Input[str] dsc_server_endpoint: The DSC Server Endpoint associated with this Automation Account.
         :param pulumi.Input[Sequence[pulumi.Input['AccountEncryptionArgs']]] encryptions: An `encryption` block as defined below.
         :param pulumi.Input[str] hybrid_service_url: The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
-               ---
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_authentication_enabled: Whether requests using non-AAD authentication are blocked.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -279,7 +278,6 @@ class _AccountState:
     def hybrid_service_url(self) -> Optional[pulumi.Input[str]]:
         """
         The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
-        ---
         """
         return pulumi.get(self, "hybrid_service_url")
 
@@ -567,7 +565,6 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] dsc_server_endpoint: The DSC Server Endpoint associated with this Automation Account.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountEncryptionArgs']]]] encryptions: An `encryption` block as defined below.
         :param pulumi.Input[str] hybrid_service_url: The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
-               ---
         :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_authentication_enabled: Whether requests using non-AAD authentication are blocked.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -634,7 +631,6 @@ class Account(pulumi.CustomResource):
     def hybrid_service_url(self) -> pulumi.Output[str]:
         """
         The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
-        ---
         """
         return pulumi.get(self, "hybrid_service_url")
 

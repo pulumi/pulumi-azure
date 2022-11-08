@@ -48,7 +48,7 @@ namespace Pulumi.Azure.CosmosDB
     ///         AccountName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Name),
     ///         DatabaseName = exampleSqlDatabase.Name,
     ///         ContainerName = exampleSqlContainer.Name,
-    ///         Body = @"  	function () { var context = getContext(); var response = context.getResponse(); response.setBody('Hello, World'); }
+    ///         Body = @"   function () { var context = getContext(); var response = context.getResponse(); response.setBody('Hello, World'); }
     /// ",
     ///     });
     /// 

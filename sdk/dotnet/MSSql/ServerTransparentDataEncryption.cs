@@ -70,6 +70,12 @@ namespace Pulumi.Azure.MSSql
     public partial class ServerTransparentDataEncryption : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
+        /// </summary>
+        [Output("autoRotationEnabled")]
+        public Output<bool?> AutoRotationEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
         /// </summary>
         [Output("keyVaultKeyId")]
@@ -128,6 +134,12 @@ namespace Pulumi.Azure.MSSql
     public sealed class ServerTransparentDataEncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
+        /// </summary>
+        [Input("autoRotationEnabled")]
+        public Input<bool>? AutoRotationEnabled { get; set; }
+
+        /// <summary>
         /// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
         /// </summary>
         [Input("keyVaultKeyId")]
@@ -147,6 +159,12 @@ namespace Pulumi.Azure.MSSql
 
     public sealed class ServerTransparentDataEncryptionState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
+        /// </summary>
+        [Input("autoRotationEnabled")]
+        public Input<bool>? AutoRotationEnabled { get; set; }
+
         /// <summary>
         /// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
         /// </summary>

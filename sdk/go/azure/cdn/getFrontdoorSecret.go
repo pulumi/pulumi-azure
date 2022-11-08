@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to access information about an existing CDN FrontDoor Secret.
+// Use this data source to access information about an existing Front Door (standard/premium) Secret.
 //
 // ## Example Usage
 //
@@ -50,17 +50,17 @@ func LookupFrontdoorSecret(ctx *pulumi.Context, args *LookupFrontdoorSecretArgs,
 
 // A collection of arguments for invoking getFrontdoorSecret.
 type LookupFrontdoorSecretArgs struct {
-	// Specifies the name of the FrontDoor Secret.
+	// Specifies the name of the Front Door Secret.
 	Name string `pulumi:"name"`
-	// The name of the FrontDoor Profile within which CDN FrontDoor Secret exists.
+	// The name of the Front Door Profile within which the Front Door Secret exists.
 	ProfileName string `pulumi:"profileName"`
-	// The name of the Resource Group where the CDN FrontDoor Profile exists.
+	// The name of the Resource Group where the Front Door Profile exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getFrontdoorSecret.
 type LookupFrontdoorSecretResult struct {
-	// Specifies the ID of the CDN FrontDoor Profile within which this CDN FrontDoor Secret exists.
+	// Specifies the ID of the Front Door Profile within which this Front Door Secret exists.
 	CdnFrontdoorProfileId string `pulumi:"cdnFrontdoorProfileId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                string `pulumi:"id"`
@@ -86,11 +86,11 @@ func LookupFrontdoorSecretOutput(ctx *pulumi.Context, args LookupFrontdoorSecret
 
 // A collection of arguments for invoking getFrontdoorSecret.
 type LookupFrontdoorSecretOutputArgs struct {
-	// Specifies the name of the FrontDoor Secret.
+	// Specifies the name of the Front Door Secret.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The name of the FrontDoor Profile within which CDN FrontDoor Secret exists.
+	// The name of the Front Door Profile within which the Front Door Secret exists.
 	ProfileName pulumi.StringInput `pulumi:"profileName"`
-	// The name of the Resource Group where the CDN FrontDoor Profile exists.
+	// The name of the Resource Group where the Front Door Profile exists.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
@@ -113,7 +113,7 @@ func (o LookupFrontdoorSecretResultOutput) ToLookupFrontdoorSecretResultOutputWi
 	return o
 }
 
-// Specifies the ID of the CDN FrontDoor Profile within which this CDN FrontDoor Secret exists.
+// Specifies the ID of the Front Door Profile within which this Front Door Secret exists.
 func (o LookupFrontdoorSecretResultOutput) CdnFrontdoorProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFrontdoorSecretResult) string { return v.CdnFrontdoorProfileId }).(pulumi.StringOutput)
 }

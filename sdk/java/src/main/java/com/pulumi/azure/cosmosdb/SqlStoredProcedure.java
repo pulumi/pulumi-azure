@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *             .databaseName(exampleSqlDatabase.name())
  *             .containerName(exampleSqlContainer.name())
  *             .body(&#34;&#34;&#34;
- *   	function () { var context = getContext(); var response = context.getResponse(); response.setBody(&#39;Hello, World&#39;); }
+ *    function () { var context = getContext(); var response = context.getResponse(); response.setBody(&#39;Hello, World&#39;); }
  *             &#34;&#34;&#34;)
  *             .build());
  * 

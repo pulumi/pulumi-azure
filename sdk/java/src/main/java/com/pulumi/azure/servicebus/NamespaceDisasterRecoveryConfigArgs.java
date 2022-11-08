@@ -16,6 +16,21 @@ public final class NamespaceDisasterRecoveryConfigArgs extends com.pulumi.resour
     public static final NamespaceDisasterRecoveryConfigArgs Empty = new NamespaceDisasterRecoveryConfigArgs();
 
     /**
+     * The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
+     * 
+     */
+    @Import(name="aliasAuthorizationRuleId")
+    private @Nullable Output<String> aliasAuthorizationRuleId;
+
+    /**
+     * @return The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
+     * 
+     */
+    public Optional<Output<String>> aliasAuthorizationRuleId() {
+        return Optional.ofNullable(this.aliasAuthorizationRuleId);
+    }
+
+    /**
      * Specifies the name of the Disaster Recovery Config. This is the alias DNS name that will be created. Changing this forces a new resource to be created.
      * 
      */
@@ -63,6 +78,7 @@ public final class NamespaceDisasterRecoveryConfigArgs extends com.pulumi.resour
     private NamespaceDisasterRecoveryConfigArgs() {}
 
     private NamespaceDisasterRecoveryConfigArgs(NamespaceDisasterRecoveryConfigArgs $) {
+        this.aliasAuthorizationRuleId = $.aliasAuthorizationRuleId;
         this.name = $.name;
         this.partnerNamespaceId = $.partnerNamespaceId;
         this.primaryNamespaceId = $.primaryNamespaceId;
@@ -84,6 +100,27 @@ public final class NamespaceDisasterRecoveryConfigArgs extends com.pulumi.resour
 
         public Builder(NamespaceDisasterRecoveryConfigArgs defaults) {
             $ = new NamespaceDisasterRecoveryConfigArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param aliasAuthorizationRuleId The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder aliasAuthorizationRuleId(@Nullable Output<String> aliasAuthorizationRuleId) {
+            $.aliasAuthorizationRuleId = aliasAuthorizationRuleId;
+            return this;
+        }
+
+        /**
+         * @param aliasAuthorizationRuleId The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder aliasAuthorizationRuleId(String aliasAuthorizationRuleId) {
+            return aliasAuthorizationRuleId(Output.of(aliasAuthorizationRuleId));
         }
 
         /**

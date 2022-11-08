@@ -12,6 +12,18 @@ namespace Pulumi.Azure.Synapse.Inputs
 
     public sealed class WorkspaceIdentityGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("identityIds")]
+        private InputList<string>? _identityIds;
+
+        /// <summary>
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace.
+        /// </summary>
+        public InputList<string> IdentityIds
+        {
+            get => _identityIds ?? (_identityIds = new InputList<string>());
+            set => _identityIds = value;
+        }
+
         /// <summary>
         /// The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
         /// </summary>
@@ -25,7 +37,7 @@ namespace Pulumi.Azure.Synapse.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on this Synapse Workspace. The only possible value is `SystemAssigned`.
+        /// Specifies the type of Managed Service Identity that should be associated with this Synapse Workspace. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

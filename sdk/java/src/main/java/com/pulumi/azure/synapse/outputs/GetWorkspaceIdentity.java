@@ -5,10 +5,12 @@ package com.pulumi.azure.synapse.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetWorkspaceIdentity {
+    private List<String> identityIds;
     /**
      * @return The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
      * 
@@ -26,6 +28,9 @@ public final class GetWorkspaceIdentity {
     private String type;
 
     private GetWorkspaceIdentity() {}
+    public List<String> identityIds() {
+        return this.identityIds;
+    }
     /**
      * @return The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
      * 
@@ -57,17 +62,27 @@ public final class GetWorkspaceIdentity {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<String> identityIds;
         private String principalId;
         private String tenantId;
         private String type;
         public Builder() {}
         public Builder(GetWorkspaceIdentity defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.identityIds = defaults.identityIds;
     	      this.principalId = defaults.principalId;
     	      this.tenantId = defaults.tenantId;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
+        public Builder identityIds(List<String> identityIds) {
+            this.identityIds = Objects.requireNonNull(identityIds);
+            return this;
+        }
+        public Builder identityIds(String... identityIds) {
+            return identityIds(List.of(identityIds));
+        }
         @CustomType.Setter
         public Builder principalId(String principalId) {
             this.principalId = Objects.requireNonNull(principalId);
@@ -85,6 +100,7 @@ public final class GetWorkspaceIdentity {
         }
         public GetWorkspaceIdentity build() {
             final var o = new GetWorkspaceIdentity();
+            o.identityIds = identityIds;
             o.principalId = principalId;
             o.tenantId = tenantId;
             o.type = type;

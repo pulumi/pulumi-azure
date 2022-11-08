@@ -164,14 +164,14 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Java version hosted by the function app in Azure. Possible values are `1.8`, `11`.
+     * Java version hosted by the function app in Azure. Possible values are `1.8`, `11` &amp; `17` (In-Preview).
      * 
      */
     @Import(name="javaVersion")
     private @Nullable Output<String> javaVersion;
 
     /**
-     * @return Java version hosted by the function app in Azure. Possible values are `1.8`, `11`.
+     * @return Java version hosted by the function app in Azure. Possible values are `1.8`, `11` &amp; `17` (In-Preview).
      * 
      */
     public Optional<Output<String>> javaVersion() {
@@ -581,7 +581,7 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param javaVersion Java version hosted by the function app in Azure. Possible values are `1.8`, `11`.
+         * @param javaVersion Java version hosted by the function app in Azure. Possible values are `1.8`, `11` &amp; `17` (In-Preview).
          * 
          * @return builder
          * 
@@ -592,7 +592,7 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param javaVersion Java version hosted by the function app in Azure. Possible values are `1.8`, `11`.
+         * @param javaVersion Java version hosted by the function app in Azure. Possible values are `1.8`, `11` &amp; `17` (In-Preview).
          * 
          * @return builder
          * 

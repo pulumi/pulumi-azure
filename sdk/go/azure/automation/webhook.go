@@ -104,7 +104,7 @@ type Webhook struct {
 	RunOnWorkerGroup pulumi.StringPtrOutput `pulumi:"runOnWorkerGroup"`
 	// Name of the Automation Runbook to execute by Webhook.
 	RunbookName pulumi.StringOutput `pulumi:"runbookName"`
-	// URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation.
+	// URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation. Changing this forces a new resource to be created.
 	Uri pulumi.StringOutput `pulumi:"uri"`
 }
 
@@ -165,7 +165,7 @@ type webhookState struct {
 	RunOnWorkerGroup *string `pulumi:"runOnWorkerGroup"`
 	// Name of the Automation Runbook to execute by Webhook.
 	RunbookName *string `pulumi:"runbookName"`
-	// URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation.
+	// URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation. Changing this forces a new resource to be created.
 	Uri *string `pulumi:"uri"`
 }
 
@@ -186,7 +186,7 @@ type WebhookState struct {
 	RunOnWorkerGroup pulumi.StringPtrInput
 	// Name of the Automation Runbook to execute by Webhook.
 	RunbookName pulumi.StringPtrInput
-	// URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation.
+	// URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation. Changing this forces a new resource to be created.
 	Uri pulumi.StringPtrInput
 }
 
@@ -211,7 +211,7 @@ type webhookArgs struct {
 	RunOnWorkerGroup *string `pulumi:"runOnWorkerGroup"`
 	// Name of the Automation Runbook to execute by Webhook.
 	RunbookName string `pulumi:"runbookName"`
-	// URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation.
+	// URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation. Changing this forces a new resource to be created.
 	Uri *string `pulumi:"uri"`
 }
 
@@ -233,7 +233,7 @@ type WebhookArgs struct {
 	RunOnWorkerGroup pulumi.StringPtrInput
 	// Name of the Automation Runbook to execute by Webhook.
 	RunbookName pulumi.StringInput
-	// URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation.
+	// URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation. Changing this forces a new resource to be created.
 	Uri pulumi.StringPtrInput
 }
 
@@ -364,7 +364,7 @@ func (o WebhookOutput) RunbookName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.RunbookName }).(pulumi.StringOutput)
 }
 
-// URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation.
+// URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation. Changing this forces a new resource to be created.
 func (o WebhookOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.Uri }).(pulumi.StringOutput)
 }

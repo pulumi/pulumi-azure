@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a FrontDoor Endpoint.
+// Manages a Front Door (standard/premium) Endpoint.
 //
 // ## Example Usage
 //
@@ -58,7 +58,7 @@ import (
 //
 // ## Import
 //
-// CDN FrontDoor Endpoints can be imported using the `resource id`, e.g.
+// Front Door Endpoints can be imported using the `resource id`, e.g.
 //
 // ```sh
 //
@@ -68,15 +68,15 @@ import (
 type FrontdoorEndpoint struct {
 	pulumi.CustomResourceState
 
-	// The ID of the FrontDoor Profile within which this FrontDoor Endpoint should exist. Changing this forces a new CDN FrontDoor Endpoint to be created.
+	// The ID of the Front Door Profile within which this Front Door Endpoint should exist. Changing this forces a new Front Door Endpoint to be created.
 	CdnFrontdoorProfileId pulumi.StringOutput `pulumi:"cdnFrontdoorProfileId"`
-	// Specifies if this CDN FrontDoor Endpoint is enabled? Defaults to `true`.
+	// Specifies if this Front Door Endpoint is enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// The host name of the CDN FrontDoor Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
+	// The host name of the Front Door Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
 	HostName pulumi.StringOutput `pulumi:"hostName"`
-	// The name which should be used for this CDN FrontDoor Endpoint. Changing this forces a new CDN FrontDoor Endpoint to be created.
+	// The name which should be used for this Front Door Endpoint. Changing this forces a new Front Door Endpoint to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies a mapping of tags which should be assigned to the CDN FrontDoor Endpoint.
+	// Specifies a mapping of tags which should be assigned to the Front Door Endpoint.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -112,28 +112,28 @@ func GetFrontdoorEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FrontdoorEndpoint resources.
 type frontdoorEndpointState struct {
-	// The ID of the FrontDoor Profile within which this FrontDoor Endpoint should exist. Changing this forces a new CDN FrontDoor Endpoint to be created.
+	// The ID of the Front Door Profile within which this Front Door Endpoint should exist. Changing this forces a new Front Door Endpoint to be created.
 	CdnFrontdoorProfileId *string `pulumi:"cdnFrontdoorProfileId"`
-	// Specifies if this CDN FrontDoor Endpoint is enabled? Defaults to `true`.
+	// Specifies if this Front Door Endpoint is enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// The host name of the CDN FrontDoor Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
+	// The host name of the Front Door Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
 	HostName *string `pulumi:"hostName"`
-	// The name which should be used for this CDN FrontDoor Endpoint. Changing this forces a new CDN FrontDoor Endpoint to be created.
+	// The name which should be used for this Front Door Endpoint. Changing this forces a new Front Door Endpoint to be created.
 	Name *string `pulumi:"name"`
-	// Specifies a mapping of tags which should be assigned to the CDN FrontDoor Endpoint.
+	// Specifies a mapping of tags which should be assigned to the Front Door Endpoint.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 type FrontdoorEndpointState struct {
-	// The ID of the FrontDoor Profile within which this FrontDoor Endpoint should exist. Changing this forces a new CDN FrontDoor Endpoint to be created.
+	// The ID of the Front Door Profile within which this Front Door Endpoint should exist. Changing this forces a new Front Door Endpoint to be created.
 	CdnFrontdoorProfileId pulumi.StringPtrInput
-	// Specifies if this CDN FrontDoor Endpoint is enabled? Defaults to `true`.
+	// Specifies if this Front Door Endpoint is enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// The host name of the CDN FrontDoor Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
+	// The host name of the Front Door Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
 	HostName pulumi.StringPtrInput
-	// The name which should be used for this CDN FrontDoor Endpoint. Changing this forces a new CDN FrontDoor Endpoint to be created.
+	// The name which should be used for this Front Door Endpoint. Changing this forces a new Front Door Endpoint to be created.
 	Name pulumi.StringPtrInput
-	// Specifies a mapping of tags which should be assigned to the CDN FrontDoor Endpoint.
+	// Specifies a mapping of tags which should be assigned to the Front Door Endpoint.
 	Tags pulumi.StringMapInput
 }
 
@@ -142,25 +142,25 @@ func (FrontdoorEndpointState) ElementType() reflect.Type {
 }
 
 type frontdoorEndpointArgs struct {
-	// The ID of the FrontDoor Profile within which this FrontDoor Endpoint should exist. Changing this forces a new CDN FrontDoor Endpoint to be created.
+	// The ID of the Front Door Profile within which this Front Door Endpoint should exist. Changing this forces a new Front Door Endpoint to be created.
 	CdnFrontdoorProfileId string `pulumi:"cdnFrontdoorProfileId"`
-	// Specifies if this CDN FrontDoor Endpoint is enabled? Defaults to `true`.
+	// Specifies if this Front Door Endpoint is enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// The name which should be used for this CDN FrontDoor Endpoint. Changing this forces a new CDN FrontDoor Endpoint to be created.
+	// The name which should be used for this Front Door Endpoint. Changing this forces a new Front Door Endpoint to be created.
 	Name *string `pulumi:"name"`
-	// Specifies a mapping of tags which should be assigned to the CDN FrontDoor Endpoint.
+	// Specifies a mapping of tags which should be assigned to the Front Door Endpoint.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FrontdoorEndpoint resource.
 type FrontdoorEndpointArgs struct {
-	// The ID of the FrontDoor Profile within which this FrontDoor Endpoint should exist. Changing this forces a new CDN FrontDoor Endpoint to be created.
+	// The ID of the Front Door Profile within which this Front Door Endpoint should exist. Changing this forces a new Front Door Endpoint to be created.
 	CdnFrontdoorProfileId pulumi.StringInput
-	// Specifies if this CDN FrontDoor Endpoint is enabled? Defaults to `true`.
+	// Specifies if this Front Door Endpoint is enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// The name which should be used for this CDN FrontDoor Endpoint. Changing this forces a new CDN FrontDoor Endpoint to be created.
+	// The name which should be used for this Front Door Endpoint. Changing this forces a new Front Door Endpoint to be created.
 	Name pulumi.StringPtrInput
-	// Specifies a mapping of tags which should be assigned to the CDN FrontDoor Endpoint.
+	// Specifies a mapping of tags which should be assigned to the Front Door Endpoint.
 	Tags pulumi.StringMapInput
 }
 
@@ -251,27 +251,27 @@ func (o FrontdoorEndpointOutput) ToFrontdoorEndpointOutputWithContext(ctx contex
 	return o
 }
 
-// The ID of the FrontDoor Profile within which this FrontDoor Endpoint should exist. Changing this forces a new CDN FrontDoor Endpoint to be created.
+// The ID of the Front Door Profile within which this Front Door Endpoint should exist. Changing this forces a new Front Door Endpoint to be created.
 func (o FrontdoorEndpointOutput) CdnFrontdoorProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorEndpoint) pulumi.StringOutput { return v.CdnFrontdoorProfileId }).(pulumi.StringOutput)
 }
 
-// Specifies if this CDN FrontDoor Endpoint is enabled? Defaults to `true`.
+// Specifies if this Front Door Endpoint is enabled? Defaults to `true`.
 func (o FrontdoorEndpointOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FrontdoorEndpoint) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The host name of the CDN FrontDoor Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
+// The host name of the Front Door Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
 func (o FrontdoorEndpointOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorEndpoint) pulumi.StringOutput { return v.HostName }).(pulumi.StringOutput)
 }
 
-// The name which should be used for this CDN FrontDoor Endpoint. Changing this forces a new CDN FrontDoor Endpoint to be created.
+// The name which should be used for this Front Door Endpoint. Changing this forces a new Front Door Endpoint to be created.
 func (o FrontdoorEndpointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies a mapping of tags which should be assigned to the CDN FrontDoor Endpoint.
+// Specifies a mapping of tags which should be assigned to the Front Door Endpoint.
 func (o FrontdoorEndpointOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FrontdoorEndpoint) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

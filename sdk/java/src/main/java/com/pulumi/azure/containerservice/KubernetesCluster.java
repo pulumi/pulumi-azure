@@ -24,6 +24,7 @@ import com.pulumi.azure.containerservice.outputs.KubernetesClusterNetworkProfile
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterOmsAgent;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterServicePrincipal;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterWindowsProfile;
+import com.pulumi.azure.containerservice.outputs.KubernetesClusterWorkloadAutoscalerProfile;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -785,6 +786,20 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<KubernetesClusterWindowsProfile> windowsProfile() {
         return this.windowsProfile;
+    }
+    /**
+     * A `workload_autoscaler_profile` block defined below.
+     * 
+     */
+    @Export(name="workloadAutoscalerProfile", type=KubernetesClusterWorkloadAutoscalerProfile.class, parameters={})
+    private Output</* @Nullable */ KubernetesClusterWorkloadAutoscalerProfile> workloadAutoscalerProfile;
+
+    /**
+     * @return A `workload_autoscaler_profile` block defined below.
+     * 
+     */
+    public Output<Optional<KubernetesClusterWorkloadAutoscalerProfile>> workloadAutoscalerProfile() {
+        return Codegen.optional(this.workloadAutoscalerProfile);
     }
     /**
      * Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.

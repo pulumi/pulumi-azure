@@ -66,7 +66,7 @@ import (
 //
 // ## Import
 //
-// Virtual Desktop Host Pools can be imported using the `resource id`, e.g.
+// Virtual Desktop Host Pools can be imported using the `resource id`, e.g. text
 //
 // ```sh
 //

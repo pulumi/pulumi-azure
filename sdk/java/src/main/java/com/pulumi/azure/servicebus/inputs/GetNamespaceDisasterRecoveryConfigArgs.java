@@ -15,6 +15,13 @@ public final class GetNamespaceDisasterRecoveryConfigArgs extends com.pulumi.res
 
     public static final GetNamespaceDisasterRecoveryConfigArgs Empty = new GetNamespaceDisasterRecoveryConfigArgs();
 
+    @Import(name="aliasAuthorizationRuleId")
+    private @Nullable Output<String> aliasAuthorizationRuleId;
+
+    public Optional<Output<String>> aliasAuthorizationRuleId() {
+        return Optional.ofNullable(this.aliasAuthorizationRuleId);
+    }
+
     @Import(name="name", required=true)
     private Output<String> name;
 
@@ -46,6 +53,7 @@ public final class GetNamespaceDisasterRecoveryConfigArgs extends com.pulumi.res
     private GetNamespaceDisasterRecoveryConfigArgs() {}
 
     private GetNamespaceDisasterRecoveryConfigArgs(GetNamespaceDisasterRecoveryConfigArgs $) {
+        this.aliasAuthorizationRuleId = $.aliasAuthorizationRuleId;
         this.name = $.name;
         this.namespaceId = $.namespaceId;
         this.namespaceName = $.namespaceName;
@@ -68,6 +76,15 @@ public final class GetNamespaceDisasterRecoveryConfigArgs extends com.pulumi.res
 
         public Builder(GetNamespaceDisasterRecoveryConfigArgs defaults) {
             $ = new GetNamespaceDisasterRecoveryConfigArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder aliasAuthorizationRuleId(@Nullable Output<String> aliasAuthorizationRuleId) {
+            $.aliasAuthorizationRuleId = aliasAuthorizationRuleId;
+            return this;
+        }
+
+        public Builder aliasAuthorizationRuleId(String aliasAuthorizationRuleId) {
+            return aliasAuthorizationRuleId(Output.of(aliasAuthorizationRuleId));
         }
 
         public Builder name(Output<String> name) {

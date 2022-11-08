@@ -7,6 +7,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GroupImageRegistryCredentialArgs extends com.pulumi.resources.ResourceArgs {
@@ -17,15 +19,15 @@ public final class GroupImageRegistryCredentialArgs extends com.pulumi.resources
      * The password with which to connect to the registry. Changing this forces a new resource to be created.
      * 
      */
-    @Import(name="password", required=true)
-    private Output<String> password;
+    @Import(name="password")
+    private @Nullable Output<String> password;
 
     /**
      * @return The password with which to connect to the registry. Changing this forces a new resource to be created.
      * 
      */
-    public Output<String> password() {
-        return this.password;
+    public Optional<Output<String>> password() {
+        return Optional.ofNullable(this.password);
     }
 
     /**
@@ -44,18 +46,33 @@ public final class GroupImageRegistryCredentialArgs extends com.pulumi.resources
     }
 
     /**
+     * The identity ID for the private registry. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="userAssignedIdentityId")
+    private @Nullable Output<String> userAssignedIdentityId;
+
+    /**
+     * @return The identity ID for the private registry. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> userAssignedIdentityId() {
+        return Optional.ofNullable(this.userAssignedIdentityId);
+    }
+
+    /**
      * The username with which to connect to the registry. Changing this forces a new resource to be created.
      * 
      */
-    @Import(name="username", required=true)
-    private Output<String> username;
+    @Import(name="username")
+    private @Nullable Output<String> username;
 
     /**
      * @return The username with which to connect to the registry. Changing this forces a new resource to be created.
      * 
      */
-    public Output<String> username() {
-        return this.username;
+    public Optional<Output<String>> username() {
+        return Optional.ofNullable(this.username);
     }
 
     private GroupImageRegistryCredentialArgs() {}
@@ -63,6 +80,7 @@ public final class GroupImageRegistryCredentialArgs extends com.pulumi.resources
     private GroupImageRegistryCredentialArgs(GroupImageRegistryCredentialArgs $) {
         this.password = $.password;
         this.server = $.server;
+        this.userAssignedIdentityId = $.userAssignedIdentityId;
         this.username = $.username;
     }
 
@@ -90,7 +108,7 @@ public final class GroupImageRegistryCredentialArgs extends com.pulumi.resources
          * @return builder
          * 
          */
-        public Builder password(Output<String> password) {
+        public Builder password(@Nullable Output<String> password) {
             $.password = password;
             return this;
         }
@@ -127,12 +145,33 @@ public final class GroupImageRegistryCredentialArgs extends com.pulumi.resources
         }
 
         /**
+         * @param userAssignedIdentityId The identity ID for the private registry. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userAssignedIdentityId(@Nullable Output<String> userAssignedIdentityId) {
+            $.userAssignedIdentityId = userAssignedIdentityId;
+            return this;
+        }
+
+        /**
+         * @param userAssignedIdentityId The identity ID for the private registry. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userAssignedIdentityId(String userAssignedIdentityId) {
+            return userAssignedIdentityId(Output.of(userAssignedIdentityId));
+        }
+
+        /**
          * @param username The username with which to connect to the registry. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
          */
-        public Builder username(Output<String> username) {
+        public Builder username(@Nullable Output<String> username) {
             $.username = username;
             return this;
         }
@@ -148,9 +187,7 @@ public final class GroupImageRegistryCredentialArgs extends com.pulumi.resources
         }
 
         public GroupImageRegistryCredentialArgs build() {
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
             $.server = Objects.requireNonNull($.server, "expected parameter 'server' to be non-null");
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
             return $;
         }
     }

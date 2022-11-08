@@ -21,9 +21,9 @@ class FrontdoorSecretArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FrontdoorSecret resource.
-        :param pulumi.Input[str] cdn_frontdoor_profile_id: The Resource ID of the Frontdoor Profile. Changing this forces a new Frontdoor Secret to be created.
-        :param pulumi.Input['FrontdoorSecretSecretArgs'] secret: A `secret` block as defined below. Changing this forces a new Frontdoor Secret to be created.
-        :param pulumi.Input[str] name: The name which should be used for this Frontdoor Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Frontdoor Secret to be created.
+        :param pulumi.Input[str] cdn_frontdoor_profile_id: The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
+        :param pulumi.Input['FrontdoorSecretSecretArgs'] secret: A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
         """
         pulumi.set(__self__, "cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
         pulumi.set(__self__, "secret", secret)
@@ -34,7 +34,7 @@ class FrontdoorSecretArgs:
     @pulumi.getter(name="cdnFrontdoorProfileId")
     def cdn_frontdoor_profile_id(self) -> pulumi.Input[str]:
         """
-        The Resource ID of the Frontdoor Profile. Changing this forces a new Frontdoor Secret to be created.
+        The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_profile_id")
 
@@ -46,7 +46,7 @@ class FrontdoorSecretArgs:
     @pulumi.getter
     def secret(self) -> pulumi.Input['FrontdoorSecretSecretArgs']:
         """
-        A `secret` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+        A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
         """
         return pulumi.get(self, "secret")
 
@@ -58,7 +58,7 @@ class FrontdoorSecretArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Frontdoor Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Frontdoor Secret to be created.
+        The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
         """
         return pulumi.get(self, "name")
 
@@ -76,10 +76,10 @@ class _FrontdoorSecretState:
                  secret: Optional[pulumi.Input['FrontdoorSecretSecretArgs']] = None):
         """
         Input properties used for looking up and filtering FrontdoorSecret resources.
-        :param pulumi.Input[str] cdn_frontdoor_profile_id: The Resource ID of the Frontdoor Profile. Changing this forces a new Frontdoor Secret to be created.
-        :param pulumi.Input[str] cdn_frontdoor_profile_name: The name of the Frontdoor Profile containing this Frontdoor Secret.
-        :param pulumi.Input[str] name: The name which should be used for this Frontdoor Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Frontdoor Secret to be created.
-        :param pulumi.Input['FrontdoorSecretSecretArgs'] secret: A `secret` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+        :param pulumi.Input[str] cdn_frontdoor_profile_id: The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
+        :param pulumi.Input[str] cdn_frontdoor_profile_name: The name of the Front Door Profile containing this Front Door Secret.
+        :param pulumi.Input[str] name: The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
+        :param pulumi.Input['FrontdoorSecretSecretArgs'] secret: A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
         """
         if cdn_frontdoor_profile_id is not None:
             pulumi.set(__self__, "cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
@@ -94,7 +94,7 @@ class _FrontdoorSecretState:
     @pulumi.getter(name="cdnFrontdoorProfileId")
     def cdn_frontdoor_profile_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Resource ID of the Frontdoor Profile. Changing this forces a new Frontdoor Secret to be created.
+        The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_profile_id")
 
@@ -106,7 +106,7 @@ class _FrontdoorSecretState:
     @pulumi.getter(name="cdnFrontdoorProfileName")
     def cdn_frontdoor_profile_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Frontdoor Profile containing this Frontdoor Secret.
+        The name of the Front Door Profile containing this Front Door Secret.
         """
         return pulumi.get(self, "cdn_frontdoor_profile_name")
 
@@ -118,7 +118,7 @@ class _FrontdoorSecretState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Frontdoor Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Frontdoor Secret to be created.
+        The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
         """
         return pulumi.get(self, "name")
 
@@ -130,7 +130,7 @@ class _FrontdoorSecretState:
     @pulumi.getter
     def secret(self) -> Optional[pulumi.Input['FrontdoorSecretSecretArgs']]:
         """
-        A `secret` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+        A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
         """
         return pulumi.get(self, "secret")
 
@@ -204,7 +204,7 @@ class FrontdoorSecret(pulumi.CustomResource):
 
         ## Import
 
-        Frontdoor Secrets can be imported using the `resource id`, e.g.
+        Front Door Secrets can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:cdn/frontdoorSecret:FrontdoorSecret example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/secrets/secrets1
@@ -212,9 +212,9 @@ class FrontdoorSecret(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cdn_frontdoor_profile_id: The Resource ID of the Frontdoor Profile. Changing this forces a new Frontdoor Secret to be created.
-        :param pulumi.Input[str] name: The name which should be used for this Frontdoor Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Frontdoor Secret to be created.
-        :param pulumi.Input[pulumi.InputType['FrontdoorSecretSecretArgs']] secret: A `secret` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+        :param pulumi.Input[str] cdn_frontdoor_profile_id: The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
+        :param pulumi.Input[pulumi.InputType['FrontdoorSecretSecretArgs']] secret: A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
         """
         ...
     @overload
@@ -278,7 +278,7 @@ class FrontdoorSecret(pulumi.CustomResource):
 
         ## Import
 
-        Frontdoor Secrets can be imported using the `resource id`, e.g.
+        Front Door Secrets can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:cdn/frontdoorSecret:FrontdoorSecret example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/secrets/secrets1
@@ -340,10 +340,10 @@ class FrontdoorSecret(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cdn_frontdoor_profile_id: The Resource ID of the Frontdoor Profile. Changing this forces a new Frontdoor Secret to be created.
-        :param pulumi.Input[str] cdn_frontdoor_profile_name: The name of the Frontdoor Profile containing this Frontdoor Secret.
-        :param pulumi.Input[str] name: The name which should be used for this Frontdoor Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Frontdoor Secret to be created.
-        :param pulumi.Input[pulumi.InputType['FrontdoorSecretSecretArgs']] secret: A `secret` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+        :param pulumi.Input[str] cdn_frontdoor_profile_id: The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
+        :param pulumi.Input[str] cdn_frontdoor_profile_name: The name of the Front Door Profile containing this Front Door Secret.
+        :param pulumi.Input[str] name: The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
+        :param pulumi.Input[pulumi.InputType['FrontdoorSecretSecretArgs']] secret: A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -359,7 +359,7 @@ class FrontdoorSecret(pulumi.CustomResource):
     @pulumi.getter(name="cdnFrontdoorProfileId")
     def cdn_frontdoor_profile_id(self) -> pulumi.Output[str]:
         """
-        The Resource ID of the Frontdoor Profile. Changing this forces a new Frontdoor Secret to be created.
+        The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_profile_id")
 
@@ -367,7 +367,7 @@ class FrontdoorSecret(pulumi.CustomResource):
     @pulumi.getter(name="cdnFrontdoorProfileName")
     def cdn_frontdoor_profile_name(self) -> pulumi.Output[str]:
         """
-        The name of the Frontdoor Profile containing this Frontdoor Secret.
+        The name of the Front Door Profile containing this Front Door Secret.
         """
         return pulumi.get(self, "cdn_frontdoor_profile_name")
 
@@ -375,7 +375,7 @@ class FrontdoorSecret(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name which should be used for this Frontdoor Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Frontdoor Secret to be created.
+        The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
         """
         return pulumi.get(self, "name")
 
@@ -383,7 +383,7 @@ class FrontdoorSecret(pulumi.CustomResource):
     @pulumi.getter
     def secret(self) -> pulumi.Output['outputs.FrontdoorSecretSecret']:
         """
-        A `secret` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+        A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
         """
         return pulumi.get(self, "secret")
 

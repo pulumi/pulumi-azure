@@ -352,9 +352,17 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         return Optional.ofNullable(this.minimumTlsVersion);
     }
 
+    /**
+     * Should Remote Debugging be enabled? Defaults to `false`.
+     * 
+     */
     @Import(name="remoteDebuggingEnabled")
     private @Nullable Output<Boolean> remoteDebuggingEnabled;
 
+    /**
+     * @return Should Remote Debugging be enabled? Defaults to `false`.
+     * 
+     */
     public Optional<Output<Boolean>> remoteDebuggingEnabled() {
         return Optional.ofNullable(this.remoteDebuggingEnabled);
     }
@@ -1013,11 +1021,23 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
             return minimumTlsVersion(Output.of(minimumTlsVersion));
         }
 
+        /**
+         * @param remoteDebuggingEnabled Should Remote Debugging be enabled? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder remoteDebuggingEnabled(@Nullable Output<Boolean> remoteDebuggingEnabled) {
             $.remoteDebuggingEnabled = remoteDebuggingEnabled;
             return this;
         }
 
+        /**
+         * @param remoteDebuggingEnabled Should Remote Debugging be enabled? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder remoteDebuggingEnabled(Boolean remoteDebuggingEnabled) {
             return remoteDebuggingEnabled(Output.of(remoteDebuggingEnabled));
         }

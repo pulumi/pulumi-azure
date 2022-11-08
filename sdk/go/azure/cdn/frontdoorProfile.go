@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a CDN FrontDoor Profile which contains a collection of CDN FrontDoor Endpoints.
+// Manages a Front Door (standard/premium) Profile which contains a collection of endpoints and origin groups.
 //
 // ## Example Usage
 //
@@ -52,7 +52,7 @@ import (
 //
 // ## Import
 //
-// CDN FrontDoor Profiles can be imported using the `resource id`, e.g.
+// Front Door Profiles can be imported using the `resource id`, e.g.
 //
 // ```sh
 //
@@ -62,15 +62,15 @@ import (
 type FrontdoorProfile struct {
 	pulumi.CustomResourceState
 
-	// Specifies the name of the FrontDoor Profile. Changing this forces a new resource to be created.
+	// Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the Resource Group where this FrontDoor Profile should exist. Changing this forces a new resource to be created.
+	// The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The UUID of this CDN FrontDoor Profile.
+	// The UUID of this Front Door Profile which will be sent in the HTTP Header as the `X-Azure-FDID` attribute.
 	ResourceGuid pulumi.StringOutput `pulumi:"resourceGuid"`
 	// Specifies the maximum response timeout in seconds. Possible values are between `16` and `240` seconds (inclusive). Defaults to `120` seconds.
 	ResponseTimeoutSeconds pulumi.IntPtrOutput `pulumi:"responseTimeoutSeconds"`
-	// Specifies the SKU for this CDN FrontDoor Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+	// Specifies the SKU for this Front Door Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// Specifies a mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -111,30 +111,30 @@ func GetFrontdoorProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FrontdoorProfile resources.
 type frontdoorProfileState struct {
-	// Specifies the name of the FrontDoor Profile. Changing this forces a new resource to be created.
+	// Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the Resource Group where this FrontDoor Profile should exist. Changing this forces a new resource to be created.
+	// The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The UUID of this CDN FrontDoor Profile.
+	// The UUID of this Front Door Profile which will be sent in the HTTP Header as the `X-Azure-FDID` attribute.
 	ResourceGuid *string `pulumi:"resourceGuid"`
 	// Specifies the maximum response timeout in seconds. Possible values are between `16` and `240` seconds (inclusive). Defaults to `120` seconds.
 	ResponseTimeoutSeconds *int `pulumi:"responseTimeoutSeconds"`
-	// Specifies the SKU for this CDN FrontDoor Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+	// Specifies the SKU for this Front Door Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
 	SkuName *string `pulumi:"skuName"`
 	// Specifies a mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 type FrontdoorProfileState struct {
-	// Specifies the name of the FrontDoor Profile. Changing this forces a new resource to be created.
+	// Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the Resource Group where this FrontDoor Profile should exist. Changing this forces a new resource to be created.
+	// The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The UUID of this CDN FrontDoor Profile.
+	// The UUID of this Front Door Profile which will be sent in the HTTP Header as the `X-Azure-FDID` attribute.
 	ResourceGuid pulumi.StringPtrInput
 	// Specifies the maximum response timeout in seconds. Possible values are between `16` and `240` seconds (inclusive). Defaults to `120` seconds.
 	ResponseTimeoutSeconds pulumi.IntPtrInput
-	// Specifies the SKU for this CDN FrontDoor Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+	// Specifies the SKU for this Front Door Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringPtrInput
 	// Specifies a mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -145,13 +145,13 @@ func (FrontdoorProfileState) ElementType() reflect.Type {
 }
 
 type frontdoorProfileArgs struct {
-	// Specifies the name of the FrontDoor Profile. Changing this forces a new resource to be created.
+	// Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the Resource Group where this FrontDoor Profile should exist. Changing this forces a new resource to be created.
+	// The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the maximum response timeout in seconds. Possible values are between `16` and `240` seconds (inclusive). Defaults to `120` seconds.
 	ResponseTimeoutSeconds *int `pulumi:"responseTimeoutSeconds"`
-	// Specifies the SKU for this CDN FrontDoor Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+	// Specifies the SKU for this Front Door Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
 	SkuName string `pulumi:"skuName"`
 	// Specifies a mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -159,13 +159,13 @@ type frontdoorProfileArgs struct {
 
 // The set of arguments for constructing a FrontdoorProfile resource.
 type FrontdoorProfileArgs struct {
-	// Specifies the name of the FrontDoor Profile. Changing this forces a new resource to be created.
+	// Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the Resource Group where this FrontDoor Profile should exist. Changing this forces a new resource to be created.
+	// The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Specifies the maximum response timeout in seconds. Possible values are between `16` and `240` seconds (inclusive). Defaults to `120` seconds.
 	ResponseTimeoutSeconds pulumi.IntPtrInput
-	// Specifies the SKU for this CDN FrontDoor Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+	// Specifies the SKU for this Front Door Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringInput
 	// Specifies a mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -258,17 +258,17 @@ func (o FrontdoorProfileOutput) ToFrontdoorProfileOutputWithContext(ctx context.
 	return o
 }
 
-// Specifies the name of the FrontDoor Profile. Changing this forces a new resource to be created.
+// Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
 func (o FrontdoorProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the Resource Group where this FrontDoor Profile should exist. Changing this forces a new resource to be created.
+// The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
 func (o FrontdoorProfileOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorProfile) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The UUID of this CDN FrontDoor Profile.
+// The UUID of this Front Door Profile which will be sent in the HTTP Header as the `X-Azure-FDID` attribute.
 func (o FrontdoorProfileOutput) ResourceGuid() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorProfile) pulumi.StringOutput { return v.ResourceGuid }).(pulumi.StringOutput)
 }
@@ -278,7 +278,7 @@ func (o FrontdoorProfileOutput) ResponseTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FrontdoorProfile) pulumi.IntPtrOutput { return v.ResponseTimeoutSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the SKU for this CDN FrontDoor Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+// Specifies the SKU for this Front Door Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
 func (o FrontdoorProfileOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorProfile) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }

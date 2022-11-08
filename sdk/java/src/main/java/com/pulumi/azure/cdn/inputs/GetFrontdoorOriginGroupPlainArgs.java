@@ -13,14 +13,14 @@ public final class GetFrontdoorOriginGroupPlainArgs extends com.pulumi.resources
     public static final GetFrontdoorOriginGroupPlainArgs Empty = new GetFrontdoorOriginGroupPlainArgs();
 
     /**
-     * Specifies the name of the FrontDoor Origin Group.
+     * Specifies the name of the Front Door Origin Group.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return Specifies the name of the FrontDoor Origin Group.
+     * @return Specifies the name of the Front Door Origin Group.
      * 
      */
     public String name() {
@@ -28,14 +28,14 @@ public final class GetFrontdoorOriginGroupPlainArgs extends com.pulumi.resources
     }
 
     /**
-     * The name of the FrontDoor Profile within which CDN FrontDoor Origin Group exists.
+     * The name of the Front Door Profile within which Front Door Origin Group exists.
      * 
      */
     @Import(name="profileName", required=true)
     private String profileName;
 
     /**
-     * @return The name of the FrontDoor Profile within which CDN FrontDoor Origin Group exists.
+     * @return The name of the Front Door Profile within which Front Door Origin Group exists.
      * 
      */
     public String profileName() {
@@ -43,14 +43,14 @@ public final class GetFrontdoorOriginGroupPlainArgs extends com.pulumi.resources
     }
 
     /**
-     * The name of the Resource Group where the CDN FrontDoor Profile exists.
+     * The name of the Resource Group where the Front Door Profile exists.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private String resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the CDN FrontDoor Profile exists.
+     * @return The name of the Resource Group where the Front Door Profile exists.
      * 
      */
     public String resourceGroupName() {
@@ -84,7 +84,7 @@ public final class GetFrontdoorOriginGroupPlainArgs extends com.pulumi.resources
         }
 
         /**
-         * @param name Specifies the name of the FrontDoor Origin Group.
+         * @param name Specifies the name of the Front Door Origin Group.
          * 
          * @return builder
          * 
@@ -95,7 +95,7 @@ public final class GetFrontdoorOriginGroupPlainArgs extends com.pulumi.resources
         }
 
         /**
-         * @param profileName The name of the FrontDoor Profile within which CDN FrontDoor Origin Group exists.
+         * @param profileName The name of the Front Door Profile within which Front Door Origin Group exists.
          * 
          * @return builder
          * 
@@ -106,7 +106,7 @@ public final class GetFrontdoorOriginGroupPlainArgs extends com.pulumi.resources
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the CDN FrontDoor Profile exists.
+         * @param resourceGroupName The name of the Resource Group where the Front Door Profile exists.
          * 
          * @return builder
          * 

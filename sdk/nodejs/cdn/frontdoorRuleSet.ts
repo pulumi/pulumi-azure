@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a CDN FrontDoor Rule Set.
+ * Manages a Front Door (standard/premium) Rule Set.
  *
  * ## Example Usage
  *
@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * CDN FrontDoor Rule Sets can be imported using the `resource id`, e.g.
+ * Front Door Rule Sets can be imported using the `resource id`, e.g.
  *
  * ```sh
  *  $ pulumi import azure:cdn/frontdoorRuleSet:FrontdoorRuleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/ruleSets/ruleSet1
@@ -58,11 +58,11 @@ export class FrontdoorRuleSet extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the CDN FrontDoor Profile. Changing this forces a new CDN FrontDoor Rule Set to be created.
+     * The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created.
      */
     public readonly cdnFrontdoorProfileId!: pulumi.Output<string>;
     /**
-     * The name which should be used for this CDN FrontDoor Rule Set. Changing this forces a new CDN FrontDoor Rule Set to be created.
+     * The name which should be used for this Front Door Rule Set. Changing this forces a new Front Door Rule Set to be created.
      */
     public readonly name!: pulumi.Output<string>;
 
@@ -99,11 +99,11 @@ export class FrontdoorRuleSet extends pulumi.CustomResource {
  */
 export interface FrontdoorRuleSetState {
     /**
-     * The ID of the CDN FrontDoor Profile. Changing this forces a new CDN FrontDoor Rule Set to be created.
+     * The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created.
      */
     cdnFrontdoorProfileId?: pulumi.Input<string>;
     /**
-     * The name which should be used for this CDN FrontDoor Rule Set. Changing this forces a new CDN FrontDoor Rule Set to be created.
+     * The name which should be used for this Front Door Rule Set. Changing this forces a new Front Door Rule Set to be created.
      */
     name?: pulumi.Input<string>;
 }
@@ -113,11 +113,11 @@ export interface FrontdoorRuleSetState {
  */
 export interface FrontdoorRuleSetArgs {
     /**
-     * The ID of the CDN FrontDoor Profile. Changing this forces a new CDN FrontDoor Rule Set to be created.
+     * The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created.
      */
     cdnFrontdoorProfileId: pulumi.Input<string>;
     /**
-     * The name which should be used for this CDN FrontDoor Rule Set. Changing this forces a new CDN FrontDoor Rule Set to be created.
+     * The name which should be used for this Front Door Rule Set. Changing this forces a new Front Door Rule Set to be created.
      */
     name?: pulumi.Input<string>;
 }

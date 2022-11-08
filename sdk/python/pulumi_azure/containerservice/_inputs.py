@@ -65,6 +65,7 @@ __all__ = [
     'KubernetesClusterServicePrincipalArgs',
     'KubernetesClusterWindowsProfileArgs',
     'KubernetesClusterWindowsProfileGmsaArgs',
+    'KubernetesClusterWorkloadAutoscalerProfileArgs',
     'RegistryEncryptionArgs',
     'RegistryGeoreplicationArgs',
     'RegistryIdentityArgs',
@@ -1359,29 +1360,23 @@ class GroupIdentityArgs:
 @pulumi.input_type
 class GroupImageRegistryCredentialArgs:
     def __init__(__self__, *,
-                 password: pulumi.Input[str],
                  server: pulumi.Input[str],
-                 username: pulumi.Input[str]):
+                 password: Optional[pulumi.Input[str]] = None,
+                 user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] password: The password with which to connect to the registry. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server: The address to use to connect to the registry without protocol ("https"/"http"). For example: "myacr.acr.io". Changing this forces a new resource to be created.
+        :param pulumi.Input[str] password: The password with which to connect to the registry. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] user_assigned_identity_id: The identity ID for the private registry. Changing this forces a new resource to be created.
         :param pulumi.Input[str] username: The username with which to connect to the registry. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "server", server)
-        pulumi.set(__self__, "username", username)
-
-    @property
-    @pulumi.getter
-    def password(self) -> pulumi.Input[str]:
-        """
-        The password with which to connect to the registry. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "password")
-
-    @password.setter
-    def password(self, value: pulumi.Input[str]):
-        pulumi.set(self, "password", value)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
@@ -1397,14 +1392,38 @@ class GroupImageRegistryCredentialArgs:
 
     @property
     @pulumi.getter
-    def username(self) -> pulumi.Input[str]:
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password with which to connect to the registry. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identity ID for the private registry. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
+    @user_assigned_identity_id.setter
+    def user_assigned_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity_id", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
         """
         The username with which to connect to the registry. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: pulumi.Input[str]):
+    def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
 
 
@@ -2191,7 +2210,7 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input[str] orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
         :param pulumi.Input[int] os_disk_size_gb: The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] os_sku: OsSKU to be used to specify Linux OSType. Not applicable to Windows OSType. Possible values include: `Ubuntu`, `CBLMariner`. Defaults to `Ubuntu`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] os_sku: Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pod_subnet_id: The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scale_down_mode: Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to 'ScaleDownModeDelete'. Possible values include 'ScaleDownModeDelete' and 'ScaleDownModeDeallocate'. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Node Pool.
@@ -2543,7 +2562,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter(name="osSku")
     def os_sku(self) -> Optional[pulumi.Input[str]]:
         """
-        OsSKU to be used to specify Linux OSType. Not applicable to Windows OSType. Possible values include: `Ubuntu`, `CBLMariner`. Defaults to `Ubuntu`. Changing this forces a new resource to be created.
+        Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "os_sku")
 
@@ -5634,6 +5653,29 @@ class KubernetesClusterWindowsProfileGmsaArgs:
     @root_domain.setter
     def root_domain(self, value: pulumi.Input[str]):
         pulumi.set(self, "root_domain", value)
+
+
+@pulumi.input_type
+class KubernetesClusterWorkloadAutoscalerProfileArgs:
+    def __init__(__self__, *,
+                 keda_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] keda_enabled: Specifies whether KEDA Autoscaler can be used for workloads.
+        """
+        if keda_enabled is not None:
+            pulumi.set(__self__, "keda_enabled", keda_enabled)
+
+    @property
+    @pulumi.getter(name="kedaEnabled")
+    def keda_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether KEDA Autoscaler can be used for workloads.
+        """
+        return pulumi.get(self, "keda_enabled")
+
+    @keda_enabled.setter
+    def keda_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "keda_enabled", value)
 
 
 @pulumi.input_type

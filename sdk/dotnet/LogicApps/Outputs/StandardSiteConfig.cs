@@ -66,6 +66,22 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly bool? RuntimeScaleMonitoringEnabled;
         /// <summary>
+        /// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.StandardSiteConfigScmIpRestriction> ScmIpRestrictions;
+        /// <summary>
+        /// Configures the minimum version of TLS required for SSL requests to the SCM site.
+        /// </summary>
+        public readonly string? ScmMinTlsVersion;
+        /// <summary>
+        /// The type of Source Control used by the Logic App in use by the Windows Function App. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+        /// </summary>
+        public readonly string? ScmType;
+        /// <summary>
+        /// Should the Logic App `ip_restriction` configuration be used for the SCM too. Defaults to `false`.
+        /// </summary>
+        public readonly bool? ScmUseMainIpRestriction;
+        /// <summary>
         /// Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
         /// </summary>
         public readonly bool? Use32BitWorkerProcess;
@@ -106,6 +122,14 @@ namespace Pulumi.Azure.LogicApps.Outputs
 
             bool? runtimeScaleMonitoringEnabled,
 
+            ImmutableArray<Outputs.StandardSiteConfigScmIpRestriction> scmIpRestrictions,
+
+            string? scmMinTlsVersion,
+
+            string? scmType,
+
+            bool? scmUseMainIpRestriction,
+
             bool? use32BitWorkerProcess,
 
             bool? vnetRouteAllEnabled,
@@ -125,6 +149,10 @@ namespace Pulumi.Azure.LogicApps.Outputs
             MinTlsVersion = minTlsVersion;
             PreWarmedInstanceCount = preWarmedInstanceCount;
             RuntimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
+            ScmIpRestrictions = scmIpRestrictions;
+            ScmMinTlsVersion = scmMinTlsVersion;
+            ScmType = scmType;
+            ScmUseMainIpRestriction = scmUseMainIpRestriction;
             Use32BitWorkerProcess = use32BitWorkerProcess;
             VnetRouteAllEnabled = vnetRouteAllEnabled;
             WebsocketsEnabled = websocketsEnabled;

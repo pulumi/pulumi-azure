@@ -10,12 +10,88 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'ConfigurationConfigFileArgs',
+    'ConfigurationProtectedFileArgs',
     'DeploymentFrontendPrivateArgs',
     'DeploymentFrontendPublicArgs',
     'DeploymentIdentityArgs',
     'DeploymentLoggingStorageAccountArgs',
     'DeploymentNetworkInterfaceArgs',
 ]
+
+@pulumi.input_type
+class ConfigurationConfigFileArgs:
+    def __init__(__self__, *,
+                 content: pulumi.Input[str],
+                 virtual_path: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] content: Specifies the base-64 encoded contents of this config file (Sensitive).
+        :param pulumi.Input[str] virtual_path: Specify the path of this config file.
+        """
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "virtual_path", virtual_path)
+
+    @property
+    @pulumi.getter
+    def content(self) -> pulumi.Input[str]:
+        """
+        Specifies the base-64 encoded contents of this config file (Sensitive).
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: pulumi.Input[str]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter(name="virtualPath")
+    def virtual_path(self) -> pulumi.Input[str]:
+        """
+        Specify the path of this config file.
+        """
+        return pulumi.get(self, "virtual_path")
+
+    @virtual_path.setter
+    def virtual_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "virtual_path", value)
+
+
+@pulumi.input_type
+class ConfigurationProtectedFileArgs:
+    def __init__(__self__, *,
+                 content: pulumi.Input[str],
+                 virtual_path: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] content: Specifies the base-64 encoded contents of this config file.
+        :param pulumi.Input[str] virtual_path: Specify the path of this config file.
+        """
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "virtual_path", virtual_path)
+
+    @property
+    @pulumi.getter
+    def content(self) -> pulumi.Input[str]:
+        """
+        Specifies the base-64 encoded contents of this config file.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: pulumi.Input[str]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter(name="virtualPath")
+    def virtual_path(self) -> pulumi.Input[str]:
+        """
+        Specify the path of this config file.
+        """
+        return pulumi.get(self, "virtual_path")
+
+    @virtual_path.setter
+    def virtual_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "virtual_path", value)
+
 
 @pulumi.input_type
 class DeploymentFrontendPrivateArgs:

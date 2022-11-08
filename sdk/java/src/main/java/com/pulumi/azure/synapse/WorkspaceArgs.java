@@ -118,15 +118,15 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
      * An `identity` block as defined below.
      * 
      */
-    @Import(name="identity", required=true)
-    private Output<WorkspaceIdentityArgs> identity;
+    @Import(name="identity")
+    private @Nullable Output<WorkspaceIdentityArgs> identity;
 
     /**
      * @return An `identity` block as defined below.
      * 
      */
-    public Output<WorkspaceIdentityArgs> identity() {
-        return this.identity;
+    public Optional<Output<WorkspaceIdentityArgs>> identity() {
+        return Optional.ofNullable(this.identity);
     }
 
     /**
@@ -265,33 +265,33 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
+     * Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
      * 
      */
-    @Import(name="sqlAdministratorLogin", required=true)
-    private Output<String> sqlAdministratorLogin;
+    @Import(name="sqlAdministratorLogin")
+    private @Nullable Output<String> sqlAdministratorLogin;
 
     /**
-     * @return Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
+     * @return Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
      * 
      */
-    public Output<String> sqlAdministratorLogin() {
-        return this.sqlAdministratorLogin;
+    public Optional<Output<String>> sqlAdministratorLogin() {
+        return Optional.ofNullable(this.sqlAdministratorLogin);
     }
 
     /**
-     * The Password associated with the `sql_administrator_login` for the SQL administrator.
+     * The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
      * 
      */
-    @Import(name="sqlAdministratorLoginPassword", required=true)
-    private Output<String> sqlAdministratorLoginPassword;
+    @Import(name="sqlAdministratorLoginPassword")
+    private @Nullable Output<String> sqlAdministratorLoginPassword;
 
     /**
-     * @return The Password associated with the `sql_administrator_login` for the SQL administrator.
+     * @return The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
      * 
      */
-    public Output<String> sqlAdministratorLoginPassword() {
-        return this.sqlAdministratorLoginPassword;
+    public Optional<Output<String>> sqlAdministratorLoginPassword() {
+        return Optional.ofNullable(this.sqlAdministratorLoginPassword);
     }
 
     /**
@@ -515,7 +515,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder identity(Output<WorkspaceIdentityArgs> identity) {
+        public Builder identity(@Nullable Output<WorkspaceIdentityArgs> identity) {
             $.identity = identity;
             return this;
         }
@@ -730,18 +730,18 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sqlAdministratorLogin Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
+         * @param sqlAdministratorLogin Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
          * 
          * @return builder
          * 
          */
-        public Builder sqlAdministratorLogin(Output<String> sqlAdministratorLogin) {
+        public Builder sqlAdministratorLogin(@Nullable Output<String> sqlAdministratorLogin) {
             $.sqlAdministratorLogin = sqlAdministratorLogin;
             return this;
         }
 
         /**
-         * @param sqlAdministratorLogin Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
+         * @param sqlAdministratorLogin Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
          * 
          * @return builder
          * 
@@ -751,18 +751,18 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sqlAdministratorLoginPassword The Password associated with the `sql_administrator_login` for the SQL administrator.
+         * @param sqlAdministratorLoginPassword The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
          * 
          * @return builder
          * 
          */
-        public Builder sqlAdministratorLoginPassword(Output<String> sqlAdministratorLoginPassword) {
+        public Builder sqlAdministratorLoginPassword(@Nullable Output<String> sqlAdministratorLoginPassword) {
             $.sqlAdministratorLoginPassword = sqlAdministratorLoginPassword;
             return this;
         }
 
         /**
-         * @param sqlAdministratorLoginPassword The Password associated with the `sql_administrator_login` for the SQL administrator.
+         * @param sqlAdministratorLoginPassword The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
          * 
          * @return builder
          * 
@@ -835,10 +835,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public WorkspaceArgs build() {
-            $.identity = Objects.requireNonNull($.identity, "expected parameter 'identity' to be non-null");
             $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.sqlAdministratorLogin = Objects.requireNonNull($.sqlAdministratorLogin, "expected parameter 'sqlAdministratorLogin' to be non-null");
-            $.sqlAdministratorLoginPassword = Objects.requireNonNull($.sqlAdministratorLoginPassword, "expected parameter 'sqlAdministratorLoginPassword' to be non-null");
             $.storageDataLakeGen2FilesystemId = Objects.requireNonNull($.storageDataLakeGen2FilesystemId, "expected parameter 'storageDataLakeGen2FilesystemId' to be non-null");
             return $;
         }

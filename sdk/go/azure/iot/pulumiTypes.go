@@ -621,7 +621,7 @@ func (o IoTHubEnrichmentArrayOutput) Index(i pulumi.IntInput) IoTHubEnrichmentOu
 }
 
 type IoTHubFallbackRoute struct {
-	// The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+	// The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
 	Condition *string `pulumi:"condition"`
 	// Used to specify whether the fallback route is enabled.
 	Enabled *bool `pulumi:"enabled"`
@@ -643,7 +643,7 @@ type IoTHubFallbackRouteInput interface {
 }
 
 type IoTHubFallbackRouteArgs struct {
-	// The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+	// The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
 	Condition pulumi.StringPtrInput `pulumi:"condition"`
 	// Used to specify whether the fallback route is enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -730,7 +730,7 @@ func (o IoTHubFallbackRouteOutput) ToIoTHubFallbackRoutePtrOutputWithContext(ctx
 	}).(IoTHubFallbackRoutePtrOutput)
 }
 
-// The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+// The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
 func (o IoTHubFallbackRouteOutput) Condition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubFallbackRoute) *string { return v.Condition }).(pulumi.StringPtrOutput)
 }
@@ -774,7 +774,7 @@ func (o IoTHubFallbackRoutePtrOutput) Elem() IoTHubFallbackRouteOutput {
 	}).(IoTHubFallbackRouteOutput)
 }
 
-// The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+// The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
 func (o IoTHubFallbackRoutePtrOutput) Condition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IoTHubFallbackRoute) *string {
 		if v == nil {
@@ -1528,7 +1528,7 @@ func (o IoTHubNetworkRuleSetIpRuleArrayOutput) Index(i pulumi.IntInput) IoTHubNe
 }
 
 type IoTHubRoute struct {
-	// The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+	// The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
 	Condition *string `pulumi:"condition"`
 	// Used to specify whether a route is enabled.
 	Enabled bool `pulumi:"enabled"`
@@ -1552,7 +1552,7 @@ type IoTHubRouteInput interface {
 }
 
 type IoTHubRouteArgs struct {
-	// The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+	// The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
 	Condition pulumi.StringPtrInput `pulumi:"condition"`
 	// Used to specify whether a route is enabled.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -1615,7 +1615,7 @@ func (o IoTHubRouteOutput) ToIoTHubRouteOutputWithContext(ctx context.Context) I
 	return o
 }
 
-// The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+// The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
 func (o IoTHubRouteOutput) Condition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubRoute) *string { return v.Condition }).(pulumi.StringPtrOutput)
 }
@@ -1937,6 +1937,356 @@ func (o IoTHubSkuPtrOutput) Name() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type IotHubDeviceUpdateAccountIdentity struct {
+	// A list of User Assigned Managed Identity IDs to be assigned to this IoT Hub Device Update Account.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this IoT Hub Device Update Account.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this IoT Hub Device Update Account.
+	TenantId *string `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this IoT Hub Device Update Account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
+	Type string `pulumi:"type"`
+}
+
+// IotHubDeviceUpdateAccountIdentityInput is an input type that accepts IotHubDeviceUpdateAccountIdentityArgs and IotHubDeviceUpdateAccountIdentityOutput values.
+// You can construct a concrete instance of `IotHubDeviceUpdateAccountIdentityInput` via:
+//
+//	IotHubDeviceUpdateAccountIdentityArgs{...}
+type IotHubDeviceUpdateAccountIdentityInput interface {
+	pulumi.Input
+
+	ToIotHubDeviceUpdateAccountIdentityOutput() IotHubDeviceUpdateAccountIdentityOutput
+	ToIotHubDeviceUpdateAccountIdentityOutputWithContext(context.Context) IotHubDeviceUpdateAccountIdentityOutput
+}
+
+type IotHubDeviceUpdateAccountIdentityArgs struct {
+	// A list of User Assigned Managed Identity IDs to be assigned to this IoT Hub Device Update Account.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this IoT Hub Device Update Account.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this IoT Hub Device Update Account.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this IoT Hub Device Update Account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (IotHubDeviceUpdateAccountIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotHubDeviceUpdateAccountIdentity)(nil)).Elem()
+}
+
+func (i IotHubDeviceUpdateAccountIdentityArgs) ToIotHubDeviceUpdateAccountIdentityOutput() IotHubDeviceUpdateAccountIdentityOutput {
+	return i.ToIotHubDeviceUpdateAccountIdentityOutputWithContext(context.Background())
+}
+
+func (i IotHubDeviceUpdateAccountIdentityArgs) ToIotHubDeviceUpdateAccountIdentityOutputWithContext(ctx context.Context) IotHubDeviceUpdateAccountIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotHubDeviceUpdateAccountIdentityOutput)
+}
+
+func (i IotHubDeviceUpdateAccountIdentityArgs) ToIotHubDeviceUpdateAccountIdentityPtrOutput() IotHubDeviceUpdateAccountIdentityPtrOutput {
+	return i.ToIotHubDeviceUpdateAccountIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i IotHubDeviceUpdateAccountIdentityArgs) ToIotHubDeviceUpdateAccountIdentityPtrOutputWithContext(ctx context.Context) IotHubDeviceUpdateAccountIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotHubDeviceUpdateAccountIdentityOutput).ToIotHubDeviceUpdateAccountIdentityPtrOutputWithContext(ctx)
+}
+
+// IotHubDeviceUpdateAccountIdentityPtrInput is an input type that accepts IotHubDeviceUpdateAccountIdentityArgs, IotHubDeviceUpdateAccountIdentityPtr and IotHubDeviceUpdateAccountIdentityPtrOutput values.
+// You can construct a concrete instance of `IotHubDeviceUpdateAccountIdentityPtrInput` via:
+//
+//	        IotHubDeviceUpdateAccountIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type IotHubDeviceUpdateAccountIdentityPtrInput interface {
+	pulumi.Input
+
+	ToIotHubDeviceUpdateAccountIdentityPtrOutput() IotHubDeviceUpdateAccountIdentityPtrOutput
+	ToIotHubDeviceUpdateAccountIdentityPtrOutputWithContext(context.Context) IotHubDeviceUpdateAccountIdentityPtrOutput
+}
+
+type iotHubDeviceUpdateAccountIdentityPtrType IotHubDeviceUpdateAccountIdentityArgs
+
+func IotHubDeviceUpdateAccountIdentityPtr(v *IotHubDeviceUpdateAccountIdentityArgs) IotHubDeviceUpdateAccountIdentityPtrInput {
+	return (*iotHubDeviceUpdateAccountIdentityPtrType)(v)
+}
+
+func (*iotHubDeviceUpdateAccountIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IotHubDeviceUpdateAccountIdentity)(nil)).Elem()
+}
+
+func (i *iotHubDeviceUpdateAccountIdentityPtrType) ToIotHubDeviceUpdateAccountIdentityPtrOutput() IotHubDeviceUpdateAccountIdentityPtrOutput {
+	return i.ToIotHubDeviceUpdateAccountIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *iotHubDeviceUpdateAccountIdentityPtrType) ToIotHubDeviceUpdateAccountIdentityPtrOutputWithContext(ctx context.Context) IotHubDeviceUpdateAccountIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotHubDeviceUpdateAccountIdentityPtrOutput)
+}
+
+type IotHubDeviceUpdateAccountIdentityOutput struct{ *pulumi.OutputState }
+
+func (IotHubDeviceUpdateAccountIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotHubDeviceUpdateAccountIdentity)(nil)).Elem()
+}
+
+func (o IotHubDeviceUpdateAccountIdentityOutput) ToIotHubDeviceUpdateAccountIdentityOutput() IotHubDeviceUpdateAccountIdentityOutput {
+	return o
+}
+
+func (o IotHubDeviceUpdateAccountIdentityOutput) ToIotHubDeviceUpdateAccountIdentityOutputWithContext(ctx context.Context) IotHubDeviceUpdateAccountIdentityOutput {
+	return o
+}
+
+func (o IotHubDeviceUpdateAccountIdentityOutput) ToIotHubDeviceUpdateAccountIdentityPtrOutput() IotHubDeviceUpdateAccountIdentityPtrOutput {
+	return o.ToIotHubDeviceUpdateAccountIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o IotHubDeviceUpdateAccountIdentityOutput) ToIotHubDeviceUpdateAccountIdentityPtrOutputWithContext(ctx context.Context) IotHubDeviceUpdateAccountIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotHubDeviceUpdateAccountIdentity) *IotHubDeviceUpdateAccountIdentity {
+		return &v
+	}).(IotHubDeviceUpdateAccountIdentityPtrOutput)
+}
+
+// A list of User Assigned Managed Identity IDs to be assigned to this IoT Hub Device Update Account.
+func (o IotHubDeviceUpdateAccountIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IotHubDeviceUpdateAccountIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this IoT Hub Device Update Account.
+func (o IotHubDeviceUpdateAccountIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IotHubDeviceUpdateAccountIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this IoT Hub Device Update Account.
+func (o IotHubDeviceUpdateAccountIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IotHubDeviceUpdateAccountIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this IoT Hub Device Update Account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
+func (o IotHubDeviceUpdateAccountIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v IotHubDeviceUpdateAccountIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type IotHubDeviceUpdateAccountIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (IotHubDeviceUpdateAccountIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IotHubDeviceUpdateAccountIdentity)(nil)).Elem()
+}
+
+func (o IotHubDeviceUpdateAccountIdentityPtrOutput) ToIotHubDeviceUpdateAccountIdentityPtrOutput() IotHubDeviceUpdateAccountIdentityPtrOutput {
+	return o
+}
+
+func (o IotHubDeviceUpdateAccountIdentityPtrOutput) ToIotHubDeviceUpdateAccountIdentityPtrOutputWithContext(ctx context.Context) IotHubDeviceUpdateAccountIdentityPtrOutput {
+	return o
+}
+
+func (o IotHubDeviceUpdateAccountIdentityPtrOutput) Elem() IotHubDeviceUpdateAccountIdentityOutput {
+	return o.ApplyT(func(v *IotHubDeviceUpdateAccountIdentity) IotHubDeviceUpdateAccountIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret IotHubDeviceUpdateAccountIdentity
+		return ret
+	}).(IotHubDeviceUpdateAccountIdentityOutput)
+}
+
+// A list of User Assigned Managed Identity IDs to be assigned to this IoT Hub Device Update Account.
+func (o IotHubDeviceUpdateAccountIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IotHubDeviceUpdateAccountIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this IoT Hub Device Update Account.
+func (o IotHubDeviceUpdateAccountIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IotHubDeviceUpdateAccountIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this IoT Hub Device Update Account.
+func (o IotHubDeviceUpdateAccountIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IotHubDeviceUpdateAccountIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this IoT Hub Device Update Account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
+func (o IotHubDeviceUpdateAccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IotHubDeviceUpdateAccountIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type IotHubDeviceUpdateInstanceDiagnosticStorageAccount struct {
+	// Connection String of the Diagnostic Storage Account.
+	ConnectionString string `pulumi:"connectionString"`
+	// Resource ID of the Diagnostic Storage Account.
+	Id string `pulumi:"id"`
+}
+
+// IotHubDeviceUpdateInstanceDiagnosticStorageAccountInput is an input type that accepts IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs and IotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput values.
+// You can construct a concrete instance of `IotHubDeviceUpdateInstanceDiagnosticStorageAccountInput` via:
+//
+//	IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs{...}
+type IotHubDeviceUpdateInstanceDiagnosticStorageAccountInput interface {
+	pulumi.Input
+
+	ToIotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput() IotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput
+	ToIotHubDeviceUpdateInstanceDiagnosticStorageAccountOutputWithContext(context.Context) IotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput
+}
+
+type IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs struct {
+	// Connection String of the Diagnostic Storage Account.
+	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
+	// Resource ID of the Diagnostic Storage Account.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotHubDeviceUpdateInstanceDiagnosticStorageAccount)(nil)).Elem()
+}
+
+func (i IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs) ToIotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput() IotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput {
+	return i.ToIotHubDeviceUpdateInstanceDiagnosticStorageAccountOutputWithContext(context.Background())
+}
+
+func (i IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs) ToIotHubDeviceUpdateInstanceDiagnosticStorageAccountOutputWithContext(ctx context.Context) IotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput)
+}
+
+func (i IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs) ToIotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput() IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput {
+	return i.ToIotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutputWithContext(context.Background())
+}
+
+func (i IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs) ToIotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutputWithContext(ctx context.Context) IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput).ToIotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutputWithContext(ctx)
+}
+
+// IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrInput is an input type that accepts IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs, IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtr and IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput values.
+// You can construct a concrete instance of `IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrInput` via:
+//
+//	        IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs{...}
+//
+//	or:
+//
+//	        nil
+type IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrInput interface {
+	pulumi.Input
+
+	ToIotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput() IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput
+	ToIotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutputWithContext(context.Context) IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput
+}
+
+type iotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrType IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs
+
+func IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtr(v *IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs) IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrInput {
+	return (*iotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrType)(v)
+}
+
+func (*iotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IotHubDeviceUpdateInstanceDiagnosticStorageAccount)(nil)).Elem()
+}
+
+func (i *iotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrType) ToIotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput() IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput {
+	return i.ToIotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutputWithContext(context.Background())
+}
+
+func (i *iotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrType) ToIotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutputWithContext(ctx context.Context) IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput)
+}
+
+type IotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput struct{ *pulumi.OutputState }
+
+func (IotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotHubDeviceUpdateInstanceDiagnosticStorageAccount)(nil)).Elem()
+}
+
+func (o IotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput) ToIotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput() IotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput {
+	return o
+}
+
+func (o IotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput) ToIotHubDeviceUpdateInstanceDiagnosticStorageAccountOutputWithContext(ctx context.Context) IotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput {
+	return o
+}
+
+func (o IotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput) ToIotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput() IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput {
+	return o.ToIotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutputWithContext(context.Background())
+}
+
+func (o IotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput) ToIotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutputWithContext(ctx context.Context) IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotHubDeviceUpdateInstanceDiagnosticStorageAccount) *IotHubDeviceUpdateInstanceDiagnosticStorageAccount {
+		return &v
+	}).(IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput)
+}
+
+// Connection String of the Diagnostic Storage Account.
+func (o IotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput) ConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v IotHubDeviceUpdateInstanceDiagnosticStorageAccount) string { return v.ConnectionString }).(pulumi.StringOutput)
+}
+
+// Resource ID of the Diagnostic Storage Account.
+func (o IotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v IotHubDeviceUpdateInstanceDiagnosticStorageAccount) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput struct{ *pulumi.OutputState }
+
+func (IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IotHubDeviceUpdateInstanceDiagnosticStorageAccount)(nil)).Elem()
+}
+
+func (o IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput) ToIotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput() IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput {
+	return o
+}
+
+func (o IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput) ToIotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutputWithContext(ctx context.Context) IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput {
+	return o
+}
+
+func (o IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput) Elem() IotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput {
+	return o.ApplyT(func(v *IotHubDeviceUpdateInstanceDiagnosticStorageAccount) IotHubDeviceUpdateInstanceDiagnosticStorageAccount {
+		if v != nil {
+			return *v
+		}
+		var ret IotHubDeviceUpdateInstanceDiagnosticStorageAccount
+		return ret
+	}).(IotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput)
+}
+
+// Connection String of the Diagnostic Storage Account.
+func (o IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput) ConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IotHubDeviceUpdateInstanceDiagnosticStorageAccount) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ConnectionString
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource ID of the Diagnostic Storage Account.
+func (o IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IotHubDeviceUpdateInstanceDiagnosticStorageAccount) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3486,6 +3836,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubSharedAccessPolicyArrayInput)(nil)).Elem(), IoTHubSharedAccessPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubSkuInput)(nil)).Elem(), IoTHubSkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubSkuPtrInput)(nil)).Elem(), IoTHubSkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IotHubDeviceUpdateAccountIdentityInput)(nil)).Elem(), IotHubDeviceUpdateAccountIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IotHubDeviceUpdateAccountIdentityPtrInput)(nil)).Elem(), IotHubDeviceUpdateAccountIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IotHubDeviceUpdateInstanceDiagnosticStorageAccountInput)(nil)).Elem(), IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrInput)(nil)).Elem(), IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IotHubDpsIpFilterRuleInput)(nil)).Elem(), IotHubDpsIpFilterRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IotHubDpsIpFilterRuleArrayInput)(nil)).Elem(), IotHubDpsIpFilterRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IotHubDpsLinkedHubInput)(nil)).Elem(), IotHubDpsLinkedHubArgs{})
@@ -3528,6 +3882,10 @@ func init() {
 	pulumi.RegisterOutputType(IoTHubSharedAccessPolicyArrayOutput{})
 	pulumi.RegisterOutputType(IoTHubSkuOutput{})
 	pulumi.RegisterOutputType(IoTHubSkuPtrOutput{})
+	pulumi.RegisterOutputType(IotHubDeviceUpdateAccountIdentityOutput{})
+	pulumi.RegisterOutputType(IotHubDeviceUpdateAccountIdentityPtrOutput{})
+	pulumi.RegisterOutputType(IotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput{})
+	pulumi.RegisterOutputType(IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput{})
 	pulumi.RegisterOutputType(IotHubDpsIpFilterRuleOutput{})
 	pulumi.RegisterOutputType(IotHubDpsIpFilterRuleArrayOutput{})
 	pulumi.RegisterOutputType(IotHubDpsLinkedHubOutput{})

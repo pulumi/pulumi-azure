@@ -219,7 +219,6 @@ public final class LiveEventState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. Changing this forces a new Live Event to be created.
-     * ---
      * 
      */
     @Import(name="useStaticHostname")
@@ -227,7 +226,6 @@ public final class LiveEventState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. Changing this forces a new Live Event to be created.
-     * ---
      * 
      */
     public Optional<Output<Boolean>> useStaticHostname() {
@@ -556,7 +554,6 @@ public final class LiveEventState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param useStaticHostname Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. Changing this forces a new Live Event to be created.
-         * ---
          * 
          * @return builder
          * 
@@ -568,7 +565,6 @@ public final class LiveEventState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param useStaticHostname Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. Changing this forces a new Live Event to be created.
-         * ---
          * 
          * @return builder
          * 

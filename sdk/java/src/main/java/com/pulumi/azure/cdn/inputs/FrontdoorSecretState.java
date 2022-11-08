@@ -17,14 +17,14 @@ public final class FrontdoorSecretState extends com.pulumi.resources.ResourceArg
     public static final FrontdoorSecretState Empty = new FrontdoorSecretState();
 
     /**
-     * The Resource ID of the Frontdoor Profile. Changing this forces a new Frontdoor Secret to be created.
+     * The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
      * 
      */
     @Import(name="cdnFrontdoorProfileId")
     private @Nullable Output<String> cdnFrontdoorProfileId;
 
     /**
-     * @return The Resource ID of the Frontdoor Profile. Changing this forces a new Frontdoor Secret to be created.
+     * @return The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
      * 
      */
     public Optional<Output<String>> cdnFrontdoorProfileId() {
@@ -32,14 +32,14 @@ public final class FrontdoorSecretState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The name of the Frontdoor Profile containing this Frontdoor Secret.
+     * The name of the Front Door Profile containing this Front Door Secret.
      * 
      */
     @Import(name="cdnFrontdoorProfileName")
     private @Nullable Output<String> cdnFrontdoorProfileName;
 
     /**
-     * @return The name of the Frontdoor Profile containing this Frontdoor Secret.
+     * @return The name of the Front Door Profile containing this Front Door Secret.
      * 
      */
     public Optional<Output<String>> cdnFrontdoorProfileName() {
@@ -47,14 +47,14 @@ public final class FrontdoorSecretState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The name which should be used for this Frontdoor Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Frontdoor Secret to be created.
+     * The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Frontdoor Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Frontdoor Secret to be created.
+     * @return The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -62,14 +62,14 @@ public final class FrontdoorSecretState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A `secret` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+     * A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
      * 
      */
     @Import(name="secret")
     private @Nullable Output<FrontdoorSecretSecretArgs> secret;
 
     /**
-     * @return A `secret` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+     * @return A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
      * 
      */
     public Optional<Output<FrontdoorSecretSecretArgs>> secret() {
@@ -104,7 +104,7 @@ public final class FrontdoorSecretState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param cdnFrontdoorProfileId The Resource ID of the Frontdoor Profile. Changing this forces a new Frontdoor Secret to be created.
+         * @param cdnFrontdoorProfileId The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class FrontdoorSecretState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param cdnFrontdoorProfileId The Resource ID of the Frontdoor Profile. Changing this forces a new Frontdoor Secret to be created.
+         * @param cdnFrontdoorProfileId The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class FrontdoorSecretState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param cdnFrontdoorProfileName The name of the Frontdoor Profile containing this Frontdoor Secret.
+         * @param cdnFrontdoorProfileName The name of the Front Door Profile containing this Front Door Secret.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class FrontdoorSecretState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param cdnFrontdoorProfileName The name of the Frontdoor Profile containing this Frontdoor Secret.
+         * @param cdnFrontdoorProfileName The name of the Front Door Profile containing this Front Door Secret.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class FrontdoorSecretState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name which should be used for this Frontdoor Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Frontdoor Secret to be created.
+         * @param name The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class FrontdoorSecretState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name which should be used for this Frontdoor Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Frontdoor Secret to be created.
+         * @param name The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class FrontdoorSecretState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param secret A `secret` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+         * @param secret A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class FrontdoorSecretState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param secret A `secret` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+         * @param secret A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
          * 
          * @return builder
          * 

@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetFrontdoorSecretResult {
     /**
-     * @return Specifies the ID of the CDN FrontDoor Profile within which this CDN FrontDoor Secret exists.
+     * @return Specifies the ID of the Front Door Profile within which this Front Door Secret exists.
      * 
      */
     private String cdnFrontdoorProfileId;
@@ -32,7 +32,7 @@ public final class GetFrontdoorSecretResult {
 
     private GetFrontdoorSecretResult() {}
     /**
-     * @return Specifies the ID of the CDN FrontDoor Profile within which this CDN FrontDoor Secret exists.
+     * @return Specifies the ID of the Front Door Profile within which this Front Door Secret exists.
      * 
      */
     public String cdnFrontdoorProfileId() {

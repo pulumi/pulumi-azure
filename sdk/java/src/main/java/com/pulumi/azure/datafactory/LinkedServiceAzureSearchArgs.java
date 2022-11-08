@@ -140,14 +140,14 @@ public final class LinkedServiceAzureSearchArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The URL of the Search Service endpoint (e.g. https://{searchServiceName}.search.windows.net).
+     * The URL of the Search Service endpoint (e.g. &lt;https://{searchServiceName}.search.windows.net&gt;).
      * 
      */
     @Import(name="url", required=true)
     private Output<String> url;
 
     /**
-     * @return The URL of the Search Service endpoint (e.g. https://{searchServiceName}.search.windows.net).
+     * @return The URL of the Search Service endpoint (e.g. &lt;https://{searchServiceName}.search.windows.net&gt;).
      * 
      */
     public Output<String> url() {
@@ -367,7 +367,7 @@ public final class LinkedServiceAzureSearchArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param url The URL of the Search Service endpoint (e.g. https://{searchServiceName}.search.windows.net).
+         * @param url The URL of the Search Service endpoint (e.g. &lt;https://{searchServiceName}.search.windows.net&gt;).
          * 
          * @return builder
          * 
@@ -378,7 +378,7 @@ public final class LinkedServiceAzureSearchArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param url The URL of the Search Service endpoint (e.g. https://{searchServiceName}.search.windows.net).
+         * @param url The URL of the Search Service endpoint (e.g. &lt;https://{searchServiceName}.search.windows.net&gt;).
          * 
          * @return builder
          * 

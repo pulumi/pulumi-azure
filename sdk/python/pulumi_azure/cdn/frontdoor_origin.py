@@ -30,13 +30,13 @@ class FrontdoorOriginArgs:
                  weight: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a FrontdoorOrigin resource.
-        :param pulumi.Input[str] cdn_frontdoor_origin_group_id: The ID of the CDN FrontDoor Origin Group within which this CDN FrontDoor Origin should exist. Changing this forces a new CDN FrontDoor Origin to be created.
+        :param pulumi.Input[str] cdn_frontdoor_origin_group_id: The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
         :param pulumi.Input[bool] certificate_name_check_enabled: Specifies whether certificate name checks are enabled for this origin.
         :param pulumi.Input[str] host_name: The IPv4 address, IPv6 address or Domain name of the Origin.
         :param pulumi.Input[bool] enabled: Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
         :param pulumi.Input[int] http_port: The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
         :param pulumi.Input[int] https_port: The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`.
-        :param pulumi.Input[str] name: The name which should be used for this CDN FrontDoor Origin. Changing this forces a new CDN FrontDoor Origin to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
         :param pulumi.Input[str] origin_host_header: The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
         :param pulumi.Input[int] priority: Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy. Must be between `1` and `5` (inclusive). Defaults to `1`.
         :param pulumi.Input['FrontdoorOriginPrivateLinkArgs'] private_link: A `private_link` block as defined below.
@@ -71,7 +71,7 @@ class FrontdoorOriginArgs:
     @pulumi.getter(name="cdnFrontdoorOriginGroupId")
     def cdn_frontdoor_origin_group_id(self) -> pulumi.Input[str]:
         """
-        The ID of the CDN FrontDoor Origin Group within which this CDN FrontDoor Origin should exist. Changing this forces a new CDN FrontDoor Origin to be created.
+        The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_origin_group_id")
 
@@ -152,7 +152,7 @@ class FrontdoorOriginArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this CDN FrontDoor Origin. Changing this forces a new CDN FrontDoor Origin to be created.
+        The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
         """
         return pulumi.get(self, "name")
 
@@ -226,13 +226,13 @@ class _FrontdoorOriginState:
                  weight: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering FrontdoorOrigin resources.
-        :param pulumi.Input[str] cdn_frontdoor_origin_group_id: The ID of the CDN FrontDoor Origin Group within which this CDN FrontDoor Origin should exist. Changing this forces a new CDN FrontDoor Origin to be created.
+        :param pulumi.Input[str] cdn_frontdoor_origin_group_id: The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
         :param pulumi.Input[bool] certificate_name_check_enabled: Specifies whether certificate name checks are enabled for this origin.
         :param pulumi.Input[bool] enabled: Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
         :param pulumi.Input[str] host_name: The IPv4 address, IPv6 address or Domain name of the Origin.
         :param pulumi.Input[int] http_port: The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
         :param pulumi.Input[int] https_port: The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`.
-        :param pulumi.Input[str] name: The name which should be used for this CDN FrontDoor Origin. Changing this forces a new CDN FrontDoor Origin to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
         :param pulumi.Input[str] origin_host_header: The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
         :param pulumi.Input[int] priority: Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy. Must be between `1` and `5` (inclusive). Defaults to `1`.
         :param pulumi.Input['FrontdoorOriginPrivateLinkArgs'] private_link: A `private_link` block as defined below.
@@ -270,7 +270,7 @@ class _FrontdoorOriginState:
     @pulumi.getter(name="cdnFrontdoorOriginGroupId")
     def cdn_frontdoor_origin_group_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the CDN FrontDoor Origin Group within which this CDN FrontDoor Origin should exist. Changing this forces a new CDN FrontDoor Origin to be created.
+        The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_origin_group_id")
 
@@ -351,7 +351,7 @@ class _FrontdoorOriginState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this CDN FrontDoor Origin. Changing this forces a new CDN FrontDoor Origin to be created.
+        The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
         """
         return pulumi.get(self, "name")
 
@@ -429,7 +429,7 @@ class FrontdoorOrigin(pulumi.CustomResource):
         """
         ## Import
 
-        CDN FrontDoor Origin can be imported using the `resource id`, e.g.
+        Front Door Origins can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:cdn/frontdoorOrigin:FrontdoorOrigin example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/originGroups/originGroup1/origins/origin1
@@ -437,13 +437,13 @@ class FrontdoorOrigin(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cdn_frontdoor_origin_group_id: The ID of the CDN FrontDoor Origin Group within which this CDN FrontDoor Origin should exist. Changing this forces a new CDN FrontDoor Origin to be created.
+        :param pulumi.Input[str] cdn_frontdoor_origin_group_id: The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
         :param pulumi.Input[bool] certificate_name_check_enabled: Specifies whether certificate name checks are enabled for this origin.
         :param pulumi.Input[bool] enabled: Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
         :param pulumi.Input[str] host_name: The IPv4 address, IPv6 address or Domain name of the Origin.
         :param pulumi.Input[int] http_port: The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
         :param pulumi.Input[int] https_port: The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`.
-        :param pulumi.Input[str] name: The name which should be used for this CDN FrontDoor Origin. Changing this forces a new CDN FrontDoor Origin to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
         :param pulumi.Input[str] origin_host_header: The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
         :param pulumi.Input[int] priority: Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy. Must be between `1` and `5` (inclusive). Defaults to `1`.
         :param pulumi.Input[pulumi.InputType['FrontdoorOriginPrivateLinkArgs']] private_link: A `private_link` block as defined below.
@@ -458,7 +458,7 @@ class FrontdoorOrigin(pulumi.CustomResource):
         """
         ## Import
 
-        CDN FrontDoor Origin can be imported using the `resource id`, e.g.
+        Front Door Origins can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:cdn/frontdoorOrigin:FrontdoorOrigin example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/originGroups/originGroup1/origins/origin1
@@ -550,13 +550,13 @@ class FrontdoorOrigin(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cdn_frontdoor_origin_group_id: The ID of the CDN FrontDoor Origin Group within which this CDN FrontDoor Origin should exist. Changing this forces a new CDN FrontDoor Origin to be created.
+        :param pulumi.Input[str] cdn_frontdoor_origin_group_id: The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
         :param pulumi.Input[bool] certificate_name_check_enabled: Specifies whether certificate name checks are enabled for this origin.
         :param pulumi.Input[bool] enabled: Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
         :param pulumi.Input[str] host_name: The IPv4 address, IPv6 address or Domain name of the Origin.
         :param pulumi.Input[int] http_port: The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
         :param pulumi.Input[int] https_port: The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`.
-        :param pulumi.Input[str] name: The name which should be used for this CDN FrontDoor Origin. Changing this forces a new CDN FrontDoor Origin to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
         :param pulumi.Input[str] origin_host_header: The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
         :param pulumi.Input[int] priority: Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy. Must be between `1` and `5` (inclusive). Defaults to `1`.
         :param pulumi.Input[pulumi.InputType['FrontdoorOriginPrivateLinkArgs']] private_link: A `private_link` block as defined below.
@@ -584,7 +584,7 @@ class FrontdoorOrigin(pulumi.CustomResource):
     @pulumi.getter(name="cdnFrontdoorOriginGroupId")
     def cdn_frontdoor_origin_group_id(self) -> pulumi.Output[str]:
         """
-        The ID of the CDN FrontDoor Origin Group within which this CDN FrontDoor Origin should exist. Changing this forces a new CDN FrontDoor Origin to be created.
+        The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_origin_group_id")
 
@@ -637,7 +637,7 @@ class FrontdoorOrigin(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name which should be used for this CDN FrontDoor Origin. Changing this forces a new CDN FrontDoor Origin to be created.
+        The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
         """
         return pulumi.get(self, "name")
 

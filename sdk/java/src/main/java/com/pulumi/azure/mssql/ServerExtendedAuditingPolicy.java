@@ -320,14 +320,14 @@ public class ServerExtendedAuditingPolicy extends com.pulumi.resources.CustomRes
         return Codegen.optional(this.storageAccountSubscriptionId);
     }
     /**
-     * The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+     * The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
      * 
      */
     @Export(name="storageEndpoint", type=String.class, parameters={})
     private Output</* @Nullable */ String> storageEndpoint;
 
     /**
-     * @return The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+     * @return The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
      * 
      */
     public Output<Optional<String>> storageEndpoint() {

@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain {
     /**
-     * @return Is the Frontdoor Custom Domain/Endpoint activated?
+     * @return Is the Front Door Custom Domain/Endpoint activated?
      * 
      */
     private @Nullable Boolean active;
     /**
-     * @return The Resource Id of the **Frontdoor Custom Domain** or **Frontdoor Endpoint** that should be bound to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+     * @return The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
     private String cdnFrontdoorDomainId;
 
     private FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain() {}
     /**
-     * @return Is the Frontdoor Custom Domain/Endpoint activated?
+     * @return Is the Front Door Custom Domain/Endpoint activated?
      * 
      */
     public Optional<Boolean> active() {
         return Optional.ofNullable(this.active);
     }
     /**
-     * @return The Resource Id of the **Frontdoor Custom Domain** or **Frontdoor Endpoint** that should be bound to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+     * @return The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
     public String cdnFrontdoorDomainId() {

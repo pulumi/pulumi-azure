@@ -11,6 +11,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNamespaceDisasterRecoveryConfigResult {
+    private @Nullable String aliasAuthorizationRuleId;
     private String defaultPrimaryKey;
     private String defaultSecondaryKey;
     /**
@@ -27,6 +28,9 @@ public final class GetNamespaceDisasterRecoveryConfigResult {
     private String secondaryConnectionStringAlias;
 
     private GetNamespaceDisasterRecoveryConfigResult() {}
+    public Optional<String> aliasAuthorizationRuleId() {
+        return Optional.ofNullable(this.aliasAuthorizationRuleId);
+    }
     public String defaultPrimaryKey() {
         return this.defaultPrimaryKey;
     }
@@ -71,6 +75,7 @@ public final class GetNamespaceDisasterRecoveryConfigResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String aliasAuthorizationRuleId;
         private String defaultPrimaryKey;
         private String defaultSecondaryKey;
         private String id;
@@ -84,6 +89,7 @@ public final class GetNamespaceDisasterRecoveryConfigResult {
         public Builder() {}
         public Builder(GetNamespaceDisasterRecoveryConfigResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.aliasAuthorizationRuleId = defaults.aliasAuthorizationRuleId;
     	      this.defaultPrimaryKey = defaults.defaultPrimaryKey;
     	      this.defaultSecondaryKey = defaults.defaultSecondaryKey;
     	      this.id = defaults.id;
@@ -96,6 +102,11 @@ public final class GetNamespaceDisasterRecoveryConfigResult {
     	      this.secondaryConnectionStringAlias = defaults.secondaryConnectionStringAlias;
         }
 
+        @CustomType.Setter
+        public Builder aliasAuthorizationRuleId(@Nullable String aliasAuthorizationRuleId) {
+            this.aliasAuthorizationRuleId = aliasAuthorizationRuleId;
+            return this;
+        }
         @CustomType.Setter
         public Builder defaultPrimaryKey(String defaultPrimaryKey) {
             this.defaultPrimaryKey = Objects.requireNonNull(defaultPrimaryKey);
@@ -148,6 +159,7 @@ public final class GetNamespaceDisasterRecoveryConfigResult {
         }
         public GetNamespaceDisasterRecoveryConfigResult build() {
             final var o = new GetNamespaceDisasterRecoveryConfigResult();
+            o.aliasAuthorizationRuleId = aliasAuthorizationRuleId;
             o.defaultPrimaryKey = defaultPrimaryKey;
             o.defaultSecondaryKey = defaultSecondaryKey;
             o.id = id;

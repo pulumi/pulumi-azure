@@ -177,7 +177,7 @@ type FirewallPolicy struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The Frontend Endpoints associated with this Front Door Web Application Firewall policy.
 	FrontendEndpointIds pulumi.StringArrayOutput `pulumi:"frontendEndpointIds"`
-	// The Azure Region where this FrontDoor Firewall Policy exists.
+	// The Azure Region where this Front Door Firewall Policy exists.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules FirewallPolicyManagedRuleArrayOutput `pulumi:"managedRules"`
@@ -235,7 +235,7 @@ type firewallPolicyState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The Frontend Endpoints associated with this Front Door Web Application Firewall policy.
 	FrontendEndpointIds []string `pulumi:"frontendEndpointIds"`
-	// The Azure Region where this FrontDoor Firewall Policy exists.
+	// The Azure Region where this Front Door Firewall Policy exists.
 	Location *string `pulumi:"location"`
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules []FirewallPolicyManagedRule `pulumi:"managedRules"`
@@ -262,7 +262,7 @@ type FirewallPolicyState struct {
 	Enabled pulumi.BoolPtrInput
 	// The Frontend Endpoints associated with this Front Door Web Application Firewall policy.
 	FrontendEndpointIds pulumi.StringArrayInput
-	// The Azure Region where this FrontDoor Firewall Policy exists.
+	// The Azure Region where this Front Door Firewall Policy exists.
 	Location pulumi.StringPtrInput
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules FirewallPolicyManagedRuleArrayInput
@@ -441,7 +441,7 @@ func (o FirewallPolicyOutput) FrontendEndpointIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringArrayOutput { return v.FrontendEndpointIds }).(pulumi.StringArrayOutput)
 }
 
-// The Azure Region where this FrontDoor Firewall Policy exists.
+// The Azure Region where this Front Door Firewall Policy exists.
 func (o FirewallPolicyOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }

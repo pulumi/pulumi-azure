@@ -157,7 +157,7 @@ type LinuxVirtualMachineScaleSet struct {
 	Extensions LinuxVirtualMachineScaleSetExtensionArrayOutput `pulumi:"extensions"`
 	// Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
 	ExtensionsTimeBudget pulumi.StringPtrOutput `pulumi:"extensionsTimeBudget"`
-	// A `galleryApplications` block as defined below.
+	// Deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
 	GalleryApplications LinuxVirtualMachineScaleSetGalleryApplicationArrayOutput `pulumi:"galleryApplications"`
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId pulumi.StringPtrOutput `pulumi:"healthProbeId"`
@@ -315,7 +315,7 @@ type linuxVirtualMachineScaleSetState struct {
 	Extensions []LinuxVirtualMachineScaleSetExtension `pulumi:"extensions"`
 	// Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
-	// A `galleryApplications` block as defined below.
+	// Deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
 	GalleryApplications []LinuxVirtualMachineScaleSetGalleryApplication `pulumi:"galleryApplications"`
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId *string `pulumi:"healthProbeId"`
@@ -430,7 +430,7 @@ type LinuxVirtualMachineScaleSetState struct {
 	Extensions LinuxVirtualMachineScaleSetExtensionArrayInput
 	// Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
 	ExtensionsTimeBudget pulumi.StringPtrInput
-	// A `galleryApplications` block as defined below.
+	// Deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
 	GalleryApplications LinuxVirtualMachineScaleSetGalleryApplicationArrayInput
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId pulumi.StringPtrInput
@@ -549,7 +549,7 @@ type linuxVirtualMachineScaleSetArgs struct {
 	Extensions []LinuxVirtualMachineScaleSetExtension `pulumi:"extensions"`
 	// Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
-	// A `galleryApplications` block as defined below.
+	// Deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
 	GalleryApplications []LinuxVirtualMachineScaleSetGalleryApplication `pulumi:"galleryApplications"`
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId *string `pulumi:"healthProbeId"`
@@ -663,7 +663,7 @@ type LinuxVirtualMachineScaleSetArgs struct {
 	Extensions LinuxVirtualMachineScaleSetExtensionArrayInput
 	// Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
 	ExtensionsTimeBudget pulumi.StringPtrInput
-	// A `galleryApplications` block as defined below.
+	// Deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
 	GalleryApplications LinuxVirtualMachineScaleSetGalleryApplicationArrayInput
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId pulumi.StringPtrInput
@@ -935,7 +935,7 @@ func (o LinuxVirtualMachineScaleSetOutput) ExtensionsTimeBudget() pulumi.StringP
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.ExtensionsTimeBudget }).(pulumi.StringPtrOutput)
 }
 
-// A `galleryApplications` block as defined below.
+// Deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
 func (o LinuxVirtualMachineScaleSetOutput) GalleryApplications() LinuxVirtualMachineScaleSetGalleryApplicationArrayOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSet) LinuxVirtualMachineScaleSetGalleryApplicationArrayOutput {
 		return v.GalleryApplications

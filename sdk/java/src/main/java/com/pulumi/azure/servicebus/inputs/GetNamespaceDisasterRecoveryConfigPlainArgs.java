@@ -14,6 +14,13 @@ public final class GetNamespaceDisasterRecoveryConfigPlainArgs extends com.pulum
 
     public static final GetNamespaceDisasterRecoveryConfigPlainArgs Empty = new GetNamespaceDisasterRecoveryConfigPlainArgs();
 
+    @Import(name="aliasAuthorizationRuleId")
+    private @Nullable String aliasAuthorizationRuleId;
+
+    public Optional<String> aliasAuthorizationRuleId() {
+        return Optional.ofNullable(this.aliasAuthorizationRuleId);
+    }
+
     @Import(name="name", required=true)
     private String name;
 
@@ -45,6 +52,7 @@ public final class GetNamespaceDisasterRecoveryConfigPlainArgs extends com.pulum
     private GetNamespaceDisasterRecoveryConfigPlainArgs() {}
 
     private GetNamespaceDisasterRecoveryConfigPlainArgs(GetNamespaceDisasterRecoveryConfigPlainArgs $) {
+        this.aliasAuthorizationRuleId = $.aliasAuthorizationRuleId;
         this.name = $.name;
         this.namespaceId = $.namespaceId;
         this.namespaceName = $.namespaceName;
@@ -67,6 +75,11 @@ public final class GetNamespaceDisasterRecoveryConfigPlainArgs extends com.pulum
 
         public Builder(GetNamespaceDisasterRecoveryConfigPlainArgs defaults) {
             $ = new GetNamespaceDisasterRecoveryConfigPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder aliasAuthorizationRuleId(@Nullable String aliasAuthorizationRuleId) {
+            $.aliasAuthorizationRuleId = aliasAuthorizationRuleId;
+            return this;
         }
 
         public Builder name(String name) {

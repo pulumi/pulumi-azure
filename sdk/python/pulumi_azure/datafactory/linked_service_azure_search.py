@@ -27,7 +27,7 @@ class LinkedServiceAzureSearchArgs:
         The set of arguments for constructing a LinkedServiceAzureSearch resource.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] search_service_key: The key of the Azure Search Service.
-        :param pulumi.Input[str] url: The URL of the Search Service endpoint (e.g. https://{searchServiceName}.search.windows.net).
+        :param pulumi.Input[str] url: The URL of the Search Service endpoint (e.g. <https://{searchServiceName}.search.windows.net>).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
@@ -80,7 +80,7 @@ class LinkedServiceAzureSearchArgs:
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
         """
-        The URL of the Search Service endpoint (e.g. https://{searchServiceName}.search.windows.net).
+        The URL of the Search Service endpoint (e.g. <https://{searchServiceName}.search.windows.net>).
         """
         return pulumi.get(self, "url")
 
@@ -187,7 +187,7 @@ class _LinkedServiceAzureSearchState:
                factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] search_service_key: The key of the Azure Search Service.
-        :param pulumi.Input[str] url: The URL of the Search Service endpoint (e.g. https://{searchServiceName}.search.windows.net).
+        :param pulumi.Input[str] url: The URL of the Search Service endpoint (e.g. <https://{searchServiceName}.search.windows.net>).
         """
         if additional_properties is not None:
             pulumi.set(__self__, "additional_properties", additional_properties)
@@ -323,7 +323,7 @@ class _LinkedServiceAzureSearchState:
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
         """
-        The URL of the Search Service endpoint (e.g. https://{searchServiceName}.search.windows.net).
+        The URL of the Search Service endpoint (e.g. <https://{searchServiceName}.search.windows.net>).
         """
         return pulumi.get(self, "url")
 
@@ -369,7 +369,7 @@ class LinkedServiceAzureSearch(pulumi.CustomResource):
                factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] search_service_key: The key of the Azure Search Service.
-        :param pulumi.Input[str] url: The URL of the Search Service endpoint (e.g. https://{searchServiceName}.search.windows.net).
+        :param pulumi.Input[str] url: The URL of the Search Service endpoint (e.g. <https://{searchServiceName}.search.windows.net>).
         """
         ...
     @overload
@@ -474,7 +474,7 @@ class LinkedServiceAzureSearch(pulumi.CustomResource):
                factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] search_service_key: The key of the Azure Search Service.
-        :param pulumi.Input[str] url: The URL of the Search Service endpoint (e.g. https://{searchServiceName}.search.windows.net).
+        :param pulumi.Input[str] url: The URL of the Search Service endpoint (e.g. <https://{searchServiceName}.search.windows.net>).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -569,7 +569,7 @@ class LinkedServiceAzureSearch(pulumi.CustomResource):
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
         """
-        The URL of the Search Service endpoint (e.g. https://{searchServiceName}.search.windows.net).
+        The URL of the Search Service endpoint (e.g. <https://{searchServiceName}.search.windows.net>).
         """
         return pulumi.get(self, "url")
 

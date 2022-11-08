@@ -17,14 +17,14 @@ public final class FrontdoorSecurityPolicyState extends com.pulumi.resources.Res
     public static final FrontdoorSecurityPolicyState Empty = new FrontdoorSecurityPolicyState();
 
     /**
-     * The Frontdoor Profile Resource Id that is linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+     * The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
     @Import(name="cdnFrontdoorProfileId")
     private @Nullable Output<String> cdnFrontdoorProfileId;
 
     /**
-     * @return The Frontdoor Profile Resource Id that is linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+     * @return The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
     public Optional<Output<String>> cdnFrontdoorProfileId() {
@@ -32,14 +32,14 @@ public final class FrontdoorSecurityPolicyState extends com.pulumi.resources.Res
     }
 
     /**
-     * The name which should be used for this Frontdoor Security Policy. Possible values must not be an empty string. Changing this forces a new Frontdoor Security Policy to be created.
+     * The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Frontdoor Security Policy. Possible values must not be an empty string. Changing this forces a new Frontdoor Security Policy to be created.
+     * @return The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -47,14 +47,14 @@ public final class FrontdoorSecurityPolicyState extends com.pulumi.resources.Res
     }
 
     /**
-     * An `security_policies` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+     * An `security_policies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
     @Import(name="securityPolicies")
     private @Nullable Output<FrontdoorSecurityPolicySecurityPoliciesArgs> securityPolicies;
 
     /**
-     * @return An `security_policies` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+     * @return An `security_policies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
     public Optional<Output<FrontdoorSecurityPolicySecurityPoliciesArgs>> securityPolicies() {
@@ -88,7 +88,7 @@ public final class FrontdoorSecurityPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param cdnFrontdoorProfileId The Frontdoor Profile Resource Id that is linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+         * @param cdnFrontdoorProfileId The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class FrontdoorSecurityPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param cdnFrontdoorProfileId The Frontdoor Profile Resource Id that is linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+         * @param cdnFrontdoorProfileId The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class FrontdoorSecurityPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name The name which should be used for this Frontdoor Security Policy. Possible values must not be an empty string. Changing this forces a new Frontdoor Security Policy to be created.
+         * @param name The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class FrontdoorSecurityPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name The name which should be used for this Frontdoor Security Policy. Possible values must not be an empty string. Changing this forces a new Frontdoor Security Policy to be created.
+         * @param name The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class FrontdoorSecurityPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param securityPolicies An `security_policies` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+         * @param securityPolicies An `security_policies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class FrontdoorSecurityPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param securityPolicies An `security_policies` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+         * @param securityPolicies An `security_policies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
          * 
          * @return builder
          * 

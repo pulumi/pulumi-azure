@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CertifiateCertificate {
     /**
-     * @return The base64-encoded certificate contents. Changing this forces a new resource to be created.
+     * @return The base64-encoded certificate contents.
      * 
      */
     private String contents;
     /**
-     * @return The password associated with the certificate. Changing this forces a new resource to be created.
+     * @return The password associated with the certificate.
      * 
      */
     private @Nullable String password;
 
     private CertifiateCertificate() {}
     /**
-     * @return The base64-encoded certificate contents. Changing this forces a new resource to be created.
+     * @return The base64-encoded certificate contents.
      * 
      */
     public String contents() {
         return this.contents;
     }
     /**
-     * @return The password associated with the certificate. Changing this forces a new resource to be created.
+     * @return The password associated with the certificate.
      * 
      */
     public Optional<String> password() {

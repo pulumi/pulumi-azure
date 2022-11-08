@@ -150,9 +150,17 @@ public class TxtRecord extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * The Time To Live (TTL) of the DNS record in seconds.
+     * 
+     */
     @Export(name="ttl", type=Integer.class, parameters={})
     private Output<Integer> ttl;
 
+    /**
+     * @return The Time To Live (TTL) of the DNS record in seconds.
+     * 
+     */
     public Output<Integer> ttl() {
         return this.ttl;
     }

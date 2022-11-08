@@ -211,6 +211,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * 
  * &gt; **Note:** Version `~3` or `~4` is required for Linux Function Apps.
  * ### Python In A Consumption Plan)
  * 
@@ -282,6 +283,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * 
  * &gt; **Note:** The Python runtime is only supported on a Linux based hosting plan.  See [the documentation for additional information](https://docs.microsoft.com/azure/azure-functions/functions-reference-python).
  * 
  * ## Import

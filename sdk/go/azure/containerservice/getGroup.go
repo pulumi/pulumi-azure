@@ -56,6 +56,8 @@ type LookupGroupArgs struct {
 	Name string `pulumi:"name"`
 	// The name of the Resource Group where the Container Group instance exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A list of Availability Zones in which this Container Group is located.
+	Zones []string `pulumi:"zones"`
 }
 
 // A collection of values returned by getGroup.
@@ -64,14 +66,20 @@ type LookupGroupResult struct {
 	Fqdn string `pulumi:"fqdn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// A `identity` block as defined below.
+	Identities []GetGroupIdentity `pulumi:"identities"`
 	// The IP address allocated to the Container Group instance.
 	IpAddress string `pulumi:"ipAddress"`
 	// The Azure Region where the Container Group instance exists.
 	Location          string `pulumi:"location"`
 	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The subnet resource IDs for a container group.
+	SubnetIds []string `pulumi:"subnetIds"`
 	// A mapping of tags assigned to the Container Group instance.
 	Tags map[string]string `pulumi:"tags"`
+	// A list of Availability Zones in which this Container Group is located.
+	Zones []string `pulumi:"zones"`
 }
 
 func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...pulumi.InvokeOption) LookupGroupResultOutput {
@@ -93,6 +101,8 @@ type LookupGroupOutputArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Resource Group where the Container Group instance exists.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// A list of Availability Zones in which this Container Group is located.
+	Zones pulumi.StringArrayInput `pulumi:"zones"`
 }
 
 func (LookupGroupOutputArgs) ElementType() reflect.Type {
@@ -124,6 +134,11 @@ func (o LookupGroupResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// A `identity` block as defined below.
+func (o LookupGroupResultOutput) Identities() GetGroupIdentityArrayOutput {
+	return o.ApplyT(func(v LookupGroupResult) []GetGroupIdentity { return v.Identities }).(GetGroupIdentityArrayOutput)
+}
+
 // The IP address allocated to the Container Group instance.
 func (o LookupGroupResultOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.IpAddress }).(pulumi.StringOutput)
@@ -142,9 +157,19 @@ func (o LookupGroupResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
+// The subnet resource IDs for a container group.
+func (o LookupGroupResultOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupGroupResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
 // A mapping of tags assigned to the Container Group instance.
 func (o LookupGroupResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A list of Availability Zones in which this Container Group is located.
+func (o LookupGroupResultOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupGroupResult) []string { return v.Zones }).(pulumi.StringArrayOutput)
 }
 
 func init() {

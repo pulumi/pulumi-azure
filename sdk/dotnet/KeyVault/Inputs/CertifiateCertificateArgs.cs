@@ -13,13 +13,13 @@ namespace Pulumi.Azure.KeyVault.Inputs
     public sealed class CertifiateCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The base64-encoded certificate contents. Changing this forces a new resource to be created.
+        /// The base64-encoded certificate contents.
         /// </summary>
         [Input("contents", required: true)]
         public Input<string> Contents { get; set; } = null!;
 
         /// <summary>
-        /// The password associated with the certificate. Changing this forces a new resource to be created.
+        /// The password associated with the certificate.
         /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }

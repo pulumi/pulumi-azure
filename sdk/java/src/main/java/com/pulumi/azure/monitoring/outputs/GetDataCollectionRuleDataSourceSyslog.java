@@ -25,6 +25,11 @@ public final class GetDataCollectionRuleDataSourceSyslog {
      * 
      */
     private String name;
+    /**
+     * @return Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+     * 
+     */
+    private List<String> streams;
 
     private GetDataCollectionRuleDataSourceSyslog() {}
     /**
@@ -48,6 +53,13 @@ public final class GetDataCollectionRuleDataSourceSyslog {
     public String name() {
         return this.name;
     }
+    /**
+     * @return Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+     * 
+     */
+    public List<String> streams() {
+        return this.streams;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -61,12 +73,14 @@ public final class GetDataCollectionRuleDataSourceSyslog {
         private List<String> facilityNames;
         private List<String> logLevels;
         private String name;
+        private List<String> streams;
         public Builder() {}
         public Builder(GetDataCollectionRuleDataSourceSyslog defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.facilityNames = defaults.facilityNames;
     	      this.logLevels = defaults.logLevels;
     	      this.name = defaults.name;
+    	      this.streams = defaults.streams;
         }
 
         @CustomType.Setter
@@ -90,11 +104,20 @@ public final class GetDataCollectionRuleDataSourceSyslog {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
+        public Builder streams(List<String> streams) {
+            this.streams = Objects.requireNonNull(streams);
+            return this;
+        }
+        public Builder streams(String... streams) {
+            return streams(List.of(streams));
+        }
         public GetDataCollectionRuleDataSourceSyslog build() {
             final var o = new GetDataCollectionRuleDataSourceSyslog();
             o.facilityNames = facilityNames;
             o.logLevels = logLevels;
             o.name = name;
+            o.streams = streams;
             return o;
         }
     }

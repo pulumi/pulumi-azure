@@ -79,7 +79,7 @@ export class CassandraKeyspace extends pulumi.CustomResource {
      */
     public readonly accountName!: pulumi.Output<string>;
     /**
-     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      */
     public readonly autoscaleSettings!: pulumi.Output<outputs.cosmosdb.CassandraKeyspaceAutoscaleSettings | undefined>;
     /**
@@ -141,7 +141,7 @@ export interface CassandraKeyspaceState {
      */
     accountName?: pulumi.Input<string>;
     /**
-     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      */
     autoscaleSettings?: pulumi.Input<inputs.cosmosdb.CassandraKeyspaceAutoscaleSettings>;
     /**
@@ -167,7 +167,7 @@ export interface CassandraKeyspaceArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      */
     autoscaleSettings?: pulumi.Input<inputs.cosmosdb.CassandraKeyspaceAutoscaleSettings>;
     /**

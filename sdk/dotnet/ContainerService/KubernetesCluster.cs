@@ -363,6 +363,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterWindowsProfile> WindowsProfile { get; private set; } = null!;
 
         /// <summary>
+        /// A `workload_autoscaler_profile` block defined below.
+        /// </summary>
+        [Output("workloadAutoscalerProfile")]
+        public Output<Outputs.KubernetesClusterWorkloadAutoscalerProfile?> WorkloadAutoscalerProfile { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
         /// </summary>
         [Output("workloadIdentityEnabled")]
@@ -665,6 +671,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("windowsProfile")]
         public Input<Inputs.KubernetesClusterWindowsProfileArgs>? WindowsProfile { get; set; }
+
+        /// <summary>
+        /// A `workload_autoscaler_profile` block defined below.
+        /// </summary>
+        [Input("workloadAutoscalerProfile")]
+        public Input<Inputs.KubernetesClusterWorkloadAutoscalerProfileArgs>? WorkloadAutoscalerProfile { get; set; }
 
         /// <summary>
         /// Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
@@ -997,6 +1009,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("windowsProfile")]
         public Input<Inputs.KubernetesClusterWindowsProfileGetArgs>? WindowsProfile { get; set; }
+
+        /// <summary>
+        /// A `workload_autoscaler_profile` block defined below.
+        /// </summary>
+        [Input("workloadAutoscalerProfile")]
+        public Input<Inputs.KubernetesClusterWorkloadAutoscalerProfileGetArgs>? WorkloadAutoscalerProfile { get; set; }
 
         /// <summary>
         /// Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.

@@ -62,7 +62,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
 
         /// <summary>
         /// The type name defined by the Schema.
-        /// ---
         /// </summary>
         [Input("typeName")]
         public Input<string>? TypeName { get; set; }

@@ -123,11 +123,11 @@ export class StreamInputEventHub extends pulumi.CustomResource {
     /**
      * The shared access policy key for the specified shared access policy.
      */
-    public readonly sharedAccessPolicyKey!: pulumi.Output<string>;
+    public readonly sharedAccessPolicyKey!: pulumi.Output<string | undefined>;
     /**
      * The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
      */
-    public readonly sharedAccessPolicyName!: pulumi.Output<string>;
+    public readonly sharedAccessPolicyName!: pulumi.Output<string | undefined>;
     /**
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
@@ -170,12 +170,6 @@ export class StreamInputEventHub extends pulumi.CustomResource {
             }
             if ((!args || args.servicebusNamespace === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'servicebusNamespace'");
-            }
-            if ((!args || args.sharedAccessPolicyKey === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sharedAccessPolicyKey'");
-            }
-            if ((!args || args.sharedAccessPolicyName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sharedAccessPolicyName'");
             }
             if ((!args || args.streamAnalyticsJobName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'streamAnalyticsJobName'");
@@ -286,11 +280,11 @@ export interface StreamInputEventHubArgs {
     /**
      * The shared access policy key for the specified shared access policy.
      */
-    sharedAccessPolicyKey: pulumi.Input<string>;
+    sharedAccessPolicyKey?: pulumi.Input<string>;
     /**
      * The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
      */
-    sharedAccessPolicyName: pulumi.Input<string>;
+    sharedAccessPolicyName?: pulumi.Input<string>;
     /**
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */

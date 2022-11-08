@@ -8,14 +8,41 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class VirtualMachineStorageConfigurationTempDbSettings {
+    /**
+     * @return The SQL Server default file count. This value defaults to `8`
+     * 
+     */
+    private @Nullable Integer dataFileCount;
+    /**
+     * @return The SQL Server default file size - This value defaults to `512`
+     * 
+     */
+    private @Nullable Integer dataFileGrowthInMb;
+    /**
+     * @return The SQL Server default file size - This value defaults to `256`
+     * 
+     */
+    private @Nullable Integer dataFileSizeMb;
     /**
      * @return The SQL Server default path
      * 
      */
     private String defaultFilePath;
+    /**
+     * @return The SQL Server default file size - This value defaults to `512`
+     * 
+     */
+    private @Nullable Integer logFileGrowthMb;
+    /**
+     * @return The SQL Server default file size - This value defaults to `256`
+     * 
+     */
+    private @Nullable Integer logFileSizeMb;
     /**
      * @return A list of Logical Unit Numbers for the disks.
      * 
@@ -24,11 +51,46 @@ public final class VirtualMachineStorageConfigurationTempDbSettings {
 
     private VirtualMachineStorageConfigurationTempDbSettings() {}
     /**
+     * @return The SQL Server default file count. This value defaults to `8`
+     * 
+     */
+    public Optional<Integer> dataFileCount() {
+        return Optional.ofNullable(this.dataFileCount);
+    }
+    /**
+     * @return The SQL Server default file size - This value defaults to `512`
+     * 
+     */
+    public Optional<Integer> dataFileGrowthInMb() {
+        return Optional.ofNullable(this.dataFileGrowthInMb);
+    }
+    /**
+     * @return The SQL Server default file size - This value defaults to `256`
+     * 
+     */
+    public Optional<Integer> dataFileSizeMb() {
+        return Optional.ofNullable(this.dataFileSizeMb);
+    }
+    /**
      * @return The SQL Server default path
      * 
      */
     public String defaultFilePath() {
         return this.defaultFilePath;
+    }
+    /**
+     * @return The SQL Server default file size - This value defaults to `512`
+     * 
+     */
+    public Optional<Integer> logFileGrowthMb() {
+        return Optional.ofNullable(this.logFileGrowthMb);
+    }
+    /**
+     * @return The SQL Server default file size - This value defaults to `256`
+     * 
+     */
+    public Optional<Integer> logFileSizeMb() {
+        return Optional.ofNullable(this.logFileSizeMb);
     }
     /**
      * @return A list of Logical Unit Numbers for the disks.
@@ -47,18 +109,53 @@ public final class VirtualMachineStorageConfigurationTempDbSettings {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Integer dataFileCount;
+        private @Nullable Integer dataFileGrowthInMb;
+        private @Nullable Integer dataFileSizeMb;
         private String defaultFilePath;
+        private @Nullable Integer logFileGrowthMb;
+        private @Nullable Integer logFileSizeMb;
         private List<Integer> luns;
         public Builder() {}
         public Builder(VirtualMachineStorageConfigurationTempDbSettings defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.dataFileCount = defaults.dataFileCount;
+    	      this.dataFileGrowthInMb = defaults.dataFileGrowthInMb;
+    	      this.dataFileSizeMb = defaults.dataFileSizeMb;
     	      this.defaultFilePath = defaults.defaultFilePath;
+    	      this.logFileGrowthMb = defaults.logFileGrowthMb;
+    	      this.logFileSizeMb = defaults.logFileSizeMb;
     	      this.luns = defaults.luns;
         }
 
         @CustomType.Setter
+        public Builder dataFileCount(@Nullable Integer dataFileCount) {
+            this.dataFileCount = dataFileCount;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dataFileGrowthInMb(@Nullable Integer dataFileGrowthInMb) {
+            this.dataFileGrowthInMb = dataFileGrowthInMb;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dataFileSizeMb(@Nullable Integer dataFileSizeMb) {
+            this.dataFileSizeMb = dataFileSizeMb;
+            return this;
+        }
+        @CustomType.Setter
         public Builder defaultFilePath(String defaultFilePath) {
             this.defaultFilePath = Objects.requireNonNull(defaultFilePath);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder logFileGrowthMb(@Nullable Integer logFileGrowthMb) {
+            this.logFileGrowthMb = logFileGrowthMb;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder logFileSizeMb(@Nullable Integer logFileSizeMb) {
+            this.logFileSizeMb = logFileSizeMb;
             return this;
         }
         @CustomType.Setter
@@ -71,7 +168,12 @@ public final class VirtualMachineStorageConfigurationTempDbSettings {
         }
         public VirtualMachineStorageConfigurationTempDbSettings build() {
             final var o = new VirtualMachineStorageConfigurationTempDbSettings();
+            o.dataFileCount = dataFileCount;
+            o.dataFileGrowthInMb = dataFileGrowthInMb;
+            o.dataFileSizeMb = dataFileSizeMb;
             o.defaultFilePath = defaultFilePath;
+            o.logFileGrowthMb = logFileGrowthMb;
+            o.logFileSizeMb = logFileSizeMb;
             o.luns = luns;
             return o;
         }

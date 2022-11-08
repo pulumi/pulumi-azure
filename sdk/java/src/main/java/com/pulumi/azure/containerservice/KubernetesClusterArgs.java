@@ -19,6 +19,7 @@ import com.pulumi.azure.containerservice.inputs.KubernetesClusterNetworkProfileA
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterOmsAgentArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterServicePrincipalArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterWindowsProfileArgs;
+import com.pulumi.azure.containerservice.inputs.KubernetesClusterWorkloadAutoscalerProfileArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -634,6 +635,21 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * A `workload_autoscaler_profile` block defined below.
+     * 
+     */
+    @Import(name="workloadAutoscalerProfile")
+    private @Nullable Output<KubernetesClusterWorkloadAutoscalerProfileArgs> workloadAutoscalerProfile;
+
+    /**
+     * @return A `workload_autoscaler_profile` block defined below.
+     * 
+     */
+    public Optional<Output<KubernetesClusterWorkloadAutoscalerProfileArgs>> workloadAutoscalerProfile() {
+        return Optional.ofNullable(this.workloadAutoscalerProfile);
+    }
+
+    /**
      * Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
      * 
      */
@@ -692,6 +708,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         this.skuTier = $.skuTier;
         this.tags = $.tags;
         this.windowsProfile = $.windowsProfile;
+        this.workloadAutoscalerProfile = $.workloadAutoscalerProfile;
         this.workloadIdentityEnabled = $.workloadIdentityEnabled;
     }
 
@@ -1558,6 +1575,27 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder windowsProfile(KubernetesClusterWindowsProfileArgs windowsProfile) {
             return windowsProfile(Output.of(windowsProfile));
+        }
+
+        /**
+         * @param workloadAutoscalerProfile A `workload_autoscaler_profile` block defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workloadAutoscalerProfile(@Nullable Output<KubernetesClusterWorkloadAutoscalerProfileArgs> workloadAutoscalerProfile) {
+            $.workloadAutoscalerProfile = workloadAutoscalerProfile;
+            return this;
+        }
+
+        /**
+         * @param workloadAutoscalerProfile A `workload_autoscaler_profile` block defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workloadAutoscalerProfile(KubernetesClusterWorkloadAutoscalerProfileArgs workloadAutoscalerProfile) {
+            return workloadAutoscalerProfile(Output.of(workloadAutoscalerProfile));
         }
 
         /**

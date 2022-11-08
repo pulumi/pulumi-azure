@@ -12868,7 +12868,7 @@ func (o AutoscaleSettingProfileRuleScaleActionOutput) Value() pulumi.IntOutput {
 type DataCollectionRuleDataFlow struct {
 	// Specifies a list of destination names. A `azureMonitorMetrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
 	Destinations []string `pulumi:"destinations"`
-	// Specifies a list of streams. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+	// Specifies a list of streams. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
 	Streams []string `pulumi:"streams"`
 }
 
@@ -12886,7 +12886,7 @@ type DataCollectionRuleDataFlowInput interface {
 type DataCollectionRuleDataFlowArgs struct {
 	// Specifies a list of destination names. A `azureMonitorMetrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
 	Destinations pulumi.StringArrayInput `pulumi:"destinations"`
-	// Specifies a list of streams. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+	// Specifies a list of streams. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
 	Streams pulumi.StringArrayInput `pulumi:"streams"`
 }
 
@@ -12946,7 +12946,7 @@ func (o DataCollectionRuleDataFlowOutput) Destinations() pulumi.StringArrayOutpu
 	return o.ApplyT(func(v DataCollectionRuleDataFlow) []string { return v.Destinations }).(pulumi.StringArrayOutput)
 }
 
-// Specifies a list of streams. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+// Specifies a list of streams. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
 func (o DataCollectionRuleDataFlowOutput) Streams() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleDataFlow) []string { return v.Streams }).(pulumi.StringArrayOutput)
 }
@@ -13178,7 +13178,7 @@ type DataCollectionRuleDataSourcesExtension struct {
 	InputDataSources []string `pulumi:"inputDataSources"`
 	// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
 	Name string `pulumi:"name"`
-	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`, `Microsoft-WindowsEvent`.
 	Streams []string `pulumi:"streams"`
 }
 
@@ -13202,7 +13202,7 @@ type DataCollectionRuleDataSourcesExtensionArgs struct {
 	InputDataSources pulumi.StringArrayInput `pulumi:"inputDataSources"`
 	// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`, `Microsoft-WindowsEvent`.
 	Streams pulumi.StringArrayInput `pulumi:"streams"`
 }
 
@@ -13277,7 +13277,7 @@ func (o DataCollectionRuleDataSourcesExtensionOutput) Name() pulumi.StringOutput
 	return o.ApplyT(func(v DataCollectionRuleDataSourcesExtension) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`, `Microsoft-WindowsEvent`.
 func (o DataCollectionRuleDataSourcesExtensionOutput) Streams() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleDataSourcesExtension) []string { return v.Streams }).(pulumi.StringArrayOutput)
 }
@@ -13309,7 +13309,7 @@ type DataCollectionRuleDataSourcesPerformanceCounter struct {
 	Name string `pulumi:"name"`
 	// The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
 	SamplingFrequencyInSeconds int `pulumi:"samplingFrequencyInSeconds"`
-	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
+	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
 	Streams []string `pulumi:"streams"`
 }
 
@@ -13331,7 +13331,7 @@ type DataCollectionRuleDataSourcesPerformanceCounterArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
 	SamplingFrequencyInSeconds pulumi.IntInput `pulumi:"samplingFrequencyInSeconds"`
-	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
+	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
 	Streams pulumi.StringArrayInput `pulumi:"streams"`
 }
 
@@ -13401,7 +13401,7 @@ func (o DataCollectionRuleDataSourcesPerformanceCounterOutput) SamplingFrequency
 	return o.ApplyT(func(v DataCollectionRuleDataSourcesPerformanceCounter) int { return v.SamplingFrequencyInSeconds }).(pulumi.IntOutput)
 }
 
-// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
+// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
 func (o DataCollectionRuleDataSourcesPerformanceCounterOutput) Streams() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleDataSourcesPerformanceCounter) []string { return v.Streams }).(pulumi.StringArrayOutput)
 }
@@ -13433,6 +13433,8 @@ type DataCollectionRuleDataSourcesSyslog struct {
 	LogLevels []string `pulumi:"logLevels"`
 	// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
 	Name string `pulumi:"name"`
+	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
+	Streams []string `pulumi:"streams"`
 }
 
 // DataCollectionRuleDataSourcesSyslogInput is an input type that accepts DataCollectionRuleDataSourcesSyslogArgs and DataCollectionRuleDataSourcesSyslogOutput values.
@@ -13453,6 +13455,8 @@ type DataCollectionRuleDataSourcesSyslogArgs struct {
 	LogLevels pulumi.StringArrayInput `pulumi:"logLevels"`
 	// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
+	Streams pulumi.StringArrayInput `pulumi:"streams"`
 }
 
 func (DataCollectionRuleDataSourcesSyslogArgs) ElementType() reflect.Type {
@@ -13521,6 +13525,11 @@ func (o DataCollectionRuleDataSourcesSyslogOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DataCollectionRuleDataSourcesSyslog) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
+func (o DataCollectionRuleDataSourcesSyslogOutput) Streams() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataCollectionRuleDataSourcesSyslog) []string { return v.Streams }).(pulumi.StringArrayOutput)
+}
+
 type DataCollectionRuleDataSourcesSyslogArrayOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleDataSourcesSyslogArrayOutput) ElementType() reflect.Type {
@@ -13544,7 +13553,7 @@ func (o DataCollectionRuleDataSourcesSyslogArrayOutput) Index(i pulumi.IntInput)
 type DataCollectionRuleDataSourcesWindowsEventLog struct {
 	// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
 	Name string `pulumi:"name"`
-	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`,and `Microsoft-WindowsEvent`, `Microsoft-RomeDetectionEvent`, and `Microsoft-SecurityEvent`.
 	Streams []string `pulumi:"streams"`
 	// Specifies a list of Windows Event Log queries in XPath expression.
 	XPathQueries []string `pulumi:"xPathQueries"`
@@ -13564,7 +13573,7 @@ type DataCollectionRuleDataSourcesWindowsEventLogInput interface {
 type DataCollectionRuleDataSourcesWindowsEventLogArgs struct {
 	// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`,and `Microsoft-WindowsEvent`, `Microsoft-RomeDetectionEvent`, and `Microsoft-SecurityEvent`.
 	Streams pulumi.StringArrayInput `pulumi:"streams"`
 	// Specifies a list of Windows Event Log queries in XPath expression.
 	XPathQueries pulumi.StringArrayInput `pulumi:"xPathQueries"`
@@ -13626,7 +13635,7 @@ func (o DataCollectionRuleDataSourcesWindowsEventLogOutput) Name() pulumi.String
 	return o.ApplyT(func(v DataCollectionRuleDataSourcesWindowsEventLog) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`,and `Microsoft-WindowsEvent`, `Microsoft-RomeDetectionEvent`, and `Microsoft-SecurityEvent`.
 func (o DataCollectionRuleDataSourcesWindowsEventLogOutput) Streams() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleDataSourcesWindowsEventLog) []string { return v.Streams }).(pulumi.StringArrayOutput)
 }
@@ -20129,6 +20138,8 @@ type GetDataCollectionRuleDataSourceSyslog struct {
 	LogLevels []string `pulumi:"logLevels"`
 	// Specifies the name of the Data Collection Rule.
 	Name string `pulumi:"name"`
+	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+	Streams []string `pulumi:"streams"`
 }
 
 // GetDataCollectionRuleDataSourceSyslogInput is an input type that accepts GetDataCollectionRuleDataSourceSyslogArgs and GetDataCollectionRuleDataSourceSyslogOutput values.
@@ -20149,6 +20160,8 @@ type GetDataCollectionRuleDataSourceSyslogArgs struct {
 	LogLevels pulumi.StringArrayInput `pulumi:"logLevels"`
 	// Specifies the name of the Data Collection Rule.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+	Streams pulumi.StringArrayInput `pulumi:"streams"`
 }
 
 func (GetDataCollectionRuleDataSourceSyslogArgs) ElementType() reflect.Type {
@@ -20215,6 +20228,11 @@ func (o GetDataCollectionRuleDataSourceSyslogOutput) LogLevels() pulumi.StringAr
 // Specifies the name of the Data Collection Rule.
 func (o GetDataCollectionRuleDataSourceSyslogOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDataCollectionRuleDataSourceSyslog) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+func (o GetDataCollectionRuleDataSourceSyslogOutput) Streams() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDataCollectionRuleDataSourceSyslog) []string { return v.Streams }).(pulumi.StringArrayOutput)
 }
 
 type GetDataCollectionRuleDataSourceSyslogArrayOutput struct{ *pulumi.OutputState }

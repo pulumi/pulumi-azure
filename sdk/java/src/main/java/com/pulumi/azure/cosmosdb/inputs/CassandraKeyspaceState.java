@@ -33,14 +33,14 @@ public final class CassandraKeyspaceState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+     * An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      * 
      */
     @Import(name="autoscaleSettings")
     private @Nullable Output<CassandraKeyspaceAutoscaleSettingsArgs> autoscaleSettings;
 
     /**
-     * @return An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+     * @return An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      * 
      */
     public Optional<Output<CassandraKeyspaceAutoscaleSettingsArgs>> autoscaleSettings() {
@@ -142,7 +142,7 @@ public final class CassandraKeyspaceState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param autoscaleSettings An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+         * @param autoscaleSettings An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class CassandraKeyspaceState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param autoscaleSettings An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+         * @param autoscaleSettings An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
          * 
          * @return builder
          * 

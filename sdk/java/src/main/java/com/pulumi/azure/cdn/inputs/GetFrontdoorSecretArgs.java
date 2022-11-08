@@ -14,14 +14,14 @@ public final class GetFrontdoorSecretArgs extends com.pulumi.resources.InvokeArg
     public static final GetFrontdoorSecretArgs Empty = new GetFrontdoorSecretArgs();
 
     /**
-     * Specifies the name of the FrontDoor Secret.
+     * Specifies the name of the Front Door Secret.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the FrontDoor Secret.
+     * @return Specifies the name of the Front Door Secret.
      * 
      */
     public Output<String> name() {
@@ -29,14 +29,14 @@ public final class GetFrontdoorSecretArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * The name of the FrontDoor Profile within which CDN FrontDoor Secret exists.
+     * The name of the Front Door Profile within which the Front Door Secret exists.
      * 
      */
     @Import(name="profileName", required=true)
     private Output<String> profileName;
 
     /**
-     * @return The name of the FrontDoor Profile within which CDN FrontDoor Secret exists.
+     * @return The name of the Front Door Profile within which the Front Door Secret exists.
      * 
      */
     public Output<String> profileName() {
@@ -44,14 +44,14 @@ public final class GetFrontdoorSecretArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * The name of the Resource Group where the CDN FrontDoor Profile exists.
+     * The name of the Resource Group where the Front Door Profile exists.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the CDN FrontDoor Profile exists.
+     * @return The name of the Resource Group where the Front Door Profile exists.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -85,7 +85,7 @@ public final class GetFrontdoorSecretArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param name Specifies the name of the FrontDoor Secret.
+         * @param name Specifies the name of the Front Door Secret.
          * 
          * @return builder
          * 
@@ -96,7 +96,7 @@ public final class GetFrontdoorSecretArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param name Specifies the name of the FrontDoor Secret.
+         * @param name Specifies the name of the Front Door Secret.
          * 
          * @return builder
          * 
@@ -106,7 +106,7 @@ public final class GetFrontdoorSecretArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param profileName The name of the FrontDoor Profile within which CDN FrontDoor Secret exists.
+         * @param profileName The name of the Front Door Profile within which the Front Door Secret exists.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class GetFrontdoorSecretArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param profileName The name of the FrontDoor Profile within which CDN FrontDoor Secret exists.
+         * @param profileName The name of the Front Door Profile within which the Front Door Secret exists.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class GetFrontdoorSecretArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the CDN FrontDoor Profile exists.
+         * @param resourceGroupName The name of the Resource Group where the Front Door Profile exists.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class GetFrontdoorSecretArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the CDN FrontDoor Profile exists.
+         * @param resourceGroupName The name of the Resource Group where the Front Door Profile exists.
          * 
          * @return builder
          * 

@@ -409,18 +409,16 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.extensionsTimeBudget);
     }
     /**
-     * A `gallery_applications` block as defined below.
+     * @deprecated
+     * `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
      * 
      */
+    @Deprecated /* `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0 */
     @Export(name="galleryApplications", type=List.class, parameters={WindowsVirtualMachineScaleSetGalleryApplication.class})
-    private Output</* @Nullable */ List<WindowsVirtualMachineScaleSetGalleryApplication>> galleryApplications;
+    private Output<List<WindowsVirtualMachineScaleSetGalleryApplication>> galleryApplications;
 
-    /**
-     * @return A `gallery_applications` block as defined below.
-     * 
-     */
-    public Output<Optional<List<WindowsVirtualMachineScaleSetGalleryApplication>>> galleryApplications() {
-        return Codegen.optional(this.galleryApplications);
+    public Output<List<WindowsVirtualMachineScaleSetGalleryApplication>> galleryApplications() {
+        return this.galleryApplications;
     }
     /**
      * The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.

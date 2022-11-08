@@ -135,7 +135,6 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// A `sftp_server_location` block as defined below.
-        /// ---
         /// </summary>
         [Output("sftpServerLocation")]
         public Output<Outputs.DatasetBinarySftpServerLocation?> SftpServerLocation { get; private set; } = null!;
@@ -272,7 +271,6 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// A `sftp_server_location` block as defined below.
-        /// ---
         /// </summary>
         [Input("sftpServerLocation")]
         public Input<Inputs.DatasetBinarySftpServerLocationArgs>? SftpServerLocation { get; set; }
@@ -371,7 +369,6 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// A `sftp_server_location` block as defined below.
-        /// ---
         /// </summary>
         [Input("sftpServerLocation")]
         public Input<Inputs.DatasetBinarySftpServerLocationGetArgs>? SftpServerLocation { get; set; }

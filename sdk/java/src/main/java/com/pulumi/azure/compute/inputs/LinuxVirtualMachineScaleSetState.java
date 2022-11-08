@@ -325,16 +325,20 @@ public final class LinuxVirtualMachineScaleSetState extends com.pulumi.resources
     }
 
     /**
-     * A `gallery_applications` block as defined below.
+     * @deprecated
+     * `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
      * 
      */
+    @Deprecated /* `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0 */
     @Import(name="galleryApplications")
     private @Nullable Output<List<LinuxVirtualMachineScaleSetGalleryApplicationArgs>> galleryApplications;
 
     /**
-     * @return A `gallery_applications` block as defined below.
+     * @deprecated
+     * `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
      * 
      */
+    @Deprecated /* `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0 */
     public Optional<Output<List<LinuxVirtualMachineScaleSetGalleryApplicationArgs>>> galleryApplications() {
         return Optional.ofNullable(this.galleryApplications);
     }
@@ -1384,32 +1388,38 @@ public final class LinuxVirtualMachineScaleSetState extends com.pulumi.resources
         }
 
         /**
-         * @param galleryApplications A `gallery_applications` block as defined below.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
+         * 
          */
+        @Deprecated /* `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0 */
         public Builder galleryApplications(@Nullable Output<List<LinuxVirtualMachineScaleSetGalleryApplicationArgs>> galleryApplications) {
             $.galleryApplications = galleryApplications;
             return this;
         }
 
         /**
-         * @param galleryApplications A `gallery_applications` block as defined below.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
+         * 
          */
+        @Deprecated /* `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0 */
         public Builder galleryApplications(List<LinuxVirtualMachineScaleSetGalleryApplicationArgs> galleryApplications) {
             return galleryApplications(Output.of(galleryApplications));
         }
 
         /**
-         * @param galleryApplications A `gallery_applications` block as defined below.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
+         * 
          */
+        @Deprecated /* `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0 */
         public Builder galleryApplications(LinuxVirtualMachineScaleSetGalleryApplicationArgs... galleryApplications) {
             return galleryApplications(List.of(galleryApplications));
         }

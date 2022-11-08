@@ -13,6 +13,7 @@ namespace Pulumi.Azure.Synapse.Outputs
     [OutputType]
     public sealed class GetWorkspaceIdentityResult
     {
+        public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
         /// The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
         /// </summary>
@@ -28,12 +29,15 @@ namespace Pulumi.Azure.Synapse.Outputs
 
         [OutputConstructor]
         private GetWorkspaceIdentityResult(
+            ImmutableArray<string> identityIds,
+
             string principalId,
 
             string tenantId,
 
             string type)
         {
+            IdentityIds = identityIds;
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;

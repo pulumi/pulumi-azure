@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class IoTHubFallbackRoute {
     /**
-     * @return The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+     * @return The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: &lt;https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language&gt;.
      * 
      */
     private @Nullable String condition;
@@ -36,7 +36,7 @@ public final class IoTHubFallbackRoute {
 
     private IoTHubFallbackRoute() {}
     /**
-     * @return The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+     * @return The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: &lt;https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language&gt;.
      * 
      */
     public Optional<String> condition() {

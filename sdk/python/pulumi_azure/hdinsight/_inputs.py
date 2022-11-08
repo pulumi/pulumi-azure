@@ -11,6 +11,7 @@ from .. import _utilities
 
 __all__ = [
     'HBaseClusterComponentVersionArgs',
+    'HBaseClusterComputeIsolationArgs',
     'HBaseClusterDiskEncryptionArgs',
     'HBaseClusterExtensionArgs',
     'HBaseClusterGatewayArgs',
@@ -34,6 +35,7 @@ __all__ = [
     'HBaseClusterStorageAccountArgs',
     'HBaseClusterStorageAccountGen2Args',
     'HadoopClusterComponentVersionArgs',
+    'HadoopClusterComputeIsolationArgs',
     'HadoopClusterDiskEncryptionArgs',
     'HadoopClusterExtensionArgs',
     'HadoopClusterGatewayArgs',
@@ -62,6 +64,7 @@ __all__ = [
     'HadoopClusterStorageAccountArgs',
     'HadoopClusterStorageAccountGen2Args',
     'InteractiveQueryClusterComponentVersionArgs',
+    'InteractiveQueryClusterComputeIsolationArgs',
     'InteractiveQueryClusterDiskEncryptionArgs',
     'InteractiveQueryClusterExtensionArgs',
     'InteractiveQueryClusterGatewayArgs',
@@ -86,6 +89,7 @@ __all__ = [
     'InteractiveQueryClusterStorageAccountArgs',
     'InteractiveQueryClusterStorageAccountGen2Args',
     'KafkaClusterComponentVersionArgs',
+    'KafkaClusterComputeIsolationArgs',
     'KafkaClusterDiskEncryptionArgs',
     'KafkaClusterExtensionArgs',
     'KafkaClusterGatewayArgs',
@@ -109,6 +113,7 @@ __all__ = [
     'KafkaClusterStorageAccountArgs',
     'KafkaClusterStorageAccountGen2Args',
     'SparkClusterComponentVersionArgs',
+    'SparkClusterComputeIsolationArgs',
     'SparkClusterDiskEncryptionArgs',
     'SparkClusterExtensionArgs',
     'SparkClusterGatewayArgs',
@@ -154,6 +159,41 @@ class HBaseClusterComponentVersionArgs:
     @hbase.setter
     def hbase(self, value: pulumi.Input[str]):
         pulumi.set(self, "hbase", value)
+
+
+@pulumi.input_type
+class HBaseClusterComputeIsolationArgs:
+    def __init__(__self__, *,
+                 compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
+                 host_sku: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] host_sku: The name of the host SKU.
+        """
+        if compute_isolation_enabled is not None:
+            pulumi.set(__self__, "compute_isolation_enabled", compute_isolation_enabled)
+        if host_sku is not None:
+            pulumi.set(__self__, "host_sku", host_sku)
+
+    @property
+    @pulumi.getter(name="computeIsolationEnabled")
+    def compute_isolation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "compute_isolation_enabled")
+
+    @compute_isolation_enabled.setter
+    def compute_isolation_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "compute_isolation_enabled", value)
+
+    @property
+    @pulumi.getter(name="hostSku")
+    def host_sku(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the host SKU.
+        """
+        return pulumi.get(self, "host_sku")
+
+    @host_sku.setter
+    def host_sku(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_sku", value)
 
 
 @pulumi.input_type
@@ -1606,6 +1646,41 @@ class HadoopClusterComponentVersionArgs:
     @hadoop.setter
     def hadoop(self, value: pulumi.Input[str]):
         pulumi.set(self, "hadoop", value)
+
+
+@pulumi.input_type
+class HadoopClusterComputeIsolationArgs:
+    def __init__(__self__, *,
+                 compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
+                 host_sku: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] host_sku: The name of the host SKU.
+        """
+        if compute_isolation_enabled is not None:
+            pulumi.set(__self__, "compute_isolation_enabled", compute_isolation_enabled)
+        if host_sku is not None:
+            pulumi.set(__self__, "host_sku", host_sku)
+
+    @property
+    @pulumi.getter(name="computeIsolationEnabled")
+    def compute_isolation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "compute_isolation_enabled")
+
+    @compute_isolation_enabled.setter
+    def compute_isolation_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "compute_isolation_enabled", value)
+
+    @property
+    @pulumi.getter(name="hostSku")
+    def host_sku(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the host SKU.
+        """
+        return pulumi.get(self, "host_sku")
+
+    @host_sku.setter
+    def host_sku(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_sku", value)
 
 
 @pulumi.input_type
@@ -3393,6 +3468,41 @@ class InteractiveQueryClusterComponentVersionArgs:
 
 
 @pulumi.input_type
+class InteractiveQueryClusterComputeIsolationArgs:
+    def __init__(__self__, *,
+                 compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
+                 host_sku: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] host_sku: The name of the host SKU.
+        """
+        if compute_isolation_enabled is not None:
+            pulumi.set(__self__, "compute_isolation_enabled", compute_isolation_enabled)
+        if host_sku is not None:
+            pulumi.set(__self__, "host_sku", host_sku)
+
+    @property
+    @pulumi.getter(name="computeIsolationEnabled")
+    def compute_isolation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "compute_isolation_enabled")
+
+    @compute_isolation_enabled.setter
+    def compute_isolation_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "compute_isolation_enabled", value)
+
+    @property
+    @pulumi.getter(name="hostSku")
+    def host_sku(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the host SKU.
+        """
+        return pulumi.get(self, "host_sku")
+
+    @host_sku.setter
+    def host_sku(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_sku", value)
+
+
+@pulumi.input_type
 class InteractiveQueryClusterDiskEncryptionArgs:
     def __init__(__self__, *,
                  encryption_algorithm: Optional[pulumi.Input[str]] = None,
@@ -4895,6 +5005,41 @@ class KafkaClusterComponentVersionArgs:
     @kafka.setter
     def kafka(self, value: pulumi.Input[str]):
         pulumi.set(self, "kafka", value)
+
+
+@pulumi.input_type
+class KafkaClusterComputeIsolationArgs:
+    def __init__(__self__, *,
+                 compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
+                 host_sku: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] host_sku: The name of the host SKU.
+        """
+        if compute_isolation_enabled is not None:
+            pulumi.set(__self__, "compute_isolation_enabled", compute_isolation_enabled)
+        if host_sku is not None:
+            pulumi.set(__self__, "host_sku", host_sku)
+
+    @property
+    @pulumi.getter(name="computeIsolationEnabled")
+    def compute_isolation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "compute_isolation_enabled")
+
+    @compute_isolation_enabled.setter
+    def compute_isolation_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "compute_isolation_enabled", value)
+
+    @property
+    @pulumi.getter(name="hostSku")
+    def host_sku(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the host SKU.
+        """
+        return pulumi.get(self, "host_sku")
+
+    @host_sku.setter
+    def host_sku(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_sku", value)
 
 
 @pulumi.input_type
@@ -6409,6 +6554,41 @@ class SparkClusterComponentVersionArgs:
     @spark.setter
     def spark(self, value: pulumi.Input[str]):
         pulumi.set(self, "spark", value)
+
+
+@pulumi.input_type
+class SparkClusterComputeIsolationArgs:
+    def __init__(__self__, *,
+                 compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
+                 host_sku: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] host_sku: The name of the host SKU.
+        """
+        if compute_isolation_enabled is not None:
+            pulumi.set(__self__, "compute_isolation_enabled", compute_isolation_enabled)
+        if host_sku is not None:
+            pulumi.set(__self__, "host_sku", host_sku)
+
+    @property
+    @pulumi.getter(name="computeIsolationEnabled")
+    def compute_isolation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "compute_isolation_enabled")
+
+    @compute_isolation_enabled.setter
+    def compute_isolation_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "compute_isolation_enabled", value)
+
+    @property
+    @pulumi.getter(name="hostSku")
+    def host_sku(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the host SKU.
+        """
+        return pulumi.get(self, "host_sku")
+
+    @host_sku.setter
+    def host_sku(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_sku", value)
 
 
 @pulumi.input_type

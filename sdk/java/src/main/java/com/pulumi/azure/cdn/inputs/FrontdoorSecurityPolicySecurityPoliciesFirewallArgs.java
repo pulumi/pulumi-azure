@@ -15,14 +15,14 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallArgs extends c
     public static final FrontdoorSecurityPolicySecurityPoliciesFirewallArgs Empty = new FrontdoorSecurityPolicySecurityPoliciesFirewallArgs();
 
     /**
-     * An `association` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+     * An `association` block as defined below. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
     @Import(name="association", required=true)
     private Output<FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs> association;
 
     /**
-     * @return An `association` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+     * @return An `association` block as defined below. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
     public Output<FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs> association() {
@@ -30,14 +30,14 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallArgs extends c
     }
 
     /**
-     * The Resource Id of the Frontdoor Firewall Policy that should be linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+     * The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
     @Import(name="cdnFrontdoorFirewallPolicyId", required=true)
     private Output<String> cdnFrontdoorFirewallPolicyId;
 
     /**
-     * @return The Resource Id of the Frontdoor Firewall Policy that should be linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+     * @return The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
     public Output<String> cdnFrontdoorFirewallPolicyId() {
@@ -70,7 +70,7 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallArgs extends c
         }
 
         /**
-         * @param association An `association` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+         * @param association An `association` block as defined below. Changing this forces a new Front Door Security Policy to be created.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallArgs extends c
         }
 
         /**
-         * @param association An `association` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+         * @param association An `association` block as defined below. Changing this forces a new Front Door Security Policy to be created.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallArgs extends c
         }
 
         /**
-         * @param cdnFrontdoorFirewallPolicyId The Resource Id of the Frontdoor Firewall Policy that should be linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+         * @param cdnFrontdoorFirewallPolicyId The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallArgs extends c
         }
 
         /**
-         * @param cdnFrontdoorFirewallPolicyId The Resource Id of the Frontdoor Firewall Policy that should be linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+         * @param cdnFrontdoorFirewallPolicyId The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
          * 
          * @return builder
          * 

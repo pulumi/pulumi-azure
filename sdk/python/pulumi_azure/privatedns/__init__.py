@@ -21,6 +21,10 @@ from .get_zone_virtual_network_link import *
 from .link_service import *
 from .mx_record import *
 from .ptr_record import *
+from .resolver import *
+from .resolver_dns_forwarding_ruleset import *
+from .resolver_inbound_endpoint import *
+from .resolver_outbound_endpoint import *
 from .srv_record import *
 from .txt_record import *
 from .zone import *

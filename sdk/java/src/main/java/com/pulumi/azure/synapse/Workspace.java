@@ -346,14 +346,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="identity", type=WorkspaceIdentity.class, parameters={})
-    private Output<WorkspaceIdentity> identity;
+    private Output</* @Nullable */ WorkspaceIdentity> identity;
 
     /**
      * @return An `identity` block as defined below.
      * 
      */
-    public Output<WorkspaceIdentity> identity() {
-        return this.identity;
+    public Output<Optional<WorkspaceIdentity>> identity() {
+        return Codegen.optional(this.identity);
     }
     /**
      * Allowed AAD Tenant Ids For Linking.
@@ -482,32 +482,32 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return this.sqlAadAdmin;
     }
     /**
-     * Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
+     * Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
      * 
      */
     @Export(name="sqlAdministratorLogin", type=String.class, parameters={})
-    private Output<String> sqlAdministratorLogin;
+    private Output</* @Nullable */ String> sqlAdministratorLogin;
 
     /**
-     * @return Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
+     * @return Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
      * 
      */
-    public Output<String> sqlAdministratorLogin() {
-        return this.sqlAdministratorLogin;
+    public Output<Optional<String>> sqlAdministratorLogin() {
+        return Codegen.optional(this.sqlAdministratorLogin);
     }
     /**
-     * The Password associated with the `sql_administrator_login` for the SQL administrator.
+     * The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
      * 
      */
     @Export(name="sqlAdministratorLoginPassword", type=String.class, parameters={})
-    private Output<String> sqlAdministratorLoginPassword;
+    private Output</* @Nullable */ String> sqlAdministratorLoginPassword;
 
     /**
-     * @return The Password associated with the `sql_administrator_login` for the SQL administrator.
+     * @return The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
      * 
      */
-    public Output<String> sqlAdministratorLoginPassword() {
-        return this.sqlAdministratorLoginPassword;
+    public Output<Optional<String>> sqlAdministratorLoginPassword() {
+        return Codegen.optional(this.sqlAdministratorLoginPassword);
     }
     /**
      * Are pipelines (running as workspace&#39;s system assigned identity) allowed to access SQL pools?

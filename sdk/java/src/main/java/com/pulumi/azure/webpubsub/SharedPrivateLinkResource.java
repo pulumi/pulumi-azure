@@ -84,13 +84,6 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ## Attributes Reference:
- * 
- * The following attributes are exported:
- * 
- * * `id` - The ID of the Web Pubsub Shared Private Link resource.
- * 
- * * `status` - The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
  * 
  * ## Import
  * 
@@ -131,9 +124,17 @@ public class SharedPrivateLinkResource extends com.pulumi.resources.CustomResour
     public Output<Optional<String>> requestMessage() {
         return Codegen.optional(this.requestMessage);
     }
+    /**
+     * The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
+     * 
+     */
     @Export(name="status", type=String.class, parameters={})
     private Output<String> status;
 
+    /**
+     * @return The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
+     * 
+     */
     public Output<String> status() {
         return this.status;
     }

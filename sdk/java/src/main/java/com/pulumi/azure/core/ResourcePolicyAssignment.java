@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .policyType(&#34;Custom&#34;)
  *             .mode(&#34;All&#34;)
  *             .policyRule(&#34;&#34;&#34;
- * 	{
+ *  {
  *     &#34;if&#34;: {
  *       &#34;not&#34;: {
  *         &#34;field&#34;: &#34;location&#34;,

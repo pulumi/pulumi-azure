@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class DataCollectionRuleDataSourcesSyslogArgs extends com.pulumi.resources.ResourceArgs {
@@ -59,12 +61,28 @@ public final class DataCollectionRuleDataSourcesSyslogArgs extends com.pulumi.re
         return this.name;
     }
 
+    /**
+     * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
+     * 
+     */
+    @Import(name="streams")
+    private @Nullable Output<List<String>> streams;
+
+    /**
+     * @return Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
+     * 
+     */
+    public Optional<Output<List<String>>> streams() {
+        return Optional.ofNullable(this.streams);
+    }
+
     private DataCollectionRuleDataSourcesSyslogArgs() {}
 
     private DataCollectionRuleDataSourcesSyslogArgs(DataCollectionRuleDataSourcesSyslogArgs $) {
         this.facilityNames = $.facilityNames;
         this.logLevels = $.logLevels;
         this.name = $.name;
+        this.streams = $.streams;
     }
 
     public static Builder builder() {
@@ -166,6 +184,37 @@ public final class DataCollectionRuleDataSourcesSyslogArgs extends com.pulumi.re
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param streams Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder streams(@Nullable Output<List<String>> streams) {
+            $.streams = streams;
+            return this;
+        }
+
+        /**
+         * @param streams Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder streams(List<String> streams) {
+            return streams(Output.of(streams));
+        }
+
+        /**
+         * @param streams Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder streams(String... streams) {
+            return streams(List.of(streams));
         }
 
         public DataCollectionRuleDataSourcesSyslogArgs build() {

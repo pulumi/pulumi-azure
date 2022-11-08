@@ -101,7 +101,6 @@ export class SpringCloudConnection extends pulumi.CustomResource {
 
     /**
      * The authentication info. An `authentication` block as defined below.
-     * ---
      */
     public readonly authentication!: pulumi.Output<outputs.appplatform.SpringCloudConnectionAuthentication>;
     /**
@@ -173,7 +172,6 @@ export class SpringCloudConnection extends pulumi.CustomResource {
 export interface SpringCloudConnectionState {
     /**
      * The authentication info. An `authentication` block as defined below.
-     * ---
      */
     authentication?: pulumi.Input<inputs.appplatform.SpringCloudConnectionAuthentication>;
     /**
@@ -204,7 +202,6 @@ export interface SpringCloudConnectionState {
 export interface SpringCloudConnectionArgs {
     /**
      * The authentication info. An `authentication` block as defined below.
-     * ---
      */
     authentication: pulumi.Input<inputs.appplatform.SpringCloudConnectionAuthentication>;
     /**

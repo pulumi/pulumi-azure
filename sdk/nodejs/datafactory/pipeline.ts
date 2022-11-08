@@ -32,16 +32,16 @@ import * as utilities from "../utilities";
  *         bob: "item1",
  *     },
  *     activitiesJson: `[
- * 	{
- * 		"name": "Append variable1",
- * 		"type": "AppendVariable",
- * 		"dependsOn": [],
- * 		"userProperties": [],
- * 		"typeProperties": {
- * 			"variableName": "bob",
- * 			"value": "something"
- * 		}
- * 	}
+ *     {
+ *         "name": "Append variable1",
+ *         "type": "AppendVariable",
+ *         "dependsOn": [],
+ *         "userProperties": [],
+ *         "typeProperties": {
+ *           "variableName": "bob",
+ *           "value": "something"
+ *         }
+ *     }
  * ]
  * `,
  * });

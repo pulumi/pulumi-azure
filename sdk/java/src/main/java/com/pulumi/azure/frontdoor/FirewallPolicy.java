@@ -230,14 +230,14 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
         return this.frontendEndpointIds;
     }
     /**
-     * The Azure Region where this FrontDoor Firewall Policy exists.
+     * The Azure Region where this Front Door Firewall Policy exists.
      * 
      */
     @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
-     * @return The Azure Region where this FrontDoor Firewall Policy exists.
+     * @return The Azure Region where this Front Door Firewall Policy exists.
      * 
      */
     public Output<String> location() {

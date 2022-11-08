@@ -74,6 +74,10 @@ export class ServerTransparentDataEncryption extends pulumi.CustomResource {
     }
 
     /**
+     * When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
+     */
+    public readonly autoRotationEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
      */
     public readonly keyVaultKeyId!: pulumi.Output<string | undefined>;
@@ -95,6 +99,7 @@ export class ServerTransparentDataEncryption extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerTransparentDataEncryptionState | undefined;
+            resourceInputs["autoRotationEnabled"] = state ? state.autoRotationEnabled : undefined;
             resourceInputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
             resourceInputs["serverId"] = state ? state.serverId : undefined;
         } else {
@@ -102,6 +107,7 @@ export class ServerTransparentDataEncryption extends pulumi.CustomResource {
             if ((!args || args.serverId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
+            resourceInputs["autoRotationEnabled"] = args ? args.autoRotationEnabled : undefined;
             resourceInputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
             resourceInputs["serverId"] = args ? args.serverId : undefined;
         }
@@ -114,6 +120,10 @@ export class ServerTransparentDataEncryption extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServerTransparentDataEncryption resources.
  */
 export interface ServerTransparentDataEncryptionState {
+    /**
+     * When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
+     */
+    autoRotationEnabled?: pulumi.Input<boolean>;
     /**
      * To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
      */
@@ -128,6 +138,10 @@ export interface ServerTransparentDataEncryptionState {
  * The set of arguments for constructing a ServerTransparentDataEncryption resource.
  */
 export interface ServerTransparentDataEncryptionArgs {
+    /**
+     * When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
+     */
+    autoRotationEnabled?: pulumi.Input<boolean>;
     /**
      * To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
      */

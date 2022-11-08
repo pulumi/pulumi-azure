@@ -109,6 +109,7 @@ class _SharedPrivateLinkResourceState:
         Input properties used for looking up and filtering SharedPrivateLinkResource resources.
         :param pulumi.Input[str] name: Specify the name of the Web Pubsub Shared Private Link Resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] request_message: Specify the request message for requesting approval of the Shared Private Link Enabled Remote Resource.
+        :param pulumi.Input[str] status: The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
         :param pulumi.Input[str] subresource_name: Specify the sub resource name which the Web Pubsub Private Endpoint is able to connect to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: Specify the ID of the Shared Private Link Enabled Remote Resource which this Web Pubsub Private Endpoint should be connected to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] web_pubsub_id: Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
@@ -153,6 +154,9 @@ class _SharedPrivateLinkResourceState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -241,13 +245,6 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
             subresource_name="vault",
             target_resource_id=example_key_vault.id)
         ```
-        ## Attributes Reference:
-
-        The following attributes are exported:
-
-        * `id` - The ID of the Web Pubsub Shared Private Link resource.
-
-        * `status` - The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
 
         ## Import
 
@@ -305,13 +302,6 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
             subresource_name="vault",
             target_resource_id=example_key_vault.id)
         ```
-        ## Attributes Reference:
-
-        The following attributes are exported:
-
-        * `id` - The ID of the Web Pubsub Shared Private Link resource.
-
-        * `status` - The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
 
         ## Import
 
@@ -387,6 +377,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Specify the name of the Web Pubsub Shared Private Link Resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] request_message: Specify the request message for requesting approval of the Shared Private Link Enabled Remote Resource.
+        :param pulumi.Input[str] status: The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
         :param pulumi.Input[str] subresource_name: Specify the sub resource name which the Web Pubsub Private Endpoint is able to connect to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: Specify the ID of the Shared Private Link Enabled Remote Resource which this Web Pubsub Private Endpoint should be connected to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] web_pubsub_id: Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
@@ -422,6 +413,9 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
+        """
         return pulumi.get(self, "status")
 
     @property

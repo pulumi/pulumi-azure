@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a CDN FrontDoor Rule Set.
+// Manages a Front Door (standard/premium) Rule Set.
 //
 // ## Example Usage
 //
@@ -55,7 +55,7 @@ import (
 //
 // ## Import
 //
-// CDN FrontDoor Rule Sets can be imported using the `resource id`, e.g.
+// Front Door Rule Sets can be imported using the `resource id`, e.g.
 //
 // ```sh
 //
@@ -65,9 +65,9 @@ import (
 type FrontdoorRuleSet struct {
 	pulumi.CustomResourceState
 
-	// The ID of the CDN FrontDoor Profile. Changing this forces a new CDN FrontDoor Rule Set to be created.
+	// The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created.
 	CdnFrontdoorProfileId pulumi.StringOutput `pulumi:"cdnFrontdoorProfileId"`
-	// The name which should be used for this CDN FrontDoor Rule Set. Changing this forces a new CDN FrontDoor Rule Set to be created.
+	// The name which should be used for this Front Door Rule Set. Changing this forces a new Front Door Rule Set to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 }
 
@@ -103,16 +103,16 @@ func GetFrontdoorRuleSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FrontdoorRuleSet resources.
 type frontdoorRuleSetState struct {
-	// The ID of the CDN FrontDoor Profile. Changing this forces a new CDN FrontDoor Rule Set to be created.
+	// The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created.
 	CdnFrontdoorProfileId *string `pulumi:"cdnFrontdoorProfileId"`
-	// The name which should be used for this CDN FrontDoor Rule Set. Changing this forces a new CDN FrontDoor Rule Set to be created.
+	// The name which should be used for this Front Door Rule Set. Changing this forces a new Front Door Rule Set to be created.
 	Name *string `pulumi:"name"`
 }
 
 type FrontdoorRuleSetState struct {
-	// The ID of the CDN FrontDoor Profile. Changing this forces a new CDN FrontDoor Rule Set to be created.
+	// The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created.
 	CdnFrontdoorProfileId pulumi.StringPtrInput
-	// The name which should be used for this CDN FrontDoor Rule Set. Changing this forces a new CDN FrontDoor Rule Set to be created.
+	// The name which should be used for this Front Door Rule Set. Changing this forces a new Front Door Rule Set to be created.
 	Name pulumi.StringPtrInput
 }
 
@@ -121,17 +121,17 @@ func (FrontdoorRuleSetState) ElementType() reflect.Type {
 }
 
 type frontdoorRuleSetArgs struct {
-	// The ID of the CDN FrontDoor Profile. Changing this forces a new CDN FrontDoor Rule Set to be created.
+	// The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created.
 	CdnFrontdoorProfileId string `pulumi:"cdnFrontdoorProfileId"`
-	// The name which should be used for this CDN FrontDoor Rule Set. Changing this forces a new CDN FrontDoor Rule Set to be created.
+	// The name which should be used for this Front Door Rule Set. Changing this forces a new Front Door Rule Set to be created.
 	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a FrontdoorRuleSet resource.
 type FrontdoorRuleSetArgs struct {
-	// The ID of the CDN FrontDoor Profile. Changing this forces a new CDN FrontDoor Rule Set to be created.
+	// The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created.
 	CdnFrontdoorProfileId pulumi.StringInput
-	// The name which should be used for this CDN FrontDoor Rule Set. Changing this forces a new CDN FrontDoor Rule Set to be created.
+	// The name which should be used for this Front Door Rule Set. Changing this forces a new Front Door Rule Set to be created.
 	Name pulumi.StringPtrInput
 }
 
@@ -222,12 +222,12 @@ func (o FrontdoorRuleSetOutput) ToFrontdoorRuleSetOutputWithContext(ctx context.
 	return o
 }
 
-// The ID of the CDN FrontDoor Profile. Changing this forces a new CDN FrontDoor Rule Set to be created.
+// The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created.
 func (o FrontdoorRuleSetOutput) CdnFrontdoorProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorRuleSet) pulumi.StringOutput { return v.CdnFrontdoorProfileId }).(pulumi.StringOutput)
 }
 
-// The name which should be used for this CDN FrontDoor Rule Set. Changing this forces a new CDN FrontDoor Rule Set to be created.
+// The name which should be used for this Front Door Rule Set. Changing this forces a new Front Door Rule Set to be created.
 func (o FrontdoorRuleSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorRuleSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

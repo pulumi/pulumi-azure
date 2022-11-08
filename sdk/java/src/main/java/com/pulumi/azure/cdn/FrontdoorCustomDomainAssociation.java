@@ -15,7 +15,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * Manages the association between a CDN FrontDoor Custom Domain and one or more CDN FrontDoor Routes.
+ * Manages the association between a Front Door (standard/premium) Custom Domain and one or more Front Door (standard/premium) Routes.
  * 
  * ## Example Usage
  * ```java
@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Frontdoor Routes can be imported using the `resource id`, e.g.
+ * Front Door Custom Domain Associations can be imported using the `resource id`, e.g.
  * 
  * ```sh
  *  $ pulumi import azure:cdn/frontdoorCustomDomainAssociation:FrontdoorCustomDomainAssociation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/associations/assoc1
@@ -62,28 +62,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:cdn/frontdoorCustomDomainAssociation:FrontdoorCustomDomainAssociation")
 public class FrontdoorCustomDomainAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the CDN FrontDoor Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
+     * The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
      * 
      */
     @Export(name="cdnFrontdoorCustomDomainId", type=String.class, parameters={})
     private Output<String> cdnFrontdoorCustomDomainId;
 
     /**
-     * @return The ID of the CDN FrontDoor Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
+     * @return The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
      * 
      */
     public Output<String> cdnFrontdoorCustomDomainId() {
         return this.cdnFrontdoorCustomDomainId;
     }
     /**
-     * One or more IDs of the CDN FrontDoor Route to which the CDN FrontDoor Custom Domain is associated with.
+     * One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
      * 
      */
     @Export(name="cdnFrontdoorRouteIds", type=List.class, parameters={String.class})
     private Output<List<String>> cdnFrontdoorRouteIds;
 
     /**
-     * @return One or more IDs of the CDN FrontDoor Route to which the CDN FrontDoor Custom Domain is associated with.
+     * @return One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
      * 
      */
     public Output<List<String>> cdnFrontdoorRouteIds() {

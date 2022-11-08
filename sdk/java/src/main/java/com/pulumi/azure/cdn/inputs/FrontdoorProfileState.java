@@ -18,14 +18,14 @@ public final class FrontdoorProfileState extends com.pulumi.resources.ResourceAr
     public static final FrontdoorProfileState Empty = new FrontdoorProfileState();
 
     /**
-     * Specifies the name of the FrontDoor Profile. Changing this forces a new resource to be created.
+     * Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the FrontDoor Profile. Changing this forces a new resource to be created.
+     * @return Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -33,14 +33,14 @@ public final class FrontdoorProfileState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The name of the Resource Group where this FrontDoor Profile should exist. Changing this forces a new resource to be created.
+     * The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where this FrontDoor Profile should exist. Changing this forces a new resource to be created.
+     * @return The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -48,14 +48,14 @@ public final class FrontdoorProfileState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The UUID of this CDN FrontDoor Profile.
+     * The UUID of this Front Door Profile which will be sent in the HTTP Header as the `X-Azure-FDID` attribute.
      * 
      */
     @Import(name="resourceGuid")
     private @Nullable Output<String> resourceGuid;
 
     /**
-     * @return The UUID of this CDN FrontDoor Profile.
+     * @return The UUID of this Front Door Profile which will be sent in the HTTP Header as the `X-Azure-FDID` attribute.
      * 
      */
     public Optional<Output<String>> resourceGuid() {
@@ -78,14 +78,14 @@ public final class FrontdoorProfileState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies the SKU for this CDN FrontDoor Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+     * Specifies the SKU for this Front Door Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="skuName")
     private @Nullable Output<String> skuName;
 
     /**
-     * @return Specifies the SKU for this CDN FrontDoor Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+     * @return Specifies the SKU for this Front Door Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> skuName() {
@@ -137,7 +137,7 @@ public final class FrontdoorProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name Specifies the name of the FrontDoor Profile. Changing this forces a new resource to be created.
+         * @param name Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class FrontdoorProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name Specifies the name of the FrontDoor Profile. Changing this forces a new resource to be created.
+         * @param name Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class FrontdoorProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where this FrontDoor Profile should exist. Changing this forces a new resource to be created.
+         * @param resourceGroupName The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class FrontdoorProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where this FrontDoor Profile should exist. Changing this forces a new resource to be created.
+         * @param resourceGroupName The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class FrontdoorProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param resourceGuid The UUID of this CDN FrontDoor Profile.
+         * @param resourceGuid The UUID of this Front Door Profile which will be sent in the HTTP Header as the `X-Azure-FDID` attribute.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class FrontdoorProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param resourceGuid The UUID of this CDN FrontDoor Profile.
+         * @param resourceGuid The UUID of this Front Door Profile which will be sent in the HTTP Header as the `X-Azure-FDID` attribute.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class FrontdoorProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param skuName Specifies the SKU for this CDN FrontDoor Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+         * @param skuName Specifies the SKU for this Front Door Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class FrontdoorProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param skuName Specifies the SKU for this CDN FrontDoor Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+         * @param skuName Specifies the SKU for this Front Door Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

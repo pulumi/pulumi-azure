@@ -10,6 +10,218 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ConfigurationConfigFile struct {
+	// Specifies the base-64 encoded contents of this config file (Sensitive).
+	Content string `pulumi:"content"`
+	// Specify the path of this config file.
+	VirtualPath string `pulumi:"virtualPath"`
+}
+
+// ConfigurationConfigFileInput is an input type that accepts ConfigurationConfigFileArgs and ConfigurationConfigFileOutput values.
+// You can construct a concrete instance of `ConfigurationConfigFileInput` via:
+//
+//	ConfigurationConfigFileArgs{...}
+type ConfigurationConfigFileInput interface {
+	pulumi.Input
+
+	ToConfigurationConfigFileOutput() ConfigurationConfigFileOutput
+	ToConfigurationConfigFileOutputWithContext(context.Context) ConfigurationConfigFileOutput
+}
+
+type ConfigurationConfigFileArgs struct {
+	// Specifies the base-64 encoded contents of this config file (Sensitive).
+	Content pulumi.StringInput `pulumi:"content"`
+	// Specify the path of this config file.
+	VirtualPath pulumi.StringInput `pulumi:"virtualPath"`
+}
+
+func (ConfigurationConfigFileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationConfigFile)(nil)).Elem()
+}
+
+func (i ConfigurationConfigFileArgs) ToConfigurationConfigFileOutput() ConfigurationConfigFileOutput {
+	return i.ToConfigurationConfigFileOutputWithContext(context.Background())
+}
+
+func (i ConfigurationConfigFileArgs) ToConfigurationConfigFileOutputWithContext(ctx context.Context) ConfigurationConfigFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationConfigFileOutput)
+}
+
+// ConfigurationConfigFileArrayInput is an input type that accepts ConfigurationConfigFileArray and ConfigurationConfigFileArrayOutput values.
+// You can construct a concrete instance of `ConfigurationConfigFileArrayInput` via:
+//
+//	ConfigurationConfigFileArray{ ConfigurationConfigFileArgs{...} }
+type ConfigurationConfigFileArrayInput interface {
+	pulumi.Input
+
+	ToConfigurationConfigFileArrayOutput() ConfigurationConfigFileArrayOutput
+	ToConfigurationConfigFileArrayOutputWithContext(context.Context) ConfigurationConfigFileArrayOutput
+}
+
+type ConfigurationConfigFileArray []ConfigurationConfigFileInput
+
+func (ConfigurationConfigFileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationConfigFile)(nil)).Elem()
+}
+
+func (i ConfigurationConfigFileArray) ToConfigurationConfigFileArrayOutput() ConfigurationConfigFileArrayOutput {
+	return i.ToConfigurationConfigFileArrayOutputWithContext(context.Background())
+}
+
+func (i ConfigurationConfigFileArray) ToConfigurationConfigFileArrayOutputWithContext(ctx context.Context) ConfigurationConfigFileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationConfigFileArrayOutput)
+}
+
+type ConfigurationConfigFileOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationConfigFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationConfigFile)(nil)).Elem()
+}
+
+func (o ConfigurationConfigFileOutput) ToConfigurationConfigFileOutput() ConfigurationConfigFileOutput {
+	return o
+}
+
+func (o ConfigurationConfigFileOutput) ToConfigurationConfigFileOutputWithContext(ctx context.Context) ConfigurationConfigFileOutput {
+	return o
+}
+
+// Specifies the base-64 encoded contents of this config file (Sensitive).
+func (o ConfigurationConfigFileOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationConfigFile) string { return v.Content }).(pulumi.StringOutput)
+}
+
+// Specify the path of this config file.
+func (o ConfigurationConfigFileOutput) VirtualPath() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationConfigFile) string { return v.VirtualPath }).(pulumi.StringOutput)
+}
+
+type ConfigurationConfigFileArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationConfigFileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationConfigFile)(nil)).Elem()
+}
+
+func (o ConfigurationConfigFileArrayOutput) ToConfigurationConfigFileArrayOutput() ConfigurationConfigFileArrayOutput {
+	return o
+}
+
+func (o ConfigurationConfigFileArrayOutput) ToConfigurationConfigFileArrayOutputWithContext(ctx context.Context) ConfigurationConfigFileArrayOutput {
+	return o
+}
+
+func (o ConfigurationConfigFileArrayOutput) Index(i pulumi.IntInput) ConfigurationConfigFileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationConfigFile {
+		return vs[0].([]ConfigurationConfigFile)[vs[1].(int)]
+	}).(ConfigurationConfigFileOutput)
+}
+
+type ConfigurationProtectedFile struct {
+	// Specifies the base-64 encoded contents of this config file.
+	Content string `pulumi:"content"`
+	// Specify the path of this config file.
+	VirtualPath string `pulumi:"virtualPath"`
+}
+
+// ConfigurationProtectedFileInput is an input type that accepts ConfigurationProtectedFileArgs and ConfigurationProtectedFileOutput values.
+// You can construct a concrete instance of `ConfigurationProtectedFileInput` via:
+//
+//	ConfigurationProtectedFileArgs{...}
+type ConfigurationProtectedFileInput interface {
+	pulumi.Input
+
+	ToConfigurationProtectedFileOutput() ConfigurationProtectedFileOutput
+	ToConfigurationProtectedFileOutputWithContext(context.Context) ConfigurationProtectedFileOutput
+}
+
+type ConfigurationProtectedFileArgs struct {
+	// Specifies the base-64 encoded contents of this config file.
+	Content pulumi.StringInput `pulumi:"content"`
+	// Specify the path of this config file.
+	VirtualPath pulumi.StringInput `pulumi:"virtualPath"`
+}
+
+func (ConfigurationProtectedFileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProtectedFile)(nil)).Elem()
+}
+
+func (i ConfigurationProtectedFileArgs) ToConfigurationProtectedFileOutput() ConfigurationProtectedFileOutput {
+	return i.ToConfigurationProtectedFileOutputWithContext(context.Background())
+}
+
+func (i ConfigurationProtectedFileArgs) ToConfigurationProtectedFileOutputWithContext(ctx context.Context) ConfigurationProtectedFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProtectedFileOutput)
+}
+
+// ConfigurationProtectedFileArrayInput is an input type that accepts ConfigurationProtectedFileArray and ConfigurationProtectedFileArrayOutput values.
+// You can construct a concrete instance of `ConfigurationProtectedFileArrayInput` via:
+//
+//	ConfigurationProtectedFileArray{ ConfigurationProtectedFileArgs{...} }
+type ConfigurationProtectedFileArrayInput interface {
+	pulumi.Input
+
+	ToConfigurationProtectedFileArrayOutput() ConfigurationProtectedFileArrayOutput
+	ToConfigurationProtectedFileArrayOutputWithContext(context.Context) ConfigurationProtectedFileArrayOutput
+}
+
+type ConfigurationProtectedFileArray []ConfigurationProtectedFileInput
+
+func (ConfigurationProtectedFileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationProtectedFile)(nil)).Elem()
+}
+
+func (i ConfigurationProtectedFileArray) ToConfigurationProtectedFileArrayOutput() ConfigurationProtectedFileArrayOutput {
+	return i.ToConfigurationProtectedFileArrayOutputWithContext(context.Background())
+}
+
+func (i ConfigurationProtectedFileArray) ToConfigurationProtectedFileArrayOutputWithContext(ctx context.Context) ConfigurationProtectedFileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProtectedFileArrayOutput)
+}
+
+type ConfigurationProtectedFileOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationProtectedFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProtectedFile)(nil)).Elem()
+}
+
+func (o ConfigurationProtectedFileOutput) ToConfigurationProtectedFileOutput() ConfigurationProtectedFileOutput {
+	return o
+}
+
+func (o ConfigurationProtectedFileOutput) ToConfigurationProtectedFileOutputWithContext(ctx context.Context) ConfigurationProtectedFileOutput {
+	return o
+}
+
+// Specifies the base-64 encoded contents of this config file.
+func (o ConfigurationProtectedFileOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationProtectedFile) string { return v.Content }).(pulumi.StringOutput)
+}
+
+// Specify the path of this config file.
+func (o ConfigurationProtectedFileOutput) VirtualPath() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationProtectedFile) string { return v.VirtualPath }).(pulumi.StringOutput)
+}
+
+type ConfigurationProtectedFileArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationProtectedFileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationProtectedFile)(nil)).Elem()
+}
+
+func (o ConfigurationProtectedFileArrayOutput) ToConfigurationProtectedFileArrayOutput() ConfigurationProtectedFileArrayOutput {
+	return o
+}
+
+func (o ConfigurationProtectedFileArrayOutput) ToConfigurationProtectedFileArrayOutputWithContext(ctx context.Context) ConfigurationProtectedFileArrayOutput {
+	return o
+}
+
+func (o ConfigurationProtectedFileArrayOutput) Index(i pulumi.IntInput) ConfigurationProtectedFileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationProtectedFile {
+		return vs[0].([]ConfigurationProtectedFile)[vs[1].(int)]
+	}).(ConfigurationProtectedFileOutput)
+}
+
 type DeploymentFrontendPrivate struct {
 	// Specify the methos of allocating the private IP. Possible values are `Static` and `Dynamic`.
 	AllocationMethod string `pulumi:"allocationMethod"`
@@ -652,6 +864,10 @@ func (o DeploymentNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) Deployme
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationConfigFileInput)(nil)).Elem(), ConfigurationConfigFileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationConfigFileArrayInput)(nil)).Elem(), ConfigurationConfigFileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProtectedFileInput)(nil)).Elem(), ConfigurationProtectedFileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProtectedFileArrayInput)(nil)).Elem(), ConfigurationProtectedFileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentFrontendPrivateInput)(nil)).Elem(), DeploymentFrontendPrivateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentFrontendPrivateArrayInput)(nil)).Elem(), DeploymentFrontendPrivateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentFrontendPublicInput)(nil)).Elem(), DeploymentFrontendPublicArgs{})
@@ -662,6 +878,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentLoggingStorageAccountArrayInput)(nil)).Elem(), DeploymentLoggingStorageAccountArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentNetworkInterfaceInput)(nil)).Elem(), DeploymentNetworkInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentNetworkInterfaceArrayInput)(nil)).Elem(), DeploymentNetworkInterfaceArray{})
+	pulumi.RegisterOutputType(ConfigurationConfigFileOutput{})
+	pulumi.RegisterOutputType(ConfigurationConfigFileArrayOutput{})
+	pulumi.RegisterOutputType(ConfigurationProtectedFileOutput{})
+	pulumi.RegisterOutputType(ConfigurationProtectedFileArrayOutput{})
 	pulumi.RegisterOutputType(DeploymentFrontendPrivateOutput{})
 	pulumi.RegisterOutputType(DeploymentFrontendPrivateArrayOutput{})
 	pulumi.RegisterOutputType(DeploymentFrontendPublicOutput{})

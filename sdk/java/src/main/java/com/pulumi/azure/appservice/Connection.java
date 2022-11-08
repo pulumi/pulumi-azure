@@ -142,7 +142,6 @@ public class Connection extends com.pulumi.resources.CustomResource {
     }
     /**
      * The authentication info. An `authentication` block as defined below.
-     * ---
      * 
      */
     @Export(name="authentication", type=ConnectionAuthentication.class, parameters={})
@@ -150,7 +149,6 @@ public class Connection extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The authentication info. An `authentication` block as defined below.
-     * ---
      * 
      */
     public Output<ConnectionAuthentication> authentication() {

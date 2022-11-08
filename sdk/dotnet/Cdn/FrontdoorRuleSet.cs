@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cdn
 {
     /// <summary>
-    /// Manages a CDN FrontDoor Rule Set.
+    /// Manages a Front Door (standard/premium) Rule Set.
     /// 
     /// ## Example Usage
     /// 
@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// ## Import
     /// 
-    /// CDN FrontDoor Rule Sets can be imported using the `resource id`, e.g.
+    /// Front Door Rule Sets can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import azure:cdn/frontdoorRuleSet:FrontdoorRuleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/ruleSets/ruleSet1
@@ -52,13 +52,13 @@ namespace Pulumi.Azure.Cdn
     public partial class FrontdoorRuleSet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the CDN FrontDoor Profile. Changing this forces a new CDN FrontDoor Rule Set to be created.
+        /// The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created.
         /// </summary>
         [Output("cdnFrontdoorProfileId")]
         public Output<string> CdnFrontdoorProfileId { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this CDN FrontDoor Rule Set. Changing this forces a new CDN FrontDoor Rule Set to be created.
+        /// The name which should be used for this Front Door Rule Set. Changing this forces a new Front Door Rule Set to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -110,13 +110,13 @@ namespace Pulumi.Azure.Cdn
     public sealed class FrontdoorRuleSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the CDN FrontDoor Profile. Changing this forces a new CDN FrontDoor Rule Set to be created.
+        /// The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created.
         /// </summary>
         [Input("cdnFrontdoorProfileId", required: true)]
         public Input<string> CdnFrontdoorProfileId { get; set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this CDN FrontDoor Rule Set. Changing this forces a new CDN FrontDoor Rule Set to be created.
+        /// The name which should be used for this Front Door Rule Set. Changing this forces a new Front Door Rule Set to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -130,13 +130,13 @@ namespace Pulumi.Azure.Cdn
     public sealed class FrontdoorRuleSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the CDN FrontDoor Profile. Changing this forces a new CDN FrontDoor Rule Set to be created.
+        /// The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created.
         /// </summary>
         [Input("cdnFrontdoorProfileId")]
         public Input<string>? CdnFrontdoorProfileId { get; set; }
 
         /// <summary>
-        /// The name which should be used for this CDN FrontDoor Rule Set. Changing this forces a new CDN FrontDoor Rule Set to be created.
+        /// The name which should be used for this Front Door Rule Set. Changing this forces a new Front Door Rule Set to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

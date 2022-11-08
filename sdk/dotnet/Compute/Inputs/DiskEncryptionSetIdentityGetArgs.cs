@@ -12,6 +12,18 @@ namespace Pulumi.Azure.Compute.Inputs
 
     public sealed class DiskEncryptionSetIdentityGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("identityIds")]
+        private InputList<string>? _identityIds;
+
+        /// <summary>
+        /// A list of User Assigned Managed Identity IDs to be assigned to this Disk Encryption Set.
+        /// </summary>
+        public InputList<string> IdentityIds
+        {
+            get => _identityIds ?? (_identityIds = new InputList<string>());
+            set => _identityIds = value;
+        }
+
         /// <summary>
         /// The (Client) ID of the Service Principal.
         /// </summary>
@@ -25,7 +37,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// The type of Managed Service Identity that is configured on this Disk Encryption Set. The only possible value is `SystemAssigned`.
+        /// The type of Managed Service Identity that is configured on this Disk Encryption Set.  Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

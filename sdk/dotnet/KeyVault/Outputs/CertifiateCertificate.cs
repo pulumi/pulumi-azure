@@ -14,11 +14,11 @@ namespace Pulumi.Azure.KeyVault.Outputs
     public sealed class CertifiateCertificate
     {
         /// <summary>
-        /// The base64-encoded certificate contents. Changing this forces a new resource to be created.
+        /// The base64-encoded certificate contents.
         /// </summary>
         public readonly string Contents;
         /// <summary>
-        /// The password associated with the certificate. Changing this forces a new resource to be created.
+        /// The password associated with the certificate.
         /// </summary>
         public readonly string? Password;
 

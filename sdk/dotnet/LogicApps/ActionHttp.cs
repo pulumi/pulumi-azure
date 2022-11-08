@@ -84,6 +84,12 @@ namespace Pulumi.Azure.LogicApps
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
+        /// </summary>
+        [Output("queries")]
+        public Output<ImmutableDictionary<string, string>?> Queries { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
         /// </summary>
         [Output("runAfters")]
@@ -177,6 +183,18 @@ namespace Pulumi.Azure.LogicApps
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("queries")]
+        private InputMap<string>? _queries;
+
+        /// <summary>
+        /// Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
+        /// </summary>
+        public InputMap<string> Queries
+        {
+            get => _queries ?? (_queries = new InputMap<string>());
+            set => _queries = value;
+        }
+
         [Input("runAfters")]
         private InputList<Inputs.ActionHttpRunAfterArgs>? _runAfters;
 
@@ -238,6 +256,18 @@ namespace Pulumi.Azure.LogicApps
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("queries")]
+        private InputMap<string>? _queries;
+
+        /// <summary>
+        /// Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
+        /// </summary>
+        public InputMap<string> Queries
+        {
+            get => _queries ?? (_queries = new InputMap<string>());
+            set => _queries = value;
+        }
 
         [Input("runAfters")]
         private InputList<Inputs.ActionHttpRunAfterGetArgs>? _runAfters;

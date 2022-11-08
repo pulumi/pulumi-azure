@@ -21,6 +21,7 @@ from .frontdoor_rule_set import *
 from .frontdoor_secret import *
 from .frontdoor_security_policy import *
 from .get_frontdoor_endpoint import *
+from .get_frontdoor_firewall_policy import *
 from .get_frontdoor_origin_group import *
 from .get_frontdoor_profile import *
 from .get_frontdoor_rule_set import *

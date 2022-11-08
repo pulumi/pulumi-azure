@@ -14,14 +14,14 @@ public final class GetFrontdoorRuleSetArgs extends com.pulumi.resources.InvokeAr
     public static final GetFrontdoorRuleSetArgs Empty = new GetFrontdoorRuleSetArgs();
 
     /**
-     * Specifies the name of the CDN FrontDoor Rule Set to retrieve.
+     * Specifies the name of the Front Door Rule Set to retrieve.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the CDN FrontDoor Rule Set to retrieve.
+     * @return Specifies the name of the Front Door Rule Set to retrieve.
      * 
      */
     public Output<String> name() {
@@ -29,14 +29,14 @@ public final class GetFrontdoorRuleSetArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * Specifies the name of the CDN FrontDoor Profile where this CDN FrontDoor Rule Set exists.
+     * Specifies the name of the Front Door Profile where this Front Door Rule Set exists.
      * 
      */
     @Import(name="profileName", required=true)
     private Output<String> profileName;
 
     /**
-     * @return Specifies the name of the CDN FrontDoor Profile where this CDN FrontDoor Rule Set exists.
+     * @return Specifies the name of the Front Door Profile where this Front Door Rule Set exists.
      * 
      */
     public Output<String> profileName() {
@@ -44,14 +44,14 @@ public final class GetFrontdoorRuleSetArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * Specifies the name of the Resource Group where the CDN FrontDoor Profile exists.
+     * Specifies the name of the Resource Group where the Front Door Profile exists.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return Specifies the name of the Resource Group where the CDN FrontDoor Profile exists.
+     * @return Specifies the name of the Resource Group where the Front Door Profile exists.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -85,7 +85,7 @@ public final class GetFrontdoorRuleSetArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param name Specifies the name of the CDN FrontDoor Rule Set to retrieve.
+         * @param name Specifies the name of the Front Door Rule Set to retrieve.
          * 
          * @return builder
          * 
@@ -96,7 +96,7 @@ public final class GetFrontdoorRuleSetArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param name Specifies the name of the CDN FrontDoor Rule Set to retrieve.
+         * @param name Specifies the name of the Front Door Rule Set to retrieve.
          * 
          * @return builder
          * 
@@ -106,7 +106,7 @@ public final class GetFrontdoorRuleSetArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param profileName Specifies the name of the CDN FrontDoor Profile where this CDN FrontDoor Rule Set exists.
+         * @param profileName Specifies the name of the Front Door Profile where this Front Door Rule Set exists.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class GetFrontdoorRuleSetArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param profileName Specifies the name of the CDN FrontDoor Profile where this CDN FrontDoor Rule Set exists.
+         * @param profileName Specifies the name of the Front Door Profile where this Front Door Rule Set exists.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class GetFrontdoorRuleSetArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param resourceGroupName Specifies the name of the Resource Group where the CDN FrontDoor Profile exists.
+         * @param resourceGroupName Specifies the name of the Resource Group where the Front Door Profile exists.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class GetFrontdoorRuleSetArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param resourceGroupName Specifies the name of the Resource Group where the CDN FrontDoor Profile exists.
+         * @param resourceGroupName Specifies the name of the Resource Group where the Front Door Profile exists.
          * 
          * @return builder
          * 

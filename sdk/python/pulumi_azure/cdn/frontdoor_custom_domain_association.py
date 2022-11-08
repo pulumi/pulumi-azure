@@ -18,8 +18,8 @@ class FrontdoorCustomDomainAssociationArgs:
                  cdn_frontdoor_route_ids: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         The set of arguments for constructing a FrontdoorCustomDomainAssociation resource.
-        :param pulumi.Input[str] cdn_frontdoor_custom_domain_id: The ID of the CDN FrontDoor Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cdn_frontdoor_route_ids: One or more IDs of the CDN FrontDoor Route to which the CDN FrontDoor Custom Domain is associated with.
+        :param pulumi.Input[str] cdn_frontdoor_custom_domain_id: The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cdn_frontdoor_route_ids: One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
         """
         pulumi.set(__self__, "cdn_frontdoor_custom_domain_id", cdn_frontdoor_custom_domain_id)
         pulumi.set(__self__, "cdn_frontdoor_route_ids", cdn_frontdoor_route_ids)
@@ -28,7 +28,7 @@ class FrontdoorCustomDomainAssociationArgs:
     @pulumi.getter(name="cdnFrontdoorCustomDomainId")
     def cdn_frontdoor_custom_domain_id(self) -> pulumi.Input[str]:
         """
-        The ID of the CDN FrontDoor Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
+        The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_custom_domain_id")
 
@@ -40,7 +40,7 @@ class FrontdoorCustomDomainAssociationArgs:
     @pulumi.getter(name="cdnFrontdoorRouteIds")
     def cdn_frontdoor_route_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        One or more IDs of the CDN FrontDoor Route to which the CDN FrontDoor Custom Domain is associated with.
+        One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
         """
         return pulumi.get(self, "cdn_frontdoor_route_ids")
 
@@ -56,8 +56,8 @@ class _FrontdoorCustomDomainAssociationState:
                  cdn_frontdoor_route_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering FrontdoorCustomDomainAssociation resources.
-        :param pulumi.Input[str] cdn_frontdoor_custom_domain_id: The ID of the CDN FrontDoor Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cdn_frontdoor_route_ids: One or more IDs of the CDN FrontDoor Route to which the CDN FrontDoor Custom Domain is associated with.
+        :param pulumi.Input[str] cdn_frontdoor_custom_domain_id: The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cdn_frontdoor_route_ids: One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
         """
         if cdn_frontdoor_custom_domain_id is not None:
             pulumi.set(__self__, "cdn_frontdoor_custom_domain_id", cdn_frontdoor_custom_domain_id)
@@ -68,7 +68,7 @@ class _FrontdoorCustomDomainAssociationState:
     @pulumi.getter(name="cdnFrontdoorCustomDomainId")
     def cdn_frontdoor_custom_domain_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the CDN FrontDoor Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
+        The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_custom_domain_id")
 
@@ -80,7 +80,7 @@ class _FrontdoorCustomDomainAssociationState:
     @pulumi.getter(name="cdnFrontdoorRouteIds")
     def cdn_frontdoor_route_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        One or more IDs of the CDN FrontDoor Route to which the CDN FrontDoor Custom Domain is associated with.
+        One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
         """
         return pulumi.get(self, "cdn_frontdoor_route_ids")
 
@@ -98,7 +98,7 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
                  cdn_frontdoor_route_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Manages the association between a CDN FrontDoor Custom Domain and one or more CDN FrontDoor Routes.
+        Manages the association between a Front Door (standard/premium) Custom Domain and one or more Front Door (standard/premium) Routes.
 
         ## Example Usage
 
@@ -116,7 +116,7 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
 
         ## Import
 
-        Frontdoor Routes can be imported using the `resource id`, e.g.
+        Front Door Custom Domain Associations can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:cdn/frontdoorCustomDomainAssociation:FrontdoorCustomDomainAssociation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/associations/assoc1
@@ -124,8 +124,8 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cdn_frontdoor_custom_domain_id: The ID of the CDN FrontDoor Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cdn_frontdoor_route_ids: One or more IDs of the CDN FrontDoor Route to which the CDN FrontDoor Custom Domain is associated with.
+        :param pulumi.Input[str] cdn_frontdoor_custom_domain_id: The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cdn_frontdoor_route_ids: One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
         """
         ...
     @overload
@@ -134,7 +134,7 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
                  args: FrontdoorCustomDomainAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages the association between a CDN FrontDoor Custom Domain and one or more CDN FrontDoor Routes.
+        Manages the association between a Front Door (standard/premium) Custom Domain and one or more Front Door (standard/premium) Routes.
 
         ## Example Usage
 
@@ -152,7 +152,7 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
 
         ## Import
 
-        Frontdoor Routes can be imported using the `resource id`, e.g.
+        Front Door Custom Domain Associations can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:cdn/frontdoorCustomDomainAssociation:FrontdoorCustomDomainAssociation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/associations/assoc1
@@ -209,8 +209,8 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cdn_frontdoor_custom_domain_id: The ID of the CDN FrontDoor Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cdn_frontdoor_route_ids: One or more IDs of the CDN FrontDoor Route to which the CDN FrontDoor Custom Domain is associated with.
+        :param pulumi.Input[str] cdn_frontdoor_custom_domain_id: The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cdn_frontdoor_route_ids: One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -224,7 +224,7 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
     @pulumi.getter(name="cdnFrontdoorCustomDomainId")
     def cdn_frontdoor_custom_domain_id(self) -> pulumi.Output[str]:
         """
-        The ID of the CDN FrontDoor Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
+        The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_custom_domain_id")
 
@@ -232,7 +232,7 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
     @pulumi.getter(name="cdnFrontdoorRouteIds")
     def cdn_frontdoor_route_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        One or more IDs of the CDN FrontDoor Route to which the CDN FrontDoor Custom Domain is associated with.
+        One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
         """
         return pulumi.get(self, "cdn_frontdoor_route_ids")
 

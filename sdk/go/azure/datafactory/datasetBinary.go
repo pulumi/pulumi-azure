@@ -104,7 +104,6 @@ type DatasetBinary struct {
 	// Specifies a list of parameters to associate with the Data Factory Binary Dataset.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// A `sftpServerLocation` block as defined below.
-	// ---
 	SftpServerLocation DatasetBinarySftpServerLocationPtrOutput `pulumi:"sftpServerLocation"`
 }
 
@@ -166,7 +165,6 @@ type datasetBinaryState struct {
 	// Specifies a list of parameters to associate with the Data Factory Binary Dataset.
 	Parameters map[string]string `pulumi:"parameters"`
 	// A `sftpServerLocation` block as defined below.
-	// ---
 	SftpServerLocation *DatasetBinarySftpServerLocation `pulumi:"sftpServerLocation"`
 }
 
@@ -194,7 +192,6 @@ type DatasetBinaryState struct {
 	// Specifies a list of parameters to associate with the Data Factory Binary Dataset.
 	Parameters pulumi.StringMapInput
 	// A `sftpServerLocation` block as defined below.
-	// ---
 	SftpServerLocation DatasetBinarySftpServerLocationPtrInput
 }
 
@@ -226,7 +223,6 @@ type datasetBinaryArgs struct {
 	// Specifies a list of parameters to associate with the Data Factory Binary Dataset.
 	Parameters map[string]string `pulumi:"parameters"`
 	// A `sftpServerLocation` block as defined below.
-	// ---
 	SftpServerLocation *DatasetBinarySftpServerLocation `pulumi:"sftpServerLocation"`
 }
 
@@ -255,7 +251,6 @@ type DatasetBinaryArgs struct {
 	// Specifies a list of parameters to associate with the Data Factory Binary Dataset.
 	Parameters pulumi.StringMapInput
 	// A `sftpServerLocation` block as defined below.
-	// ---
 	SftpServerLocation DatasetBinarySftpServerLocationPtrInput
 }
 
@@ -404,7 +399,6 @@ func (o DatasetBinaryOutput) Parameters() pulumi.StringMapOutput {
 }
 
 // A `sftpServerLocation` block as defined below.
-// ---
 func (o DatasetBinaryOutput) SftpServerLocation() DatasetBinarySftpServerLocationPtrOutput {
 	return o.ApplyT(func(v *DatasetBinary) DatasetBinarySftpServerLocationPtrOutput { return v.SftpServerLocation }).(DatasetBinarySftpServerLocationPtrOutput)
 }

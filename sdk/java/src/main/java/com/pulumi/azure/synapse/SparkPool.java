@@ -120,6 +120,34 @@ public class SparkPool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.libraryRequirement);
     }
     /**
+     * The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
+     * 
+     */
+    @Export(name="maxExecutors", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> maxExecutors;
+
+    /**
+     * @return The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
+     * 
+     */
+    public Output<Optional<Integer>> maxExecutors() {
+        return Codegen.optional(this.maxExecutors);
+    }
+    /**
+     * The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
+     * 
+     */
+    @Export(name="minExecutors", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> minExecutors;
+
+    /**
+     * @return The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
+     * 
+     */
+    public Output<Optional<Integer>> minExecutors() {
+        return Codegen.optional(this.minExecutors);
+    }
+    /**
      * The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
      * 
      */

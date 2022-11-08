@@ -5,7 +5,10 @@ package com.pulumi.azure.containerservice.inputs;
 
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -42,11 +45,27 @@ public final class GetGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
         return this.resourceGroupName;
     }
 
+    /**
+     * A list of Availability Zones in which this Container Group is located.
+     * 
+     */
+    @Import(name="zones")
+    private @Nullable List<String> zones;
+
+    /**
+     * @return A list of Availability Zones in which this Container Group is located.
+     * 
+     */
+    public Optional<List<String>> zones() {
+        return Optional.ofNullable(this.zones);
+    }
+
     private GetGroupPlainArgs() {}
 
     private GetGroupPlainArgs(GetGroupPlainArgs $) {
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
+        this.zones = $.zones;
     }
 
     public static Builder builder() {
@@ -87,6 +106,27 @@ public final class GetGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
         public Builder resourceGroupName(String resourceGroupName) {
             $.resourceGroupName = resourceGroupName;
             return this;
+        }
+
+        /**
+         * @param zones A list of Availability Zones in which this Container Group is located.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zones(@Nullable List<String> zones) {
+            $.zones = zones;
+            return this;
+        }
+
+        /**
+         * @param zones A list of Availability Zones in which this Container Group is located.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zones(String... zones) {
+            return zones(List.of(zones));
         }
 
         public GetGroupPlainArgs build() {

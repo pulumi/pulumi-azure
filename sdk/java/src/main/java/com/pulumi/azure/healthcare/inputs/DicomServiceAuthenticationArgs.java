@@ -17,14 +17,14 @@ public final class DicomServiceAuthenticationArgs extends com.pulumi.resources.R
     public static final DicomServiceAuthenticationArgs Empty = new DicomServiceAuthenticationArgs();
 
     /**
-     * The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+     * The intended audience to receive authentication tokens for the service. The default value is &lt;https://dicom.azurehealthcareapis.azure.com&gt;
      * 
      */
     @Import(name="audiences")
     private @Nullable Output<List<String>> audiences;
 
     /**
-     * @return The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+     * @return The intended audience to receive authentication tokens for the service. The default value is &lt;https://dicom.azurehealthcareapis.azure.com&gt;
      * 
      */
     public Optional<Output<List<String>>> audiences() {
@@ -64,7 +64,7 @@ public final class DicomServiceAuthenticationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param audiences The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+         * @param audiences The intended audience to receive authentication tokens for the service. The default value is &lt;https://dicom.azurehealthcareapis.azure.com&gt;
          * 
          * @return builder
          * 
@@ -75,7 +75,7 @@ public final class DicomServiceAuthenticationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param audiences The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+         * @param audiences The intended audience to receive authentication tokens for the service. The default value is &lt;https://dicom.azurehealthcareapis.azure.com&gt;
          * 
          * @return builder
          * 
@@ -85,7 +85,7 @@ public final class DicomServiceAuthenticationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param audiences The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+         * @param audiences The intended audience to receive authentication tokens for the service. The default value is &lt;https://dicom.azurehealthcareapis.azure.com&gt;
          * 
          * @return builder
          * 

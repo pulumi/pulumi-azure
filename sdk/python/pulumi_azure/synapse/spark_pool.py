@@ -25,6 +25,8 @@ class SparkPoolArgs:
                  compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
                  dynamic_executor_allocation_enabled: Optional[pulumi.Input[bool]] = None,
                  library_requirement: Optional[pulumi.Input['SparkPoolLibraryRequirementArgs']] = None,
+                 max_executors: Optional[pulumi.Input[int]] = None,
+                 min_executors: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
                  session_level_packages_enabled: Optional[pulumi.Input[bool]] = None,
@@ -44,6 +46,8 @@ class SparkPoolArgs:
         :param pulumi.Input[bool] compute_isolation_enabled: Indicates whether compute isolation is enabled or not. Defaults to `false`.
         :param pulumi.Input[bool] dynamic_executor_allocation_enabled: Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
         :param pulumi.Input['SparkPoolLibraryRequirementArgs'] library_requirement: A `library_requirement` block as defined below.
+        :param pulumi.Input[int] max_executors: The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
+        :param pulumi.Input[int] min_executors: The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
         :param pulumi.Input[str] name: The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
         :param pulumi.Input[int] node_count: The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
         :param pulumi.Input[bool] session_level_packages_enabled: Indicates whether session level packages are enabled or not. Defaults to `false`.
@@ -68,6 +72,10 @@ class SparkPoolArgs:
             pulumi.set(__self__, "dynamic_executor_allocation_enabled", dynamic_executor_allocation_enabled)
         if library_requirement is not None:
             pulumi.set(__self__, "library_requirement", library_requirement)
+        if max_executors is not None:
+            pulumi.set(__self__, "max_executors", max_executors)
+        if min_executors is not None:
+            pulumi.set(__self__, "min_executors", min_executors)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if node_count is not None:
@@ -194,6 +202,30 @@ class SparkPoolArgs:
         pulumi.set(self, "library_requirement", value)
 
     @property
+    @pulumi.getter(name="maxExecutors")
+    def max_executors(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
+        """
+        return pulumi.get(self, "max_executors")
+
+    @max_executors.setter
+    def max_executors(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_executors", value)
+
+    @property
+    @pulumi.getter(name="minExecutors")
+    def min_executors(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
+        """
+        return pulumi.get(self, "min_executors")
+
+    @min_executors.setter
+    def min_executors(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_executors", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -299,6 +331,8 @@ class _SparkPoolState:
                  compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
                  dynamic_executor_allocation_enabled: Optional[pulumi.Input[bool]] = None,
                  library_requirement: Optional[pulumi.Input['SparkPoolLibraryRequirementArgs']] = None,
+                 max_executors: Optional[pulumi.Input[int]] = None,
+                 min_executors: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
                  node_size: Optional[pulumi.Input[str]] = None,
@@ -318,6 +352,8 @@ class _SparkPoolState:
         :param pulumi.Input[bool] compute_isolation_enabled: Indicates whether compute isolation is enabled or not. Defaults to `false`.
         :param pulumi.Input[bool] dynamic_executor_allocation_enabled: Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
         :param pulumi.Input['SparkPoolLibraryRequirementArgs'] library_requirement: A `library_requirement` block as defined below.
+        :param pulumi.Input[int] max_executors: The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
+        :param pulumi.Input[int] min_executors: The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
         :param pulumi.Input[str] name: The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
         :param pulumi.Input[int] node_count: The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
         :param pulumi.Input[str] node_size: The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
@@ -342,6 +378,10 @@ class _SparkPoolState:
             pulumi.set(__self__, "dynamic_executor_allocation_enabled", dynamic_executor_allocation_enabled)
         if library_requirement is not None:
             pulumi.set(__self__, "library_requirement", library_requirement)
+        if max_executors is not None:
+            pulumi.set(__self__, "max_executors", max_executors)
+        if min_executors is not None:
+            pulumi.set(__self__, "min_executors", min_executors)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if node_count is not None:
@@ -436,6 +476,30 @@ class _SparkPoolState:
     @library_requirement.setter
     def library_requirement(self, value: Optional[pulumi.Input['SparkPoolLibraryRequirementArgs']]):
         pulumi.set(self, "library_requirement", value)
+
+    @property
+    @pulumi.getter(name="maxExecutors")
+    def max_executors(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
+        """
+        return pulumi.get(self, "max_executors")
+
+    @max_executors.setter
+    def max_executors(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_executors", value)
+
+    @property
+    @pulumi.getter(name="minExecutors")
+    def min_executors(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
+        """
+        return pulumi.get(self, "min_executors")
+
+    @min_executors.setter
+    def min_executors(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_executors", value)
 
     @property
     @pulumi.getter
@@ -581,6 +645,8 @@ class SparkPool(pulumi.CustomResource):
                  compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
                  dynamic_executor_allocation_enabled: Optional[pulumi.Input[bool]] = None,
                  library_requirement: Optional[pulumi.Input[pulumi.InputType['SparkPoolLibraryRequirementArgs']]] = None,
+                 max_executors: Optional[pulumi.Input[int]] = None,
+                 min_executors: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
                  node_size: Optional[pulumi.Input[str]] = None,
@@ -612,6 +678,8 @@ class SparkPool(pulumi.CustomResource):
         :param pulumi.Input[bool] compute_isolation_enabled: Indicates whether compute isolation is enabled or not. Defaults to `false`.
         :param pulumi.Input[bool] dynamic_executor_allocation_enabled: Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['SparkPoolLibraryRequirementArgs']] library_requirement: A `library_requirement` block as defined below.
+        :param pulumi.Input[int] max_executors: The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
+        :param pulumi.Input[int] min_executors: The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
         :param pulumi.Input[str] name: The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
         :param pulumi.Input[int] node_count: The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
         :param pulumi.Input[str] node_size: The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
@@ -662,6 +730,8 @@ class SparkPool(pulumi.CustomResource):
                  compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
                  dynamic_executor_allocation_enabled: Optional[pulumi.Input[bool]] = None,
                  library_requirement: Optional[pulumi.Input[pulumi.InputType['SparkPoolLibraryRequirementArgs']]] = None,
+                 max_executors: Optional[pulumi.Input[int]] = None,
+                 min_executors: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
                  node_size: Optional[pulumi.Input[str]] = None,
@@ -688,6 +758,8 @@ class SparkPool(pulumi.CustomResource):
             __props__.__dict__["compute_isolation_enabled"] = compute_isolation_enabled
             __props__.__dict__["dynamic_executor_allocation_enabled"] = dynamic_executor_allocation_enabled
             __props__.__dict__["library_requirement"] = library_requirement
+            __props__.__dict__["max_executors"] = max_executors
+            __props__.__dict__["min_executors"] = min_executors
             __props__.__dict__["name"] = name
             __props__.__dict__["node_count"] = node_count
             if node_size is None and not opts.urn:
@@ -721,6 +793,8 @@ class SparkPool(pulumi.CustomResource):
             compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
             dynamic_executor_allocation_enabled: Optional[pulumi.Input[bool]] = None,
             library_requirement: Optional[pulumi.Input[pulumi.InputType['SparkPoolLibraryRequirementArgs']]] = None,
+            max_executors: Optional[pulumi.Input[int]] = None,
+            min_executors: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             node_count: Optional[pulumi.Input[int]] = None,
             node_size: Optional[pulumi.Input[str]] = None,
@@ -745,6 +819,8 @@ class SparkPool(pulumi.CustomResource):
         :param pulumi.Input[bool] compute_isolation_enabled: Indicates whether compute isolation is enabled or not. Defaults to `false`.
         :param pulumi.Input[bool] dynamic_executor_allocation_enabled: Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['SparkPoolLibraryRequirementArgs']] library_requirement: A `library_requirement` block as defined below.
+        :param pulumi.Input[int] max_executors: The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
+        :param pulumi.Input[int] min_executors: The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
         :param pulumi.Input[str] name: The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
         :param pulumi.Input[int] node_count: The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
         :param pulumi.Input[str] node_size: The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
@@ -767,6 +843,8 @@ class SparkPool(pulumi.CustomResource):
         __props__.__dict__["compute_isolation_enabled"] = compute_isolation_enabled
         __props__.__dict__["dynamic_executor_allocation_enabled"] = dynamic_executor_allocation_enabled
         __props__.__dict__["library_requirement"] = library_requirement
+        __props__.__dict__["max_executors"] = max_executors
+        __props__.__dict__["min_executors"] = min_executors
         __props__.__dict__["name"] = name
         __props__.__dict__["node_count"] = node_count
         __props__.__dict__["node_size"] = node_size
@@ -827,6 +905,22 @@ class SparkPool(pulumi.CustomResource):
         A `library_requirement` block as defined below.
         """
         return pulumi.get(self, "library_requirement")
+
+    @property
+    @pulumi.getter(name="maxExecutors")
+    def max_executors(self) -> pulumi.Output[Optional[int]]:
+        """
+        The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
+        """
+        return pulumi.get(self, "max_executors")
+
+    @property
+    @pulumi.getter(name="minExecutors")
+    def min_executors(self) -> pulumi.Output[Optional[int]]:
+        """
+        The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
+        """
+        return pulumi.get(self, "min_executors")
 
     @property
     @pulumi.getter

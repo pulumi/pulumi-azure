@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class StandardIdentity {
     /**
-     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
      * 
      */
     private @Nullable List<String> identityIds;
@@ -35,7 +35,7 @@ public final class StandardIdentity {
 
     private StandardIdentity() {}
     /**
-     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
      * 
      */
     public List<String> identityIds() {

@@ -179,7 +179,7 @@ class IntegrationAccountSession(pulumi.CustomResource):
         example_integration_account_session = azure.logicapps.IntegrationAccountSession("exampleIntegrationAccountSession",
             resource_group_name=example_resource_group.name,
             integration_account_name=example_integration_account.name,
-            content=\"\"\"	{
+            content=\"\"\" {
                "controlNumber": "1234"
             }
         \"\"\")
@@ -223,7 +223,7 @@ class IntegrationAccountSession(pulumi.CustomResource):
         example_integration_account_session = azure.logicapps.IntegrationAccountSession("exampleIntegrationAccountSession",
             resource_group_name=example_resource_group.name,
             integration_account_name=example_integration_account.name,
-            content=\"\"\"	{
+            content=\"\"\" {
                "controlNumber": "1234"
             }
         \"\"\")

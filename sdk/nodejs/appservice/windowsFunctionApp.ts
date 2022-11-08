@@ -199,6 +199,10 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
      */
     public readonly storageAccountName!: pulumi.Output<string | undefined>;
     /**
+     * One or more `storageAccount` blocks as defined below.
+     */
+    public readonly storageAccounts!: pulumi.Output<outputs.appservice.WindowsFunctionAppStorageAccount[] | undefined>;
+    /**
      * The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
      */
     public readonly storageKeyVaultSecretId!: pulumi.Output<string | undefined>;
@@ -259,6 +263,7 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
             resourceInputs["stickySettings"] = state ? state.stickySettings : undefined;
             resourceInputs["storageAccountAccessKey"] = state ? state.storageAccountAccessKey : undefined;
             resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
+            resourceInputs["storageAccounts"] = state ? state.storageAccounts : undefined;
             resourceInputs["storageKeyVaultSecretId"] = state ? state.storageKeyVaultSecretId : undefined;
             resourceInputs["storageUsesManagedIdentity"] = state ? state.storageUsesManagedIdentity : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -297,6 +302,7 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
             resourceInputs["stickySettings"] = args ? args.stickySettings : undefined;
             resourceInputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
             resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
+            resourceInputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             resourceInputs["storageKeyVaultSecretId"] = args ? args.storageKeyVaultSecretId : undefined;
             resourceInputs["storageUsesManagedIdentity"] = args ? args.storageUsesManagedIdentity : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -444,6 +450,10 @@ export interface WindowsFunctionAppState {
      */
     storageAccountName?: pulumi.Input<string>;
     /**
+     * One or more `storageAccount` blocks as defined below.
+     */
+    storageAccounts?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsFunctionAppStorageAccount>[]>;
+    /**
      * The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
      */
     storageKeyVaultSecretId?: pulumi.Input<string>;
@@ -557,6 +567,10 @@ export interface WindowsFunctionAppArgs {
      * The backend storage account name which will be used by this Function App.
      */
     storageAccountName?: pulumi.Input<string>;
+    /**
+     * One or more `storageAccount` blocks as defined below.
+     */
+    storageAccounts?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsFunctionAppStorageAccount>[]>;
     /**
      * The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
      */

@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Frontdoor Security Policy.
+// Manages a Front Door (standard/premium) Security Policy.
 //
 // ## Example Usage
 //
@@ -100,7 +100,7 @@ import (
 //
 // ## Import
 //
-// Frontdoor Security Policies can be imported using the `resource id`, e.g.
+// Front Door Security Policies can be imported using the `resource id`, e.g.
 //
 // ```sh
 //
@@ -110,11 +110,11 @@ import (
 type FrontdoorSecurityPolicy struct {
 	pulumi.CustomResourceState
 
-	// The Frontdoor Profile Resource Id that is linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+	// The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
 	CdnFrontdoorProfileId pulumi.StringOutput `pulumi:"cdnFrontdoorProfileId"`
-	// The name which should be used for this Frontdoor Security Policy. Possible values must not be an empty string. Changing this forces a new Frontdoor Security Policy to be created.
+	// The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// An `securityPolicies` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+	// An `securityPolicies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
 	SecurityPolicies FrontdoorSecurityPolicySecurityPoliciesOutput `pulumi:"securityPolicies"`
 }
 
@@ -153,20 +153,20 @@ func GetFrontdoorSecurityPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FrontdoorSecurityPolicy resources.
 type frontdoorSecurityPolicyState struct {
-	// The Frontdoor Profile Resource Id that is linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+	// The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
 	CdnFrontdoorProfileId *string `pulumi:"cdnFrontdoorProfileId"`
-	// The name which should be used for this Frontdoor Security Policy. Possible values must not be an empty string. Changing this forces a new Frontdoor Security Policy to be created.
+	// The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
 	Name *string `pulumi:"name"`
-	// An `securityPolicies` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+	// An `securityPolicies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
 	SecurityPolicies *FrontdoorSecurityPolicySecurityPolicies `pulumi:"securityPolicies"`
 }
 
 type FrontdoorSecurityPolicyState struct {
-	// The Frontdoor Profile Resource Id that is linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+	// The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
 	CdnFrontdoorProfileId pulumi.StringPtrInput
-	// The name which should be used for this Frontdoor Security Policy. Possible values must not be an empty string. Changing this forces a new Frontdoor Security Policy to be created.
+	// The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
 	Name pulumi.StringPtrInput
-	// An `securityPolicies` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+	// An `securityPolicies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
 	SecurityPolicies FrontdoorSecurityPolicySecurityPoliciesPtrInput
 }
 
@@ -175,21 +175,21 @@ func (FrontdoorSecurityPolicyState) ElementType() reflect.Type {
 }
 
 type frontdoorSecurityPolicyArgs struct {
-	// The Frontdoor Profile Resource Id that is linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+	// The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
 	CdnFrontdoorProfileId string `pulumi:"cdnFrontdoorProfileId"`
-	// The name which should be used for this Frontdoor Security Policy. Possible values must not be an empty string. Changing this forces a new Frontdoor Security Policy to be created.
+	// The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
 	Name *string `pulumi:"name"`
-	// An `securityPolicies` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+	// An `securityPolicies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
 	SecurityPolicies FrontdoorSecurityPolicySecurityPolicies `pulumi:"securityPolicies"`
 }
 
 // The set of arguments for constructing a FrontdoorSecurityPolicy resource.
 type FrontdoorSecurityPolicyArgs struct {
-	// The Frontdoor Profile Resource Id that is linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+	// The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
 	CdnFrontdoorProfileId pulumi.StringInput
-	// The name which should be used for this Frontdoor Security Policy. Possible values must not be an empty string. Changing this forces a new Frontdoor Security Policy to be created.
+	// The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
 	Name pulumi.StringPtrInput
-	// An `securityPolicies` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+	// An `securityPolicies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
 	SecurityPolicies FrontdoorSecurityPolicySecurityPoliciesInput
 }
 
@@ -280,17 +280,17 @@ func (o FrontdoorSecurityPolicyOutput) ToFrontdoorSecurityPolicyOutputWithContex
 	return o
 }
 
-// The Frontdoor Profile Resource Id that is linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+// The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
 func (o FrontdoorSecurityPolicyOutput) CdnFrontdoorProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorSecurityPolicy) pulumi.StringOutput { return v.CdnFrontdoorProfileId }).(pulumi.StringOutput)
 }
 
-// The name which should be used for this Frontdoor Security Policy. Possible values must not be an empty string. Changing this forces a new Frontdoor Security Policy to be created.
+// The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
 func (o FrontdoorSecurityPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorSecurityPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// An `securityPolicies` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+// An `securityPolicies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
 func (o FrontdoorSecurityPolicyOutput) SecurityPolicies() FrontdoorSecurityPolicySecurityPoliciesOutput {
 	return o.ApplyT(func(v *FrontdoorSecurityPolicy) FrontdoorSecurityPolicySecurityPoliciesOutput {
 		return v.SecurityPolicies

@@ -13,7 +13,6 @@ import javax.annotation.Nullable;
 public final class PoolStorageImageReference {
     /**
      * @return Specifies the ID of the Custom Image which the virtual machines should be created from. Changing this forces a new resource to be created. See [official documentation](https://docs.microsoft.com/azure/batch/batch-custom-images) for more details.
-     * ---
      * 
      */
     private @Nullable String id;
@@ -41,7 +40,6 @@ public final class PoolStorageImageReference {
     private PoolStorageImageReference() {}
     /**
      * @return Specifies the ID of the Custom Image which the virtual machines should be created from. Changing this forces a new resource to be created. See [official documentation](https://docs.microsoft.com/azure/batch/batch-custom-images) for more details.
-     * ---
      * 
      */
     public Optional<String> id() {

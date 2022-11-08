@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FrontdoorSecretSecretCustomerCertificate {
     /**
-     * @return The ID of the Key Vault certificate resource to use. Changing this forces a new Frontdoor Secret to be created.
+     * @return The ID of the Key Vault certificate resource to use. Changing this forces a new Front Door Secret to be created.
      * 
      */
     private String keyVaultCertificateId;
@@ -24,7 +24,7 @@ public final class FrontdoorSecretSecretCustomerCertificate {
 
     private FrontdoorSecretSecretCustomerCertificate() {}
     /**
-     * @return The ID of the Key Vault certificate resource to use. Changing this forces a new Frontdoor Secret to be created.
+     * @return The ID of the Key Vault certificate resource to use. Changing this forces a new Front Door Secret to be created.
      * 
      */
     public String keyVaultCertificateId() {

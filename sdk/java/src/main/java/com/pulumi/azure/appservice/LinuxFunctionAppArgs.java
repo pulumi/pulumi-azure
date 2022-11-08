@@ -9,6 +9,7 @@ import com.pulumi.azure.appservice.inputs.LinuxFunctionAppConnectionStringArgs;
 import com.pulumi.azure.appservice.inputs.LinuxFunctionAppIdentityArgs;
 import com.pulumi.azure.appservice.inputs.LinuxFunctionAppSiteConfigArgs;
 import com.pulumi.azure.appservice.inputs.LinuxFunctionAppStickySettingsArgs;
+import com.pulumi.azure.appservice.inputs.LinuxFunctionAppStorageAccountArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -371,6 +372,21 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * One or more `storage_account` blocks as defined below.
+     * 
+     */
+    @Import(name="storageAccounts")
+    private @Nullable Output<List<LinuxFunctionAppStorageAccountArgs>> storageAccounts;
+
+    /**
+     * @return One or more `storage_account` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<LinuxFunctionAppStorageAccountArgs>>> storageAccounts() {
+        return Optional.ofNullable(this.storageAccounts);
+    }
+
+    /**
      * The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
      * 
      */
@@ -456,6 +472,7 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
         this.stickySettings = $.stickySettings;
         this.storageAccountAccessKey = $.storageAccountAccessKey;
         this.storageAccountName = $.storageAccountName;
+        this.storageAccounts = $.storageAccounts;
         this.storageKeyVaultSecretId = $.storageKeyVaultSecretId;
         this.storageUsesManagedIdentity = $.storageUsesManagedIdentity;
         this.tags = $.tags;
@@ -971,6 +988,37 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder storageAccountName(String storageAccountName) {
             return storageAccountName(Output.of(storageAccountName));
+        }
+
+        /**
+         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAccounts(@Nullable Output<List<LinuxFunctionAppStorageAccountArgs>> storageAccounts) {
+            $.storageAccounts = storageAccounts;
+            return this;
+        }
+
+        /**
+         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAccounts(List<LinuxFunctionAppStorageAccountArgs> storageAccounts) {
+            return storageAccounts(Output.of(storageAccounts));
+        }
+
+        /**
+         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAccounts(LinuxFunctionAppStorageAccountArgs... storageAccounts) {
+            return storageAccounts(List.of(storageAccounts));
         }
 
         /**

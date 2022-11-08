@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Storage.Inputs
         public Input<int>? DeleteAfterDaysSinceModificationGreaterThan { get; set; }
 
         /// <summary>
-        /// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0 and `99999`.
+        /// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0 and`99999`.
         /// </summary>
         [Input("tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan")]
         public Input<int>? TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan { get; set; }

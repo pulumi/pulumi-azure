@@ -89,16 +89,16 @@ import javax.annotation.Nullable;
  *             .variables(Map.of(&#34;bob&#34;, &#34;item1&#34;))
  *             .activitiesJson(&#34;&#34;&#34;
  * [
- * 	{
- * 		&#34;name&#34;: &#34;Append variable1&#34;,
- * 		&#34;type&#34;: &#34;AppendVariable&#34;,
- * 		&#34;dependsOn&#34;: [],
- * 		&#34;userProperties&#34;: [],
- * 		&#34;typeProperties&#34;: {
- * 			&#34;variableName&#34;: &#34;bob&#34;,
- * 			&#34;value&#34;: &#34;something&#34;
- * 		}
- * 	}
+ *     {
+ *         &#34;name&#34;: &#34;Append variable1&#34;,
+ *         &#34;type&#34;: &#34;AppendVariable&#34;,
+ *         &#34;dependsOn&#34;: [],
+ *         &#34;userProperties&#34;: [],
+ *         &#34;typeProperties&#34;: {
+ *           &#34;variableName&#34;: &#34;bob&#34;,
+ *           &#34;value&#34;: &#34;something&#34;
+ *         }
+ *     }
  * ]
  *             &#34;&#34;&#34;)
  *             .build());

@@ -109,6 +109,10 @@ export class KafkaCluster extends pulumi.CustomResource {
      * A `componentVersion` block as defined below.
      */
     public readonly componentVersion!: pulumi.Output<outputs.hdinsight.KafkaClusterComponentVersion>;
+    /**
+     * A `computeIsolation` block as defined below.
+     */
+    public readonly computeIsolation!: pulumi.Output<outputs.hdinsight.KafkaClusterComputeIsolation | undefined>;
     public readonly diskEncryptions!: pulumi.Output<outputs.hdinsight.KafkaClusterDiskEncryption[] | undefined>;
     /**
      * Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
@@ -206,6 +210,7 @@ export class KafkaCluster extends pulumi.CustomResource {
             const state = argsOrState as KafkaClusterState | undefined;
             resourceInputs["clusterVersion"] = state ? state.clusterVersion : undefined;
             resourceInputs["componentVersion"] = state ? state.componentVersion : undefined;
+            resourceInputs["computeIsolation"] = state ? state.computeIsolation : undefined;
             resourceInputs["diskEncryptions"] = state ? state.diskEncryptions : undefined;
             resourceInputs["encryptionInTransitEnabled"] = state ? state.encryptionInTransitEnabled : undefined;
             resourceInputs["extension"] = state ? state.extension : undefined;
@@ -249,6 +254,7 @@ export class KafkaCluster extends pulumi.CustomResource {
             }
             resourceInputs["clusterVersion"] = args ? args.clusterVersion : undefined;
             resourceInputs["componentVersion"] = args ? args.componentVersion : undefined;
+            resourceInputs["computeIsolation"] = args ? args.computeIsolation : undefined;
             resourceInputs["diskEncryptions"] = args ? args.diskEncryptions : undefined;
             resourceInputs["encryptionInTransitEnabled"] = args ? args.encryptionInTransitEnabled : undefined;
             resourceInputs["extension"] = args ? args.extension : undefined;
@@ -288,6 +294,10 @@ export interface KafkaClusterState {
      * A `componentVersion` block as defined below.
      */
     componentVersion?: pulumi.Input<inputs.hdinsight.KafkaClusterComponentVersion>;
+    /**
+     * A `computeIsolation` block as defined below.
+     */
+    computeIsolation?: pulumi.Input<inputs.hdinsight.KafkaClusterComputeIsolation>;
     diskEncryptions?: pulumi.Input<pulumi.Input<inputs.hdinsight.KafkaClusterDiskEncryption>[]>;
     /**
      * Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
@@ -383,6 +393,10 @@ export interface KafkaClusterArgs {
      * A `componentVersion` block as defined below.
      */
     componentVersion: pulumi.Input<inputs.hdinsight.KafkaClusterComponentVersion>;
+    /**
+     * A `computeIsolation` block as defined below.
+     */
+    computeIsolation?: pulumi.Input<inputs.hdinsight.KafkaClusterComputeIsolation>;
     diskEncryptions?: pulumi.Input<pulumi.Input<inputs.hdinsight.KafkaClusterDiskEncryption>[]>;
     /**
      * Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.

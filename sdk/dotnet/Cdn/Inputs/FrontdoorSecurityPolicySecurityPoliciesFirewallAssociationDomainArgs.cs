@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Cdn.Inputs
     public sealed class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is the Frontdoor Custom Domain/Endpoint activated?
+        /// Is the Front Door Custom Domain/Endpoint activated?
         /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }
 
         /// <summary>
-        /// The Resource Id of the **Frontdoor Custom Domain** or **Frontdoor Endpoint** that should be bound to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+        /// The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
         /// </summary>
         [Input("cdnFrontdoorDomainId", required: true)]
         public Input<string> CdnFrontdoorDomainId { get; set; } = null!;

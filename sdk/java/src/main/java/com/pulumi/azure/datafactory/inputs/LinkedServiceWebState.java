@@ -147,14 +147,14 @@ public final class LinkedServiceWebState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The URL of the web service endpoint (e.g. https://www.microsoft.com).
+     * The URL of the web service endpoint (e.g. &lt;https://www.microsoft.com&gt;).
      * 
      */
     @Import(name="url")
     private @Nullable Output<String> url;
 
     /**
-     * @return The URL of the web service endpoint (e.g. https://www.microsoft.com).
+     * @return The URL of the web service endpoint (e.g. &lt;https://www.microsoft.com&gt;).
      * 
      */
     public Optional<Output<String>> url() {
@@ -392,7 +392,7 @@ public final class LinkedServiceWebState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param url The URL of the web service endpoint (e.g. https://www.microsoft.com).
+         * @param url The URL of the web service endpoint (e.g. &lt;https://www.microsoft.com&gt;).
          * 
          * @return builder
          * 
@@ -403,7 +403,7 @@ public final class LinkedServiceWebState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param url The URL of the web service endpoint (e.g. https://www.microsoft.com).
+         * @param url The URL of the web service endpoint (e.g. &lt;https://www.microsoft.com&gt;).
          * 
          * @return builder
          * 

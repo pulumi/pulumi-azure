@@ -444,7 +444,7 @@ class GroupPolicyAssignment(pulumi.CustomResource):
             mode="All",
             display_name="my-policy-definition",
             management_group_id=example_group.id,
-            policy_rule=\"\"\"	{
+            policy_rule=\"\"\" {
             "if": {
               "not": {
                 "field": "location",
@@ -505,7 +505,7 @@ class GroupPolicyAssignment(pulumi.CustomResource):
             mode="All",
             display_name="my-policy-definition",
             management_group_id=example_group.id,
-            policy_rule=\"\"\"	{
+            policy_rule=\"\"\" {
             "if": {
               "not": {
                 "field": "location",

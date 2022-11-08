@@ -93,7 +93,7 @@ export class ServiceAccount extends pulumi.CustomResource {
      */
     public readonly storageAccounts!: pulumi.Output<outputs.media.ServiceAccountStorageAccount[]>;
     /**
-     * Specifies the storage authentication type. 
+     * Specifies the storage authentication type.
      * Possible value is  `ManagedIdentity` or `System`.
      */
     public readonly storageAuthenticationType!: pulumi.Output<string>;
@@ -176,7 +176,7 @@ export interface ServiceAccountState {
      */
     storageAccounts?: pulumi.Input<pulumi.Input<inputs.media.ServiceAccountStorageAccount>[]>;
     /**
-     * Specifies the storage authentication type. 
+     * Specifies the storage authentication type.
      * Possible value is  `ManagedIdentity` or `System`.
      */
     storageAuthenticationType?: pulumi.Input<string>;
@@ -215,7 +215,7 @@ export interface ServiceAccountArgs {
      */
     storageAccounts: pulumi.Input<pulumi.Input<inputs.media.ServiceAccountStorageAccount>[]>;
     /**
-     * Specifies the storage authentication type. 
+     * Specifies the storage authentication type.
      * Possible value is  `ManagedIdentity` or `System`.
      */
     storageAuthenticationType?: pulumi.Input<string>;

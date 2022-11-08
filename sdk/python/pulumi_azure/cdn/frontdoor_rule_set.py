@@ -18,8 +18,8 @@ class FrontdoorRuleSetArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FrontdoorRuleSet resource.
-        :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the CDN FrontDoor Profile. Changing this forces a new CDN FrontDoor Rule Set to be created.
-        :param pulumi.Input[str] name: The name which should be used for this CDN FrontDoor Rule Set. Changing this forces a new CDN FrontDoor Rule Set to be created.
+        :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Front Door Rule Set. Changing this forces a new Front Door Rule Set to be created.
         """
         pulumi.set(__self__, "cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
         if name is not None:
@@ -29,7 +29,7 @@ class FrontdoorRuleSetArgs:
     @pulumi.getter(name="cdnFrontdoorProfileId")
     def cdn_frontdoor_profile_id(self) -> pulumi.Input[str]:
         """
-        The ID of the CDN FrontDoor Profile. Changing this forces a new CDN FrontDoor Rule Set to be created.
+        The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_profile_id")
 
@@ -41,7 +41,7 @@ class FrontdoorRuleSetArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this CDN FrontDoor Rule Set. Changing this forces a new CDN FrontDoor Rule Set to be created.
+        The name which should be used for this Front Door Rule Set. Changing this forces a new Front Door Rule Set to be created.
         """
         return pulumi.get(self, "name")
 
@@ -57,8 +57,8 @@ class _FrontdoorRuleSetState:
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering FrontdoorRuleSet resources.
-        :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the CDN FrontDoor Profile. Changing this forces a new CDN FrontDoor Rule Set to be created.
-        :param pulumi.Input[str] name: The name which should be used for this CDN FrontDoor Rule Set. Changing this forces a new CDN FrontDoor Rule Set to be created.
+        :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Front Door Rule Set. Changing this forces a new Front Door Rule Set to be created.
         """
         if cdn_frontdoor_profile_id is not None:
             pulumi.set(__self__, "cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
@@ -69,7 +69,7 @@ class _FrontdoorRuleSetState:
     @pulumi.getter(name="cdnFrontdoorProfileId")
     def cdn_frontdoor_profile_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the CDN FrontDoor Profile. Changing this forces a new CDN FrontDoor Rule Set to be created.
+        The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_profile_id")
 
@@ -81,7 +81,7 @@ class _FrontdoorRuleSetState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this CDN FrontDoor Rule Set. Changing this forces a new CDN FrontDoor Rule Set to be created.
+        The name which should be used for this Front Door Rule Set. Changing this forces a new Front Door Rule Set to be created.
         """
         return pulumi.get(self, "name")
 
@@ -99,7 +99,7 @@ class FrontdoorRuleSet(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a CDN FrontDoor Rule Set.
+        Manages a Front Door (standard/premium) Rule Set.
 
         ## Example Usage
 
@@ -116,7 +116,7 @@ class FrontdoorRuleSet(pulumi.CustomResource):
 
         ## Import
 
-        CDN FrontDoor Rule Sets can be imported using the `resource id`, e.g.
+        Front Door Rule Sets can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:cdn/frontdoorRuleSet:FrontdoorRuleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/ruleSets/ruleSet1
@@ -124,8 +124,8 @@ class FrontdoorRuleSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the CDN FrontDoor Profile. Changing this forces a new CDN FrontDoor Rule Set to be created.
-        :param pulumi.Input[str] name: The name which should be used for this CDN FrontDoor Rule Set. Changing this forces a new CDN FrontDoor Rule Set to be created.
+        :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Front Door Rule Set. Changing this forces a new Front Door Rule Set to be created.
         """
         ...
     @overload
@@ -134,7 +134,7 @@ class FrontdoorRuleSet(pulumi.CustomResource):
                  args: FrontdoorRuleSetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a CDN FrontDoor Rule Set.
+        Manages a Front Door (standard/premium) Rule Set.
 
         ## Example Usage
 
@@ -151,7 +151,7 @@ class FrontdoorRuleSet(pulumi.CustomResource):
 
         ## Import
 
-        CDN FrontDoor Rule Sets can be imported using the `resource id`, e.g.
+        Front Door Rule Sets can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:cdn/frontdoorRuleSet:FrontdoorRuleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/ruleSets/ruleSet1
@@ -206,8 +206,8 @@ class FrontdoorRuleSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the CDN FrontDoor Profile. Changing this forces a new CDN FrontDoor Rule Set to be created.
-        :param pulumi.Input[str] name: The name which should be used for this CDN FrontDoor Rule Set. Changing this forces a new CDN FrontDoor Rule Set to be created.
+        :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Front Door Rule Set. Changing this forces a new Front Door Rule Set to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -221,7 +221,7 @@ class FrontdoorRuleSet(pulumi.CustomResource):
     @pulumi.getter(name="cdnFrontdoorProfileId")
     def cdn_frontdoor_profile_id(self) -> pulumi.Output[str]:
         """
-        The ID of the CDN FrontDoor Profile. Changing this forces a new CDN FrontDoor Rule Set to be created.
+        The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_profile_id")
 
@@ -229,7 +229,7 @@ class FrontdoorRuleSet(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name which should be used for this CDN FrontDoor Rule Set. Changing this forces a new CDN FrontDoor Rule Set to be created.
+        The name which should be used for this Front Door Rule Set. Changing this forces a new Front Door Rule Set to be created.
         """
         return pulumi.get(self, "name")
 

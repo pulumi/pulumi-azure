@@ -256,14 +256,18 @@ class CapacityReservationSkuArgs:
 class DiskEncryptionSetIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The type of Managed Service Identity that is configured on this Disk Encryption Set. The only possible value is `SystemAssigned`.
+        :param pulumi.Input[str] type: The type of Managed Service Identity that is configured on this Disk Encryption Set.  Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Disk Encryption Set.
         :param pulumi.Input[str] principal_id: The (Client) ID of the Service Principal.
         :param pulumi.Input[str] tenant_id: The ID of the Tenant the Service Principal is assigned in.
         """
         pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
@@ -273,13 +277,25 @@ class DiskEncryptionSetIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of Managed Service Identity that is configured on this Disk Encryption Set. The only possible value is `SystemAssigned`.
+        The type of Managed Service Identity that is configured on this Disk Encryption Set.  Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this Disk Encryption Set.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identity_ids", value)
 
     @property
     @pulumi.getter(name="principalId")
@@ -1586,12 +1602,16 @@ class LinuxVirtualMachineScaleSetGalleryApplicationArgs:
                  order: Optional[pulumi.Input[int]] = None,
                  tag: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] package_reference_id: Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] configuration_reference_blob_uri: Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
         :param pulumi.Input[int] order: Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tag: Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
         """
+        if package_reference_id is not None:
+            warnings.warn("""`package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0""", DeprecationWarning)
+            pulumi.log.warn("""package_reference_id is deprecated: `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0""")
         pulumi.set(__self__, "package_reference_id", package_reference_id)
+        if configuration_reference_blob_uri is not None:
+            warnings.warn("""`configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0""", DeprecationWarning)
+            pulumi.log.warn("""configuration_reference_blob_uri is deprecated: `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0""")
         if configuration_reference_blob_uri is not None:
             pulumi.set(__self__, "configuration_reference_blob_uri", configuration_reference_blob_uri)
         if order is not None:
@@ -1602,9 +1622,6 @@ class LinuxVirtualMachineScaleSetGalleryApplicationArgs:
     @property
     @pulumi.getter(name="packageReferenceId")
     def package_reference_id(self) -> pulumi.Input[str]:
-        """
-        Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "package_reference_id")
 
     @package_reference_id.setter
@@ -1614,9 +1631,6 @@ class LinuxVirtualMachineScaleSetGalleryApplicationArgs:
     @property
     @pulumi.getter(name="configurationReferenceBlobUri")
     def configuration_reference_blob_uri(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "configuration_reference_blob_uri")
 
     @configuration_reference_blob_uri.setter
@@ -8036,12 +8050,16 @@ class WindowsVirtualMachineScaleSetGalleryApplicationArgs:
                  order: Optional[pulumi.Input[int]] = None,
                  tag: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] package_reference_id: Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] configuration_reference_blob_uri: Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
         :param pulumi.Input[int] order: Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tag: Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
         """
+        if package_reference_id is not None:
+            warnings.warn("""`package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0""", DeprecationWarning)
+            pulumi.log.warn("""package_reference_id is deprecated: `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0""")
         pulumi.set(__self__, "package_reference_id", package_reference_id)
+        if configuration_reference_blob_uri is not None:
+            warnings.warn("""`configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0""", DeprecationWarning)
+            pulumi.log.warn("""configuration_reference_blob_uri is deprecated: `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0""")
         if configuration_reference_blob_uri is not None:
             pulumi.set(__self__, "configuration_reference_blob_uri", configuration_reference_blob_uri)
         if order is not None:
@@ -8052,9 +8070,6 @@ class WindowsVirtualMachineScaleSetGalleryApplicationArgs:
     @property
     @pulumi.getter(name="packageReferenceId")
     def package_reference_id(self) -> pulumi.Input[str]:
-        """
-        Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "package_reference_id")
 
     @package_reference_id.setter
@@ -8064,9 +8079,6 @@ class WindowsVirtualMachineScaleSetGalleryApplicationArgs:
     @property
     @pulumi.getter(name="configurationReferenceBlobUri")
     def configuration_reference_blob_uri(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "configuration_reference_blob_uri")
 
     @configuration_reference_blob_uri.setter

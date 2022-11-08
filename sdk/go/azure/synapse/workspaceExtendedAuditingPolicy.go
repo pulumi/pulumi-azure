@@ -109,7 +109,7 @@ type WorkspaceExtendedAuditingPolicy struct {
 	StorageAccountAccessKey pulumi.StringPtrOutput `pulumi:"storageAccountAccessKey"`
 	// Is `storageAccountAccessKey` value the storage's secondary key?
 	StorageAccountAccessKeyIsSecondary pulumi.BoolPtrOutput `pulumi:"storageAccountAccessKeyIsSecondary"`
-	// The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
 	StorageEndpoint pulumi.StringPtrOutput `pulumi:"storageEndpoint"`
 	// The ID of the Synapse workspace to set the extended auditing policy. Changing this forces a new resource to be created.
 	SynapseWorkspaceId pulumi.StringOutput `pulumi:"synapseWorkspaceId"`
@@ -155,7 +155,7 @@ type workspaceExtendedAuditingPolicyState struct {
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// Is `storageAccountAccessKey` value the storage's secondary key?
 	StorageAccountAccessKeyIsSecondary *bool `pulumi:"storageAccountAccessKeyIsSecondary"`
-	// The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
 	StorageEndpoint *string `pulumi:"storageEndpoint"`
 	// The ID of the Synapse workspace to set the extended auditing policy. Changing this forces a new resource to be created.
 	SynapseWorkspaceId *string `pulumi:"synapseWorkspaceId"`
@@ -170,7 +170,7 @@ type WorkspaceExtendedAuditingPolicyState struct {
 	StorageAccountAccessKey pulumi.StringPtrInput
 	// Is `storageAccountAccessKey` value the storage's secondary key?
 	StorageAccountAccessKeyIsSecondary pulumi.BoolPtrInput
-	// The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
 	StorageEndpoint pulumi.StringPtrInput
 	// The ID of the Synapse workspace to set the extended auditing policy. Changing this forces a new resource to be created.
 	SynapseWorkspaceId pulumi.StringPtrInput
@@ -189,7 +189,7 @@ type workspaceExtendedAuditingPolicyArgs struct {
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// Is `storageAccountAccessKey` value the storage's secondary key?
 	StorageAccountAccessKeyIsSecondary *bool `pulumi:"storageAccountAccessKeyIsSecondary"`
-	// The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
 	StorageEndpoint *string `pulumi:"storageEndpoint"`
 	// The ID of the Synapse workspace to set the extended auditing policy. Changing this forces a new resource to be created.
 	SynapseWorkspaceId string `pulumi:"synapseWorkspaceId"`
@@ -205,7 +205,7 @@ type WorkspaceExtendedAuditingPolicyArgs struct {
 	StorageAccountAccessKey pulumi.StringPtrInput
 	// Is `storageAccountAccessKey` value the storage's secondary key?
 	StorageAccountAccessKeyIsSecondary pulumi.BoolPtrInput
-	// The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
 	StorageEndpoint pulumi.StringPtrInput
 	// The ID of the Synapse workspace to set the extended auditing policy. Changing this forces a new resource to be created.
 	SynapseWorkspaceId pulumi.StringInput
@@ -320,7 +320,7 @@ func (o WorkspaceExtendedAuditingPolicyOutput) StorageAccountAccessKeyIsSecondar
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
 func (o WorkspaceExtendedAuditingPolicyOutput) StorageEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceExtendedAuditingPolicy) pulumi.StringPtrOutput { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
 }

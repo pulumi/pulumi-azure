@@ -114,6 +114,12 @@ namespace Pulumi.Azure.HDInsight
         [Output("componentVersion")]
         public Output<Outputs.HBaseClusterComponentVersion> ComponentVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// A `compute_isolation` block as defined below.
+        /// </summary>
+        [Output("computeIsolation")]
+        public Output<Outputs.HBaseClusterComputeIsolation?> ComputeIsolation { get; private set; } = null!;
+
         [Output("diskEncryptions")]
         public Output<ImmutableArray<Outputs.HBaseClusterDiskEncryption>> DiskEncryptions { get; private set; } = null!;
 
@@ -274,6 +280,12 @@ namespace Pulumi.Azure.HDInsight
         [Input("componentVersion", required: true)]
         public Input<Inputs.HBaseClusterComponentVersionArgs> ComponentVersion { get; set; } = null!;
 
+        /// <summary>
+        /// A `compute_isolation` block as defined below.
+        /// </summary>
+        [Input("computeIsolation")]
+        public Input<Inputs.HBaseClusterComputeIsolationArgs>? ComputeIsolation { get; set; }
+
         [Input("diskEncryptions")]
         private InputList<Inputs.HBaseClusterDiskEncryptionArgs>? _diskEncryptions;
         public InputList<Inputs.HBaseClusterDiskEncryptionArgs> DiskEncryptions
@@ -400,6 +412,12 @@ namespace Pulumi.Azure.HDInsight
         /// </summary>
         [Input("componentVersion")]
         public Input<Inputs.HBaseClusterComponentVersionGetArgs>? ComponentVersion { get; set; }
+
+        /// <summary>
+        /// A `compute_isolation` block as defined below.
+        /// </summary>
+        [Input("computeIsolation")]
+        public Input<Inputs.HBaseClusterComputeIsolationGetArgs>? ComputeIsolation { get; set; }
 
         [Input("diskEncryptions")]
         private InputList<Inputs.HBaseClusterDiskEncryptionGetArgs>? _diskEncryptions;

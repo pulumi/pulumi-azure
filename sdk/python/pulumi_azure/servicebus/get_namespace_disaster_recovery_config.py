@@ -21,7 +21,10 @@ class GetNamespaceDisasterRecoveryConfigResult:
     """
     A collection of values returned by getNamespaceDisasterRecoveryConfig.
     """
-    def __init__(__self__, default_primary_key=None, default_secondary_key=None, id=None, name=None, namespace_id=None, namespace_name=None, partner_namespace_id=None, primary_connection_string_alias=None, resource_group_name=None, secondary_connection_string_alias=None):
+    def __init__(__self__, alias_authorization_rule_id=None, default_primary_key=None, default_secondary_key=None, id=None, name=None, namespace_id=None, namespace_name=None, partner_namespace_id=None, primary_connection_string_alias=None, resource_group_name=None, secondary_connection_string_alias=None):
+        if alias_authorization_rule_id and not isinstance(alias_authorization_rule_id, str):
+            raise TypeError("Expected argument 'alias_authorization_rule_id' to be a str")
+        pulumi.set(__self__, "alias_authorization_rule_id", alias_authorization_rule_id)
         if default_primary_key and not isinstance(default_primary_key, str):
             raise TypeError("Expected argument 'default_primary_key' to be a str")
         pulumi.set(__self__, "default_primary_key", default_primary_key)
@@ -52,6 +55,11 @@ class GetNamespaceDisasterRecoveryConfigResult:
         if secondary_connection_string_alias and not isinstance(secondary_connection_string_alias, str):
             raise TypeError("Expected argument 'secondary_connection_string_alias' to be a str")
         pulumi.set(__self__, "secondary_connection_string_alias", secondary_connection_string_alias)
+
+    @property
+    @pulumi.getter(name="aliasAuthorizationRuleId")
+    def alias_authorization_rule_id(self) -> Optional[str]:
+        return pulumi.get(self, "alias_authorization_rule_id")
 
     @property
     @pulumi.getter(name="defaultPrimaryKey")
@@ -113,6 +121,7 @@ class AwaitableGetNamespaceDisasterRecoveryConfigResult(GetNamespaceDisasterReco
         if False:
             yield self
         return GetNamespaceDisasterRecoveryConfigResult(
+            alias_authorization_rule_id=self.alias_authorization_rule_id,
             default_primary_key=self.default_primary_key,
             default_secondary_key=self.default_secondary_key,
             id=self.id,
@@ -125,7 +134,8 @@ class AwaitableGetNamespaceDisasterRecoveryConfigResult(GetNamespaceDisasterReco
             secondary_connection_string_alias=self.secondary_connection_string_alias)
 
 
-def get_namespace_disaster_recovery_config(name: Optional[str] = None,
+def get_namespace_disaster_recovery_config(alias_authorization_rule_id: Optional[str] = None,
+                                           name: Optional[str] = None,
                                            namespace_id: Optional[str] = None,
                                            namespace_name: Optional[str] = None,
                                            resource_group_name: Optional[str] = None,
@@ -134,6 +144,7 @@ def get_namespace_disaster_recovery_config(name: Optional[str] = None,
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
+    __args__['aliasAuthorizationRuleId'] = alias_authorization_rule_id
     __args__['name'] = name
     __args__['namespaceId'] = namespace_id
     __args__['namespaceName'] = namespace_name
@@ -142,6 +153,7 @@ def get_namespace_disaster_recovery_config(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig', __args__, opts=opts, typ=GetNamespaceDisasterRecoveryConfigResult).value
 
     return AwaitableGetNamespaceDisasterRecoveryConfigResult(
+        alias_authorization_rule_id=__ret__.alias_authorization_rule_id,
         default_primary_key=__ret__.default_primary_key,
         default_secondary_key=__ret__.default_secondary_key,
         id=__ret__.id,
@@ -155,7 +167,8 @@ def get_namespace_disaster_recovery_config(name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_namespace_disaster_recovery_config)
-def get_namespace_disaster_recovery_config_output(name: Optional[pulumi.Input[str]] = None,
+def get_namespace_disaster_recovery_config_output(alias_authorization_rule_id: Optional[pulumi.Input[Optional[str]]] = None,
+                                                  name: Optional[pulumi.Input[str]] = None,
                                                   namespace_id: Optional[pulumi.Input[Optional[str]]] = None,
                                                   namespace_name: Optional[pulumi.Input[Optional[str]]] = None,
                                                   resource_group_name: Optional[pulumi.Input[Optional[str]]] = None,

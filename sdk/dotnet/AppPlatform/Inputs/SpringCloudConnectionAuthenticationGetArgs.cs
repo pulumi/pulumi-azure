@@ -14,7 +14,6 @@ namespace Pulumi.Azure.AppPlatform.Inputs
     {
         /// <summary>
         /// Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
-        /// ---
         /// </summary>
         [Input("certificate")]
         public Input<string>? Certificate { get; set; }

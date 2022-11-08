@@ -6,6 +6,7 @@ package com.pulumi.azure.mssql;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.mssql.VirtualMachineArgs;
 import com.pulumi.azure.mssql.inputs.VirtualMachineState;
+import com.pulumi.azure.mssql.outputs.VirtualMachineAssessment;
 import com.pulumi.azure.mssql.outputs.VirtualMachineAutoBackup;
 import com.pulumi.azure.mssql.outputs.VirtualMachineAutoPatching;
 import com.pulumi.azure.mssql.outputs.VirtualMachineKeyVaultCredential;
@@ -86,6 +87,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:mssql/virtualMachine:VirtualMachine")
 public class VirtualMachine extends com.pulumi.resources.CustomResource {
+    /**
+     * An `assessment` block as defined below.
+     * 
+     */
+    @Export(name="assessment", type=VirtualMachineAssessment.class, parameters={})
+    private Output</* @Nullable */ VirtualMachineAssessment> assessment;
+
+    /**
+     * @return An `assessment` block as defined below.
+     * 
+     */
+    public Output<Optional<VirtualMachineAssessment>> assessment() {
+        return Codegen.optional(this.assessment);
+    }
     /**
      * An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
      * 

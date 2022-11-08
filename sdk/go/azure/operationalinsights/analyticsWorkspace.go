@@ -64,8 +64,9 @@ type AnalyticsWorkspace struct {
 	// Is Customer Managed Storage mandatory for query management?
 	CmkForQueryForced pulumi.BoolPtrOutput `pulumi:"cmkForQueryForced"`
 	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
-	DailyQuotaGb             pulumi.Float64PtrOutput `pulumi:"dailyQuotaGb"`
-	InternetIngestionEnabled pulumi.BoolPtrOutput    `pulumi:"internetIngestionEnabled"`
+	DailyQuotaGb pulumi.Float64PtrOutput `pulumi:"dailyQuotaGb"`
+	// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
+	InternetIngestionEnabled pulumi.BoolPtrOutput `pulumi:"internetIngestionEnabled"`
 	// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
 	InternetQueryEnabled pulumi.BoolPtrOutput `pulumi:"internetQueryEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -125,8 +126,9 @@ type analyticsWorkspaceState struct {
 	// Is Customer Managed Storage mandatory for query management?
 	CmkForQueryForced *bool `pulumi:"cmkForQueryForced"`
 	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
-	DailyQuotaGb             *float64 `pulumi:"dailyQuotaGb"`
-	InternetIngestionEnabled *bool    `pulumi:"internetIngestionEnabled"`
+	DailyQuotaGb *float64 `pulumi:"dailyQuotaGb"`
+	// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
+	InternetIngestionEnabled *bool `pulumi:"internetIngestionEnabled"`
 	// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
 	InternetQueryEnabled *bool `pulumi:"internetQueryEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -155,7 +157,8 @@ type AnalyticsWorkspaceState struct {
 	// Is Customer Managed Storage mandatory for query management?
 	CmkForQueryForced pulumi.BoolPtrInput
 	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
-	DailyQuotaGb             pulumi.Float64PtrInput
+	DailyQuotaGb pulumi.Float64PtrInput
+	// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
 	InternetIngestionEnabled pulumi.BoolPtrInput
 	// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
 	InternetQueryEnabled pulumi.BoolPtrInput
@@ -189,8 +192,9 @@ type analyticsWorkspaceArgs struct {
 	// Is Customer Managed Storage mandatory for query management?
 	CmkForQueryForced *bool `pulumi:"cmkForQueryForced"`
 	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
-	DailyQuotaGb             *float64 `pulumi:"dailyQuotaGb"`
-	InternetIngestionEnabled *bool    `pulumi:"internetIngestionEnabled"`
+	DailyQuotaGb *float64 `pulumi:"dailyQuotaGb"`
+	// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
+	InternetIngestionEnabled *bool `pulumi:"internetIngestionEnabled"`
 	// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
 	InternetQueryEnabled *bool `pulumi:"internetQueryEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -214,7 +218,8 @@ type AnalyticsWorkspaceArgs struct {
 	// Is Customer Managed Storage mandatory for query management?
 	CmkForQueryForced pulumi.BoolPtrInput
 	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
-	DailyQuotaGb             pulumi.Float64PtrInput
+	DailyQuotaGb pulumi.Float64PtrInput
+	// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
 	InternetIngestionEnabled pulumi.BoolPtrInput
 	// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
 	InternetQueryEnabled pulumi.BoolPtrInput
@@ -331,6 +336,7 @@ func (o AnalyticsWorkspaceOutput) DailyQuotaGb() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *AnalyticsWorkspace) pulumi.Float64PtrOutput { return v.DailyQuotaGb }).(pulumi.Float64PtrOutput)
 }
 
+// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
 func (o AnalyticsWorkspaceOutput) InternetIngestionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AnalyticsWorkspace) pulumi.BoolPtrOutput { return v.InternetIngestionEnabled }).(pulumi.BoolPtrOutput)
 }

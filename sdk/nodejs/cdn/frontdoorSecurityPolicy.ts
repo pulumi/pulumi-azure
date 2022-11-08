@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Frontdoor Security Policy.
+ * Manages a Front Door (standard/premium) Security Policy.
  *
  * ## Example Usage
  *
@@ -61,7 +61,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Frontdoor Security Policies can be imported using the `resource id`, e.g.
+ * Front Door Security Policies can be imported using the `resource id`, e.g.
  *
  * ```sh
  *  $ pulumi import azure:cdn/frontdoorSecurityPolicy:FrontdoorSecurityPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/securityPolicies/policy1
@@ -96,15 +96,15 @@ export class FrontdoorSecurityPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * The Frontdoor Profile Resource Id that is linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+     * The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
      */
     public readonly cdnFrontdoorProfileId!: pulumi.Output<string>;
     /**
-     * The name which should be used for this Frontdoor Security Policy. Possible values must not be an empty string. Changing this forces a new Frontdoor Security Policy to be created.
+     * The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * An `securityPolicies` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+     * An `securityPolicies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
      */
     public readonly securityPolicies!: pulumi.Output<outputs.cdn.FrontdoorSecurityPolicySecurityPolicies>;
 
@@ -146,15 +146,15 @@ export class FrontdoorSecurityPolicy extends pulumi.CustomResource {
  */
 export interface FrontdoorSecurityPolicyState {
     /**
-     * The Frontdoor Profile Resource Id that is linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+     * The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
      */
     cdnFrontdoorProfileId?: pulumi.Input<string>;
     /**
-     * The name which should be used for this Frontdoor Security Policy. Possible values must not be an empty string. Changing this forces a new Frontdoor Security Policy to be created.
+     * The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * An `securityPolicies` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+     * An `securityPolicies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
      */
     securityPolicies?: pulumi.Input<inputs.cdn.FrontdoorSecurityPolicySecurityPolicies>;
 }
@@ -164,15 +164,15 @@ export interface FrontdoorSecurityPolicyState {
  */
 export interface FrontdoorSecurityPolicyArgs {
     /**
-     * The Frontdoor Profile Resource Id that is linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+     * The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
      */
     cdnFrontdoorProfileId: pulumi.Input<string>;
     /**
-     * The name which should be used for this Frontdoor Security Policy. Possible values must not be an empty string. Changing this forces a new Frontdoor Security Policy to be created.
+     * The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * An `securityPolicies` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+     * An `securityPolicies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
      */
     securityPolicies: pulumi.Input<inputs.cdn.FrontdoorSecurityPolicySecurityPolicies>;
 }

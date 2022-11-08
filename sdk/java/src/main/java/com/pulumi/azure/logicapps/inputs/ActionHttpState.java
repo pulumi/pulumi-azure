@@ -94,6 +94,21 @@ public final class ActionHttpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
+     * 
+     */
+    @Import(name="queries")
+    private @Nullable Output<Map<String,String>> queries;
+
+    /**
+     * @return Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> queries() {
+        return Optional.ofNullable(this.queries);
+    }
+
+    /**
      * Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
      * 
      */
@@ -131,6 +146,7 @@ public final class ActionHttpState extends com.pulumi.resources.ResourceArgs {
         this.logicAppId = $.logicAppId;
         this.method = $.method;
         this.name = $.name;
+        this.queries = $.queries;
         this.runAfters = $.runAfters;
         this.uri = $.uri;
     }
@@ -256,6 +272,27 @@ public final class ActionHttpState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param queries Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder queries(@Nullable Output<Map<String,String>> queries) {
+            $.queries = queries;
+            return this;
+        }
+
+        /**
+         * @param queries Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder queries(Map<String,String> queries) {
+            return queries(Output.of(queries));
         }
 
         /**

@@ -38,7 +38,7 @@ import (
 //				PolicyType:  pulumi.String("Custom"),
 //				Mode:        pulumi.String("All"),
 //				DisplayName: pulumi.String("Allowed resource types"),
-//				PolicyRule: pulumi.String(fmt.Sprintf(`	{
+//				PolicyRule: pulumi.String(fmt.Sprintf(` {
 //	    "if": {
 //	      "not": {
 //	        "field": "location",

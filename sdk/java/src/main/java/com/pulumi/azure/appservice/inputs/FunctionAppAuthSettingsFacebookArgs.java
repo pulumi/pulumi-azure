@@ -47,14 +47,14 @@ public final class FunctionAppAuthSettingsFacebookArgs extends com.pulumi.resour
     }
 
     /**
-     * The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
+     * The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. &lt;https://developers.facebook.com/docs/facebook-login&gt;
      * 
      */
     @Import(name="oauthScopes")
     private @Nullable Output<List<String>> oauthScopes;
 
     /**
-     * @return The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
+     * @return The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. &lt;https://developers.facebook.com/docs/facebook-login&gt;
      * 
      */
     public Optional<Output<List<String>>> oauthScopes() {
@@ -130,7 +130,7 @@ public final class FunctionAppAuthSettingsFacebookArgs extends com.pulumi.resour
         }
 
         /**
-         * @param oauthScopes The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
+         * @param oauthScopes The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. &lt;https://developers.facebook.com/docs/facebook-login&gt;
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class FunctionAppAuthSettingsFacebookArgs extends com.pulumi.resour
         }
 
         /**
-         * @param oauthScopes The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
+         * @param oauthScopes The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. &lt;https://developers.facebook.com/docs/facebook-login&gt;
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class FunctionAppAuthSettingsFacebookArgs extends com.pulumi.resour
         }
 
         /**
-         * @param oauthScopes The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
+         * @param oauthScopes The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. &lt;https://developers.facebook.com/docs/facebook-login&gt;
          * 
          * @return builder
          * 

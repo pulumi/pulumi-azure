@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Healthcare.Outputs
     public sealed class GetFhirServiceAuthenticationResult
     {
         /// <summary>
-        /// The intended audience to receive authentication tokens for the service. The default value is https://&lt;name&gt;.fhir.azurehealthcareapis.com
+        /// The intended audience to receive authentication tokens for the service. The default value is `https://&lt;name&gt;.fhir.azurehealthcareapis.com`.
         /// </summary>
         public readonly string Audience;
         public readonly string Authority;

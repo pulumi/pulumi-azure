@@ -145,6 +145,8 @@ type LinuxFunctionAppSlot struct {
 	StorageAccountAccessKey pulumi.StringPtrOutput `pulumi:"storageAccountAccessKey"`
 	// The backend storage account name which will be used by this Function App Slot.
 	StorageAccountName pulumi.StringPtrOutput `pulumi:"storageAccountName"`
+	// One or more `storageAccount` blocks as defined below.
+	StorageAccounts LinuxFunctionAppSlotStorageAccountArrayOutput `pulumi:"storageAccounts"`
 	// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
 	StorageKeyVaultSecretId pulumi.StringPtrOutput `pulumi:"storageKeyVaultSecretId"`
 	// Should the Function App Slot use its Managed Identity to access storage.
@@ -246,6 +248,8 @@ type linuxFunctionAppSlotState struct {
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// The backend storage account name which will be used by this Function App Slot.
 	StorageAccountName *string `pulumi:"storageAccountName"`
+	// One or more `storageAccount` blocks as defined below.
+	StorageAccounts []LinuxFunctionAppSlotStorageAccount `pulumi:"storageAccounts"`
 	// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
 	StorageKeyVaultSecretId *string `pulumi:"storageKeyVaultSecretId"`
 	// Should the Function App Slot use its Managed Identity to access storage.
@@ -313,6 +317,8 @@ type LinuxFunctionAppSlotState struct {
 	StorageAccountAccessKey pulumi.StringPtrInput
 	// The backend storage account name which will be used by this Function App Slot.
 	StorageAccountName pulumi.StringPtrInput
+	// One or more `storageAccount` blocks as defined below.
+	StorageAccounts LinuxFunctionAppSlotStorageAccountArrayInput
 	// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
 	StorageKeyVaultSecretId pulumi.StringPtrInput
 	// Should the Function App Slot use its Managed Identity to access storage.
@@ -368,6 +374,8 @@ type linuxFunctionAppSlotArgs struct {
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// The backend storage account name which will be used by this Function App Slot.
 	StorageAccountName *string `pulumi:"storageAccountName"`
+	// One or more `storageAccount` blocks as defined below.
+	StorageAccounts []LinuxFunctionAppSlotStorageAccount `pulumi:"storageAccounts"`
 	// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
 	StorageKeyVaultSecretId *string `pulumi:"storageKeyVaultSecretId"`
 	// Should the Function App Slot use its Managed Identity to access storage.
@@ -420,6 +428,8 @@ type LinuxFunctionAppSlotArgs struct {
 	StorageAccountAccessKey pulumi.StringPtrInput
 	// The backend storage account name which will be used by this Function App Slot.
 	StorageAccountName pulumi.StringPtrInput
+	// One or more `storageAccount` blocks as defined below.
+	StorageAccounts LinuxFunctionAppSlotStorageAccountArrayInput
 	// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
 	StorageKeyVaultSecretId pulumi.StringPtrInput
 	// Should the Function App Slot use its Managed Identity to access storage.
@@ -657,6 +667,11 @@ func (o LinuxFunctionAppSlotOutput) StorageAccountAccessKey() pulumi.StringPtrOu
 // The backend storage account name which will be used by this Function App Slot.
 func (o LinuxFunctionAppSlotOutput) StorageAccountName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.StringPtrOutput { return v.StorageAccountName }).(pulumi.StringPtrOutput)
+}
+
+// One or more `storageAccount` blocks as defined below.
+func (o LinuxFunctionAppSlotOutput) StorageAccounts() LinuxFunctionAppSlotStorageAccountArrayOutput {
+	return o.ApplyT(func(v *LinuxFunctionAppSlot) LinuxFunctionAppSlotStorageAccountArrayOutput { return v.StorageAccounts }).(LinuxFunctionAppSlotStorageAccountArrayOutput)
 }
 
 // The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.

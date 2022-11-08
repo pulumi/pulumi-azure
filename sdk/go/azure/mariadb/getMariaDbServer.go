@@ -75,7 +75,6 @@ type GetMariaDbServerResult struct {
 	// A `storageProfile` block as defined below.
 	StorageProfiles []GetMariaDbServerStorageProfile `pulumi:"storageProfiles"`
 	// A mapping of tags assigned to the resource.
-	// ---
 	Tags map[string]string `pulumi:"tags"`
 	// The version of MariaDB being used.
 	Version string `pulumi:"version"`
@@ -165,7 +164,6 @@ func (o GetMariaDbServerResultOutput) StorageProfiles() GetMariaDbServerStorageP
 }
 
 // A mapping of tags assigned to the resource.
-// ---
 func (o GetMariaDbServerResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetMariaDbServerResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

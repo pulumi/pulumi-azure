@@ -29,6 +29,7 @@ from .gateway_host_name_configuration import *
 from .get_api import *
 from .get_api_version_set import *
 from .get_gateway import *
+from .get_gateway_host_name_configuration import *
 from .get_group import *
 from .get_product import *
 from .get_service import *

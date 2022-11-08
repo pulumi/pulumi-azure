@@ -21,6 +21,9 @@ namespace Pulumi.Azure.ServiceBus
 
     public sealed class GetNamespaceDisasterRecoveryConfigArgs : global::Pulumi.InvokeArgs
     {
+        [Input("aliasAuthorizationRuleId")]
+        public string? AliasAuthorizationRuleId { get; set; }
+
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -41,6 +44,9 @@ namespace Pulumi.Azure.ServiceBus
 
     public sealed class GetNamespaceDisasterRecoveryConfigInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("aliasAuthorizationRuleId")]
+        public Input<string>? AliasAuthorizationRuleId { get; set; }
+
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -63,6 +69,7 @@ namespace Pulumi.Azure.ServiceBus
     [OutputType]
     public sealed class GetNamespaceDisasterRecoveryConfigResult
     {
+        public readonly string? AliasAuthorizationRuleId;
         public readonly string DefaultPrimaryKey;
         public readonly string DefaultSecondaryKey;
         /// <summary>
@@ -79,6 +86,8 @@ namespace Pulumi.Azure.ServiceBus
 
         [OutputConstructor]
         private GetNamespaceDisasterRecoveryConfigResult(
+            string? aliasAuthorizationRuleId,
+
             string defaultPrimaryKey,
 
             string defaultSecondaryKey,
@@ -99,6 +108,7 @@ namespace Pulumi.Azure.ServiceBus
 
             string secondaryConnectionStringAlias)
         {
+            AliasAuthorizationRuleId = aliasAuthorizationRuleId;
             DefaultPrimaryKey = defaultPrimaryKey;
             DefaultSecondaryKey = defaultSecondaryKey;
             Id = id;

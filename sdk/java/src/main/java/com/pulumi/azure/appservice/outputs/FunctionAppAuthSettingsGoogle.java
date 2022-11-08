@@ -22,7 +22,7 @@ public final class FunctionAppAuthSettingsGoogle {
      */
     private String clientSecret;
     /**
-     * @return The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+     * @return The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. &lt;https://developers.google.com/identity/sign-in/web/&gt;
      * 
      */
     private @Nullable List<String> oauthScopes;
@@ -43,7 +43,7 @@ public final class FunctionAppAuthSettingsGoogle {
         return this.clientSecret;
     }
     /**
-     * @return The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+     * @return The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. &lt;https://developers.google.com/identity/sign-in/web/&gt;
      * 
      */
     public List<String> oauthScopes() {

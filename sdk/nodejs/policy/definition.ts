@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *
  * `,
  *     mode: "Indexed",
- *     parameters: `	{
+ *     parameters: ` {
  *     "allowedLocations": {
  *       "type": "Array",
  *       "metadata": {
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *     }
  *   }
  * `,
- *     policyRule: `	{
+ *     policyRule: ` {
  *     "if": {
  *       "not": {
  *         "field": "location",

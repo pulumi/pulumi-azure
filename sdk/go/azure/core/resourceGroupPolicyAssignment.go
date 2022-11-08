@@ -40,7 +40,7 @@ import (
 //				PolicyType:  pulumi.String("Custom"),
 //				Mode:        pulumi.String("All"),
 //				DisplayName: pulumi.String("my-policy-definition"),
-//				PolicyRule: pulumi.String(fmt.Sprintf(`	{
+//				PolicyRule: pulumi.String(fmt.Sprintf(` {
 //	    "if": {
 //	      "not": {
 //	        "field": "location",

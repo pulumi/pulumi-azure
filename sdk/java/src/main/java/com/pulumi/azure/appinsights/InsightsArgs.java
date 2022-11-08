@@ -94,9 +94,17 @@ public final class InsightsArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.forceCustomerStorageForProfiler);
     }
 
+    /**
+     * Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
+     * 
+     */
     @Import(name="internetIngestionEnabled")
     private @Nullable Output<Boolean> internetIngestionEnabled;
 
+    /**
+     * @return Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
+     * 
+     */
     public Optional<Output<Boolean>> internetIngestionEnabled() {
         return Optional.ofNullable(this.internetIngestionEnabled);
     }
@@ -383,11 +391,23 @@ public final class InsightsArgs extends com.pulumi.resources.ResourceArgs {
             return forceCustomerStorageForProfiler(Output.of(forceCustomerStorageForProfiler));
         }
 
+        /**
+         * @param internetIngestionEnabled Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder internetIngestionEnabled(@Nullable Output<Boolean> internetIngestionEnabled) {
             $.internetIngestionEnabled = internetIngestionEnabled;
             return this;
         }
 
+        /**
+         * @param internetIngestionEnabled Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder internetIngestionEnabled(Boolean internetIngestionEnabled) {
             return internetIngestionEnabled(Output.of(internetIngestionEnabled));
         }

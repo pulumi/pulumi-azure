@@ -76,7 +76,7 @@ namespace Pulumi.Azure.AppService.Inputs
         }
 
         /// <summary>
-        /// Java version hosted by the function app in Azure. Possible values are `1.8`, `11`.
+        /// Java version hosted by the function app in Azure. Possible values are `1.8`, `11` &amp; `17` (In-Preview).
         /// </summary>
         [Input("javaVersion")]
         public Input<string>? JavaVersion { get; set; }

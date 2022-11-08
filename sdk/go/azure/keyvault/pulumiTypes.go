@@ -11,9 +11,9 @@ import (
 )
 
 type CertifiateCertificate struct {
-	// The base64-encoded certificate contents. Changing this forces a new resource to be created.
+	// The base64-encoded certificate contents.
 	Contents string `pulumi:"contents"`
-	// The password associated with the certificate. Changing this forces a new resource to be created.
+	// The password associated with the certificate.
 	Password *string `pulumi:"password"`
 }
 
@@ -29,9 +29,9 @@ type CertifiateCertificateInput interface {
 }
 
 type CertifiateCertificateArgs struct {
-	// The base64-encoded certificate contents. Changing this forces a new resource to be created.
+	// The base64-encoded certificate contents.
 	Contents pulumi.StringInput `pulumi:"contents"`
-	// The password associated with the certificate. Changing this forces a new resource to be created.
+	// The password associated with the certificate.
 	Password pulumi.StringPtrInput `pulumi:"password"`
 }
 
@@ -112,12 +112,12 @@ func (o CertifiateCertificateOutput) ToCertifiateCertificatePtrOutputWithContext
 	}).(CertifiateCertificatePtrOutput)
 }
 
-// The base64-encoded certificate contents. Changing this forces a new resource to be created.
+// The base64-encoded certificate contents.
 func (o CertifiateCertificateOutput) Contents() pulumi.StringOutput {
 	return o.ApplyT(func(v CertifiateCertificate) string { return v.Contents }).(pulumi.StringOutput)
 }
 
-// The password associated with the certificate. Changing this forces a new resource to be created.
+// The password associated with the certificate.
 func (o CertifiateCertificateOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertifiateCertificate) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
@@ -146,7 +146,7 @@ func (o CertifiateCertificatePtrOutput) Elem() CertifiateCertificateOutput {
 	}).(CertifiateCertificateOutput)
 }
 
-// The base64-encoded certificate contents. Changing this forces a new resource to be created.
+// The base64-encoded certificate contents.
 func (o CertifiateCertificatePtrOutput) Contents() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertifiateCertificate) *string {
 		if v == nil {
@@ -156,7 +156,7 @@ func (o CertifiateCertificatePtrOutput) Contents() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The password associated with the certificate. Changing this forces a new resource to be created.
+// The password associated with the certificate.
 func (o CertifiateCertificatePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertifiateCertificate) *string {
 		if v == nil {
@@ -1636,9 +1636,9 @@ func (o CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNa
 }
 
 type CertificateCertificate struct {
-	// The base64-encoded certificate contents. Changing this forces a new resource to be created.
+	// The base64-encoded certificate contents.
 	Contents string `pulumi:"contents"`
-	// The password associated with the certificate. Changing this forces a new resource to be created.
+	// The password associated with the certificate.
 	Password *string `pulumi:"password"`
 }
 
@@ -1654,9 +1654,9 @@ type CertificateCertificateInput interface {
 }
 
 type CertificateCertificateArgs struct {
-	// The base64-encoded certificate contents. Changing this forces a new resource to be created.
+	// The base64-encoded certificate contents.
 	Contents pulumi.StringInput `pulumi:"contents"`
-	// The password associated with the certificate. Changing this forces a new resource to be created.
+	// The password associated with the certificate.
 	Password pulumi.StringPtrInput `pulumi:"password"`
 }
 
@@ -1737,12 +1737,12 @@ func (o CertificateCertificateOutput) ToCertificateCertificatePtrOutputWithConte
 	}).(CertificateCertificatePtrOutput)
 }
 
-// The base64-encoded certificate contents. Changing this forces a new resource to be created.
+// The base64-encoded certificate contents.
 func (o CertificateCertificateOutput) Contents() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateCertificate) string { return v.Contents }).(pulumi.StringOutput)
 }
 
-// The password associated with the certificate. Changing this forces a new resource to be created.
+// The password associated with the certificate.
 func (o CertificateCertificateOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateCertificate) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
@@ -1771,7 +1771,7 @@ func (o CertificateCertificatePtrOutput) Elem() CertificateCertificateOutput {
 	}).(CertificateCertificateOutput)
 }
 
-// The base64-encoded certificate contents. Changing this forces a new resource to be created.
+// The base64-encoded certificate contents.
 func (o CertificateCertificatePtrOutput) Contents() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateCertificate) *string {
 		if v == nil {
@@ -1781,7 +1781,7 @@ func (o CertificateCertificatePtrOutput) Contents() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The password associated with the certificate. Changing this forces a new resource to be created.
+// The password associated with the certificate.
 func (o CertificateCertificatePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateCertificate) *string {
 		if v == nil {

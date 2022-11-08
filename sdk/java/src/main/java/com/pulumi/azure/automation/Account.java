@@ -131,7 +131,6 @@ public class Account extends com.pulumi.resources.CustomResource {
     }
     /**
      * The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
-     * ---
      * 
      */
     @Export(name="hybridServiceUrl", type=String.class, parameters={})
@@ -139,7 +138,6 @@ public class Account extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
-     * ---
      * 
      */
     public Output<String> hybridServiceUrl() {

@@ -15,8 +15,8 @@ namespace Pulumi.Azure.ContainerService.Inputs
         /// <summary>
         /// The password with which to connect to the registry. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
+        [Input("password")]
+        public Input<string>? Password { get; set; }
 
         /// <summary>
         /// The address to use to connect to the registry without protocol ("https"/"http"). For example: "myacr.acr.io". Changing this forces a new resource to be created.
@@ -25,10 +25,16 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string> Server { get; set; } = null!;
 
         /// <summary>
+        /// The identity ID for the private registry. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("userAssignedIdentityId")]
+        public Input<string>? UserAssignedIdentityId { get; set; }
+
+        /// <summary>
         /// The username with which to connect to the registry. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("username", required: true)]
-        public Input<string> Username { get; set; } = null!;
+        [Input("username")]
+        public Input<string>? Username { get; set; }
 
         public GroupImageRegistryCredentialArgs()
         {

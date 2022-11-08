@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetFhirServiceAuthentication {
     /**
-     * @return The intended audience to receive authentication tokens for the service. The default value is https://&lt;name&gt;.fhir.azurehealthcareapis.com
+     * @return The intended audience to receive authentication tokens for the service. The default value is `https://&lt;name&gt;.fhir.azurehealthcareapis.com`.
      * 
      */
     private String audience;
@@ -20,7 +20,7 @@ public final class GetFhirServiceAuthentication {
 
     private GetFhirServiceAuthentication() {}
     /**
-     * @return The intended audience to receive authentication tokens for the service. The default value is https://&lt;name&gt;.fhir.azurehealthcareapis.com
+     * @return The intended audience to receive authentication tokens for the service. The default value is `https://&lt;name&gt;.fhir.azurehealthcareapis.com`.
      * 
      */
     public String audience() {

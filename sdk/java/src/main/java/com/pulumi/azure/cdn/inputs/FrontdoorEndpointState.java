@@ -18,14 +18,14 @@ public final class FrontdoorEndpointState extends com.pulumi.resources.ResourceA
     public static final FrontdoorEndpointState Empty = new FrontdoorEndpointState();
 
     /**
-     * The ID of the FrontDoor Profile within which this FrontDoor Endpoint should exist. Changing this forces a new CDN FrontDoor Endpoint to be created.
+     * The ID of the Front Door Profile within which this Front Door Endpoint should exist. Changing this forces a new Front Door Endpoint to be created.
      * 
      */
     @Import(name="cdnFrontdoorProfileId")
     private @Nullable Output<String> cdnFrontdoorProfileId;
 
     /**
-     * @return The ID of the FrontDoor Profile within which this FrontDoor Endpoint should exist. Changing this forces a new CDN FrontDoor Endpoint to be created.
+     * @return The ID of the Front Door Profile within which this Front Door Endpoint should exist. Changing this forces a new Front Door Endpoint to be created.
      * 
      */
     public Optional<Output<String>> cdnFrontdoorProfileId() {
@@ -33,14 +33,14 @@ public final class FrontdoorEndpointState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies if this CDN FrontDoor Endpoint is enabled? Defaults to `true`.
+     * Specifies if this Front Door Endpoint is enabled? Defaults to `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Specifies if this CDN FrontDoor Endpoint is enabled? Defaults to `true`.
+     * @return Specifies if this Front Door Endpoint is enabled? Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -48,14 +48,14 @@ public final class FrontdoorEndpointState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The host name of the CDN FrontDoor Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
+     * The host name of the Front Door Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
      * 
      */
     @Import(name="hostName")
     private @Nullable Output<String> hostName;
 
     /**
-     * @return The host name of the CDN FrontDoor Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
+     * @return The host name of the Front Door Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
      * 
      */
     public Optional<Output<String>> hostName() {
@@ -63,14 +63,14 @@ public final class FrontdoorEndpointState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The name which should be used for this CDN FrontDoor Endpoint. Changing this forces a new CDN FrontDoor Endpoint to be created.
+     * The name which should be used for this Front Door Endpoint. Changing this forces a new Front Door Endpoint to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this CDN FrontDoor Endpoint. Changing this forces a new CDN FrontDoor Endpoint to be created.
+     * @return The name which should be used for this Front Door Endpoint. Changing this forces a new Front Door Endpoint to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -78,14 +78,14 @@ public final class FrontdoorEndpointState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies a mapping of tags which should be assigned to the CDN FrontDoor Endpoint.
+     * Specifies a mapping of tags which should be assigned to the Front Door Endpoint.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Specifies a mapping of tags which should be assigned to the CDN FrontDoor Endpoint.
+     * @return Specifies a mapping of tags which should be assigned to the Front Door Endpoint.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -121,7 +121,7 @@ public final class FrontdoorEndpointState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param cdnFrontdoorProfileId The ID of the FrontDoor Profile within which this FrontDoor Endpoint should exist. Changing this forces a new CDN FrontDoor Endpoint to be created.
+         * @param cdnFrontdoorProfileId The ID of the Front Door Profile within which this Front Door Endpoint should exist. Changing this forces a new Front Door Endpoint to be created.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class FrontdoorEndpointState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param cdnFrontdoorProfileId The ID of the FrontDoor Profile within which this FrontDoor Endpoint should exist. Changing this forces a new CDN FrontDoor Endpoint to be created.
+         * @param cdnFrontdoorProfileId The ID of the Front Door Profile within which this Front Door Endpoint should exist. Changing this forces a new Front Door Endpoint to be created.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class FrontdoorEndpointState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param enabled Specifies if this CDN FrontDoor Endpoint is enabled? Defaults to `true`.
+         * @param enabled Specifies if this Front Door Endpoint is enabled? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class FrontdoorEndpointState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param enabled Specifies if this CDN FrontDoor Endpoint is enabled? Defaults to `true`.
+         * @param enabled Specifies if this Front Door Endpoint is enabled? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class FrontdoorEndpointState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param hostName The host name of the CDN FrontDoor Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
+         * @param hostName The host name of the Front Door Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class FrontdoorEndpointState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param hostName The host name of the CDN FrontDoor Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
+         * @param hostName The host name of the Front Door Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class FrontdoorEndpointState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name The name which should be used for this CDN FrontDoor Endpoint. Changing this forces a new CDN FrontDoor Endpoint to be created.
+         * @param name The name which should be used for this Front Door Endpoint. Changing this forces a new Front Door Endpoint to be created.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class FrontdoorEndpointState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name The name which should be used for this CDN FrontDoor Endpoint. Changing this forces a new CDN FrontDoor Endpoint to be created.
+         * @param name The name which should be used for this Front Door Endpoint. Changing this forces a new Front Door Endpoint to be created.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class FrontdoorEndpointState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tags Specifies a mapping of tags which should be assigned to the CDN FrontDoor Endpoint.
+         * @param tags Specifies a mapping of tags which should be assigned to the Front Door Endpoint.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class FrontdoorEndpointState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tags Specifies a mapping of tags which should be assigned to the CDN FrontDoor Endpoint.
+         * @param tags Specifies a mapping of tags which should be assigned to the Front Door Endpoint.
          * 
          * @return builder
          * 

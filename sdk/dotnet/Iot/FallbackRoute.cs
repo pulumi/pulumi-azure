@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Iot
     public partial class FallbackRoute : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+        /// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: &lt;https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language&gt;.
         /// </summary>
         [Output("condition")]
         public Output<string?> Condition { get; private set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.Azure.Iot
     public sealed class FallbackRouteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+        /// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: &lt;https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language&gt;.
         /// </summary>
         [Input("condition")]
         public Input<string>? Condition { get; set; }
@@ -156,7 +156,7 @@ namespace Pulumi.Azure.Iot
     public sealed class FallbackRouteState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+        /// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: &lt;https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language&gt;.
         /// </summary>
         [Input("condition")]
         public Input<string>? Condition { get; set; }

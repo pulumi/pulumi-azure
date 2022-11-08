@@ -63,17 +63,19 @@ public final class DatasetParquetHttpServerLocationArgs extends com.pulumi.resou
 
     /**
      * The folder path to the file on the web server.
+     * ---
      * 
      */
-    @Import(name="path", required=true)
-    private Output<String> path;
+    @Import(name="path")
+    private @Nullable Output<String> path;
 
     /**
      * @return The folder path to the file on the web server.
+     * ---
      * 
      */
-    public Output<String> path() {
-        return this.path;
+    public Optional<Output<String>> path() {
+        return Optional.ofNullable(this.path);
     }
 
     /**
@@ -184,17 +186,19 @@ public final class DatasetParquetHttpServerLocationArgs extends com.pulumi.resou
 
         /**
          * @param path The folder path to the file on the web server.
+         * ---
          * 
          * @return builder
          * 
          */
-        public Builder path(Output<String> path) {
+        public Builder path(@Nullable Output<String> path) {
             $.path = path;
             return this;
         }
 
         /**
          * @param path The folder path to the file on the web server.
+         * ---
          * 
          * @return builder
          * 
@@ -226,7 +230,6 @@ public final class DatasetParquetHttpServerLocationArgs extends com.pulumi.resou
 
         public DatasetParquetHttpServerLocationArgs build() {
             $.filename = Objects.requireNonNull($.filename, "expected parameter 'filename' to be non-null");
-            $.path = Objects.requireNonNull($.path, "expected parameter 'path' to be non-null");
             $.relativeUrl = Objects.requireNonNull($.relativeUrl, "expected parameter 'relativeUrl' to be non-null");
             return $;
         }

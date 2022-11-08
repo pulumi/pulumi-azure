@@ -125,6 +125,11 @@ export const getGateway: typeof import("./getGateway").getGateway = null as any;
 export const getGatewayOutput: typeof import("./getGateway").getGatewayOutput = null as any;
 utilities.lazyLoad(exports, ["getGateway","getGatewayOutput"], () => require("./getGateway"));
 
+export { GetGatewayHostNameConfigurationArgs, GetGatewayHostNameConfigurationResult, GetGatewayHostNameConfigurationOutputArgs } from "./getGatewayHostNameConfiguration";
+export const getGatewayHostNameConfiguration: typeof import("./getGatewayHostNameConfiguration").getGatewayHostNameConfiguration = null as any;
+export const getGatewayHostNameConfigurationOutput: typeof import("./getGatewayHostNameConfiguration").getGatewayHostNameConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getGatewayHostNameConfiguration","getGatewayHostNameConfigurationOutput"], () => require("./getGatewayHostNameConfiguration"));
+
 export { GetGroupArgs, GetGroupResult, GetGroupOutputArgs } from "./getGroup";
 export const getGroup: typeof import("./getGroup").getGroup = null as any;
 export const getGroupOutput: typeof import("./getGroup").getGroupOutput = null as any;

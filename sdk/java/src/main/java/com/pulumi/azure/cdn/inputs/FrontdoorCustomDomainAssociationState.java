@@ -17,14 +17,14 @@ public final class FrontdoorCustomDomainAssociationState extends com.pulumi.reso
     public static final FrontdoorCustomDomainAssociationState Empty = new FrontdoorCustomDomainAssociationState();
 
     /**
-     * The ID of the CDN FrontDoor Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
+     * The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
      * 
      */
     @Import(name="cdnFrontdoorCustomDomainId")
     private @Nullable Output<String> cdnFrontdoorCustomDomainId;
 
     /**
-     * @return The ID of the CDN FrontDoor Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
+     * @return The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
      * 
      */
     public Optional<Output<String>> cdnFrontdoorCustomDomainId() {
@@ -32,14 +32,14 @@ public final class FrontdoorCustomDomainAssociationState extends com.pulumi.reso
     }
 
     /**
-     * One or more IDs of the CDN FrontDoor Route to which the CDN FrontDoor Custom Domain is associated with.
+     * One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
      * 
      */
     @Import(name="cdnFrontdoorRouteIds")
     private @Nullable Output<List<String>> cdnFrontdoorRouteIds;
 
     /**
-     * @return One or more IDs of the CDN FrontDoor Route to which the CDN FrontDoor Custom Domain is associated with.
+     * @return One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
      * 
      */
     public Optional<Output<List<String>>> cdnFrontdoorRouteIds() {
@@ -72,7 +72,7 @@ public final class FrontdoorCustomDomainAssociationState extends com.pulumi.reso
         }
 
         /**
-         * @param cdnFrontdoorCustomDomainId The ID of the CDN FrontDoor Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
+         * @param cdnFrontdoorCustomDomainId The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class FrontdoorCustomDomainAssociationState extends com.pulumi.reso
         }
 
         /**
-         * @param cdnFrontdoorCustomDomainId The ID of the CDN FrontDoor Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
+         * @param cdnFrontdoorCustomDomainId The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class FrontdoorCustomDomainAssociationState extends com.pulumi.reso
         }
 
         /**
-         * @param cdnFrontdoorRouteIds One or more IDs of the CDN FrontDoor Route to which the CDN FrontDoor Custom Domain is associated with.
+         * @param cdnFrontdoorRouteIds One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class FrontdoorCustomDomainAssociationState extends com.pulumi.reso
         }
 
         /**
-         * @param cdnFrontdoorRouteIds One or more IDs of the CDN FrontDoor Route to which the CDN FrontDoor Custom Domain is associated with.
+         * @param cdnFrontdoorRouteIds One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class FrontdoorCustomDomainAssociationState extends com.pulumi.reso
         }
 
         /**
-         * @param cdnFrontdoorRouteIds One or more IDs of the CDN FrontDoor Route to which the CDN FrontDoor Custom Domain is associated with.
+         * @param cdnFrontdoorRouteIds One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
          * 
          * @return builder
          * 

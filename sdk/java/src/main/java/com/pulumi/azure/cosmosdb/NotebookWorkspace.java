@@ -16,6 +16,12 @@ import javax.annotation.Nullable;
 /**
  * Manages an SQL Notebook Workspace.
  * 
+ * !&gt; **Note:** CosmosDb Notebook Workspace is now Deprecated - as such the `azure.cosmosdb.NotebookWorkspace` resource is deprecated and will be removed in v4.0 of the AzureRM Provider.
+ * 
+ * &gt; **NOTE:** CosmosDb Notebook (the feature itself) is not deprecated and will return: &lt;https://learn.microsoft.com/en-us/azure/cosmos-db/notebooks-faq&gt;.
+ * 
+ * &gt; **NOTE:** However, CosmosDb Notebook feature no longer uses the permanent notebook workspace being referred to the public surface in the RP (have since moved to temporary notebooks workspaces which are short-lived &lt;1 hour).
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;

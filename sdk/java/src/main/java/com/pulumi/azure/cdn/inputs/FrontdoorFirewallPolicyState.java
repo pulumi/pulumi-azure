@@ -67,14 +67,14 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
     }
 
     /**
-     * Is the Cdn Frontdoor firewall policy enabled? Defaults to `true`.
+     * Is the Front Door Firewall Policy enabled? Defaults to `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Is the Cdn Frontdoor firewall policy enabled? Defaults to `true`.
+     * @return Is the Front Door Firewall Policy enabled? Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -82,14 +82,14 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
     }
 
     /**
-     * The Cdn Frontend Endpoints associated with this Cdn Frontdoor Firewall policy.
+     * The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
      * 
      */
     @Import(name="frontendEndpointIds")
     private @Nullable Output<List<String>> frontendEndpointIds;
 
     /**
-     * @return The Cdn Frontend Endpoints associated with this Cdn Frontdoor Firewall policy.
+     * @return The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
      * 
      */
     public Optional<Output<List<String>>> frontendEndpointIds() {
@@ -112,14 +112,14 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
     }
 
     /**
-     * The Cdn Frontdoor firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+     * The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
      * 
      */
     @Import(name="mode")
     private @Nullable Output<String> mode;
 
     /**
-     * @return The Cdn Frontdoor firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+     * @return The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
      * 
      */
     public Optional<Output<String>> mode() {
@@ -172,14 +172,14 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
     }
 
     /**
-     * The sku&#39;s pricing tier for this Cdn Frontdoor firewall policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+     * The sku&#39;s pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
      * 
      */
     @Import(name="skuName")
     private @Nullable Output<String> skuName;
 
     /**
-     * @return The sku&#39;s pricing tier for this Cdn Frontdoor firewall policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+     * @return The sku&#39;s pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
      * 
      */
     public Optional<Output<String>> skuName() {
@@ -187,14 +187,14 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
     }
 
     /**
-     * A mapping of tags to assign to the Cdn Frontdoor firewall policy.
+     * A mapping of tags to assign to the Front Door Firewall Policy.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags to assign to the Cdn Frontdoor firewall policy.
+     * @return A mapping of tags to assign to the Front Door Firewall Policy.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -310,7 +310,7 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param enabled Is the Cdn Frontdoor firewall policy enabled? Defaults to `true`.
+         * @param enabled Is the Front Door Firewall Policy enabled? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param enabled Is the Cdn Frontdoor firewall policy enabled? Defaults to `true`.
+         * @param enabled Is the Front Door Firewall Policy enabled? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -331,7 +331,7 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param frontendEndpointIds The Cdn Frontend Endpoints associated with this Cdn Frontdoor Firewall policy.
+         * @param frontendEndpointIds The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param frontendEndpointIds The Cdn Frontend Endpoints associated with this Cdn Frontdoor Firewall policy.
+         * @param frontendEndpointIds The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param frontendEndpointIds The Cdn Frontend Endpoints associated with this Cdn Frontdoor Firewall policy.
+         * @param frontendEndpointIds The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
          * 
          * @return builder
          * 
@@ -393,7 +393,7 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param mode The Cdn Frontdoor firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+         * @param mode The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
          * 
          * @return builder
          * 
@@ -404,7 +404,7 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param mode The Cdn Frontdoor firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+         * @param mode The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
          * 
          * @return builder
          * 
@@ -477,7 +477,7 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param skuName The sku&#39;s pricing tier for this Cdn Frontdoor firewall policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+         * @param skuName The sku&#39;s pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
          * 
          * @return builder
          * 
@@ -488,7 +488,7 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param skuName The sku&#39;s pricing tier for this Cdn Frontdoor firewall policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+         * @param skuName The sku&#39;s pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
          * 
          * @return builder
          * 
@@ -498,7 +498,7 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param tags A mapping of tags to assign to the Cdn Frontdoor firewall policy.
+         * @param tags A mapping of tags to assign to the Front Door Firewall Policy.
          * 
          * @return builder
          * 
@@ -509,7 +509,7 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param tags A mapping of tags to assign to the Cdn Frontdoor firewall policy.
+         * @param tags A mapping of tags to assign to the Front Door Firewall Policy.
          * 
          * @return builder
          * 

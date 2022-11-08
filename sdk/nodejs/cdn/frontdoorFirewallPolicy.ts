@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages an Azure CDN Front Door Firewall Policy instance.
+ * Manages a Front Door (standard/premium) Firewall Policy instance.
  *
  * ## Example Usage
  *
@@ -124,7 +124,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Frontdoor Firewall Policy can be imported using the `resource id`, e.g.
+ * Front Door Firewall Policies can be imported using the `resource id`, e.g.
  *
  * ```sh
  *  $ pulumi import azure:cdn/frontdoorFirewallPolicy:FrontdoorFirewallPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/frontdoorWebApplicationFirewallPolicies/firewallPolicy1
@@ -171,11 +171,11 @@ export class FrontdoorFirewallPolicy extends pulumi.CustomResource {
      */
     public readonly customRules!: pulumi.Output<outputs.cdn.FrontdoorFirewallPolicyCustomRule[] | undefined>;
     /**
-     * Is the Cdn Frontdoor firewall policy enabled? Defaults to `true`.
+     * Is the Front Door Firewall Policy enabled? Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The Cdn Frontend Endpoints associated with this Cdn Frontdoor Firewall policy.
+     * The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
      */
     public /*out*/ readonly frontendEndpointIds!: pulumi.Output<string[]>;
     /**
@@ -183,7 +183,7 @@ export class FrontdoorFirewallPolicy extends pulumi.CustomResource {
      */
     public readonly managedRules!: pulumi.Output<outputs.cdn.FrontdoorFirewallPolicyManagedRule[] | undefined>;
     /**
-     * The Cdn Frontdoor firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+     * The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
      */
     public readonly mode!: pulumi.Output<string>;
     /**
@@ -199,11 +199,11 @@ export class FrontdoorFirewallPolicy extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The sku's pricing tier for this Cdn Frontdoor firewall policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+     * The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the Cdn Frontdoor firewall policy.
+     * A mapping of tags to assign to the Front Door Firewall Policy.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -278,11 +278,11 @@ export interface FrontdoorFirewallPolicyState {
      */
     customRules?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyCustomRule>[]>;
     /**
-     * Is the Cdn Frontdoor firewall policy enabled? Defaults to `true`.
+     * Is the Front Door Firewall Policy enabled? Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * The Cdn Frontend Endpoints associated with this Cdn Frontdoor Firewall policy.
+     * The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
      */
     frontendEndpointIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -290,7 +290,7 @@ export interface FrontdoorFirewallPolicyState {
      */
     managedRules?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyManagedRule>[]>;
     /**
-     * The Cdn Frontdoor firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+     * The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
      */
     mode?: pulumi.Input<string>;
     /**
@@ -306,11 +306,11 @@ export interface FrontdoorFirewallPolicyState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The sku's pricing tier for this Cdn Frontdoor firewall policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+     * The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
      */
     skuName?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the Cdn Frontdoor firewall policy.
+     * A mapping of tags to assign to the Front Door Firewall Policy.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -332,7 +332,7 @@ export interface FrontdoorFirewallPolicyArgs {
      */
     customRules?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyCustomRule>[]>;
     /**
-     * Is the Cdn Frontdoor firewall policy enabled? Defaults to `true`.
+     * Is the Front Door Firewall Policy enabled? Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -340,7 +340,7 @@ export interface FrontdoorFirewallPolicyArgs {
      */
     managedRules?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyManagedRule>[]>;
     /**
-     * The Cdn Frontdoor firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+     * The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
      */
     mode: pulumi.Input<string>;
     /**
@@ -356,11 +356,11 @@ export interface FrontdoorFirewallPolicyArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The sku's pricing tier for this Cdn Frontdoor firewall policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+     * The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
      */
     skuName: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the Cdn Frontdoor firewall policy.
+     * A mapping of tags to assign to the Front Door Firewall Policy.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

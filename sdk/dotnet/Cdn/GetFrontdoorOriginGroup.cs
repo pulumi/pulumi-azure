@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Cdn
     public static class GetFrontdoorOriginGroup
     {
         /// <summary>
-        /// Use this data source to access information about an existing CDN FrontDoor Origin Group.
+        /// Use this data source to access information about an existing Front Door (standard/premium) Origin Group.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Cdn
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrontdoorOriginGroupResult>("azure:cdn/getFrontdoorOriginGroup:getFrontdoorOriginGroup", args ?? new GetFrontdoorOriginGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to access information about an existing CDN FrontDoor Origin Group.
+        /// Use this data source to access information about an existing Front Door (standard/premium) Origin Group.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -74,19 +74,19 @@ namespace Pulumi.Azure.Cdn
     public sealed class GetFrontdoorOriginGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies the name of the FrontDoor Origin Group.
+        /// Specifies the name of the Front Door Origin Group.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the FrontDoor Profile within which CDN FrontDoor Origin Group exists.
+        /// The name of the Front Door Profile within which Front Door Origin Group exists.
         /// </summary>
         [Input("profileName", required: true)]
         public string ProfileName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the CDN FrontDoor Profile exists.
+        /// The name of the Resource Group where the Front Door Profile exists.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -100,19 +100,19 @@ namespace Pulumi.Azure.Cdn
     public sealed class GetFrontdoorOriginGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies the name of the FrontDoor Origin Group.
+        /// Specifies the name of the Front Door Origin Group.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the FrontDoor Profile within which CDN FrontDoor Origin Group exists.
+        /// The name of the Front Door Profile within which Front Door Origin Group exists.
         /// </summary>
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the CDN FrontDoor Profile exists.
+        /// The name of the Resource Group where the Front Door Profile exists.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.Azure.Cdn
     public sealed class GetFrontdoorOriginGroupResult
     {
         /// <summary>
-        /// Specifies the ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group exists.
+        /// Specifies the ID of the Front Door Profile within which this Front Door Origin Group exists.
         /// </summary>
         public readonly string CdnFrontdoorProfileId;
         /// <summary>

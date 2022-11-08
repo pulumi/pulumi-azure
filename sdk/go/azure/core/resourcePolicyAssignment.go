@@ -41,7 +41,7 @@ import (
 //			exampleDefinition, err := policy.NewDefinition(ctx, "exampleDefinition", &policy.DefinitionArgs{
 //				PolicyType: pulumi.String("Custom"),
 //				Mode:       pulumi.String("All"),
-//				PolicyRule: pulumi.String(fmt.Sprintf(`	{
+//				PolicyRule: pulumi.String(fmt.Sprintf(` {
 //	    "if": {
 //	      "not": {
 //	        "field": "location",

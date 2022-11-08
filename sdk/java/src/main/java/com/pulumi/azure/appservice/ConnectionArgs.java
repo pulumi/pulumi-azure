@@ -33,7 +33,6 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The authentication info. An `authentication` block as defined below.
-     * ---
      * 
      */
     @Import(name="authentication", required=true)
@@ -41,7 +40,6 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The authentication info. An `authentication` block as defined below.
-     * ---
      * 
      */
     public Output<ConnectionAuthenticationArgs> authentication() {
@@ -160,7 +158,6 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param authentication The authentication info. An `authentication` block as defined below.
-         * ---
          * 
          * @return builder
          * 
@@ -172,7 +169,6 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param authentication The authentication info. An `authentication` block as defined below.
-         * ---
          * 
          * @return builder
          * 

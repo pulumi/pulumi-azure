@@ -15,7 +15,7 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Manages a Frontdoor Security Policy.
+ * Manages a Front Door (standard/premium) Security Policy.
  * 
  * ## Example Usage
  * ```java
@@ -104,7 +104,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Frontdoor Security Policies can be imported using the `resource id`, e.g.
+ * Front Door Security Policies can be imported using the `resource id`, e.g.
  * 
  * ```sh
  *  $ pulumi import azure:cdn/frontdoorSecurityPolicy:FrontdoorSecurityPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/securityPolicies/policy1
@@ -114,42 +114,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:cdn/frontdoorSecurityPolicy:FrontdoorSecurityPolicy")
 public class FrontdoorSecurityPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * The Frontdoor Profile Resource Id that is linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+     * The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
     @Export(name="cdnFrontdoorProfileId", type=String.class, parameters={})
     private Output<String> cdnFrontdoorProfileId;
 
     /**
-     * @return The Frontdoor Profile Resource Id that is linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+     * @return The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
     public Output<String> cdnFrontdoorProfileId() {
         return this.cdnFrontdoorProfileId;
     }
     /**
-     * The name which should be used for this Frontdoor Security Policy. Possible values must not be an empty string. Changing this forces a new Frontdoor Security Policy to be created.
+     * The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this Frontdoor Security Policy. Possible values must not be an empty string. Changing this forces a new Frontdoor Security Policy to be created.
+     * @return The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * An `security_policies` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+     * An `security_policies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
     @Export(name="securityPolicies", type=FrontdoorSecurityPolicySecurityPolicies.class, parameters={})
     private Output<FrontdoorSecurityPolicySecurityPolicies> securityPolicies;
 
     /**
-     * @return An `security_policies` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+     * @return An `security_policies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
     public Output<FrontdoorSecurityPolicySecurityPolicies> securityPolicies() {

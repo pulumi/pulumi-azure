@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Cdn
     public static class GetFrontdoorRuleSet
     {
         /// <summary>
-        /// Gets information about an existing CDN FrontDoor Rule Set.
+        /// Use this data source to access information about an existing Front Door (standard/premium) Rule Set.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Cdn
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrontdoorRuleSetResult>("azure:cdn/getFrontdoorRuleSet:getFrontdoorRuleSet", args ?? new GetFrontdoorRuleSetArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets information about an existing CDN FrontDoor Rule Set.
+        /// Use this data source to access information about an existing Front Door (standard/premium) Rule Set.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -74,19 +74,19 @@ namespace Pulumi.Azure.Cdn
     public sealed class GetFrontdoorRuleSetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies the name of the CDN FrontDoor Rule Set to retrieve.
+        /// Specifies the name of the Front Door Rule Set to retrieve.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the CDN FrontDoor Profile where this CDN FrontDoor Rule Set exists.
+        /// Specifies the name of the Front Door Profile where this Front Door Rule Set exists.
         /// </summary>
         [Input("profileName", required: true)]
         public string ProfileName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Resource Group where the CDN FrontDoor Profile exists.
+        /// Specifies the name of the Resource Group where the Front Door Profile exists.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -100,19 +100,19 @@ namespace Pulumi.Azure.Cdn
     public sealed class GetFrontdoorRuleSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies the name of the CDN FrontDoor Rule Set to retrieve.
+        /// Specifies the name of the Front Door Rule Set to retrieve.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the CDN FrontDoor Profile where this CDN FrontDoor Rule Set exists.
+        /// Specifies the name of the Front Door Profile where this Front Door Rule Set exists.
         /// </summary>
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Resource Group where the CDN FrontDoor Profile exists.
+        /// Specifies the name of the Resource Group where the Front Door Profile exists.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.Azure.Cdn
     public sealed class GetFrontdoorRuleSetResult
     {
         /// <summary>
-        /// The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Rule Set exists.
+        /// The ID of the Front Door Profile within which this Front Door Rule Set exists.
         /// </summary>
         public readonly string CdnFrontdoorProfileId;
         /// <summary>

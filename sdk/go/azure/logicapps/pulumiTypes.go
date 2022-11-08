@@ -1565,7 +1565,7 @@ func (o StandardConnectionStringArrayOutput) Index(i pulumi.IntInput) StandardCo
 }
 
 type StandardIdentity struct {
-	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
 	PrincipalId *string `pulumi:"principalId"`
@@ -1587,7 +1587,7 @@ type StandardIdentityInput interface {
 }
 
 type StandardIdentityArgs struct {
-	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -1674,7 +1674,7 @@ func (o StandardIdentityOutput) ToStandardIdentityPtrOutputWithContext(ctx conte
 	}).(StandardIdentityPtrOutput)
 }
 
-// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
 func (o StandardIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StandardIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -1718,7 +1718,7 @@ func (o StandardIdentityPtrOutput) Elem() StandardIdentityOutput {
 	}).(StandardIdentityOutput)
 }
 
-// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
 func (o StandardIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *StandardIdentity) []string {
 		if v == nil {
@@ -1785,6 +1785,14 @@ type StandardSiteConfig struct {
 	PreWarmedInstanceCount *int `pulumi:"preWarmedInstanceCount"`
 	// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
 	RuntimeScaleMonitoringEnabled *bool `pulumi:"runtimeScaleMonitoringEnabled"`
+	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
+	ScmIpRestrictions []StandardSiteConfigScmIpRestriction `pulumi:"scmIpRestrictions"`
+	// Configures the minimum version of TLS required for SSL requests to the SCM site.
+	ScmMinTlsVersion *string `pulumi:"scmMinTlsVersion"`
+	// The type of Source Control used by the Logic App in use by the Windows Function App. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+	ScmType *string `pulumi:"scmType"`
+	// Should the Logic App `ipRestriction` configuration be used for the SCM too. Defaults to `false`.
+	ScmUseMainIpRestriction *bool `pulumi:"scmUseMainIpRestriction"`
 	// Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
 	Use32BitWorkerProcess *bool `pulumi:"use32BitWorkerProcess"`
 	// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
@@ -1831,6 +1839,14 @@ type StandardSiteConfigArgs struct {
 	PreWarmedInstanceCount pulumi.IntPtrInput `pulumi:"preWarmedInstanceCount"`
 	// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
 	RuntimeScaleMonitoringEnabled pulumi.BoolPtrInput `pulumi:"runtimeScaleMonitoringEnabled"`
+	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
+	ScmIpRestrictions StandardSiteConfigScmIpRestrictionArrayInput `pulumi:"scmIpRestrictions"`
+	// Configures the minimum version of TLS required for SSL requests to the SCM site.
+	ScmMinTlsVersion pulumi.StringPtrInput `pulumi:"scmMinTlsVersion"`
+	// The type of Source Control used by the Logic App in use by the Windows Function App. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+	ScmType pulumi.StringPtrInput `pulumi:"scmType"`
+	// Should the Logic App `ipRestriction` configuration be used for the SCM too. Defaults to `false`.
+	ScmUseMainIpRestriction pulumi.BoolPtrInput `pulumi:"scmUseMainIpRestriction"`
 	// Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
 	Use32BitWorkerProcess pulumi.BoolPtrInput `pulumi:"use32BitWorkerProcess"`
 	// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
@@ -1979,6 +1995,26 @@ func (o StandardSiteConfigOutput) PreWarmedInstanceCount() pulumi.IntPtrOutput {
 // Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
 func (o StandardSiteConfigOutput) RuntimeScaleMonitoringEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StandardSiteConfig) *bool { return v.RuntimeScaleMonitoringEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
+func (o StandardSiteConfigOutput) ScmIpRestrictions() StandardSiteConfigScmIpRestrictionArrayOutput {
+	return o.ApplyT(func(v StandardSiteConfig) []StandardSiteConfigScmIpRestriction { return v.ScmIpRestrictions }).(StandardSiteConfigScmIpRestrictionArrayOutput)
+}
+
+// Configures the minimum version of TLS required for SSL requests to the SCM site.
+func (o StandardSiteConfigOutput) ScmMinTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfig) *string { return v.ScmMinTlsVersion }).(pulumi.StringPtrOutput)
+}
+
+// The type of Source Control used by the Logic App in use by the Windows Function App. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+func (o StandardSiteConfigOutput) ScmType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfig) *string { return v.ScmType }).(pulumi.StringPtrOutput)
+}
+
+// Should the Logic App `ipRestriction` configuration be used for the SCM too. Defaults to `false`.
+func (o StandardSiteConfigOutput) ScmUseMainIpRestriction() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfig) *bool { return v.ScmUseMainIpRestriction }).(pulumi.BoolPtrOutput)
 }
 
 // Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
@@ -2147,6 +2183,46 @@ func (o StandardSiteConfigPtrOutput) RuntimeScaleMonitoringEnabled() pulumi.Bool
 			return nil
 		}
 		return v.RuntimeScaleMonitoringEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
+func (o StandardSiteConfigPtrOutput) ScmIpRestrictions() StandardSiteConfigScmIpRestrictionArrayOutput {
+	return o.ApplyT(func(v *StandardSiteConfig) []StandardSiteConfigScmIpRestriction {
+		if v == nil {
+			return nil
+		}
+		return v.ScmIpRestrictions
+	}).(StandardSiteConfigScmIpRestrictionArrayOutput)
+}
+
+// Configures the minimum version of TLS required for SSL requests to the SCM site.
+func (o StandardSiteConfigPtrOutput) ScmMinTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StandardSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScmMinTlsVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of Source Control used by the Logic App in use by the Windows Function App. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+func (o StandardSiteConfigPtrOutput) ScmType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StandardSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScmType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Should the Logic App `ipRestriction` configuration be used for the SCM too. Defaults to `false`.
+func (o StandardSiteConfigPtrOutput) ScmUseMainIpRestriction() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StandardSiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ScmUseMainIpRestriction
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -2674,6 +2750,353 @@ func (o StandardSiteConfigIpRestrictionHeadersPtrOutput) XForwardedFors() pulumi
 // A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
 func (o StandardSiteConfigIpRestrictionHeadersPtrOutput) XForwardedHosts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *StandardSiteConfigIpRestrictionHeaders) []string {
+		if v == nil {
+			return nil
+		}
+		return v.XForwardedHosts
+	}).(pulumi.StringArrayOutput)
+}
+
+type StandardSiteConfigScmIpRestriction struct {
+	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+	Action *string `pulumi:"action"`
+	// The headers for this specific `ipRestriction` as defined below.
+	Headers *StandardSiteConfigScmIpRestrictionHeaders `pulumi:"headers"`
+	// The IP Address used for this IP Restriction in CIDR notation.
+	IpAddress *string `pulumi:"ipAddress"`
+	// The name for this IP Restriction.
+	Name *string `pulumi:"name"`
+	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+	Priority *int `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
+	ServiceTag *string `pulumi:"serviceTag"`
+	// The Virtual Network Subnet ID used for this IP Restriction.
+	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
+}
+
+// StandardSiteConfigScmIpRestrictionInput is an input type that accepts StandardSiteConfigScmIpRestrictionArgs and StandardSiteConfigScmIpRestrictionOutput values.
+// You can construct a concrete instance of `StandardSiteConfigScmIpRestrictionInput` via:
+//
+//	StandardSiteConfigScmIpRestrictionArgs{...}
+type StandardSiteConfigScmIpRestrictionInput interface {
+	pulumi.Input
+
+	ToStandardSiteConfigScmIpRestrictionOutput() StandardSiteConfigScmIpRestrictionOutput
+	ToStandardSiteConfigScmIpRestrictionOutputWithContext(context.Context) StandardSiteConfigScmIpRestrictionOutput
+}
+
+type StandardSiteConfigScmIpRestrictionArgs struct {
+	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// The headers for this specific `ipRestriction` as defined below.
+	Headers StandardSiteConfigScmIpRestrictionHeadersPtrInput `pulumi:"headers"`
+	// The IP Address used for this IP Restriction in CIDR notation.
+	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
+	// The name for this IP Restriction.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
+	ServiceTag pulumi.StringPtrInput `pulumi:"serviceTag"`
+	// The Virtual Network Subnet ID used for this IP Restriction.
+	VirtualNetworkSubnetId pulumi.StringPtrInput `pulumi:"virtualNetworkSubnetId"`
+}
+
+func (StandardSiteConfigScmIpRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StandardSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (i StandardSiteConfigScmIpRestrictionArgs) ToStandardSiteConfigScmIpRestrictionOutput() StandardSiteConfigScmIpRestrictionOutput {
+	return i.ToStandardSiteConfigScmIpRestrictionOutputWithContext(context.Background())
+}
+
+func (i StandardSiteConfigScmIpRestrictionArgs) ToStandardSiteConfigScmIpRestrictionOutputWithContext(ctx context.Context) StandardSiteConfigScmIpRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardSiteConfigScmIpRestrictionOutput)
+}
+
+// StandardSiteConfigScmIpRestrictionArrayInput is an input type that accepts StandardSiteConfigScmIpRestrictionArray and StandardSiteConfigScmIpRestrictionArrayOutput values.
+// You can construct a concrete instance of `StandardSiteConfigScmIpRestrictionArrayInput` via:
+//
+//	StandardSiteConfigScmIpRestrictionArray{ StandardSiteConfigScmIpRestrictionArgs{...} }
+type StandardSiteConfigScmIpRestrictionArrayInput interface {
+	pulumi.Input
+
+	ToStandardSiteConfigScmIpRestrictionArrayOutput() StandardSiteConfigScmIpRestrictionArrayOutput
+	ToStandardSiteConfigScmIpRestrictionArrayOutputWithContext(context.Context) StandardSiteConfigScmIpRestrictionArrayOutput
+}
+
+type StandardSiteConfigScmIpRestrictionArray []StandardSiteConfigScmIpRestrictionInput
+
+func (StandardSiteConfigScmIpRestrictionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StandardSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (i StandardSiteConfigScmIpRestrictionArray) ToStandardSiteConfigScmIpRestrictionArrayOutput() StandardSiteConfigScmIpRestrictionArrayOutput {
+	return i.ToStandardSiteConfigScmIpRestrictionArrayOutputWithContext(context.Background())
+}
+
+func (i StandardSiteConfigScmIpRestrictionArray) ToStandardSiteConfigScmIpRestrictionArrayOutputWithContext(ctx context.Context) StandardSiteConfigScmIpRestrictionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardSiteConfigScmIpRestrictionArrayOutput)
+}
+
+type StandardSiteConfigScmIpRestrictionOutput struct{ *pulumi.OutputState }
+
+func (StandardSiteConfigScmIpRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StandardSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (o StandardSiteConfigScmIpRestrictionOutput) ToStandardSiteConfigScmIpRestrictionOutput() StandardSiteConfigScmIpRestrictionOutput {
+	return o
+}
+
+func (o StandardSiteConfigScmIpRestrictionOutput) ToStandardSiteConfigScmIpRestrictionOutputWithContext(ctx context.Context) StandardSiteConfigScmIpRestrictionOutput {
+	return o
+}
+
+// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+func (o StandardSiteConfigScmIpRestrictionOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfigScmIpRestriction) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// The headers for this specific `ipRestriction` as defined below.
+func (o StandardSiteConfigScmIpRestrictionOutput) Headers() StandardSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfigScmIpRestriction) *StandardSiteConfigScmIpRestrictionHeaders {
+		return v.Headers
+	}).(StandardSiteConfigScmIpRestrictionHeadersPtrOutput)
+}
+
+// The IP Address used for this IP Restriction in CIDR notation.
+func (o StandardSiteConfigScmIpRestrictionOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfigScmIpRestriction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+// The name for this IP Restriction.
+func (o StandardSiteConfigScmIpRestrictionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfigScmIpRestriction) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+func (o StandardSiteConfigScmIpRestrictionOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfigScmIpRestriction) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// The Service Tag used for this IP Restriction.
+func (o StandardSiteConfigScmIpRestrictionOutput) ServiceTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfigScmIpRestriction) *string { return v.ServiceTag }).(pulumi.StringPtrOutput)
+}
+
+// The Virtual Network Subnet ID used for this IP Restriction.
+func (o StandardSiteConfigScmIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfigScmIpRestriction) *string { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
+}
+
+type StandardSiteConfigScmIpRestrictionArrayOutput struct{ *pulumi.OutputState }
+
+func (StandardSiteConfigScmIpRestrictionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StandardSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (o StandardSiteConfigScmIpRestrictionArrayOutput) ToStandardSiteConfigScmIpRestrictionArrayOutput() StandardSiteConfigScmIpRestrictionArrayOutput {
+	return o
+}
+
+func (o StandardSiteConfigScmIpRestrictionArrayOutput) ToStandardSiteConfigScmIpRestrictionArrayOutputWithContext(ctx context.Context) StandardSiteConfigScmIpRestrictionArrayOutput {
+	return o
+}
+
+func (o StandardSiteConfigScmIpRestrictionArrayOutput) Index(i pulumi.IntInput) StandardSiteConfigScmIpRestrictionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StandardSiteConfigScmIpRestriction {
+		return vs[0].([]StandardSiteConfigScmIpRestriction)[vs[1].(int)]
+	}).(StandardSiteConfigScmIpRestrictionOutput)
+}
+
+type StandardSiteConfigScmIpRestrictionHeaders struct {
+	// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+	XAzureFdids []string `pulumi:"xAzureFdids"`
+	// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+	XFdHealthProbe *string `pulumi:"xFdHealthProbe"`
+	// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+	XForwardedFors []string `pulumi:"xForwardedFors"`
+	// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+	XForwardedHosts []string `pulumi:"xForwardedHosts"`
+}
+
+// StandardSiteConfigScmIpRestrictionHeadersInput is an input type that accepts StandardSiteConfigScmIpRestrictionHeadersArgs and StandardSiteConfigScmIpRestrictionHeadersOutput values.
+// You can construct a concrete instance of `StandardSiteConfigScmIpRestrictionHeadersInput` via:
+//
+//	StandardSiteConfigScmIpRestrictionHeadersArgs{...}
+type StandardSiteConfigScmIpRestrictionHeadersInput interface {
+	pulumi.Input
+
+	ToStandardSiteConfigScmIpRestrictionHeadersOutput() StandardSiteConfigScmIpRestrictionHeadersOutput
+	ToStandardSiteConfigScmIpRestrictionHeadersOutputWithContext(context.Context) StandardSiteConfigScmIpRestrictionHeadersOutput
+}
+
+type StandardSiteConfigScmIpRestrictionHeadersArgs struct {
+	// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+	XAzureFdids pulumi.StringArrayInput `pulumi:"xAzureFdids"`
+	// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+	XFdHealthProbe pulumi.StringPtrInput `pulumi:"xFdHealthProbe"`
+	// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+	XForwardedFors pulumi.StringArrayInput `pulumi:"xForwardedFors"`
+	// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+	XForwardedHosts pulumi.StringArrayInput `pulumi:"xForwardedHosts"`
+}
+
+func (StandardSiteConfigScmIpRestrictionHeadersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StandardSiteConfigScmIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (i StandardSiteConfigScmIpRestrictionHeadersArgs) ToStandardSiteConfigScmIpRestrictionHeadersOutput() StandardSiteConfigScmIpRestrictionHeadersOutput {
+	return i.ToStandardSiteConfigScmIpRestrictionHeadersOutputWithContext(context.Background())
+}
+
+func (i StandardSiteConfigScmIpRestrictionHeadersArgs) ToStandardSiteConfigScmIpRestrictionHeadersOutputWithContext(ctx context.Context) StandardSiteConfigScmIpRestrictionHeadersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardSiteConfigScmIpRestrictionHeadersOutput)
+}
+
+func (i StandardSiteConfigScmIpRestrictionHeadersArgs) ToStandardSiteConfigScmIpRestrictionHeadersPtrOutput() StandardSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return i.ToStandardSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i StandardSiteConfigScmIpRestrictionHeadersArgs) ToStandardSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) StandardSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardSiteConfigScmIpRestrictionHeadersOutput).ToStandardSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(ctx)
+}
+
+// StandardSiteConfigScmIpRestrictionHeadersPtrInput is an input type that accepts StandardSiteConfigScmIpRestrictionHeadersArgs, StandardSiteConfigScmIpRestrictionHeadersPtr and StandardSiteConfigScmIpRestrictionHeadersPtrOutput values.
+// You can construct a concrete instance of `StandardSiteConfigScmIpRestrictionHeadersPtrInput` via:
+//
+//	        StandardSiteConfigScmIpRestrictionHeadersArgs{...}
+//
+//	or:
+//
+//	        nil
+type StandardSiteConfigScmIpRestrictionHeadersPtrInput interface {
+	pulumi.Input
+
+	ToStandardSiteConfigScmIpRestrictionHeadersPtrOutput() StandardSiteConfigScmIpRestrictionHeadersPtrOutput
+	ToStandardSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(context.Context) StandardSiteConfigScmIpRestrictionHeadersPtrOutput
+}
+
+type standardSiteConfigScmIpRestrictionHeadersPtrType StandardSiteConfigScmIpRestrictionHeadersArgs
+
+func StandardSiteConfigScmIpRestrictionHeadersPtr(v *StandardSiteConfigScmIpRestrictionHeadersArgs) StandardSiteConfigScmIpRestrictionHeadersPtrInput {
+	return (*standardSiteConfigScmIpRestrictionHeadersPtrType)(v)
+}
+
+func (*standardSiteConfigScmIpRestrictionHeadersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StandardSiteConfigScmIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (i *standardSiteConfigScmIpRestrictionHeadersPtrType) ToStandardSiteConfigScmIpRestrictionHeadersPtrOutput() StandardSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return i.ToStandardSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i *standardSiteConfigScmIpRestrictionHeadersPtrType) ToStandardSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) StandardSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardSiteConfigScmIpRestrictionHeadersPtrOutput)
+}
+
+type StandardSiteConfigScmIpRestrictionHeadersOutput struct{ *pulumi.OutputState }
+
+func (StandardSiteConfigScmIpRestrictionHeadersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StandardSiteConfigScmIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (o StandardSiteConfigScmIpRestrictionHeadersOutput) ToStandardSiteConfigScmIpRestrictionHeadersOutput() StandardSiteConfigScmIpRestrictionHeadersOutput {
+	return o
+}
+
+func (o StandardSiteConfigScmIpRestrictionHeadersOutput) ToStandardSiteConfigScmIpRestrictionHeadersOutputWithContext(ctx context.Context) StandardSiteConfigScmIpRestrictionHeadersOutput {
+	return o
+}
+
+func (o StandardSiteConfigScmIpRestrictionHeadersOutput) ToStandardSiteConfigScmIpRestrictionHeadersPtrOutput() StandardSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return o.ToStandardSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(context.Background())
+}
+
+func (o StandardSiteConfigScmIpRestrictionHeadersOutput) ToStandardSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) StandardSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StandardSiteConfigScmIpRestrictionHeaders) *StandardSiteConfigScmIpRestrictionHeaders {
+		return &v
+	}).(StandardSiteConfigScmIpRestrictionHeadersPtrOutput)
+}
+
+// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+func (o StandardSiteConfigScmIpRestrictionHeadersOutput) XAzureFdids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StandardSiteConfigScmIpRestrictionHeaders) []string { return v.XAzureFdids }).(pulumi.StringArrayOutput)
+}
+
+// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+func (o StandardSiteConfigScmIpRestrictionHeadersOutput) XFdHealthProbe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfigScmIpRestrictionHeaders) *string { return v.XFdHealthProbe }).(pulumi.StringPtrOutput)
+}
+
+// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+func (o StandardSiteConfigScmIpRestrictionHeadersOutput) XForwardedFors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StandardSiteConfigScmIpRestrictionHeaders) []string { return v.XForwardedFors }).(pulumi.StringArrayOutput)
+}
+
+// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+func (o StandardSiteConfigScmIpRestrictionHeadersOutput) XForwardedHosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StandardSiteConfigScmIpRestrictionHeaders) []string { return v.XForwardedHosts }).(pulumi.StringArrayOutput)
+}
+
+type StandardSiteConfigScmIpRestrictionHeadersPtrOutput struct{ *pulumi.OutputState }
+
+func (StandardSiteConfigScmIpRestrictionHeadersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StandardSiteConfigScmIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (o StandardSiteConfigScmIpRestrictionHeadersPtrOutput) ToStandardSiteConfigScmIpRestrictionHeadersPtrOutput() StandardSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return o
+}
+
+func (o StandardSiteConfigScmIpRestrictionHeadersPtrOutput) ToStandardSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) StandardSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return o
+}
+
+func (o StandardSiteConfigScmIpRestrictionHeadersPtrOutput) Elem() StandardSiteConfigScmIpRestrictionHeadersOutput {
+	return o.ApplyT(func(v *StandardSiteConfigScmIpRestrictionHeaders) StandardSiteConfigScmIpRestrictionHeaders {
+		if v != nil {
+			return *v
+		}
+		var ret StandardSiteConfigScmIpRestrictionHeaders
+		return ret
+	}).(StandardSiteConfigScmIpRestrictionHeadersOutput)
+}
+
+// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+func (o StandardSiteConfigScmIpRestrictionHeadersPtrOutput) XAzureFdids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StandardSiteConfigScmIpRestrictionHeaders) []string {
+		if v == nil {
+			return nil
+		}
+		return v.XAzureFdids
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+func (o StandardSiteConfigScmIpRestrictionHeadersPtrOutput) XFdHealthProbe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StandardSiteConfigScmIpRestrictionHeaders) *string {
+		if v == nil {
+			return nil
+		}
+		return v.XFdHealthProbe
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+func (o StandardSiteConfigScmIpRestrictionHeadersPtrOutput) XForwardedFors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StandardSiteConfigScmIpRestrictionHeaders) []string {
+		if v == nil {
+			return nil
+		}
+		return v.XForwardedFors
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+func (o StandardSiteConfigScmIpRestrictionHeadersPtrOutput) XForwardedHosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StandardSiteConfigScmIpRestrictionHeaders) []string {
 		if v == nil {
 			return nil
 		}
@@ -4361,22 +4784,26 @@ func (o GetStandardIdentityArrayOutput) Index(i pulumi.IntInput) GetStandardIden
 }
 
 type GetStandardSiteConfig struct {
-	AlwaysOn                      *bool                                `pulumi:"alwaysOn"`
-	AppScaleLimit                 int                                  `pulumi:"appScaleLimit"`
-	Cors                          GetStandardSiteConfigCors            `pulumi:"cors"`
-	DotnetFrameworkVersion        *string                              `pulumi:"dotnetFrameworkVersion"`
-	ElasticInstanceMinimum        int                                  `pulumi:"elasticInstanceMinimum"`
-	FtpsState                     string                               `pulumi:"ftpsState"`
-	HealthCheckPath               *string                              `pulumi:"healthCheckPath"`
-	Http2Enabled                  *bool                                `pulumi:"http2Enabled"`
-	IpRestrictions                []GetStandardSiteConfigIpRestriction `pulumi:"ipRestrictions"`
-	LinuxFxVersion                string                               `pulumi:"linuxFxVersion"`
-	MinTlsVersion                 string                               `pulumi:"minTlsVersion"`
-	PreWarmedInstanceCount        int                                  `pulumi:"preWarmedInstanceCount"`
-	RuntimeScaleMonitoringEnabled *bool                                `pulumi:"runtimeScaleMonitoringEnabled"`
-	Use32BitWorkerProcess         *bool                                `pulumi:"use32BitWorkerProcess"`
-	VnetRouteAllEnabled           bool                                 `pulumi:"vnetRouteAllEnabled"`
-	WebsocketsEnabled             *bool                                `pulumi:"websocketsEnabled"`
+	AlwaysOn                      *bool                                   `pulumi:"alwaysOn"`
+	AppScaleLimit                 int                                     `pulumi:"appScaleLimit"`
+	Cors                          GetStandardSiteConfigCors               `pulumi:"cors"`
+	DotnetFrameworkVersion        *string                                 `pulumi:"dotnetFrameworkVersion"`
+	ElasticInstanceMinimum        int                                     `pulumi:"elasticInstanceMinimum"`
+	FtpsState                     string                                  `pulumi:"ftpsState"`
+	HealthCheckPath               *string                                 `pulumi:"healthCheckPath"`
+	Http2Enabled                  *bool                                   `pulumi:"http2Enabled"`
+	IpRestrictions                []GetStandardSiteConfigIpRestriction    `pulumi:"ipRestrictions"`
+	LinuxFxVersion                string                                  `pulumi:"linuxFxVersion"`
+	MinTlsVersion                 string                                  `pulumi:"minTlsVersion"`
+	PreWarmedInstanceCount        int                                     `pulumi:"preWarmedInstanceCount"`
+	RuntimeScaleMonitoringEnabled *bool                                   `pulumi:"runtimeScaleMonitoringEnabled"`
+	ScmIpRestrictions             []GetStandardSiteConfigScmIpRestriction `pulumi:"scmIpRestrictions"`
+	ScmMinTlsVersion              string                                  `pulumi:"scmMinTlsVersion"`
+	ScmType                       string                                  `pulumi:"scmType"`
+	ScmUseMainIpRestriction       *bool                                   `pulumi:"scmUseMainIpRestriction"`
+	Use32BitWorkerProcess         *bool                                   `pulumi:"use32BitWorkerProcess"`
+	VnetRouteAllEnabled           bool                                    `pulumi:"vnetRouteAllEnabled"`
+	WebsocketsEnabled             *bool                                   `pulumi:"websocketsEnabled"`
 }
 
 // GetStandardSiteConfigInput is an input type that accepts GetStandardSiteConfigArgs and GetStandardSiteConfigOutput values.
@@ -4391,22 +4818,26 @@ type GetStandardSiteConfigInput interface {
 }
 
 type GetStandardSiteConfigArgs struct {
-	AlwaysOn                      pulumi.BoolPtrInput                          `pulumi:"alwaysOn"`
-	AppScaleLimit                 pulumi.IntInput                              `pulumi:"appScaleLimit"`
-	Cors                          GetStandardSiteConfigCorsInput               `pulumi:"cors"`
-	DotnetFrameworkVersion        pulumi.StringPtrInput                        `pulumi:"dotnetFrameworkVersion"`
-	ElasticInstanceMinimum        pulumi.IntInput                              `pulumi:"elasticInstanceMinimum"`
-	FtpsState                     pulumi.StringInput                           `pulumi:"ftpsState"`
-	HealthCheckPath               pulumi.StringPtrInput                        `pulumi:"healthCheckPath"`
-	Http2Enabled                  pulumi.BoolPtrInput                          `pulumi:"http2Enabled"`
-	IpRestrictions                GetStandardSiteConfigIpRestrictionArrayInput `pulumi:"ipRestrictions"`
-	LinuxFxVersion                pulumi.StringInput                           `pulumi:"linuxFxVersion"`
-	MinTlsVersion                 pulumi.StringInput                           `pulumi:"minTlsVersion"`
-	PreWarmedInstanceCount        pulumi.IntInput                              `pulumi:"preWarmedInstanceCount"`
-	RuntimeScaleMonitoringEnabled pulumi.BoolPtrInput                          `pulumi:"runtimeScaleMonitoringEnabled"`
-	Use32BitWorkerProcess         pulumi.BoolPtrInput                          `pulumi:"use32BitWorkerProcess"`
-	VnetRouteAllEnabled           pulumi.BoolInput                             `pulumi:"vnetRouteAllEnabled"`
-	WebsocketsEnabled             pulumi.BoolPtrInput                          `pulumi:"websocketsEnabled"`
+	AlwaysOn                      pulumi.BoolPtrInput                             `pulumi:"alwaysOn"`
+	AppScaleLimit                 pulumi.IntInput                                 `pulumi:"appScaleLimit"`
+	Cors                          GetStandardSiteConfigCorsInput                  `pulumi:"cors"`
+	DotnetFrameworkVersion        pulumi.StringPtrInput                           `pulumi:"dotnetFrameworkVersion"`
+	ElasticInstanceMinimum        pulumi.IntInput                                 `pulumi:"elasticInstanceMinimum"`
+	FtpsState                     pulumi.StringInput                              `pulumi:"ftpsState"`
+	HealthCheckPath               pulumi.StringPtrInput                           `pulumi:"healthCheckPath"`
+	Http2Enabled                  pulumi.BoolPtrInput                             `pulumi:"http2Enabled"`
+	IpRestrictions                GetStandardSiteConfigIpRestrictionArrayInput    `pulumi:"ipRestrictions"`
+	LinuxFxVersion                pulumi.StringInput                              `pulumi:"linuxFxVersion"`
+	MinTlsVersion                 pulumi.StringInput                              `pulumi:"minTlsVersion"`
+	PreWarmedInstanceCount        pulumi.IntInput                                 `pulumi:"preWarmedInstanceCount"`
+	RuntimeScaleMonitoringEnabled pulumi.BoolPtrInput                             `pulumi:"runtimeScaleMonitoringEnabled"`
+	ScmIpRestrictions             GetStandardSiteConfigScmIpRestrictionArrayInput `pulumi:"scmIpRestrictions"`
+	ScmMinTlsVersion              pulumi.StringInput                              `pulumi:"scmMinTlsVersion"`
+	ScmType                       pulumi.StringInput                              `pulumi:"scmType"`
+	ScmUseMainIpRestriction       pulumi.BoolPtrInput                             `pulumi:"scmUseMainIpRestriction"`
+	Use32BitWorkerProcess         pulumi.BoolPtrInput                             `pulumi:"use32BitWorkerProcess"`
+	VnetRouteAllEnabled           pulumi.BoolInput                                `pulumi:"vnetRouteAllEnabled"`
+	WebsocketsEnabled             pulumi.BoolPtrInput                             `pulumi:"websocketsEnabled"`
 }
 
 func (GetStandardSiteConfigArgs) ElementType() reflect.Type {
@@ -4536,6 +4967,22 @@ func (o GetStandardSiteConfigOutput) PreWarmedInstanceCount() pulumi.IntOutput {
 
 func (o GetStandardSiteConfigOutput) RuntimeScaleMonitoringEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetStandardSiteConfig) *bool { return v.RuntimeScaleMonitoringEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetStandardSiteConfigOutput) ScmIpRestrictions() GetStandardSiteConfigScmIpRestrictionArrayOutput {
+	return o.ApplyT(func(v GetStandardSiteConfig) []GetStandardSiteConfigScmIpRestriction { return v.ScmIpRestrictions }).(GetStandardSiteConfigScmIpRestrictionArrayOutput)
+}
+
+func (o GetStandardSiteConfigOutput) ScmMinTlsVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardSiteConfig) string { return v.ScmMinTlsVersion }).(pulumi.StringOutput)
+}
+
+func (o GetStandardSiteConfigOutput) ScmType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardSiteConfig) string { return v.ScmType }).(pulumi.StringOutput)
+}
+
+func (o GetStandardSiteConfigOutput) ScmUseMainIpRestriction() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetStandardSiteConfig) *bool { return v.ScmUseMainIpRestriction }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetStandardSiteConfigOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
@@ -4688,6 +5135,42 @@ func (o GetStandardSiteConfigPtrOutput) RuntimeScaleMonitoringEnabled() pulumi.B
 			return nil
 		}
 		return v.RuntimeScaleMonitoringEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetStandardSiteConfigPtrOutput) ScmIpRestrictions() GetStandardSiteConfigScmIpRestrictionArrayOutput {
+	return o.ApplyT(func(v *GetStandardSiteConfig) []GetStandardSiteConfigScmIpRestriction {
+		if v == nil {
+			return nil
+		}
+		return v.ScmIpRestrictions
+	}).(GetStandardSiteConfigScmIpRestrictionArrayOutput)
+}
+
+func (o GetStandardSiteConfigPtrOutput) ScmMinTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetStandardSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ScmMinTlsVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetStandardSiteConfigPtrOutput) ScmType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetStandardSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ScmType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetStandardSiteConfigPtrOutput) ScmUseMainIpRestriction() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetStandardSiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ScmUseMainIpRestriction
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -5066,6 +5549,208 @@ func (o GetStandardSiteConfigIpRestrictionHeadersOutput) XForwardedHosts() pulum
 	return o.ApplyT(func(v GetStandardSiteConfigIpRestrictionHeaders) []string { return v.XForwardedHosts }).(pulumi.StringArrayOutput)
 }
 
+type GetStandardSiteConfigScmIpRestriction struct {
+	Action    *string                                      `pulumi:"action"`
+	Headers   GetStandardSiteConfigScmIpRestrictionHeaders `pulumi:"headers"`
+	IpAddress *string                                      `pulumi:"ipAddress"`
+	// The name of this Logic App.
+	Name                   string  `pulumi:"name"`
+	Priority               *int    `pulumi:"priority"`
+	ServiceTag             *string `pulumi:"serviceTag"`
+	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
+}
+
+// GetStandardSiteConfigScmIpRestrictionInput is an input type that accepts GetStandardSiteConfigScmIpRestrictionArgs and GetStandardSiteConfigScmIpRestrictionOutput values.
+// You can construct a concrete instance of `GetStandardSiteConfigScmIpRestrictionInput` via:
+//
+//	GetStandardSiteConfigScmIpRestrictionArgs{...}
+type GetStandardSiteConfigScmIpRestrictionInput interface {
+	pulumi.Input
+
+	ToGetStandardSiteConfigScmIpRestrictionOutput() GetStandardSiteConfigScmIpRestrictionOutput
+	ToGetStandardSiteConfigScmIpRestrictionOutputWithContext(context.Context) GetStandardSiteConfigScmIpRestrictionOutput
+}
+
+type GetStandardSiteConfigScmIpRestrictionArgs struct {
+	Action    pulumi.StringPtrInput                             `pulumi:"action"`
+	Headers   GetStandardSiteConfigScmIpRestrictionHeadersInput `pulumi:"headers"`
+	IpAddress pulumi.StringPtrInput                             `pulumi:"ipAddress"`
+	// The name of this Logic App.
+	Name                   pulumi.StringInput    `pulumi:"name"`
+	Priority               pulumi.IntPtrInput    `pulumi:"priority"`
+	ServiceTag             pulumi.StringPtrInput `pulumi:"serviceTag"`
+	VirtualNetworkSubnetId pulumi.StringPtrInput `pulumi:"virtualNetworkSubnetId"`
+}
+
+func (GetStandardSiteConfigScmIpRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (i GetStandardSiteConfigScmIpRestrictionArgs) ToGetStandardSiteConfigScmIpRestrictionOutput() GetStandardSiteConfigScmIpRestrictionOutput {
+	return i.ToGetStandardSiteConfigScmIpRestrictionOutputWithContext(context.Background())
+}
+
+func (i GetStandardSiteConfigScmIpRestrictionArgs) ToGetStandardSiteConfigScmIpRestrictionOutputWithContext(ctx context.Context) GetStandardSiteConfigScmIpRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardSiteConfigScmIpRestrictionOutput)
+}
+
+// GetStandardSiteConfigScmIpRestrictionArrayInput is an input type that accepts GetStandardSiteConfigScmIpRestrictionArray and GetStandardSiteConfigScmIpRestrictionArrayOutput values.
+// You can construct a concrete instance of `GetStandardSiteConfigScmIpRestrictionArrayInput` via:
+//
+//	GetStandardSiteConfigScmIpRestrictionArray{ GetStandardSiteConfigScmIpRestrictionArgs{...} }
+type GetStandardSiteConfigScmIpRestrictionArrayInput interface {
+	pulumi.Input
+
+	ToGetStandardSiteConfigScmIpRestrictionArrayOutput() GetStandardSiteConfigScmIpRestrictionArrayOutput
+	ToGetStandardSiteConfigScmIpRestrictionArrayOutputWithContext(context.Context) GetStandardSiteConfigScmIpRestrictionArrayOutput
+}
+
+type GetStandardSiteConfigScmIpRestrictionArray []GetStandardSiteConfigScmIpRestrictionInput
+
+func (GetStandardSiteConfigScmIpRestrictionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStandardSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (i GetStandardSiteConfigScmIpRestrictionArray) ToGetStandardSiteConfigScmIpRestrictionArrayOutput() GetStandardSiteConfigScmIpRestrictionArrayOutput {
+	return i.ToGetStandardSiteConfigScmIpRestrictionArrayOutputWithContext(context.Background())
+}
+
+func (i GetStandardSiteConfigScmIpRestrictionArray) ToGetStandardSiteConfigScmIpRestrictionArrayOutputWithContext(ctx context.Context) GetStandardSiteConfigScmIpRestrictionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardSiteConfigScmIpRestrictionArrayOutput)
+}
+
+type GetStandardSiteConfigScmIpRestrictionOutput struct{ *pulumi.OutputState }
+
+func (GetStandardSiteConfigScmIpRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (o GetStandardSiteConfigScmIpRestrictionOutput) ToGetStandardSiteConfigScmIpRestrictionOutput() GetStandardSiteConfigScmIpRestrictionOutput {
+	return o
+}
+
+func (o GetStandardSiteConfigScmIpRestrictionOutput) ToGetStandardSiteConfigScmIpRestrictionOutputWithContext(ctx context.Context) GetStandardSiteConfigScmIpRestrictionOutput {
+	return o
+}
+
+func (o GetStandardSiteConfigScmIpRestrictionOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigScmIpRestriction) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+func (o GetStandardSiteConfigScmIpRestrictionOutput) Headers() GetStandardSiteConfigScmIpRestrictionHeadersOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigScmIpRestriction) GetStandardSiteConfigScmIpRestrictionHeaders {
+		return v.Headers
+	}).(GetStandardSiteConfigScmIpRestrictionHeadersOutput)
+}
+
+func (o GetStandardSiteConfigScmIpRestrictionOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigScmIpRestriction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+// The name of this Logic App.
+func (o GetStandardSiteConfigScmIpRestrictionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigScmIpRestriction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetStandardSiteConfigScmIpRestrictionOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigScmIpRestriction) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+func (o GetStandardSiteConfigScmIpRestrictionOutput) ServiceTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigScmIpRestriction) *string { return v.ServiceTag }).(pulumi.StringPtrOutput)
+}
+
+func (o GetStandardSiteConfigScmIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigScmIpRestriction) *string { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
+}
+
+type GetStandardSiteConfigScmIpRestrictionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetStandardSiteConfigScmIpRestrictionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStandardSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (o GetStandardSiteConfigScmIpRestrictionArrayOutput) ToGetStandardSiteConfigScmIpRestrictionArrayOutput() GetStandardSiteConfigScmIpRestrictionArrayOutput {
+	return o
+}
+
+func (o GetStandardSiteConfigScmIpRestrictionArrayOutput) ToGetStandardSiteConfigScmIpRestrictionArrayOutputWithContext(ctx context.Context) GetStandardSiteConfigScmIpRestrictionArrayOutput {
+	return o
+}
+
+func (o GetStandardSiteConfigScmIpRestrictionArrayOutput) Index(i pulumi.IntInput) GetStandardSiteConfigScmIpRestrictionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetStandardSiteConfigScmIpRestriction {
+		return vs[0].([]GetStandardSiteConfigScmIpRestriction)[vs[1].(int)]
+	}).(GetStandardSiteConfigScmIpRestrictionOutput)
+}
+
+type GetStandardSiteConfigScmIpRestrictionHeaders struct {
+	XAzureFdids     []string `pulumi:"xAzureFdids"`
+	XFdHealthProbe  *string  `pulumi:"xFdHealthProbe"`
+	XForwardedFors  []string `pulumi:"xForwardedFors"`
+	XForwardedHosts []string `pulumi:"xForwardedHosts"`
+}
+
+// GetStandardSiteConfigScmIpRestrictionHeadersInput is an input type that accepts GetStandardSiteConfigScmIpRestrictionHeadersArgs and GetStandardSiteConfigScmIpRestrictionHeadersOutput values.
+// You can construct a concrete instance of `GetStandardSiteConfigScmIpRestrictionHeadersInput` via:
+//
+//	GetStandardSiteConfigScmIpRestrictionHeadersArgs{...}
+type GetStandardSiteConfigScmIpRestrictionHeadersInput interface {
+	pulumi.Input
+
+	ToGetStandardSiteConfigScmIpRestrictionHeadersOutput() GetStandardSiteConfigScmIpRestrictionHeadersOutput
+	ToGetStandardSiteConfigScmIpRestrictionHeadersOutputWithContext(context.Context) GetStandardSiteConfigScmIpRestrictionHeadersOutput
+}
+
+type GetStandardSiteConfigScmIpRestrictionHeadersArgs struct {
+	XAzureFdids     pulumi.StringArrayInput `pulumi:"xAzureFdids"`
+	XFdHealthProbe  pulumi.StringPtrInput   `pulumi:"xFdHealthProbe"`
+	XForwardedFors  pulumi.StringArrayInput `pulumi:"xForwardedFors"`
+	XForwardedHosts pulumi.StringArrayInput `pulumi:"xForwardedHosts"`
+}
+
+func (GetStandardSiteConfigScmIpRestrictionHeadersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardSiteConfigScmIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (i GetStandardSiteConfigScmIpRestrictionHeadersArgs) ToGetStandardSiteConfigScmIpRestrictionHeadersOutput() GetStandardSiteConfigScmIpRestrictionHeadersOutput {
+	return i.ToGetStandardSiteConfigScmIpRestrictionHeadersOutputWithContext(context.Background())
+}
+
+func (i GetStandardSiteConfigScmIpRestrictionHeadersArgs) ToGetStandardSiteConfigScmIpRestrictionHeadersOutputWithContext(ctx context.Context) GetStandardSiteConfigScmIpRestrictionHeadersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardSiteConfigScmIpRestrictionHeadersOutput)
+}
+
+type GetStandardSiteConfigScmIpRestrictionHeadersOutput struct{ *pulumi.OutputState }
+
+func (GetStandardSiteConfigScmIpRestrictionHeadersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardSiteConfigScmIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (o GetStandardSiteConfigScmIpRestrictionHeadersOutput) ToGetStandardSiteConfigScmIpRestrictionHeadersOutput() GetStandardSiteConfigScmIpRestrictionHeadersOutput {
+	return o
+}
+
+func (o GetStandardSiteConfigScmIpRestrictionHeadersOutput) ToGetStandardSiteConfigScmIpRestrictionHeadersOutputWithContext(ctx context.Context) GetStandardSiteConfigScmIpRestrictionHeadersOutput {
+	return o
+}
+
+func (o GetStandardSiteConfigScmIpRestrictionHeadersOutput) XAzureFdids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigScmIpRestrictionHeaders) []string { return v.XAzureFdids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetStandardSiteConfigScmIpRestrictionHeadersOutput) XFdHealthProbe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigScmIpRestrictionHeaders) *string { return v.XFdHealthProbe }).(pulumi.StringPtrOutput)
+}
+
+func (o GetStandardSiteConfigScmIpRestrictionHeadersOutput) XForwardedFors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigScmIpRestrictionHeaders) []string { return v.XForwardedFors }).(pulumi.StringArrayOutput)
+}
+
+func (o GetStandardSiteConfigScmIpRestrictionHeadersOutput) XForwardedHosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigScmIpRestrictionHeaders) []string { return v.XForwardedHosts }).(pulumi.StringArrayOutput)
+}
+
 type GetStandardSiteCredential struct {
 	Password string `pulumi:"password"`
 	Username string `pulumi:"username"`
@@ -5321,6 +6006,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StandardSiteConfigIpRestrictionArrayInput)(nil)).Elem(), StandardSiteConfigIpRestrictionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StandardSiteConfigIpRestrictionHeadersInput)(nil)).Elem(), StandardSiteConfigIpRestrictionHeadersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StandardSiteConfigIpRestrictionHeadersPtrInput)(nil)).Elem(), StandardSiteConfigIpRestrictionHeadersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StandardSiteConfigScmIpRestrictionInput)(nil)).Elem(), StandardSiteConfigScmIpRestrictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StandardSiteConfigScmIpRestrictionArrayInput)(nil)).Elem(), StandardSiteConfigScmIpRestrictionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StandardSiteConfigScmIpRestrictionHeadersInput)(nil)).Elem(), StandardSiteConfigScmIpRestrictionHeadersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StandardSiteConfigScmIpRestrictionHeadersPtrInput)(nil)).Elem(), StandardSiteConfigScmIpRestrictionHeadersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StandardSiteCredentialInput)(nil)).Elem(), StandardSiteCredentialArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StandardSiteCredentialArrayInput)(nil)).Elem(), StandardSiteCredentialArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerRecurrenceScheduleInput)(nil)).Elem(), TriggerRecurrenceScheduleArgs{})
@@ -5352,6 +6041,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardSiteConfigIpRestrictionInput)(nil)).Elem(), GetStandardSiteConfigIpRestrictionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardSiteConfigIpRestrictionArrayInput)(nil)).Elem(), GetStandardSiteConfigIpRestrictionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardSiteConfigIpRestrictionHeadersInput)(nil)).Elem(), GetStandardSiteConfigIpRestrictionHeadersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardSiteConfigScmIpRestrictionInput)(nil)).Elem(), GetStandardSiteConfigScmIpRestrictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardSiteConfigScmIpRestrictionArrayInput)(nil)).Elem(), GetStandardSiteConfigScmIpRestrictionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardSiteConfigScmIpRestrictionHeadersInput)(nil)).Elem(), GetStandardSiteConfigScmIpRestrictionHeadersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardSiteCredentialInput)(nil)).Elem(), GetStandardSiteCredentialArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardSiteCredentialArrayInput)(nil)).Elem(), GetStandardSiteCredentialArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkflowIdentityInput)(nil)).Elem(), GetWorkflowIdentityArgs{})
@@ -5386,6 +6078,10 @@ func init() {
 	pulumi.RegisterOutputType(StandardSiteConfigIpRestrictionArrayOutput{})
 	pulumi.RegisterOutputType(StandardSiteConfigIpRestrictionHeadersOutput{})
 	pulumi.RegisterOutputType(StandardSiteConfigIpRestrictionHeadersPtrOutput{})
+	pulumi.RegisterOutputType(StandardSiteConfigScmIpRestrictionOutput{})
+	pulumi.RegisterOutputType(StandardSiteConfigScmIpRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(StandardSiteConfigScmIpRestrictionHeadersOutput{})
+	pulumi.RegisterOutputType(StandardSiteConfigScmIpRestrictionHeadersPtrOutput{})
 	pulumi.RegisterOutputType(StandardSiteCredentialOutput{})
 	pulumi.RegisterOutputType(StandardSiteCredentialArrayOutput{})
 	pulumi.RegisterOutputType(TriggerRecurrenceScheduleOutput{})
@@ -5417,6 +6113,9 @@ func init() {
 	pulumi.RegisterOutputType(GetStandardSiteConfigIpRestrictionOutput{})
 	pulumi.RegisterOutputType(GetStandardSiteConfigIpRestrictionArrayOutput{})
 	pulumi.RegisterOutputType(GetStandardSiteConfigIpRestrictionHeadersOutput{})
+	pulumi.RegisterOutputType(GetStandardSiteConfigScmIpRestrictionOutput{})
+	pulumi.RegisterOutputType(GetStandardSiteConfigScmIpRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(GetStandardSiteConfigScmIpRestrictionHeadersOutput{})
 	pulumi.RegisterOutputType(GetStandardSiteCredentialOutput{})
 	pulumi.RegisterOutputType(GetStandardSiteCredentialArrayOutput{})
 	pulumi.RegisterOutputType(GetWorkflowIdentityOutput{})

@@ -18,7 +18,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a Frontdoor Rule.
+ * Manages a Front Door (standard/premium) Rule.
  * 
  * !&gt;**IMPORTANT:** The Rules resource **must** include a `depends_on` meta-argument which references the `azure.cdn.FrontdoorOrigin` and the `azure.cdn.FrontdoorOriginGroup`.
  * 
@@ -208,19 +208,19 @@ import javax.annotation.Nullable;
  * 
  * | Variable name | Description |
  * |---------------|-------------|
- * | `socket_ip`      | The IP address of the direct connection to Azure Front Door edge. If the client used an HTTP proxy or a load balancer to send the request, the value of `socket_ip` is the IP address of the proxy or load balancer. |
+ * | `socket_ip`      | The IP address of the direct connection to Front Door Profiles edge. If the client used an HTTP proxy or a load balancer to send the request, the value of `socket_ip` is the IP address of the proxy or load balancer. |
  * | `client_ip`      | The IP address of the client that made the original request. If there was an `X-Forwarded-For` header in the request, then the client IP address is picked from the header. |
  * | `client_port`    | The IP port of the client that made the request. |
  * | `hostname`       | The host name in the request from the client. |
  * | `geo_country`    | Indicates the requester&#39;s country/region of origin through its country/region code. |
  * | `http_method`    | The method used to make the URL request, such as `GET` or `POST`. |
  * | `http_version`   | The request protocol. Usually `HTTP/1.0`, `HTTP/1.1`, or `HTTP/2.0`. |
- * | `query_string`   | The list of variable/value pairs that follows the &#34;?&#34; in the requested URL.&lt;br/&gt;For example, in the request `http://contoso.com:8080/article.aspx?id=123&amp;title=fabrikam`, the `query_string` value will be `id=123&amp;title=fabrikam`. |
+ * | `query_string`   | The list of variable/value pairs that follows the &#34;?&#34; in the requested URL. For example, in the request `http://contoso.com:8080/article.aspx?id=123&amp;title=fabrikam`, the `query_string` value will be `id=123&amp;title=fabrikam`. |
  * | `request_scheme` | The request scheme: `http` or `https`. |
- * | `request_uri`    | The full original request URI (with arguments).&lt;br/&gt;For example, in the request `http://contoso.com:8080/article.aspx?id=123&amp;title=fabrikam`, the `request_uri` value will be `/article.aspx?id=123&amp;title=fabrikam`. |
+ * | `request_uri`    | The full original request URI (with arguments). For example, in the request `http://contoso.com:8080/article.aspx?id=123&amp;title=fabrikam`, the `request_uri` value will be `/article.aspx?id=123&amp;title=fabrikam`. |
  * | `ssl_protocol`   | The protocol of an established TLS connection. |
  * | `server_port`    | The port of the server that accepted a request. |
- * | `url_path`       | Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments.&lt;br/&gt;For example, in the request `http://contoso.com:8080/article.aspx?id=123&amp;title=fabrikam`, the `uri_path` value will be `/article.aspx`. |
+ * | `url_path`       | Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments. For example, in the request `http://contoso.com:8080/article.aspx?id=123&amp;title=fabrikam`, the `uri_path` value will be `/article.aspx`. |
  * 
  * ### Action Server Variable Format
  * 
@@ -307,7 +307,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * cdn Rules can be imported using the `resource id`, e.g.
+ * Front Door Rules can be imported using the `resource id`, e.g.
  * 
  * ```sh
  *  $ pulumi import azure:cdn/frontdoorRule:FrontdoorRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/ruleSets/ruleSet1/rules/rule1
@@ -345,28 +345,28 @@ public class FrontdoorRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.behaviorOnMatch);
     }
     /**
-     * The resource ID of the Frontdoor Rule Set for this Frontdoor Rule. Changing this forces a new Frontdoor Rule to be created.
+     * The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
      * 
      */
     @Export(name="cdnFrontdoorRuleSetId", type=String.class, parameters={})
     private Output<String> cdnFrontdoorRuleSetId;
 
     /**
-     * @return The resource ID of the Frontdoor Rule Set for this Frontdoor Rule. Changing this forces a new Frontdoor Rule to be created.
+     * @return The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
      * 
      */
     public Output<String> cdnFrontdoorRuleSetId() {
         return this.cdnFrontdoorRuleSetId;
     }
     /**
-     * The name of the Frontdoor Rule Set containing this Frontdoor Rule.
+     * The name of the Front Door Rule Set containing this Front Door Rule.
      * 
      */
     @Export(name="cdnFrontdoorRuleSetName", type=String.class, parameters={})
     private Output<String> cdnFrontdoorRuleSetName;
 
     /**
-     * @return The name of the Frontdoor Rule Set containing this Frontdoor Rule.
+     * @return The name of the Front Door Rule Set containing this Front Door Rule.
      * 
      */
     public Output<String> cdnFrontdoorRuleSetName() {
@@ -387,28 +387,28 @@ public class FrontdoorRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.conditions);
     }
     /**
-     * The name which should be used for this Frontdoor Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Frontdoor Rule to be created.
+     * The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this Frontdoor Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Frontdoor Rule to be created.
+     * @return The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The order in which the rules will be applied for the Frontdoor Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Frontdoor Rule with a lesser order value will be applied before a rule with a greater order value.
+     * The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
      * 
      */
     @Export(name="order", type=Integer.class, parameters={})
     private Output<Integer> order;
 
     /**
-     * @return The order in which the rules will be applied for the Frontdoor Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Frontdoor Rule with a lesser order value will be applied before a rule with a greater order value.
+     * @return The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
      * 
      */
     public Output<Integer> order() {

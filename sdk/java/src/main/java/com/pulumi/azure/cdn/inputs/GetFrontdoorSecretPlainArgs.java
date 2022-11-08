@@ -13,14 +13,14 @@ public final class GetFrontdoorSecretPlainArgs extends com.pulumi.resources.Invo
     public static final GetFrontdoorSecretPlainArgs Empty = new GetFrontdoorSecretPlainArgs();
 
     /**
-     * Specifies the name of the FrontDoor Secret.
+     * Specifies the name of the Front Door Secret.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return Specifies the name of the FrontDoor Secret.
+     * @return Specifies the name of the Front Door Secret.
      * 
      */
     public String name() {
@@ -28,14 +28,14 @@ public final class GetFrontdoorSecretPlainArgs extends com.pulumi.resources.Invo
     }
 
     /**
-     * The name of the FrontDoor Profile within which CDN FrontDoor Secret exists.
+     * The name of the Front Door Profile within which the Front Door Secret exists.
      * 
      */
     @Import(name="profileName", required=true)
     private String profileName;
 
     /**
-     * @return The name of the FrontDoor Profile within which CDN FrontDoor Secret exists.
+     * @return The name of the Front Door Profile within which the Front Door Secret exists.
      * 
      */
     public String profileName() {
@@ -43,14 +43,14 @@ public final class GetFrontdoorSecretPlainArgs extends com.pulumi.resources.Invo
     }
 
     /**
-     * The name of the Resource Group where the CDN FrontDoor Profile exists.
+     * The name of the Resource Group where the Front Door Profile exists.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private String resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the CDN FrontDoor Profile exists.
+     * @return The name of the Resource Group where the Front Door Profile exists.
      * 
      */
     public String resourceGroupName() {
@@ -84,7 +84,7 @@ public final class GetFrontdoorSecretPlainArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param name Specifies the name of the FrontDoor Secret.
+         * @param name Specifies the name of the Front Door Secret.
          * 
          * @return builder
          * 
@@ -95,7 +95,7 @@ public final class GetFrontdoorSecretPlainArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param profileName The name of the FrontDoor Profile within which CDN FrontDoor Secret exists.
+         * @param profileName The name of the Front Door Profile within which the Front Door Secret exists.
          * 
          * @return builder
          * 
@@ -106,7 +106,7 @@ public final class GetFrontdoorSecretPlainArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the CDN FrontDoor Profile exists.
+         * @param resourceGroupName The name of the Resource Group where the Front Door Profile exists.
          * 
          * @return builder
          * 

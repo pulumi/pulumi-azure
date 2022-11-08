@@ -17,14 +17,14 @@ public final class FrontdoorCustomDomainArgs extends com.pulumi.resources.Resour
     public static final FrontdoorCustomDomainArgs Empty = new FrontdoorCustomDomainArgs();
 
     /**
-     * The ID of the Frontdoor Profile. Changing this forces a new Frontdoor Profile to be created.
+     * The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
      * 
      */
     @Import(name="cdnFrontdoorProfileId", required=true)
     private Output<String> cdnFrontdoorProfileId;
 
     /**
-     * @return The ID of the Frontdoor Profile. Changing this forces a new Frontdoor Profile to be created.
+     * @return The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
      * 
      */
     public Output<String> cdnFrontdoorProfileId() {
@@ -32,14 +32,14 @@ public final class FrontdoorCustomDomainArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The ID of the Azure DNS Zone which should be used for this CDN FrontDoor Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider&#39;s domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you&#39;re using your own domain provider to handle your DNS, you must validate the CDN FrontDoor Custom Domain by creating the DNS TXT records manually.
+     * The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider&#39;s domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you&#39;re using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
      * 
      */
     @Import(name="dnsZoneId")
     private @Nullable Output<String> dnsZoneId;
 
     /**
-     * @return The ID of the Azure DNS Zone which should be used for this CDN FrontDoor Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider&#39;s domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you&#39;re using your own domain provider to handle your DNS, you must validate the CDN FrontDoor Custom Domain by creating the DNS TXT records manually.
+     * @return The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider&#39;s domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you&#39;re using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
      * 
      */
     public Optional<Output<String>> dnsZoneId() {
@@ -47,14 +47,14 @@ public final class FrontdoorCustomDomainArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The host name of the domain. The `host_name` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new CDN FrontDoor Custom Domain to be created.
+     * The host name of the domain. The `host_name` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new Front Door Custom Domain to be created.
      * 
      */
     @Import(name="hostName", required=true)
     private Output<String> hostName;
 
     /**
-     * @return The host name of the domain. The `host_name` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new CDN FrontDoor Custom Domain to be created.
+     * @return The host name of the domain. The `host_name` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new Front Door Custom Domain to be created.
      * 
      */
     public Output<String> hostName() {
@@ -62,14 +62,14 @@ public final class FrontdoorCustomDomainArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The name which should be used for this CDN FrontDoor Custom Domain. Possible values must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number and contain only letters, numbers and hyphens. Changing this forces a new CDN FrontDoor Custom Domain to be created.
+     * The name which should be used for this Front Door Custom Domain. Possible values must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number and contain only letters, numbers and hyphens. Changing this forces a new Front Door Custom Domain to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this CDN FrontDoor Custom Domain. Possible values must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number and contain only letters, numbers and hyphens. Changing this forces a new CDN FrontDoor Custom Domain to be created.
+     * @return The name which should be used for this Front Door Custom Domain. Possible values must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number and contain only letters, numbers and hyphens. Changing this forces a new Front Door Custom Domain to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -120,7 +120,7 @@ public final class FrontdoorCustomDomainArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param cdnFrontdoorProfileId The ID of the Frontdoor Profile. Changing this forces a new Frontdoor Profile to be created.
+         * @param cdnFrontdoorProfileId The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class FrontdoorCustomDomainArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param cdnFrontdoorProfileId The ID of the Frontdoor Profile. Changing this forces a new Frontdoor Profile to be created.
+         * @param cdnFrontdoorProfileId The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class FrontdoorCustomDomainArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param dnsZoneId The ID of the Azure DNS Zone which should be used for this CDN FrontDoor Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider&#39;s domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you&#39;re using your own domain provider to handle your DNS, you must validate the CDN FrontDoor Custom Domain by creating the DNS TXT records manually.
+         * @param dnsZoneId The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider&#39;s domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you&#39;re using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class FrontdoorCustomDomainArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param dnsZoneId The ID of the Azure DNS Zone which should be used for this CDN FrontDoor Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider&#39;s domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you&#39;re using your own domain provider to handle your DNS, you must validate the CDN FrontDoor Custom Domain by creating the DNS TXT records manually.
+         * @param dnsZoneId The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider&#39;s domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you&#39;re using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class FrontdoorCustomDomainArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param hostName The host name of the domain. The `host_name` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new CDN FrontDoor Custom Domain to be created.
+         * @param hostName The host name of the domain. The `host_name` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new Front Door Custom Domain to be created.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class FrontdoorCustomDomainArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param hostName The host name of the domain. The `host_name` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new CDN FrontDoor Custom Domain to be created.
+         * @param hostName The host name of the domain. The `host_name` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new Front Door Custom Domain to be created.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class FrontdoorCustomDomainArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The name which should be used for this CDN FrontDoor Custom Domain. Possible values must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number and contain only letters, numbers and hyphens. Changing this forces a new CDN FrontDoor Custom Domain to be created.
+         * @param name The name which should be used for this Front Door Custom Domain. Possible values must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number and contain only letters, numbers and hyphens. Changing this forces a new Front Door Custom Domain to be created.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class FrontdoorCustomDomainArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The name which should be used for this CDN FrontDoor Custom Domain. Possible values must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number and contain only letters, numbers and hyphens. Changing this forces a new CDN FrontDoor Custom Domain to be created.
+         * @param name The name which should be used for this Front Door Custom Domain. Possible values must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number and contain only letters, numbers and hyphens. Changing this forces a new Front Door Custom Domain to be created.
          * 
          * @return builder
          * 

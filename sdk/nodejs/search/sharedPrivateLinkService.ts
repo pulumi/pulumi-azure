@@ -32,13 +32,6 @@ import * as utilities from "../utilities";
  *     requestMessage: "please approve",
  * });
  * ```
- * ## Attributes Reference:
- *
- * The following attributes are exported:
- *
- * * `id` - The ID of the Azure Search Shared Private Link resource.
- *
- * * `status` - The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
  *
  * ## Import
  *
@@ -88,6 +81,9 @@ export class SharedPrivateLinkService extends pulumi.CustomResource {
      * Specify the id of the Azure Search Service. Changing this forces a new resource to be created.
      */
     public readonly searchServiceId!: pulumi.Output<string>;
+    /**
+     * The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
+     */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Specify the sub resource name which the Azure Search Private Endpoint is able to connect to. Changing this forces a new resource to be created.
@@ -156,6 +152,9 @@ export interface SharedPrivateLinkServiceState {
      * Specify the id of the Azure Search Service. Changing this forces a new resource to be created.
      */
     searchServiceId?: pulumi.Input<string>;
+    /**
+     * The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
+     */
     status?: pulumi.Input<string>;
     /**
      * Specify the sub resource name which the Azure Search Private Endpoint is able to connect to. Changing this forces a new resource to be created.

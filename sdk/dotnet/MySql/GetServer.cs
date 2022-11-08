@@ -182,7 +182,6 @@ namespace Pulumi.Azure.MySql
         public readonly int StorageMb;
         /// <summary>
         /// A mapping of tags to assign to the resource.
-        /// ---
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>

@@ -1995,7 +1995,7 @@ class ManagementPolicyRuleActionsBaseBlobArgs:
         """
         :param pulumi.Input[int] delete_after_days_since_last_access_time_greater_than: The age in days after last access time to delete the blob. Must be between `0` and `99999`.
         :param pulumi.Input[int] delete_after_days_since_modification_greater_than: The age in days after last modification to delete the blob. Must be between 0 and 99999.
-        :param pulumi.Input[int] tier_to_archive_after_days_since_last_access_time_greater_than: The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0 and `99999`.
+        :param pulumi.Input[int] tier_to_archive_after_days_since_last_access_time_greater_than: The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0 and`99999`.
         :param pulumi.Input[int] tier_to_archive_after_days_since_last_tier_change_greater_than: The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
         :param pulumi.Input[int] tier_to_archive_after_days_since_modification_greater_than: The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
         :param pulumi.Input[int] tier_to_cool_after_days_since_last_access_time_greater_than: The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`.
@@ -2044,7 +2044,7 @@ class ManagementPolicyRuleActionsBaseBlobArgs:
     @pulumi.getter(name="tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan")
     def tier_to_archive_after_days_since_last_access_time_greater_than(self) -> Optional[pulumi.Input[int]]:
         """
-        The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0 and `99999`.
+        The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0 and`99999`.
         """
         return pulumi.get(self, "tier_to_archive_after_days_since_last_access_time_greater_than")
 

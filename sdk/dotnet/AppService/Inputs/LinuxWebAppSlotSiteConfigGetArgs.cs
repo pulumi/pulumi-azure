@@ -156,6 +156,9 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("minimumTlsVersion")]
         public Input<string>? MinimumTlsVersion { get; set; }
 
+        /// <summary>
+        /// Should Remote Debugging be enabled? Defaults to `false`.
+        /// </summary>
         [Input("remoteDebuggingEnabled")]
         public Input<bool>? RemoteDebuggingEnabled { get; set; }
 

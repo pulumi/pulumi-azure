@@ -109,14 +109,14 @@ public final class WorkspaceSecurityAlertPolicyState extends com.pulumi.resource
     }
 
     /**
-     * Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+     * Specifies the blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Threat Detection audit logs.
      * 
      */
     @Import(name="storageEndpoint")
     private @Nullable Output<String> storageEndpoint;
 
     /**
-     * @return Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+     * @return Specifies the blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Threat Detection audit logs.
      * 
      */
     public Optional<Output<String>> storageEndpoint() {
@@ -316,7 +316,7 @@ public final class WorkspaceSecurityAlertPolicyState extends com.pulumi.resource
         }
 
         /**
-         * @param storageEndpoint Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+         * @param storageEndpoint Specifies the blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Threat Detection audit logs.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class WorkspaceSecurityAlertPolicyState extends com.pulumi.resource
         }
 
         /**
-         * @param storageEndpoint Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+         * @param storageEndpoint Specifies the blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Threat Detection audit logs.
          * 
          * @return builder
          * 

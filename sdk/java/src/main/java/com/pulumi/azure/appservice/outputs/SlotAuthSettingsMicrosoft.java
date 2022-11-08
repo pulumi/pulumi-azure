@@ -22,7 +22,7 @@ public final class SlotAuthSettingsMicrosoft {
      */
     private String clientSecret;
     /**
-     * @return The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+     * @return The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. &lt;https://msdn.microsoft.com/en-us/library/dn631845.aspx&gt;
      * 
      */
     private @Nullable List<String> oauthScopes;
@@ -43,7 +43,7 @@ public final class SlotAuthSettingsMicrosoft {
         return this.clientSecret;
     }
     /**
-     * @return The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+     * @return The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. &lt;https://msdn.microsoft.com/en-us/library/dn631845.aspx&gt;
      * 
      */
     public List<String> oauthScopes() {

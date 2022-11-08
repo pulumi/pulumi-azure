@@ -17,16 +17,20 @@ public final class WindowsVirtualMachineScaleSetGalleryApplicationArgs extends c
     public static final WindowsVirtualMachineScaleSetGalleryApplicationArgs Empty = new WindowsVirtualMachineScaleSetGalleryApplicationArgs();
 
     /**
-     * Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
+     * @deprecated
+     * `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0
      * 
      */
+    @Deprecated /* `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0 */
     @Import(name="configurationReferenceBlobUri")
     private @Nullable Output<String> configurationReferenceBlobUri;
 
     /**
-     * @return Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
+     * @deprecated
+     * `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0
      * 
      */
+    @Deprecated /* `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0 */
     public Optional<Output<String>> configurationReferenceBlobUri() {
         return Optional.ofNullable(this.configurationReferenceBlobUri);
     }
@@ -47,16 +51,20 @@ public final class WindowsVirtualMachineScaleSetGalleryApplicationArgs extends c
     }
 
     /**
-     * Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+     * @deprecated
+     * `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0
      * 
      */
+    @Deprecated /* `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0 */
     @Import(name="packageReferenceId", required=true)
     private Output<String> packageReferenceId;
 
     /**
-     * @return Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+     * @deprecated
+     * `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0
      * 
      */
+    @Deprecated /* `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0 */
     public Output<String> packageReferenceId() {
         return this.packageReferenceId;
     }
@@ -104,22 +112,26 @@ public final class WindowsVirtualMachineScaleSetGalleryApplicationArgs extends c
         }
 
         /**
-         * @param configurationReferenceBlobUri Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0
+         * 
          */
+        @Deprecated /* `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0 */
         public Builder configurationReferenceBlobUri(@Nullable Output<String> configurationReferenceBlobUri) {
             $.configurationReferenceBlobUri = configurationReferenceBlobUri;
             return this;
         }
 
         /**
-         * @param configurationReferenceBlobUri Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0
+         * 
          */
+        @Deprecated /* `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0 */
         public Builder configurationReferenceBlobUri(String configurationReferenceBlobUri) {
             return configurationReferenceBlobUri(Output.of(configurationReferenceBlobUri));
         }
@@ -146,22 +158,26 @@ public final class WindowsVirtualMachineScaleSetGalleryApplicationArgs extends c
         }
 
         /**
-         * @param packageReferenceId Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0
+         * 
          */
+        @Deprecated /* `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0 */
         public Builder packageReferenceId(Output<String> packageReferenceId) {
             $.packageReferenceId = packageReferenceId;
             return this;
         }
 
         /**
-         * @param packageReferenceId Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0
+         * 
          */
+        @Deprecated /* `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0 */
         public Builder packageReferenceId(String packageReferenceId) {
             return packageReferenceId(Output.of(packageReferenceId));
         }

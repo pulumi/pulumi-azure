@@ -163,8 +163,8 @@ namespace Pulumi.Azure.Synapse
     ///     var workspacePolicy = new Azure.KeyVault.AccessPolicy("workspacePolicy", new()
     ///     {
     ///         KeyVaultId = exampleKeyVault.Id,
-    ///         TenantId = exampleWorkspace.Identity.Apply(identity =&gt; identity.TenantId),
-    ///         ObjectId = exampleWorkspace.Identity.Apply(identity =&gt; identity.PrincipalId),
+    ///         TenantId = exampleWorkspace.Identity.Apply(identity =&gt; identity?.TenantId),
+    ///         ObjectId = exampleWorkspace.Identity.Apply(identity =&gt; identity?.PrincipalId),
     ///         KeyPermissions = new[]
     ///         {
     ///             "Get",
@@ -261,7 +261,7 @@ namespace Pulumi.Azure.Synapse
         /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.WorkspaceIdentity> Identity { get; private set; } = null!;
+        public Output<Outputs.WorkspaceIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Allowed AAD Tenant Ids For Linking.
@@ -318,16 +318,16 @@ namespace Pulumi.Azure.Synapse
         public Output<Outputs.WorkspaceSqlAadAdmin> SqlAadAdmin { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
+        /// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
         /// </summary>
         [Output("sqlAdministratorLogin")]
-        public Output<string> SqlAdministratorLogin { get; private set; } = null!;
+        public Output<string?> SqlAdministratorLogin { get; private set; } = null!;
 
         /// <summary>
-        /// The Password associated with the `sql_administrator_login` for the SQL administrator.
+        /// The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
         /// </summary>
         [Output("sqlAdministratorLoginPassword")]
-        public Output<string> SqlAdministratorLoginPassword { get; private set; } = null!;
+        public Output<string?> SqlAdministratorLoginPassword { get; private set; } = null!;
 
         /// <summary>
         /// Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
@@ -432,8 +432,8 @@ namespace Pulumi.Azure.Synapse
         /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
-        [Input("identity", required: true)]
-        public Input<Inputs.WorkspaceIdentityArgs> Identity { get; set; } = null!;
+        [Input("identity")]
+        public Input<Inputs.WorkspaceIdentityArgs>? Identity { get; set; }
 
         [Input("linkingAllowedForAadTenantIds")]
         private InputList<string>? _linkingAllowedForAadTenantIds;
@@ -496,16 +496,16 @@ namespace Pulumi.Azure.Synapse
         public Input<Inputs.WorkspaceSqlAadAdminArgs>? SqlAadAdmin { get; set; }
 
         /// <summary>
-        /// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
+        /// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
         /// </summary>
-        [Input("sqlAdministratorLogin", required: true)]
-        public Input<string> SqlAdministratorLogin { get; set; } = null!;
+        [Input("sqlAdministratorLogin")]
+        public Input<string>? SqlAdministratorLogin { get; set; }
 
         /// <summary>
-        /// The Password associated with the `sql_administrator_login` for the SQL administrator.
+        /// The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
         /// </summary>
-        [Input("sqlAdministratorLoginPassword", required: true)]
-        public Input<string> SqlAdministratorLoginPassword { get; set; } = null!;
+        [Input("sqlAdministratorLoginPassword")]
+        public Input<string>? SqlAdministratorLoginPassword { get; set; }
 
         /// <summary>
         /// Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
@@ -654,13 +654,13 @@ namespace Pulumi.Azure.Synapse
         public Input<Inputs.WorkspaceSqlAadAdminGetArgs>? SqlAadAdmin { get; set; }
 
         /// <summary>
-        /// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
+        /// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
         /// </summary>
         [Input("sqlAdministratorLogin")]
         public Input<string>? SqlAdministratorLogin { get; set; }
 
         /// <summary>
-        /// The Password associated with the `sql_administrator_login` for the SQL administrator.
+        /// The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
         /// </summary>
         [Input("sqlAdministratorLoginPassword")]
         public Input<string>? SqlAdministratorLoginPassword { get; set; }

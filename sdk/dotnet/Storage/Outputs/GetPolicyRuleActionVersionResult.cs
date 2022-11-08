@@ -25,6 +25,10 @@ namespace Pulumi.Azure.Storage.Outputs
         /// The age in days after creation to delete the blob version.
         /// </summary>
         public readonly int DeleteAfterDaysSinceCreation;
+        /// <summary>
+        /// The age in days after last tier change to the blobs to skip to be archved.
+        /// </summary>
+        public readonly int TierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
 
         [OutputConstructor]
         private GetPolicyRuleActionVersionResult(
@@ -32,11 +36,14 @@ namespace Pulumi.Azure.Storage.Outputs
 
             int changeTierToCoolAfterDaysSinceCreation,
 
-            int deleteAfterDaysSinceCreation)
+            int deleteAfterDaysSinceCreation,
+
+            int tierToArchiveAfterDaysSinceLastTierChangeGreaterThan)
         {
             ChangeTierToArchiveAfterDaysSinceCreation = changeTierToArchiveAfterDaysSinceCreation;
             ChangeTierToCoolAfterDaysSinceCreation = changeTierToCoolAfterDaysSinceCreation;
             DeleteAfterDaysSinceCreation = deleteAfterDaysSinceCreation;
+            TierToArchiveAfterDaysSinceLastTierChangeGreaterThan = tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
         }
     }
 }

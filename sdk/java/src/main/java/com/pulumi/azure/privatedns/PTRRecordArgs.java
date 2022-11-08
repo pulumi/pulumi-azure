@@ -78,9 +78,17 @@ public final class PTRRecordArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * The Time To Live (TTL) of the DNS record in seconds.
+     * 
+     */
     @Import(name="ttl", required=true)
     private Output<Integer> ttl;
 
+    /**
+     * @return The Time To Live (TTL) of the DNS record in seconds.
+     * 
+     */
     public Output<Integer> ttl() {
         return this.ttl;
     }
@@ -223,11 +231,23 @@ public final class PTRRecordArgs extends com.pulumi.resources.ResourceArgs {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param ttl The Time To Live (TTL) of the DNS record in seconds.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ttl(Output<Integer> ttl) {
             $.ttl = ttl;
             return this;
         }
 
+        /**
+         * @param ttl The Time To Live (TTL) of the DNS record in seconds.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ttl(Integer ttl) {
             return ttl(Output.of(ttl));
         }

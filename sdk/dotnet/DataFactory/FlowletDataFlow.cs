@@ -234,7 +234,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The folder that this Data Flow is in. If not specified, the Data Flow will appear at the 
+        /// The folder that this Data Flow is in. If not specified, the Data Flow will appear at the
         /// root level.
         /// </summary>
         [Output("folder")]
@@ -347,7 +347,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The folder that this Data Flow is in. If not specified, the Data Flow will appear at the 
+        /// The folder that this Data Flow is in. If not specified, the Data Flow will appear at the
         /// root level.
         /// </summary>
         [Input("folder")]
@@ -446,7 +446,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The folder that this Data Flow is in. If not specified, the Data Flow will appear at the 
+        /// The folder that this Data Flow is in. If not specified, the Data Flow will appear at the
         /// root level.
         /// </summary>
         [Input("folder")]

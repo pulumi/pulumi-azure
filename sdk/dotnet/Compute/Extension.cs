@@ -134,9 +134,9 @@ namespace Pulumi.Azure.Compute
     ///         Publisher = "Microsoft.Azure.Extensions",
     ///         Type = "CustomScript",
     ///         TypeHandlerVersion = "2.0",
-    ///         Settings = @"	{
-    /// 		""commandToExecute"": ""hostname &amp;&amp; uptime""
-    /// 	}
+    ///         Settings = @" {
+    ///   ""commandToExecute"": ""hostname &amp;&amp; uptime""
+    ///  }
     /// ",
     ///         Tags = 
     ///         {

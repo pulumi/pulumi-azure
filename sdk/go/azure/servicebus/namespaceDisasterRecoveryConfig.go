@@ -54,9 +54,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			exampleNamespaceAuthorizationRule, err := servicebus.NewNamespaceAuthorizationRule(ctx, "exampleNamespaceAuthorizationRule", &servicebus.NamespaceAuthorizationRuleArgs{
+//				NamespaceId: pulumi.Any(azurerm_servicebus_namespace.Example.Id),
+//				Listen:      pulumi.Bool(true),
+//				Send:        pulumi.Bool(true),
+//				Manage:      pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			_, err = servicebus.NewNamespaceDisasterRecoveryConfig(ctx, "exampleNamespaceDisasterRecoveryConfig", &servicebus.NamespaceDisasterRecoveryConfigArgs{
-//				PrimaryNamespaceId: primary.ID(),
-//				PartnerNamespaceId: secondary.ID(),
+//				PrimaryNamespaceId:       primary.ID(),
+//				PartnerNamespaceId:       secondary.ID(),
+//				AliasAuthorizationRuleId: exampleNamespaceAuthorizationRule.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -79,6 +89,8 @@ import (
 type NamespaceDisasterRecoveryConfig struct {
 	pulumi.CustomResourceState
 
+	// The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
+	AliasAuthorizationRuleId pulumi.StringPtrOutput `pulumi:"aliasAuthorizationRuleId"`
 	// The primary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultPrimaryKey pulumi.StringOutput `pulumi:"defaultPrimaryKey"`
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
@@ -130,6 +142,8 @@ func GetNamespaceDisasterRecoveryConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NamespaceDisasterRecoveryConfig resources.
 type namespaceDisasterRecoveryConfigState struct {
+	// The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
+	AliasAuthorizationRuleId *string `pulumi:"aliasAuthorizationRuleId"`
 	// The primary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultPrimaryKey *string `pulumi:"defaultPrimaryKey"`
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
@@ -147,6 +161,8 @@ type namespaceDisasterRecoveryConfigState struct {
 }
 
 type NamespaceDisasterRecoveryConfigState struct {
+	// The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
+	AliasAuthorizationRuleId pulumi.StringPtrInput
 	// The primary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultPrimaryKey pulumi.StringPtrInput
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
@@ -168,6 +184,8 @@ func (NamespaceDisasterRecoveryConfigState) ElementType() reflect.Type {
 }
 
 type namespaceDisasterRecoveryConfigArgs struct {
+	// The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
+	AliasAuthorizationRuleId *string `pulumi:"aliasAuthorizationRuleId"`
 	// Specifies the name of the Disaster Recovery Config. This is the alias DNS name that will be created. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the Service Bus Namespace to replicate to.
@@ -178,6 +196,8 @@ type namespaceDisasterRecoveryConfigArgs struct {
 
 // The set of arguments for constructing a NamespaceDisasterRecoveryConfig resource.
 type NamespaceDisasterRecoveryConfigArgs struct {
+	// The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
+	AliasAuthorizationRuleId pulumi.StringPtrInput
 	// Specifies the name of the Disaster Recovery Config. This is the alias DNS name that will be created. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the Service Bus Namespace to replicate to.
@@ -271,6 +291,11 @@ func (o NamespaceDisasterRecoveryConfigOutput) ToNamespaceDisasterRecoveryConfig
 
 func (o NamespaceDisasterRecoveryConfigOutput) ToNamespaceDisasterRecoveryConfigOutputWithContext(ctx context.Context) NamespaceDisasterRecoveryConfigOutput {
 	return o
+}
+
+// The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
+func (o NamespaceDisasterRecoveryConfigOutput) AliasAuthorizationRuleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NamespaceDisasterRecoveryConfig) pulumi.StringPtrOutput { return v.AliasAuthorizationRuleId }).(pulumi.StringPtrOutput)
 }
 
 // The primary access key for the authorization rule `RootManageSharedAccessKey`.

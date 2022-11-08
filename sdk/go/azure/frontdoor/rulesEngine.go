@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Azure Front Door Rules Engine configuration and rules.
-//
 // ## Example Usage
 //
 // ```go

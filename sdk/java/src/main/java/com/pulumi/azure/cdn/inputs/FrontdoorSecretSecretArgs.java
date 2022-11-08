@@ -15,14 +15,14 @@ public final class FrontdoorSecretSecretArgs extends com.pulumi.resources.Resour
     public static final FrontdoorSecretSecretArgs Empty = new FrontdoorSecretSecretArgs();
 
     /**
-     * A `customer_certificate` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+     * A `customer_certificate` block as defined below. Changing this forces a new Front Door Secret to be created.
      * 
      */
     @Import(name="customerCertificates", required=true)
     private Output<List<FrontdoorSecretSecretCustomerCertificateArgs>> customerCertificates;
 
     /**
-     * @return A `customer_certificate` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+     * @return A `customer_certificate` block as defined below. Changing this forces a new Front Door Secret to be created.
      * 
      */
     public Output<List<FrontdoorSecretSecretCustomerCertificateArgs>> customerCertificates() {
@@ -54,7 +54,7 @@ public final class FrontdoorSecretSecretArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param customerCertificates A `customer_certificate` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+         * @param customerCertificates A `customer_certificate` block as defined below. Changing this forces a new Front Door Secret to be created.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class FrontdoorSecretSecretArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param customerCertificates A `customer_certificate` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+         * @param customerCertificates A `customer_certificate` block as defined below. Changing this forces a new Front Door Secret to be created.
          * 
          * @return builder
          * 
@@ -75,7 +75,7 @@ public final class FrontdoorSecretSecretArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param customerCertificates A `customer_certificate` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+         * @param customerCertificates A `customer_certificate` block as defined below. Changing this forces a new Front Door Secret to be created.
          * 
          * @return builder
          * 

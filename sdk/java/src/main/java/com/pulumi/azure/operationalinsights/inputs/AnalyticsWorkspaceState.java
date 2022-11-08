@@ -49,9 +49,17 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.dailyQuotaGb);
     }
 
+    /**
+     * Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
+     * 
+     */
     @Import(name="internetIngestionEnabled")
     private @Nullable Output<Boolean> internetIngestionEnabled;
 
+    /**
+     * @return Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
+     * 
+     */
     public Optional<Output<Boolean>> internetIngestionEnabled() {
         return Optional.ofNullable(this.internetIngestionEnabled);
     }
@@ -300,11 +308,23 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
             return dailyQuotaGb(Output.of(dailyQuotaGb));
         }
 
+        /**
+         * @param internetIngestionEnabled Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder internetIngestionEnabled(@Nullable Output<Boolean> internetIngestionEnabled) {
             $.internetIngestionEnabled = internetIngestionEnabled;
             return this;
         }
 
+        /**
+         * @param internetIngestionEnabled Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder internetIngestionEnabled(Boolean internetIngestionEnabled) {
             return internetIngestionEnabled(Output.of(internetIngestionEnabled));
         }

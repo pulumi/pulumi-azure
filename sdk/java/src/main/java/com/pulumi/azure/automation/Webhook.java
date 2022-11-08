@@ -208,14 +208,14 @@ public class Webhook extends com.pulumi.resources.CustomResource {
         return this.runbookName;
     }
     /**
-     * URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation.
+     * URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="uri", type=String.class, parameters={})
     private Output<String> uri;
 
     /**
-     * @return URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation.
+     * @return URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> uri() {

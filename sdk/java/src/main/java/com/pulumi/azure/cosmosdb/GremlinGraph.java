@@ -207,14 +207,14 @@ public class GremlinGraph extends com.pulumi.resources.CustomResource {
         return this.partitionKeyPath;
     }
     /**
-     * Define a partition key version. Changing this forces a new resource to be created. Possible values are ` 1  `and `2`. This should be set to `2` in order to use large partition keys.
+     * Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
      * 
      */
     @Export(name="partitionKeyVersion", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> partitionKeyVersion;
 
     /**
-     * @return Define a partition key version. Changing this forces a new resource to be created. Possible values are ` 1  `and `2`. This should be set to `2` in order to use large partition keys.
+     * @return Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
      * 
      */
     public Output<Optional<Integer>> partitionKeyVersion() {

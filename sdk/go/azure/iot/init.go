@@ -43,6 +43,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IoTHub{}
 	case "azure:iot/iotHubCertificate:IotHubCertificate":
 		r = &IotHubCertificate{}
+	case "azure:iot/iotHubDeviceUpdateAccount:IotHubDeviceUpdateAccount":
+		r = &IotHubDeviceUpdateAccount{}
+	case "azure:iot/iotHubDeviceUpdateInstance:IotHubDeviceUpdateInstance":
+		r = &IotHubDeviceUpdateInstance{}
 	case "azure:iot/iotHubDps:IotHubDps":
 		r = &IotHubDps{}
 	case "azure:iot/route:Route":
@@ -131,6 +135,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"iot/iotHubCertificate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"iot/iotHubDeviceUpdateAccount",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"iot/iotHubDeviceUpdateInstance",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -41,7 +41,7 @@ public final class DatasetParquetAzureBlobStorageLocation {
      * @return The folder path to the file on the web server.
      * 
      */
-    private String path;
+    private @Nullable String path;
 
     private DatasetParquetAzureBlobStorageLocation() {}
     /**
@@ -83,8 +83,8 @@ public final class DatasetParquetAzureBlobStorageLocation {
      * @return The folder path to the file on the web server.
      * 
      */
-    public String path() {
-        return this.path;
+    public Optional<String> path() {
+        return Optional.ofNullable(this.path);
     }
 
     public static Builder builder() {
@@ -101,7 +101,7 @@ public final class DatasetParquetAzureBlobStorageLocation {
         private @Nullable Boolean dynamicFilenameEnabled;
         private @Nullable Boolean dynamicPathEnabled;
         private @Nullable String filename;
-        private String path;
+        private @Nullable String path;
         public Builder() {}
         public Builder(DatasetParquetAzureBlobStorageLocation defaults) {
     	      Objects.requireNonNull(defaults);
@@ -139,8 +139,8 @@ public final class DatasetParquetAzureBlobStorageLocation {
             return this;
         }
         @CustomType.Setter
-        public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+        public Builder path(@Nullable String path) {
+            this.path = path;
             return this;
         }
         public DatasetParquetAzureBlobStorageLocation build() {

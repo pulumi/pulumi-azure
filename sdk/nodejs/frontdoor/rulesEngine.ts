@@ -7,8 +7,6 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages an Azure Front Door Rules Engine configuration and rules.
- *
  * ## Example Usage
  *
  * ```typescript

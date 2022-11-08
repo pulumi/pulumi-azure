@@ -16,15 +16,19 @@ class NamespaceDisasterRecoveryConfigArgs:
     def __init__(__self__, *,
                  partner_namespace_id: pulumi.Input[str],
                  primary_namespace_id: pulumi.Input[str],
+                 alias_authorization_rule_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a NamespaceDisasterRecoveryConfig resource.
         :param pulumi.Input[str] partner_namespace_id: The ID of the Service Bus Namespace to replicate to.
         :param pulumi.Input[str] primary_namespace_id: The ID of the primary Service Bus Namespace to replicate. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] alias_authorization_rule_id: The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
         :param pulumi.Input[str] name: Specifies the name of the Disaster Recovery Config. This is the alias DNS name that will be created. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "partner_namespace_id", partner_namespace_id)
         pulumi.set(__self__, "primary_namespace_id", primary_namespace_id)
+        if alias_authorization_rule_id is not None:
+            pulumi.set(__self__, "alias_authorization_rule_id", alias_authorization_rule_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -53,6 +57,18 @@ class NamespaceDisasterRecoveryConfigArgs:
         pulumi.set(self, "primary_namespace_id", value)
 
     @property
+    @pulumi.getter(name="aliasAuthorizationRuleId")
+    def alias_authorization_rule_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
+        """
+        return pulumi.get(self, "alias_authorization_rule_id")
+
+    @alias_authorization_rule_id.setter
+    def alias_authorization_rule_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alias_authorization_rule_id", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -68,6 +84,7 @@ class NamespaceDisasterRecoveryConfigArgs:
 @pulumi.input_type
 class _NamespaceDisasterRecoveryConfigState:
     def __init__(__self__, *,
+                 alias_authorization_rule_id: Optional[pulumi.Input[str]] = None,
                  default_primary_key: Optional[pulumi.Input[str]] = None,
                  default_secondary_key: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -77,6 +94,7 @@ class _NamespaceDisasterRecoveryConfigState:
                  secondary_connection_string_alias: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering NamespaceDisasterRecoveryConfig resources.
+        :param pulumi.Input[str] alias_authorization_rule_id: The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
         :param pulumi.Input[str] default_primary_key: The primary access key for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[str] default_secondary_key: The secondary access key for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[str] name: Specifies the name of the Disaster Recovery Config. This is the alias DNS name that will be created. Changing this forces a new resource to be created.
@@ -85,6 +103,8 @@ class _NamespaceDisasterRecoveryConfigState:
         :param pulumi.Input[str] primary_namespace_id: The ID of the primary Service Bus Namespace to replicate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_connection_string_alias: The alias Secondary Connection String for the ServiceBus Namespace
         """
+        if alias_authorization_rule_id is not None:
+            pulumi.set(__self__, "alias_authorization_rule_id", alias_authorization_rule_id)
         if default_primary_key is not None:
             pulumi.set(__self__, "default_primary_key", default_primary_key)
         if default_secondary_key is not None:
@@ -99,6 +119,18 @@ class _NamespaceDisasterRecoveryConfigState:
             pulumi.set(__self__, "primary_namespace_id", primary_namespace_id)
         if secondary_connection_string_alias is not None:
             pulumi.set(__self__, "secondary_connection_string_alias", secondary_connection_string_alias)
+
+    @property
+    @pulumi.getter(name="aliasAuthorizationRuleId")
+    def alias_authorization_rule_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
+        """
+        return pulumi.get(self, "alias_authorization_rule_id")
+
+    @alias_authorization_rule_id.setter
+    def alias_authorization_rule_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alias_authorization_rule_id", value)
 
     @property
     @pulumi.getter(name="defaultPrimaryKey")
@@ -190,6 +222,7 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 alias_authorization_rule_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  partner_namespace_id: Optional[pulumi.Input[str]] = None,
                  primary_namespace_id: Optional[pulumi.Input[str]] = None,
@@ -216,9 +249,15 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             sku="Premium",
             capacity=1)
+        example_namespace_authorization_rule = azure.servicebus.NamespaceAuthorizationRule("exampleNamespaceAuthorizationRule",
+            namespace_id=azurerm_servicebus_namespace["example"]["id"],
+            listen=True,
+            send=True,
+            manage=False)
         example_namespace_disaster_recovery_config = azure.servicebus.NamespaceDisasterRecoveryConfig("exampleNamespaceDisasterRecoveryConfig",
             primary_namespace_id=primary.id,
-            partner_namespace_id=secondary.id)
+            partner_namespace_id=secondary.id,
+            alias_authorization_rule_id=example_namespace_authorization_rule.id)
         ```
 
         ## Import
@@ -231,6 +270,7 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] alias_authorization_rule_id: The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
         :param pulumi.Input[str] name: Specifies the name of the Disaster Recovery Config. This is the alias DNS name that will be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partner_namespace_id: The ID of the Service Bus Namespace to replicate to.
         :param pulumi.Input[str] primary_namespace_id: The ID of the primary Service Bus Namespace to replicate. Changing this forces a new resource to be created.
@@ -263,9 +303,15 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             sku="Premium",
             capacity=1)
+        example_namespace_authorization_rule = azure.servicebus.NamespaceAuthorizationRule("exampleNamespaceAuthorizationRule",
+            namespace_id=azurerm_servicebus_namespace["example"]["id"],
+            listen=True,
+            send=True,
+            manage=False)
         example_namespace_disaster_recovery_config = azure.servicebus.NamespaceDisasterRecoveryConfig("exampleNamespaceDisasterRecoveryConfig",
             primary_namespace_id=primary.id,
-            partner_namespace_id=secondary.id)
+            partner_namespace_id=secondary.id,
+            alias_authorization_rule_id=example_namespace_authorization_rule.id)
         ```
 
         ## Import
@@ -291,6 +337,7 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 alias_authorization_rule_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  partner_namespace_id: Optional[pulumi.Input[str]] = None,
                  primary_namespace_id: Optional[pulumi.Input[str]] = None,
@@ -303,6 +350,7 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NamespaceDisasterRecoveryConfigArgs.__new__(NamespaceDisasterRecoveryConfigArgs)
 
+            __props__.__dict__["alias_authorization_rule_id"] = alias_authorization_rule_id
             __props__.__dict__["name"] = name
             if partner_namespace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'partner_namespace_id'")
@@ -324,6 +372,7 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            alias_authorization_rule_id: Optional[pulumi.Input[str]] = None,
             default_primary_key: Optional[pulumi.Input[str]] = None,
             default_secondary_key: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -338,6 +387,7 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] alias_authorization_rule_id: The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
         :param pulumi.Input[str] default_primary_key: The primary access key for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[str] default_secondary_key: The secondary access key for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[str] name: Specifies the name of the Disaster Recovery Config. This is the alias DNS name that will be created. Changing this forces a new resource to be created.
@@ -350,6 +400,7 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
 
         __props__ = _NamespaceDisasterRecoveryConfigState.__new__(_NamespaceDisasterRecoveryConfigState)
 
+        __props__.__dict__["alias_authorization_rule_id"] = alias_authorization_rule_id
         __props__.__dict__["default_primary_key"] = default_primary_key
         __props__.__dict__["default_secondary_key"] = default_secondary_key
         __props__.__dict__["name"] = name
@@ -358,6 +409,14 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
         __props__.__dict__["primary_namespace_id"] = primary_namespace_id
         __props__.__dict__["secondary_connection_string_alias"] = secondary_connection_string_alias
         return NamespaceDisasterRecoveryConfig(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="aliasAuthorizationRuleId")
+    def alias_authorization_rule_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
+        """
+        return pulumi.get(self, "alias_authorization_rule_id")
 
     @property
     @pulumi.getter(name="defaultPrimaryKey")

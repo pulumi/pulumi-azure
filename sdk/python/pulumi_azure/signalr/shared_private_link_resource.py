@@ -110,6 +110,7 @@ class _SharedPrivateLinkResourceState:
         :param pulumi.Input[str] name: The name of the Signalr Shared Private Link Resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] request_message: The request message for requesting approval of the Shared Private Link Enabled Remote Resource.
         :param pulumi.Input[str] signalr_service_id: The id of the Signalr Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] status: The status of a private endpoint connection. Possible values are `Pending`, `Approved`, `Rejected` or `Disconnected`.
         :param pulumi.Input[str] sub_resource_name: The sub resource name which the Signalr Private Endpoint can connect to. Possible values are `sites`, `vault`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
         """
@@ -165,6 +166,9 @@ class _SharedPrivateLinkResourceState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status of a private endpoint connection. Possible values are `Pending`, `Approved`, `Rejected` or `Disconnected`.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -243,13 +247,6 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
             sub_resource_name="vault",
             target_resource_id=example_key_vault.id)
         ```
-        ## Attributes Reference:
-
-        The following attributes are exported:
-
-        * `id` - The ID of the Signalr Shared Private Link resource.
-
-        * `status` - The status of a private endpoint connection. Possible values are `Pending`, `Approved`, `Rejected` or `Disconnected`.
 
         ## Import
 
@@ -309,13 +306,6 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
             sub_resource_name="vault",
             target_resource_id=example_key_vault.id)
         ```
-        ## Attributes Reference:
-
-        The following attributes are exported:
-
-        * `id` - The ID of the Signalr Shared Private Link resource.
-
-        * `status` - The status of a private endpoint connection. Possible values are `Pending`, `Approved`, `Rejected` or `Disconnected`.
 
         ## Import
 
@@ -392,6 +382,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Signalr Shared Private Link Resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] request_message: The request message for requesting approval of the Shared Private Link Enabled Remote Resource.
         :param pulumi.Input[str] signalr_service_id: The id of the Signalr Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] status: The status of a private endpoint connection. Possible values are `Pending`, `Approved`, `Rejected` or `Disconnected`.
         :param pulumi.Input[str] sub_resource_name: The sub resource name which the Signalr Private Endpoint can connect to. Possible values are `sites`, `vault`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
         """
@@ -434,6 +425,9 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        The status of a private endpoint connection. Possible values are `Pending`, `Approved`, `Rejected` or `Disconnected`.
+        """
         return pulumi.get(self, "status")
 
     @property

@@ -90,7 +90,6 @@ type LookupServerResult struct {
 	// Max storage allowed for this MySQL Server.
 	StorageMb int `pulumi:"storageMb"`
 	// A mapping of tags to assign to the resource.
-	// ---
 	Tags map[string]string `pulumi:"tags"`
 	// Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threatDetectionPolicy` block exports fields documented below.
 	ThreatDetectionPolicies []GetServerThreatDetectionPolicy `pulumi:"threatDetectionPolicies"`
@@ -221,7 +220,6 @@ func (o LookupServerResultOutput) StorageMb() pulumi.IntOutput {
 }
 
 // A mapping of tags to assign to the resource.
-// ---
 func (o LookupServerResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupServerResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

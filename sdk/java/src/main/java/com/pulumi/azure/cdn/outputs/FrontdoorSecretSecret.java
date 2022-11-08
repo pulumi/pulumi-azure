@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class FrontdoorSecretSecret {
     /**
-     * @return A `customer_certificate` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+     * @return A `customer_certificate` block as defined below. Changing this forces a new Front Door Secret to be created.
      * 
      */
     private List<FrontdoorSecretSecretCustomerCertificate> customerCertificates;
 
     private FrontdoorSecretSecret() {}
     /**
-     * @return A `customer_certificate` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+     * @return A `customer_certificate` block as defined below. Changing this forces a new Front Door Secret to be created.
      * 
      */
     public List<FrontdoorSecretSecretCustomerCertificate> customerCertificates() {

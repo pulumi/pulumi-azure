@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a FrontDoor Endpoint.
+ * Manages a Front Door (standard/premium) Endpoint.
  *
  * ## Example Usage
  *
@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * CDN FrontDoor Endpoints can be imported using the `resource id`, e.g.
+ * Front Door Endpoints can be imported using the `resource id`, e.g.
  *
  * ```sh
  *  $ pulumi import azure:cdn/frontdoorEndpoint:FrontdoorEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/afdEndpoints/endpoint1
@@ -63,23 +63,23 @@ export class FrontdoorEndpoint extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the FrontDoor Profile within which this FrontDoor Endpoint should exist. Changing this forces a new CDN FrontDoor Endpoint to be created.
+     * The ID of the Front Door Profile within which this Front Door Endpoint should exist. Changing this forces a new Front Door Endpoint to be created.
      */
     public readonly cdnFrontdoorProfileId!: pulumi.Output<string>;
     /**
-     * Specifies if this CDN FrontDoor Endpoint is enabled? Defaults to `true`.
+     * Specifies if this Front Door Endpoint is enabled? Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The host name of the CDN FrontDoor Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
+     * The host name of the Front Door Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
      */
     public /*out*/ readonly hostName!: pulumi.Output<string>;
     /**
-     * The name which should be used for this CDN FrontDoor Endpoint. Changing this forces a new CDN FrontDoor Endpoint to be created.
+     * The name which should be used for this Front Door Endpoint. Changing this forces a new Front Door Endpoint to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies a mapping of tags which should be assigned to the CDN FrontDoor Endpoint.
+     * Specifies a mapping of tags which should be assigned to the Front Door Endpoint.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -122,23 +122,23 @@ export class FrontdoorEndpoint extends pulumi.CustomResource {
  */
 export interface FrontdoorEndpointState {
     /**
-     * The ID of the FrontDoor Profile within which this FrontDoor Endpoint should exist. Changing this forces a new CDN FrontDoor Endpoint to be created.
+     * The ID of the Front Door Profile within which this Front Door Endpoint should exist. Changing this forces a new Front Door Endpoint to be created.
      */
     cdnFrontdoorProfileId?: pulumi.Input<string>;
     /**
-     * Specifies if this CDN FrontDoor Endpoint is enabled? Defaults to `true`.
+     * Specifies if this Front Door Endpoint is enabled? Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * The host name of the CDN FrontDoor Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
+     * The host name of the Front Door Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
      */
     hostName?: pulumi.Input<string>;
     /**
-     * The name which should be used for this CDN FrontDoor Endpoint. Changing this forces a new CDN FrontDoor Endpoint to be created.
+     * The name which should be used for this Front Door Endpoint. Changing this forces a new Front Door Endpoint to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies a mapping of tags which should be assigned to the CDN FrontDoor Endpoint.
+     * Specifies a mapping of tags which should be assigned to the Front Door Endpoint.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -148,19 +148,19 @@ export interface FrontdoorEndpointState {
  */
 export interface FrontdoorEndpointArgs {
     /**
-     * The ID of the FrontDoor Profile within which this FrontDoor Endpoint should exist. Changing this forces a new CDN FrontDoor Endpoint to be created.
+     * The ID of the Front Door Profile within which this Front Door Endpoint should exist. Changing this forces a new Front Door Endpoint to be created.
      */
     cdnFrontdoorProfileId: pulumi.Input<string>;
     /**
-     * Specifies if this CDN FrontDoor Endpoint is enabled? Defaults to `true`.
+     * Specifies if this Front Door Endpoint is enabled? Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * The name which should be used for this CDN FrontDoor Endpoint. Changing this forces a new CDN FrontDoor Endpoint to be created.
+     * The name which should be used for this Front Door Endpoint. Changing this forces a new Front Door Endpoint to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies a mapping of tags which should be assigned to the CDN FrontDoor Endpoint.
+     * Specifies a mapping of tags which should be assigned to the Front Door Endpoint.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

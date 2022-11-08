@@ -27,8 +27,9 @@ namespace Pulumi.Azure.DataFactory.Outputs
         public readonly string Filename;
         /// <summary>
         /// The folder path to the file on the web server.
+        /// ---
         /// </summary>
-        public readonly string Path;
+        public readonly string? Path;
         /// <summary>
         /// The base URL to the web server hosting the file.
         /// </summary>
@@ -42,7 +43,7 @@ namespace Pulumi.Azure.DataFactory.Outputs
 
             string filename,
 
-            string path,
+            string? path,
 
             string relativeUrl)
         {

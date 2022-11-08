@@ -148,6 +148,7 @@ class FunctionAppActiveSlot(pulumi.CustomResource):
         example_function_app_active_slot = azure.appservice.FunctionAppActiveSlot("exampleFunctionAppActiveSlot", slot_id=example_windows_function_app_slot.id)
         ```
         ### Linux Function App
+
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -229,6 +230,7 @@ class FunctionAppActiveSlot(pulumi.CustomResource):
         example_function_app_active_slot = azure.appservice.FunctionAppActiveSlot("exampleFunctionAppActiveSlot", slot_id=example_windows_function_app_slot.id)
         ```
         ### Linux Function App
+
         ```python
         import pulumi
         import pulumi_azure as azure

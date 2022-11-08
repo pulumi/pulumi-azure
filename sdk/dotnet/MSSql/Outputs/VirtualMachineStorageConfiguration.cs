@@ -30,7 +30,7 @@ namespace Pulumi.Azure.MSSql.Outputs
         /// </summary>
         public readonly string StorageWorkloadType;
         /// <summary>
-        /// An `storage_settings` as defined below.
+        /// An `temp_db_settings` as defined below.
         /// </summary>
         public readonly Outputs.VirtualMachineStorageConfigurationTempDbSettings? TempDbSettings;
 

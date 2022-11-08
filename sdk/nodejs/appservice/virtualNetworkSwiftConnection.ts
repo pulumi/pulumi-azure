@@ -11,15 +11,15 @@ import * as utilities from "../utilities";
  *
  * > **Note:** The following resources support associating the vNet for Regional vNet Integration directly on the resource and via the `azure.appservice.VirtualNetworkSwiftConnection` resource. You can't use both simultaneously.
  *
- *  - azure.appservice.LinuxFunctionApp
- *  - azure.appservice.LinuxFunctionAppSlot
- *  - azure.appservice.LinuxWebApp
- *  - azure.appservice.LinuxWebAppSlot
- *  - azure.logicapps.Standard
- *  - azure.appservice.WindowsFunctionApp
- *  - azure.appservice.WindowsFunctionAppSlot
- *  - azure.appservice.WindowsWebApp
- *  - azure.appservice.WindowsWebAppSlot
+ * - azure.appservice.LinuxFunctionApp
+ * - azure.appservice.LinuxFunctionAppSlot
+ * - azure.appservice.LinuxWebApp
+ * - azure.appservice.LinuxWebAppSlot
+ * - azure.logicapps.Standard
+ * - azure.appservice.WindowsFunctionApp
+ * - azure.appservice.WindowsFunctionAppSlot
+ * - azure.appservice.WindowsWebApp
+ * - azure.appservice.WindowsWebAppSlot
  *
  * This resource requires the `Microsoft.Network/virtualNetworks/subnets/write` permission scope on the subnet.
  *
@@ -72,6 +72,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  * ### With Function App)
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";

@@ -98,7 +98,7 @@ namespace Pulumi.Azure.Compute
     public partial class ManagedDisk : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `source_uri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `source_resource_id`), `FromImage` (Copy a Platform Image, specified with `image_reference_id`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `source_resource_id`).
+        /// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
         /// </summary>
         [Output("createOption")]
         public Output<string> CreateOption { get; private set; } = null!;
@@ -116,25 +116,25 @@ namespace Pulumi.Azure.Compute
         public Output<string?> DiskEncryptionSetId { get; private set; } = null!;
 
         /// <summary>
-        /// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
+        /// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
         /// </summary>
         [Output("diskIopsReadOnly")]
         public Output<int> DiskIopsReadOnly { get; private set; } = null!;
 
         /// <summary>
-        /// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+        /// The number of IOPS allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. One operation can transfer between 4k and 256k bytes.
         /// </summary>
         [Output("diskIopsReadWrite")]
         public Output<int> DiskIopsReadWrite { get; private set; } = null!;
 
         /// <summary>
-        /// The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
+        /// The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. MBps means millions of bytes per second.
         /// </summary>
         [Output("diskMbpsReadOnly")]
         public Output<int> DiskMbpsReadOnly { get; private set; } = null!;
 
         /// <summary>
-        /// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
+        /// The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
         /// </summary>
         [Output("diskMbpsReadWrite")]
         public Output<int> DiskMbpsReadWrite { get; private set; } = null!;
@@ -242,7 +242,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> SecurityType { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of an existing Managed Disk to copy `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
+        /// The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
         /// </summary>
         [Output("sourceResourceId")]
         public Output<string?> SourceResourceId { get; private set; } = null!;
@@ -336,7 +336,7 @@ namespace Pulumi.Azure.Compute
     public sealed class ManagedDiskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `source_uri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `source_resource_id`), `FromImage` (Copy a Platform Image, specified with `image_reference_id`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `source_resource_id`).
+        /// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
         /// </summary>
         [Input("createOption", required: true)]
         public Input<string> CreateOption { get; set; } = null!;
@@ -354,25 +354,25 @@ namespace Pulumi.Azure.Compute
         public Input<string>? DiskEncryptionSetId { get; set; }
 
         /// <summary>
-        /// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
+        /// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
         /// </summary>
         [Input("diskIopsReadOnly")]
         public Input<int>? DiskIopsReadOnly { get; set; }
 
         /// <summary>
-        /// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+        /// The number of IOPS allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. One operation can transfer between 4k and 256k bytes.
         /// </summary>
         [Input("diskIopsReadWrite")]
         public Input<int>? DiskIopsReadWrite { get; set; }
 
         /// <summary>
-        /// The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
+        /// The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. MBps means millions of bytes per second.
         /// </summary>
         [Input("diskMbpsReadOnly")]
         public Input<int>? DiskMbpsReadOnly { get; set; }
 
         /// <summary>
-        /// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
+        /// The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
         /// </summary>
         [Input("diskMbpsReadWrite")]
         public Input<int>? DiskMbpsReadWrite { get; set; }
@@ -480,7 +480,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? SecurityType { get; set; }
 
         /// <summary>
-        /// The ID of an existing Managed Disk to copy `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
+        /// The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
         /// </summary>
         [Input("sourceResourceId")]
         public Input<string>? SourceResourceId { get; set; }
@@ -542,7 +542,7 @@ namespace Pulumi.Azure.Compute
     public sealed class ManagedDiskState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `source_uri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `source_resource_id`), `FromImage` (Copy a Platform Image, specified with `image_reference_id`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `source_resource_id`).
+        /// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
         /// </summary>
         [Input("createOption")]
         public Input<string>? CreateOption { get; set; }
@@ -560,25 +560,25 @@ namespace Pulumi.Azure.Compute
         public Input<string>? DiskEncryptionSetId { get; set; }
 
         /// <summary>
-        /// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
+        /// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
         /// </summary>
         [Input("diskIopsReadOnly")]
         public Input<int>? DiskIopsReadOnly { get; set; }
 
         /// <summary>
-        /// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+        /// The number of IOPS allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. One operation can transfer between 4k and 256k bytes.
         /// </summary>
         [Input("diskIopsReadWrite")]
         public Input<int>? DiskIopsReadWrite { get; set; }
 
         /// <summary>
-        /// The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
+        /// The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. MBps means millions of bytes per second.
         /// </summary>
         [Input("diskMbpsReadOnly")]
         public Input<int>? DiskMbpsReadOnly { get; set; }
 
         /// <summary>
-        /// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
+        /// The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
         /// </summary>
         [Input("diskMbpsReadWrite")]
         public Input<int>? DiskMbpsReadWrite { get; set; }
@@ -686,7 +686,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? SecurityType { get; set; }
 
         /// <summary>
-        /// The ID of an existing Managed Disk to copy `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
+        /// The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
         /// </summary>
         [Input("sourceResourceId")]
         public Input<string>? SourceResourceId { get; set; }

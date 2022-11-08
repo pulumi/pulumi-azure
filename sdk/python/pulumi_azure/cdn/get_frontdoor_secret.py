@@ -46,7 +46,7 @@ class GetFrontdoorSecretResult:
     @pulumi.getter(name="cdnFrontdoorProfileId")
     def cdn_frontdoor_profile_id(self) -> str:
         """
-        Specifies the ID of the CDN FrontDoor Profile within which this CDN FrontDoor Secret exists.
+        Specifies the ID of the Front Door Profile within which this Front Door Secret exists.
         """
         return pulumi.get(self, "cdn_frontdoor_profile_id")
 
@@ -101,7 +101,7 @@ def get_frontdoor_secret(name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFrontdoorSecretResult:
     """
-    Use this data source to access information about an existing CDN FrontDoor Secret.
+    Use this data source to access information about an existing Front Door (standard/premium) Secret.
 
     ## Example Usage
 
@@ -115,9 +115,9 @@ def get_frontdoor_secret(name: Optional[str] = None,
     ```
 
 
-    :param str name: Specifies the name of the FrontDoor Secret.
-    :param str profile_name: The name of the FrontDoor Profile within which CDN FrontDoor Secret exists.
-    :param str resource_group_name: The name of the Resource Group where the CDN FrontDoor Profile exists.
+    :param str name: Specifies the name of the Front Door Secret.
+    :param str profile_name: The name of the Front Door Profile within which the Front Door Secret exists.
+    :param str resource_group_name: The name of the Resource Group where the Front Door Profile exists.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -141,7 +141,7 @@ def get_frontdoor_secret_output(name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFrontdoorSecretResult]:
     """
-    Use this data source to access information about an existing CDN FrontDoor Secret.
+    Use this data source to access information about an existing Front Door (standard/premium) Secret.
 
     ## Example Usage
 
@@ -155,8 +155,8 @@ def get_frontdoor_secret_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: Specifies the name of the FrontDoor Secret.
-    :param str profile_name: The name of the FrontDoor Profile within which CDN FrontDoor Secret exists.
-    :param str resource_group_name: The name of the Resource Group where the CDN FrontDoor Profile exists.
+    :param str name: Specifies the name of the Front Door Secret.
+    :param str profile_name: The name of the Front Door Profile within which the Front Door Secret exists.
+    :param str resource_group_name: The name of the Resource Group where the Front Door Profile exists.
     """
     ...

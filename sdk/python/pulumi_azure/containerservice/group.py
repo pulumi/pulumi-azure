@@ -22,6 +22,7 @@ class GroupArgs:
                  diagnostics: Optional[pulumi.Input['GroupDiagnosticsArgs']] = None,
                  dns_config: Optional[pulumi.Input['GroupDnsConfigArgs']] = None,
                  dns_name_label: Optional[pulumi.Input[str]] = None,
+                 dns_name_label_reuse_policy: Optional[pulumi.Input[str]] = None,
                  exposed_ports: Optional[pulumi.Input[Sequence[pulumi.Input['GroupExposedPortArgs']]]] = None,
                  identity: Optional[pulumi.Input['GroupIdentityArgs']] = None,
                  image_registry_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['GroupImageRegistryCredentialArgs']]]] = None,
@@ -32,7 +33,9 @@ class GroupArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile_id: Optional[pulumi.Input[str]] = None,
                  restart_policy: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 subnet_ids: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Group resource.
         :param pulumi.Input[Sequence[pulumi.Input['GroupContainerArgs']]] containers: The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
@@ -41,17 +44,19 @@ class GroupArgs:
         :param pulumi.Input['GroupDiagnosticsArgs'] diagnostics: A `diagnostics` block as documented below.
         :param pulumi.Input['GroupDnsConfigArgs'] dns_config: A `dns_config` block as documented below.
         :param pulumi.Input[str] dns_name_label: The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] dns_name_label_reuse_policy: The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['GroupExposedPortArgs']]] exposed_ports: Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['GroupIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['GroupImageRegistryCredentialArgs']]] image_registry_credentials: An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['GroupInitContainerArgs']]] init_containers: The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] ip_address_type: Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
+        :param pulumi.Input[str] ip_address_type: Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
         :param pulumi.Input[str] key_vault_key_id: The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] network_profile_id: Network profile ID for deploying to a virtual network.
         :param pulumi.Input[str] restart_policy: Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_ids: The subnet resource IDs for a container group. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Availability Zones in which this Container Group is located.
         """
         pulumi.set(__self__, "containers", containers)
         pulumi.set(__self__, "os_type", os_type)
@@ -62,6 +67,8 @@ class GroupArgs:
             pulumi.set(__self__, "dns_config", dns_config)
         if dns_name_label is not None:
             pulumi.set(__self__, "dns_name_label", dns_name_label)
+        if dns_name_label_reuse_policy is not None:
+            pulumi.set(__self__, "dns_name_label_reuse_policy", dns_name_label_reuse_policy)
         if exposed_ports is not None:
             pulumi.set(__self__, "exposed_ports", exposed_ports)
         if identity is not None:
@@ -79,11 +86,18 @@ class GroupArgs:
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_profile_id is not None:
+            warnings.warn("""the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead""", DeprecationWarning)
+            pulumi.log.warn("""network_profile_id is deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead""")
+        if network_profile_id is not None:
             pulumi.set(__self__, "network_profile_id", network_profile_id)
         if restart_policy is not None:
             pulumi.set(__self__, "restart_policy", restart_policy)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter
@@ -158,6 +172,18 @@ class GroupArgs:
         pulumi.set(self, "dns_name_label", value)
 
     @property
+    @pulumi.getter(name="dnsNameLabelReusePolicy")
+    def dns_name_label_reuse_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "dns_name_label_reuse_policy")
+
+    @dns_name_label_reuse_policy.setter
+    def dns_name_label_reuse_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dns_name_label_reuse_policy", value)
+
+    @property
     @pulumi.getter(name="exposedPorts")
     def exposed_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupExposedPortArgs']]]]:
         """
@@ -209,7 +235,7 @@ class GroupArgs:
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
+        Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
         """
         return pulumi.get(self, "ip_address_type")
 
@@ -256,9 +282,6 @@ class GroupArgs:
     @property
     @pulumi.getter(name="networkProfileId")
     def network_profile_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Network profile ID for deploying to a virtual network.
-        """
         return pulumi.get(self, "network_profile_id")
 
     @network_profile_id.setter
@@ -278,6 +301,18 @@ class GroupArgs:
         pulumi.set(self, "restart_policy", value)
 
     @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subnet resource IDs for a container group. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_ids", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -289,6 +324,18 @@ class GroupArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Availability Zones in which this Container Group is located.
+        """
+        return pulumi.get(self, "zones")
+
+    @zones.setter
+    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "zones", value)
+
 
 @pulumi.input_type
 class _GroupState:
@@ -297,6 +344,7 @@ class _GroupState:
                  diagnostics: Optional[pulumi.Input['GroupDiagnosticsArgs']] = None,
                  dns_config: Optional[pulumi.Input['GroupDnsConfigArgs']] = None,
                  dns_name_label: Optional[pulumi.Input[str]] = None,
+                 dns_name_label_reuse_policy: Optional[pulumi.Input[str]] = None,
                  exposed_ports: Optional[pulumi.Input[Sequence[pulumi.Input['GroupExposedPortArgs']]]] = None,
                  fqdn: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['GroupIdentityArgs']] = None,
@@ -311,28 +359,32 @@ class _GroupState:
                  os_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restart_policy: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 subnet_ids: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Group resources.
         :param pulumi.Input[Sequence[pulumi.Input['GroupContainerArgs']]] containers: The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
         :param pulumi.Input['GroupDiagnosticsArgs'] diagnostics: A `diagnostics` block as documented below.
         :param pulumi.Input['GroupDnsConfigArgs'] dns_config: A `dns_config` block as documented below.
         :param pulumi.Input[str] dns_name_label: The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] dns_name_label_reuse_policy: The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['GroupExposedPortArgs']]] exposed_ports: Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The FQDN of the container group derived from `dns_name_label`.
         :param pulumi.Input['GroupIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['GroupImageRegistryCredentialArgs']]] image_registry_credentials: An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['GroupInitContainerArgs']]] init_containers: The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ip_address: The IP address allocated to the container group.
-        :param pulumi.Input[str] ip_address_type: Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
+        :param pulumi.Input[str] ip_address_type: Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
         :param pulumi.Input[str] key_vault_key_id: The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] network_profile_id: Network profile ID for deploying to a virtual network.
         :param pulumi.Input[str] os_type: The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] restart_policy: Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_ids: The subnet resource IDs for a container group. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Availability Zones in which this Container Group is located.
         """
         if containers is not None:
             pulumi.set(__self__, "containers", containers)
@@ -342,6 +394,8 @@ class _GroupState:
             pulumi.set(__self__, "dns_config", dns_config)
         if dns_name_label is not None:
             pulumi.set(__self__, "dns_name_label", dns_name_label)
+        if dns_name_label_reuse_policy is not None:
+            pulumi.set(__self__, "dns_name_label_reuse_policy", dns_name_label_reuse_policy)
         if exposed_ports is not None:
             pulumi.set(__self__, "exposed_ports", exposed_ports)
         if fqdn is not None:
@@ -363,6 +417,9 @@ class _GroupState:
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_profile_id is not None:
+            warnings.warn("""the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead""", DeprecationWarning)
+            pulumi.log.warn("""network_profile_id is deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead""")
+        if network_profile_id is not None:
             pulumi.set(__self__, "network_profile_id", network_profile_id)
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
@@ -370,8 +427,12 @@ class _GroupState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if restart_policy is not None:
             pulumi.set(__self__, "restart_policy", restart_policy)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter
@@ -420,6 +481,18 @@ class _GroupState:
     @dns_name_label.setter
     def dns_name_label(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dns_name_label", value)
+
+    @property
+    @pulumi.getter(name="dnsNameLabelReusePolicy")
+    def dns_name_label_reuse_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "dns_name_label_reuse_policy")
+
+    @dns_name_label_reuse_policy.setter
+    def dns_name_label_reuse_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dns_name_label_reuse_policy", value)
 
     @property
     @pulumi.getter(name="exposedPorts")
@@ -497,7 +570,7 @@ class _GroupState:
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
+        Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
         """
         return pulumi.get(self, "ip_address_type")
 
@@ -544,9 +617,6 @@ class _GroupState:
     @property
     @pulumi.getter(name="networkProfileId")
     def network_profile_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Network profile ID for deploying to a virtual network.
-        """
         return pulumi.get(self, "network_profile_id")
 
     @network_profile_id.setter
@@ -590,6 +660,18 @@ class _GroupState:
         pulumi.set(self, "restart_policy", value)
 
     @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subnet resource IDs for a container group. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_ids", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -601,6 +683,18 @@ class _GroupState:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Availability Zones in which this Container Group is located.
+        """
+        return pulumi.get(self, "zones")
+
+    @zones.setter
+    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "zones", value)
+
 
 class Group(pulumi.CustomResource):
     @overload
@@ -611,6 +705,7 @@ class Group(pulumi.CustomResource):
                  diagnostics: Optional[pulumi.Input[pulumi.InputType['GroupDiagnosticsArgs']]] = None,
                  dns_config: Optional[pulumi.Input[pulumi.InputType['GroupDnsConfigArgs']]] = None,
                  dns_name_label: Optional[pulumi.Input[str]] = None,
+                 dns_name_label_reuse_policy: Optional[pulumi.Input[str]] = None,
                  exposed_ports: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupExposedPortArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['GroupIdentityArgs']]] = None,
                  image_registry_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupImageRegistryCredentialArgs']]]]] = None,
@@ -623,10 +718,14 @@ class Group(pulumi.CustomResource):
                  os_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restart_policy: Optional[pulumi.Input[str]] = None,
+                 subnet_ids: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Manages as an Azure Container Group instance.
+
+        > **Note** `network_profile_id` is [deprecated](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-vnet) by Azure. For users who want to continue to manage existing `containerservice.Group` that rely on `network_profile_id`, please stay on provider versions prior to v3.16.0. Otherwise, use `subnet_ids` instead.
 
         ## Example Usage
 
@@ -680,19 +779,21 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['GroupDiagnosticsArgs']] diagnostics: A `diagnostics` block as documented below.
         :param pulumi.Input[pulumi.InputType['GroupDnsConfigArgs']] dns_config: A `dns_config` block as documented below.
         :param pulumi.Input[str] dns_name_label: The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] dns_name_label_reuse_policy: The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupExposedPortArgs']]]] exposed_ports: Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['GroupIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupImageRegistryCredentialArgs']]]] image_registry_credentials: An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupInitContainerArgs']]]] init_containers: The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] ip_address_type: Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
+        :param pulumi.Input[str] ip_address_type: Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
         :param pulumi.Input[str] key_vault_key_id: The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] network_profile_id: Network profile ID for deploying to a virtual network.
         :param pulumi.Input[str] os_type: The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] restart_policy: Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_ids: The subnet resource IDs for a container group. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Availability Zones in which this Container Group is located.
         """
         ...
     @overload
@@ -702,6 +803,8 @@ class Group(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages as an Azure Container Group instance.
+
+        > **Note** `network_profile_id` is [deprecated](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-vnet) by Azure. For users who want to continue to manage existing `containerservice.Group` that rely on `network_profile_id`, please stay on provider versions prior to v3.16.0. Otherwise, use `subnet_ids` instead.
 
         ## Example Usage
 
@@ -768,6 +871,7 @@ class Group(pulumi.CustomResource):
                  diagnostics: Optional[pulumi.Input[pulumi.InputType['GroupDiagnosticsArgs']]] = None,
                  dns_config: Optional[pulumi.Input[pulumi.InputType['GroupDnsConfigArgs']]] = None,
                  dns_name_label: Optional[pulumi.Input[str]] = None,
+                 dns_name_label_reuse_policy: Optional[pulumi.Input[str]] = None,
                  exposed_ports: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupExposedPortArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['GroupIdentityArgs']]] = None,
                  image_registry_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupImageRegistryCredentialArgs']]]]] = None,
@@ -780,7 +884,9 @@ class Group(pulumi.CustomResource):
                  os_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restart_policy: Optional[pulumi.Input[str]] = None,
+                 subnet_ids: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -796,6 +902,7 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["diagnostics"] = diagnostics
             __props__.__dict__["dns_config"] = dns_config
             __props__.__dict__["dns_name_label"] = dns_name_label
+            __props__.__dict__["dns_name_label_reuse_policy"] = dns_name_label_reuse_policy
             __props__.__dict__["exposed_ports"] = exposed_ports
             __props__.__dict__["identity"] = identity
             __props__.__dict__["image_registry_credentials"] = image_registry_credentials
@@ -804,6 +911,9 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["key_vault_key_id"] = key_vault_key_id
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            if network_profile_id is not None and not opts.urn:
+                warnings.warn("""the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead""", DeprecationWarning)
+                pulumi.log.warn("""network_profile_id is deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead""")
             __props__.__dict__["network_profile_id"] = network_profile_id
             if os_type is None and not opts.urn:
                 raise TypeError("Missing required property 'os_type'")
@@ -812,7 +922,9 @@ class Group(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["restart_policy"] = restart_policy
+            __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["zones"] = zones
             __props__.__dict__["fqdn"] = None
             __props__.__dict__["ip_address"] = None
         super(Group, __self__).__init__(
@@ -829,6 +941,7 @@ class Group(pulumi.CustomResource):
             diagnostics: Optional[pulumi.Input[pulumi.InputType['GroupDiagnosticsArgs']]] = None,
             dns_config: Optional[pulumi.Input[pulumi.InputType['GroupDnsConfigArgs']]] = None,
             dns_name_label: Optional[pulumi.Input[str]] = None,
+            dns_name_label_reuse_policy: Optional[pulumi.Input[str]] = None,
             exposed_ports: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupExposedPortArgs']]]]] = None,
             fqdn: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['GroupIdentityArgs']]] = None,
@@ -843,7 +956,9 @@ class Group(pulumi.CustomResource):
             os_type: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             restart_policy: Optional[pulumi.Input[str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Group':
+            subnet_ids: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'Group':
         """
         Get an existing Group resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -855,21 +970,23 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['GroupDiagnosticsArgs']] diagnostics: A `diagnostics` block as documented below.
         :param pulumi.Input[pulumi.InputType['GroupDnsConfigArgs']] dns_config: A `dns_config` block as documented below.
         :param pulumi.Input[str] dns_name_label: The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] dns_name_label_reuse_policy: The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupExposedPortArgs']]]] exposed_ports: Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The FQDN of the container group derived from `dns_name_label`.
         :param pulumi.Input[pulumi.InputType['GroupIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupImageRegistryCredentialArgs']]]] image_registry_credentials: An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupInitContainerArgs']]]] init_containers: The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ip_address: The IP address allocated to the container group.
-        :param pulumi.Input[str] ip_address_type: Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
+        :param pulumi.Input[str] ip_address_type: Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
         :param pulumi.Input[str] key_vault_key_id: The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] network_profile_id: Network profile ID for deploying to a virtual network.
         :param pulumi.Input[str] os_type: The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] restart_policy: Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_ids: The subnet resource IDs for a container group. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Availability Zones in which this Container Group is located.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -879,6 +996,7 @@ class Group(pulumi.CustomResource):
         __props__.__dict__["diagnostics"] = diagnostics
         __props__.__dict__["dns_config"] = dns_config
         __props__.__dict__["dns_name_label"] = dns_name_label
+        __props__.__dict__["dns_name_label_reuse_policy"] = dns_name_label_reuse_policy
         __props__.__dict__["exposed_ports"] = exposed_ports
         __props__.__dict__["fqdn"] = fqdn
         __props__.__dict__["identity"] = identity
@@ -893,7 +1011,9 @@ class Group(pulumi.CustomResource):
         __props__.__dict__["os_type"] = os_type
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["restart_policy"] = restart_policy
+        __props__.__dict__["subnet_ids"] = subnet_ids
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["zones"] = zones
         return Group(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -927,6 +1047,14 @@ class Group(pulumi.CustomResource):
         The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "dns_name_label")
+
+    @property
+    @pulumi.getter(name="dnsNameLabelReusePolicy")
+    def dns_name_label_reuse_policy(self) -> pulumi.Output[Optional[str]]:
+        """
+        The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "dns_name_label_reuse_policy")
 
     @property
     @pulumi.getter(name="exposedPorts")
@@ -980,7 +1108,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
+        Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
         """
         return pulumi.get(self, "ip_address_type")
 
@@ -1010,10 +1138,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkProfileId")
-    def network_profile_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        Network profile ID for deploying to a virtual network.
-        """
+    def network_profile_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "network_profile_id")
 
     @property
@@ -1041,10 +1166,26 @@ class Group(pulumi.CustomResource):
         return pulumi.get(self, "restart_policy")
 
     @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> pulumi.Output[Optional[str]]:
+        """
+        The subnet resource IDs for a container group. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of Availability Zones in which this Container Group is located.
+        """
+        return pulumi.get(self, "zones")
 

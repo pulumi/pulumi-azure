@@ -26,6 +26,8 @@ __all__ = [
     'ServerAzureadAdministratorArgs',
     'ServerIdentityArgs',
     'ServerVulnerabilityAssessmentRecurringScansArgs',
+    'VirtualMachineAssessmentArgs',
+    'VirtualMachineAssessmentScheduleArgs',
     'VirtualMachineAutoBackupArgs',
     'VirtualMachineAutoBackupManualScheduleArgs',
     'VirtualMachineAutoPatchingArgs',
@@ -275,7 +277,7 @@ class DatabaseThreatDetectionPolicyArgs:
         :param pulumi.Input[int] retention_days: Specifies the number of days to keep in the Threat Detection audit logs.
         :param pulumi.Input[str] state: The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
         :param pulumi.Input[str] storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
-        :param pulumi.Input[str] storage_endpoint: Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+        :param pulumi.Input[str] storage_endpoint: Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
         """
         if disabled_alerts is not None:
             pulumi.set(__self__, "disabled_alerts", disabled_alerts)
@@ -368,7 +370,7 @@ class DatabaseThreatDetectionPolicyArgs:
     @pulumi.getter(name="storageEndpoint")
     def storage_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+        Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
         """
         return pulumi.get(self, "storage_endpoint")
 
@@ -977,6 +979,130 @@ class ServerVulnerabilityAssessmentRecurringScansArgs:
 
 
 @pulumi.input_type
+class VirtualMachineAssessmentArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 run_immediately: Optional[pulumi.Input[bool]] = None,
+                 schedule: Optional[pulumi.Input['VirtualMachineAssessmentScheduleArgs']] = None):
+        """
+        :param pulumi.Input[bool] enabled: Should Assessment be enabled? Defaults to `true`.
+        :param pulumi.Input[bool] run_immediately: Should Assessment be run immediately? Defaults to `false`.
+        :param pulumi.Input['VirtualMachineAssessmentScheduleArgs'] schedule: An `schedule` block as defined below.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if run_immediately is not None:
+            pulumi.set(__self__, "run_immediately", run_immediately)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Assessment be enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="runImmediately")
+    def run_immediately(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Assessment be run immediately? Defaults to `false`.
+        """
+        return pulumi.get(self, "run_immediately")
+
+    @run_immediately.setter
+    def run_immediately(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "run_immediately", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional[pulumi.Input['VirtualMachineAssessmentScheduleArgs']]:
+        """
+        An `schedule` block as defined below.
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: Optional[pulumi.Input['VirtualMachineAssessmentScheduleArgs']]):
+        pulumi.set(self, "schedule", value)
+
+
+@pulumi.input_type
+class VirtualMachineAssessmentScheduleArgs:
+    def __init__(__self__, *,
+                 day_of_week: pulumi.Input[str],
+                 start_time: pulumi.Input[str],
+                 monthly_occurrence: Optional[pulumi.Input[int]] = None,
+                 weekly_interval: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] day_of_week: What day of the week the assessment will be run. Default value is `Monday`.
+        :param pulumi.Input[str] start_time: What time the assessment will be run. Must be in the format `HH:mm`.
+        :param pulumi.Input[int] monthly_occurrence: How many months between assessment runs. Valid values are between `1` and `5`.
+        :param pulumi.Input[int] weekly_interval: How many weeks between assessment runs. Valid values are between `1` and `6`.
+        """
+        pulumi.set(__self__, "day_of_week", day_of_week)
+        pulumi.set(__self__, "start_time", start_time)
+        if monthly_occurrence is not None:
+            pulumi.set(__self__, "monthly_occurrence", monthly_occurrence)
+        if weekly_interval is not None:
+            pulumi.set(__self__, "weekly_interval", weekly_interval)
+
+    @property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> pulumi.Input[str]:
+        """
+        What day of the week the assessment will be run. Default value is `Monday`.
+        """
+        return pulumi.get(self, "day_of_week")
+
+    @day_of_week.setter
+    def day_of_week(self, value: pulumi.Input[str]):
+        pulumi.set(self, "day_of_week", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> pulumi.Input[str]:
+        """
+        What time the assessment will be run. Must be in the format `HH:mm`.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: pulumi.Input[str]):
+        pulumi.set(self, "start_time", value)
+
+    @property
+    @pulumi.getter(name="monthlyOccurrence")
+    def monthly_occurrence(self) -> Optional[pulumi.Input[int]]:
+        """
+        How many months between assessment runs. Valid values are between `1` and `5`.
+        """
+        return pulumi.get(self, "monthly_occurrence")
+
+    @monthly_occurrence.setter
+    def monthly_occurrence(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "monthly_occurrence", value)
+
+    @property
+    @pulumi.getter(name="weeklyInterval")
+    def weekly_interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        How many weeks between assessment runs. Valid values are between `1` and `6`.
+        """
+        return pulumi.get(self, "weekly_interval")
+
+    @weekly_interval.setter
+    def weekly_interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "weekly_interval", value)
+
+
+@pulumi.input_type
 class VirtualMachineAutoBackupArgs:
     def __init__(__self__, *,
                  retention_period_in_days: pulumi.Input[int],
@@ -1100,10 +1226,10 @@ class VirtualMachineAutoBackupManualScheduleArgs:
                  full_backup_window_in_hours: pulumi.Input[int],
                  log_backup_frequency_in_minutes: pulumi.Input[int]):
         """
-        :param pulumi.Input[str] full_backup_frequency: Frequency of full backups. Valid values include `Daily` or `Weekly`. Required when `backup_schedule_automated` is false.
-        :param pulumi.Input[int] full_backup_start_hour: Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`. Required when `backup_schedule_automated` is false.
-        :param pulumi.Input[int] full_backup_window_in_hours: Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`. Required when `backup_schedule_automated` is false.
-        :param pulumi.Input[int] log_backup_frequency_in_minutes: Frequency of log backups, in minutes. Valid values are from `5` to `60`. Required when `backup_schedule_automated` is false.
+        :param pulumi.Input[str] full_backup_frequency: Frequency of full backups. Valid values include `Daily` or `Weekly`.
+        :param pulumi.Input[int] full_backup_start_hour: Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`.
+        :param pulumi.Input[int] full_backup_window_in_hours: Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`.
+        :param pulumi.Input[int] log_backup_frequency_in_minutes: Frequency of log backups, in minutes. Valid values are from `5` to `60`.
         """
         pulumi.set(__self__, "full_backup_frequency", full_backup_frequency)
         pulumi.set(__self__, "full_backup_start_hour", full_backup_start_hour)
@@ -1114,7 +1240,7 @@ class VirtualMachineAutoBackupManualScheduleArgs:
     @pulumi.getter(name="fullBackupFrequency")
     def full_backup_frequency(self) -> pulumi.Input[str]:
         """
-        Frequency of full backups. Valid values include `Daily` or `Weekly`. Required when `backup_schedule_automated` is false.
+        Frequency of full backups. Valid values include `Daily` or `Weekly`.
         """
         return pulumi.get(self, "full_backup_frequency")
 
@@ -1126,7 +1252,7 @@ class VirtualMachineAutoBackupManualScheduleArgs:
     @pulumi.getter(name="fullBackupStartHour")
     def full_backup_start_hour(self) -> pulumi.Input[int]:
         """
-        Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`. Required when `backup_schedule_automated` is false.
+        Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`.
         """
         return pulumi.get(self, "full_backup_start_hour")
 
@@ -1138,7 +1264,7 @@ class VirtualMachineAutoBackupManualScheduleArgs:
     @pulumi.getter(name="fullBackupWindowInHours")
     def full_backup_window_in_hours(self) -> pulumi.Input[int]:
         """
-        Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`. Required when `backup_schedule_automated` is false.
+        Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`.
         """
         return pulumi.get(self, "full_backup_window_in_hours")
 
@@ -1150,7 +1276,7 @@ class VirtualMachineAutoBackupManualScheduleArgs:
     @pulumi.getter(name="logBackupFrequencyInMinutes")
     def log_backup_frequency_in_minutes(self) -> pulumi.Input[int]:
         """
-        Frequency of log backups, in minutes. Valid values are from `5` to `60`. Required when `backup_schedule_automated` is false.
+        Frequency of log backups, in minutes. Valid values are from `5` to `60`.
         """
         return pulumi.get(self, "log_backup_frequency_in_minutes")
 
@@ -1291,7 +1417,7 @@ class VirtualMachineStorageConfigurationArgs:
         :param pulumi.Input[str] storage_workload_type: The type of storage workload. Valid values include `GENERAL`, `OLTP`, or `DW`.
         :param pulumi.Input['VirtualMachineStorageConfigurationDataSettingsArgs'] data_settings: An `storage_settings` as defined below.
         :param pulumi.Input['VirtualMachineStorageConfigurationLogSettingsArgs'] log_settings: An `storage_settings` as defined below.
-        :param pulumi.Input['VirtualMachineStorageConfigurationTempDbSettingsArgs'] temp_db_settings: An `storage_settings` as defined below.
+        :param pulumi.Input['VirtualMachineStorageConfigurationTempDbSettingsArgs'] temp_db_settings: An `temp_db_settings` as defined below.
         """
         pulumi.set(__self__, "disk_type", disk_type)
         pulumi.set(__self__, "storage_workload_type", storage_workload_type)
@@ -1354,7 +1480,7 @@ class VirtualMachineStorageConfigurationArgs:
     @pulumi.getter(name="tempDbSettings")
     def temp_db_settings(self) -> Optional[pulumi.Input['VirtualMachineStorageConfigurationTempDbSettingsArgs']]:
         """
-        An `storage_settings` as defined below.
+        An `temp_db_settings` as defined below.
         """
         return pulumi.get(self, "temp_db_settings")
 
@@ -1441,13 +1567,33 @@ class VirtualMachineStorageConfigurationLogSettingsArgs:
 class VirtualMachineStorageConfigurationTempDbSettingsArgs:
     def __init__(__self__, *,
                  default_file_path: pulumi.Input[str],
-                 luns: pulumi.Input[Sequence[pulumi.Input[int]]]):
+                 luns: pulumi.Input[Sequence[pulumi.Input[int]]],
+                 data_file_count: Optional[pulumi.Input[int]] = None,
+                 data_file_growth_in_mb: Optional[pulumi.Input[int]] = None,
+                 data_file_size_mb: Optional[pulumi.Input[int]] = None,
+                 log_file_growth_mb: Optional[pulumi.Input[int]] = None,
+                 log_file_size_mb: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] default_file_path: The SQL Server default path
         :param pulumi.Input[Sequence[pulumi.Input[int]]] luns: A list of Logical Unit Numbers for the disks.
+        :param pulumi.Input[int] data_file_count: The SQL Server default file count. This value defaults to `8`
+        :param pulumi.Input[int] data_file_growth_in_mb: The SQL Server default file size - This value defaults to `512`
+        :param pulumi.Input[int] data_file_size_mb: The SQL Server default file size - This value defaults to `256`
+        :param pulumi.Input[int] log_file_growth_mb: The SQL Server default file size - This value defaults to `512`
+        :param pulumi.Input[int] log_file_size_mb: The SQL Server default file size - This value defaults to `256`
         """
         pulumi.set(__self__, "default_file_path", default_file_path)
         pulumi.set(__self__, "luns", luns)
+        if data_file_count is not None:
+            pulumi.set(__self__, "data_file_count", data_file_count)
+        if data_file_growth_in_mb is not None:
+            pulumi.set(__self__, "data_file_growth_in_mb", data_file_growth_in_mb)
+        if data_file_size_mb is not None:
+            pulumi.set(__self__, "data_file_size_mb", data_file_size_mb)
+        if log_file_growth_mb is not None:
+            pulumi.set(__self__, "log_file_growth_mb", log_file_growth_mb)
+        if log_file_size_mb is not None:
+            pulumi.set(__self__, "log_file_size_mb", log_file_size_mb)
 
     @property
     @pulumi.getter(name="defaultFilePath")
@@ -1472,5 +1618,65 @@ class VirtualMachineStorageConfigurationTempDbSettingsArgs:
     @luns.setter
     def luns(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
         pulumi.set(self, "luns", value)
+
+    @property
+    @pulumi.getter(name="dataFileCount")
+    def data_file_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The SQL Server default file count. This value defaults to `8`
+        """
+        return pulumi.get(self, "data_file_count")
+
+    @data_file_count.setter
+    def data_file_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "data_file_count", value)
+
+    @property
+    @pulumi.getter(name="dataFileGrowthInMb")
+    def data_file_growth_in_mb(self) -> Optional[pulumi.Input[int]]:
+        """
+        The SQL Server default file size - This value defaults to `512`
+        """
+        return pulumi.get(self, "data_file_growth_in_mb")
+
+    @data_file_growth_in_mb.setter
+    def data_file_growth_in_mb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "data_file_growth_in_mb", value)
+
+    @property
+    @pulumi.getter(name="dataFileSizeMb")
+    def data_file_size_mb(self) -> Optional[pulumi.Input[int]]:
+        """
+        The SQL Server default file size - This value defaults to `256`
+        """
+        return pulumi.get(self, "data_file_size_mb")
+
+    @data_file_size_mb.setter
+    def data_file_size_mb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "data_file_size_mb", value)
+
+    @property
+    @pulumi.getter(name="logFileGrowthMb")
+    def log_file_growth_mb(self) -> Optional[pulumi.Input[int]]:
+        """
+        The SQL Server default file size - This value defaults to `512`
+        """
+        return pulumi.get(self, "log_file_growth_mb")
+
+    @log_file_growth_mb.setter
+    def log_file_growth_mb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "log_file_growth_mb", value)
+
+    @property
+    @pulumi.getter(name="logFileSizeMb")
+    def log_file_size_mb(self) -> Optional[pulumi.Input[int]]:
+        """
+        The SQL Server default file size - This value defaults to `256`
+        """
+        return pulumi.get(self, "log_file_size_mb")
+
+    @log_file_size_mb.setter
+    def log_file_size_mb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "log_file_size_mb", value)
 
 

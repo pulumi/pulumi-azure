@@ -83,7 +83,6 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
-     * ---
      * 
      */
     @Import(name="hybridServiceUrl")
@@ -91,7 +90,6 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
-     * ---
      * 
      */
     public Optional<Output<String>> hybridServiceUrl() {
@@ -358,7 +356,6 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param hybridServiceUrl The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
-         * ---
          * 
          * @return builder
          * 
@@ -370,7 +367,6 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param hybridServiceUrl The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
-         * ---
          * 
          * @return builder
          * 

@@ -61,6 +61,7 @@ namespace Pulumi.Azure.AppConfiguration
     /// });
     /// ```
     /// ### `Vault` Type
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using Pulumi;

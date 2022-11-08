@@ -14,14 +14,14 @@ public final class GetFrontdoorProfileArgs extends com.pulumi.resources.InvokeAr
     public static final GetFrontdoorProfileArgs Empty = new GetFrontdoorProfileArgs();
 
     /**
-     * Specifies the name of the FrontDoor Profile.
+     * Specifies the name of the Front Door Profile.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the FrontDoor Profile.
+     * @return Specifies the name of the Front Door Profile.
      * 
      */
     public Output<String> name() {
@@ -29,14 +29,14 @@ public final class GetFrontdoorProfileArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * The name of the Resource Group where this FrontDoor Profile exists.
+     * The name of the Resource Group where this Front Door Profile exists.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where this FrontDoor Profile exists.
+     * @return The name of the Resource Group where this Front Door Profile exists.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -69,7 +69,7 @@ public final class GetFrontdoorProfileArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param name Specifies the name of the FrontDoor Profile.
+         * @param name Specifies the name of the Front Door Profile.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class GetFrontdoorProfileArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param name Specifies the name of the FrontDoor Profile.
+         * @param name Specifies the name of the Front Door Profile.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class GetFrontdoorProfileArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where this FrontDoor Profile exists.
+         * @param resourceGroupName The name of the Resource Group where this Front Door Profile exists.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class GetFrontdoorProfileArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where this FrontDoor Profile exists.
+         * @param resourceGroupName The name of the Resource Group where this Front Door Profile exists.
          * 
          * @return builder
          * 

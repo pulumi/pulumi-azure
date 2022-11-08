@@ -12,9 +12,6 @@ namespace Pulumi.Azure.Compute.Inputs
 
     public sealed class WindowsVirtualMachineScaleSetGalleryApplicationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("configurationReferenceBlobUri")]
         public Input<string>? ConfigurationReferenceBlobUri { get; set; }
 
@@ -24,9 +21,6 @@ namespace Pulumi.Azure.Compute.Inputs
         [Input("order")]
         public Input<int>? Order { get; set; }
 
-        /// <summary>
-        /// Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("packageReferenceId", required: true)]
         public Input<string> PackageReferenceId { get; set; } = null!;
 

@@ -14,7 +14,7 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Manages a CDN FrontDoor Rule Set.
+ * Manages a Front Door (standard/premium) Rule Set.
  * 
  * ## Example Usage
  * ```java
@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CDN FrontDoor Rule Sets can be imported using the `resource id`, e.g.
+ * Front Door Rule Sets can be imported using the `resource id`, e.g.
  * 
  * ```sh
  *  $ pulumi import azure:cdn/frontdoorRuleSet:FrontdoorRuleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/ruleSets/ruleSet1
@@ -71,28 +71,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:cdn/frontdoorRuleSet:FrontdoorRuleSet")
 public class FrontdoorRuleSet extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the CDN FrontDoor Profile. Changing this forces a new CDN FrontDoor Rule Set to be created.
+     * The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created.
      * 
      */
     @Export(name="cdnFrontdoorProfileId", type=String.class, parameters={})
     private Output<String> cdnFrontdoorProfileId;
 
     /**
-     * @return The ID of the CDN FrontDoor Profile. Changing this forces a new CDN FrontDoor Rule Set to be created.
+     * @return The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created.
      * 
      */
     public Output<String> cdnFrontdoorProfileId() {
         return this.cdnFrontdoorProfileId;
     }
     /**
-     * The name which should be used for this CDN FrontDoor Rule Set. Changing this forces a new CDN FrontDoor Rule Set to be created.
+     * The name which should be used for this Front Door Rule Set. Changing this forces a new Front Door Rule Set to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this CDN FrontDoor Rule Set. Changing this forces a new CDN FrontDoor Rule Set to be created.
+     * @return The name which should be used for this Front Door Rule Set. Changing this forces a new Front Door Rule Set to be created.
      * 
      */
     public Output<String> name() {

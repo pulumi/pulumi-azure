@@ -55,7 +55,7 @@ class GetFrontdoorOriginGroupResult:
     @pulumi.getter(name="cdnFrontdoorProfileId")
     def cdn_frontdoor_profile_id(self) -> str:
         """
-        Specifies the ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group exists.
+        Specifies the ID of the Front Door Profile within which this Front Door Origin Group exists.
         """
         return pulumi.get(self, "cdn_frontdoor_profile_id")
 
@@ -134,7 +134,7 @@ def get_frontdoor_origin_group(name: Optional[str] = None,
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFrontdoorOriginGroupResult:
     """
-    Use this data source to access information about an existing CDN FrontDoor Origin Group.
+    Use this data source to access information about an existing Front Door (standard/premium) Origin Group.
 
     ## Example Usage
 
@@ -148,9 +148,9 @@ def get_frontdoor_origin_group(name: Optional[str] = None,
     ```
 
 
-    :param str name: Specifies the name of the FrontDoor Origin Group.
-    :param str profile_name: The name of the FrontDoor Profile within which CDN FrontDoor Origin Group exists.
-    :param str resource_group_name: The name of the Resource Group where the CDN FrontDoor Profile exists.
+    :param str name: Specifies the name of the Front Door Origin Group.
+    :param str profile_name: The name of the Front Door Profile within which Front Door Origin Group exists.
+    :param str resource_group_name: The name of the Resource Group where the Front Door Profile exists.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -177,7 +177,7 @@ def get_frontdoor_origin_group_output(name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFrontdoorOriginGroupResult]:
     """
-    Use this data source to access information about an existing CDN FrontDoor Origin Group.
+    Use this data source to access information about an existing Front Door (standard/premium) Origin Group.
 
     ## Example Usage
 
@@ -191,8 +191,8 @@ def get_frontdoor_origin_group_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: Specifies the name of the FrontDoor Origin Group.
-    :param str profile_name: The name of the FrontDoor Profile within which CDN FrontDoor Origin Group exists.
-    :param str resource_group_name: The name of the Resource Group where the CDN FrontDoor Profile exists.
+    :param str name: Specifies the name of the Front Door Origin Group.
+    :param str profile_name: The name of the Front Door Profile within which Front Door Origin Group exists.
+    :param str resource_group_name: The name of the Resource Group where the Front Door Profile exists.
     """
     ...

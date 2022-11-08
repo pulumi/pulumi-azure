@@ -44,8 +44,8 @@ class CertifiateCertificateArgs:
                  contents: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] contents: The base64-encoded certificate contents. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] password: The password associated with the certificate. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] contents: The base64-encoded certificate contents.
+        :param pulumi.Input[str] password: The password associated with the certificate.
         """
         pulumi.set(__self__, "contents", contents)
         if password is not None:
@@ -55,7 +55,7 @@ class CertifiateCertificateArgs:
     @pulumi.getter
     def contents(self) -> pulumi.Input[str]:
         """
-        The base64-encoded certificate contents. Changing this forces a new resource to be created.
+        The base64-encoded certificate contents.
         """
         return pulumi.get(self, "contents")
 
@@ -67,7 +67,7 @@ class CertifiateCertificateArgs:
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
         """
-        The password associated with the certificate. Changing this forces a new resource to be created.
+        The password associated with the certificate.
         """
         return pulumi.get(self, "password")
 
@@ -634,8 +634,8 @@ class CertificateCertificateArgs:
                  contents: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] contents: The base64-encoded certificate contents. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] password: The password associated with the certificate. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] contents: The base64-encoded certificate contents.
+        :param pulumi.Input[str] password: The password associated with the certificate.
         """
         pulumi.set(__self__, "contents", contents)
         if password is not None:
@@ -645,7 +645,7 @@ class CertificateCertificateArgs:
     @pulumi.getter
     def contents(self) -> pulumi.Input[str]:
         """
-        The base64-encoded certificate contents. Changing this forces a new resource to be created.
+        The base64-encoded certificate contents.
         """
         return pulumi.get(self, "contents")
 
@@ -657,7 +657,7 @@ class CertificateCertificateArgs:
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
         """
-        The password associated with the certificate. Changing this forces a new resource to be created.
+        The password associated with the certificate.
         """
         return pulumi.get(self, "password")
 

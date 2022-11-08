@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FrontdoorCustomDomainTls {
     /**
-     * @return Resource ID of the Frontdoor Secret.
+     * @return Resource ID of the Front Door Secret.
      * 
      */
     private @Nullable String cdnFrontdoorSecretId;
@@ -29,7 +29,7 @@ public final class FrontdoorCustomDomainTls {
 
     private FrontdoorCustomDomainTls() {}
     /**
-     * @return Resource ID of the Frontdoor Secret.
+     * @return Resource ID of the Front Door Secret.
      * 
      */
     public Optional<String> cdnFrontdoorSecretId() {

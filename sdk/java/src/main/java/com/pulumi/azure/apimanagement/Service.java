@@ -530,7 +530,6 @@ public class Service extends com.pulumi.resources.CustomResource {
     }
     /**
      * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
-     * &gt; **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
      * 
      */
     @Export(name="virtualNetworkType", type=String.class, parameters={})
@@ -538,7 +537,6 @@ public class Service extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
-     * &gt; **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
      * 
      */
     public Output<Optional<String>> virtualNetworkType() {

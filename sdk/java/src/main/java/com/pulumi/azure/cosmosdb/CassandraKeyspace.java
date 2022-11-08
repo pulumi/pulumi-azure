@@ -104,14 +104,14 @@ public class CassandraKeyspace extends com.pulumi.resources.CustomResource {
         return this.accountName;
     }
     /**
-     * An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+     * An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      * 
      */
     @Export(name="autoscaleSettings", type=CassandraKeyspaceAutoscaleSettings.class, parameters={})
     private Output</* @Nullable */ CassandraKeyspaceAutoscaleSettings> autoscaleSettings;
 
     /**
-     * @return An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+     * @return An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      * 
      */
     public Output<Optional<CassandraKeyspaceAutoscaleSettings>> autoscaleSettings() {

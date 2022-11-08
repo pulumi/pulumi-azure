@@ -74,8 +74,8 @@ import * as utilities from "../utilities";
  * });
  * const workspacePolicy = new azure.keyvault.AccessPolicy("workspacePolicy", {
  *     keyVaultId: exampleKeyVault.id,
- *     tenantId: exampleWorkspace.identity.apply(identity => identity.tenantId),
- *     objectId: exampleWorkspace.identity.apply(identity => identity.principalId),
+ *     tenantId: exampleWorkspace.identity.apply(identity => identity?.tenantId),
+ *     objectId: exampleWorkspace.identity.apply(identity => identity?.principalId),
  *     keyPermissions: [
  *         "Get",
  *         "WrapKey",

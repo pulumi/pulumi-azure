@@ -38,6 +38,7 @@ class InsightsArgs:
         :param pulumi.Input[bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be send when the daily data volume cap is met.
         :param pulumi.Input[bool] disable_ip_masking: By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
         :param pulumi.Input[bool] force_customer_storage_for_profiler: Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
+        :param pulumi.Input[bool] internet_ingestion_enabled: Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] internet_query_enabled: Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] local_authentication_disabled: Disable Non-Azure AD based Auth. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -153,6 +154,9 @@ class InsightsArgs:
     @property
     @pulumi.getter(name="internetIngestionEnabled")
     def internet_ingestion_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
+        """
         return pulumi.get(self, "internet_ingestion_enabled")
 
     @internet_ingestion_enabled.setter
@@ -288,6 +292,7 @@ class _InsightsState:
         :param pulumi.Input[bool] disable_ip_masking: By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
         :param pulumi.Input[bool] force_customer_storage_for_profiler: Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
         :param pulumi.Input[str] instrumentation_key: The Instrumentation Key for this Application Insights component. (Sensitive)
+        :param pulumi.Input[bool] internet_ingestion_enabled: Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] internet_query_enabled: Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] local_authentication_disabled: Disable Non-Azure AD based Auth. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -436,6 +441,9 @@ class _InsightsState:
     @property
     @pulumi.getter(name="internetIngestionEnabled")
     def internet_ingestion_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
+        """
         return pulumi.get(self, "internet_ingestion_enabled")
 
     @internet_ingestion_enabled.setter
@@ -627,6 +635,7 @@ class Insights(pulumi.CustomResource):
         :param pulumi.Input[bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be send when the daily data volume cap is met.
         :param pulumi.Input[bool] disable_ip_masking: By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
         :param pulumi.Input[bool] force_customer_storage_for_profiler: Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
+        :param pulumi.Input[bool] internet_ingestion_enabled: Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] internet_query_enabled: Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] local_authentication_disabled: Disable Non-Azure AD based Auth. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -795,6 +804,7 @@ class Insights(pulumi.CustomResource):
         :param pulumi.Input[bool] disable_ip_masking: By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
         :param pulumi.Input[bool] force_customer_storage_for_profiler: Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
         :param pulumi.Input[str] instrumentation_key: The Instrumentation Key for this Application Insights component. (Sensitive)
+        :param pulumi.Input[bool] internet_ingestion_enabled: Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] internet_query_enabled: Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] local_authentication_disabled: Disable Non-Azure AD based Auth. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -898,6 +908,9 @@ class Insights(pulumi.CustomResource):
     @property
     @pulumi.getter(name="internetIngestionEnabled")
     def internet_ingestion_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
+        """
         return pulumi.get(self, "internet_ingestion_enabled")
 
     @property

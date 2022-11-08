@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .integrationAccountName(exampleIntegrationAccount.name())
  *             .content(&#34;&#34;&#34;
- * 	{
+ *  {
  *        &#34;controlNumber&#34;: &#34;1234&#34;
  *     }
  *             &#34;&#34;&#34;)

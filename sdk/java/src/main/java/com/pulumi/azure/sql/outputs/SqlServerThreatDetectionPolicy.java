@@ -45,7 +45,7 @@ public final class SqlServerThreatDetectionPolicy {
      */
     private @Nullable String storageAccountAccessKey;
     /**
-     * @return Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+     * @return Specifies the blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
      * 
      */
     private @Nullable String storageEndpoint;
@@ -94,7 +94,7 @@ public final class SqlServerThreatDetectionPolicy {
         return Optional.ofNullable(this.storageAccountAccessKey);
     }
     /**
-     * @return Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+     * @return Specifies the blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
      * 
      */
     public Optional<String> storageEndpoint() {

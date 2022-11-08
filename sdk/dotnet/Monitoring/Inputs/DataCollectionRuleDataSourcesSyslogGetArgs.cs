@@ -42,6 +42,18 @@ namespace Pulumi.Azure.Monitoring.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("streams")]
+        private InputList<string>? _streams;
+
+        /// <summary>
+        /// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
+        /// </summary>
+        public InputList<string> Streams
+        {
+            get => _streams ?? (_streams = new InputList<string>());
+            set => _streams = value;
+        }
+
         public DataCollectionRuleDataSourcesSyslogGetArgs()
         {
         }

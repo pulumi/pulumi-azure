@@ -18,7 +18,7 @@ public final class WindowsFunctionAppSiteConfigApplicationStack {
      */
     private @Nullable String dotnetVersion;
     /**
-     * @return The Version of Java to use. Supported versions include `8`, and `11`.
+     * @return The Version of Java to use. Supported versions include `8`, `11` &amp; `17` (In-Preview).
      * 
      */
     private @Nullable String javaVersion;
@@ -52,7 +52,7 @@ public final class WindowsFunctionAppSiteConfigApplicationStack {
         return Optional.ofNullable(this.dotnetVersion);
     }
     /**
-     * @return The Version of Java to use. Supported versions include `8`, and `11`.
+     * @return The Version of Java to use. Supported versions include `8`, `11` &amp; `17` (In-Preview).
      * 
      */
     public Optional<String> javaVersion() {

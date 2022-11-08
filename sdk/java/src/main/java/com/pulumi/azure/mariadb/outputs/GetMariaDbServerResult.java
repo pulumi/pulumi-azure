@@ -51,7 +51,6 @@ public final class GetMariaDbServerResult {
     private List<GetMariaDbServerStorageProfile> storageProfiles;
     /**
      * @return A mapping of tags assigned to the resource.
-     * ---
      * 
      */
     private Map<String,String> tags;
@@ -119,7 +118,6 @@ public final class GetMariaDbServerResult {
     }
     /**
      * @return A mapping of tags assigned to the resource.
-     * ---
      * 
      */
     public Map<String,String> tags() {

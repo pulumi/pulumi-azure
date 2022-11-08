@@ -13,14 +13,14 @@ public final class GetFrontdoorEndpointPlainArgs extends com.pulumi.resources.In
     public static final GetFrontdoorEndpointPlainArgs Empty = new GetFrontdoorEndpointPlainArgs();
 
     /**
-     * Specifies the name of the FrontDoor Endpoint.
+     * Specifies the name of the Front Door Endpoint.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return Specifies the name of the FrontDoor Endpoint.
+     * @return Specifies the name of the Front Door Endpoint.
      * 
      */
     public String name() {
@@ -28,14 +28,14 @@ public final class GetFrontdoorEndpointPlainArgs extends com.pulumi.resources.In
     }
 
     /**
-     * The name of the FrontDoor Profile within which CDN FrontDoor Endpoint exists.
+     * The name of the Front Door Profile within which Front Door Endpoint exists.
      * 
      */
     @Import(name="profileName", required=true)
     private String profileName;
 
     /**
-     * @return The name of the FrontDoor Profile within which CDN FrontDoor Endpoint exists.
+     * @return The name of the Front Door Profile within which Front Door Endpoint exists.
      * 
      */
     public String profileName() {
@@ -43,14 +43,14 @@ public final class GetFrontdoorEndpointPlainArgs extends com.pulumi.resources.In
     }
 
     /**
-     * The name of the Resource Group where the CDN FrontDoor Profile exists.
+     * The name of the Resource Group where the Front Door Profile exists.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private String resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the CDN FrontDoor Profile exists.
+     * @return The name of the Resource Group where the Front Door Profile exists.
      * 
      */
     public String resourceGroupName() {
@@ -84,7 +84,7 @@ public final class GetFrontdoorEndpointPlainArgs extends com.pulumi.resources.In
         }
 
         /**
-         * @param name Specifies the name of the FrontDoor Endpoint.
+         * @param name Specifies the name of the Front Door Endpoint.
          * 
          * @return builder
          * 
@@ -95,7 +95,7 @@ public final class GetFrontdoorEndpointPlainArgs extends com.pulumi.resources.In
         }
 
         /**
-         * @param profileName The name of the FrontDoor Profile within which CDN FrontDoor Endpoint exists.
+         * @param profileName The name of the Front Door Profile within which Front Door Endpoint exists.
          * 
          * @return builder
          * 
@@ -106,7 +106,7 @@ public final class GetFrontdoorEndpointPlainArgs extends com.pulumi.resources.In
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the CDN FrontDoor Profile exists.
+         * @param resourceGroupName The name of the Resource Group where the Front Door Profile exists.
          * 
          * @return builder
          * 

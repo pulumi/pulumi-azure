@@ -32,9 +32,10 @@ namespace Pulumi.Azure.DataFactory.Inputs
 
         /// <summary>
         /// The folder path to the file on the web server.
+        /// ---
         /// </summary>
-        [Input("path", required: true)]
-        public Input<string> Path { get; set; } = null!;
+        [Input("path")]
+        public Input<string>? Path { get; set; }
 
         /// <summary>
         /// The base URL to the web server hosting the file.

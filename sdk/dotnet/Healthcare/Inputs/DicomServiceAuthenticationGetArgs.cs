@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Healthcare.Inputs
         private InputList<string>? _audiences;
 
         /// <summary>
-        /// The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+        /// The intended audience to receive authentication tokens for the service. The default value is &lt;https://dicom.azurehealthcareapis.azure.com&gt;
         /// </summary>
         public InputList<string> Audiences
         {

@@ -99,9 +99,17 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
     public Output<Optional<Double>> dailyQuotaGb() {
         return Codegen.optional(this.dailyQuotaGb);
     }
+    /**
+     * Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
+     * 
+     */
     @Export(name="internetIngestionEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> internetIngestionEnabled;
 
+    /**
+     * @return Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
+     * 
+     */
     public Output<Optional<Boolean>> internetIngestionEnabled() {
         return Codegen.optional(this.internetIngestionEnabled);
     }

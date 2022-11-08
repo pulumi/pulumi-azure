@@ -101,7 +101,6 @@ export class LoadBalancer extends pulumi.CustomResource {
     public readonly sku!: pulumi.Output<string | undefined>;
     /**
      * `skuTier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
-     * *
      */
     public readonly skuTier!: pulumi.Output<string | undefined>;
     /**
@@ -191,7 +190,6 @@ export interface LoadBalancerState {
     sku?: pulumi.Input<string>;
     /**
      * `skuTier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
-     * *
      */
     skuTier?: pulumi.Input<string>;
     /**
@@ -230,7 +228,6 @@ export interface LoadBalancerArgs {
     sku?: pulumi.Input<string>;
     /**
      * `skuTier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
-     * *
      */
     skuTier?: pulumi.Input<string>;
     /**

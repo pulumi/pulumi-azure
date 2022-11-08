@@ -50,7 +50,7 @@ export class FallbackRoute extends pulumi.CustomResource {
     }
 
     /**
-     * The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+     * The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
      */
     public readonly condition!: pulumi.Output<string | undefined>;
     /**
@@ -124,7 +124,7 @@ export class FallbackRoute extends pulumi.CustomResource {
  */
 export interface FallbackRouteState {
     /**
-     * The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+     * The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
      */
     condition?: pulumi.Input<string>;
     /**
@@ -154,7 +154,7 @@ export interface FallbackRouteState {
  */
 export interface FallbackRouteArgs {
     /**
-     * The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+     * The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
      */
     condition?: pulumi.Input<string>;
     /**

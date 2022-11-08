@@ -22,7 +22,7 @@ public final class WorkspaceGithubRepo {
      */
     private String branchName;
     /**
-     * @return Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com.
+     * @return Specifies the GitHub Enterprise host name. For example: &lt;https://github.mydomain.com&gt;.
      * 
      */
     private @Nullable String gitUrl;
@@ -58,7 +58,7 @@ public final class WorkspaceGithubRepo {
         return this.branchName;
     }
     /**
-     * @return Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com.
+     * @return Specifies the GitHub Enterprise host name. For example: &lt;https://github.mydomain.com&gt;.
      * 
      */
     public Optional<String> gitUrl() {

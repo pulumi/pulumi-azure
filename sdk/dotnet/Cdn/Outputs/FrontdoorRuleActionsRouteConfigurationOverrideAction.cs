@@ -14,19 +14,19 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class FrontdoorRuleActionsRouteConfigurationOverrideAction
     {
         /// <summary>
-        /// `HonorOrigin` Frontdoor will always honor origin response header directive. If the origin directive is missing, Frontdoor will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. Possible values include `HonorOrigin`, `OverrideAlways` or `OverrideIfOriginMissing`. Defaults to `HonorOrigin`.
+        /// `HonorOrigin` the Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your Front Door Origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your Front Door Origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. `Disabled` the Front Door will not cache the response contents, irrespective of Front Door Origin response directives. Possible values include `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing` or `Disabled`. Defaults to `HonorOrigin`.
         /// </summary>
         public readonly string? CacheBehavior;
         /// <summary>
-        /// When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`).
+        /// When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`). Defaults to `1.12:00:00`.
         /// </summary>
-        public readonly string CacheDuration;
+        public readonly string? CacheDuration;
         /// <summary>
-        /// The origin group resource ID that the request should be routed to. This overrides the configuration specified in the Frontdoor endpoint route.
+        /// The Front Door Origin Group resource ID that the request should be routed to. This overrides the configuration specified in the Front Door Endpoint route.
         /// </summary>
-        public readonly string CdnFrontdoorOriginGroupId;
+        public readonly string? CdnFrontdoorOriginGroupId;
         /// <summary>
-        /// Should Frontdoor dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
+        /// Should the Front Door dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
         /// </summary>
         public readonly bool? CompressionEnabled;
         /// <summary>
@@ -46,9 +46,9 @@ namespace Pulumi.Azure.Cdn.Outputs
         private FrontdoorRuleActionsRouteConfigurationOverrideAction(
             string? cacheBehavior,
 
-            string cacheDuration,
+            string? cacheDuration,
 
-            string cdnFrontdoorOriginGroupId,
+            string? cdnFrontdoorOriginGroupId,
 
             bool? compressionEnabled,
 

@@ -22,6 +22,7 @@ class InteractiveQueryClusterArgs:
                  resource_group_name: pulumi.Input[str],
                  roles: pulumi.Input['InteractiveQueryClusterRolesArgs'],
                  tier: pulumi.Input[str],
+                 compute_isolation: Optional[pulumi.Input['InteractiveQueryClusterComputeIsolationArgs']] = None,
                  disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterDiskEncryptionArgs']]]] = None,
                  encryption_in_transit_enabled: Optional[pulumi.Input[bool]] = None,
                  extension: Optional[pulumi.Input['InteractiveQueryClusterExtensionArgs']] = None,
@@ -43,6 +44,7 @@ class InteractiveQueryClusterArgs:
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['InteractiveQueryClusterRolesArgs'] roles: A `roles` block as defined below.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight Interactive Query Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
+        :param pulumi.Input['InteractiveQueryClusterComputeIsolationArgs'] compute_isolation: A `compute_isolation` block as defined below.
         :param pulumi.Input[bool] encryption_in_transit_enabled: Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input['InteractiveQueryClusterExtensionArgs'] extension: An `extension` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
@@ -61,6 +63,8 @@ class InteractiveQueryClusterArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "roles", roles)
         pulumi.set(__self__, "tier", tier)
+        if compute_isolation is not None:
+            pulumi.set(__self__, "compute_isolation", compute_isolation)
         if disk_encryptions is not None:
             pulumi.set(__self__, "disk_encryptions", disk_encryptions)
         if encryption_in_transit_enabled is not None:
@@ -159,6 +163,18 @@ class InteractiveQueryClusterArgs:
     @tier.setter
     def tier(self, value: pulumi.Input[str]):
         pulumi.set(self, "tier", value)
+
+    @property
+    @pulumi.getter(name="computeIsolation")
+    def compute_isolation(self) -> Optional[pulumi.Input['InteractiveQueryClusterComputeIsolationArgs']]:
+        """
+        A `compute_isolation` block as defined below.
+        """
+        return pulumi.get(self, "compute_isolation")
+
+    @compute_isolation.setter
+    def compute_isolation(self, value: Optional[pulumi.Input['InteractiveQueryClusterComputeIsolationArgs']]):
+        pulumi.set(self, "compute_isolation", value)
 
     @property
     @pulumi.getter(name="diskEncryptions")
@@ -316,6 +332,7 @@ class _InteractiveQueryClusterState:
     def __init__(__self__, *,
                  cluster_version: Optional[pulumi.Input[str]] = None,
                  component_version: Optional[pulumi.Input['InteractiveQueryClusterComponentVersionArgs']] = None,
+                 compute_isolation: Optional[pulumi.Input['InteractiveQueryClusterComputeIsolationArgs']] = None,
                  disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterDiskEncryptionArgs']]]] = None,
                  encryption_in_transit_enabled: Optional[pulumi.Input[bool]] = None,
                  extension: Optional[pulumi.Input['InteractiveQueryClusterExtensionArgs']] = None,
@@ -339,6 +356,7 @@ class _InteractiveQueryClusterState:
         Input properties used for looking up and filtering InteractiveQueryCluster resources.
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input['InteractiveQueryClusterComponentVersionArgs'] component_version: A `component_version` block as defined below.
+        :param pulumi.Input['InteractiveQueryClusterComputeIsolationArgs'] compute_isolation: A `compute_isolation` block as defined below.
         :param pulumi.Input[bool] encryption_in_transit_enabled: Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input['InteractiveQueryClusterExtensionArgs'] extension: An `extension` block as defined below.
         :param pulumi.Input['InteractiveQueryClusterGatewayArgs'] gateway: A `gateway` block as defined below.
@@ -361,6 +379,8 @@ class _InteractiveQueryClusterState:
             pulumi.set(__self__, "cluster_version", cluster_version)
         if component_version is not None:
             pulumi.set(__self__, "component_version", component_version)
+        if compute_isolation is not None:
+            pulumi.set(__self__, "compute_isolation", compute_isolation)
         if disk_encryptions is not None:
             pulumi.set(__self__, "disk_encryptions", disk_encryptions)
         if encryption_in_transit_enabled is not None:
@@ -423,6 +443,18 @@ class _InteractiveQueryClusterState:
     @component_version.setter
     def component_version(self, value: Optional[pulumi.Input['InteractiveQueryClusterComponentVersionArgs']]):
         pulumi.set(self, "component_version", value)
+
+    @property
+    @pulumi.getter(name="computeIsolation")
+    def compute_isolation(self) -> Optional[pulumi.Input['InteractiveQueryClusterComputeIsolationArgs']]:
+        """
+        A `compute_isolation` block as defined below.
+        """
+        return pulumi.get(self, "compute_isolation")
+
+    @compute_isolation.setter
+    def compute_isolation(self, value: Optional[pulumi.Input['InteractiveQueryClusterComputeIsolationArgs']]):
+        pulumi.set(self, "compute_isolation", value)
 
     @property
     @pulumi.getter(name="diskEncryptions")
@@ -654,6 +686,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
                  component_version: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterComponentVersionArgs']]] = None,
+                 compute_isolation: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterComputeIsolationArgs']]] = None,
                  disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InteractiveQueryClusterDiskEncryptionArgs']]]]] = None,
                  encryption_in_transit_enabled: Optional[pulumi.Input[bool]] = None,
                  extension: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterExtensionArgs']]] = None,
@@ -739,6 +772,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterComponentVersionArgs']] component_version: A `component_version` block as defined below.
+        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterComputeIsolationArgs']] compute_isolation: A `compute_isolation` block as defined below.
         :param pulumi.Input[bool] encryption_in_transit_enabled: Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterExtensionArgs']] extension: An `extension` block as defined below.
         :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterGatewayArgs']] gateway: A `gateway` block as defined below.
@@ -841,6 +875,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
                  component_version: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterComponentVersionArgs']]] = None,
+                 compute_isolation: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterComputeIsolationArgs']]] = None,
                  disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InteractiveQueryClusterDiskEncryptionArgs']]]]] = None,
                  encryption_in_transit_enabled: Optional[pulumi.Input[bool]] = None,
                  extension: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterExtensionArgs']]] = None,
@@ -873,6 +908,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
             if component_version is None and not opts.urn:
                 raise TypeError("Missing required property 'component_version'")
             __props__.__dict__["component_version"] = component_version
+            __props__.__dict__["compute_isolation"] = compute_isolation
             __props__.__dict__["disk_encryptions"] = disk_encryptions
             __props__.__dict__["encryption_in_transit_enabled"] = encryption_in_transit_enabled
             __props__.__dict__["extension"] = extension
@@ -912,6 +948,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cluster_version: Optional[pulumi.Input[str]] = None,
             component_version: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterComponentVersionArgs']]] = None,
+            compute_isolation: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterComputeIsolationArgs']]] = None,
             disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InteractiveQueryClusterDiskEncryptionArgs']]]]] = None,
             encryption_in_transit_enabled: Optional[pulumi.Input[bool]] = None,
             extension: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterExtensionArgs']]] = None,
@@ -940,6 +977,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterComponentVersionArgs']] component_version: A `component_version` block as defined below.
+        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterComputeIsolationArgs']] compute_isolation: A `compute_isolation` block as defined below.
         :param pulumi.Input[bool] encryption_in_transit_enabled: Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterExtensionArgs']] extension: An `extension` block as defined below.
         :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterGatewayArgs']] gateway: A `gateway` block as defined below.
@@ -964,6 +1002,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
 
         __props__.__dict__["cluster_version"] = cluster_version
         __props__.__dict__["component_version"] = component_version
+        __props__.__dict__["compute_isolation"] = compute_isolation
         __props__.__dict__["disk_encryptions"] = disk_encryptions
         __props__.__dict__["encryption_in_transit_enabled"] = encryption_in_transit_enabled
         __props__.__dict__["extension"] = extension
@@ -1000,6 +1039,14 @@ class InteractiveQueryCluster(pulumi.CustomResource):
         A `component_version` block as defined below.
         """
         return pulumi.get(self, "component_version")
+
+    @property
+    @pulumi.getter(name="computeIsolation")
+    def compute_isolation(self) -> pulumi.Output[Optional['outputs.InteractiveQueryClusterComputeIsolation']]:
+        """
+        A `compute_isolation` block as defined below.
+        """
+        return pulumi.get(self, "compute_isolation")
 
     @property
     @pulumi.getter(name="diskEncryptions")

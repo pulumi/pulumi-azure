@@ -47,7 +47,7 @@ import (
 //			_, err = logicapps.NewIntegrationAccountSession(ctx, "exampleIntegrationAccountSession", &logicapps.IntegrationAccountSessionArgs{
 //				ResourceGroupName:      exampleResourceGroup.Name,
 //				IntegrationAccountName: exampleIntegrationAccount.Name,
-//				Content:                pulumi.String(fmt.Sprintf("	{\n       \"controlNumber\": \"1234\"\n    }\n")),
+//				Content:                pulumi.String(fmt.Sprintf(" {\n       \"controlNumber\": \"1234\"\n    }\n")),
 //			})
 //			if err != nil {
 //				return err

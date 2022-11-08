@@ -46,14 +46,14 @@ public final class WorkspaceGithubRepoArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com.
+     * Specifies the GitHub Enterprise host name. For example: &lt;https://github.mydomain.com&gt;.
      * 
      */
     @Import(name="gitUrl")
     private @Nullable Output<String> gitUrl;
 
     /**
-     * @return Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com.
+     * @return Specifies the GitHub Enterprise host name. For example: &lt;https://github.mydomain.com&gt;.
      * 
      */
     public Optional<Output<String>> gitUrl() {
@@ -177,7 +177,7 @@ public final class WorkspaceGithubRepoArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param gitUrl Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com.
+         * @param gitUrl Specifies the GitHub Enterprise host name. For example: &lt;https://github.mydomain.com&gt;.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class WorkspaceGithubRepoArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param gitUrl Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com.
+         * @param gitUrl Specifies the GitHub Enterprise host name. For example: &lt;https://github.mydomain.com&gt;.
          * 
          * @return builder
          * 

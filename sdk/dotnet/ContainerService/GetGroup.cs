@@ -95,6 +95,18 @@ namespace Pulumi.Azure.ContainerService
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
+        [Input("zones")]
+        private List<string>? _zones;
+
+        /// <summary>
+        /// A list of Availability Zones in which this Container Group is located.
+        /// </summary>
+        public List<string> Zones
+        {
+            get => _zones ?? (_zones = new List<string>());
+            set => _zones = value;
+        }
+
         public GetGroupArgs()
         {
         }
@@ -115,6 +127,18 @@ namespace Pulumi.Azure.ContainerService
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        [Input("zones")]
+        private InputList<string>? _zones;
+
+        /// <summary>
+        /// A list of Availability Zones in which this Container Group is located.
+        /// </summary>
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
+        }
+
         public GetGroupInvokeArgs()
         {
         }
@@ -134,6 +158,10 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// A `identity` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetGroupIdentityResult> Identities;
+        /// <summary>
         /// The IP address allocated to the Container Group instance.
         /// </summary>
         public readonly string IpAddress;
@@ -144,15 +172,25 @@ namespace Pulumi.Azure.ContainerService
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
+        /// The subnet resource IDs for a container group.
+        /// </summary>
+        public readonly ImmutableArray<string> SubnetIds;
+        /// <summary>
         /// A mapping of tags assigned to the Container Group instance.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// A list of Availability Zones in which this Container Group is located.
+        /// </summary>
+        public readonly ImmutableArray<string> Zones;
 
         [OutputConstructor]
         private GetGroupResult(
             string fqdn,
 
             string id,
+
+            ImmutableArray<Outputs.GetGroupIdentityResult> identities,
 
             string ipAddress,
 
@@ -162,15 +200,22 @@ namespace Pulumi.Azure.ContainerService
 
             string resourceGroupName,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableArray<string> subnetIds,
+
+            ImmutableDictionary<string, string> tags,
+
+            ImmutableArray<string> zones)
         {
             Fqdn = fqdn;
             Id = id;
+            Identities = identities;
             IpAddress = ipAddress;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
+            SubnetIds = subnetIds;
             Tags = tags;
+            Zones = zones;
         }
     }
 }

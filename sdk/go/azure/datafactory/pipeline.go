@@ -74,16 +74,16 @@ import (
 //					"bob": pulumi.String("item1"),
 //				},
 //				ActivitiesJson: pulumi.String(fmt.Sprintf(`[
-//		{
-//			"name": "Append variable1",
-//			"type": "AppendVariable",
-//			"dependsOn": [],
-//			"userProperties": [],
-//			"typeProperties": {
-//				"variableName": "bob",
-//				"value": "something"
-//			}
-//		}
+//	    {
+//	        "name": "Append variable1",
+//	        "type": "AppendVariable",
+//	        "dependsOn": [],
+//	        "userProperties": [],
+//	        "typeProperties": {
+//	          "variableName": "bob",
+//	          "value": "something"
+//	        }
+//	    }
 //
 // ]
 // `)),

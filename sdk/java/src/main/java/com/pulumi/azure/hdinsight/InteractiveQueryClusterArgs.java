@@ -4,6 +4,7 @@
 package com.pulumi.azure.hdinsight;
 
 import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterComponentVersionArgs;
+import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterComputeIsolationArgs;
 import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterDiskEncryptionArgs;
 import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterExtensionArgs;
 import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterGatewayArgs;
@@ -57,6 +58,21 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
      */
     public Output<InteractiveQueryClusterComponentVersionArgs> componentVersion() {
         return this.componentVersion;
+    }
+
+    /**
+     * A `compute_isolation` block as defined below.
+     * 
+     */
+    @Import(name="computeIsolation")
+    private @Nullable Output<InteractiveQueryClusterComputeIsolationArgs> computeIsolation;
+
+    /**
+     * @return A `compute_isolation` block as defined below.
+     * 
+     */
+    public Optional<Output<InteractiveQueryClusterComputeIsolationArgs>> computeIsolation() {
+        return Optional.ofNullable(this.computeIsolation);
     }
 
     @Import(name="diskEncryptions")
@@ -303,6 +319,7 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
     private InteractiveQueryClusterArgs(InteractiveQueryClusterArgs $) {
         this.clusterVersion = $.clusterVersion;
         this.componentVersion = $.componentVersion;
+        this.computeIsolation = $.computeIsolation;
         this.diskEncryptions = $.diskEncryptions;
         this.encryptionInTransitEnabled = $.encryptionInTransitEnabled;
         this.extension = $.extension;
@@ -380,6 +397,27 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
          */
         public Builder componentVersion(InteractiveQueryClusterComponentVersionArgs componentVersion) {
             return componentVersion(Output.of(componentVersion));
+        }
+
+        /**
+         * @param computeIsolation A `compute_isolation` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder computeIsolation(@Nullable Output<InteractiveQueryClusterComputeIsolationArgs> computeIsolation) {
+            $.computeIsolation = computeIsolation;
+            return this;
+        }
+
+        /**
+         * @param computeIsolation A `compute_isolation` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder computeIsolation(InteractiveQueryClusterComputeIsolationArgs computeIsolation) {
+            return computeIsolation(Output.of(computeIsolation));
         }
 
         public Builder diskEncryptions(@Nullable Output<List<InteractiveQueryClusterDiskEncryptionArgs>> diskEncryptions) {

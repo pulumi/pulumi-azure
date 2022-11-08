@@ -37,7 +37,7 @@ namespace Pulumi.Azure.MSSql.Inputs
         public Input<string> StorageWorkloadType { get; set; } = null!;
 
         /// <summary>
-        /// An `storage_settings` as defined below.
+        /// An `temp_db_settings` as defined below.
         /// </summary>
         [Input("tempDbSettings")]
         public Input<Inputs.VirtualMachineStorageConfigurationTempDbSettingsArgs>? TempDbSettings { get; set; }

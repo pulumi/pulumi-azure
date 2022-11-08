@@ -85,6 +85,26 @@ export type PTRRecord = import("./ptrrecord").PTRRecord;
 export const PTRRecord: typeof import("./ptrrecord").PTRRecord = null as any;
 utilities.lazyLoad(exports, ["PTRRecord"], () => require("./ptrrecord"));
 
+export { ResolverArgs, ResolverState } from "./resolver";
+export type Resolver = import("./resolver").Resolver;
+export const Resolver: typeof import("./resolver").Resolver = null as any;
+utilities.lazyLoad(exports, ["Resolver"], () => require("./resolver"));
+
+export { ResolverDnsForwardingRulesetArgs, ResolverDnsForwardingRulesetState } from "./resolverDnsForwardingRuleset";
+export type ResolverDnsForwardingRuleset = import("./resolverDnsForwardingRuleset").ResolverDnsForwardingRuleset;
+export const ResolverDnsForwardingRuleset: typeof import("./resolverDnsForwardingRuleset").ResolverDnsForwardingRuleset = null as any;
+utilities.lazyLoad(exports, ["ResolverDnsForwardingRuleset"], () => require("./resolverDnsForwardingRuleset"));
+
+export { ResolverInboundEndpointArgs, ResolverInboundEndpointState } from "./resolverInboundEndpoint";
+export type ResolverInboundEndpoint = import("./resolverInboundEndpoint").ResolverInboundEndpoint;
+export const ResolverInboundEndpoint: typeof import("./resolverInboundEndpoint").ResolverInboundEndpoint = null as any;
+utilities.lazyLoad(exports, ["ResolverInboundEndpoint"], () => require("./resolverInboundEndpoint"));
+
+export { ResolverOutboundEndpointArgs, ResolverOutboundEndpointState } from "./resolverOutboundEndpoint";
+export type ResolverOutboundEndpoint = import("./resolverOutboundEndpoint").ResolverOutboundEndpoint;
+export const ResolverOutboundEndpoint: typeof import("./resolverOutboundEndpoint").ResolverOutboundEndpoint = null as any;
+utilities.lazyLoad(exports, ["ResolverOutboundEndpoint"], () => require("./resolverOutboundEndpoint"));
+
 export { SRVRecordArgs, SRVRecordState } from "./srvrecord";
 export type SRVRecord = import("./srvrecord").SRVRecord;
 export const SRVRecord: typeof import("./srvrecord").SRVRecord = null as any;
@@ -122,6 +142,14 @@ const _module = {
                 return new MxRecord(name, <any>undefined, { urn })
             case "azure:privatedns/pTRRecord:PTRRecord":
                 return new PTRRecord(name, <any>undefined, { urn })
+            case "azure:privatedns/resolver:Resolver":
+                return new Resolver(name, <any>undefined, { urn })
+            case "azure:privatedns/resolverDnsForwardingRuleset:ResolverDnsForwardingRuleset":
+                return new ResolverDnsForwardingRuleset(name, <any>undefined, { urn })
+            case "azure:privatedns/resolverInboundEndpoint:ResolverInboundEndpoint":
+                return new ResolverInboundEndpoint(name, <any>undefined, { urn })
+            case "azure:privatedns/resolverOutboundEndpoint:ResolverOutboundEndpoint":
+                return new ResolverOutboundEndpoint(name, <any>undefined, { urn })
             case "azure:privatedns/sRVRecord:SRVRecord":
                 return new SRVRecord(name, <any>undefined, { urn })
             case "azure:privatedns/txtRecord:TxtRecord":
@@ -141,6 +169,10 @@ pulumi.runtime.registerResourceModule("azure", "privatedns/cnameRecord", _module
 pulumi.runtime.registerResourceModule("azure", "privatedns/linkService", _module)
 pulumi.runtime.registerResourceModule("azure", "privatedns/mxRecord", _module)
 pulumi.runtime.registerResourceModule("azure", "privatedns/pTRRecord", _module)
+pulumi.runtime.registerResourceModule("azure", "privatedns/resolver", _module)
+pulumi.runtime.registerResourceModule("azure", "privatedns/resolverDnsForwardingRuleset", _module)
+pulumi.runtime.registerResourceModule("azure", "privatedns/resolverInboundEndpoint", _module)
+pulumi.runtime.registerResourceModule("azure", "privatedns/resolverOutboundEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "privatedns/sRVRecord", _module)
 pulumi.runtime.registerResourceModule("azure", "privatedns/txtRecord", _module)
 pulumi.runtime.registerResourceModule("azure", "privatedns/zone", _module)

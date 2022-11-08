@@ -115,6 +115,12 @@ namespace Pulumi.Azure.HDInsight
         [Output("componentVersion")]
         public Output<Outputs.KafkaClusterComponentVersion> ComponentVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// A `compute_isolation` block as defined below.
+        /// </summary>
+        [Output("computeIsolation")]
+        public Output<Outputs.KafkaClusterComputeIsolation?> ComputeIsolation { get; private set; } = null!;
+
         [Output("diskEncryptions")]
         public Output<ImmutableArray<Outputs.KafkaClusterDiskEncryption>> DiskEncryptions { get; private set; } = null!;
 
@@ -296,6 +302,12 @@ namespace Pulumi.Azure.HDInsight
         [Input("componentVersion", required: true)]
         public Input<Inputs.KafkaClusterComponentVersionArgs> ComponentVersion { get; set; } = null!;
 
+        /// <summary>
+        /// A `compute_isolation` block as defined below.
+        /// </summary>
+        [Input("computeIsolation")]
+        public Input<Inputs.KafkaClusterComputeIsolationArgs>? ComputeIsolation { get; set; }
+
         [Input("diskEncryptions")]
         private InputList<Inputs.KafkaClusterDiskEncryptionArgs>? _diskEncryptions;
         public InputList<Inputs.KafkaClusterDiskEncryptionArgs> DiskEncryptions
@@ -437,6 +449,12 @@ namespace Pulumi.Azure.HDInsight
         /// </summary>
         [Input("componentVersion")]
         public Input<Inputs.KafkaClusterComponentVersionGetArgs>? ComponentVersion { get; set; }
+
+        /// <summary>
+        /// A `compute_isolation` block as defined below.
+        /// </summary>
+        [Input("computeIsolation")]
+        public Input<Inputs.KafkaClusterComputeIsolationGetArgs>? ComputeIsolation { get; set; }
 
         [Input("diskEncryptions")]
         private InputList<Inputs.KafkaClusterDiskEncryptionGetArgs>? _diskEncryptions;

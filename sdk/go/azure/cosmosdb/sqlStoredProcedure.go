@@ -56,7 +56,7 @@ import (
 //				AccountName:       pulumi.String(exampleAccount.Name),
 //				DatabaseName:      exampleSqlDatabase.Name,
 //				ContainerName:     exampleSqlContainer.Name,
-//				Body:              pulumi.String("  	function () { var context = getContext(); var response = context.getResponse(); response.setBody('Hello, World'); }\n"),
+//				Body:              pulumi.String("   function () { var context = getContext(); var response = context.getResponse(); response.setBody('Hello, World'); }\n"),
 //			})
 //			if err != nil {
 //				return err

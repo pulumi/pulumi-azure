@@ -79,7 +79,6 @@ export interface GetAccountResult {
     readonly allowNestedItemsToBePublic: boolean;
     /**
      * A `azureFilesAuthentication` block as documented below.
-     * ---
      */
     readonly azureFilesAuthentications: outputs.storage.GetAccountAzureFilesAuthentication[];
     /**

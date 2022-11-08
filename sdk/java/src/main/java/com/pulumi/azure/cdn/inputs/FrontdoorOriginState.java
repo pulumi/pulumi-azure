@@ -19,14 +19,14 @@ public final class FrontdoorOriginState extends com.pulumi.resources.ResourceArg
     public static final FrontdoorOriginState Empty = new FrontdoorOriginState();
 
     /**
-     * The ID of the CDN FrontDoor Origin Group within which this CDN FrontDoor Origin should exist. Changing this forces a new CDN FrontDoor Origin to be created.
+     * The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
      * 
      */
     @Import(name="cdnFrontdoorOriginGroupId")
     private @Nullable Output<String> cdnFrontdoorOriginGroupId;
 
     /**
-     * @return The ID of the CDN FrontDoor Origin Group within which this CDN FrontDoor Origin should exist. Changing this forces a new CDN FrontDoor Origin to be created.
+     * @return The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
      * 
      */
     public Optional<Output<String>> cdnFrontdoorOriginGroupId() {
@@ -128,14 +128,14 @@ public final class FrontdoorOriginState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The name which should be used for this CDN FrontDoor Origin. Changing this forces a new CDN FrontDoor Origin to be created.
+     * The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this CDN FrontDoor Origin. Changing this forces a new CDN FrontDoor Origin to be created.
+     * @return The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -238,7 +238,7 @@ public final class FrontdoorOriginState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param cdnFrontdoorOriginGroupId The ID of the CDN FrontDoor Origin Group within which this CDN FrontDoor Origin should exist. Changing this forces a new CDN FrontDoor Origin to be created.
+         * @param cdnFrontdoorOriginGroupId The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class FrontdoorOriginState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param cdnFrontdoorOriginGroupId The ID of the CDN FrontDoor Origin Group within which this CDN FrontDoor Origin should exist. Changing this forces a new CDN FrontDoor Origin to be created.
+         * @param cdnFrontdoorOriginGroupId The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class FrontdoorOriginState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name which should be used for this CDN FrontDoor Origin. Changing this forces a new CDN FrontDoor Origin to be created.
+         * @param name The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
          * 
          * @return builder
          * 
@@ -400,7 +400,7 @@ public final class FrontdoorOriginState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name which should be used for this CDN FrontDoor Origin. Changing this forces a new CDN FrontDoor Origin to be created.
+         * @param name The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
          * 
          * @return builder
          * 

@@ -81,6 +81,8 @@ import (
 type ServerTransparentDataEncryption struct {
 	pulumi.CustomResourceState
 
+	// When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
+	AutoRotationEnabled pulumi.BoolPtrOutput `pulumi:"autoRotationEnabled"`
 	// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
 	KeyVaultKeyId pulumi.StringPtrOutput `pulumi:"keyVaultKeyId"`
 	// Specifies the name of the MS SQL Server.
@@ -119,6 +121,8 @@ func GetServerTransparentDataEncryption(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerTransparentDataEncryption resources.
 type serverTransparentDataEncryptionState struct {
+	// When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
+	AutoRotationEnabled *bool `pulumi:"autoRotationEnabled"`
 	// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
 	// Specifies the name of the MS SQL Server.
@@ -126,6 +130,8 @@ type serverTransparentDataEncryptionState struct {
 }
 
 type ServerTransparentDataEncryptionState struct {
+	// When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
+	AutoRotationEnabled pulumi.BoolPtrInput
 	// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
 	KeyVaultKeyId pulumi.StringPtrInput
 	// Specifies the name of the MS SQL Server.
@@ -137,6 +143,8 @@ func (ServerTransparentDataEncryptionState) ElementType() reflect.Type {
 }
 
 type serverTransparentDataEncryptionArgs struct {
+	// When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
+	AutoRotationEnabled *bool `pulumi:"autoRotationEnabled"`
 	// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
 	// Specifies the name of the MS SQL Server.
@@ -145,6 +153,8 @@ type serverTransparentDataEncryptionArgs struct {
 
 // The set of arguments for constructing a ServerTransparentDataEncryption resource.
 type ServerTransparentDataEncryptionArgs struct {
+	// When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
+	AutoRotationEnabled pulumi.BoolPtrInput
 	// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
 	KeyVaultKeyId pulumi.StringPtrInput
 	// Specifies the name of the MS SQL Server.
@@ -236,6 +246,11 @@ func (o ServerTransparentDataEncryptionOutput) ToServerTransparentDataEncryption
 
 func (o ServerTransparentDataEncryptionOutput) ToServerTransparentDataEncryptionOutputWithContext(ctx context.Context) ServerTransparentDataEncryptionOutput {
 	return o
+}
+
+// When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
+func (o ServerTransparentDataEncryptionOutput) AutoRotationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServerTransparentDataEncryption) pulumi.BoolPtrOutput { return v.AutoRotationEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.

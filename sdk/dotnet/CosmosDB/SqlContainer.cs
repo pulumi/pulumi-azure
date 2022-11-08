@@ -145,7 +145,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> PartitionKeyPath { get; private set; } = null!;
 
         /// <summary>
-        /// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1 `and `2`. This should be set to `2` in order to use large partition keys.
+        /// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
         /// </summary>
         [Output("partitionKeyVersion")]
         public Output<int?> PartitionKeyVersion { get; private set; } = null!;
@@ -269,7 +269,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string> PartitionKeyPath { get; set; } = null!;
 
         /// <summary>
-        /// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1 `and `2`. This should be set to `2` in order to use large partition keys.
+        /// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
         /// </summary>
         [Input("partitionKeyVersion")]
         public Input<int>? PartitionKeyVersion { get; set; }
@@ -361,7 +361,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? PartitionKeyPath { get; set; }
 
         /// <summary>
-        /// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1 `and `2`. This should be set to `2` in order to use large partition keys.
+        /// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
         /// </summary>
         [Input("partitionKeyVersion")]
         public Input<int>? PartitionKeyVersion { get; set; }

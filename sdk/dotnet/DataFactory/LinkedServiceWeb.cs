@@ -106,7 +106,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> Password { get; private set; } = null!;
 
         /// <summary>
-        /// The URL of the web service endpoint (e.g. https://www.microsoft.com).
+        /// The URL of the web service endpoint (e.g. &lt;https://www.microsoft.com&gt;).
         /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
@@ -231,7 +231,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Password { get; set; }
 
         /// <summary>
-        /// The URL of the web service endpoint (e.g. https://www.microsoft.com).
+        /// The URL of the web service endpoint (e.g. &lt;https://www.microsoft.com&gt;).
         /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
@@ -318,7 +318,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Password { get; set; }
 
         /// <summary>
-        /// The URL of the web service endpoint (e.g. https://www.microsoft.com).
+        /// The URL of the web service endpoint (e.g. &lt;https://www.microsoft.com&gt;).
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }

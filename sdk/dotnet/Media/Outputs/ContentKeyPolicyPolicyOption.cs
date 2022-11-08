@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Media.Outputs
         /// </summary>
         public readonly bool? ClearKeyConfigurationEnabled;
         /// <summary>
-        /// A `fairplay_configuration` block as defined above. Check license requirements here https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview.
+        /// A `fairplay_configuration` block as defined above. Check license requirements here &lt;https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview&gt;.
         /// </summary>
         public readonly Outputs.ContentKeyPolicyPolicyOptionFairplayConfiguration? FairplayConfiguration;
         /// <summary>

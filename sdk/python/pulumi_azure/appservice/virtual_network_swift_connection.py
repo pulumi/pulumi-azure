@@ -104,15 +104,15 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
 
         > **Note:** The following resources support associating the vNet for Regional vNet Integration directly on the resource and via the `appservice.VirtualNetworkSwiftConnection` resource. You can't use both simultaneously.
 
-         - appservice.LinuxFunctionApp
-         - appservice.LinuxFunctionAppSlot
-         - appservice.LinuxWebApp
-         - appservice.LinuxWebAppSlot
-         - logicapps.Standard
-         - appservice.WindowsFunctionApp
-         - appservice.WindowsFunctionAppSlot
-         - appservice.WindowsWebApp
-         - appservice.WindowsWebAppSlot
+        - appservice.LinuxFunctionApp
+        - appservice.LinuxFunctionAppSlot
+        - appservice.LinuxWebApp
+        - appservice.LinuxWebAppSlot
+        - logicapps.Standard
+        - appservice.WindowsFunctionApp
+        - appservice.WindowsFunctionAppSlot
+        - appservice.WindowsWebApp
+        - appservice.WindowsWebAppSlot
 
         This resource requires the `Microsoft.Network/virtualNetworks/subnets/write` permission scope on the subnet.
 
@@ -160,6 +160,7 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
             subnet_id=example_subnet.id)
         ```
         ### With Function App)
+
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -229,15 +230,15 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
 
         > **Note:** The following resources support associating the vNet for Regional vNet Integration directly on the resource and via the `appservice.VirtualNetworkSwiftConnection` resource. You can't use both simultaneously.
 
-         - appservice.LinuxFunctionApp
-         - appservice.LinuxFunctionAppSlot
-         - appservice.LinuxWebApp
-         - appservice.LinuxWebAppSlot
-         - logicapps.Standard
-         - appservice.WindowsFunctionApp
-         - appservice.WindowsFunctionAppSlot
-         - appservice.WindowsWebApp
-         - appservice.WindowsWebAppSlot
+        - appservice.LinuxFunctionApp
+        - appservice.LinuxFunctionAppSlot
+        - appservice.LinuxWebApp
+        - appservice.LinuxWebAppSlot
+        - logicapps.Standard
+        - appservice.WindowsFunctionApp
+        - appservice.WindowsFunctionAppSlot
+        - appservice.WindowsWebApp
+        - appservice.WindowsWebAppSlot
 
         This resource requires the `Microsoft.Network/virtualNetworks/subnets/write` permission scope on the subnet.
 
@@ -285,6 +286,7 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
             subnet_id=example_subnet.id)
         ```
         ### With Function App)
+
         ```python
         import pulumi
         import pulumi_azure as azure

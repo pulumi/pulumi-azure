@@ -88,11 +88,13 @@ namespace Pulumi.Azure.CosmosDB
 
         /// <summary>
         /// The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
-        /// * # `index` - (Optional) One or more `index` blocks as defined below.
         /// </summary>
         [Output("defaultTtlSeconds")]
         public Output<int?> DefaultTtlSeconds { get; private set; } = null!;
 
+        /// <summary>
+        /// One or more `index` blocks as defined below.
+        /// </summary>
         [Output("indices")]
         public Output<ImmutableArray<Outputs.MongoCollectionIndex>> Indices { get; private set; } = null!;
 
@@ -189,13 +191,16 @@ namespace Pulumi.Azure.CosmosDB
 
         /// <summary>
         /// The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
-        /// * # `index` - (Optional) One or more `index` blocks as defined below.
         /// </summary>
         [Input("defaultTtlSeconds")]
         public Input<int>? DefaultTtlSeconds { get; set; }
 
         [Input("indices")]
         private InputList<Inputs.MongoCollectionIndexArgs>? _indices;
+
+        /// <summary>
+        /// One or more `index` blocks as defined below.
+        /// </summary>
         public InputList<Inputs.MongoCollectionIndexArgs> Indices
         {
             get => _indices ?? (_indices = new InputList<Inputs.MongoCollectionIndexArgs>());
@@ -251,13 +256,16 @@ namespace Pulumi.Azure.CosmosDB
 
         /// <summary>
         /// The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
-        /// * # `index` - (Optional) One or more `index` blocks as defined below.
         /// </summary>
         [Input("defaultTtlSeconds")]
         public Input<int>? DefaultTtlSeconds { get; set; }
 
         [Input("indices")]
         private InputList<Inputs.MongoCollectionIndexGetArgs>? _indices;
+
+        /// <summary>
+        /// One or more `index` blocks as defined below.
+        /// </summary>
         public InputList<Inputs.MongoCollectionIndexGetArgs> Indices
         {
             get => _indices ?? (_indices = new InputList<Inputs.MongoCollectionIndexGetArgs>());

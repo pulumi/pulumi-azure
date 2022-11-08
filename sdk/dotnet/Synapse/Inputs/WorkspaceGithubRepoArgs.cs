@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Synapse.Inputs
         public Input<string> BranchName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com.
+        /// Specifies the GitHub Enterprise host name. For example: &lt;https://github.mydomain.com&gt;.
         /// </summary>
         [Input("gitUrl")]
         public Input<string>? GitUrl { get; set; }

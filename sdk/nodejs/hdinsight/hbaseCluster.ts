@@ -108,6 +108,10 @@ export class HBaseCluster extends pulumi.CustomResource {
      * A `componentVersion` block as defined below.
      */
     public readonly componentVersion!: pulumi.Output<outputs.hdinsight.HBaseClusterComponentVersion>;
+    /**
+     * A `computeIsolation` block as defined below.
+     */
+    public readonly computeIsolation!: pulumi.Output<outputs.hdinsight.HBaseClusterComputeIsolation | undefined>;
     public readonly diskEncryptions!: pulumi.Output<outputs.hdinsight.HBaseClusterDiskEncryption[] | undefined>;
     /**
      * An `extension` block as defined below.
@@ -190,6 +194,7 @@ export class HBaseCluster extends pulumi.CustomResource {
             const state = argsOrState as HBaseClusterState | undefined;
             resourceInputs["clusterVersion"] = state ? state.clusterVersion : undefined;
             resourceInputs["componentVersion"] = state ? state.componentVersion : undefined;
+            resourceInputs["computeIsolation"] = state ? state.computeIsolation : undefined;
             resourceInputs["diskEncryptions"] = state ? state.diskEncryptions : undefined;
             resourceInputs["extension"] = state ? state.extension : undefined;
             resourceInputs["gateway"] = state ? state.gateway : undefined;
@@ -230,6 +235,7 @@ export class HBaseCluster extends pulumi.CustomResource {
             }
             resourceInputs["clusterVersion"] = args ? args.clusterVersion : undefined;
             resourceInputs["componentVersion"] = args ? args.componentVersion : undefined;
+            resourceInputs["computeIsolation"] = args ? args.computeIsolation : undefined;
             resourceInputs["diskEncryptions"] = args ? args.diskEncryptions : undefined;
             resourceInputs["extension"] = args ? args.extension : undefined;
             resourceInputs["gateway"] = args ? args.gateway : undefined;
@@ -266,6 +272,10 @@ export interface HBaseClusterState {
      * A `componentVersion` block as defined below.
      */
     componentVersion?: pulumi.Input<inputs.hdinsight.HBaseClusterComponentVersion>;
+    /**
+     * A `computeIsolation` block as defined below.
+     */
+    computeIsolation?: pulumi.Input<inputs.hdinsight.HBaseClusterComputeIsolation>;
     diskEncryptions?: pulumi.Input<pulumi.Input<inputs.hdinsight.HBaseClusterDiskEncryption>[]>;
     /**
      * An `extension` block as defined below.
@@ -346,6 +356,10 @@ export interface HBaseClusterArgs {
      * A `componentVersion` block as defined below.
      */
     componentVersion: pulumi.Input<inputs.hdinsight.HBaseClusterComponentVersion>;
+    /**
+     * A `computeIsolation` block as defined below.
+     */
+    computeIsolation?: pulumi.Input<inputs.hdinsight.HBaseClusterComputeIsolation>;
     diskEncryptions?: pulumi.Input<pulumi.Input<inputs.hdinsight.HBaseClusterDiskEncryption>[]>;
     /**
      * An `extension` block as defined below.

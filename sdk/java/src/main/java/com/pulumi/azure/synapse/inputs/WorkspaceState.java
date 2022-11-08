@@ -280,14 +280,14 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
+     * Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
      * 
      */
     @Import(name="sqlAdministratorLogin")
     private @Nullable Output<String> sqlAdministratorLogin;
 
     /**
-     * @return Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
+     * @return Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
      * 
      */
     public Optional<Output<String>> sqlAdministratorLogin() {
@@ -295,14 +295,14 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Password associated with the `sql_administrator_login` for the SQL administrator.
+     * The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
      * 
      */
     @Import(name="sqlAdministratorLoginPassword")
     private @Nullable Output<String> sqlAdministratorLoginPassword;
 
     /**
-     * @return The Password associated with the `sql_administrator_login` for the SQL administrator.
+     * @return The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
      * 
      */
     public Optional<Output<String>> sqlAdministratorLoginPassword() {
@@ -767,7 +767,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sqlAdministratorLogin Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
+         * @param sqlAdministratorLogin Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
          * 
          * @return builder
          * 
@@ -778,7 +778,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sqlAdministratorLogin Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
+         * @param sqlAdministratorLogin Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
          * 
          * @return builder
          * 
@@ -788,7 +788,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sqlAdministratorLoginPassword The Password associated with the `sql_administrator_login` for the SQL administrator.
+         * @param sqlAdministratorLoginPassword The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
          * 
          * @return builder
          * 
@@ -799,7 +799,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sqlAdministratorLoginPassword The Password associated with the `sql_administrator_login` for the SQL administrator.
+         * @param sqlAdministratorLoginPassword The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
          * 
          * @return builder
          * 

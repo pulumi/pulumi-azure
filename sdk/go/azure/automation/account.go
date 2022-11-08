@@ -72,7 +72,6 @@ type Account struct {
 	// An `encryption` block as defined below.
 	Encryptions AccountEncryptionArrayOutput `pulumi:"encryptions"`
 	// The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
-	// ---
 	HybridServiceUrl pulumi.StringOutput `pulumi:"hybridServiceUrl"`
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrOutput `pulumi:"identity"`
@@ -137,7 +136,6 @@ type accountState struct {
 	// An `encryption` block as defined below.
 	Encryptions []AccountEncryption `pulumi:"encryptions"`
 	// The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
-	// ---
 	HybridServiceUrl *string `pulumi:"hybridServiceUrl"`
 	// An `identity` block as defined below.
 	Identity *AccountIdentity `pulumi:"identity"`
@@ -168,7 +166,6 @@ type AccountState struct {
 	// An `encryption` block as defined below.
 	Encryptions AccountEncryptionArrayInput
 	// The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
-	// ---
 	HybridServiceUrl pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrInput
@@ -344,7 +341,6 @@ func (o AccountOutput) Encryptions() AccountEncryptionArrayOutput {
 }
 
 // The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
-// ---
 func (o AccountOutput) HybridServiceUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.HybridServiceUrl }).(pulumi.StringOutput)
 }

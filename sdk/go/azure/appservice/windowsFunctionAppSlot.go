@@ -145,6 +145,8 @@ type WindowsFunctionAppSlot struct {
 	StorageAccountAccessKey pulumi.StringPtrOutput `pulumi:"storageAccountAccessKey"`
 	// The backend storage account name which will be used by this Function App Slot.
 	StorageAccountName pulumi.StringPtrOutput `pulumi:"storageAccountName"`
+	// One or more `storageAccount` blocks as defined below.
+	StorageAccounts WindowsFunctionAppSlotStorageAccountArrayOutput `pulumi:"storageAccounts"`
 	// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
 	StorageKeyVaultSecretId pulumi.StringPtrOutput `pulumi:"storageKeyVaultSecretId"`
 	// Should the Function App Slot use its Managed Identity to access storage.
@@ -246,6 +248,8 @@ type windowsFunctionAppSlotState struct {
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// The backend storage account name which will be used by this Function App Slot.
 	StorageAccountName *string `pulumi:"storageAccountName"`
+	// One or more `storageAccount` blocks as defined below.
+	StorageAccounts []WindowsFunctionAppSlotStorageAccount `pulumi:"storageAccounts"`
 	// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
 	StorageKeyVaultSecretId *string `pulumi:"storageKeyVaultSecretId"`
 	// Should the Function App Slot use its Managed Identity to access storage.
@@ -313,6 +317,8 @@ type WindowsFunctionAppSlotState struct {
 	StorageAccountAccessKey pulumi.StringPtrInput
 	// The backend storage account name which will be used by this Function App Slot.
 	StorageAccountName pulumi.StringPtrInput
+	// One or more `storageAccount` blocks as defined below.
+	StorageAccounts WindowsFunctionAppSlotStorageAccountArrayInput
 	// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
 	StorageKeyVaultSecretId pulumi.StringPtrInput
 	// Should the Function App Slot use its Managed Identity to access storage.
@@ -368,6 +374,8 @@ type windowsFunctionAppSlotArgs struct {
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// The backend storage account name which will be used by this Function App Slot.
 	StorageAccountName *string `pulumi:"storageAccountName"`
+	// One or more `storageAccount` blocks as defined below.
+	StorageAccounts []WindowsFunctionAppSlotStorageAccount `pulumi:"storageAccounts"`
 	// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
 	StorageKeyVaultSecretId *string `pulumi:"storageKeyVaultSecretId"`
 	// Should the Function App Slot use its Managed Identity to access storage.
@@ -420,6 +428,8 @@ type WindowsFunctionAppSlotArgs struct {
 	StorageAccountAccessKey pulumi.StringPtrInput
 	// The backend storage account name which will be used by this Function App Slot.
 	StorageAccountName pulumi.StringPtrInput
+	// One or more `storageAccount` blocks as defined below.
+	StorageAccounts WindowsFunctionAppSlotStorageAccountArrayInput
 	// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
 	StorageKeyVaultSecretId pulumi.StringPtrInput
 	// Should the Function App Slot use its Managed Identity to access storage.
@@ -659,6 +669,13 @@ func (o WindowsFunctionAppSlotOutput) StorageAccountAccessKey() pulumi.StringPtr
 // The backend storage account name which will be used by this Function App Slot.
 func (o WindowsFunctionAppSlotOutput) StorageAccountName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsFunctionAppSlot) pulumi.StringPtrOutput { return v.StorageAccountName }).(pulumi.StringPtrOutput)
+}
+
+// One or more `storageAccount` blocks as defined below.
+func (o WindowsFunctionAppSlotOutput) StorageAccounts() WindowsFunctionAppSlotStorageAccountArrayOutput {
+	return o.ApplyT(func(v *WindowsFunctionAppSlot) WindowsFunctionAppSlotStorageAccountArrayOutput {
+		return v.StorageAccounts
+	}).(WindowsFunctionAppSlotStorageAccountArrayOutput)
 }
 
 // The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.

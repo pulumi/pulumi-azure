@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *             .displayName(&#34;my-policy-definition&#34;)
  *             .managementGroupId(exampleGroup.id())
  *             .policyRule(&#34;&#34;&#34;
- * 	{
+ *  {
  *     &#34;if&#34;: {
  *       &#34;not&#34;: {
  *         &#34;field&#34;: &#34;location&#34;,

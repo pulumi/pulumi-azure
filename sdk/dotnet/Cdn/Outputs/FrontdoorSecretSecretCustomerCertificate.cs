@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class FrontdoorSecretSecretCustomerCertificate
     {
         /// <summary>
-        /// The ID of the Key Vault certificate resource to use. Changing this forces a new Frontdoor Secret to be created.
+        /// The ID of the Key Vault certificate resource to use. Changing this forces a new Front Door Secret to be created.
         /// </summary>
         public readonly string KeyVaultCertificateId;
         /// <summary>

@@ -17,15 +17,15 @@ import (
 //
 // > **Note:** The following resources support associating the vNet for Regional vNet Integration directly on the resource and via the `appservice.VirtualNetworkSwiftConnection` resource. You can't use both simultaneously.
 //
-//   - appservice.LinuxFunctionApp
-//   - appservice.LinuxFunctionAppSlot
-//   - appservice.LinuxWebApp
-//   - appservice.LinuxWebAppSlot
-//   - logicapps.Standard
-//   - appservice.WindowsFunctionApp
-//   - appservice.WindowsFunctionAppSlot
-//   - appservice.WindowsWebApp
-//   - appservice.WindowsWebAppSlot
+// - appservice.LinuxFunctionApp
+// - appservice.LinuxFunctionAppSlot
+// - appservice.LinuxWebApp
+// - appservice.LinuxWebAppSlot
+// - logicapps.Standard
+// - appservice.WindowsFunctionApp
+// - appservice.WindowsFunctionAppSlot
+// - appservice.WindowsWebApp
+// - appservice.WindowsWebAppSlot
 //
 // This resource requires the `Microsoft.Network/virtualNetworks/subnets/write` permission scope on the subnet.
 //
@@ -120,6 +120,7 @@ import (
 //
 // ```
 // ### With Function App)
+//
 // ```go
 // package main
 //

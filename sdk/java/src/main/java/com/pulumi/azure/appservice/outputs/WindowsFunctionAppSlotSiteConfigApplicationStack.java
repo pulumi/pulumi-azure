@@ -18,7 +18,7 @@ public final class WindowsFunctionAppSlotSiteConfigApplicationStack {
      */
     private @Nullable String dotnetVersion;
     /**
-     * @return The version of Java to use. Possible values are `8`, and `11`
+     * @return The version of Java to use. Possible values are `8`, `11` &amp; `17` (In-Preview).
      * 
      */
     private @Nullable String javaVersion;
@@ -52,7 +52,7 @@ public final class WindowsFunctionAppSlotSiteConfigApplicationStack {
         return Optional.ofNullable(this.dotnetVersion);
     }
     /**
-     * @return The version of Java to use. Possible values are `8`, and `11`
+     * @return The version of Java to use. Possible values are `8`, `11` &amp; `17` (In-Preview).
      * 
      */
     public Optional<String> javaVersion() {

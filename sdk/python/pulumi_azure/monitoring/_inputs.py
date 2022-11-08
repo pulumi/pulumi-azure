@@ -4840,7 +4840,7 @@ class DataCollectionRuleDataFlowArgs:
                  streams: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destinations: Specifies a list of destination names. A `azure_monitor_metrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] streams: Specifies a list of streams. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] streams: Specifies a list of streams. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
         """
         pulumi.set(__self__, "destinations", destinations)
         pulumi.set(__self__, "streams", streams)
@@ -4861,7 +4861,7 @@ class DataCollectionRuleDataFlowArgs:
     @pulumi.getter
     def streams(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Specifies a list of streams. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+        Specifies a list of streams. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
         """
         return pulumi.get(self, "streams")
 
@@ -4952,7 +4952,7 @@ class DataCollectionRuleDataSourcesExtensionArgs:
         """
         :param pulumi.Input[str] extension_name: The name of the VM extension.
         :param pulumi.Input[str] name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`, `Microsoft-WindowsEvent`.
         :param pulumi.Input[str] extension_json: A JSON String which specifies the extension setting.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] input_data_sources: Specifies a list of data sources this extension needs data from. An item should be a name of a supported data source which produces only one stream. Supported data sources type: `performance_counter`, `windows_event_log`,and `syslog`.
         """
@@ -4992,7 +4992,7 @@ class DataCollectionRuleDataSourcesExtensionArgs:
     @pulumi.getter
     def streams(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`, `Microsoft-WindowsEvent`.
         """
         return pulumi.get(self, "streams")
 
@@ -5036,7 +5036,7 @@ class DataCollectionRuleDataSourcesPerformanceCounterArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] counter_specifiers: Specifies a list of specifier names of the performance counters you want to collect. Use a wildcard `*` to collect counters for all instances. To get a list of performance counters on Windows, run the command `typeperf`.
         :param pulumi.Input[str] name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
         :param pulumi.Input[int] sampling_frequency_in_seconds: The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
         """
         pulumi.set(__self__, "counter_specifiers", counter_specifiers)
         pulumi.set(__self__, "name", name)
@@ -5083,7 +5083,7 @@ class DataCollectionRuleDataSourcesPerformanceCounterArgs:
     @pulumi.getter
     def streams(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
         """
         return pulumi.get(self, "streams")
 
@@ -5097,15 +5097,19 @@ class DataCollectionRuleDataSourcesSyslogArgs:
     def __init__(__self__, *,
                  facility_names: pulumi.Input[Sequence[pulumi.Input[str]]],
                  log_levels: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 name: pulumi.Input[str]):
+                 name: pulumi.Input[str],
+                 streams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] facility_names: Specifies a list of facility names. Use a wildcard `*` to collect logs for all facility names. Possible values are `auth`, `authpriv`, `cron`, `daemon`, `kern`, `lpr`, `mail`, `mark`, `news`, `syslog`, `user`, `uucp`, `local0`, `local1`, `local2`, `local3`, `local4`, `local5`, `local6`, `local7`,and `*`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_levels: Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`,  `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
         :param pulumi.Input[str] name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
         """
         pulumi.set(__self__, "facility_names", facility_names)
         pulumi.set(__self__, "log_levels", log_levels)
         pulumi.set(__self__, "name", name)
+        if streams is not None:
+            pulumi.set(__self__, "streams", streams)
 
     @property
     @pulumi.getter(name="facilityNames")
@@ -5143,6 +5147,18 @@ class DataCollectionRuleDataSourcesSyslogArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
+        """
+        return pulumi.get(self, "streams")
+
+    @streams.setter
+    def streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "streams", value)
+
 
 @pulumi.input_type
 class DataCollectionRuleDataSourcesWindowsEventLogArgs:
@@ -5152,7 +5168,7 @@ class DataCollectionRuleDataSourcesWindowsEventLogArgs:
                  x_path_queries: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         :param pulumi.Input[str] name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`,and `Microsoft-WindowsEvent`, `Microsoft-RomeDetectionEvent`, and `Microsoft-SecurityEvent`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] x_path_queries: Specifies a list of Windows Event Log queries in XPath expression.
         """
         pulumi.set(__self__, "name", name)
@@ -5175,7 +5191,7 @@ class DataCollectionRuleDataSourcesWindowsEventLogArgs:
     @pulumi.getter
     def streams(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`,and `Microsoft-WindowsEvent`, `Microsoft-RomeDetectionEvent`, and `Microsoft-SecurityEvent`.
         """
         return pulumi.get(self, "streams")
 

@@ -443,7 +443,7 @@ class SubscriptionPolicyAssignment(pulumi.CustomResource):
             policy_type="Custom",
             mode="All",
             display_name="Allowed resource types",
-            policy_rule=\"\"\"	{
+            policy_rule=\"\"\" {
             "if": {
               "not": {
                 "field": "location",
@@ -503,7 +503,7 @@ class SubscriptionPolicyAssignment(pulumi.CustomResource):
             policy_type="Custom",
             mode="All",
             display_name="Allowed resource types",
-            policy_rule=\"\"\"	{
+            policy_rule=\"\"\" {
             "if": {
               "not": {
                 "field": "location",

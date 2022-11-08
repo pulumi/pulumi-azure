@@ -66,6 +66,9 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
      * The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
      */
     public readonly dailyQuotaGb!: pulumi.Output<number | undefined>;
+    /**
+     * Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
+     */
     public readonly internetIngestionEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
@@ -176,6 +179,9 @@ export interface AnalyticsWorkspaceState {
      * The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
      */
     dailyQuotaGb?: pulumi.Input<number>;
+    /**
+     * Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
+     */
     internetIngestionEnabled?: pulumi.Input<boolean>;
     /**
      * Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
@@ -235,6 +241,9 @@ export interface AnalyticsWorkspaceArgs {
      * The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
      */
     dailyQuotaGb?: pulumi.Input<number>;
+    /**
+     * Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
+     */
     internetIngestionEnabled?: pulumi.Input<boolean>;
     /**
      * Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.

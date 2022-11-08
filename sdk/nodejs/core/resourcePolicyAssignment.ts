@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * const exampleDefinition = new azure.policy.Definition("exampleDefinition", {
  *     policyType: "Custom",
  *     mode: "All",
- *     policyRule: `	{
+ *     policyRule: ` {
  *     "if": {
  *       "not": {
  *         "field": "location",

@@ -1079,7 +1079,7 @@ func (o PoolContainerConfigurationContainerRegistryArrayOutput) Index(i pulumi.I
 }
 
 type PoolDataDisk struct {
-	// Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
+	// Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: <https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/>.
 	Caching *string `pulumi:"caching"`
 	// The initial disk size in GB when creating new data disk.
 	DiskSizeGb int `pulumi:"diskSizeGb"`
@@ -1101,7 +1101,7 @@ type PoolDataDiskInput interface {
 }
 
 type PoolDataDiskArgs struct {
-	// Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
+	// Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: <https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/>.
 	Caching pulumi.StringPtrInput `pulumi:"caching"`
 	// The initial disk size in GB when creating new data disk.
 	DiskSizeGb pulumi.IntInput `pulumi:"diskSizeGb"`
@@ -1162,7 +1162,7 @@ func (o PoolDataDiskOutput) ToPoolDataDiskOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
+// Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: <https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/>.
 func (o PoolDataDiskOutput) Caching() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolDataDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
 }
@@ -4104,7 +4104,6 @@ func (o PoolStartTaskUserIdentityAutoUserPtrOutput) Scope() pulumi.StringPtrOutp
 
 type PoolStorageImageReference struct {
 	// Specifies the ID of the Custom Image which the virtual machines should be created from. Changing this forces a new resource to be created. See [official documentation](https://docs.microsoft.com/azure/batch/batch-custom-images) for more details.
-	// ---
 	Id *string `pulumi:"id"`
 	// Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
 	Offer *string `pulumi:"offer"`
@@ -4129,7 +4128,6 @@ type PoolStorageImageReferenceInput interface {
 
 type PoolStorageImageReferenceArgs struct {
 	// Specifies the ID of the Custom Image which the virtual machines should be created from. Changing this forces a new resource to be created. See [official documentation](https://docs.microsoft.com/azure/batch/batch-custom-images) for more details.
-	// ---
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
 	Offer pulumi.StringPtrInput `pulumi:"offer"`
@@ -4219,7 +4217,6 @@ func (o PoolStorageImageReferenceOutput) ToPoolStorageImageReferencePtrOutputWit
 }
 
 // Specifies the ID of the Custom Image which the virtual machines should be created from. Changing this forces a new resource to be created. See [official documentation](https://docs.microsoft.com/azure/batch/batch-custom-images) for more details.
-// ---
 func (o PoolStorageImageReferenceOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStorageImageReference) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -4269,7 +4266,6 @@ func (o PoolStorageImageReferencePtrOutput) Elem() PoolStorageImageReferenceOutp
 }
 
 // Specifies the ID of the Custom Image which the virtual machines should be created from. Changing this forces a new resource to be created. See [official documentation](https://docs.microsoft.com/azure/batch/batch-custom-images) for more details.
-// ---
 func (o PoolStorageImageReferencePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PoolStorageImageReference) *string {
 		if v == nil {

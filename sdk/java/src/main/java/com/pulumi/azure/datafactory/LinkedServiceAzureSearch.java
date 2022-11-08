@@ -159,14 +159,14 @@ public class LinkedServiceAzureSearch extends com.pulumi.resources.CustomResourc
         return this.searchServiceKey;
     }
     /**
-     * The URL of the Search Service endpoint (e.g. https://{searchServiceName}.search.windows.net).
+     * The URL of the Search Service endpoint (e.g. &lt;https://{searchServiceName}.search.windows.net&gt;).
      * 
      */
     @Export(name="url", type=String.class, parameters={})
     private Output<String> url;
 
     /**
-     * @return The URL of the Search Service endpoint (e.g. https://{searchServiceName}.search.windows.net).
+     * @return The URL of the Search Service endpoint (e.g. &lt;https://{searchServiceName}.search.windows.net&gt;).
      * 
      */
     public Output<String> url() {

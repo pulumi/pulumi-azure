@@ -38,7 +38,7 @@ class DicomServiceAuthentication(dict):
                  audiences: Optional[Sequence[str]] = None,
                  authority: Optional[str] = None):
         """
-        :param Sequence[str] audiences: The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+        :param Sequence[str] audiences: The intended audience to receive authentication tokens for the service. The default value is <https://dicom.azurehealthcareapis.azure.com>
         """
         if audiences is not None:
             pulumi.set(__self__, "audiences", audiences)
@@ -49,7 +49,7 @@ class DicomServiceAuthentication(dict):
     @pulumi.getter
     def audiences(self) -> Optional[Sequence[str]]:
         """
-        The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+        The intended audience to receive authentication tokens for the service. The default value is <https://dicom.azurehealthcareapis.azure.com>
         """
         return pulumi.get(self, "audiences")
 
@@ -181,7 +181,7 @@ class FhirServiceAuthentication(dict):
                  authority: str,
                  smart_proxy_enabled: Optional[bool] = None):
         """
-        :param str audience: The intended audience to receive authentication tokens for the service. The default value is https://<name>.fhir.azurehealthcareapis.com
+        :param str audience: The intended audience to receive authentication tokens for the service. The default value is `https://<name>.fhir.azurehealthcareapis.com`.
         """
         pulumi.set(__self__, "audience", audience)
         pulumi.set(__self__, "authority", authority)
@@ -192,7 +192,7 @@ class FhirServiceAuthentication(dict):
     @pulumi.getter
     def audience(self) -> str:
         """
-        The intended audience to receive authentication tokens for the service. The default value is https://<name>.fhir.azurehealthcareapis.com
+        The intended audience to receive authentication tokens for the service. The default value is `https://<name>.fhir.azurehealthcareapis.com`.
         """
         return pulumi.get(self, "audience")
 
@@ -662,7 +662,7 @@ class GetDicomServiceAuthenticationResult(dict):
                  audiences: Sequence[str],
                  authority: str):
         """
-        :param Sequence[str] audiences: The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+        :param Sequence[str] audiences: The intended audience to receive authentication tokens for the service. The default value is <https://dicom.azurehealthcareapis.azure.com>
         """
         pulumi.set(__self__, "audiences", audiences)
         pulumi.set(__self__, "authority", authority)
@@ -671,7 +671,7 @@ class GetDicomServiceAuthenticationResult(dict):
     @pulumi.getter
     def audiences(self) -> Sequence[str]:
         """
-        The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+        The intended audience to receive authentication tokens for the service. The default value is <https://dicom.azurehealthcareapis.azure.com>
         """
         return pulumi.get(self, "audiences")
 
@@ -750,7 +750,7 @@ class GetFhirServiceAuthenticationResult(dict):
                  authority: str,
                  smart_proxy_enabled: bool):
         """
-        :param str audience: The intended audience to receive authentication tokens for the service. The default value is https://<name>.fhir.azurehealthcareapis.com
+        :param str audience: The intended audience to receive authentication tokens for the service. The default value is `https://<name>.fhir.azurehealthcareapis.com`.
         """
         pulumi.set(__self__, "audience", audience)
         pulumi.set(__self__, "authority", authority)
@@ -760,7 +760,7 @@ class GetFhirServiceAuthenticationResult(dict):
     @pulumi.getter
     def audience(self) -> str:
         """
-        The intended audience to receive authentication tokens for the service. The default value is https://<name>.fhir.azurehealthcareapis.com
+        The intended audience to receive authentication tokens for the service. The default value is `https://<name>.fhir.azurehealthcareapis.com`.
         """
         return pulumi.get(self, "audience")
 

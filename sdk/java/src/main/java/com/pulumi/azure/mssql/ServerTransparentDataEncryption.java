@@ -10,6 +10,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -196,6 +197,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:mssql/serverTransparentDataEncryption:ServerTransparentDataEncryption")
 public class ServerTransparentDataEncryption extends com.pulumi.resources.CustomResource {
+    /**
+     * When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
+     * 
+     */
+    @Export(name="autoRotationEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> autoRotationEnabled;
+
+    /**
+     * @return When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
+     * 
+     */
+    public Output<Optional<Boolean>> autoRotationEnabled() {
+        return Codegen.optional(this.autoRotationEnabled);
+    }
     /**
      * To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
      * 

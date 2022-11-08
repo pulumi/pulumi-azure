@@ -85,9 +85,11 @@ export class MongoCollection extends pulumi.CustomResource {
     public readonly databaseName!: pulumi.Output<string>;
     /**
      * The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
-     * * # `index` - (Optional) One or more `index` blocks as defined below.
      */
     public readonly defaultTtlSeconds!: pulumi.Output<number | undefined>;
+    /**
+     * One or more `index` blocks as defined below.
+     */
     public readonly indices!: pulumi.Output<outputs.cosmosdb.MongoCollectionIndex[] | undefined>;
     /**
      * Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
@@ -175,9 +177,11 @@ export interface MongoCollectionState {
     databaseName?: pulumi.Input<string>;
     /**
      * The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
-     * * # `index` - (Optional) One or more `index` blocks as defined below.
      */
     defaultTtlSeconds?: pulumi.Input<number>;
+    /**
+     * One or more `index` blocks as defined below.
+     */
     indices?: pulumi.Input<pulumi.Input<inputs.cosmosdb.MongoCollectionIndex>[]>;
     /**
      * Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
@@ -214,9 +218,11 @@ export interface MongoCollectionArgs {
     databaseName: pulumi.Input<string>;
     /**
      * The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
-     * * # `index` - (Optional) One or more `index` blocks as defined below.
      */
     defaultTtlSeconds?: pulumi.Input<number>;
+    /**
+     * One or more `index` blocks as defined below.
+     */
     indices?: pulumi.Input<pulumi.Input<inputs.cosmosdb.MongoCollectionIndex>[]>;
     /**
      * Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.

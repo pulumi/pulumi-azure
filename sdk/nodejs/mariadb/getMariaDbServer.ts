@@ -84,7 +84,6 @@ export interface GetMariaDbServerResult {
     readonly storageProfiles: outputs.mariadb.GetMariaDbServerStorageProfile[];
     /**
      * A mapping of tags assigned to the resource.
-     * ---
      */
     readonly tags: {[key: string]: string};
     /**

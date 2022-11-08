@@ -80,7 +80,6 @@ export class Account extends pulumi.CustomResource {
     public readonly encryptions!: pulumi.Output<outputs.automation.AccountEncryption[]>;
     /**
      * The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
-     * ---
      */
     public /*out*/ readonly hybridServiceUrl!: pulumi.Output<string>;
     /**
@@ -194,7 +193,6 @@ export interface AccountState {
     encryptions?: pulumi.Input<pulumi.Input<inputs.automation.AccountEncryption>[]>;
     /**
      * The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
-     * ---
      */
     hybridServiceUrl?: pulumi.Input<string>;
     /**

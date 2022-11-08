@@ -147,6 +147,158 @@ func (o HBaseClusterComponentVersionPtrOutput) Hbase() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type HBaseClusterComputeIsolation struct {
+	ComputeIsolationEnabled *bool `pulumi:"computeIsolationEnabled"`
+	// The name of the host SKU.
+	HostSku *string `pulumi:"hostSku"`
+}
+
+// HBaseClusterComputeIsolationInput is an input type that accepts HBaseClusterComputeIsolationArgs and HBaseClusterComputeIsolationOutput values.
+// You can construct a concrete instance of `HBaseClusterComputeIsolationInput` via:
+//
+//	HBaseClusterComputeIsolationArgs{...}
+type HBaseClusterComputeIsolationInput interface {
+	pulumi.Input
+
+	ToHBaseClusterComputeIsolationOutput() HBaseClusterComputeIsolationOutput
+	ToHBaseClusterComputeIsolationOutputWithContext(context.Context) HBaseClusterComputeIsolationOutput
+}
+
+type HBaseClusterComputeIsolationArgs struct {
+	ComputeIsolationEnabled pulumi.BoolPtrInput `pulumi:"computeIsolationEnabled"`
+	// The name of the host SKU.
+	HostSku pulumi.StringPtrInput `pulumi:"hostSku"`
+}
+
+func (HBaseClusterComputeIsolationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HBaseClusterComputeIsolation)(nil)).Elem()
+}
+
+func (i HBaseClusterComputeIsolationArgs) ToHBaseClusterComputeIsolationOutput() HBaseClusterComputeIsolationOutput {
+	return i.ToHBaseClusterComputeIsolationOutputWithContext(context.Background())
+}
+
+func (i HBaseClusterComputeIsolationArgs) ToHBaseClusterComputeIsolationOutputWithContext(ctx context.Context) HBaseClusterComputeIsolationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterComputeIsolationOutput)
+}
+
+func (i HBaseClusterComputeIsolationArgs) ToHBaseClusterComputeIsolationPtrOutput() HBaseClusterComputeIsolationPtrOutput {
+	return i.ToHBaseClusterComputeIsolationPtrOutputWithContext(context.Background())
+}
+
+func (i HBaseClusterComputeIsolationArgs) ToHBaseClusterComputeIsolationPtrOutputWithContext(ctx context.Context) HBaseClusterComputeIsolationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterComputeIsolationOutput).ToHBaseClusterComputeIsolationPtrOutputWithContext(ctx)
+}
+
+// HBaseClusterComputeIsolationPtrInput is an input type that accepts HBaseClusterComputeIsolationArgs, HBaseClusterComputeIsolationPtr and HBaseClusterComputeIsolationPtrOutput values.
+// You can construct a concrete instance of `HBaseClusterComputeIsolationPtrInput` via:
+//
+//	        HBaseClusterComputeIsolationArgs{...}
+//
+//	or:
+//
+//	        nil
+type HBaseClusterComputeIsolationPtrInput interface {
+	pulumi.Input
+
+	ToHBaseClusterComputeIsolationPtrOutput() HBaseClusterComputeIsolationPtrOutput
+	ToHBaseClusterComputeIsolationPtrOutputWithContext(context.Context) HBaseClusterComputeIsolationPtrOutput
+}
+
+type hbaseClusterComputeIsolationPtrType HBaseClusterComputeIsolationArgs
+
+func HBaseClusterComputeIsolationPtr(v *HBaseClusterComputeIsolationArgs) HBaseClusterComputeIsolationPtrInput {
+	return (*hbaseClusterComputeIsolationPtrType)(v)
+}
+
+func (*hbaseClusterComputeIsolationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HBaseClusterComputeIsolation)(nil)).Elem()
+}
+
+func (i *hbaseClusterComputeIsolationPtrType) ToHBaseClusterComputeIsolationPtrOutput() HBaseClusterComputeIsolationPtrOutput {
+	return i.ToHBaseClusterComputeIsolationPtrOutputWithContext(context.Background())
+}
+
+func (i *hbaseClusterComputeIsolationPtrType) ToHBaseClusterComputeIsolationPtrOutputWithContext(ctx context.Context) HBaseClusterComputeIsolationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterComputeIsolationPtrOutput)
+}
+
+type HBaseClusterComputeIsolationOutput struct{ *pulumi.OutputState }
+
+func (HBaseClusterComputeIsolationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HBaseClusterComputeIsolation)(nil)).Elem()
+}
+
+func (o HBaseClusterComputeIsolationOutput) ToHBaseClusterComputeIsolationOutput() HBaseClusterComputeIsolationOutput {
+	return o
+}
+
+func (o HBaseClusterComputeIsolationOutput) ToHBaseClusterComputeIsolationOutputWithContext(ctx context.Context) HBaseClusterComputeIsolationOutput {
+	return o
+}
+
+func (o HBaseClusterComputeIsolationOutput) ToHBaseClusterComputeIsolationPtrOutput() HBaseClusterComputeIsolationPtrOutput {
+	return o.ToHBaseClusterComputeIsolationPtrOutputWithContext(context.Background())
+}
+
+func (o HBaseClusterComputeIsolationOutput) ToHBaseClusterComputeIsolationPtrOutputWithContext(ctx context.Context) HBaseClusterComputeIsolationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterComputeIsolation) *HBaseClusterComputeIsolation {
+		return &v
+	}).(HBaseClusterComputeIsolationPtrOutput)
+}
+
+func (o HBaseClusterComputeIsolationOutput) ComputeIsolationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HBaseClusterComputeIsolation) *bool { return v.ComputeIsolationEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the host SKU.
+func (o HBaseClusterComputeIsolationOutput) HostSku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HBaseClusterComputeIsolation) *string { return v.HostSku }).(pulumi.StringPtrOutput)
+}
+
+type HBaseClusterComputeIsolationPtrOutput struct{ *pulumi.OutputState }
+
+func (HBaseClusterComputeIsolationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HBaseClusterComputeIsolation)(nil)).Elem()
+}
+
+func (o HBaseClusterComputeIsolationPtrOutput) ToHBaseClusterComputeIsolationPtrOutput() HBaseClusterComputeIsolationPtrOutput {
+	return o
+}
+
+func (o HBaseClusterComputeIsolationPtrOutput) ToHBaseClusterComputeIsolationPtrOutputWithContext(ctx context.Context) HBaseClusterComputeIsolationPtrOutput {
+	return o
+}
+
+func (o HBaseClusterComputeIsolationPtrOutput) Elem() HBaseClusterComputeIsolationOutput {
+	return o.ApplyT(func(v *HBaseClusterComputeIsolation) HBaseClusterComputeIsolation {
+		if v != nil {
+			return *v
+		}
+		var ret HBaseClusterComputeIsolation
+		return ret
+	}).(HBaseClusterComputeIsolationOutput)
+}
+
+func (o HBaseClusterComputeIsolationPtrOutput) ComputeIsolationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *HBaseClusterComputeIsolation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeIsolationEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The name of the host SKU.
+func (o HBaseClusterComputeIsolationPtrOutput) HostSku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HBaseClusterComputeIsolation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostSku
+	}).(pulumi.StringPtrOutput)
+}
+
 type HBaseClusterDiskEncryption struct {
 	// This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
 	EncryptionAlgorithm *string `pulumi:"encryptionAlgorithm"`
@@ -4080,6 +4232,158 @@ func (o HadoopClusterComponentVersionPtrOutput) Hadoop() pulumi.StringPtrOutput 
 			return nil
 		}
 		return &v.Hadoop
+	}).(pulumi.StringPtrOutput)
+}
+
+type HadoopClusterComputeIsolation struct {
+	ComputeIsolationEnabled *bool `pulumi:"computeIsolationEnabled"`
+	// The name of the host SKU.
+	HostSku *string `pulumi:"hostSku"`
+}
+
+// HadoopClusterComputeIsolationInput is an input type that accepts HadoopClusterComputeIsolationArgs and HadoopClusterComputeIsolationOutput values.
+// You can construct a concrete instance of `HadoopClusterComputeIsolationInput` via:
+//
+//	HadoopClusterComputeIsolationArgs{...}
+type HadoopClusterComputeIsolationInput interface {
+	pulumi.Input
+
+	ToHadoopClusterComputeIsolationOutput() HadoopClusterComputeIsolationOutput
+	ToHadoopClusterComputeIsolationOutputWithContext(context.Context) HadoopClusterComputeIsolationOutput
+}
+
+type HadoopClusterComputeIsolationArgs struct {
+	ComputeIsolationEnabled pulumi.BoolPtrInput `pulumi:"computeIsolationEnabled"`
+	// The name of the host SKU.
+	HostSku pulumi.StringPtrInput `pulumi:"hostSku"`
+}
+
+func (HadoopClusterComputeIsolationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterComputeIsolation)(nil)).Elem()
+}
+
+func (i HadoopClusterComputeIsolationArgs) ToHadoopClusterComputeIsolationOutput() HadoopClusterComputeIsolationOutput {
+	return i.ToHadoopClusterComputeIsolationOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterComputeIsolationArgs) ToHadoopClusterComputeIsolationOutputWithContext(ctx context.Context) HadoopClusterComputeIsolationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterComputeIsolationOutput)
+}
+
+func (i HadoopClusterComputeIsolationArgs) ToHadoopClusterComputeIsolationPtrOutput() HadoopClusterComputeIsolationPtrOutput {
+	return i.ToHadoopClusterComputeIsolationPtrOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterComputeIsolationArgs) ToHadoopClusterComputeIsolationPtrOutputWithContext(ctx context.Context) HadoopClusterComputeIsolationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterComputeIsolationOutput).ToHadoopClusterComputeIsolationPtrOutputWithContext(ctx)
+}
+
+// HadoopClusterComputeIsolationPtrInput is an input type that accepts HadoopClusterComputeIsolationArgs, HadoopClusterComputeIsolationPtr and HadoopClusterComputeIsolationPtrOutput values.
+// You can construct a concrete instance of `HadoopClusterComputeIsolationPtrInput` via:
+//
+//	        HadoopClusterComputeIsolationArgs{...}
+//
+//	or:
+//
+//	        nil
+type HadoopClusterComputeIsolationPtrInput interface {
+	pulumi.Input
+
+	ToHadoopClusterComputeIsolationPtrOutput() HadoopClusterComputeIsolationPtrOutput
+	ToHadoopClusterComputeIsolationPtrOutputWithContext(context.Context) HadoopClusterComputeIsolationPtrOutput
+}
+
+type hadoopClusterComputeIsolationPtrType HadoopClusterComputeIsolationArgs
+
+func HadoopClusterComputeIsolationPtr(v *HadoopClusterComputeIsolationArgs) HadoopClusterComputeIsolationPtrInput {
+	return (*hadoopClusterComputeIsolationPtrType)(v)
+}
+
+func (*hadoopClusterComputeIsolationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HadoopClusterComputeIsolation)(nil)).Elem()
+}
+
+func (i *hadoopClusterComputeIsolationPtrType) ToHadoopClusterComputeIsolationPtrOutput() HadoopClusterComputeIsolationPtrOutput {
+	return i.ToHadoopClusterComputeIsolationPtrOutputWithContext(context.Background())
+}
+
+func (i *hadoopClusterComputeIsolationPtrType) ToHadoopClusterComputeIsolationPtrOutputWithContext(ctx context.Context) HadoopClusterComputeIsolationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterComputeIsolationPtrOutput)
+}
+
+type HadoopClusterComputeIsolationOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterComputeIsolationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterComputeIsolation)(nil)).Elem()
+}
+
+func (o HadoopClusterComputeIsolationOutput) ToHadoopClusterComputeIsolationOutput() HadoopClusterComputeIsolationOutput {
+	return o
+}
+
+func (o HadoopClusterComputeIsolationOutput) ToHadoopClusterComputeIsolationOutputWithContext(ctx context.Context) HadoopClusterComputeIsolationOutput {
+	return o
+}
+
+func (o HadoopClusterComputeIsolationOutput) ToHadoopClusterComputeIsolationPtrOutput() HadoopClusterComputeIsolationPtrOutput {
+	return o.ToHadoopClusterComputeIsolationPtrOutputWithContext(context.Background())
+}
+
+func (o HadoopClusterComputeIsolationOutput) ToHadoopClusterComputeIsolationPtrOutputWithContext(ctx context.Context) HadoopClusterComputeIsolationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterComputeIsolation) *HadoopClusterComputeIsolation {
+		return &v
+	}).(HadoopClusterComputeIsolationPtrOutput)
+}
+
+func (o HadoopClusterComputeIsolationOutput) ComputeIsolationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HadoopClusterComputeIsolation) *bool { return v.ComputeIsolationEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the host SKU.
+func (o HadoopClusterComputeIsolationOutput) HostSku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HadoopClusterComputeIsolation) *string { return v.HostSku }).(pulumi.StringPtrOutput)
+}
+
+type HadoopClusterComputeIsolationPtrOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterComputeIsolationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HadoopClusterComputeIsolation)(nil)).Elem()
+}
+
+func (o HadoopClusterComputeIsolationPtrOutput) ToHadoopClusterComputeIsolationPtrOutput() HadoopClusterComputeIsolationPtrOutput {
+	return o
+}
+
+func (o HadoopClusterComputeIsolationPtrOutput) ToHadoopClusterComputeIsolationPtrOutputWithContext(ctx context.Context) HadoopClusterComputeIsolationPtrOutput {
+	return o
+}
+
+func (o HadoopClusterComputeIsolationPtrOutput) Elem() HadoopClusterComputeIsolationOutput {
+	return o.ApplyT(func(v *HadoopClusterComputeIsolation) HadoopClusterComputeIsolation {
+		if v != nil {
+			return *v
+		}
+		var ret HadoopClusterComputeIsolation
+		return ret
+	}).(HadoopClusterComputeIsolationOutput)
+}
+
+func (o HadoopClusterComputeIsolationPtrOutput) ComputeIsolationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterComputeIsolation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeIsolationEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The name of the host SKU.
+func (o HadoopClusterComputeIsolationPtrOutput) HostSku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterComputeIsolation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostSku
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8785,6 +9089,158 @@ func (o InteractiveQueryClusterComponentVersionPtrOutput) InteractiveHive() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
+type InteractiveQueryClusterComputeIsolation struct {
+	ComputeIsolationEnabled *bool `pulumi:"computeIsolationEnabled"`
+	// The name of the host SKU.
+	HostSku *string `pulumi:"hostSku"`
+}
+
+// InteractiveQueryClusterComputeIsolationInput is an input type that accepts InteractiveQueryClusterComputeIsolationArgs and InteractiveQueryClusterComputeIsolationOutput values.
+// You can construct a concrete instance of `InteractiveQueryClusterComputeIsolationInput` via:
+//
+//	InteractiveQueryClusterComputeIsolationArgs{...}
+type InteractiveQueryClusterComputeIsolationInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterComputeIsolationOutput() InteractiveQueryClusterComputeIsolationOutput
+	ToInteractiveQueryClusterComputeIsolationOutputWithContext(context.Context) InteractiveQueryClusterComputeIsolationOutput
+}
+
+type InteractiveQueryClusterComputeIsolationArgs struct {
+	ComputeIsolationEnabled pulumi.BoolPtrInput `pulumi:"computeIsolationEnabled"`
+	// The name of the host SKU.
+	HostSku pulumi.StringPtrInput `pulumi:"hostSku"`
+}
+
+func (InteractiveQueryClusterComputeIsolationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InteractiveQueryClusterComputeIsolation)(nil)).Elem()
+}
+
+func (i InteractiveQueryClusterComputeIsolationArgs) ToInteractiveQueryClusterComputeIsolationOutput() InteractiveQueryClusterComputeIsolationOutput {
+	return i.ToInteractiveQueryClusterComputeIsolationOutputWithContext(context.Background())
+}
+
+func (i InteractiveQueryClusterComputeIsolationArgs) ToInteractiveQueryClusterComputeIsolationOutputWithContext(ctx context.Context) InteractiveQueryClusterComputeIsolationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterComputeIsolationOutput)
+}
+
+func (i InteractiveQueryClusterComputeIsolationArgs) ToInteractiveQueryClusterComputeIsolationPtrOutput() InteractiveQueryClusterComputeIsolationPtrOutput {
+	return i.ToInteractiveQueryClusterComputeIsolationPtrOutputWithContext(context.Background())
+}
+
+func (i InteractiveQueryClusterComputeIsolationArgs) ToInteractiveQueryClusterComputeIsolationPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterComputeIsolationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterComputeIsolationOutput).ToInteractiveQueryClusterComputeIsolationPtrOutputWithContext(ctx)
+}
+
+// InteractiveQueryClusterComputeIsolationPtrInput is an input type that accepts InteractiveQueryClusterComputeIsolationArgs, InteractiveQueryClusterComputeIsolationPtr and InteractiveQueryClusterComputeIsolationPtrOutput values.
+// You can construct a concrete instance of `InteractiveQueryClusterComputeIsolationPtrInput` via:
+//
+//	        InteractiveQueryClusterComputeIsolationArgs{...}
+//
+//	or:
+//
+//	        nil
+type InteractiveQueryClusterComputeIsolationPtrInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterComputeIsolationPtrOutput() InteractiveQueryClusterComputeIsolationPtrOutput
+	ToInteractiveQueryClusterComputeIsolationPtrOutputWithContext(context.Context) InteractiveQueryClusterComputeIsolationPtrOutput
+}
+
+type interactiveQueryClusterComputeIsolationPtrType InteractiveQueryClusterComputeIsolationArgs
+
+func InteractiveQueryClusterComputeIsolationPtr(v *InteractiveQueryClusterComputeIsolationArgs) InteractiveQueryClusterComputeIsolationPtrInput {
+	return (*interactiveQueryClusterComputeIsolationPtrType)(v)
+}
+
+func (*interactiveQueryClusterComputeIsolationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InteractiveQueryClusterComputeIsolation)(nil)).Elem()
+}
+
+func (i *interactiveQueryClusterComputeIsolationPtrType) ToInteractiveQueryClusterComputeIsolationPtrOutput() InteractiveQueryClusterComputeIsolationPtrOutput {
+	return i.ToInteractiveQueryClusterComputeIsolationPtrOutputWithContext(context.Background())
+}
+
+func (i *interactiveQueryClusterComputeIsolationPtrType) ToInteractiveQueryClusterComputeIsolationPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterComputeIsolationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterComputeIsolationPtrOutput)
+}
+
+type InteractiveQueryClusterComputeIsolationOutput struct{ *pulumi.OutputState }
+
+func (InteractiveQueryClusterComputeIsolationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InteractiveQueryClusterComputeIsolation)(nil)).Elem()
+}
+
+func (o InteractiveQueryClusterComputeIsolationOutput) ToInteractiveQueryClusterComputeIsolationOutput() InteractiveQueryClusterComputeIsolationOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterComputeIsolationOutput) ToInteractiveQueryClusterComputeIsolationOutputWithContext(ctx context.Context) InteractiveQueryClusterComputeIsolationOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterComputeIsolationOutput) ToInteractiveQueryClusterComputeIsolationPtrOutput() InteractiveQueryClusterComputeIsolationPtrOutput {
+	return o.ToInteractiveQueryClusterComputeIsolationPtrOutputWithContext(context.Background())
+}
+
+func (o InteractiveQueryClusterComputeIsolationOutput) ToInteractiveQueryClusterComputeIsolationPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterComputeIsolationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterComputeIsolation) *InteractiveQueryClusterComputeIsolation {
+		return &v
+	}).(InteractiveQueryClusterComputeIsolationPtrOutput)
+}
+
+func (o InteractiveQueryClusterComputeIsolationOutput) ComputeIsolationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterComputeIsolation) *bool { return v.ComputeIsolationEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the host SKU.
+func (o InteractiveQueryClusterComputeIsolationOutput) HostSku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterComputeIsolation) *string { return v.HostSku }).(pulumi.StringPtrOutput)
+}
+
+type InteractiveQueryClusterComputeIsolationPtrOutput struct{ *pulumi.OutputState }
+
+func (InteractiveQueryClusterComputeIsolationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InteractiveQueryClusterComputeIsolation)(nil)).Elem()
+}
+
+func (o InteractiveQueryClusterComputeIsolationPtrOutput) ToInteractiveQueryClusterComputeIsolationPtrOutput() InteractiveQueryClusterComputeIsolationPtrOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterComputeIsolationPtrOutput) ToInteractiveQueryClusterComputeIsolationPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterComputeIsolationPtrOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterComputeIsolationPtrOutput) Elem() InteractiveQueryClusterComputeIsolationOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterComputeIsolation) InteractiveQueryClusterComputeIsolation {
+		if v != nil {
+			return *v
+		}
+		var ret InteractiveQueryClusterComputeIsolation
+		return ret
+	}).(InteractiveQueryClusterComputeIsolationOutput)
+}
+
+func (o InteractiveQueryClusterComputeIsolationPtrOutput) ComputeIsolationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterComputeIsolation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeIsolationEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The name of the host SKU.
+func (o InteractiveQueryClusterComputeIsolationPtrOutput) HostSku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterComputeIsolation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostSku
+	}).(pulumi.StringPtrOutput)
+}
+
 type InteractiveQueryClusterDiskEncryption struct {
 	// This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
 	EncryptionAlgorithm *string `pulumi:"encryptionAlgorithm"`
@@ -12906,6 +13362,158 @@ func (o KafkaClusterComponentVersionPtrOutput) Kafka() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type KafkaClusterComputeIsolation struct {
+	ComputeIsolationEnabled *bool `pulumi:"computeIsolationEnabled"`
+	// The name of the host SKU.
+	HostSku *string `pulumi:"hostSku"`
+}
+
+// KafkaClusterComputeIsolationInput is an input type that accepts KafkaClusterComputeIsolationArgs and KafkaClusterComputeIsolationOutput values.
+// You can construct a concrete instance of `KafkaClusterComputeIsolationInput` via:
+//
+//	KafkaClusterComputeIsolationArgs{...}
+type KafkaClusterComputeIsolationInput interface {
+	pulumi.Input
+
+	ToKafkaClusterComputeIsolationOutput() KafkaClusterComputeIsolationOutput
+	ToKafkaClusterComputeIsolationOutputWithContext(context.Context) KafkaClusterComputeIsolationOutput
+}
+
+type KafkaClusterComputeIsolationArgs struct {
+	ComputeIsolationEnabled pulumi.BoolPtrInput `pulumi:"computeIsolationEnabled"`
+	// The name of the host SKU.
+	HostSku pulumi.StringPtrInput `pulumi:"hostSku"`
+}
+
+func (KafkaClusterComputeIsolationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterComputeIsolation)(nil)).Elem()
+}
+
+func (i KafkaClusterComputeIsolationArgs) ToKafkaClusterComputeIsolationOutput() KafkaClusterComputeIsolationOutput {
+	return i.ToKafkaClusterComputeIsolationOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterComputeIsolationArgs) ToKafkaClusterComputeIsolationOutputWithContext(ctx context.Context) KafkaClusterComputeIsolationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterComputeIsolationOutput)
+}
+
+func (i KafkaClusterComputeIsolationArgs) ToKafkaClusterComputeIsolationPtrOutput() KafkaClusterComputeIsolationPtrOutput {
+	return i.ToKafkaClusterComputeIsolationPtrOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterComputeIsolationArgs) ToKafkaClusterComputeIsolationPtrOutputWithContext(ctx context.Context) KafkaClusterComputeIsolationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterComputeIsolationOutput).ToKafkaClusterComputeIsolationPtrOutputWithContext(ctx)
+}
+
+// KafkaClusterComputeIsolationPtrInput is an input type that accepts KafkaClusterComputeIsolationArgs, KafkaClusterComputeIsolationPtr and KafkaClusterComputeIsolationPtrOutput values.
+// You can construct a concrete instance of `KafkaClusterComputeIsolationPtrInput` via:
+//
+//	        KafkaClusterComputeIsolationArgs{...}
+//
+//	or:
+//
+//	        nil
+type KafkaClusterComputeIsolationPtrInput interface {
+	pulumi.Input
+
+	ToKafkaClusterComputeIsolationPtrOutput() KafkaClusterComputeIsolationPtrOutput
+	ToKafkaClusterComputeIsolationPtrOutputWithContext(context.Context) KafkaClusterComputeIsolationPtrOutput
+}
+
+type kafkaClusterComputeIsolationPtrType KafkaClusterComputeIsolationArgs
+
+func KafkaClusterComputeIsolationPtr(v *KafkaClusterComputeIsolationArgs) KafkaClusterComputeIsolationPtrInput {
+	return (*kafkaClusterComputeIsolationPtrType)(v)
+}
+
+func (*kafkaClusterComputeIsolationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaClusterComputeIsolation)(nil)).Elem()
+}
+
+func (i *kafkaClusterComputeIsolationPtrType) ToKafkaClusterComputeIsolationPtrOutput() KafkaClusterComputeIsolationPtrOutput {
+	return i.ToKafkaClusterComputeIsolationPtrOutputWithContext(context.Background())
+}
+
+func (i *kafkaClusterComputeIsolationPtrType) ToKafkaClusterComputeIsolationPtrOutputWithContext(ctx context.Context) KafkaClusterComputeIsolationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterComputeIsolationPtrOutput)
+}
+
+type KafkaClusterComputeIsolationOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterComputeIsolationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterComputeIsolation)(nil)).Elem()
+}
+
+func (o KafkaClusterComputeIsolationOutput) ToKafkaClusterComputeIsolationOutput() KafkaClusterComputeIsolationOutput {
+	return o
+}
+
+func (o KafkaClusterComputeIsolationOutput) ToKafkaClusterComputeIsolationOutputWithContext(ctx context.Context) KafkaClusterComputeIsolationOutput {
+	return o
+}
+
+func (o KafkaClusterComputeIsolationOutput) ToKafkaClusterComputeIsolationPtrOutput() KafkaClusterComputeIsolationPtrOutput {
+	return o.ToKafkaClusterComputeIsolationPtrOutputWithContext(context.Background())
+}
+
+func (o KafkaClusterComputeIsolationOutput) ToKafkaClusterComputeIsolationPtrOutputWithContext(ctx context.Context) KafkaClusterComputeIsolationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterComputeIsolation) *KafkaClusterComputeIsolation {
+		return &v
+	}).(KafkaClusterComputeIsolationPtrOutput)
+}
+
+func (o KafkaClusterComputeIsolationOutput) ComputeIsolationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KafkaClusterComputeIsolation) *bool { return v.ComputeIsolationEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the host SKU.
+func (o KafkaClusterComputeIsolationOutput) HostSku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KafkaClusterComputeIsolation) *string { return v.HostSku }).(pulumi.StringPtrOutput)
+}
+
+type KafkaClusterComputeIsolationPtrOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterComputeIsolationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaClusterComputeIsolation)(nil)).Elem()
+}
+
+func (o KafkaClusterComputeIsolationPtrOutput) ToKafkaClusterComputeIsolationPtrOutput() KafkaClusterComputeIsolationPtrOutput {
+	return o
+}
+
+func (o KafkaClusterComputeIsolationPtrOutput) ToKafkaClusterComputeIsolationPtrOutputWithContext(ctx context.Context) KafkaClusterComputeIsolationPtrOutput {
+	return o
+}
+
+func (o KafkaClusterComputeIsolationPtrOutput) Elem() KafkaClusterComputeIsolationOutput {
+	return o.ApplyT(func(v *KafkaClusterComputeIsolation) KafkaClusterComputeIsolation {
+		if v != nil {
+			return *v
+		}
+		var ret KafkaClusterComputeIsolation
+		return ret
+	}).(KafkaClusterComputeIsolationOutput)
+}
+
+func (o KafkaClusterComputeIsolationPtrOutput) ComputeIsolationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KafkaClusterComputeIsolation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeIsolationEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The name of the host SKU.
+func (o KafkaClusterComputeIsolationPtrOutput) HostSku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaClusterComputeIsolation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostSku
+	}).(pulumi.StringPtrOutput)
+}
+
 type KafkaClusterDiskEncryption struct {
 	// This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
 	EncryptionAlgorithm *string `pulumi:"encryptionAlgorithm"`
@@ -16930,6 +17538,158 @@ func (o SparkClusterComponentVersionPtrOutput) Spark() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.Spark
+	}).(pulumi.StringPtrOutput)
+}
+
+type SparkClusterComputeIsolation struct {
+	ComputeIsolationEnabled *bool `pulumi:"computeIsolationEnabled"`
+	// The name of the host SKU.
+	HostSku *string `pulumi:"hostSku"`
+}
+
+// SparkClusterComputeIsolationInput is an input type that accepts SparkClusterComputeIsolationArgs and SparkClusterComputeIsolationOutput values.
+// You can construct a concrete instance of `SparkClusterComputeIsolationInput` via:
+//
+//	SparkClusterComputeIsolationArgs{...}
+type SparkClusterComputeIsolationInput interface {
+	pulumi.Input
+
+	ToSparkClusterComputeIsolationOutput() SparkClusterComputeIsolationOutput
+	ToSparkClusterComputeIsolationOutputWithContext(context.Context) SparkClusterComputeIsolationOutput
+}
+
+type SparkClusterComputeIsolationArgs struct {
+	ComputeIsolationEnabled pulumi.BoolPtrInput `pulumi:"computeIsolationEnabled"`
+	// The name of the host SKU.
+	HostSku pulumi.StringPtrInput `pulumi:"hostSku"`
+}
+
+func (SparkClusterComputeIsolationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkClusterComputeIsolation)(nil)).Elem()
+}
+
+func (i SparkClusterComputeIsolationArgs) ToSparkClusterComputeIsolationOutput() SparkClusterComputeIsolationOutput {
+	return i.ToSparkClusterComputeIsolationOutputWithContext(context.Background())
+}
+
+func (i SparkClusterComputeIsolationArgs) ToSparkClusterComputeIsolationOutputWithContext(ctx context.Context) SparkClusterComputeIsolationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterComputeIsolationOutput)
+}
+
+func (i SparkClusterComputeIsolationArgs) ToSparkClusterComputeIsolationPtrOutput() SparkClusterComputeIsolationPtrOutput {
+	return i.ToSparkClusterComputeIsolationPtrOutputWithContext(context.Background())
+}
+
+func (i SparkClusterComputeIsolationArgs) ToSparkClusterComputeIsolationPtrOutputWithContext(ctx context.Context) SparkClusterComputeIsolationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterComputeIsolationOutput).ToSparkClusterComputeIsolationPtrOutputWithContext(ctx)
+}
+
+// SparkClusterComputeIsolationPtrInput is an input type that accepts SparkClusterComputeIsolationArgs, SparkClusterComputeIsolationPtr and SparkClusterComputeIsolationPtrOutput values.
+// You can construct a concrete instance of `SparkClusterComputeIsolationPtrInput` via:
+//
+//	        SparkClusterComputeIsolationArgs{...}
+//
+//	or:
+//
+//	        nil
+type SparkClusterComputeIsolationPtrInput interface {
+	pulumi.Input
+
+	ToSparkClusterComputeIsolationPtrOutput() SparkClusterComputeIsolationPtrOutput
+	ToSparkClusterComputeIsolationPtrOutputWithContext(context.Context) SparkClusterComputeIsolationPtrOutput
+}
+
+type sparkClusterComputeIsolationPtrType SparkClusterComputeIsolationArgs
+
+func SparkClusterComputeIsolationPtr(v *SparkClusterComputeIsolationArgs) SparkClusterComputeIsolationPtrInput {
+	return (*sparkClusterComputeIsolationPtrType)(v)
+}
+
+func (*sparkClusterComputeIsolationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkClusterComputeIsolation)(nil)).Elem()
+}
+
+func (i *sparkClusterComputeIsolationPtrType) ToSparkClusterComputeIsolationPtrOutput() SparkClusterComputeIsolationPtrOutput {
+	return i.ToSparkClusterComputeIsolationPtrOutputWithContext(context.Background())
+}
+
+func (i *sparkClusterComputeIsolationPtrType) ToSparkClusterComputeIsolationPtrOutputWithContext(ctx context.Context) SparkClusterComputeIsolationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterComputeIsolationPtrOutput)
+}
+
+type SparkClusterComputeIsolationOutput struct{ *pulumi.OutputState }
+
+func (SparkClusterComputeIsolationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkClusterComputeIsolation)(nil)).Elem()
+}
+
+func (o SparkClusterComputeIsolationOutput) ToSparkClusterComputeIsolationOutput() SparkClusterComputeIsolationOutput {
+	return o
+}
+
+func (o SparkClusterComputeIsolationOutput) ToSparkClusterComputeIsolationOutputWithContext(ctx context.Context) SparkClusterComputeIsolationOutput {
+	return o
+}
+
+func (o SparkClusterComputeIsolationOutput) ToSparkClusterComputeIsolationPtrOutput() SparkClusterComputeIsolationPtrOutput {
+	return o.ToSparkClusterComputeIsolationPtrOutputWithContext(context.Background())
+}
+
+func (o SparkClusterComputeIsolationOutput) ToSparkClusterComputeIsolationPtrOutputWithContext(ctx context.Context) SparkClusterComputeIsolationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterComputeIsolation) *SparkClusterComputeIsolation {
+		return &v
+	}).(SparkClusterComputeIsolationPtrOutput)
+}
+
+func (o SparkClusterComputeIsolationOutput) ComputeIsolationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SparkClusterComputeIsolation) *bool { return v.ComputeIsolationEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the host SKU.
+func (o SparkClusterComputeIsolationOutput) HostSku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SparkClusterComputeIsolation) *string { return v.HostSku }).(pulumi.StringPtrOutput)
+}
+
+type SparkClusterComputeIsolationPtrOutput struct{ *pulumi.OutputState }
+
+func (SparkClusterComputeIsolationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkClusterComputeIsolation)(nil)).Elem()
+}
+
+func (o SparkClusterComputeIsolationPtrOutput) ToSparkClusterComputeIsolationPtrOutput() SparkClusterComputeIsolationPtrOutput {
+	return o
+}
+
+func (o SparkClusterComputeIsolationPtrOutput) ToSparkClusterComputeIsolationPtrOutputWithContext(ctx context.Context) SparkClusterComputeIsolationPtrOutput {
+	return o
+}
+
+func (o SparkClusterComputeIsolationPtrOutput) Elem() SparkClusterComputeIsolationOutput {
+	return o.ApplyT(func(v *SparkClusterComputeIsolation) SparkClusterComputeIsolation {
+		if v != nil {
+			return *v
+		}
+		var ret SparkClusterComputeIsolation
+		return ret
+	}).(SparkClusterComputeIsolationOutput)
+}
+
+func (o SparkClusterComputeIsolationPtrOutput) ComputeIsolationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SparkClusterComputeIsolation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeIsolationEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The name of the host SKU.
+func (o SparkClusterComputeIsolationPtrOutput) HostSku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkClusterComputeIsolation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostSku
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -21027,6 +21787,8 @@ func (o GetClusterGatewayArrayOutput) Index(i pulumi.IntInput) GetClusterGateway
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterComponentVersionInput)(nil)).Elem(), HBaseClusterComponentVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterComponentVersionPtrInput)(nil)).Elem(), HBaseClusterComponentVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterComputeIsolationInput)(nil)).Elem(), HBaseClusterComputeIsolationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterComputeIsolationPtrInput)(nil)).Elem(), HBaseClusterComputeIsolationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterDiskEncryptionInput)(nil)).Elem(), HBaseClusterDiskEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterDiskEncryptionArrayInput)(nil)).Elem(), HBaseClusterDiskEncryptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterExtensionInput)(nil)).Elem(), HBaseClusterExtensionArgs{})
@@ -21073,6 +21835,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterStorageAccountGen2PtrInput)(nil)).Elem(), HBaseClusterStorageAccountGen2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterComponentVersionInput)(nil)).Elem(), HadoopClusterComponentVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterComponentVersionPtrInput)(nil)).Elem(), HadoopClusterComponentVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterComputeIsolationInput)(nil)).Elem(), HadoopClusterComputeIsolationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterComputeIsolationPtrInput)(nil)).Elem(), HadoopClusterComputeIsolationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterDiskEncryptionInput)(nil)).Elem(), HadoopClusterDiskEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterDiskEncryptionArrayInput)(nil)).Elem(), HadoopClusterDiskEncryptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterExtensionInput)(nil)).Elem(), HadoopClusterExtensionArgs{})
@@ -21129,6 +21893,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterStorageAccountGen2PtrInput)(nil)).Elem(), HadoopClusterStorageAccountGen2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterComponentVersionInput)(nil)).Elem(), InteractiveQueryClusterComponentVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterComponentVersionPtrInput)(nil)).Elem(), InteractiveQueryClusterComponentVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterComputeIsolationInput)(nil)).Elem(), InteractiveQueryClusterComputeIsolationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterComputeIsolationPtrInput)(nil)).Elem(), InteractiveQueryClusterComputeIsolationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterDiskEncryptionInput)(nil)).Elem(), InteractiveQueryClusterDiskEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterDiskEncryptionArrayInput)(nil)).Elem(), InteractiveQueryClusterDiskEncryptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterExtensionInput)(nil)).Elem(), InteractiveQueryClusterExtensionArgs{})
@@ -21177,6 +21943,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterStorageAccountGen2PtrInput)(nil)).Elem(), InteractiveQueryClusterStorageAccountGen2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterComponentVersionInput)(nil)).Elem(), KafkaClusterComponentVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterComponentVersionPtrInput)(nil)).Elem(), KafkaClusterComponentVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterComputeIsolationInput)(nil)).Elem(), KafkaClusterComputeIsolationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterComputeIsolationPtrInput)(nil)).Elem(), KafkaClusterComputeIsolationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterDiskEncryptionInput)(nil)).Elem(), KafkaClusterDiskEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterDiskEncryptionArrayInput)(nil)).Elem(), KafkaClusterDiskEncryptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterExtensionInput)(nil)).Elem(), KafkaClusterExtensionArgs{})
@@ -21223,6 +21991,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterStorageAccountGen2PtrInput)(nil)).Elem(), KafkaClusterStorageAccountGen2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterComponentVersionInput)(nil)).Elem(), SparkClusterComponentVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterComponentVersionPtrInput)(nil)).Elem(), SparkClusterComponentVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterComputeIsolationInput)(nil)).Elem(), SparkClusterComputeIsolationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterComputeIsolationPtrInput)(nil)).Elem(), SparkClusterComputeIsolationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterDiskEncryptionInput)(nil)).Elem(), SparkClusterDiskEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterDiskEncryptionArrayInput)(nil)).Elem(), SparkClusterDiskEncryptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterExtensionInput)(nil)).Elem(), SparkClusterExtensionArgs{})
@@ -21273,6 +22043,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterGatewayArrayInput)(nil)).Elem(), GetClusterGatewayArray{})
 	pulumi.RegisterOutputType(HBaseClusterComponentVersionOutput{})
 	pulumi.RegisterOutputType(HBaseClusterComponentVersionPtrOutput{})
+	pulumi.RegisterOutputType(HBaseClusterComputeIsolationOutput{})
+	pulumi.RegisterOutputType(HBaseClusterComputeIsolationPtrOutput{})
 	pulumi.RegisterOutputType(HBaseClusterDiskEncryptionOutput{})
 	pulumi.RegisterOutputType(HBaseClusterDiskEncryptionArrayOutput{})
 	pulumi.RegisterOutputType(HBaseClusterExtensionOutput{})
@@ -21319,6 +22091,8 @@ func init() {
 	pulumi.RegisterOutputType(HBaseClusterStorageAccountGen2PtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterComponentVersionOutput{})
 	pulumi.RegisterOutputType(HadoopClusterComponentVersionPtrOutput{})
+	pulumi.RegisterOutputType(HadoopClusterComputeIsolationOutput{})
+	pulumi.RegisterOutputType(HadoopClusterComputeIsolationPtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterDiskEncryptionOutput{})
 	pulumi.RegisterOutputType(HadoopClusterDiskEncryptionArrayOutput{})
 	pulumi.RegisterOutputType(HadoopClusterExtensionOutput{})
@@ -21375,6 +22149,8 @@ func init() {
 	pulumi.RegisterOutputType(HadoopClusterStorageAccountGen2PtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterComponentVersionOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterComponentVersionPtrOutput{})
+	pulumi.RegisterOutputType(InteractiveQueryClusterComputeIsolationOutput{})
+	pulumi.RegisterOutputType(InteractiveQueryClusterComputeIsolationPtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterDiskEncryptionOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterDiskEncryptionArrayOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterExtensionOutput{})
@@ -21423,6 +22199,8 @@ func init() {
 	pulumi.RegisterOutputType(InteractiveQueryClusterStorageAccountGen2PtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterComponentVersionOutput{})
 	pulumi.RegisterOutputType(KafkaClusterComponentVersionPtrOutput{})
+	pulumi.RegisterOutputType(KafkaClusterComputeIsolationOutput{})
+	pulumi.RegisterOutputType(KafkaClusterComputeIsolationPtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterDiskEncryptionOutput{})
 	pulumi.RegisterOutputType(KafkaClusterDiskEncryptionArrayOutput{})
 	pulumi.RegisterOutputType(KafkaClusterExtensionOutput{})
@@ -21469,6 +22247,8 @@ func init() {
 	pulumi.RegisterOutputType(KafkaClusterStorageAccountGen2PtrOutput{})
 	pulumi.RegisterOutputType(SparkClusterComponentVersionOutput{})
 	pulumi.RegisterOutputType(SparkClusterComponentVersionPtrOutput{})
+	pulumi.RegisterOutputType(SparkClusterComputeIsolationOutput{})
+	pulumi.RegisterOutputType(SparkClusterComputeIsolationPtrOutput{})
 	pulumi.RegisterOutputType(SparkClusterDiskEncryptionOutput{})
 	pulumi.RegisterOutputType(SparkClusterDiskEncryptionArrayOutput{})
 	pulumi.RegisterOutputType(SparkClusterExtensionOutput{})

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a CDN FrontDoor Profile which contains a collection of CDN FrontDoor Endpoints.
+ * Manages a Front Door (standard/premium) Profile which contains a collection of endpoints and origin groups.
  *
  * ## Example Usage
  *
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * CDN FrontDoor Profiles can be imported using the `resource id`, e.g.
+ * Front Door Profiles can be imported using the `resource id`, e.g.
  *
  * ```sh
  *  $ pulumi import azure:cdn/frontdoorProfile:FrontdoorProfile example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Cdn/profiles/myprofile1
@@ -60,15 +60,15 @@ export class FrontdoorProfile extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the name of the FrontDoor Profile. Changing this forces a new resource to be created.
+     * Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the Resource Group where this FrontDoor Profile should exist. Changing this forces a new resource to be created.
+     * The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The UUID of this CDN FrontDoor Profile.
+     * The UUID of this Front Door Profile which will be sent in the HTTP Header as the `X-Azure-FDID` attribute.
      */
     public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
     /**
@@ -76,7 +76,7 @@ export class FrontdoorProfile extends pulumi.CustomResource {
      */
     public readonly responseTimeoutSeconds!: pulumi.Output<number | undefined>;
     /**
-     * Specifies the SKU for this CDN FrontDoor Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+     * Specifies the SKU for this Front Door Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -128,15 +128,15 @@ export class FrontdoorProfile extends pulumi.CustomResource {
  */
 export interface FrontdoorProfileState {
     /**
-     * Specifies the name of the FrontDoor Profile. Changing this forces a new resource to be created.
+     * Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the Resource Group where this FrontDoor Profile should exist. Changing this forces a new resource to be created.
+     * The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The UUID of this CDN FrontDoor Profile.
+     * The UUID of this Front Door Profile which will be sent in the HTTP Header as the `X-Azure-FDID` attribute.
      */
     resourceGuid?: pulumi.Input<string>;
     /**
@@ -144,7 +144,7 @@ export interface FrontdoorProfileState {
      */
     responseTimeoutSeconds?: pulumi.Input<number>;
     /**
-     * Specifies the SKU for this CDN FrontDoor Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+     * Specifies the SKU for this Front Door Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -158,11 +158,11 @@ export interface FrontdoorProfileState {
  */
 export interface FrontdoorProfileArgs {
     /**
-     * Specifies the name of the FrontDoor Profile. Changing this forces a new resource to be created.
+     * Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the Resource Group where this FrontDoor Profile should exist. Changing this forces a new resource to be created.
+     * The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -170,7 +170,7 @@ export interface FrontdoorProfileArgs {
      */
     responseTimeoutSeconds?: pulumi.Input<number>;
     /**
-     * Specifies the SKU for this CDN FrontDoor Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+     * Specifies the SKU for this Front Door Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
      */
     skuName: pulumi.Input<string>;
     /**

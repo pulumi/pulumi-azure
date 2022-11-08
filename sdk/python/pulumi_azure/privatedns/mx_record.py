@@ -26,6 +26,7 @@ class MxRecordArgs:
         The set of arguments for constructing a MxRecord resource.
         :param pulumi.Input[Sequence[pulumi.Input['MxRecordRecordArgs']]] records: One or more `record` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the DNS MX Record. Changing this forces a new resource to be created. Default to '@' for root zone entry.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -66,6 +67,9 @@ class MxRecordArgs:
     @property
     @pulumi.getter
     def ttl(self) -> pulumi.Input[int]:
+        """
+        The Time To Live (TTL) of the DNS record in seconds.
+        """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
@@ -126,6 +130,7 @@ class _MxRecordState:
         :param pulumi.Input[Sequence[pulumi.Input['MxRecordRecordArgs']]] records: One or more `record` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
         if fqdn is not None:
@@ -206,6 +211,9 @@ class _MxRecordState:
     @property
     @pulumi.getter
     def ttl(self) -> Optional[pulumi.Input[int]]:
+        """
+        The Time To Live (TTL) of the DNS record in seconds.
+        """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
@@ -281,6 +289,7 @@ class MxRecord(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MxRecordRecordArgs']]]] records: One or more `record` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
         ...
@@ -401,6 +410,7 @@ class MxRecord(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MxRecordRecordArgs']]]] records: One or more `record` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -459,6 +469,9 @@ class MxRecord(pulumi.CustomResource):
     @property
     @pulumi.getter
     def ttl(self) -> pulumi.Output[int]:
+        """
+        The Time To Live (TTL) of the DNS record in seconds.
+        """
         return pulumi.get(self, "ttl")
 
     @property

@@ -109,7 +109,7 @@ namespace Pulumi.Azure.Synapse
         public Output<bool?> StorageAccountAccessKeyIsSecondary { get; private set; } = null!;
 
         /// <summary>
-        /// The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+        /// The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
         /// </summary>
         [Output("storageEndpoint")]
         public Output<string?> StorageEndpoint { get; private set; } = null!;
@@ -191,7 +191,7 @@ namespace Pulumi.Azure.Synapse
         public Input<bool>? StorageAccountAccessKeyIsSecondary { get; set; }
 
         /// <summary>
-        /// The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+        /// The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
         /// </summary>
         [Input("storageEndpoint")]
         public Input<string>? StorageEndpoint { get; set; }
@@ -235,7 +235,7 @@ namespace Pulumi.Azure.Synapse
         public Input<bool>? StorageAccountAccessKeyIsSecondary { get; set; }
 
         /// <summary>
-        /// The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+        /// The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
         /// </summary>
         [Input("storageEndpoint")]
         public Input<string>? StorageEndpoint { get; set; }

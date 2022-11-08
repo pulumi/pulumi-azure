@@ -10,11 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cdn
 {
     /// <summary>
-    /// Manages a CDN FrontDoor Route.
+    /// Manages a Front Door (standard/premium) Route.
     /// 
     /// ## Import
     /// 
-    /// Frontdoor Routes can be imported using the `resource id`, e.g.
+    /// Front Door Routes can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import azure:cdn/frontdoorRoute:FrontdoorRoute example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/afdEndpoints/endpoint1/routes/route1
@@ -30,43 +30,43 @@ namespace Pulumi.Azure.Cdn
         public Output<Outputs.FrontdoorRouteCache?> Cache { get; private set; } = null!;
 
         /// <summary>
-        /// The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+        /// The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
         /// </summary>
         [Output("cdnFrontdoorCustomDomainIds")]
         public Output<ImmutableArray<string>> CdnFrontdoorCustomDomainIds { get; private set; } = null!;
 
         /// <summary>
-        /// The resource ID of the CDN FrontDoor Endpoint where this CDN FrontDoor Route should exist. Changing this forces a new Frontdoor Route to be created.
+        /// The resource ID of the Front Door Endpoint where this Front Door Route should exist. Changing this forces a new Front Door Route to be created.
         /// </summary>
         [Output("cdnFrontdoorEndpointId")]
         public Output<string> CdnFrontdoorEndpointId { get; private set; } = null!;
 
         /// <summary>
-        /// The resource ID of the CDN FrontDoor Origin Group where this CDN FrontDoor Route should be created.
+        /// The resource ID of the Front Door Origin Group where this Front Door Route should be created.
         /// </summary>
         [Output("cdnFrontdoorOriginGroupId")]
         public Output<string> CdnFrontdoorOriginGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// One or more Frontdoor Origin resource IDs that this Frontdoor Route will link to.
+        /// One or more Front Door Origin resource IDs that this Front Door Route will link to.
         /// </summary>
         [Output("cdnFrontdoorOriginIds")]
         public Output<ImmutableArray<string>> CdnFrontdoorOriginIds { get; private set; } = null!;
 
         /// <summary>
-        /// A directory path on the origin that Frontdoor can use to retrieve content from (e.g. `contoso.cloudapp.net/originpath`).
+        /// A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
         /// </summary>
         [Output("cdnFrontdoorOriginPath")]
         public Output<string?> CdnFrontdoorOriginPath { get; private set; } = null!;
 
         /// <summary>
-        /// A list of the CDN FrontDoor Rule Set IDs which should be assigned to this CDN FrontDoor Route.
+        /// A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route.
         /// </summary>
         [Output("cdnFrontdoorRuleSetIds")]
         public Output<ImmutableArray<string>> CdnFrontdoorRuleSetIds { get; private set; } = null!;
 
         /// <summary>
-        /// Is this Frontdoor Route enabled? Possible values are `true` or `false`. Defaults to `true`.
+        /// Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -84,13 +84,13 @@ namespace Pulumi.Azure.Cdn
         public Output<bool?> HttpsRedirectEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+        /// Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
         /// </summary>
         [Output("linkToDefaultDomain")]
         public Output<bool?> LinkToDefaultDomain { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+        /// The name which should be used for this Front Door Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Front Door Route to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -102,7 +102,7 @@ namespace Pulumi.Azure.Cdn
         public Output<ImmutableArray<string>> PatternsToMatches { get; private set; } = null!;
 
         /// <summary>
-        /// One or more Protocols supported by this Frontdoor Route. Possible values are `Http` or `Https`.
+        /// One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
         /// </summary>
         [Output("supportedProtocols")]
         public Output<ImmutableArray<string>> SupportedProtocols { get; private set; } = null!;
@@ -163,7 +163,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<string>? _cdnFrontdoorCustomDomainIds;
 
         /// <summary>
-        /// The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+        /// The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
         /// </summary>
         public InputList<string> CdnFrontdoorCustomDomainIds
         {
@@ -172,13 +172,13 @@ namespace Pulumi.Azure.Cdn
         }
 
         /// <summary>
-        /// The resource ID of the CDN FrontDoor Endpoint where this CDN FrontDoor Route should exist. Changing this forces a new Frontdoor Route to be created.
+        /// The resource ID of the Front Door Endpoint where this Front Door Route should exist. Changing this forces a new Front Door Route to be created.
         /// </summary>
         [Input("cdnFrontdoorEndpointId", required: true)]
         public Input<string> CdnFrontdoorEndpointId { get; set; } = null!;
 
         /// <summary>
-        /// The resource ID of the CDN FrontDoor Origin Group where this CDN FrontDoor Route should be created.
+        /// The resource ID of the Front Door Origin Group where this Front Door Route should be created.
         /// </summary>
         [Input("cdnFrontdoorOriginGroupId", required: true)]
         public Input<string> CdnFrontdoorOriginGroupId { get; set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<string>? _cdnFrontdoorOriginIds;
 
         /// <summary>
-        /// One or more Frontdoor Origin resource IDs that this Frontdoor Route will link to.
+        /// One or more Front Door Origin resource IDs that this Front Door Route will link to.
         /// </summary>
         public InputList<string> CdnFrontdoorOriginIds
         {
@@ -196,7 +196,7 @@ namespace Pulumi.Azure.Cdn
         }
 
         /// <summary>
-        /// A directory path on the origin that Frontdoor can use to retrieve content from (e.g. `contoso.cloudapp.net/originpath`).
+        /// A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
         /// </summary>
         [Input("cdnFrontdoorOriginPath")]
         public Input<string>? CdnFrontdoorOriginPath { get; set; }
@@ -205,7 +205,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<string>? _cdnFrontdoorRuleSetIds;
 
         /// <summary>
-        /// A list of the CDN FrontDoor Rule Set IDs which should be assigned to this CDN FrontDoor Route.
+        /// A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route.
         /// </summary>
         public InputList<string> CdnFrontdoorRuleSetIds
         {
@@ -214,7 +214,7 @@ namespace Pulumi.Azure.Cdn
         }
 
         /// <summary>
-        /// Is this Frontdoor Route enabled? Possible values are `true` or `false`. Defaults to `true`.
+        /// Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -232,13 +232,13 @@ namespace Pulumi.Azure.Cdn
         public Input<bool>? HttpsRedirectEnabled { get; set; }
 
         /// <summary>
-        /// Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+        /// Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
         /// </summary>
         [Input("linkToDefaultDomain")]
         public Input<bool>? LinkToDefaultDomain { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+        /// The name which should be used for this Front Door Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Front Door Route to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -259,7 +259,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<string>? _supportedProtocols;
 
         /// <summary>
-        /// One or more Protocols supported by this Frontdoor Route. Possible values are `Http` or `Https`.
+        /// One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
         /// </summary>
         public InputList<string> SupportedProtocols
         {
@@ -285,7 +285,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<string>? _cdnFrontdoorCustomDomainIds;
 
         /// <summary>
-        /// The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+        /// The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
         /// </summary>
         public InputList<string> CdnFrontdoorCustomDomainIds
         {
@@ -294,13 +294,13 @@ namespace Pulumi.Azure.Cdn
         }
 
         /// <summary>
-        /// The resource ID of the CDN FrontDoor Endpoint where this CDN FrontDoor Route should exist. Changing this forces a new Frontdoor Route to be created.
+        /// The resource ID of the Front Door Endpoint where this Front Door Route should exist. Changing this forces a new Front Door Route to be created.
         /// </summary>
         [Input("cdnFrontdoorEndpointId")]
         public Input<string>? CdnFrontdoorEndpointId { get; set; }
 
         /// <summary>
-        /// The resource ID of the CDN FrontDoor Origin Group where this CDN FrontDoor Route should be created.
+        /// The resource ID of the Front Door Origin Group where this Front Door Route should be created.
         /// </summary>
         [Input("cdnFrontdoorOriginGroupId")]
         public Input<string>? CdnFrontdoorOriginGroupId { get; set; }
@@ -309,7 +309,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<string>? _cdnFrontdoorOriginIds;
 
         /// <summary>
-        /// One or more Frontdoor Origin resource IDs that this Frontdoor Route will link to.
+        /// One or more Front Door Origin resource IDs that this Front Door Route will link to.
         /// </summary>
         public InputList<string> CdnFrontdoorOriginIds
         {
@@ -318,7 +318,7 @@ namespace Pulumi.Azure.Cdn
         }
 
         /// <summary>
-        /// A directory path on the origin that Frontdoor can use to retrieve content from (e.g. `contoso.cloudapp.net/originpath`).
+        /// A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
         /// </summary>
         [Input("cdnFrontdoorOriginPath")]
         public Input<string>? CdnFrontdoorOriginPath { get; set; }
@@ -327,7 +327,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<string>? _cdnFrontdoorRuleSetIds;
 
         /// <summary>
-        /// A list of the CDN FrontDoor Rule Set IDs which should be assigned to this CDN FrontDoor Route.
+        /// A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route.
         /// </summary>
         public InputList<string> CdnFrontdoorRuleSetIds
         {
@@ -336,7 +336,7 @@ namespace Pulumi.Azure.Cdn
         }
 
         /// <summary>
-        /// Is this Frontdoor Route enabled? Possible values are `true` or `false`. Defaults to `true`.
+        /// Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -354,13 +354,13 @@ namespace Pulumi.Azure.Cdn
         public Input<bool>? HttpsRedirectEnabled { get; set; }
 
         /// <summary>
-        /// Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+        /// Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
         /// </summary>
         [Input("linkToDefaultDomain")]
         public Input<bool>? LinkToDefaultDomain { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+        /// The name which should be used for this Front Door Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Front Door Route to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -381,7 +381,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<string>? _supportedProtocols;
 
         /// <summary>
-        /// One or more Protocols supported by this Frontdoor Route. Possible values are `Http` or `Https`.
+        /// One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
         /// </summary>
         public InputList<string> SupportedProtocols
         {

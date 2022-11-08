@@ -5,6 +5,7 @@ package com.pulumi.azure.logicapps.outputs;
 
 import com.pulumi.azure.logicapps.outputs.GetStandardSiteConfigCors;
 import com.pulumi.azure.logicapps.outputs.GetStandardSiteConfigIpRestriction;
+import com.pulumi.azure.logicapps.outputs.GetStandardSiteConfigScmIpRestriction;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -29,6 +30,10 @@ public final class GetStandardSiteConfig {
     private String minTlsVersion;
     private Integer preWarmedInstanceCount;
     private @Nullable Boolean runtimeScaleMonitoringEnabled;
+    private List<GetStandardSiteConfigScmIpRestriction> scmIpRestrictions;
+    private String scmMinTlsVersion;
+    private String scmType;
+    private @Nullable Boolean scmUseMainIpRestriction;
     private @Nullable Boolean use32BitWorkerProcess;
     private Boolean vnetRouteAllEnabled;
     private @Nullable Boolean websocketsEnabled;
@@ -73,6 +78,18 @@ public final class GetStandardSiteConfig {
     public Optional<Boolean> runtimeScaleMonitoringEnabled() {
         return Optional.ofNullable(this.runtimeScaleMonitoringEnabled);
     }
+    public List<GetStandardSiteConfigScmIpRestriction> scmIpRestrictions() {
+        return this.scmIpRestrictions;
+    }
+    public String scmMinTlsVersion() {
+        return this.scmMinTlsVersion;
+    }
+    public String scmType() {
+        return this.scmType;
+    }
+    public Optional<Boolean> scmUseMainIpRestriction() {
+        return Optional.ofNullable(this.scmUseMainIpRestriction);
+    }
     public Optional<Boolean> use32BitWorkerProcess() {
         return Optional.ofNullable(this.use32BitWorkerProcess);
     }
@@ -105,6 +122,10 @@ public final class GetStandardSiteConfig {
         private String minTlsVersion;
         private Integer preWarmedInstanceCount;
         private @Nullable Boolean runtimeScaleMonitoringEnabled;
+        private List<GetStandardSiteConfigScmIpRestriction> scmIpRestrictions;
+        private String scmMinTlsVersion;
+        private String scmType;
+        private @Nullable Boolean scmUseMainIpRestriction;
         private @Nullable Boolean use32BitWorkerProcess;
         private Boolean vnetRouteAllEnabled;
         private @Nullable Boolean websocketsEnabled;
@@ -124,6 +145,10 @@ public final class GetStandardSiteConfig {
     	      this.minTlsVersion = defaults.minTlsVersion;
     	      this.preWarmedInstanceCount = defaults.preWarmedInstanceCount;
     	      this.runtimeScaleMonitoringEnabled = defaults.runtimeScaleMonitoringEnabled;
+    	      this.scmIpRestrictions = defaults.scmIpRestrictions;
+    	      this.scmMinTlsVersion = defaults.scmMinTlsVersion;
+    	      this.scmType = defaults.scmType;
+    	      this.scmUseMainIpRestriction = defaults.scmUseMainIpRestriction;
     	      this.use32BitWorkerProcess = defaults.use32BitWorkerProcess;
     	      this.vnetRouteAllEnabled = defaults.vnetRouteAllEnabled;
     	      this.websocketsEnabled = defaults.websocketsEnabled;
@@ -198,6 +223,29 @@ public final class GetStandardSiteConfig {
             return this;
         }
         @CustomType.Setter
+        public Builder scmIpRestrictions(List<GetStandardSiteConfigScmIpRestriction> scmIpRestrictions) {
+            this.scmIpRestrictions = Objects.requireNonNull(scmIpRestrictions);
+            return this;
+        }
+        public Builder scmIpRestrictions(GetStandardSiteConfigScmIpRestriction... scmIpRestrictions) {
+            return scmIpRestrictions(List.of(scmIpRestrictions));
+        }
+        @CustomType.Setter
+        public Builder scmMinTlsVersion(String scmMinTlsVersion) {
+            this.scmMinTlsVersion = Objects.requireNonNull(scmMinTlsVersion);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder scmType(String scmType) {
+            this.scmType = Objects.requireNonNull(scmType);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder scmUseMainIpRestriction(@Nullable Boolean scmUseMainIpRestriction) {
+            this.scmUseMainIpRestriction = scmUseMainIpRestriction;
+            return this;
+        }
+        @CustomType.Setter
         public Builder use32BitWorkerProcess(@Nullable Boolean use32BitWorkerProcess) {
             this.use32BitWorkerProcess = use32BitWorkerProcess;
             return this;
@@ -227,6 +275,10 @@ public final class GetStandardSiteConfig {
             o.minTlsVersion = minTlsVersion;
             o.preWarmedInstanceCount = preWarmedInstanceCount;
             o.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
+            o.scmIpRestrictions = scmIpRestrictions;
+            o.scmMinTlsVersion = scmMinTlsVersion;
+            o.scmType = scmType;
+            o.scmUseMainIpRestriction = scmUseMainIpRestriction;
             o.use32BitWorkerProcess = use32BitWorkerProcess;
             o.vnetRouteAllEnabled = vnetRouteAllEnabled;
             o.websocketsEnabled = websocketsEnabled;

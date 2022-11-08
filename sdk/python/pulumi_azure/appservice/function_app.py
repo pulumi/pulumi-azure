@@ -905,6 +905,7 @@ class FunctionApp(pulumi.CustomResource):
             os_type="linux",
             version="~3")
         ```
+
         > **Note:** Version `~3` or `~4` is required for Linux Function Apps.
 
         ## Import
@@ -1030,6 +1031,7 @@ class FunctionApp(pulumi.CustomResource):
             os_type="linux",
             version="~3")
         ```
+
         > **Note:** Version `~3` or `~4` is required for Linux Function Apps.
 
         ## Import

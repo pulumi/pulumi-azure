@@ -2653,7 +2653,7 @@ class ApplicationGatewaySslPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disabled_protocols: A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
         :param pulumi.Input[str] min_protocol_version: The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
         :param pulumi.Input[str] policy_name: The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and
-               are published here https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabled_protocols`.
+               are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabled_protocols`.
         :param pulumi.Input[str] policy_type: The Type of the Policy. Possible values are `Predefined` and `Custom`.
         """
         if cipher_suites is not None:
@@ -2708,7 +2708,7 @@ class ApplicationGatewaySslPolicyArgs:
     def policy_name(self) -> Optional[pulumi.Input[str]]:
         """
         The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and
-        are published here https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabled_protocols`.
+        are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabled_protocols`.
         """
         return pulumi.get(self, "policy_name")
 
@@ -2828,7 +2828,7 @@ class ApplicationGatewaySslProfileSslPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disabled_protocols: A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
         :param pulumi.Input[str] min_protocol_version: The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
         :param pulumi.Input[str] policy_name: The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and
-               are published here https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabled_protocols`.
+               are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabled_protocols`.
         :param pulumi.Input[str] policy_type: The Type of the Policy. Possible values are `Predefined` and `Custom`.
         """
         if cipher_suites is not None:
@@ -2883,7 +2883,7 @@ class ApplicationGatewaySslProfileSslPolicyArgs:
     def policy_name(self) -> Optional[pulumi.Input[str]]:
         """
         The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and
-        are published here https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabled_protocols`.
+        are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabled_protocols`.
         """
         return pulumi.get(self, "policy_name")
 

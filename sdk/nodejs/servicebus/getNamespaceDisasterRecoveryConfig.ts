@@ -11,6 +11,7 @@ export function getNamespaceDisasterRecoveryConfig(args: GetNamespaceDisasterRec
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig", {
+        "aliasAuthorizationRuleId": args.aliasAuthorizationRuleId,
         "name": args.name,
         "namespaceId": args.namespaceId,
         "namespaceName": args.namespaceName,
@@ -22,6 +23,7 @@ export function getNamespaceDisasterRecoveryConfig(args: GetNamespaceDisasterRec
  * A collection of arguments for invoking getNamespaceDisasterRecoveryConfig.
  */
 export interface GetNamespaceDisasterRecoveryConfigArgs {
+    aliasAuthorizationRuleId?: string;
     name: string;
     namespaceId?: string;
     namespaceName?: string;
@@ -32,6 +34,7 @@ export interface GetNamespaceDisasterRecoveryConfigArgs {
  * A collection of values returned by getNamespaceDisasterRecoveryConfig.
  */
 export interface GetNamespaceDisasterRecoveryConfigResult {
+    readonly aliasAuthorizationRuleId?: string;
     readonly defaultPrimaryKey: string;
     readonly defaultSecondaryKey: string;
     /**
@@ -55,6 +58,7 @@ export function getNamespaceDisasterRecoveryConfigOutput(args: GetNamespaceDisas
  * A collection of arguments for invoking getNamespaceDisasterRecoveryConfig.
  */
 export interface GetNamespaceDisasterRecoveryConfigOutputArgs {
+    aliasAuthorizationRuleId?: pulumi.Input<string>;
     name: pulumi.Input<string>;
     namespaceId?: pulumi.Input<string>;
     namespaceName?: pulumi.Input<string>;

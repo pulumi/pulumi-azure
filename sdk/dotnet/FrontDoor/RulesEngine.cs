@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.FrontDoor
 {
     /// <summary>
-    /// Manages an Azure Front Door Rules Engine configuration and rules.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

@@ -67,6 +67,7 @@ namespace Pulumi.Azure.AppService
     /// });
     /// ```
     /// ### Linux Function App
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using Pulumi;

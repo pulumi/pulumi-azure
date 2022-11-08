@@ -47,14 +47,14 @@ public final class SlotAuthSettingsMicrosoftArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+     * The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. &lt;https://msdn.microsoft.com/en-us/library/dn631845.aspx&gt;
      * 
      */
     @Import(name="oauthScopes")
     private @Nullable Output<List<String>> oauthScopes;
 
     /**
-     * @return The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+     * @return The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. &lt;https://msdn.microsoft.com/en-us/library/dn631845.aspx&gt;
      * 
      */
     public Optional<Output<List<String>>> oauthScopes() {
@@ -130,7 +130,7 @@ public final class SlotAuthSettingsMicrosoftArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param oauthScopes The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+         * @param oauthScopes The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. &lt;https://msdn.microsoft.com/en-us/library/dn631845.aspx&gt;
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class SlotAuthSettingsMicrosoftArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param oauthScopes The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+         * @param oauthScopes The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. &lt;https://msdn.microsoft.com/en-us/library/dn631845.aspx&gt;
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class SlotAuthSettingsMicrosoftArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param oauthScopes The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+         * @param oauthScopes The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. &lt;https://msdn.microsoft.com/en-us/library/dn631845.aspx&gt;
          * 
          * @return builder
          * 

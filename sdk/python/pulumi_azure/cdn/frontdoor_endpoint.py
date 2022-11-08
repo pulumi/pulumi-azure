@@ -20,10 +20,10 @@ class FrontdoorEndpointArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a FrontdoorEndpoint resource.
-        :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the FrontDoor Profile within which this FrontDoor Endpoint should exist. Changing this forces a new CDN FrontDoor Endpoint to be created.
-        :param pulumi.Input[bool] enabled: Specifies if this CDN FrontDoor Endpoint is enabled? Defaults to `true`.
-        :param pulumi.Input[str] name: The name which should be used for this CDN FrontDoor Endpoint. Changing this forces a new CDN FrontDoor Endpoint to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Specifies a mapping of tags which should be assigned to the CDN FrontDoor Endpoint.
+        :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the Front Door Profile within which this Front Door Endpoint should exist. Changing this forces a new Front Door Endpoint to be created.
+        :param pulumi.Input[bool] enabled: Specifies if this Front Door Endpoint is enabled? Defaults to `true`.
+        :param pulumi.Input[str] name: The name which should be used for this Front Door Endpoint. Changing this forces a new Front Door Endpoint to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Specifies a mapping of tags which should be assigned to the Front Door Endpoint.
         """
         pulumi.set(__self__, "cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
         if enabled is not None:
@@ -37,7 +37,7 @@ class FrontdoorEndpointArgs:
     @pulumi.getter(name="cdnFrontdoorProfileId")
     def cdn_frontdoor_profile_id(self) -> pulumi.Input[str]:
         """
-        The ID of the FrontDoor Profile within which this FrontDoor Endpoint should exist. Changing this forces a new CDN FrontDoor Endpoint to be created.
+        The ID of the Front Door Profile within which this Front Door Endpoint should exist. Changing this forces a new Front Door Endpoint to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_profile_id")
 
@@ -49,7 +49,7 @@ class FrontdoorEndpointArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if this CDN FrontDoor Endpoint is enabled? Defaults to `true`.
+        Specifies if this Front Door Endpoint is enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -61,7 +61,7 @@ class FrontdoorEndpointArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this CDN FrontDoor Endpoint. Changing this forces a new CDN FrontDoor Endpoint to be created.
+        The name which should be used for this Front Door Endpoint. Changing this forces a new Front Door Endpoint to be created.
         """
         return pulumi.get(self, "name")
 
@@ -73,7 +73,7 @@ class FrontdoorEndpointArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Specifies a mapping of tags which should be assigned to the CDN FrontDoor Endpoint.
+        Specifies a mapping of tags which should be assigned to the Front Door Endpoint.
         """
         return pulumi.get(self, "tags")
 
@@ -92,11 +92,11 @@ class _FrontdoorEndpointState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering FrontdoorEndpoint resources.
-        :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the FrontDoor Profile within which this FrontDoor Endpoint should exist. Changing this forces a new CDN FrontDoor Endpoint to be created.
-        :param pulumi.Input[bool] enabled: Specifies if this CDN FrontDoor Endpoint is enabled? Defaults to `true`.
-        :param pulumi.Input[str] host_name: The host name of the CDN FrontDoor Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
-        :param pulumi.Input[str] name: The name which should be used for this CDN FrontDoor Endpoint. Changing this forces a new CDN FrontDoor Endpoint to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Specifies a mapping of tags which should be assigned to the CDN FrontDoor Endpoint.
+        :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the Front Door Profile within which this Front Door Endpoint should exist. Changing this forces a new Front Door Endpoint to be created.
+        :param pulumi.Input[bool] enabled: Specifies if this Front Door Endpoint is enabled? Defaults to `true`.
+        :param pulumi.Input[str] host_name: The host name of the Front Door Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
+        :param pulumi.Input[str] name: The name which should be used for this Front Door Endpoint. Changing this forces a new Front Door Endpoint to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Specifies a mapping of tags which should be assigned to the Front Door Endpoint.
         """
         if cdn_frontdoor_profile_id is not None:
             pulumi.set(__self__, "cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
@@ -113,7 +113,7 @@ class _FrontdoorEndpointState:
     @pulumi.getter(name="cdnFrontdoorProfileId")
     def cdn_frontdoor_profile_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the FrontDoor Profile within which this FrontDoor Endpoint should exist. Changing this forces a new CDN FrontDoor Endpoint to be created.
+        The ID of the Front Door Profile within which this Front Door Endpoint should exist. Changing this forces a new Front Door Endpoint to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_profile_id")
 
@@ -125,7 +125,7 @@ class _FrontdoorEndpointState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if this CDN FrontDoor Endpoint is enabled? Defaults to `true`.
+        Specifies if this Front Door Endpoint is enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -137,7 +137,7 @@ class _FrontdoorEndpointState:
     @pulumi.getter(name="hostName")
     def host_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The host name of the CDN FrontDoor Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
+        The host name of the Front Door Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
         """
         return pulumi.get(self, "host_name")
 
@@ -149,7 +149,7 @@ class _FrontdoorEndpointState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this CDN FrontDoor Endpoint. Changing this forces a new CDN FrontDoor Endpoint to be created.
+        The name which should be used for this Front Door Endpoint. Changing this forces a new Front Door Endpoint to be created.
         """
         return pulumi.get(self, "name")
 
@@ -161,7 +161,7 @@ class _FrontdoorEndpointState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Specifies a mapping of tags which should be assigned to the CDN FrontDoor Endpoint.
+        Specifies a mapping of tags which should be assigned to the Front Door Endpoint.
         """
         return pulumi.get(self, "tags")
 
@@ -181,7 +181,7 @@ class FrontdoorEndpoint(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Manages a FrontDoor Endpoint.
+        Manages a Front Door (standard/premium) Endpoint.
 
         ## Example Usage
 
@@ -202,7 +202,7 @@ class FrontdoorEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        CDN FrontDoor Endpoints can be imported using the `resource id`, e.g.
+        Front Door Endpoints can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:cdn/frontdoorEndpoint:FrontdoorEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/afdEndpoints/endpoint1
@@ -210,10 +210,10 @@ class FrontdoorEndpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the FrontDoor Profile within which this FrontDoor Endpoint should exist. Changing this forces a new CDN FrontDoor Endpoint to be created.
-        :param pulumi.Input[bool] enabled: Specifies if this CDN FrontDoor Endpoint is enabled? Defaults to `true`.
-        :param pulumi.Input[str] name: The name which should be used for this CDN FrontDoor Endpoint. Changing this forces a new CDN FrontDoor Endpoint to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Specifies a mapping of tags which should be assigned to the CDN FrontDoor Endpoint.
+        :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the Front Door Profile within which this Front Door Endpoint should exist. Changing this forces a new Front Door Endpoint to be created.
+        :param pulumi.Input[bool] enabled: Specifies if this Front Door Endpoint is enabled? Defaults to `true`.
+        :param pulumi.Input[str] name: The name which should be used for this Front Door Endpoint. Changing this forces a new Front Door Endpoint to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Specifies a mapping of tags which should be assigned to the Front Door Endpoint.
         """
         ...
     @overload
@@ -222,7 +222,7 @@ class FrontdoorEndpoint(pulumi.CustomResource):
                  args: FrontdoorEndpointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a FrontDoor Endpoint.
+        Manages a Front Door (standard/premium) Endpoint.
 
         ## Example Usage
 
@@ -243,7 +243,7 @@ class FrontdoorEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        CDN FrontDoor Endpoints can be imported using the `resource id`, e.g.
+        Front Door Endpoints can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:cdn/frontdoorEndpoint:FrontdoorEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/afdEndpoints/endpoint1
@@ -306,11 +306,11 @@ class FrontdoorEndpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the FrontDoor Profile within which this FrontDoor Endpoint should exist. Changing this forces a new CDN FrontDoor Endpoint to be created.
-        :param pulumi.Input[bool] enabled: Specifies if this CDN FrontDoor Endpoint is enabled? Defaults to `true`.
-        :param pulumi.Input[str] host_name: The host name of the CDN FrontDoor Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
-        :param pulumi.Input[str] name: The name which should be used for this CDN FrontDoor Endpoint. Changing this forces a new CDN FrontDoor Endpoint to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Specifies a mapping of tags which should be assigned to the CDN FrontDoor Endpoint.
+        :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the Front Door Profile within which this Front Door Endpoint should exist. Changing this forces a new Front Door Endpoint to be created.
+        :param pulumi.Input[bool] enabled: Specifies if this Front Door Endpoint is enabled? Defaults to `true`.
+        :param pulumi.Input[str] host_name: The host name of the Front Door Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
+        :param pulumi.Input[str] name: The name which should be used for this Front Door Endpoint. Changing this forces a new Front Door Endpoint to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Specifies a mapping of tags which should be assigned to the Front Door Endpoint.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -327,7 +327,7 @@ class FrontdoorEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="cdnFrontdoorProfileId")
     def cdn_frontdoor_profile_id(self) -> pulumi.Output[str]:
         """
-        The ID of the FrontDoor Profile within which this FrontDoor Endpoint should exist. Changing this forces a new CDN FrontDoor Endpoint to be created.
+        The ID of the Front Door Profile within which this Front Door Endpoint should exist. Changing this forces a new Front Door Endpoint to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_profile_id")
 
@@ -335,7 +335,7 @@ class FrontdoorEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies if this CDN FrontDoor Endpoint is enabled? Defaults to `true`.
+        Specifies if this Front Door Endpoint is enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -343,7 +343,7 @@ class FrontdoorEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="hostName")
     def host_name(self) -> pulumi.Output[str]:
         """
-        The host name of the CDN FrontDoor Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
+        The host name of the Front Door Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
         """
         return pulumi.get(self, "host_name")
 
@@ -351,7 +351,7 @@ class FrontdoorEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name which should be used for this CDN FrontDoor Endpoint. Changing this forces a new CDN FrontDoor Endpoint to be created.
+        The name which should be used for this Front Door Endpoint. Changing this forces a new Front Door Endpoint to be created.
         """
         return pulumi.get(self, "name")
 
@@ -359,7 +359,7 @@ class FrontdoorEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Specifies a mapping of tags which should be assigned to the CDN FrontDoor Endpoint.
+        Specifies a mapping of tags which should be assigned to the Front Door Endpoint.
         """
         return pulumi.get(self, "tags")
 

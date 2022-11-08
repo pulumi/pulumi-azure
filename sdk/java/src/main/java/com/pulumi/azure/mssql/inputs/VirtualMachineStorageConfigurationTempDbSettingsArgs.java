@@ -9,11 +9,58 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class VirtualMachineStorageConfigurationTempDbSettingsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final VirtualMachineStorageConfigurationTempDbSettingsArgs Empty = new VirtualMachineStorageConfigurationTempDbSettingsArgs();
+
+    /**
+     * The SQL Server default file count. This value defaults to `8`
+     * 
+     */
+    @Import(name="dataFileCount")
+    private @Nullable Output<Integer> dataFileCount;
+
+    /**
+     * @return The SQL Server default file count. This value defaults to `8`
+     * 
+     */
+    public Optional<Output<Integer>> dataFileCount() {
+        return Optional.ofNullable(this.dataFileCount);
+    }
+
+    /**
+     * The SQL Server default file size - This value defaults to `512`
+     * 
+     */
+    @Import(name="dataFileGrowthInMb")
+    private @Nullable Output<Integer> dataFileGrowthInMb;
+
+    /**
+     * @return The SQL Server default file size - This value defaults to `512`
+     * 
+     */
+    public Optional<Output<Integer>> dataFileGrowthInMb() {
+        return Optional.ofNullable(this.dataFileGrowthInMb);
+    }
+
+    /**
+     * The SQL Server default file size - This value defaults to `256`
+     * 
+     */
+    @Import(name="dataFileSizeMb")
+    private @Nullable Output<Integer> dataFileSizeMb;
+
+    /**
+     * @return The SQL Server default file size - This value defaults to `256`
+     * 
+     */
+    public Optional<Output<Integer>> dataFileSizeMb() {
+        return Optional.ofNullable(this.dataFileSizeMb);
+    }
 
     /**
      * The SQL Server default path
@@ -28,6 +75,36 @@ public final class VirtualMachineStorageConfigurationTempDbSettingsArgs extends 
      */
     public Output<String> defaultFilePath() {
         return this.defaultFilePath;
+    }
+
+    /**
+     * The SQL Server default file size - This value defaults to `512`
+     * 
+     */
+    @Import(name="logFileGrowthMb")
+    private @Nullable Output<Integer> logFileGrowthMb;
+
+    /**
+     * @return The SQL Server default file size - This value defaults to `512`
+     * 
+     */
+    public Optional<Output<Integer>> logFileGrowthMb() {
+        return Optional.ofNullable(this.logFileGrowthMb);
+    }
+
+    /**
+     * The SQL Server default file size - This value defaults to `256`
+     * 
+     */
+    @Import(name="logFileSizeMb")
+    private @Nullable Output<Integer> logFileSizeMb;
+
+    /**
+     * @return The SQL Server default file size - This value defaults to `256`
+     * 
+     */
+    public Optional<Output<Integer>> logFileSizeMb() {
+        return Optional.ofNullable(this.logFileSizeMb);
     }
 
     /**
@@ -48,7 +125,12 @@ public final class VirtualMachineStorageConfigurationTempDbSettingsArgs extends 
     private VirtualMachineStorageConfigurationTempDbSettingsArgs() {}
 
     private VirtualMachineStorageConfigurationTempDbSettingsArgs(VirtualMachineStorageConfigurationTempDbSettingsArgs $) {
+        this.dataFileCount = $.dataFileCount;
+        this.dataFileGrowthInMb = $.dataFileGrowthInMb;
+        this.dataFileSizeMb = $.dataFileSizeMb;
         this.defaultFilePath = $.defaultFilePath;
+        this.logFileGrowthMb = $.logFileGrowthMb;
+        this.logFileSizeMb = $.logFileSizeMb;
         this.luns = $.luns;
     }
 
@@ -71,6 +153,69 @@ public final class VirtualMachineStorageConfigurationTempDbSettingsArgs extends 
         }
 
         /**
+         * @param dataFileCount The SQL Server default file count. This value defaults to `8`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataFileCount(@Nullable Output<Integer> dataFileCount) {
+            $.dataFileCount = dataFileCount;
+            return this;
+        }
+
+        /**
+         * @param dataFileCount The SQL Server default file count. This value defaults to `8`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataFileCount(Integer dataFileCount) {
+            return dataFileCount(Output.of(dataFileCount));
+        }
+
+        /**
+         * @param dataFileGrowthInMb The SQL Server default file size - This value defaults to `512`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataFileGrowthInMb(@Nullable Output<Integer> dataFileGrowthInMb) {
+            $.dataFileGrowthInMb = dataFileGrowthInMb;
+            return this;
+        }
+
+        /**
+         * @param dataFileGrowthInMb The SQL Server default file size - This value defaults to `512`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataFileGrowthInMb(Integer dataFileGrowthInMb) {
+            return dataFileGrowthInMb(Output.of(dataFileGrowthInMb));
+        }
+
+        /**
+         * @param dataFileSizeMb The SQL Server default file size - This value defaults to `256`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataFileSizeMb(@Nullable Output<Integer> dataFileSizeMb) {
+            $.dataFileSizeMb = dataFileSizeMb;
+            return this;
+        }
+
+        /**
+         * @param dataFileSizeMb The SQL Server default file size - This value defaults to `256`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataFileSizeMb(Integer dataFileSizeMb) {
+            return dataFileSizeMb(Output.of(dataFileSizeMb));
+        }
+
+        /**
          * @param defaultFilePath The SQL Server default path
          * 
          * @return builder
@@ -89,6 +234,48 @@ public final class VirtualMachineStorageConfigurationTempDbSettingsArgs extends 
          */
         public Builder defaultFilePath(String defaultFilePath) {
             return defaultFilePath(Output.of(defaultFilePath));
+        }
+
+        /**
+         * @param logFileGrowthMb The SQL Server default file size - This value defaults to `512`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logFileGrowthMb(@Nullable Output<Integer> logFileGrowthMb) {
+            $.logFileGrowthMb = logFileGrowthMb;
+            return this;
+        }
+
+        /**
+         * @param logFileGrowthMb The SQL Server default file size - This value defaults to `512`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logFileGrowthMb(Integer logFileGrowthMb) {
+            return logFileGrowthMb(Output.of(logFileGrowthMb));
+        }
+
+        /**
+         * @param logFileSizeMb The SQL Server default file size - This value defaults to `256`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logFileSizeMb(@Nullable Output<Integer> logFileSizeMb) {
+            $.logFileSizeMb = logFileSizeMb;
+            return this;
+        }
+
+        /**
+         * @param logFileSizeMb The SQL Server default file size - This value defaults to `256`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logFileSizeMb(Integer logFileSizeMb) {
+            return logFileSizeMb(Output.of(logFileSizeMb));
         }
 
         /**

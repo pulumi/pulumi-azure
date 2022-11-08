@@ -2044,21 +2044,20 @@ class DatasetMysqlSchemaColumnArgs:
 class DatasetParquetAzureBlobStorageLocationArgs:
     def __init__(__self__, *,
                  container: pulumi.Input[str],
-                 path: pulumi.Input[str],
                  dynamic_container_enabled: Optional[pulumi.Input[bool]] = None,
                  dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
                  dynamic_path_enabled: Optional[pulumi.Input[bool]] = None,
-                 filename: Optional[pulumi.Input[str]] = None):
+                 filename: Optional[pulumi.Input[str]] = None,
+                 path: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] container: The container on the Azure Blob Storage Account hosting the file.
-        :param pulumi.Input[str] path: The folder path to the file on the web server.
         :param pulumi.Input[bool] dynamic_container_enabled: Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[bool] dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[bool] dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[str] filename: The filename of the file on the web server.
+        :param pulumi.Input[str] path: The folder path to the file on the web server.
         """
         pulumi.set(__self__, "container", container)
-        pulumi.set(__self__, "path", path)
         if dynamic_container_enabled is not None:
             pulumi.set(__self__, "dynamic_container_enabled", dynamic_container_enabled)
         if dynamic_filename_enabled is not None:
@@ -2067,6 +2066,8 @@ class DatasetParquetAzureBlobStorageLocationArgs:
             pulumi.set(__self__, "dynamic_path_enabled", dynamic_path_enabled)
         if filename is not None:
             pulumi.set(__self__, "filename", filename)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
 
     @property
     @pulumi.getter
@@ -2079,18 +2080,6 @@ class DatasetParquetAzureBlobStorageLocationArgs:
     @container.setter
     def container(self, value: pulumi.Input[str]):
         pulumi.set(self, "container", value)
-
-    @property
-    @pulumi.getter
-    def path(self) -> pulumi.Input[str]:
-        """
-        The folder path to the file on the web server.
-        """
-        return pulumi.get(self, "path")
-
-    @path.setter
-    def path(self, value: pulumi.Input[str]):
-        pulumi.set(self, "path", value)
 
     @property
     @pulumi.getter(name="dynamicContainerEnabled")
@@ -2140,29 +2129,43 @@ class DatasetParquetAzureBlobStorageLocationArgs:
     def filename(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "filename", value)
 
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The folder path to the file on the web server.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
 
 @pulumi.input_type
 class DatasetParquetHttpServerLocationArgs:
     def __init__(__self__, *,
                  filename: pulumi.Input[str],
-                 path: pulumi.Input[str],
                  relative_url: pulumi.Input[str],
                  dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
-                 dynamic_path_enabled: Optional[pulumi.Input[bool]] = None):
+                 dynamic_path_enabled: Optional[pulumi.Input[bool]] = None,
+                 path: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] filename: The filename of the file on the web server.
-        :param pulumi.Input[str] path: The folder path to the file on the web server.
         :param pulumi.Input[str] relative_url: The base URL to the web server hosting the file.
         :param pulumi.Input[bool] dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[bool] dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        :param pulumi.Input[str] path: The folder path to the file on the web server.
+               ---
         """
         pulumi.set(__self__, "filename", filename)
-        pulumi.set(__self__, "path", path)
         pulumi.set(__self__, "relative_url", relative_url)
         if dynamic_filename_enabled is not None:
             pulumi.set(__self__, "dynamic_filename_enabled", dynamic_filename_enabled)
         if dynamic_path_enabled is not None:
             pulumi.set(__self__, "dynamic_path_enabled", dynamic_path_enabled)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
 
     @property
     @pulumi.getter
@@ -2175,18 +2178,6 @@ class DatasetParquetHttpServerLocationArgs:
     @filename.setter
     def filename(self, value: pulumi.Input[str]):
         pulumi.set(self, "filename", value)
-
-    @property
-    @pulumi.getter
-    def path(self) -> pulumi.Input[str]:
-        """
-        The folder path to the file on the web server.
-        """
-        return pulumi.get(self, "path")
-
-    @path.setter
-    def path(self, value: pulumi.Input[str]):
-        pulumi.set(self, "path", value)
 
     @property
     @pulumi.getter(name="relativeUrl")
@@ -2223,6 +2214,19 @@ class DatasetParquetHttpServerLocationArgs:
     @dynamic_path_enabled.setter
     def dynamic_path_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "dynamic_path_enabled", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The folder path to the file on the web server.
+        ---
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
 
 
 @pulumi.input_type
@@ -2468,7 +2472,7 @@ class FactoryGithubConfigurationArgs:
         """
         :param pulumi.Input[str] account_name: Specifies the GitHub account name.
         :param pulumi.Input[str] branch_name: Specifies the branch of the repository to get code from.
-        :param pulumi.Input[str] git_url: Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com. Use https://github.com for open source repositories.
+        :param pulumi.Input[str] git_url: Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
         :param pulumi.Input[str] repository_name: Specifies the name of the git repository.
         :param pulumi.Input[str] root_folder: Specifies the root folder within the repository. Set to `/` for the top level.
         """
@@ -2506,7 +2510,7 @@ class FactoryGithubConfigurationArgs:
     @pulumi.getter(name="gitUrl")
     def git_url(self) -> pulumi.Input[str]:
         """
-        Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com. Use https://github.com for open source repositories.
+        Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
         """
         return pulumi.get(self, "git_url")
 

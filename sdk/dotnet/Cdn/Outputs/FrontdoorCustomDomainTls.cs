@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class FrontdoorCustomDomainTls
     {
         /// <summary>
-        /// Resource ID of the Frontdoor Secret.
+        /// Resource ID of the Front Door Secret.
         /// </summary>
         public readonly string? CdnFrontdoorSecretId;
         /// <summary>

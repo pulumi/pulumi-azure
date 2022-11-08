@@ -69,8 +69,8 @@ namespace Pulumi.Azure.Redis
     /// 
     /// ## Relevant Links
     /// 
-    ///  - [Azure Cache for Redis planning](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-planning-faq)
-    ///  - [Redis: Available Configuration Settings](https://redis.io/topics/config)
+    /// * [Azure Cache for Redis planning](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-planning-faq)
+    /// * [Redis: Available Configuration Settings](https://redis.io/topics/config)
     /// 
     /// ## Import
     /// 

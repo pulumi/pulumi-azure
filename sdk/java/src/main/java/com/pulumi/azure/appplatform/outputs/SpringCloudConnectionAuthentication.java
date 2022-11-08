@@ -13,7 +13,6 @@ import javax.annotation.Nullable;
 public final class SpringCloudConnectionAuthentication {
     /**
      * @return Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
-     * ---
      * 
      */
     private @Nullable String certificate;
@@ -51,7 +50,6 @@ public final class SpringCloudConnectionAuthentication {
     private SpringCloudConnectionAuthentication() {}
     /**
      * @return Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
-     * ---
      * 
      */
     public Optional<String> certificate() {

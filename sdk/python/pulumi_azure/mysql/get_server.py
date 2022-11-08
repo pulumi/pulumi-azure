@@ -216,7 +216,6 @@ class GetServerResult:
     def tags(self) -> Mapping[str, str]:
         """
         A mapping of tags to assign to the resource.
-        ---
         """
         return pulumi.get(self, "tags")
 

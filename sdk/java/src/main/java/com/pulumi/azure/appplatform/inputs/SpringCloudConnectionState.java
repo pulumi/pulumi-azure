@@ -18,7 +18,6 @@ public final class SpringCloudConnectionState extends com.pulumi.resources.Resou
 
     /**
      * The authentication info. An `authentication` block as defined below.
-     * ---
      * 
      */
     @Import(name="authentication")
@@ -26,7 +25,6 @@ public final class SpringCloudConnectionState extends com.pulumi.resources.Resou
 
     /**
      * @return The authentication info. An `authentication` block as defined below.
-     * ---
      * 
      */
     public Optional<Output<SpringCloudConnectionAuthenticationArgs>> authentication() {
@@ -139,7 +137,6 @@ public final class SpringCloudConnectionState extends com.pulumi.resources.Resou
 
         /**
          * @param authentication The authentication info. An `authentication` block as defined below.
-         * ---
          * 
          * @return builder
          * 
@@ -151,7 +148,6 @@ public final class SpringCloudConnectionState extends com.pulumi.resources.Resou
 
         /**
          * @param authentication The authentication info. An `authentication` block as defined below.
-         * ---
          * 
          * @return builder
          * 

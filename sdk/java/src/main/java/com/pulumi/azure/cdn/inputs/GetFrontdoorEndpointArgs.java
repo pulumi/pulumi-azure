@@ -14,14 +14,14 @@ public final class GetFrontdoorEndpointArgs extends com.pulumi.resources.InvokeA
     public static final GetFrontdoorEndpointArgs Empty = new GetFrontdoorEndpointArgs();
 
     /**
-     * Specifies the name of the FrontDoor Endpoint.
+     * Specifies the name of the Front Door Endpoint.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the FrontDoor Endpoint.
+     * @return Specifies the name of the Front Door Endpoint.
      * 
      */
     public Output<String> name() {
@@ -29,14 +29,14 @@ public final class GetFrontdoorEndpointArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
-     * The name of the FrontDoor Profile within which CDN FrontDoor Endpoint exists.
+     * The name of the Front Door Profile within which Front Door Endpoint exists.
      * 
      */
     @Import(name="profileName", required=true)
     private Output<String> profileName;
 
     /**
-     * @return The name of the FrontDoor Profile within which CDN FrontDoor Endpoint exists.
+     * @return The name of the Front Door Profile within which Front Door Endpoint exists.
      * 
      */
     public Output<String> profileName() {
@@ -44,14 +44,14 @@ public final class GetFrontdoorEndpointArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
-     * The name of the Resource Group where the CDN FrontDoor Profile exists.
+     * The name of the Resource Group where the Front Door Profile exists.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the CDN FrontDoor Profile exists.
+     * @return The name of the Resource Group where the Front Door Profile exists.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -85,7 +85,7 @@ public final class GetFrontdoorEndpointArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param name Specifies the name of the FrontDoor Endpoint.
+         * @param name Specifies the name of the Front Door Endpoint.
          * 
          * @return builder
          * 
@@ -96,7 +96,7 @@ public final class GetFrontdoorEndpointArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param name Specifies the name of the FrontDoor Endpoint.
+         * @param name Specifies the name of the Front Door Endpoint.
          * 
          * @return builder
          * 
@@ -106,7 +106,7 @@ public final class GetFrontdoorEndpointArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param profileName The name of the FrontDoor Profile within which CDN FrontDoor Endpoint exists.
+         * @param profileName The name of the Front Door Profile within which Front Door Endpoint exists.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class GetFrontdoorEndpointArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param profileName The name of the FrontDoor Profile within which CDN FrontDoor Endpoint exists.
+         * @param profileName The name of the Front Door Profile within which Front Door Endpoint exists.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class GetFrontdoorEndpointArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the CDN FrontDoor Profile exists.
+         * @param resourceGroupName The name of the Resource Group where the Front Door Profile exists.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class GetFrontdoorEndpointArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the CDN FrontDoor Profile exists.
+         * @param resourceGroupName The name of the Resource Group where the Front Door Profile exists.
          * 
          * @return builder
          * 

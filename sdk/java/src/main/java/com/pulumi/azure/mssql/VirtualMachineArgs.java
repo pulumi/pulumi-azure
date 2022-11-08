@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.mssql;
 
+import com.pulumi.azure.mssql.inputs.VirtualMachineAssessmentArgs;
 import com.pulumi.azure.mssql.inputs.VirtualMachineAutoBackupArgs;
 import com.pulumi.azure.mssql.inputs.VirtualMachineAutoPatchingArgs;
 import com.pulumi.azure.mssql.inputs.VirtualMachineKeyVaultCredentialArgs;
@@ -21,6 +22,21 @@ import javax.annotation.Nullable;
 public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final VirtualMachineArgs Empty = new VirtualMachineArgs();
+
+    /**
+     * An `assessment` block as defined below.
+     * 
+     */
+    @Import(name="assessment")
+    private @Nullable Output<VirtualMachineAssessmentArgs> assessment;
+
+    /**
+     * @return An `assessment` block as defined below.
+     * 
+     */
+    public Optional<Output<VirtualMachineAssessmentArgs>> assessment() {
+        return Optional.ofNullable(this.assessment);
+    }
 
     /**
      * An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
@@ -205,6 +221,7 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
     private VirtualMachineArgs() {}
 
     private VirtualMachineArgs(VirtualMachineArgs $) {
+        this.assessment = $.assessment;
         this.autoBackup = $.autoBackup;
         this.autoPatching = $.autoPatching;
         this.keyVaultCredential = $.keyVaultCredential;
@@ -235,6 +252,27 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
 
         public Builder(VirtualMachineArgs defaults) {
             $ = new VirtualMachineArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param assessment An `assessment` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder assessment(@Nullable Output<VirtualMachineAssessmentArgs> assessment) {
+            $.assessment = assessment;
+            return this;
+        }
+
+        /**
+         * @param assessment An `assessment` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder assessment(VirtualMachineAssessmentArgs assessment) {
+            return assessment(Output.of(assessment));
         }
 
         /**

@@ -8,6 +8,7 @@ import com.pulumi.azure.appservice.inputs.WindowsFunctionAppSlotBackupArgs;
 import com.pulumi.azure.appservice.inputs.WindowsFunctionAppSlotConnectionStringArgs;
 import com.pulumi.azure.appservice.inputs.WindowsFunctionAppSlotIdentityArgs;
 import com.pulumi.azure.appservice.inputs.WindowsFunctionAppSlotSiteConfigArgs;
+import com.pulumi.azure.appservice.inputs.WindowsFunctionAppSlotStorageAccountArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -325,6 +326,21 @@ public final class WindowsFunctionAppSlotArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * One or more `storage_account` blocks as defined below.
+     * 
+     */
+    @Import(name="storageAccounts")
+    private @Nullable Output<List<WindowsFunctionAppSlotStorageAccountArgs>> storageAccounts;
+
+    /**
+     * @return One or more `storage_account` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<WindowsFunctionAppSlotStorageAccountArgs>>> storageAccounts() {
+        return Optional.ofNullable(this.storageAccounts);
+    }
+
+    /**
      * The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
      * 
      */
@@ -407,6 +423,7 @@ public final class WindowsFunctionAppSlotArgs extends com.pulumi.resources.Resou
         this.siteConfig = $.siteConfig;
         this.storageAccountAccessKey = $.storageAccountAccessKey;
         this.storageAccountName = $.storageAccountName;
+        this.storageAccounts = $.storageAccounts;
         this.storageKeyVaultSecretId = $.storageKeyVaultSecretId;
         this.storageUsesManagedIdentity = $.storageUsesManagedIdentity;
         this.tags = $.tags;
@@ -859,6 +876,37 @@ public final class WindowsFunctionAppSlotArgs extends com.pulumi.resources.Resou
          */
         public Builder storageAccountName(String storageAccountName) {
             return storageAccountName(Output.of(storageAccountName));
+        }
+
+        /**
+         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAccounts(@Nullable Output<List<WindowsFunctionAppSlotStorageAccountArgs>> storageAccounts) {
+            $.storageAccounts = storageAccounts;
+            return this;
+        }
+
+        /**
+         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAccounts(List<WindowsFunctionAppSlotStorageAccountArgs> storageAccounts) {
+            return storageAccounts(Output.of(storageAccounts));
+        }
+
+        /**
+         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAccounts(WindowsFunctionAppSlotStorageAccountArgs... storageAccounts) {
+            return storageAccounts(List.of(storageAccounts));
         }
 
         /**

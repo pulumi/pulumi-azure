@@ -42,7 +42,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly Outputs.FunctionAppSlotAuthSettingsGoogle? Google;
         /// <summary>
-        /// Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+        /// Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. &lt;https://sts.windows.net/{tenant-guid}/&gt;.
         /// </summary>
         public readonly string? Issuer;
         /// <summary>

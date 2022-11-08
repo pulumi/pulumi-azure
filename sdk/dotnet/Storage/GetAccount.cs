@@ -155,7 +155,6 @@ namespace Pulumi.Azure.Storage
         public readonly bool AllowNestedItemsToBePublic;
         /// <summary>
         /// A `azure_files_authentication` block as documented below.
-        /// ---
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAccountAzureFilesAuthenticationResult> AzureFilesAuthentications;
         /// <summary>

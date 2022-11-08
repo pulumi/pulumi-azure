@@ -25,7 +25,7 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public Input<string> BranchName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com. Use https://github.com for open source repositories.
+        /// Specifies the GitHub Enterprise host name. For example: &lt;https://github.mydomain.com&gt;. Use &lt;https://github.com&gt; for open source repositories.
         /// </summary>
         [Input("gitUrl", required: true)]
         public Input<string> GitUrl { get; set; } = null!;

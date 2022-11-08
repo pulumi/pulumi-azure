@@ -22,6 +22,7 @@ class HBaseClusterArgs:
                  resource_group_name: pulumi.Input[str],
                  roles: pulumi.Input['HBaseClusterRolesArgs'],
                  tier: pulumi.Input[str],
+                 compute_isolation: Optional[pulumi.Input['HBaseClusterComputeIsolationArgs']] = None,
                  disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterDiskEncryptionArgs']]]] = None,
                  extension: Optional[pulumi.Input['HBaseClusterExtensionArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -42,6 +43,7 @@ class HBaseClusterArgs:
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['HBaseClusterRolesArgs'] roles: A `roles` block as defined below.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight HBase Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
+        :param pulumi.Input['HBaseClusterComputeIsolationArgs'] compute_isolation: A `compute_isolation` block as defined below.
         :param pulumi.Input['HBaseClusterExtensionArgs'] extension: An `extension` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['HBaseClusterMetastoresArgs'] metastores: A `metastores` block as defined below.
@@ -59,6 +61,8 @@ class HBaseClusterArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "roles", roles)
         pulumi.set(__self__, "tier", tier)
+        if compute_isolation is not None:
+            pulumi.set(__self__, "compute_isolation", compute_isolation)
         if disk_encryptions is not None:
             pulumi.set(__self__, "disk_encryptions", disk_encryptions)
         if extension is not None:
@@ -155,6 +159,18 @@ class HBaseClusterArgs:
     @tier.setter
     def tier(self, value: pulumi.Input[str]):
         pulumi.set(self, "tier", value)
+
+    @property
+    @pulumi.getter(name="computeIsolation")
+    def compute_isolation(self) -> Optional[pulumi.Input['HBaseClusterComputeIsolationArgs']]:
+        """
+        A `compute_isolation` block as defined below.
+        """
+        return pulumi.get(self, "compute_isolation")
+
+    @compute_isolation.setter
+    def compute_isolation(self, value: Optional[pulumi.Input['HBaseClusterComputeIsolationArgs']]):
+        pulumi.set(self, "compute_isolation", value)
 
     @property
     @pulumi.getter(name="diskEncryptions")
@@ -300,6 +316,7 @@ class _HBaseClusterState:
     def __init__(__self__, *,
                  cluster_version: Optional[pulumi.Input[str]] = None,
                  component_version: Optional[pulumi.Input['HBaseClusterComponentVersionArgs']] = None,
+                 compute_isolation: Optional[pulumi.Input['HBaseClusterComputeIsolationArgs']] = None,
                  disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterDiskEncryptionArgs']]]] = None,
                  extension: Optional[pulumi.Input['HBaseClusterExtensionArgs']] = None,
                  gateway: Optional[pulumi.Input['HBaseClusterGatewayArgs']] = None,
@@ -322,6 +339,7 @@ class _HBaseClusterState:
         Input properties used for looking up and filtering HBaseCluster resources.
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input['HBaseClusterComponentVersionArgs'] component_version: A `component_version` block as defined below.
+        :param pulumi.Input['HBaseClusterComputeIsolationArgs'] compute_isolation: A `compute_isolation` block as defined below.
         :param pulumi.Input['HBaseClusterExtensionArgs'] extension: An `extension` block as defined below.
         :param pulumi.Input['HBaseClusterGatewayArgs'] gateway: A `gateway` block as defined below.
         :param pulumi.Input[str] https_endpoint: The HTTPS Connectivity Endpoint for this HDInsight HBase Cluster.
@@ -343,6 +361,8 @@ class _HBaseClusterState:
             pulumi.set(__self__, "cluster_version", cluster_version)
         if component_version is not None:
             pulumi.set(__self__, "component_version", component_version)
+        if compute_isolation is not None:
+            pulumi.set(__self__, "compute_isolation", compute_isolation)
         if disk_encryptions is not None:
             pulumi.set(__self__, "disk_encryptions", disk_encryptions)
         if extension is not None:
@@ -403,6 +423,18 @@ class _HBaseClusterState:
     @component_version.setter
     def component_version(self, value: Optional[pulumi.Input['HBaseClusterComponentVersionArgs']]):
         pulumi.set(self, "component_version", value)
+
+    @property
+    @pulumi.getter(name="computeIsolation")
+    def compute_isolation(self) -> Optional[pulumi.Input['HBaseClusterComputeIsolationArgs']]:
+        """
+        A `compute_isolation` block as defined below.
+        """
+        return pulumi.get(self, "compute_isolation")
+
+    @compute_isolation.setter
+    def compute_isolation(self, value: Optional[pulumi.Input['HBaseClusterComputeIsolationArgs']]):
+        pulumi.set(self, "compute_isolation", value)
 
     @property
     @pulumi.getter(name="diskEncryptions")
@@ -622,6 +654,7 @@ class HBaseCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
                  component_version: Optional[pulumi.Input[pulumi.InputType['HBaseClusterComponentVersionArgs']]] = None,
+                 compute_isolation: Optional[pulumi.Input[pulumi.InputType['HBaseClusterComputeIsolationArgs']]] = None,
                  disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HBaseClusterDiskEncryptionArgs']]]]] = None,
                  extension: Optional[pulumi.Input[pulumi.InputType['HBaseClusterExtensionArgs']]] = None,
                  gateway: Optional[pulumi.Input[pulumi.InputType['HBaseClusterGatewayArgs']]] = None,
@@ -706,6 +739,7 @@ class HBaseCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['HBaseClusterComponentVersionArgs']] component_version: A `component_version` block as defined below.
+        :param pulumi.Input[pulumi.InputType['HBaseClusterComputeIsolationArgs']] compute_isolation: A `compute_isolation` block as defined below.
         :param pulumi.Input[pulumi.InputType['HBaseClusterExtensionArgs']] extension: An `extension` block as defined below.
         :param pulumi.Input[pulumi.InputType['HBaseClusterGatewayArgs']] gateway: A `gateway` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
@@ -807,6 +841,7 @@ class HBaseCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
                  component_version: Optional[pulumi.Input[pulumi.InputType['HBaseClusterComponentVersionArgs']]] = None,
+                 compute_isolation: Optional[pulumi.Input[pulumi.InputType['HBaseClusterComputeIsolationArgs']]] = None,
                  disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HBaseClusterDiskEncryptionArgs']]]]] = None,
                  extension: Optional[pulumi.Input[pulumi.InputType['HBaseClusterExtensionArgs']]] = None,
                  gateway: Optional[pulumi.Input[pulumi.InputType['HBaseClusterGatewayArgs']]] = None,
@@ -838,6 +873,7 @@ class HBaseCluster(pulumi.CustomResource):
             if component_version is None and not opts.urn:
                 raise TypeError("Missing required property 'component_version'")
             __props__.__dict__["component_version"] = component_version
+            __props__.__dict__["compute_isolation"] = compute_isolation
             __props__.__dict__["disk_encryptions"] = disk_encryptions
             __props__.__dict__["extension"] = extension
             if gateway is None and not opts.urn:
@@ -876,6 +912,7 @@ class HBaseCluster(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cluster_version: Optional[pulumi.Input[str]] = None,
             component_version: Optional[pulumi.Input[pulumi.InputType['HBaseClusterComponentVersionArgs']]] = None,
+            compute_isolation: Optional[pulumi.Input[pulumi.InputType['HBaseClusterComputeIsolationArgs']]] = None,
             disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HBaseClusterDiskEncryptionArgs']]]]] = None,
             extension: Optional[pulumi.Input[pulumi.InputType['HBaseClusterExtensionArgs']]] = None,
             gateway: Optional[pulumi.Input[pulumi.InputType['HBaseClusterGatewayArgs']]] = None,
@@ -903,6 +940,7 @@ class HBaseCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['HBaseClusterComponentVersionArgs']] component_version: A `component_version` block as defined below.
+        :param pulumi.Input[pulumi.InputType['HBaseClusterComputeIsolationArgs']] compute_isolation: A `compute_isolation` block as defined below.
         :param pulumi.Input[pulumi.InputType['HBaseClusterExtensionArgs']] extension: An `extension` block as defined below.
         :param pulumi.Input[pulumi.InputType['HBaseClusterGatewayArgs']] gateway: A `gateway` block as defined below.
         :param pulumi.Input[str] https_endpoint: The HTTPS Connectivity Endpoint for this HDInsight HBase Cluster.
@@ -926,6 +964,7 @@ class HBaseCluster(pulumi.CustomResource):
 
         __props__.__dict__["cluster_version"] = cluster_version
         __props__.__dict__["component_version"] = component_version
+        __props__.__dict__["compute_isolation"] = compute_isolation
         __props__.__dict__["disk_encryptions"] = disk_encryptions
         __props__.__dict__["extension"] = extension
         __props__.__dict__["gateway"] = gateway
@@ -961,6 +1000,14 @@ class HBaseCluster(pulumi.CustomResource):
         A `component_version` block as defined below.
         """
         return pulumi.get(self, "component_version")
+
+    @property
+    @pulumi.getter(name="computeIsolation")
+    def compute_isolation(self) -> pulumi.Output[Optional['outputs.HBaseClusterComputeIsolation']]:
+        """
+        A `compute_isolation` block as defined below.
+        """
+        return pulumi.get(self, "compute_isolation")
 
     @property
     @pulumi.getter(name="diskEncryptions")

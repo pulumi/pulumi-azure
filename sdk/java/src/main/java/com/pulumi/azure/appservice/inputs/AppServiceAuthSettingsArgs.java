@@ -130,14 +130,14 @@ public final class AppServiceAuthSettingsArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+     * Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. &lt;https://sts.windows.net/{tenant-guid}/&gt;.
      * 
      */
     @Import(name="issuer")
     private @Nullable Output<String> issuer;
 
     /**
-     * @return Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+     * @return Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. &lt;https://sts.windows.net/{tenant-guid}/&gt;.
      * 
      */
     public Optional<Output<String>> issuer() {
@@ -429,7 +429,7 @@ public final class AppServiceAuthSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param issuer Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+         * @param issuer Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. &lt;https://sts.windows.net/{tenant-guid}/&gt;.
          * 
          * @return builder
          * 
@@ -440,7 +440,7 @@ public final class AppServiceAuthSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param issuer Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+         * @param issuer Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. &lt;https://sts.windows.net/{tenant-guid}/&gt;.
          * 
          * @return builder
          * 

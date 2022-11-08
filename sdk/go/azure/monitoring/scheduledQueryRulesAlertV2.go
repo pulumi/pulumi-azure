@@ -39,7 +39,7 @@ type ScheduledQueryRulesAlertV2 struct {
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// How often the scheduled query rule is evaluated, represented in ISO 8601 duration format.
+	// How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
 	EvaluationFrequency pulumi.StringPtrOutput `pulumi:"evaluationFrequency"`
 	// True if this alert rule is a legacy Log Analytic Rule.
 	IsALegacyLogAnalyticsRule pulumi.BoolOutput `pulumi:"isALegacyLogAnalyticsRule"`
@@ -47,11 +47,11 @@ type ScheduledQueryRulesAlertV2 struct {
 	IsWorkspaceAlertsStorageConfigured pulumi.BoolOutput `pulumi:"isWorkspaceAlertsStorageConfigured"`
 	// Specifies the Azure Region where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired.
+	// Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
 	MuteActionsAfterAlertDuration pulumi.StringPtrOutput `pulumi:"muteActionsAfterAlertDuration"`
 	// Specifies the name which should be used for this Monitor Scheduled Query Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// If specified then overrides the query time range, default is `windowDuration`*`numberOfEvaluationPeriods`.
+	// Set this if the alert evaluation period is different from the query time range. If not specified, the value is `windowDuration`*`numberOfEvaluationPeriods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
 	QueryTimeRangeOverride pulumi.StringPtrOutput `pulumi:"queryTimeRangeOverride"`
 	// Specifies the name of the Resource Group where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -65,7 +65,7 @@ type ScheduledQueryRulesAlertV2 struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is `Microsoft.Compute/virtualMachines`, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria.
 	TargetResourceTypes pulumi.StringArrayOutput `pulumi:"targetResourceTypes"`
-	// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+	// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). If `evaluationFrequency` is `PT1M`, possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, and `PT6H`. Otherwise, possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`, and `P2D`.
 	WindowDuration pulumi.StringOutput `pulumi:"windowDuration"`
 	// Specifies the flag which indicates whether this scheduled query rule check if storage is configured. Value should be `true` or `false`. The default is `false`.
 	WorkspaceAlertsStorageEnabled pulumi.BoolPtrOutput `pulumi:"workspaceAlertsStorageEnabled"`
@@ -129,7 +129,7 @@ type scheduledQueryRulesAlertV2State struct {
 	DisplayName *string `pulumi:"displayName"`
 	// Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// How often the scheduled query rule is evaluated, represented in ISO 8601 duration format.
+	// How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
 	EvaluationFrequency *string `pulumi:"evaluationFrequency"`
 	// True if this alert rule is a legacy Log Analytic Rule.
 	IsALegacyLogAnalyticsRule *bool `pulumi:"isALegacyLogAnalyticsRule"`
@@ -137,11 +137,11 @@ type scheduledQueryRulesAlertV2State struct {
 	IsWorkspaceAlertsStorageConfigured *bool `pulumi:"isWorkspaceAlertsStorageConfigured"`
 	// Specifies the Azure Region where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired.
+	// Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
 	MuteActionsAfterAlertDuration *string `pulumi:"muteActionsAfterAlertDuration"`
 	// Specifies the name which should be used for this Monitor Scheduled Query Rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// If specified then overrides the query time range, default is `windowDuration`*`numberOfEvaluationPeriods`.
+	// Set this if the alert evaluation period is different from the query time range. If not specified, the value is `windowDuration`*`numberOfEvaluationPeriods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
 	QueryTimeRangeOverride *string `pulumi:"queryTimeRangeOverride"`
 	// Specifies the name of the Resource Group where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -155,7 +155,7 @@ type scheduledQueryRulesAlertV2State struct {
 	Tags map[string]string `pulumi:"tags"`
 	// List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is `Microsoft.Compute/virtualMachines`, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria.
 	TargetResourceTypes []string `pulumi:"targetResourceTypes"`
-	// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+	// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). If `evaluationFrequency` is `PT1M`, possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, and `PT6H`. Otherwise, possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`, and `P2D`.
 	WindowDuration *string `pulumi:"windowDuration"`
 	// Specifies the flag which indicates whether this scheduled query rule check if storage is configured. Value should be `true` or `false`. The default is `false`.
 	WorkspaceAlertsStorageEnabled *bool `pulumi:"workspaceAlertsStorageEnabled"`
@@ -176,7 +176,7 @@ type ScheduledQueryRulesAlertV2State struct {
 	DisplayName pulumi.StringPtrInput
 	// Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
 	Enabled pulumi.BoolPtrInput
-	// How often the scheduled query rule is evaluated, represented in ISO 8601 duration format.
+	// How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
 	EvaluationFrequency pulumi.StringPtrInput
 	// True if this alert rule is a legacy Log Analytic Rule.
 	IsALegacyLogAnalyticsRule pulumi.BoolPtrInput
@@ -184,11 +184,11 @@ type ScheduledQueryRulesAlertV2State struct {
 	IsWorkspaceAlertsStorageConfigured pulumi.BoolPtrInput
 	// Specifies the Azure Region where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired.
+	// Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
 	MuteActionsAfterAlertDuration pulumi.StringPtrInput
 	// Specifies the name which should be used for this Monitor Scheduled Query Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// If specified then overrides the query time range, default is `windowDuration`*`numberOfEvaluationPeriods`.
+	// Set this if the alert evaluation period is different from the query time range. If not specified, the value is `windowDuration`*`numberOfEvaluationPeriods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
 	QueryTimeRangeOverride pulumi.StringPtrInput
 	// Specifies the name of the Resource Group where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -202,7 +202,7 @@ type ScheduledQueryRulesAlertV2State struct {
 	Tags pulumi.StringMapInput
 	// List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is `Microsoft.Compute/virtualMachines`, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria.
 	TargetResourceTypes pulumi.StringArrayInput
-	// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+	// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). If `evaluationFrequency` is `PT1M`, possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, and `PT6H`. Otherwise, possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`, and `P2D`.
 	WindowDuration pulumi.StringPtrInput
 	// Specifies the flag which indicates whether this scheduled query rule check if storage is configured. Value should be `true` or `false`. The default is `false`.
 	WorkspaceAlertsStorageEnabled pulumi.BoolPtrInput
@@ -225,15 +225,15 @@ type scheduledQueryRulesAlertV2Args struct {
 	DisplayName *string `pulumi:"displayName"`
 	// Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// How often the scheduled query rule is evaluated, represented in ISO 8601 duration format.
+	// How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
 	EvaluationFrequency *string `pulumi:"evaluationFrequency"`
 	// Specifies the Azure Region where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired.
+	// Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
 	MuteActionsAfterAlertDuration *string `pulumi:"muteActionsAfterAlertDuration"`
 	// Specifies the name which should be used for this Monitor Scheduled Query Rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// If specified then overrides the query time range, default is `windowDuration`*`numberOfEvaluationPeriods`.
+	// Set this if the alert evaluation period is different from the query time range. If not specified, the value is `windowDuration`*`numberOfEvaluationPeriods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
 	QueryTimeRangeOverride *string `pulumi:"queryTimeRangeOverride"`
 	// Specifies the name of the Resource Group where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -247,7 +247,7 @@ type scheduledQueryRulesAlertV2Args struct {
 	Tags map[string]string `pulumi:"tags"`
 	// List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is `Microsoft.Compute/virtualMachines`, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria.
 	TargetResourceTypes []string `pulumi:"targetResourceTypes"`
-	// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+	// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). If `evaluationFrequency` is `PT1M`, possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, and `PT6H`. Otherwise, possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`, and `P2D`.
 	WindowDuration string `pulumi:"windowDuration"`
 	// Specifies the flag which indicates whether this scheduled query rule check if storage is configured. Value should be `true` or `false`. The default is `false`.
 	WorkspaceAlertsStorageEnabled *bool `pulumi:"workspaceAlertsStorageEnabled"`
@@ -267,15 +267,15 @@ type ScheduledQueryRulesAlertV2Args struct {
 	DisplayName pulumi.StringPtrInput
 	// Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
 	Enabled pulumi.BoolPtrInput
-	// How often the scheduled query rule is evaluated, represented in ISO 8601 duration format.
+	// How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
 	EvaluationFrequency pulumi.StringPtrInput
 	// Specifies the Azure Region where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired.
+	// Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
 	MuteActionsAfterAlertDuration pulumi.StringPtrInput
 	// Specifies the name which should be used for this Monitor Scheduled Query Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// If specified then overrides the query time range, default is `windowDuration`*`numberOfEvaluationPeriods`.
+	// Set this if the alert evaluation period is different from the query time range. If not specified, the value is `windowDuration`*`numberOfEvaluationPeriods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
 	QueryTimeRangeOverride pulumi.StringPtrInput
 	// Specifies the name of the Resource Group where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -289,7 +289,7 @@ type ScheduledQueryRulesAlertV2Args struct {
 	Tags pulumi.StringMapInput
 	// List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is `Microsoft.Compute/virtualMachines`, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria.
 	TargetResourceTypes pulumi.StringArrayInput
-	// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+	// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). If `evaluationFrequency` is `PT1M`, possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, and `PT6H`. Otherwise, possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`, and `P2D`.
 	WindowDuration pulumi.StringInput
 	// Specifies the flag which indicates whether this scheduled query rule check if storage is configured. Value should be `true` or `false`. The default is `false`.
 	WorkspaceAlertsStorageEnabled pulumi.BoolPtrInput
@@ -417,7 +417,7 @@ func (o ScheduledQueryRulesAlertV2Output) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// How often the scheduled query rule is evaluated, represented in ISO 8601 duration format.
+// How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
 func (o ScheduledQueryRulesAlertV2Output) EvaluationFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2) pulumi.StringPtrOutput { return v.EvaluationFrequency }).(pulumi.StringPtrOutput)
 }
@@ -437,7 +437,7 @@ func (o ScheduledQueryRulesAlertV2Output) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired.
+// Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
 func (o ScheduledQueryRulesAlertV2Output) MuteActionsAfterAlertDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2) pulumi.StringPtrOutput { return v.MuteActionsAfterAlertDuration }).(pulumi.StringPtrOutput)
 }
@@ -447,7 +447,7 @@ func (o ScheduledQueryRulesAlertV2Output) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// If specified then overrides the query time range, default is `windowDuration`*`numberOfEvaluationPeriods`.
+// Set this if the alert evaluation period is different from the query time range. If not specified, the value is `windowDuration`*`numberOfEvaluationPeriods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
 func (o ScheduledQueryRulesAlertV2Output) QueryTimeRangeOverride() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2) pulumi.StringPtrOutput { return v.QueryTimeRangeOverride }).(pulumi.StringPtrOutput)
 }
@@ -482,7 +482,7 @@ func (o ScheduledQueryRulesAlertV2Output) TargetResourceTypes() pulumi.StringArr
 	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2) pulumi.StringArrayOutput { return v.TargetResourceTypes }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). If `evaluationFrequency` is `PT1M`, possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, and `PT6H`. Otherwise, possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`, and `P2D`.
 func (o ScheduledQueryRulesAlertV2Output) WindowDuration() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2) pulumi.StringOutput { return v.WindowDuration }).(pulumi.StringOutput)
 }

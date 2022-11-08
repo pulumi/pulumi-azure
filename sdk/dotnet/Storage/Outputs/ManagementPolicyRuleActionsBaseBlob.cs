@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly int? DeleteAfterDaysSinceModificationGreaterThan;
         /// <summary>
-        /// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0 and `99999`.
+        /// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0 and`99999`.
         /// </summary>
         public readonly int? TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan;
         /// <summary>

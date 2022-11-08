@@ -66,7 +66,6 @@ public final class MongoCollectionState extends com.pulumi.resources.ResourceArg
 
     /**
      * The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
-     * * # `index` - (Optional) One or more `index` blocks as defined below.
      * 
      */
     @Import(name="defaultTtlSeconds")
@@ -74,16 +73,23 @@ public final class MongoCollectionState extends com.pulumi.resources.ResourceArg
 
     /**
      * @return The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
-     * * # `index` - (Optional) One or more `index` blocks as defined below.
      * 
      */
     public Optional<Output<Integer>> defaultTtlSeconds() {
         return Optional.ofNullable(this.defaultTtlSeconds);
     }
 
+    /**
+     * One or more `index` blocks as defined below.
+     * 
+     */
     @Import(name="indices")
     private @Nullable Output<List<MongoCollectionIndexArgs>> indices;
 
+    /**
+     * @return One or more `index` blocks as defined below.
+     * 
+     */
     public Optional<Output<List<MongoCollectionIndexArgs>>> indices() {
         return Optional.ofNullable(this.indices);
     }
@@ -251,7 +257,6 @@ public final class MongoCollectionState extends com.pulumi.resources.ResourceArg
 
         /**
          * @param defaultTtlSeconds The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
-         * * # `index` - (Optional) One or more `index` blocks as defined below.
          * 
          * @return builder
          * 
@@ -263,7 +268,6 @@ public final class MongoCollectionState extends com.pulumi.resources.ResourceArg
 
         /**
          * @param defaultTtlSeconds The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
-         * * # `index` - (Optional) One or more `index` blocks as defined below.
          * 
          * @return builder
          * 
@@ -272,15 +276,33 @@ public final class MongoCollectionState extends com.pulumi.resources.ResourceArg
             return defaultTtlSeconds(Output.of(defaultTtlSeconds));
         }
 
+        /**
+         * @param indices One or more `index` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder indices(@Nullable Output<List<MongoCollectionIndexArgs>> indices) {
             $.indices = indices;
             return this;
         }
 
+        /**
+         * @param indices One or more `index` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder indices(List<MongoCollectionIndexArgs> indices) {
             return indices(Output.of(indices));
         }
 
+        /**
+         * @param indices One or more `index` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder indices(MongoCollectionIndexArgs... indices) {
             return indices(List.of(indices));
         }

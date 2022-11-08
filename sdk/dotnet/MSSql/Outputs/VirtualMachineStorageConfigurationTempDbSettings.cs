@@ -14,9 +14,29 @@ namespace Pulumi.Azure.MSSql.Outputs
     public sealed class VirtualMachineStorageConfigurationTempDbSettings
     {
         /// <summary>
+        /// The SQL Server default file count. This value defaults to `8`
+        /// </summary>
+        public readonly int? DataFileCount;
+        /// <summary>
+        /// The SQL Server default file size - This value defaults to `512`
+        /// </summary>
+        public readonly int? DataFileGrowthInMb;
+        /// <summary>
+        /// The SQL Server default file size - This value defaults to `256`
+        /// </summary>
+        public readonly int? DataFileSizeMb;
+        /// <summary>
         /// The SQL Server default path
         /// </summary>
         public readonly string DefaultFilePath;
+        /// <summary>
+        /// The SQL Server default file size - This value defaults to `512`
+        /// </summary>
+        public readonly int? LogFileGrowthMb;
+        /// <summary>
+        /// The SQL Server default file size - This value defaults to `256`
+        /// </summary>
+        public readonly int? LogFileSizeMb;
         /// <summary>
         /// A list of Logical Unit Numbers for the disks.
         /// </summary>
@@ -24,11 +44,26 @@ namespace Pulumi.Azure.MSSql.Outputs
 
         [OutputConstructor]
         private VirtualMachineStorageConfigurationTempDbSettings(
+            int? dataFileCount,
+
+            int? dataFileGrowthInMb,
+
+            int? dataFileSizeMb,
+
             string defaultFilePath,
+
+            int? logFileGrowthMb,
+
+            int? logFileSizeMb,
 
             ImmutableArray<int> luns)
         {
+            DataFileCount = dataFileCount;
+            DataFileGrowthInMb = dataFileGrowthInMb;
+            DataFileSizeMb = dataFileSizeMb;
             DefaultFilePath = defaultFilePath;
+            LogFileGrowthMb = logFileGrowthMb;
+            LogFileSizeMb = logFileSizeMb;
             Luns = luns;
         }
     }

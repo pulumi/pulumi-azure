@@ -18,11 +18,11 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a CDN FrontDoor Route.
+ * Manages a Front Door (standard/premium) Route.
  * 
  * ## Import
  * 
- * Frontdoor Routes can be imported using the `resource id`, e.g.
+ * Front Door Routes can be imported using the `resource id`, e.g.
  * 
  * ```sh
  *  $ pulumi import azure:cdn/frontdoorRoute:FrontdoorRoute example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/afdEndpoints/endpoint1/routes/route1
@@ -46,98 +46,98 @@ public class FrontdoorRoute extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.cache);
     }
     /**
-     * The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+     * The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
      * 
      */
     @Export(name="cdnFrontdoorCustomDomainIds", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> cdnFrontdoorCustomDomainIds;
 
     /**
-     * @return The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+     * @return The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
      * 
      */
     public Output<Optional<List<String>>> cdnFrontdoorCustomDomainIds() {
         return Codegen.optional(this.cdnFrontdoorCustomDomainIds);
     }
     /**
-     * The resource ID of the CDN FrontDoor Endpoint where this CDN FrontDoor Route should exist. Changing this forces a new Frontdoor Route to be created.
+     * The resource ID of the Front Door Endpoint where this Front Door Route should exist. Changing this forces a new Front Door Route to be created.
      * 
      */
     @Export(name="cdnFrontdoorEndpointId", type=String.class, parameters={})
     private Output<String> cdnFrontdoorEndpointId;
 
     /**
-     * @return The resource ID of the CDN FrontDoor Endpoint where this CDN FrontDoor Route should exist. Changing this forces a new Frontdoor Route to be created.
+     * @return The resource ID of the Front Door Endpoint where this Front Door Route should exist. Changing this forces a new Front Door Route to be created.
      * 
      */
     public Output<String> cdnFrontdoorEndpointId() {
         return this.cdnFrontdoorEndpointId;
     }
     /**
-     * The resource ID of the CDN FrontDoor Origin Group where this CDN FrontDoor Route should be created.
+     * The resource ID of the Front Door Origin Group where this Front Door Route should be created.
      * 
      */
     @Export(name="cdnFrontdoorOriginGroupId", type=String.class, parameters={})
     private Output<String> cdnFrontdoorOriginGroupId;
 
     /**
-     * @return The resource ID of the CDN FrontDoor Origin Group where this CDN FrontDoor Route should be created.
+     * @return The resource ID of the Front Door Origin Group where this Front Door Route should be created.
      * 
      */
     public Output<String> cdnFrontdoorOriginGroupId() {
         return this.cdnFrontdoorOriginGroupId;
     }
     /**
-     * One or more Frontdoor Origin resource IDs that this Frontdoor Route will link to.
+     * One or more Front Door Origin resource IDs that this Front Door Route will link to.
      * 
      */
     @Export(name="cdnFrontdoorOriginIds", type=List.class, parameters={String.class})
     private Output<List<String>> cdnFrontdoorOriginIds;
 
     /**
-     * @return One or more Frontdoor Origin resource IDs that this Frontdoor Route will link to.
+     * @return One or more Front Door Origin resource IDs that this Front Door Route will link to.
      * 
      */
     public Output<List<String>> cdnFrontdoorOriginIds() {
         return this.cdnFrontdoorOriginIds;
     }
     /**
-     * A directory path on the origin that Frontdoor can use to retrieve content from (e.g. `contoso.cloudapp.net/originpath`).
+     * A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
      * 
      */
     @Export(name="cdnFrontdoorOriginPath", type=String.class, parameters={})
     private Output</* @Nullable */ String> cdnFrontdoorOriginPath;
 
     /**
-     * @return A directory path on the origin that Frontdoor can use to retrieve content from (e.g. `contoso.cloudapp.net/originpath`).
+     * @return A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
      * 
      */
     public Output<Optional<String>> cdnFrontdoorOriginPath() {
         return Codegen.optional(this.cdnFrontdoorOriginPath);
     }
     /**
-     * A list of the CDN FrontDoor Rule Set IDs which should be assigned to this CDN FrontDoor Route.
+     * A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route.
      * 
      */
     @Export(name="cdnFrontdoorRuleSetIds", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> cdnFrontdoorRuleSetIds;
 
     /**
-     * @return A list of the CDN FrontDoor Rule Set IDs which should be assigned to this CDN FrontDoor Route.
+     * @return A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route.
      * 
      */
     public Output<Optional<List<String>>> cdnFrontdoorRuleSetIds() {
         return Codegen.optional(this.cdnFrontdoorRuleSetIds);
     }
     /**
-     * Is this Frontdoor Route enabled? Possible values are `true` or `false`. Defaults to `true`.
+     * Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
      * 
      */
     @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Is this Frontdoor Route enabled? Possible values are `true` or `false`. Defaults to `true`.
+     * @return Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> enabled() {
@@ -172,28 +172,28 @@ public class FrontdoorRoute extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.httpsRedirectEnabled);
     }
     /**
-     * Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+     * Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
      * 
      */
     @Export(name="linkToDefaultDomain", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> linkToDefaultDomain;
 
     /**
-     * @return Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+     * @return Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> linkToDefaultDomain() {
         return Codegen.optional(this.linkToDefaultDomain);
     }
     /**
-     * The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+     * The name which should be used for this Front Door Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Front Door Route to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+     * @return The name which should be used for this Front Door Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Front Door Route to be created.
      * 
      */
     public Output<String> name() {
@@ -214,14 +214,14 @@ public class FrontdoorRoute extends com.pulumi.resources.CustomResource {
         return this.patternsToMatches;
     }
     /**
-     * One or more Protocols supported by this Frontdoor Route. Possible values are `Http` or `Https`.
+     * One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
      * 
      */
     @Export(name="supportedProtocols", type=List.class, parameters={String.class})
     private Output<List<String>> supportedProtocols;
 
     /**
-     * @return One or more Protocols supported by this Frontdoor Route. Possible values are `Http` or `Https`.
+     * @return One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
      * 
      */
     public Output<List<String>> supportedProtocols() {

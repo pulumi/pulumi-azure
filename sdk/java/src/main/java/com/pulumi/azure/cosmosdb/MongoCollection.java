@@ -129,7 +129,6 @@ public class MongoCollection extends com.pulumi.resources.CustomResource {
     }
     /**
      * The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
-     * * # `index` - (Optional) One or more `index` blocks as defined below.
      * 
      */
     @Export(name="defaultTtlSeconds", type=Integer.class, parameters={})
@@ -137,15 +136,22 @@ public class MongoCollection extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
-     * * # `index` - (Optional) One or more `index` blocks as defined below.
      * 
      */
     public Output<Optional<Integer>> defaultTtlSeconds() {
         return Codegen.optional(this.defaultTtlSeconds);
     }
+    /**
+     * One or more `index` blocks as defined below.
+     * 
+     */
     @Export(name="indices", type=List.class, parameters={MongoCollectionIndex.class})
     private Output</* @Nullable */ List<MongoCollectionIndex>> indices;
 
+    /**
+     * @return One or more `index` blocks as defined below.
+     * 
+     */
     public Output<Optional<List<MongoCollectionIndex>>> indices() {
         return Codegen.optional(this.indices);
     }

@@ -96,6 +96,36 @@ namespace Pulumi.Azure.LogicApps.Inputs
         [Input("runtimeScaleMonitoringEnabled")]
         public Input<bool>? RuntimeScaleMonitoringEnabled { get; set; }
 
+        [Input("scmIpRestrictions")]
+        private InputList<Inputs.StandardSiteConfigScmIpRestrictionGetArgs>? _scmIpRestrictions;
+
+        /// <summary>
+        /// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
+        /// </summary>
+        public InputList<Inputs.StandardSiteConfigScmIpRestrictionGetArgs> ScmIpRestrictions
+        {
+            get => _scmIpRestrictions ?? (_scmIpRestrictions = new InputList<Inputs.StandardSiteConfigScmIpRestrictionGetArgs>());
+            set => _scmIpRestrictions = value;
+        }
+
+        /// <summary>
+        /// Configures the minimum version of TLS required for SSL requests to the SCM site.
+        /// </summary>
+        [Input("scmMinTlsVersion")]
+        public Input<string>? ScmMinTlsVersion { get; set; }
+
+        /// <summary>
+        /// The type of Source Control used by the Logic App in use by the Windows Function App. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+        /// </summary>
+        [Input("scmType")]
+        public Input<string>? ScmType { get; set; }
+
+        /// <summary>
+        /// Should the Logic App `ip_restriction` configuration be used for the SCM too. Defaults to `false`.
+        /// </summary>
+        [Input("scmUseMainIpRestriction")]
+        public Input<bool>? ScmUseMainIpRestriction { get; set; }
+
         /// <summary>
         /// Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
         /// </summary>

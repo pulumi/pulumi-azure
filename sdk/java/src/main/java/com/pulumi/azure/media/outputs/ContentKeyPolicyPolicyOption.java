@@ -22,7 +22,7 @@ public final class ContentKeyPolicyPolicyOption {
      */
     private @Nullable Boolean clearKeyConfigurationEnabled;
     /**
-     * @return A `fairplay_configuration` block as defined above. Check license requirements here https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview.
+     * @return A `fairplay_configuration` block as defined above. Check license requirements here &lt;https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview&gt;.
      * 
      */
     private @Nullable ContentKeyPolicyPolicyOptionFairplayConfiguration fairplayConfiguration;
@@ -61,7 +61,7 @@ public final class ContentKeyPolicyPolicyOption {
         return Optional.ofNullable(this.clearKeyConfigurationEnabled);
     }
     /**
-     * @return A `fairplay_configuration` block as defined above. Check license requirements here https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview.
+     * @return A `fairplay_configuration` block as defined above. Check license requirements here &lt;https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview&gt;.
      * 
      */
     public Optional<ContentKeyPolicyPolicyOptionFairplayConfiguration> fairplayConfiguration() {

@@ -203,8 +203,6 @@ class RulesEngine(pulumi.CustomResource):
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulesEngineRuleArgs']]]]] = None,
                  __props__=None):
         """
-        Manages an Azure Front Door Rules Engine configuration and rules.
-
         ## Example Usage
 
         ```python
@@ -310,8 +308,6 @@ class RulesEngine(pulumi.CustomResource):
                  args: RulesEngineArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Azure Front Door Rules Engine configuration and rules.
-
         ## Example Usage
 
         ```python

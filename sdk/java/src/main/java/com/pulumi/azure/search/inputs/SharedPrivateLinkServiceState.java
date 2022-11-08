@@ -60,9 +60,17 @@ public final class SharedPrivateLinkServiceState extends com.pulumi.resources.Re
         return Optional.ofNullable(this.searchServiceId);
     }
 
+    /**
+     * The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
+     * 
+     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
+    /**
+     * @return The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
+     * 
+     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -189,11 +197,23 @@ public final class SharedPrivateLinkServiceState extends com.pulumi.resources.Re
             return searchServiceId(Output.of(searchServiceId));
         }
 
+        /**
+         * @param status The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
+        /**
+         * @param status The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

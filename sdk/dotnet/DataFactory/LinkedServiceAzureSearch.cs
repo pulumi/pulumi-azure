@@ -79,7 +79,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> SearchServiceKey { get; private set; } = null!;
 
         /// <summary>
-        /// The URL of the Search Service endpoint (e.g. https://{searchServiceName}.search.windows.net).
+        /// The URL of the Search Service endpoint (e.g. &lt;https://{searchServiceName}.search.windows.net&gt;).
         /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
@@ -198,7 +198,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string> SearchServiceKey { get; set; } = null!;
 
         /// <summary>
-        /// The URL of the Search Service endpoint (e.g. https://{searchServiceName}.search.windows.net).
+        /// The URL of the Search Service endpoint (e.g. &lt;https://{searchServiceName}.search.windows.net&gt;).
         /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
@@ -285,7 +285,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? SearchServiceKey { get; set; }
 
         /// <summary>
-        /// The URL of the Search Service endpoint (e.g. https://{searchServiceName}.search.windows.net).
+        /// The URL of the Search Service endpoint (e.g. &lt;https://{searchServiceName}.search.windows.net&gt;).
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }

@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DicomServiceAuthentication {
     /**
-     * @return The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+     * @return The intended audience to receive authentication tokens for the service. The default value is &lt;https://dicom.azurehealthcareapis.azure.com&gt;
      * 
      */
     private @Nullable List<String> audiences;
@@ -21,7 +21,7 @@ public final class DicomServiceAuthentication {
 
     private DicomServiceAuthentication() {}
     /**
-     * @return The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+     * @return The intended audience to receive authentication tokens for the service. The default value is &lt;https://dicom.azurehealthcareapis.azure.com&gt;
      * 
      */
     public List<String> audiences() {

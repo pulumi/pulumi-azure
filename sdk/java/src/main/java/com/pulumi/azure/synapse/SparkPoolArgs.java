@@ -113,6 +113,36 @@ public final class SparkPoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
+     * 
+     */
+    @Import(name="maxExecutors")
+    private @Nullable Output<Integer> maxExecutors;
+
+    /**
+     * @return The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
+     * 
+     */
+    public Optional<Output<Integer>> maxExecutors() {
+        return Optional.ofNullable(this.maxExecutors);
+    }
+
+    /**
+     * The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
+     * 
+     */
+    @Import(name="minExecutors")
+    private @Nullable Output<Integer> minExecutors;
+
+    /**
+     * @return The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
+     * 
+     */
+    public Optional<Output<Integer>> minExecutors() {
+        return Optional.ofNullable(this.minExecutors);
+    }
+
+    /**
      * The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
      * 
      */
@@ -286,6 +316,8 @@ public final class SparkPoolArgs extends com.pulumi.resources.ResourceArgs {
         this.computeIsolationEnabled = $.computeIsolationEnabled;
         this.dynamicExecutorAllocationEnabled = $.dynamicExecutorAllocationEnabled;
         this.libraryRequirement = $.libraryRequirement;
+        this.maxExecutors = $.maxExecutors;
+        this.minExecutors = $.minExecutors;
         this.name = $.name;
         this.nodeCount = $.nodeCount;
         this.nodeSize = $.nodeSize;
@@ -441,6 +473,48 @@ public final class SparkPoolArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder libraryRequirement(SparkPoolLibraryRequirementArgs libraryRequirement) {
             return libraryRequirement(Output.of(libraryRequirement));
+        }
+
+        /**
+         * @param maxExecutors The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxExecutors(@Nullable Output<Integer> maxExecutors) {
+            $.maxExecutors = maxExecutors;
+            return this;
+        }
+
+        /**
+         * @param maxExecutors The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxExecutors(Integer maxExecutors) {
+            return maxExecutors(Output.of(maxExecutors));
+        }
+
+        /**
+         * @param minExecutors The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder minExecutors(@Nullable Output<Integer> minExecutors) {
+            $.minExecutors = minExecutors;
+            return this;
+        }
+
+        /**
+         * @param minExecutors The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder minExecutors(Integer minExecutors) {
+            return minExecutors(Output.of(minExecutors));
         }
 
         /**

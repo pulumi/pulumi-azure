@@ -18,6 +18,7 @@ class VirtualMachineArgs:
     def __init__(__self__, *,
                  sql_license_type: pulumi.Input[str],
                  virtual_machine_id: pulumi.Input[str],
+                 assessment: Optional[pulumi.Input['VirtualMachineAssessmentArgs']] = None,
                  auto_backup: Optional[pulumi.Input['VirtualMachineAutoBackupArgs']] = None,
                  auto_patching: Optional[pulumi.Input['VirtualMachineAutoPatchingArgs']] = None,
                  key_vault_credential: Optional[pulumi.Input['VirtualMachineKeyVaultCredentialArgs']] = None,
@@ -32,6 +33,7 @@ class VirtualMachineArgs:
         The set of arguments for constructing a VirtualMachine resource.
         :param pulumi.Input[str] sql_license_type: The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine. Changing this forces a new resource to be created.
+        :param pulumi.Input['VirtualMachineAssessmentArgs'] assessment: An `assessment` block as defined below.
         :param pulumi.Input['VirtualMachineAutoBackupArgs'] auto_backup: An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
         :param pulumi.Input['VirtualMachineAutoPatchingArgs'] auto_patching: An `auto_patching` block as defined below.
         :param pulumi.Input['VirtualMachineKeyVaultCredentialArgs'] key_vault_credential: (Optional) An `key_vault_credential` block as defined below.
@@ -45,6 +47,8 @@ class VirtualMachineArgs:
         """
         pulumi.set(__self__, "sql_license_type", sql_license_type)
         pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+        if assessment is not None:
+            pulumi.set(__self__, "assessment", assessment)
         if auto_backup is not None:
             pulumi.set(__self__, "auto_backup", auto_backup)
         if auto_patching is not None:
@@ -89,6 +93,18 @@ class VirtualMachineArgs:
     @virtual_machine_id.setter
     def virtual_machine_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "virtual_machine_id", value)
+
+    @property
+    @pulumi.getter
+    def assessment(self) -> Optional[pulumi.Input['VirtualMachineAssessmentArgs']]:
+        """
+        An `assessment` block as defined below.
+        """
+        return pulumi.get(self, "assessment")
+
+    @assessment.setter
+    def assessment(self, value: Optional[pulumi.Input['VirtualMachineAssessmentArgs']]):
+        pulumi.set(self, "assessment", value)
 
     @property
     @pulumi.getter(name="autoBackup")
@@ -214,6 +230,7 @@ class VirtualMachineArgs:
 @pulumi.input_type
 class _VirtualMachineState:
     def __init__(__self__, *,
+                 assessment: Optional[pulumi.Input['VirtualMachineAssessmentArgs']] = None,
                  auto_backup: Optional[pulumi.Input['VirtualMachineAutoBackupArgs']] = None,
                  auto_patching: Optional[pulumi.Input['VirtualMachineAutoPatchingArgs']] = None,
                  key_vault_credential: Optional[pulumi.Input['VirtualMachineKeyVaultCredentialArgs']] = None,
@@ -228,6 +245,7 @@ class _VirtualMachineState:
                  virtual_machine_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering VirtualMachine resources.
+        :param pulumi.Input['VirtualMachineAssessmentArgs'] assessment: An `assessment` block as defined below.
         :param pulumi.Input['VirtualMachineAutoBackupArgs'] auto_backup: An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
         :param pulumi.Input['VirtualMachineAutoPatchingArgs'] auto_patching: An `auto_patching` block as defined below.
         :param pulumi.Input['VirtualMachineKeyVaultCredentialArgs'] key_vault_credential: (Optional) An `key_vault_credential` block as defined below.
@@ -241,6 +259,8 @@ class _VirtualMachineState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine. Changing this forces a new resource to be created.
         """
+        if assessment is not None:
+            pulumi.set(__self__, "assessment", assessment)
         if auto_backup is not None:
             pulumi.set(__self__, "auto_backup", auto_backup)
         if auto_patching is not None:
@@ -265,6 +285,18 @@ class _VirtualMachineState:
             pulumi.set(__self__, "tags", tags)
         if virtual_machine_id is not None:
             pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+
+    @property
+    @pulumi.getter
+    def assessment(self) -> Optional[pulumi.Input['VirtualMachineAssessmentArgs']]:
+        """
+        An `assessment` block as defined below.
+        """
+        return pulumi.get(self, "assessment")
+
+    @assessment.setter
+    def assessment(self, value: Optional[pulumi.Input['VirtualMachineAssessmentArgs']]):
+        pulumi.set(self, "assessment", value)
 
     @property
     @pulumi.getter(name="autoBackup")
@@ -416,6 +448,7 @@ class VirtualMachine(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 assessment: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAssessmentArgs']]] = None,
                  auto_backup: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAutoBackupArgs']]] = None,
                  auto_patching: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAutoPatchingArgs']]] = None,
                  key_vault_credential: Optional[pulumi.Input[pulumi.InputType['VirtualMachineKeyVaultCredentialArgs']]] = None,
@@ -467,6 +500,7 @@ class VirtualMachine(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['VirtualMachineAssessmentArgs']] assessment: An `assessment` block as defined below.
         :param pulumi.Input[pulumi.InputType['VirtualMachineAutoBackupArgs']] auto_backup: An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['VirtualMachineAutoPatchingArgs']] auto_patching: An `auto_patching` block as defined below.
         :param pulumi.Input[pulumi.InputType['VirtualMachineKeyVaultCredentialArgs']] key_vault_credential: (Optional) An `key_vault_credential` block as defined below.
@@ -537,6 +571,7 @@ class VirtualMachine(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 assessment: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAssessmentArgs']]] = None,
                  auto_backup: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAutoBackupArgs']]] = None,
                  auto_patching: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAutoPatchingArgs']]] = None,
                  key_vault_credential: Optional[pulumi.Input[pulumi.InputType['VirtualMachineKeyVaultCredentialArgs']]] = None,
@@ -558,6 +593,7 @@ class VirtualMachine(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VirtualMachineArgs.__new__(VirtualMachineArgs)
 
+            __props__.__dict__["assessment"] = assessment
             __props__.__dict__["auto_backup"] = auto_backup
             __props__.__dict__["auto_patching"] = auto_patching
             __props__.__dict__["key_vault_credential"] = key_vault_credential
@@ -584,6 +620,7 @@ class VirtualMachine(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            assessment: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAssessmentArgs']]] = None,
             auto_backup: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAutoBackupArgs']]] = None,
             auto_patching: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAutoPatchingArgs']]] = None,
             key_vault_credential: Optional[pulumi.Input[pulumi.InputType['VirtualMachineKeyVaultCredentialArgs']]] = None,
@@ -603,6 +640,7 @@ class VirtualMachine(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['VirtualMachineAssessmentArgs']] assessment: An `assessment` block as defined below.
         :param pulumi.Input[pulumi.InputType['VirtualMachineAutoBackupArgs']] auto_backup: An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['VirtualMachineAutoPatchingArgs']] auto_patching: An `auto_patching` block as defined below.
         :param pulumi.Input[pulumi.InputType['VirtualMachineKeyVaultCredentialArgs']] key_vault_credential: (Optional) An `key_vault_credential` block as defined below.
@@ -620,6 +658,7 @@ class VirtualMachine(pulumi.CustomResource):
 
         __props__ = _VirtualMachineState.__new__(_VirtualMachineState)
 
+        __props__.__dict__["assessment"] = assessment
         __props__.__dict__["auto_backup"] = auto_backup
         __props__.__dict__["auto_patching"] = auto_patching
         __props__.__dict__["key_vault_credential"] = key_vault_credential
@@ -633,6 +672,14 @@ class VirtualMachine(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["virtual_machine_id"] = virtual_machine_id
         return VirtualMachine(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def assessment(self) -> pulumi.Output[Optional['outputs.VirtualMachineAssessment']]:
+        """
+        An `assessment` block as defined below.
+        """
+        return pulumi.get(self, "assessment")
 
     @property
     @pulumi.getter(name="autoBackup")

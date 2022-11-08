@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a CDN FrontDoor Profile which contains a collection of CDN FrontDoor Endpoints.
+ * Manages a Front Door (standard/premium) Profile which contains a collection of endpoints and origin groups.
  * 
  * ## Example Usage
  * ```java
@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CDN FrontDoor Profiles can be imported using the `resource id`, e.g.
+ * Front Door Profiles can be imported using the `resource id`, e.g.
  * 
  * ```sh
  *  $ pulumi import azure:cdn/frontdoorProfile:FrontdoorProfile example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Cdn/profiles/myprofile1
@@ -69,42 +69,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:cdn/frontdoorProfile:FrontdoorProfile")
 public class FrontdoorProfile extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies the name of the FrontDoor Profile. Changing this forces a new resource to be created.
+     * Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the FrontDoor Profile. Changing this forces a new resource to be created.
+     * @return Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The name of the Resource Group where this FrontDoor Profile should exist. Changing this forces a new resource to be created.
+     * The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where this FrontDoor Profile should exist. Changing this forces a new resource to be created.
+     * @return The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
     /**
-     * The UUID of this CDN FrontDoor Profile.
+     * The UUID of this Front Door Profile which will be sent in the HTTP Header as the `X-Azure-FDID` attribute.
      * 
      */
     @Export(name="resourceGuid", type=String.class, parameters={})
     private Output<String> resourceGuid;
 
     /**
-     * @return The UUID of this CDN FrontDoor Profile.
+     * @return The UUID of this Front Door Profile which will be sent in the HTTP Header as the `X-Azure-FDID` attribute.
      * 
      */
     public Output<String> resourceGuid() {
@@ -125,14 +125,14 @@ public class FrontdoorProfile extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.responseTimeoutSeconds);
     }
     /**
-     * Specifies the SKU for this CDN FrontDoor Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+     * Specifies the SKU for this Front Door Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="skuName", type=String.class, parameters={})
     private Output<String> skuName;
 
     /**
-     * @return Specifies the SKU for this CDN FrontDoor Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+     * @return Specifies the SKU for this Front Door Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> skuName() {

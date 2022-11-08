@@ -11,11 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a CDN FrontDoor Route.
+// Manages a Front Door (standard/premium) Route.
 //
 // ## Import
 //
-// Frontdoor Routes can be imported using the `resource id`, e.g.
+// Front Door Routes can be imported using the `resource id`, e.g.
 //
 // ```sh
 //
@@ -27,31 +27,31 @@ type FrontdoorRoute struct {
 
 	// A `cache` block as defined below.
 	Cache FrontdoorRouteCachePtrOutput `pulumi:"cache"`
-	// The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+	// The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
 	CdnFrontdoorCustomDomainIds pulumi.StringArrayOutput `pulumi:"cdnFrontdoorCustomDomainIds"`
-	// The resource ID of the CDN FrontDoor Endpoint where this CDN FrontDoor Route should exist. Changing this forces a new Frontdoor Route to be created.
+	// The resource ID of the Front Door Endpoint where this Front Door Route should exist. Changing this forces a new Front Door Route to be created.
 	CdnFrontdoorEndpointId pulumi.StringOutput `pulumi:"cdnFrontdoorEndpointId"`
-	// The resource ID of the CDN FrontDoor Origin Group where this CDN FrontDoor Route should be created.
+	// The resource ID of the Front Door Origin Group where this Front Door Route should be created.
 	CdnFrontdoorOriginGroupId pulumi.StringOutput `pulumi:"cdnFrontdoorOriginGroupId"`
-	// One or more Frontdoor Origin resource IDs that this Frontdoor Route will link to.
+	// One or more Front Door Origin resource IDs that this Front Door Route will link to.
 	CdnFrontdoorOriginIds pulumi.StringArrayOutput `pulumi:"cdnFrontdoorOriginIds"`
-	// A directory path on the origin that Frontdoor can use to retrieve content from (e.g. `contoso.cloudapp.net/originpath`).
+	// A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
 	CdnFrontdoorOriginPath pulumi.StringPtrOutput `pulumi:"cdnFrontdoorOriginPath"`
-	// A list of the CDN FrontDoor Rule Set IDs which should be assigned to this CDN FrontDoor Route.
+	// A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route.
 	CdnFrontdoorRuleSetIds pulumi.StringArrayOutput `pulumi:"cdnFrontdoorRuleSetIds"`
-	// Is this Frontdoor Route enabled? Possible values are `true` or `false`. Defaults to `true`.
+	// Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
 	ForwardingProtocol pulumi.StringPtrOutput `pulumi:"forwardingProtocol"`
 	// Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
 	HttpsRedirectEnabled pulumi.BoolPtrOutput `pulumi:"httpsRedirectEnabled"`
-	// Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+	// Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
 	LinkToDefaultDomain pulumi.BoolPtrOutput `pulumi:"linkToDefaultDomain"`
-	// The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+	// The name which should be used for this Front Door Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Front Door Route to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The route patterns of the rule.
 	PatternsToMatches pulumi.StringArrayOutput `pulumi:"patternsToMatches"`
-	// One or more Protocols supported by this Frontdoor Route. Possible values are `Http` or `Https`.
+	// One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
 	SupportedProtocols pulumi.StringArrayOutput `pulumi:"supportedProtocols"`
 }
 
@@ -101,62 +101,62 @@ func GetFrontdoorRoute(ctx *pulumi.Context,
 type frontdoorRouteState struct {
 	// A `cache` block as defined below.
 	Cache *FrontdoorRouteCache `pulumi:"cache"`
-	// The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+	// The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
 	CdnFrontdoorCustomDomainIds []string `pulumi:"cdnFrontdoorCustomDomainIds"`
-	// The resource ID of the CDN FrontDoor Endpoint where this CDN FrontDoor Route should exist. Changing this forces a new Frontdoor Route to be created.
+	// The resource ID of the Front Door Endpoint where this Front Door Route should exist. Changing this forces a new Front Door Route to be created.
 	CdnFrontdoorEndpointId *string `pulumi:"cdnFrontdoorEndpointId"`
-	// The resource ID of the CDN FrontDoor Origin Group where this CDN FrontDoor Route should be created.
+	// The resource ID of the Front Door Origin Group where this Front Door Route should be created.
 	CdnFrontdoorOriginGroupId *string `pulumi:"cdnFrontdoorOriginGroupId"`
-	// One or more Frontdoor Origin resource IDs that this Frontdoor Route will link to.
+	// One or more Front Door Origin resource IDs that this Front Door Route will link to.
 	CdnFrontdoorOriginIds []string `pulumi:"cdnFrontdoorOriginIds"`
-	// A directory path on the origin that Frontdoor can use to retrieve content from (e.g. `contoso.cloudapp.net/originpath`).
+	// A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
 	CdnFrontdoorOriginPath *string `pulumi:"cdnFrontdoorOriginPath"`
-	// A list of the CDN FrontDoor Rule Set IDs which should be assigned to this CDN FrontDoor Route.
+	// A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route.
 	CdnFrontdoorRuleSetIds []string `pulumi:"cdnFrontdoorRuleSetIds"`
-	// Is this Frontdoor Route enabled? Possible values are `true` or `false`. Defaults to `true`.
+	// Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
 	ForwardingProtocol *string `pulumi:"forwardingProtocol"`
 	// Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
 	HttpsRedirectEnabled *bool `pulumi:"httpsRedirectEnabled"`
-	// Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+	// Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
 	LinkToDefaultDomain *bool `pulumi:"linkToDefaultDomain"`
-	// The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+	// The name which should be used for this Front Door Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Front Door Route to be created.
 	Name *string `pulumi:"name"`
 	// The route patterns of the rule.
 	PatternsToMatches []string `pulumi:"patternsToMatches"`
-	// One or more Protocols supported by this Frontdoor Route. Possible values are `Http` or `Https`.
+	// One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
 	SupportedProtocols []string `pulumi:"supportedProtocols"`
 }
 
 type FrontdoorRouteState struct {
 	// A `cache` block as defined below.
 	Cache FrontdoorRouteCachePtrInput
-	// The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+	// The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
 	CdnFrontdoorCustomDomainIds pulumi.StringArrayInput
-	// The resource ID of the CDN FrontDoor Endpoint where this CDN FrontDoor Route should exist. Changing this forces a new Frontdoor Route to be created.
+	// The resource ID of the Front Door Endpoint where this Front Door Route should exist. Changing this forces a new Front Door Route to be created.
 	CdnFrontdoorEndpointId pulumi.StringPtrInput
-	// The resource ID of the CDN FrontDoor Origin Group where this CDN FrontDoor Route should be created.
+	// The resource ID of the Front Door Origin Group where this Front Door Route should be created.
 	CdnFrontdoorOriginGroupId pulumi.StringPtrInput
-	// One or more Frontdoor Origin resource IDs that this Frontdoor Route will link to.
+	// One or more Front Door Origin resource IDs that this Front Door Route will link to.
 	CdnFrontdoorOriginIds pulumi.StringArrayInput
-	// A directory path on the origin that Frontdoor can use to retrieve content from (e.g. `contoso.cloudapp.net/originpath`).
+	// A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
 	CdnFrontdoorOriginPath pulumi.StringPtrInput
-	// A list of the CDN FrontDoor Rule Set IDs which should be assigned to this CDN FrontDoor Route.
+	// A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route.
 	CdnFrontdoorRuleSetIds pulumi.StringArrayInput
-	// Is this Frontdoor Route enabled? Possible values are `true` or `false`. Defaults to `true`.
+	// Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
 	ForwardingProtocol pulumi.StringPtrInput
 	// Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
 	HttpsRedirectEnabled pulumi.BoolPtrInput
-	// Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+	// Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
 	LinkToDefaultDomain pulumi.BoolPtrInput
-	// The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+	// The name which should be used for this Front Door Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Front Door Route to be created.
 	Name pulumi.StringPtrInput
 	// The route patterns of the rule.
 	PatternsToMatches pulumi.StringArrayInput
-	// One or more Protocols supported by this Frontdoor Route. Possible values are `Http` or `Https`.
+	// One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
 	SupportedProtocols pulumi.StringArrayInput
 }
 
@@ -167,31 +167,31 @@ func (FrontdoorRouteState) ElementType() reflect.Type {
 type frontdoorRouteArgs struct {
 	// A `cache` block as defined below.
 	Cache *FrontdoorRouteCache `pulumi:"cache"`
-	// The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+	// The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
 	CdnFrontdoorCustomDomainIds []string `pulumi:"cdnFrontdoorCustomDomainIds"`
-	// The resource ID of the CDN FrontDoor Endpoint where this CDN FrontDoor Route should exist. Changing this forces a new Frontdoor Route to be created.
+	// The resource ID of the Front Door Endpoint where this Front Door Route should exist. Changing this forces a new Front Door Route to be created.
 	CdnFrontdoorEndpointId string `pulumi:"cdnFrontdoorEndpointId"`
-	// The resource ID of the CDN FrontDoor Origin Group where this CDN FrontDoor Route should be created.
+	// The resource ID of the Front Door Origin Group where this Front Door Route should be created.
 	CdnFrontdoorOriginGroupId string `pulumi:"cdnFrontdoorOriginGroupId"`
-	// One or more Frontdoor Origin resource IDs that this Frontdoor Route will link to.
+	// One or more Front Door Origin resource IDs that this Front Door Route will link to.
 	CdnFrontdoorOriginIds []string `pulumi:"cdnFrontdoorOriginIds"`
-	// A directory path on the origin that Frontdoor can use to retrieve content from (e.g. `contoso.cloudapp.net/originpath`).
+	// A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
 	CdnFrontdoorOriginPath *string `pulumi:"cdnFrontdoorOriginPath"`
-	// A list of the CDN FrontDoor Rule Set IDs which should be assigned to this CDN FrontDoor Route.
+	// A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route.
 	CdnFrontdoorRuleSetIds []string `pulumi:"cdnFrontdoorRuleSetIds"`
-	// Is this Frontdoor Route enabled? Possible values are `true` or `false`. Defaults to `true`.
+	// Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
 	ForwardingProtocol *string `pulumi:"forwardingProtocol"`
 	// Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
 	HttpsRedirectEnabled *bool `pulumi:"httpsRedirectEnabled"`
-	// Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+	// Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
 	LinkToDefaultDomain *bool `pulumi:"linkToDefaultDomain"`
-	// The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+	// The name which should be used for this Front Door Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Front Door Route to be created.
 	Name *string `pulumi:"name"`
 	// The route patterns of the rule.
 	PatternsToMatches []string `pulumi:"patternsToMatches"`
-	// One or more Protocols supported by this Frontdoor Route. Possible values are `Http` or `Https`.
+	// One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
 	SupportedProtocols []string `pulumi:"supportedProtocols"`
 }
 
@@ -199,31 +199,31 @@ type frontdoorRouteArgs struct {
 type FrontdoorRouteArgs struct {
 	// A `cache` block as defined below.
 	Cache FrontdoorRouteCachePtrInput
-	// The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+	// The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
 	CdnFrontdoorCustomDomainIds pulumi.StringArrayInput
-	// The resource ID of the CDN FrontDoor Endpoint where this CDN FrontDoor Route should exist. Changing this forces a new Frontdoor Route to be created.
+	// The resource ID of the Front Door Endpoint where this Front Door Route should exist. Changing this forces a new Front Door Route to be created.
 	CdnFrontdoorEndpointId pulumi.StringInput
-	// The resource ID of the CDN FrontDoor Origin Group where this CDN FrontDoor Route should be created.
+	// The resource ID of the Front Door Origin Group where this Front Door Route should be created.
 	CdnFrontdoorOriginGroupId pulumi.StringInput
-	// One or more Frontdoor Origin resource IDs that this Frontdoor Route will link to.
+	// One or more Front Door Origin resource IDs that this Front Door Route will link to.
 	CdnFrontdoorOriginIds pulumi.StringArrayInput
-	// A directory path on the origin that Frontdoor can use to retrieve content from (e.g. `contoso.cloudapp.net/originpath`).
+	// A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
 	CdnFrontdoorOriginPath pulumi.StringPtrInput
-	// A list of the CDN FrontDoor Rule Set IDs which should be assigned to this CDN FrontDoor Route.
+	// A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route.
 	CdnFrontdoorRuleSetIds pulumi.StringArrayInput
-	// Is this Frontdoor Route enabled? Possible values are `true` or `false`. Defaults to `true`.
+	// Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
 	ForwardingProtocol pulumi.StringPtrInput
 	// Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
 	HttpsRedirectEnabled pulumi.BoolPtrInput
-	// Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+	// Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
 	LinkToDefaultDomain pulumi.BoolPtrInput
-	// The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+	// The name which should be used for this Front Door Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Front Door Route to be created.
 	Name pulumi.StringPtrInput
 	// The route patterns of the rule.
 	PatternsToMatches pulumi.StringArrayInput
-	// One or more Protocols supported by this Frontdoor Route. Possible values are `Http` or `Https`.
+	// One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
 	SupportedProtocols pulumi.StringArrayInput
 }
 
@@ -319,37 +319,37 @@ func (o FrontdoorRouteOutput) Cache() FrontdoorRouteCachePtrOutput {
 	return o.ApplyT(func(v *FrontdoorRoute) FrontdoorRouteCachePtrOutput { return v.Cache }).(FrontdoorRouteCachePtrOutput)
 }
 
-// The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+// The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
 func (o FrontdoorRouteOutput) CdnFrontdoorCustomDomainIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FrontdoorRoute) pulumi.StringArrayOutput { return v.CdnFrontdoorCustomDomainIds }).(pulumi.StringArrayOutput)
 }
 
-// The resource ID of the CDN FrontDoor Endpoint where this CDN FrontDoor Route should exist. Changing this forces a new Frontdoor Route to be created.
+// The resource ID of the Front Door Endpoint where this Front Door Route should exist. Changing this forces a new Front Door Route to be created.
 func (o FrontdoorRouteOutput) CdnFrontdoorEndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorRoute) pulumi.StringOutput { return v.CdnFrontdoorEndpointId }).(pulumi.StringOutput)
 }
 
-// The resource ID of the CDN FrontDoor Origin Group where this CDN FrontDoor Route should be created.
+// The resource ID of the Front Door Origin Group where this Front Door Route should be created.
 func (o FrontdoorRouteOutput) CdnFrontdoorOriginGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorRoute) pulumi.StringOutput { return v.CdnFrontdoorOriginGroupId }).(pulumi.StringOutput)
 }
 
-// One or more Frontdoor Origin resource IDs that this Frontdoor Route will link to.
+// One or more Front Door Origin resource IDs that this Front Door Route will link to.
 func (o FrontdoorRouteOutput) CdnFrontdoorOriginIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FrontdoorRoute) pulumi.StringArrayOutput { return v.CdnFrontdoorOriginIds }).(pulumi.StringArrayOutput)
 }
 
-// A directory path on the origin that Frontdoor can use to retrieve content from (e.g. `contoso.cloudapp.net/originpath`).
+// A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
 func (o FrontdoorRouteOutput) CdnFrontdoorOriginPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRoute) pulumi.StringPtrOutput { return v.CdnFrontdoorOriginPath }).(pulumi.StringPtrOutput)
 }
 
-// A list of the CDN FrontDoor Rule Set IDs which should be assigned to this CDN FrontDoor Route.
+// A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route.
 func (o FrontdoorRouteOutput) CdnFrontdoorRuleSetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FrontdoorRoute) pulumi.StringArrayOutput { return v.CdnFrontdoorRuleSetIds }).(pulumi.StringArrayOutput)
 }
 
-// Is this Frontdoor Route enabled? Possible values are `true` or `false`. Defaults to `true`.
+// Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
 func (o FrontdoorRouteOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRoute) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -364,12 +364,12 @@ func (o FrontdoorRouteOutput) HttpsRedirectEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRoute) pulumi.BoolPtrOutput { return v.HttpsRedirectEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+// Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
 func (o FrontdoorRouteOutput) LinkToDefaultDomain() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRoute) pulumi.BoolPtrOutput { return v.LinkToDefaultDomain }).(pulumi.BoolPtrOutput)
 }
 
-// The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+// The name which should be used for this Front Door Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Front Door Route to be created.
 func (o FrontdoorRouteOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorRoute) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -379,7 +379,7 @@ func (o FrontdoorRouteOutput) PatternsToMatches() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FrontdoorRoute) pulumi.StringArrayOutput { return v.PatternsToMatches }).(pulumi.StringArrayOutput)
 }
 
-// One or more Protocols supported by this Frontdoor Route. Possible values are `Http` or `Https`.
+// One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
 func (o FrontdoorRouteOutput) SupportedProtocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FrontdoorRoute) pulumi.StringArrayOutput { return v.SupportedProtocols }).(pulumi.StringArrayOutput)
 }
