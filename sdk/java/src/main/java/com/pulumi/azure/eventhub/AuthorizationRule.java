@@ -309,6 +309,14 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
             .aliases(List.of(
                 Output.of(Alias.builder().type("azure:eventhub/eventHubAuthorizationRule:EventHubAuthorizationRule").build())
             ))
+            .additionalSecretOutputs(List.of(
+                "primaryConnectionString",
+                "primaryConnectionStringAlias",
+                "primaryKey",
+                "secondaryConnectionString",
+                "secondaryConnectionStringAlias",
+                "secondaryKey"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

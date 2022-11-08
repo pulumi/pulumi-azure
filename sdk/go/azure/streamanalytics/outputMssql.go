@@ -147,6 +147,13 @@ func NewOutputMssql(ctx *pulumi.Context,
 	if args.User == nil {
 		return nil, errors.New("invalid value for required argument 'User'")
 	}
+	if args.Password != nil {
+		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"password",
+	})
+	opts = append(opts, secrets)
 	var resource OutputMssql
 	err := ctx.RegisterResource("azure:streamanalytics/outputMssql:OutputMssql", name, args, &resource, opts...)
 	if err != nil {

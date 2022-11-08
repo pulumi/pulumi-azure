@@ -150,6 +150,17 @@ func NewScript(ctx *pulumi.Context,
 	if args.DatabaseId == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseId'")
 	}
+	if args.SasToken != nil {
+		args.SasToken = pulumi.ToSecret(args.SasToken).(pulumi.StringPtrOutput)
+	}
+	if args.ScriptContent != nil {
+		args.ScriptContent = pulumi.ToSecret(args.ScriptContent).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"sasToken",
+		"scriptContent",
+	})
+	opts = append(opts, secrets)
 	var resource Script
 	err := ctx.RegisterResource("azure:kusto/script:Script", name, args, &resource, opts...)
 	if err != nil {

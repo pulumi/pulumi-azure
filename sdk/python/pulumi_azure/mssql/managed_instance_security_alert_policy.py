@@ -742,8 +742,10 @@ class ManagedInstanceSecurityAlertPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["retention_days"] = retention_days
-            __props__.__dict__["storage_account_access_key"] = storage_account_access_key
+            __props__.__dict__["storage_account_access_key"] = None if storage_account_access_key is None else pulumi.Output.secret(storage_account_access_key)
             __props__.__dict__["storage_endpoint"] = storage_endpoint
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["storageAccountAccessKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ManagedInstanceSecurityAlertPolicy, __self__).__init__(
             'azure:mssql/managedInstanceSecurityAlertPolicy:ManagedInstanceSecurityAlertPolicy',
             resource_name,

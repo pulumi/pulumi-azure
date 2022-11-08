@@ -119,11 +119,13 @@ export class ServiceTrust extends pulumi.CustomResource {
             }
             resourceInputs["domainServiceId"] = args ? args.domainServiceId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["trustedDomainDnsIps"] = args ? args.trustedDomainDnsIps : undefined;
             resourceInputs["trustedDomainFqdn"] = args ? args.trustedDomainFqdn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["password"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ServiceTrust.__pulumiType, name, resourceInputs, opts);
     }
 }

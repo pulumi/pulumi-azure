@@ -433,6 +433,8 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["secondary_key"] = None
             __props__.__dict__["service_endpoints"] = None
             __props__.__dict__["storage_endpoints"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["primaryKey", "secondaryKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Server, __self__).__init__(
             'azure:fluidrelay/server:Server',
             resource_name,

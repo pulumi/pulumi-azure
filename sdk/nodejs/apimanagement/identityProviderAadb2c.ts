@@ -180,7 +180,7 @@ export class IdentityProviderAadb2c extends pulumi.CustomResource {
             resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
             resourceInputs["authority"] = args ? args.authority : undefined;
             resourceInputs["clientId"] = args ? args.clientId : undefined;
-            resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
+            resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
             resourceInputs["passwordResetPolicy"] = args ? args.passwordResetPolicy : undefined;
             resourceInputs["profileEditingPolicy"] = args ? args.profileEditingPolicy : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -189,6 +189,8 @@ export class IdentityProviderAadb2c extends pulumi.CustomResource {
             resourceInputs["signupPolicy"] = args ? args.signupPolicy : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["clientSecret"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(IdentityProviderAadb2c.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -297,28 +297,6 @@ class ChannelSlack(pulumi.CustomResource):
 
         > **Note** A bot can only have a single Slack Channel associated with it.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_channels_registration = azure.bot.ChannelsRegistration("exampleChannelsRegistration",
-            location="global",
-            resource_group_name=example_resource_group.name,
-            sku="F0",
-            microsoft_app_id=current.client_id)
-        example_channel_slack = azure.bot.ChannelSlack("exampleChannelSlack",
-            bot_name=example_channels_registration.name,
-            location=example_channels_registration.location,
-            resource_group_name=example_resource_group.name,
-            client_id="exampleId",
-            client_secret="exampleSecret",
-            verification_token="exampleVerificationToken")
-        ```
-
         ## Import
 
         The Slack Integration for a Bot Channel can be imported using the `resource id`, e.g.
@@ -348,28 +326,6 @@ class ChannelSlack(pulumi.CustomResource):
         Manages a Slack integration for a Bot Channel
 
         > **Note** A bot can only have a single Slack Channel associated with it.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_channels_registration = azure.bot.ChannelsRegistration("exampleChannelsRegistration",
-            location="global",
-            resource_group_name=example_resource_group.name,
-            sku="F0",
-            microsoft_app_id=current.client_id)
-        example_channel_slack = azure.bot.ChannelSlack("exampleChannelSlack",
-            bot_name=example_channels_registration.name,
-            location=example_channels_registration.location,
-            resource_group_name=example_resource_group.name,
-            client_id="exampleId",
-            client_secret="exampleSecret",
-            verification_token="exampleVerificationToken")
-        ```
 
         ## Import
 
@@ -419,16 +375,18 @@ class ChannelSlack(pulumi.CustomResource):
             __props__.__dict__["client_id"] = client_id
             if client_secret is None and not opts.urn:
                 raise TypeError("Missing required property 'client_secret'")
-            __props__.__dict__["client_secret"] = client_secret
+            __props__.__dict__["client_secret"] = None if client_secret is None else pulumi.Output.secret(client_secret)
             __props__.__dict__["landing_page_url"] = landing_page_url
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["signing_secret"] = signing_secret
+            __props__.__dict__["signing_secret"] = None if signing_secret is None else pulumi.Output.secret(signing_secret)
             if verification_token is None and not opts.urn:
                 raise TypeError("Missing required property 'verification_token'")
-            __props__.__dict__["verification_token"] = verification_token
+            __props__.__dict__["verification_token"] = None if verification_token is None else pulumi.Output.secret(verification_token)
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["clientSecret", "signingSecret", "verificationToken"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ChannelSlack, __self__).__init__(
             'azure:bot/channelSlack:ChannelSlack',
             resource_name,

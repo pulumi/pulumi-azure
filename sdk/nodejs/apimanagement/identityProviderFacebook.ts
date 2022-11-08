@@ -115,10 +115,12 @@ export class IdentityProviderFacebook extends pulumi.CustomResource {
             }
             resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
             resourceInputs["appId"] = args ? args.appId : undefined;
-            resourceInputs["appSecret"] = args ? args.appSecret : undefined;
+            resourceInputs["appSecret"] = args?.appSecret ? pulumi.secret(args.appSecret) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["appSecret"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(IdentityProviderFacebook.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -293,30 +293,6 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
         """
         Manages a Kusto Cluster Principal Assignment.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_cluster = azure.kusto.Cluster("exampleCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Standard_D13_v2",
-                capacity=2,
-            ))
-        example_cluster_principal_assignment = azure.kusto.ClusterPrincipalAssignment("exampleClusterPrincipalAssignment",
-            resource_group_name=example_resource_group.name,
-            cluster_name=example_cluster.name,
-            tenant_id=current.tenant_id,
-            principal_id=current.client_id,
-            principal_type="App",
-            role="AllDatabasesAdmin")
-        ```
-
         ## Import
 
         Data Explorer Cluster Principal Assignments can be imported using the `resource id`, e.g.
@@ -343,30 +319,6 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Kusto Cluster Principal Assignment.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_cluster = azure.kusto.Cluster("exampleCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Standard_D13_v2",
-                capacity=2,
-            ))
-        example_cluster_principal_assignment = azure.kusto.ClusterPrincipalAssignment("exampleClusterPrincipalAssignment",
-            resource_group_name=example_resource_group.name,
-            cluster_name=example_cluster.name,
-            tenant_id=current.tenant_id,
-            principal_id=current.client_id,
-            principal_type="App",
-            role="AllDatabasesAdmin")
-        ```
 
         ## Import
 

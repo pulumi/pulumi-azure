@@ -227,36 +227,6 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_managed_instance = azure.sql.ManagedInstance("exampleManagedInstance",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            administrator_login="mradministrator",
-            administrator_login_password="thisIsDog11",
-            license_type="BasePrice",
-            subnet_id=azurerm_subnet["example"]["id"],
-            sku_name="GP_Gen5",
-            vcores=4,
-            storage_size_in_gb=32,
-            opts=pulumi.ResourceOptions(depends_on=[
-                    azurerm_subnet_network_security_group_association["example"],
-                    azurerm_subnet_route_table_association["example"],
-                ]))
-        current = azure.core.get_client_config()
-        example_managed_instance_active_directory_administrator = azure.sql.ManagedInstanceActiveDirectoryAdministrator("exampleManagedInstanceActiveDirectoryAdministrator",
-            managed_instance_name=example_managed_instance.name,
-            resource_group_name=example_resource_group.name,
-            login="sqladmin",
-            tenant_id=current.tenant_id,
-            object_id=current.object_id)
-        ```
-
         ## Import
 
         A SQL Active Directory Administrator can be imported using the `resource id`, e.g.
@@ -281,36 +251,6 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
                  args: ManagedInstanceActiveDirectoryAdministratorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_managed_instance = azure.sql.ManagedInstance("exampleManagedInstance",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            administrator_login="mradministrator",
-            administrator_login_password="thisIsDog11",
-            license_type="BasePrice",
-            subnet_id=azurerm_subnet["example"]["id"],
-            sku_name="GP_Gen5",
-            vcores=4,
-            storage_size_in_gb=32,
-            opts=pulumi.ResourceOptions(depends_on=[
-                    azurerm_subnet_network_security_group_association["example"],
-                    azurerm_subnet_route_table_association["example"],
-                ]))
-        current = azure.core.get_client_config()
-        example_managed_instance_active_directory_administrator = azure.sql.ManagedInstanceActiveDirectoryAdministrator("exampleManagedInstanceActiveDirectoryAdministrator",
-            managed_instance_name=example_managed_instance.name,
-            resource_group_name=example_resource_group.name,
-            login="sqladmin",
-            tenant_id=current.tenant_id,
-            object_id=current.object_id)
-        ```
-
         ## Import
 
         A SQL Active Directory Administrator can be imported using the `resource id`, e.g.

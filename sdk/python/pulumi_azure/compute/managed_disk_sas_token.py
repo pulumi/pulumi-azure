@@ -266,6 +266,8 @@ class ManagedDiskSasToken(pulumi.CustomResource):
                 raise TypeError("Missing required property 'managed_disk_id'")
             __props__.__dict__["managed_disk_id"] = managed_disk_id
             __props__.__dict__["sas_url"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["sasUrl"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ManagedDiskSasToken, __self__).__init__(
             'azure:compute/managedDiskSasToken:ManagedDiskSasToken',
             resource_name,

@@ -18,11 +18,21 @@ namespace Pulumi.Azure.Iot.Inputs
         [Input("authenticationType")]
         public Input<string>? AuthenticationType { get; set; }
 
+        [Input("connectionString", required: true)]
+        private Input<string>? _connectionString;
+
         /// <summary>
         /// The connection string for the Azure Storage account to which files are uploaded.
         /// </summary>
-        [Input("connectionString", required: true)]
-        public Input<string> ConnectionString { get; set; } = null!;
+        public Input<string>? ConnectionString
+        {
+            get => _connectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _connectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connection_string specified.

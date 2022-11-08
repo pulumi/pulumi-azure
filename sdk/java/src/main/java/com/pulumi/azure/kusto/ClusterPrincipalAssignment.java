@@ -16,62 +16,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a Kusto Cluster Principal Assignment.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.kusto.Cluster;
- * import com.pulumi.azure.kusto.ClusterArgs;
- * import com.pulumi.azure.kusto.inputs.ClusterSkuArgs;
- * import com.pulumi.azure.kusto.ClusterPrincipalAssignment;
- * import com.pulumi.azure.kusto.ClusterPrincipalAssignmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getClientConfig();
- * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .sku(ClusterSkuArgs.builder()
- *                 .name(&#34;Standard_D13_v2&#34;)
- *                 .capacity(2)
- *                 .build())
- *             .build());
- * 
- *         var exampleClusterPrincipalAssignment = new ClusterPrincipalAssignment(&#34;exampleClusterPrincipalAssignment&#34;, ClusterPrincipalAssignmentArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .clusterName(exampleCluster.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .principalId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.clientId()))
- *             .principalType(&#34;App&#34;)
- *             .role(&#34;AllDatabasesAdmin&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Data Explorer Cluster Principal Assignments can be imported using the `resource id`, e.g.

@@ -163,6 +163,8 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["scanEndpoint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["atlasKafkaEndpointPrimaryConnectionString", "atlasKafkaEndpointSecondaryConnectionString"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Account.__pulumiType, name, resourceInputs, opts);
     }
 }

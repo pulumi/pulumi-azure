@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cdn.LookupFrontdoorSecret(ctx, &cdn.LookupFrontdoorSecretArgs{
+//			_, err = cdn.LookupFrontdoorSecret(ctx, &cdn.LookupFrontdoorSecretArgs{
 //				Name:              "example-secret",
 //				ProfileName:       "example-profile",
 //				ResourceGroupName: "example-resources",

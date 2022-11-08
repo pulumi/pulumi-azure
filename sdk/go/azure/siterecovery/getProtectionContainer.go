@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := siterecovery.LookupProtectionContainer(ctx, &siterecovery.LookupProtectionContainerArgs{
+//			_, err = siterecovery.LookupProtectionContainer(ctx, &siterecovery.LookupProtectionContainerArgs{
 //				Name:               "primary-container",
 //				RecoveryFabricName: "primary-fabric",
 //				RecoveryVaultName:  "tfex-recovery_vault",

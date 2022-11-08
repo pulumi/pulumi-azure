@@ -147,6 +147,13 @@ func NewOutputServicebusTopic(ctx *pulumi.Context,
 	if args.TopicName == nil {
 		return nil, errors.New("invalid value for required argument 'TopicName'")
 	}
+	if args.SharedAccessPolicyKey != nil {
+		args.SharedAccessPolicyKey = pulumi.ToSecret(args.SharedAccessPolicyKey).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"sharedAccessPolicyKey",
+	})
+	opts = append(opts, secrets)
 	var resource OutputServicebusTopic
 	err := ctx.RegisterResource("azure:streamanalytics/outputServicebusTopic:OutputServicebusTopic", name, args, &resource, opts...)
 	if err != nil {

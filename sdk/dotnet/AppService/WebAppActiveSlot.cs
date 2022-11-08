@@ -40,13 +40,13 @@ namespace Pulumi.Azure.AppService
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleServicePlan.Location,
     ///         ServicePlanId = exampleServicePlan.Id,
-    ///         SiteConfig = ,
+    ///         SiteConfig = null,
     ///     });
     /// 
     ///     var exampleWindowsWebAppSlot = new Azure.AppService.WindowsWebAppSlot("exampleWindowsWebAppSlot", new()
     ///     {
     ///         AppServiceId = exampleWindowsWebApp.Name,
-    ///         SiteConfig = ,
+    ///         SiteConfig = null,
     ///     });
     /// 
     ///     var exampleWebAppActiveSlot = new Azure.AppService.WebAppActiveSlot("exampleWebAppActiveSlot", new()

@@ -12,17 +12,37 @@ namespace Pulumi.Azure.ApiManagement.Inputs
 
     public sealed class CustomDomainDeveloperPortalGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("certificate")]
+        private Input<string>? _certificate;
+
         /// <summary>
         /// The Base64 Encoded Certificate. (Mutually exclusive with `key_vault_id`.)
         /// </summary>
-        [Input("certificate")]
-        public Input<string>? Certificate { get; set; }
+        public Input<string>? Certificate
+        {
+            get => _certificate;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _certificate = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("certificatePassword")]
+        private Input<string>? _certificatePassword;
 
         /// <summary>
         /// The password associated with the certificate provided above.
         /// </summary>
-        [Input("certificatePassword")]
-        public Input<string>? CertificatePassword { get; set; }
+        public Input<string>? CertificatePassword
+        {
+            get => _certificatePassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _certificatePassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("certificateSource")]
         public Input<string>? CertificateSource { get; set; }

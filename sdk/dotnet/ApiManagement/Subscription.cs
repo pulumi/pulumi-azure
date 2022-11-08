@@ -153,6 +153,11 @@ namespace Pulumi.Azure.ApiManagement
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "primaryKey",
+                    "secondaryKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -200,11 +205,21 @@ namespace Pulumi.Azure.ApiManagement
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
+        [Input("primaryKey")]
+        private Input<string>? _primaryKey;
+
         /// <summary>
         /// The primary subscription key to use for the subscription.
         /// </summary>
-        [Input("primaryKey")]
-        public Input<string>? PrimaryKey { get; set; }
+        public Input<string>? PrimaryKey
+        {
+            get => _primaryKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _primaryKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
@@ -218,11 +233,21 @@ namespace Pulumi.Azure.ApiManagement
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        [Input("secondaryKey")]
+        private Input<string>? _secondaryKey;
+
         /// <summary>
         /// The secondary subscription key to use for the subscription.
         /// </summary>
-        [Input("secondaryKey")]
-        public Input<string>? SecondaryKey { get; set; }
+        public Input<string>? SecondaryKey
+        {
+            get => _secondaryKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secondaryKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
@@ -274,11 +299,21 @@ namespace Pulumi.Azure.ApiManagement
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
+        [Input("primaryKey")]
+        private Input<string>? _primaryKey;
+
         /// <summary>
         /// The primary subscription key to use for the subscription.
         /// </summary>
-        [Input("primaryKey")]
-        public Input<string>? PrimaryKey { get; set; }
+        public Input<string>? PrimaryKey
+        {
+            get => _primaryKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _primaryKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
@@ -292,11 +327,21 @@ namespace Pulumi.Azure.ApiManagement
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        [Input("secondaryKey")]
+        private Input<string>? _secondaryKey;
+
         /// <summary>
         /// The secondary subscription key to use for the subscription.
         /// </summary>
-        [Input("secondaryKey")]
-        public Input<string>? SecondaryKey { get; set; }
+        public Input<string>? SecondaryKey
+        {
+            get => _secondaryKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secondaryKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.

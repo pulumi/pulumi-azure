@@ -146,7 +146,7 @@ export class Server extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             resourceInputs["adminUsers"] = args ? args.adminUsers : undefined;
-            resourceInputs["backupBlobContainerUri"] = args ? args.backupBlobContainerUri : undefined;
+            resourceInputs["backupBlobContainerUri"] = args?.backupBlobContainerUri ? pulumi.secret(args.backupBlobContainerUri) : undefined;
             resourceInputs["enablePowerBiService"] = args ? args.enablePowerBiService : undefined;
             resourceInputs["ipv4FirewallRules"] = args ? args.ipv4FirewallRules : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -158,6 +158,8 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["serverFullName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["backupBlobContainerUri"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Server.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -153,6 +153,10 @@ namespace Pulumi.Azure.AnalysisServices
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "backupBlobContainerUri",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -188,11 +192,21 @@ namespace Pulumi.Azure.AnalysisServices
             set => _adminUsers = value;
         }
 
+        [Input("backupBlobContainerUri")]
+        private Input<string>? _backupBlobContainerUri;
+
         /// <summary>
         /// URI and SAS token for a blob container to store backups.
         /// </summary>
-        [Input("backupBlobContainerUri")]
-        public Input<string>? BackupBlobContainerUri { get; set; }
+        public Input<string>? BackupBlobContainerUri
+        {
+            get => _backupBlobContainerUri;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _backupBlobContainerUri = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Indicates if the Power BI service is allowed to access or not.
@@ -270,11 +284,21 @@ namespace Pulumi.Azure.AnalysisServices
             set => _adminUsers = value;
         }
 
+        [Input("backupBlobContainerUri")]
+        private Input<string>? _backupBlobContainerUri;
+
         /// <summary>
         /// URI and SAS token for a blob container to store backups.
         /// </summary>
-        [Input("backupBlobContainerUri")]
-        public Input<string>? BackupBlobContainerUri { get; set; }
+        public Input<string>? BackupBlobContainerUri
+        {
+            get => _backupBlobContainerUri;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _backupBlobContainerUri = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Indicates if the Power BI service is allowed to access or not.

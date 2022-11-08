@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cdn.LookupFrontdoorRuleSet(ctx, &cdn.LookupFrontdoorRuleSetArgs{
+//			_, err = cdn.LookupFrontdoorRuleSet(ctx, &cdn.LookupFrontdoorRuleSetArgs{
 //				Name:              "existing-rule-set",
 //				ProfileName:       "existing-profile",
 //				ResourceGroupName: "existing-resources",

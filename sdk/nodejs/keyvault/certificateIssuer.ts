@@ -9,29 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Key Vault Certificate Issuer.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "standard",
- *     tenantId: current.then(current => current.tenantId),
- * });
- * const exampleCertificateIssuer = new azure.keyvault.CertificateIssuer("exampleCertificateIssuer", {
- *     orgId: "ExampleOrgName",
- *     keyVaultId: exampleKeyVault.id,
- *     providerName: "DigiCert",
- *     accountId: "0000",
- *     password: "example-password",
- * });
- * ```
- *
  * ## Import
  *
  * Key Vault Certificate Issuers can be imported using the `resource id`, e.g.
@@ -130,10 +107,12 @@ export class CertificateIssuer extends pulumi.CustomResource {
             resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["orgId"] = args ? args.orgId : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["providerName"] = args ? args.providerName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["password"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(CertificateIssuer.__pulumiType, name, resourceInputs, opts);
     }
 }

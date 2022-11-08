@@ -142,18 +142,6 @@ def get_definition(name: Optional[str] = None,
 
     > **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    current = azure.core.get_client_config()
-    root = azure.management.get_group(name=current.tenant_id)
-    example = azure.blueprint.get_definition(name="exampleManagementGroupBP",
-        scope_id=root.id)
-    ```
-
 
     :param str name: The name of the Blueprint.
     :param str scope_id: The ID of the Subscription or Management Group, as the scope at which the blueprint definition is stored.
@@ -184,18 +172,6 @@ def get_definition_output(name: Optional[pulumi.Input[str]] = None,
     Use this data source to access information about an existing Azure Blueprint Definition
 
     > **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    current = azure.core.get_client_config()
-    root = azure.management.get_group(name=current.tenant_id)
-    example = azure.blueprint.get_definition(name="exampleManagementGroupBP",
-        scope_id=root.id)
-    ```
 
 
     :param str name: The name of the Blueprint.

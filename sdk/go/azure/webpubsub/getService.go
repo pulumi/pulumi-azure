@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := webpubsub.LookupService(ctx, &webpubsub.LookupServiceArgs{
+//			_, err = webpubsub.LookupService(ctx, &webpubsub.LookupServiceArgs{
 //				Name:              "test-webpubsub",
 //				ResourceGroupName: "wps-resource-group",
 //			}, nil)

@@ -7,35 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Direct Line Speech integration for a Bot Channel
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.cognitive.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     kind: "SpeechServices",
- *     skuName: "S0",
- * });
- * const exampleChannelsRegistration = new azure.bot.ChannelsRegistration("exampleChannelsRegistration", {
- *     location: "global",
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "F0",
- *     microsoftAppId: current.then(current => current.clientId),
- * });
- * const exampleChannelDirectLineSpeech = new azure.bot.ChannelDirectLineSpeech("exampleChannelDirectLineSpeech", {
- *     botName: exampleChannelsRegistration.name,
- *     location: exampleChannelsRegistration.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     cognitiveServiceLocation: exampleAccount.location,
- *     cognitiveServiceAccessKey: exampleAccount.primaryAccessKey,
- * });
- * ```
- *
  * ## Import
  *
  * Direct Line Speech Channels can be imported using the `resource id`, e.g.
@@ -136,7 +107,7 @@ export class ChannelDirectLineSpeech extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["botName"] = args ? args.botName : undefined;
-            resourceInputs["cognitiveServiceAccessKey"] = args ? args.cognitiveServiceAccessKey : undefined;
+            resourceInputs["cognitiveServiceAccessKey"] = args?.cognitiveServiceAccessKey ? pulumi.secret(args.cognitiveServiceAccessKey) : undefined;
             resourceInputs["cognitiveServiceLocation"] = args ? args.cognitiveServiceLocation : undefined;
             resourceInputs["customSpeechModelId"] = args ? args.customSpeechModelId : undefined;
             resourceInputs["customVoiceDeploymentId"] = args ? args.customVoiceDeploymentId : undefined;
@@ -144,6 +115,8 @@ export class ChannelDirectLineSpeech extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["cognitiveServiceAccessKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ChannelDirectLineSpeech.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -160,6 +160,11 @@ namespace Pulumi.Azure.Avs
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "nsxtPassword",
+                    "vcenterPassword",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -215,11 +220,21 @@ namespace Pulumi.Azure.Avs
         [Input("networkSubnetCidr", required: true)]
         public Input<string> NetworkSubnetCidr { get; set; } = null!;
 
+        [Input("nsxtPassword")]
+        private Input<string>? _nsxtPassword;
+
         /// <summary>
         /// The password of the NSX-T Manager. Changing this forces a new VMware Private Cloud to be created.
         /// </summary>
-        [Input("nsxtPassword")]
-        public Input<string>? NsxtPassword { get; set; }
+        public Input<string>? NsxtPassword
+        {
+            get => _nsxtPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _nsxtPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name of the Resource Group where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
@@ -245,11 +260,21 @@ namespace Pulumi.Azure.Avs
             set => _tags = value;
         }
 
+        [Input("vcenterPassword")]
+        private Input<string>? _vcenterPassword;
+
         /// <summary>
         /// The password of the vCenter admin. Changing this forces a new VMware Private Cloud to be created.
         /// </summary>
-        [Input("vcenterPassword")]
-        public Input<string>? VcenterPassword { get; set; }
+        public Input<string>? VcenterPassword
+        {
+            get => _vcenterPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _vcenterPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public PrivateCloudArgs()
         {
@@ -327,11 +352,21 @@ namespace Pulumi.Azure.Avs
         [Input("nsxtManagerEndpoint")]
         public Input<string>? NsxtManagerEndpoint { get; set; }
 
+        [Input("nsxtPassword")]
+        private Input<string>? _nsxtPassword;
+
         /// <summary>
         /// The password of the NSX-T Manager. Changing this forces a new VMware Private Cloud to be created.
         /// </summary>
-        [Input("nsxtPassword")]
-        public Input<string>? NsxtPassword { get; set; }
+        public Input<string>? NsxtPassword
+        {
+            get => _nsxtPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _nsxtPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The network which is used for virtual machine cold migration, cloning, and snapshot migration.
@@ -369,11 +404,21 @@ namespace Pulumi.Azure.Avs
         [Input("vcenterCertificateThumbprint")]
         public Input<string>? VcenterCertificateThumbprint { get; set; }
 
+        [Input("vcenterPassword")]
+        private Input<string>? _vcenterPassword;
+
         /// <summary>
         /// The password of the vCenter admin. Changing this forces a new VMware Private Cloud to be created.
         /// </summary>
-        [Input("vcenterPassword")]
-        public Input<string>? VcenterPassword { get; set; }
+        public Input<string>? VcenterPassword
+        {
+            get => _vcenterPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _vcenterPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The endpoint for Virtual Center Server Appliance.

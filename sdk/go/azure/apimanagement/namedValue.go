@@ -105,6 +105,13 @@ func NewNamedValue(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.Value != nil {
+		args.Value = pulumi.ToSecret(args.Value).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"value",
+	})
+	opts = append(opts, secrets)
 	var resource NamedValue
 	err := ctx.RegisterResource("azure:apimanagement/namedValue:NamedValue", name, args, &resource, opts...)
 	if err != nil {

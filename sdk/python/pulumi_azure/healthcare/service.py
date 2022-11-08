@@ -392,46 +392,6 @@ class Service(pulumi.CustomResource):
         """
         Manages a Healthcare Service.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.healthcare.Service("example",
-            resource_group_name="sample-resource-group",
-            location="westus2",
-            kind="fhir-R4",
-            cosmosdb_throughput=2000,
-            access_policy_object_ids=current.object_id,
-            tags={
-                "environment": "testenv",
-                "purpose": "AcceptanceTests",
-            },
-            authentication_configuration=azure.healthcare.ServiceAuthenticationConfigurationArgs(
-                authority="https://login.microsoftonline.com/$%7Bdata.azurerm_client_config.current.tenant_id%7D",
-                audience="https://azurehealthcareapis.com/",
-                smart_proxy_enabled=True,
-            ),
-            cors_configuration=azure.healthcare.ServiceCorsConfigurationArgs(
-                allowed_origins=[
-                    "http://www.example.com",
-                    "http://www.example2.com",
-                ],
-                allowed_headers=[
-                    "x-tempo-*",
-                    "x-tempo2-*",
-                ],
-                allowed_methods=[
-                    "GET",
-                    "PUT",
-                ],
-                max_age_in_seconds=500,
-                allow_credentials=True,
-            ))
-        ```
-
         ## Import
 
         Healthcare Service can be imported using the resource`id`, e.g.
@@ -461,46 +421,6 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Healthcare Service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.healthcare.Service("example",
-            resource_group_name="sample-resource-group",
-            location="westus2",
-            kind="fhir-R4",
-            cosmosdb_throughput=2000,
-            access_policy_object_ids=current.object_id,
-            tags={
-                "environment": "testenv",
-                "purpose": "AcceptanceTests",
-            },
-            authentication_configuration=azure.healthcare.ServiceAuthenticationConfigurationArgs(
-                authority="https://login.microsoftonline.com/$%7Bdata.azurerm_client_config.current.tenant_id%7D",
-                audience="https://azurehealthcareapis.com/",
-                smart_proxy_enabled=True,
-            ),
-            cors_configuration=azure.healthcare.ServiceCorsConfigurationArgs(
-                allowed_origins=[
-                    "http://www.example.com",
-                    "http://www.example2.com",
-                ],
-                allowed_headers=[
-                    "x-tempo-*",
-                    "x-tempo2-*",
-                ],
-                allowed_methods=[
-                    "GET",
-                    "PUT",
-                ],
-                max_age_in_seconds=500,
-                allow_credentials=True,
-            ))
-        ```
 
         ## Import
 

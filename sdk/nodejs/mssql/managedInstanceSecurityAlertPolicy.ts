@@ -300,10 +300,12 @@ export class ManagedInstanceSecurityAlertPolicy extends pulumi.CustomResource {
             resourceInputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["retentionDays"] = args ? args.retentionDays : undefined;
-            resourceInputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
+            resourceInputs["storageAccountAccessKey"] = args?.storageAccountAccessKey ? pulumi.secret(args.storageAccountAccessKey) : undefined;
             resourceInputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["storageAccountAccessKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ManagedInstanceSecurityAlertPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }

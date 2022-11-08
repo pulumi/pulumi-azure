@@ -136,6 +136,10 @@ func NewWebAppHybridConnection(ctx *pulumi.Context,
 	if args.WebAppId == nil {
 		return nil, errors.New("invalid value for required argument 'WebAppId'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"sendKeyValue",
+	})
+	opts = append(opts, secrets)
 	var resource WebAppHybridConnection
 	err := ctx.RegisterResource("azure:appservice/webAppHybridConnection:WebAppHybridConnection", name, args, &resource, opts...)
 	if err != nil {

@@ -5,39 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleManagedInstance = new azure.sql.ManagedInstance("exampleManagedInstance", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     administratorLogin: "mradministrator",
- *     administratorLoginPassword: "thisIsDog11",
- *     licenseType: "BasePrice",
- *     subnetId: azurerm_subnet.example.id,
- *     skuName: "GP_Gen5",
- *     vcores: 4,
- *     storageSizeInGb: 32,
- * }, {
- *     dependsOn: [
- *         azurerm_subnet_network_security_group_association.example,
- *         azurerm_subnet_route_table_association.example,
- *     ],
- * });
- * const current = azure.core.getClientConfig({});
- * const exampleManagedInstanceActiveDirectoryAdministrator = new azure.sql.ManagedInstanceActiveDirectoryAdministrator("exampleManagedInstanceActiveDirectoryAdministrator", {
- *     managedInstanceName: exampleManagedInstance.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     login: "sqladmin",
- *     tenantId: current.then(current => current.tenantId),
- *     objectId: current.then(current => current.objectId),
- * });
- * ```
- *
  * ## Import
  *
  * A SQL Active Directory Administrator can be imported using the `resource id`, e.g.

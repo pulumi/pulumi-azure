@@ -363,6 +363,18 @@ namespace Pulumi.Azure.CosmosDB
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "connectionStrings",
+                    "primaryKey",
+                    "primaryReadonlyKey",
+                    "primaryReadonlySqlConnectionString",
+                    "primarySqlConnectionString",
+                    "secondaryKey",
+                    "secondaryReadonlyKey",
+                    "secondaryReadonlySqlConnectionString",
+                    "secondarySqlConnectionString",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -661,7 +673,11 @@ namespace Pulumi.Azure.CosmosDB
         public InputList<string> ConnectionStrings
         {
             get => _connectionStrings ?? (_connectionStrings = new InputList<string>());
-            set => _connectionStrings = value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(ImmutableArray.Create<string>());
+                _connectionStrings = Output.All(value, emptySecret).Apply(v => v[0]);
+            }
         }
 
         /// <summary>
@@ -802,23 +818,61 @@ namespace Pulumi.Azure.CosmosDB
         [Input("offerType")]
         public Input<string>? OfferType { get; set; }
 
+        [Input("primaryKey")]
+        private Input<string>? _primaryKey;
+
         /// <summary>
         /// The Primary key for the CosmosDB Account.
         /// </summary>
-        [Input("primaryKey")]
-        public Input<string>? PrimaryKey { get; set; }
+        public Input<string>? PrimaryKey
+        {
+            get => _primaryKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _primaryKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("primaryReadonlyKey")]
+        private Input<string>? _primaryReadonlyKey;
 
         /// <summary>
         /// The Primary read-only Key for the CosmosDB Account.
         /// </summary>
-        [Input("primaryReadonlyKey")]
-        public Input<string>? PrimaryReadonlyKey { get; set; }
+        public Input<string>? PrimaryReadonlyKey
+        {
+            get => _primaryReadonlyKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _primaryReadonlyKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("primaryReadonlySqlConnectionString")]
-        public Input<string>? PrimaryReadonlySqlConnectionString { get; set; }
+        private Input<string>? _primaryReadonlySqlConnectionString;
+        public Input<string>? PrimaryReadonlySqlConnectionString
+        {
+            get => _primaryReadonlySqlConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _primaryReadonlySqlConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("primarySqlConnectionString")]
-        public Input<string>? PrimarySqlConnectionString { get; set; }
+        private Input<string>? _primarySqlConnectionString;
+        public Input<string>? PrimarySqlConnectionString
+        {
+            get => _primarySqlConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _primarySqlConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Whether or not public network access is allowed for this CosmosDB account.
@@ -850,23 +904,61 @@ namespace Pulumi.Azure.CosmosDB
         [Input("restore")]
         public Input<Inputs.AccountRestoreGetArgs>? Restore { get; set; }
 
+        [Input("secondaryKey")]
+        private Input<string>? _secondaryKey;
+
         /// <summary>
         /// The Secondary key for the CosmosDB Account.
         /// </summary>
-        [Input("secondaryKey")]
-        public Input<string>? SecondaryKey { get; set; }
+        public Input<string>? SecondaryKey
+        {
+            get => _secondaryKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secondaryKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("secondaryReadonlyKey")]
+        private Input<string>? _secondaryReadonlyKey;
 
         /// <summary>
         /// The Secondary read-only key for the CosmosDB Account.
         /// </summary>
-        [Input("secondaryReadonlyKey")]
-        public Input<string>? SecondaryReadonlyKey { get; set; }
+        public Input<string>? SecondaryReadonlyKey
+        {
+            get => _secondaryReadonlyKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secondaryReadonlyKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("secondaryReadonlySqlConnectionString")]
-        public Input<string>? SecondaryReadonlySqlConnectionString { get; set; }
+        private Input<string>? _secondaryReadonlySqlConnectionString;
+        public Input<string>? SecondaryReadonlySqlConnectionString
+        {
+            get => _secondaryReadonlySqlConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secondaryReadonlySqlConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("secondarySqlConnectionString")]
-        public Input<string>? SecondarySqlConnectionString { get; set; }
+        private Input<string>? _secondarySqlConnectionString;
+        public Input<string>? SecondarySqlConnectionString
+        {
+            get => _secondarySqlConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secondarySqlConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

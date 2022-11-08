@@ -18,11 +18,21 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("expireInSeconds")]
         public Input<int>? ExpireInSeconds { get; set; }
 
+        [Input("refreshToken")]
+        private Input<string>? _refreshToken;
+
         /// <summary>
         /// The refresh token used to refresh the access token.
         /// </summary>
-        [Input("refreshToken")]
-        public Input<string>? RefreshToken { get; set; }
+        public Input<string>? RefreshToken
+        {
+            get => _refreshToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _refreshToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The scope of the access token.
@@ -30,11 +40,21 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("scope")]
         public Input<string>? Scope { get; set; }
 
+        [Input("token", required: true)]
+        private Input<string>? _token;
+
         /// <summary>
         /// The access token used to access the source control provider.
         /// </summary>
-        [Input("token", required: true)]
-        public Input<string> Token { get; set; } = null!;
+        public Input<string>? Token
+        {
+            get => _token;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _token = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The type of the token. Possible values are `PAT` (personal access token) and `OAuth`.

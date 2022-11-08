@@ -179,6 +179,8 @@ export class HybridConnection extends pulumi.CustomResource {
             resourceInputs["serviceBusSuffix"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["sendKeyValue"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(HybridConnection.__pulumiType, name, resourceInputs, opts);
     }
 }

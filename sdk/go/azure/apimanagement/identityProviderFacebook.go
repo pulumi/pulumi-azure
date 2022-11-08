@@ -100,6 +100,13 @@ func NewIdentityProviderFacebook(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.AppSecret != nil {
+		args.AppSecret = pulumi.ToSecret(args.AppSecret).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"appSecret",
+	})
+	opts = append(opts, secrets)
 	var resource IdentityProviderFacebook
 	err := ctx.RegisterResource("azure:apimanagement/identityProviderFacebook:IdentityProviderFacebook", name, args, &resource, opts...)
 	if err != nil {

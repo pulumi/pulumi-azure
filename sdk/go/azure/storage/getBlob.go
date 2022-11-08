@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := storage.LookupBlob(ctx, &storage.LookupBlobArgs{
+//			_, err = storage.LookupBlob(ctx, &storage.LookupBlobArgs{
 //				Name:                 "example-blob-name",
 //				StorageAccountName:   "example-storage-account-name",
 //				StorageContainerName: "example-storage-container-name",

@@ -46,68 +46,12 @@ public final class CoreFunctions {
     /**
      * Use this data source to access the configuration of the AzureRM provider.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.core.CoreFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = CoreFunctions.getClientConfig();
-     * 
-     *         ctx.export(&#34;accountId&#34;, current.applyValue(getClientConfigResult -&gt; getClientConfigResult.clientId()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetClientConfigResult> getClientConfig() {
         return getClientConfig(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access the configuration of the AzureRM provider.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.core.CoreFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = CoreFunctions.getClientConfig();
-     * 
-     *         ctx.export(&#34;accountId&#34;, current.applyValue(getClientConfigResult -&gt; getClientConfigResult.clientId()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetClientConfigResult> getClientConfigPlain() {
@@ -116,68 +60,12 @@ public final class CoreFunctions {
     /**
      * Use this data source to access the configuration of the AzureRM provider.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.core.CoreFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = CoreFunctions.getClientConfig();
-     * 
-     *         ctx.export(&#34;accountId&#34;, current.applyValue(getClientConfigResult -&gt; getClientConfigResult.clientId()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetClientConfigResult> getClientConfig(InvokeArgs args) {
         return getClientConfig(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access the configuration of the AzureRM provider.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.core.CoreFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = CoreFunctions.getClientConfig();
-     * 
-     *         ctx.export(&#34;accountId&#34;, current.applyValue(getClientConfigResult -&gt; getClientConfigResult.clientId()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetClientConfigResult> getClientConfigPlain(InvokeArgs args) {
@@ -186,68 +74,12 @@ public final class CoreFunctions {
     /**
      * Use this data source to access the configuration of the AzureRM provider.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.core.CoreFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = CoreFunctions.getClientConfig();
-     * 
-     *         ctx.export(&#34;accountId&#34;, current.applyValue(getClientConfigResult -&gt; getClientConfigResult.clientId()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetClientConfigResult> getClientConfig(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:core/getClientConfig:getClientConfig", TypeShape.of(GetClientConfigResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access the configuration of the AzureRM provider.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.core.CoreFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = CoreFunctions.getClientConfig();
-     * 
-     *         ctx.export(&#34;accountId&#34;, current.applyValue(getClientConfigResult -&gt; getClientConfigResult.clientId()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetClientConfigResult> getClientConfigPlain(InvokeArgs args, InvokeOptions options) {

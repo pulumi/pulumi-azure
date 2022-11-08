@@ -260,6 +260,10 @@ namespace Pulumi.Azure.PostgreSql
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "administratorPassword",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -289,11 +293,21 @@ namespace Pulumi.Azure.PostgreSql
         [Input("administratorLogin")]
         public Input<string>? AdministratorLogin { get; set; }
 
+        [Input("administratorPassword")]
+        private Input<string>? _administratorPassword;
+
         /// <summary>
         /// The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default`.
         /// </summary>
-        [Input("administratorPassword")]
-        public Input<string>? AdministratorPassword { get; set; }
+        public Input<string>? AdministratorPassword
+        {
+            get => _administratorPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _administratorPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
@@ -417,11 +431,21 @@ namespace Pulumi.Azure.PostgreSql
         [Input("administratorLogin")]
         public Input<string>? AdministratorLogin { get; set; }
 
+        [Input("administratorPassword")]
+        private Input<string>? _administratorPassword;
+
         /// <summary>
         /// The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default`.
         /// </summary>
-        [Input("administratorPassword")]
-        public Input<string>? AdministratorPassword { get; set; }
+        public Input<string>? AdministratorPassword
+        {
+            get => _administratorPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _administratorPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.

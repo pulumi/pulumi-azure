@@ -162,6 +162,8 @@ export class DpsSharedAccessPolicy extends pulumi.CustomResource {
             resourceInputs["secondaryKey"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["primaryConnectionString", "primaryKey", "secondaryConnectionString", "secondaryKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(DpsSharedAccessPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }

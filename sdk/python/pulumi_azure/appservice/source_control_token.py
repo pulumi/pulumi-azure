@@ -202,11 +202,13 @@ class SourceControlToken(pulumi.CustomResource):
 
             if token is None and not opts.urn:
                 raise TypeError("Missing required property 'token'")
-            __props__.__dict__["token"] = token
-            __props__.__dict__["token_secret"] = token_secret
+            __props__.__dict__["token"] = None if token is None else pulumi.Output.secret(token)
+            __props__.__dict__["token_secret"] = None if token_secret is None else pulumi.Output.secret(token_secret)
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["token", "tokenSecret"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(SourceControlToken, __self__).__init__(
             'azure:appservice/sourceControlToken:SourceControlToken',
             resource_name,

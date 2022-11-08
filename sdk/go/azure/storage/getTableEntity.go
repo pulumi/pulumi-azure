@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := storage.LookupTableEntity(ctx, &storage.LookupTableEntityArgs{
+//			_, err = storage.LookupTableEntity(ctx, &storage.LookupTableEntityArgs{
 //				PartitionKey:       "example-partition-key",
 //				RowKey:             "example-row-key",
 //				StorageAccountName: "example-storage-account-name",

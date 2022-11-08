@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := mariadb.GetMariaDbServer(ctx, &mariadb.GetMariaDbServerArgs{
+//			_, err = mariadb.GetMariaDbServer(ctx, &mariadb.GetMariaDbServerArgs{
 //				Name:              "mariadb-server",
 //				ResourceGroupName: azurerm_mariadb_server.Example.Resource_group_name,
 //			}, nil)

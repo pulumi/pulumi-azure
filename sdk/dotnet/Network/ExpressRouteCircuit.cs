@@ -159,6 +159,10 @@ namespace Pulumi.Azure.Network
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "serviceKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -310,11 +314,21 @@ namespace Pulumi.Azure.Network
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        [Input("serviceKey")]
+        private Input<string>? _serviceKey;
+
         /// <summary>
         /// The string needed by the service provider to provision the ExpressRoute circuit.
         /// </summary>
-        [Input("serviceKey")]
-        public Input<string>? ServiceKey { get; set; }
+        public Input<string>? ServiceKey
+        {
+            get => _serviceKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _serviceKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.

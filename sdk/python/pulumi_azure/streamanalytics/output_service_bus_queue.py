@@ -543,7 +543,7 @@ class OutputServiceBusQueue(pulumi.CustomResource):
             __props__.__dict__["servicebus_namespace"] = servicebus_namespace
             if shared_access_policy_key is None and not opts.urn:
                 raise TypeError("Missing required property 'shared_access_policy_key'")
-            __props__.__dict__["shared_access_policy_key"] = shared_access_policy_key
+            __props__.__dict__["shared_access_policy_key"] = None if shared_access_policy_key is None else pulumi.Output.secret(shared_access_policy_key)
             if shared_access_policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'shared_access_policy_name'")
             __props__.__dict__["shared_access_policy_name"] = shared_access_policy_name
@@ -551,6 +551,8 @@ class OutputServiceBusQueue(pulumi.CustomResource):
                 raise TypeError("Missing required property 'stream_analytics_job_name'")
             __props__.__dict__["stream_analytics_job_name"] = stream_analytics_job_name
             __props__.__dict__["system_property_columns"] = system_property_columns
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["sharedAccessPolicyKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(OutputServiceBusQueue, __self__).__init__(
             'azure:streamanalytics/outputServiceBusQueue:OutputServiceBusQueue',
             resource_name,

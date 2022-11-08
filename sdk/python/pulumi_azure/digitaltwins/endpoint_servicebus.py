@@ -312,17 +312,19 @@ class EndpointServicebus(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EndpointServicebusArgs.__new__(EndpointServicebusArgs)
 
-            __props__.__dict__["dead_letter_storage_secret"] = dead_letter_storage_secret
+            __props__.__dict__["dead_letter_storage_secret"] = None if dead_letter_storage_secret is None else pulumi.Output.secret(dead_letter_storage_secret)
             if digital_twins_id is None and not opts.urn:
                 raise TypeError("Missing required property 'digital_twins_id'")
             __props__.__dict__["digital_twins_id"] = digital_twins_id
             __props__.__dict__["name"] = name
             if servicebus_primary_connection_string is None and not opts.urn:
                 raise TypeError("Missing required property 'servicebus_primary_connection_string'")
-            __props__.__dict__["servicebus_primary_connection_string"] = servicebus_primary_connection_string
+            __props__.__dict__["servicebus_primary_connection_string"] = None if servicebus_primary_connection_string is None else pulumi.Output.secret(servicebus_primary_connection_string)
             if servicebus_secondary_connection_string is None and not opts.urn:
                 raise TypeError("Missing required property 'servicebus_secondary_connection_string'")
-            __props__.__dict__["servicebus_secondary_connection_string"] = servicebus_secondary_connection_string
+            __props__.__dict__["servicebus_secondary_connection_string"] = None if servicebus_secondary_connection_string is None else pulumi.Output.secret(servicebus_secondary_connection_string)
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["deadLetterStorageSecret", "servicebusPrimaryConnectionString", "servicebusSecondaryConnectionString"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(EndpointServicebus, __self__).__init__(
             'azure:digitaltwins/endpointServicebus:EndpointServicebus',
             resource_name,

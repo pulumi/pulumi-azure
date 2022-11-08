@@ -351,33 +351,6 @@ class LinkedServiceSynapse(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             connection_string="Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test")
         ```
-        ### With Password In Key Vault
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_key_vault = azure.datafactory.LinkedServiceKeyVault("exampleLinkedServiceKeyVault",
-            data_factory_id=example_factory.id,
-            key_vault_id=example_key_vault.id)
-        example_linked_service_synapse = azure.datafactory.LinkedServiceSynapse("exampleLinkedServiceSynapse",
-            data_factory_id=example_factory.id,
-            connection_string="Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;",
-            key_vault_password=azure.datafactory.LinkedServiceSynapseKeyVaultPasswordArgs(
-                linked_service_name=example_linked_service_key_vault.name,
-                secret_name="secret",
-            ))
-        ```
 
         ## Import
 
@@ -422,33 +395,6 @@ class LinkedServiceSynapse(pulumi.CustomResource):
         example_linked_service_synapse = azure.datafactory.LinkedServiceSynapse("exampleLinkedServiceSynapse",
             data_factory_id=example_factory.id,
             connection_string="Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test")
-        ```
-        ### With Password In Key Vault
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_key_vault = azure.datafactory.LinkedServiceKeyVault("exampleLinkedServiceKeyVault",
-            data_factory_id=example_factory.id,
-            key_vault_id=example_key_vault.id)
-        example_linked_service_synapse = azure.datafactory.LinkedServiceSynapse("exampleLinkedServiceSynapse",
-            data_factory_id=example_factory.id,
-            connection_string="Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;",
-            key_vault_password=azure.datafactory.LinkedServiceSynapseKeyVaultPasswordArgs(
-                linked_service_name=example_linked_service_key_vault.name,
-                secret_name="secret",
-            ))
         ```
 
         ## Import

@@ -90,6 +90,10 @@ func NewGetHostPoolRegistrationInfo(ctx *pulumi.Context,
 	if args.HostpoolId == nil {
 		return nil, errors.New("invalid value for required argument 'HostpoolId'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"token",
+	})
+	opts = append(opts, secrets)
 	var resource GetHostPoolRegistrationInfo
 	err := ctx.RegisterResource("azure:desktopvirtualization/getHostPoolRegistrationInfo:getHostPoolRegistrationInfo", name, args, &resource, opts...)
 	if err != nil {

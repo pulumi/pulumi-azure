@@ -160,6 +160,11 @@ namespace Pulumi.Azure.EventHub
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "primaryAccessKey",
+                    "secondaryAccessKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -329,11 +334,21 @@ namespace Pulumi.Azure.EventHub
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("primaryAccessKey")]
+        private Input<string>? _primaryAccessKey;
+
         /// <summary>
         /// The Primary Shared Access Key associated with the EventGrid Topic.
         /// </summary>
-        [Input("primaryAccessKey")]
-        public Input<string>? PrimaryAccessKey { get; set; }
+        public Input<string>? PrimaryAccessKey
+        {
+            get => _primaryAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _primaryAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Whether or not public network access is allowed for this server. Defaults to `true`.
@@ -347,11 +362,21 @@ namespace Pulumi.Azure.EventHub
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        [Input("secondaryAccessKey")]
+        private Input<string>? _secondaryAccessKey;
+
         /// <summary>
         /// The Secondary Shared Access Key associated with the EventGrid Topic.
         /// </summary>
-        [Input("secondaryAccessKey")]
-        public Input<string>? SecondaryAccessKey { get; set; }
+        public Input<string>? SecondaryAccessKey
+        {
+            get => _secondaryAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secondaryAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

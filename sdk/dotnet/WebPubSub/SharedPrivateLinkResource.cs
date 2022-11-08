@@ -12,69 +12,6 @@ namespace Pulumi.Azure.WebPubSub
     /// <summary>
     /// Manages the Shared Private Link Resource for a Web Pubsub service.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "east us",
-    ///     });
-    /// 
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         SkuName = "standard",
-    ///         SoftDeleteRetentionDays = 7,
-    ///         AccessPolicies = new[]
-    ///         {
-    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
-    ///             {
-    ///                 TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///                 ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
-    ///                 CertificatePermissions = new[]
-    ///                 {
-    ///                     "managecontacts",
-    ///                 },
-    ///                 KeyPermissions = new[]
-    ///                 {
-    ///                     "create",
-    ///                 },
-    ///                 SecretPermissions = new[]
-    ///                 {
-    ///                     "set",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleService = new Azure.WebPubSub.Service("exampleService", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = "Standard_S1",
-    ///         Capacity = 1,
-    ///     });
-    /// 
-    ///     var exampleSharedPrivateLinkResource = new Azure.WebPubSub.SharedPrivateLinkResource("exampleSharedPrivateLinkResource", new()
-    ///     {
-    ///         WebPubsubId = exampleService.Id,
-    ///         SubresourceName = "vault",
-    ///         TargetResourceId = exampleKeyVault.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Web Pubsub Shared Private Link Resource can be imported using the `resource id`, e.g.

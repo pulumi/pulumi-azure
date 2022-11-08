@@ -24,11 +24,21 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("imageTag", required: true)]
         public Input<string> ImageTag { get; set; } = null!;
 
+        [Input("registryPassword")]
+        private Input<string>? _registryPassword;
+
         /// <summary>
         /// The password for the account to use to connect to the registry.
         /// </summary>
-        [Input("registryPassword")]
-        public Input<string>? RegistryPassword { get; set; }
+        public Input<string>? RegistryPassword
+        {
+            get => _registryPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _registryPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The URL of the docker registry.
@@ -36,11 +46,21 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("registryUrl", required: true)]
         public Input<string> RegistryUrl { get; set; } = null!;
 
+        [Input("registryUsername")]
+        private Input<string>? _registryUsername;
+
         /// <summary>
         /// The username to use for connections to the registry.
         /// </summary>
-        [Input("registryUsername")]
-        public Input<string>? RegistryUsername { get; set; }
+        public Input<string>? RegistryUsername
+        {
+            get => _registryUsername;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _registryUsername = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public LinuxFunctionAppSlotSiteConfigApplicationStackDockerGetArgs()
         {

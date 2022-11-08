@@ -184,6 +184,10 @@ namespace Pulumi.Azure.Compute
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "protectedSettings",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -237,11 +241,21 @@ namespace Pulumi.Azure.Compute
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("protectedSettings")]
+        private Input<string>? _protectedSettings;
+
         /// <summary>
         /// A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
         /// </summary>
-        [Input("protectedSettings")]
-        public Input<string>? ProtectedSettings { get; set; }
+        public Input<string>? ProtectedSettings
+        {
+            get => _protectedSettings;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _protectedSettings = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// A `protected_settings_from_key_vault` block as defined below.
@@ -329,11 +343,21 @@ namespace Pulumi.Azure.Compute
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("protectedSettings")]
+        private Input<string>? _protectedSettings;
+
         /// <summary>
         /// A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
         /// </summary>
-        [Input("protectedSettings")]
-        public Input<string>? ProtectedSettings { get; set; }
+        public Input<string>? ProtectedSettings
+        {
+            get => _protectedSettings;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _protectedSettings = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// A `protected_settings_from_key_vault` block as defined below.

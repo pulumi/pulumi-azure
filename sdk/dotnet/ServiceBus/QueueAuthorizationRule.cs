@@ -158,6 +158,15 @@ namespace Pulumi.Azure.ServiceBus
                 {
                     new global::Pulumi.Alias { Type = "azure:eventhub/queueAuthorizationRule:QueueAuthorizationRule"},
                 },
+                AdditionalSecretOutputs =
+                {
+                    "primaryConnectionString",
+                    "primaryConnectionStringAlias",
+                    "primaryKey",
+                    "secondaryConnectionString",
+                    "secondaryConnectionStringAlias",
+                    "secondaryKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -237,23 +246,53 @@ namespace Pulumi.Azure.ServiceBus
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("primaryConnectionString")]
+        private Input<string>? _primaryConnectionString;
+
         /// <summary>
         /// The Primary Connection String for the Authorization Rule.
         /// </summary>
-        [Input("primaryConnectionString")]
-        public Input<string>? PrimaryConnectionString { get; set; }
+        public Input<string>? PrimaryConnectionString
+        {
+            get => _primaryConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _primaryConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("primaryConnectionStringAlias")]
+        private Input<string>? _primaryConnectionStringAlias;
 
         /// <summary>
         /// The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
         /// </summary>
-        [Input("primaryConnectionStringAlias")]
-        public Input<string>? PrimaryConnectionStringAlias { get; set; }
+        public Input<string>? PrimaryConnectionStringAlias
+        {
+            get => _primaryConnectionStringAlias;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _primaryConnectionStringAlias = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("primaryKey")]
+        private Input<string>? _primaryKey;
 
         /// <summary>
         /// The Primary Key for the Authorization Rule.
         /// </summary>
-        [Input("primaryKey")]
-        public Input<string>? PrimaryKey { get; set; }
+        public Input<string>? PrimaryKey
+        {
+            get => _primaryKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _primaryKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
@@ -261,23 +300,53 @@ namespace Pulumi.Azure.ServiceBus
         [Input("queueId")]
         public Input<string>? QueueId { get; set; }
 
+        [Input("secondaryConnectionString")]
+        private Input<string>? _secondaryConnectionString;
+
         /// <summary>
         /// The Secondary Connection String for the Authorization Rule.
         /// </summary>
-        [Input("secondaryConnectionString")]
-        public Input<string>? SecondaryConnectionString { get; set; }
+        public Input<string>? SecondaryConnectionString
+        {
+            get => _secondaryConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secondaryConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("secondaryConnectionStringAlias")]
+        private Input<string>? _secondaryConnectionStringAlias;
 
         /// <summary>
         /// The alias Secondary Connection String for the ServiceBus Namespace
         /// </summary>
-        [Input("secondaryConnectionStringAlias")]
-        public Input<string>? SecondaryConnectionStringAlias { get; set; }
+        public Input<string>? SecondaryConnectionStringAlias
+        {
+            get => _secondaryConnectionStringAlias;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secondaryConnectionStringAlias = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("secondaryKey")]
+        private Input<string>? _secondaryKey;
 
         /// <summary>
         /// The Secondary Key for the Authorization Rule.
         /// </summary>
-        [Input("secondaryKey")]
-        public Input<string>? SecondaryKey { get; set; }
+        public Input<string>? SecondaryKey
+        {
+            get => _secondaryKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secondaryKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`.

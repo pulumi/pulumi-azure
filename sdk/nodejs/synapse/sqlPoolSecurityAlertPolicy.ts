@@ -169,10 +169,12 @@ export class SqlPoolSecurityAlertPolicy extends pulumi.CustomResource {
             resourceInputs["policyState"] = args ? args.policyState : undefined;
             resourceInputs["retentionDays"] = args ? args.retentionDays : undefined;
             resourceInputs["sqlPoolId"] = args ? args.sqlPoolId : undefined;
-            resourceInputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
+            resourceInputs["storageAccountAccessKey"] = args?.storageAccountAccessKey ? pulumi.secret(args.storageAccountAccessKey) : undefined;
             resourceInputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["storageAccountAccessKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(SqlPoolSecurityAlertPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }

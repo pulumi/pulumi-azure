@@ -196,6 +196,11 @@ namespace Pulumi.Azure.ApiManagement
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "clientSecret",
+                    "resourceOwnerPassword",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -279,11 +284,21 @@ namespace Pulumi.Azure.ApiManagement
         [Input("clientRegistrationEndpoint", required: true)]
         public Input<string> ClientRegistrationEndpoint { get; set; } = null!;
 
+        [Input("clientSecret")]
+        private Input<string>? _clientSecret;
+
         /// <summary>
         /// The Client/App Secret registered with this Authorization Server.
         /// </summary>
-        [Input("clientSecret")]
-        public Input<string>? ClientSecret { get; set; }
+        public Input<string>? ClientSecret
+        {
+            get => _clientSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Default Scope used when requesting an Access Token, specified as a string containing space-delimited values.
@@ -327,11 +342,21 @@ namespace Pulumi.Azure.ApiManagement
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        [Input("resourceOwnerPassword")]
+        private Input<string>? _resourceOwnerPassword;
+
         /// <summary>
         /// The password associated with the Resource Owner.
         /// </summary>
-        [Input("resourceOwnerPassword")]
-        public Input<string>? ResourceOwnerPassword { get; set; }
+        public Input<string>? ResourceOwnerPassword
+        {
+            get => _resourceOwnerPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _resourceOwnerPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The username associated with the Resource Owner.
@@ -431,11 +456,21 @@ namespace Pulumi.Azure.ApiManagement
         [Input("clientRegistrationEndpoint")]
         public Input<string>? ClientRegistrationEndpoint { get; set; }
 
+        [Input("clientSecret")]
+        private Input<string>? _clientSecret;
+
         /// <summary>
         /// The Client/App Secret registered with this Authorization Server.
         /// </summary>
-        [Input("clientSecret")]
-        public Input<string>? ClientSecret { get; set; }
+        public Input<string>? ClientSecret
+        {
+            get => _clientSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Default Scope used when requesting an Access Token, specified as a string containing space-delimited values.
@@ -479,11 +514,21 @@ namespace Pulumi.Azure.ApiManagement
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        [Input("resourceOwnerPassword")]
+        private Input<string>? _resourceOwnerPassword;
+
         /// <summary>
         /// The password associated with the Resource Owner.
         /// </summary>
-        [Input("resourceOwnerPassword")]
-        public Input<string>? ResourceOwnerPassword { get; set; }
+        public Input<string>? ResourceOwnerPassword
+        {
+            get => _resourceOwnerPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _resourceOwnerPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The username associated with the Resource Owner.

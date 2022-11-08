@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  *     "Disk Pool Operator",
  *     "Virtual Machine Contributor",
  * ];
- * const exampleAssignment: azure.authorization.Assignment[];
+ * const exampleAssignment: azure.authorization.Assignment[] = [];
  * for (const range = {value: 0}; range.value < roles.length; range.value++) {
  *     exampleAssignment.push(new azure.authorization.Assignment(`exampleAssignment-${range.value}`, {
  *         principalId: exampleServicePrincipal.then(exampleServicePrincipal => exampleServicePrincipal.id),

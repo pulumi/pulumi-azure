@@ -7,40 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Kusto (also known as Azure Data Explorer) Database Principal Assignment.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleCluster = new azure.kusto.Cluster("exampleCluster", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: {
- *         name: "Standard_D13_v2",
- *         capacity: 2,
- *     },
- * });
- * const exampleDatabase = new azure.kusto.Database("exampleDatabase", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     clusterName: exampleCluster.name,
- *     hotCachePeriod: "P7D",
- *     softDeletePeriod: "P31D",
- * });
- * const exampleDatabasePrincipalAssignment = new azure.kusto.DatabasePrincipalAssignment("exampleDatabasePrincipalAssignment", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     clusterName: exampleCluster.name,
- *     databaseName: exampleDatabase.name,
- *     tenantId: current.then(current => current.tenantId),
- *     principalId: current.then(current => current.clientId),
- *     principalType: "App",
- *     role: "Viewer",
- * });
- * ```
- *
  * ## Import
  *
  * Kusto Database Principal Assignment can be imported using the `resource id`, e.g.

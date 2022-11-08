@@ -148,6 +148,10 @@ func NewWindowsWebAppSlot(ctx *pulumi.Context,
 	if args.SiteConfig == nil {
 		return nil, errors.New("invalid value for required argument 'SiteConfig'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"customDomainVerificationId",
+	})
+	opts = append(opts, secrets)
 	var resource WindowsWebAppSlot
 	err := ctx.RegisterResource("azure:appservice/windowsWebAppSlot:WindowsWebAppSlot", name, args, &resource, opts...)
 	if err != nil {

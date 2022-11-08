@@ -18,11 +18,21 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("imageName", required: true)]
         public Input<string> ImageName { get; set; } = null!;
 
+        [Input("registryPassword")]
+        private Input<string>? _registryPassword;
+
         /// <summary>
         /// The password used to upload the image to the container registry. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("registryPassword")]
-        public Input<string>? RegistryPassword { get; set; }
+        public Input<string>? RegistryPassword
+        {
+            get => _registryPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _registryPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The server URL for the container registry where the build will be hosted. Changing this forces a new resource to be created.

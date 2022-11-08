@@ -104,6 +104,10 @@ namespace Pulumi.Azure.ApiManagement
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "apiSecretKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -139,11 +143,21 @@ namespace Pulumi.Azure.ApiManagement
         [Input("apiManagementName", required: true)]
         public Input<string> ApiManagementName { get; set; } = null!;
 
+        [Input("apiSecretKey", required: true)]
+        private Input<string>? _apiSecretKey;
+
         /// <summary>
         /// App Consumer API secret key for Twitter.
         /// </summary>
-        [Input("apiSecretKey", required: true)]
-        public Input<string> ApiSecretKey { get; set; } = null!;
+        public Input<string>? ApiSecretKey
+        {
+            get => _apiSecretKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _apiSecretKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
@@ -171,11 +185,21 @@ namespace Pulumi.Azure.ApiManagement
         [Input("apiManagementName")]
         public Input<string>? ApiManagementName { get; set; }
 
+        [Input("apiSecretKey")]
+        private Input<string>? _apiSecretKey;
+
         /// <summary>
         /// App Consumer API secret key for Twitter.
         /// </summary>
-        [Input("apiSecretKey")]
-        public Input<string>? ApiSecretKey { get; set; }
+        public Input<string>? ApiSecretKey
+        {
+            get => _apiSecretKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _apiSecretKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.

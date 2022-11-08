@@ -386,7 +386,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
                 throw new Error("Missing required property 'size'");
             }
             resourceInputs["additionalCapabilities"] = args ? args.additionalCapabilities : undefined;
-            resourceInputs["adminPassword"] = args ? args.adminPassword : undefined;
+            resourceInputs["adminPassword"] = args?.adminPassword ? pulumi.secret(args.adminPassword) : undefined;
             resourceInputs["adminSshKeys"] = args ? args.adminSshKeys : undefined;
             resourceInputs["adminUsername"] = args ? args.adminUsername : undefined;
             resourceInputs["allowExtensionOperations"] = args ? args.allowExtensionOperations : undefined;
@@ -394,7 +394,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             resourceInputs["bootDiagnostics"] = args ? args.bootDiagnostics : undefined;
             resourceInputs["capacityReservationGroupId"] = args ? args.capacityReservationGroupId : undefined;
             resourceInputs["computerName"] = args ? args.computerName : undefined;
-            resourceInputs["customData"] = args ? args.customData : undefined;
+            resourceInputs["customData"] = args?.customData ? pulumi.secret(args.customData) : undefined;
             resourceInputs["dedicatedHostGroupId"] = args ? args.dedicatedHostGroupId : undefined;
             resourceInputs["dedicatedHostId"] = args ? args.dedicatedHostId : undefined;
             resourceInputs["disablePasswordAuthentication"] = args ? args.disablePasswordAuthentication : undefined;
@@ -436,6 +436,8 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             resourceInputs["virtualMachineId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["adminPassword", "customData"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(LinuxVirtualMachine.__pulumiType, name, resourceInputs, opts);
     }
 }

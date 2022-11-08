@@ -129,6 +129,13 @@ func NewService(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"primaryAccessKey",
+		"primaryConnectionString",
+		"secondaryAccessKey",
+		"secondaryConnectionString",
+	})
+	opts = append(opts, secrets)
 	var resource Service
 	err := ctx.RegisterResource("azure:webpubsub/service:Service", name, args, &resource, opts...)
 	if err != nil {

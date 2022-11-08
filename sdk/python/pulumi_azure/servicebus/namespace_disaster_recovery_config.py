@@ -362,6 +362,8 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
             __props__.__dict__["default_secondary_key"] = None
             __props__.__dict__["primary_connection_string_alias"] = None
             __props__.__dict__["secondary_connection_string_alias"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["defaultPrimaryKey", "defaultSecondaryKey", "primaryConnectionStringAlias", "secondaryConnectionStringAlias"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(NamespaceDisasterRecoveryConfig, __self__).__init__(
             'azure:servicebus/namespaceDisasterRecoveryConfig:NamespaceDisasterRecoveryConfig',
             resource_name,

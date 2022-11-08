@@ -227,6 +227,13 @@ namespace Pulumi.Azure.SignalR
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "primaryAccessKey",
+                    "primaryConnectionString",
+                    "secondaryAccessKey",
+                    "secondaryConnectionString",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -408,17 +415,37 @@ namespace Pulumi.Azure.SignalR
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("primaryAccessKey")]
+        private Input<string>? _primaryAccessKey;
+
         /// <summary>
         /// The primary access key for the SignalR service.
         /// </summary>
-        [Input("primaryAccessKey")]
-        public Input<string>? PrimaryAccessKey { get; set; }
+        public Input<string>? PrimaryAccessKey
+        {
+            get => _primaryAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _primaryAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("primaryConnectionString")]
+        private Input<string>? _primaryConnectionString;
 
         /// <summary>
         /// The primary connection string for the SignalR service.
         /// </summary>
-        [Input("primaryConnectionString")]
-        public Input<string>? PrimaryConnectionString { get; set; }
+        public Input<string>? PrimaryConnectionString
+        {
+            get => _primaryConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _primaryConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The publicly accessible port of the SignalR service which is designed for browser/client use.
@@ -432,17 +459,37 @@ namespace Pulumi.Azure.SignalR
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        [Input("secondaryAccessKey")]
+        private Input<string>? _secondaryAccessKey;
+
         /// <summary>
         /// The secondary access key for the SignalR service.
         /// </summary>
-        [Input("secondaryAccessKey")]
-        public Input<string>? SecondaryAccessKey { get; set; }
+        public Input<string>? SecondaryAccessKey
+        {
+            get => _secondaryAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secondaryAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("secondaryConnectionString")]
+        private Input<string>? _secondaryConnectionString;
 
         /// <summary>
         /// The secondary connection string for the SignalR service.
         /// </summary>
-        [Input("secondaryConnectionString")]
-        public Input<string>? SecondaryConnectionString { get; set; }
+        public Input<string>? SecondaryConnectionString
+        {
+            get => _secondaryConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secondaryConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The publicly accessible port of the SignalR service which is designed for customer server side use.

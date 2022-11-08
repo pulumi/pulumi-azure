@@ -18,11 +18,21 @@ namespace Pulumi.Azure.Compute.Inputs
         [Input("component", required: true)]
         public Input<string> Component { get; set; } = null!;
 
+        [Input("content", required: true)]
+        private Input<string>? _content;
+
         /// <summary>
         /// Specifies the base-64 encoded XML formatted content that is added to the unattend.xml file for the specified path and component.
         /// </summary>
-        [Input("content", required: true)]
-        public Input<string> Content { get; set; } = null!;
+        public Input<string>? Content
+        {
+            get => _content;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _content = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies the name of the pass that the content applies to. The only allowable value is `oobeSystem`.

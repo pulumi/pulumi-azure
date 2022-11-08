@@ -155,6 +155,11 @@ namespace Pulumi.Azure.Automation
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "dscPrimaryAccessKey",
+                    "dscSecondaryAccessKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -252,17 +257,37 @@ namespace Pulumi.Azure.Automation
 
     public sealed class AccountState : global::Pulumi.ResourceArgs
     {
+        [Input("dscPrimaryAccessKey")]
+        private Input<string>? _dscPrimaryAccessKey;
+
         /// <summary>
         /// The Primary Access Key for the DSC Endpoint associated with this Automation Account.
         /// </summary>
-        [Input("dscPrimaryAccessKey")]
-        public Input<string>? DscPrimaryAccessKey { get; set; }
+        public Input<string>? DscPrimaryAccessKey
+        {
+            get => _dscPrimaryAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _dscPrimaryAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("dscSecondaryAccessKey")]
+        private Input<string>? _dscSecondaryAccessKey;
 
         /// <summary>
         /// The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
         /// </summary>
-        [Input("dscSecondaryAccessKey")]
-        public Input<string>? DscSecondaryAccessKey { get; set; }
+        public Input<string>? DscSecondaryAccessKey
+        {
+            get => _dscSecondaryAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _dscSecondaryAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The DSC Server Endpoint associated with this Automation Account.

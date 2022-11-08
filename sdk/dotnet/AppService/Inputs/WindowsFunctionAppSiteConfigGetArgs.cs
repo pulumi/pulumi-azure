@@ -48,17 +48,37 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("appServiceLogs")]
         public Input<Inputs.WindowsFunctionAppSiteConfigAppServiceLogsGetArgs>? AppServiceLogs { get; set; }
 
+        [Input("applicationInsightsConnectionString")]
+        private Input<string>? _applicationInsightsConnectionString;
+
         /// <summary>
         /// The Connection String for linking the Windows Function App to Application Insights.
         /// </summary>
-        [Input("applicationInsightsConnectionString")]
-        public Input<string>? ApplicationInsightsConnectionString { get; set; }
+        public Input<string>? ApplicationInsightsConnectionString
+        {
+            get => _applicationInsightsConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _applicationInsightsConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("applicationInsightsKey")]
+        private Input<string>? _applicationInsightsKey;
 
         /// <summary>
         /// The Instrumentation Key for connecting the Windows Function App to Application Insights.
         /// </summary>
-        [Input("applicationInsightsKey")]
-        public Input<string>? ApplicationInsightsKey { get; set; }
+        public Input<string>? ApplicationInsightsKey
+        {
+            get => _applicationInsightsKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _applicationInsightsKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// An `application_stack` block as defined above.

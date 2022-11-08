@@ -414,7 +414,7 @@ class OutputCosmosdb(pulumi.CustomResource):
             __props__.__dict__["container_name"] = container_name
             if cosmosdb_account_key is None and not opts.urn:
                 raise TypeError("Missing required property 'cosmosdb_account_key'")
-            __props__.__dict__["cosmosdb_account_key"] = cosmosdb_account_key
+            __props__.__dict__["cosmosdb_account_key"] = None if cosmosdb_account_key is None else pulumi.Output.secret(cosmosdb_account_key)
             if cosmosdb_sql_database_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cosmosdb_sql_database_id'")
             __props__.__dict__["cosmosdb_sql_database_id"] = cosmosdb_sql_database_id
@@ -424,6 +424,8 @@ class OutputCosmosdb(pulumi.CustomResource):
             if stream_analytics_job_id is None and not opts.urn:
                 raise TypeError("Missing required property 'stream_analytics_job_id'")
             __props__.__dict__["stream_analytics_job_id"] = stream_analytics_job_id
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["cosmosdbAccountKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(OutputCosmosdb, __self__).__init__(
             'azure:streamanalytics/outputCosmosdb:OutputCosmosdb',
             resource_name,

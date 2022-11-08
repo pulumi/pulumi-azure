@@ -156,8 +156,8 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["keyVaultSecretId"] = args ? args.keyVaultSecretId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["pfxBlob"] = args ? args.pfxBlob : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
+            resourceInputs["pfxBlob"] = args?.pfxBlob ? pulumi.secret(args.pfxBlob) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["expirationDate"] = undefined /*out*/;
@@ -169,6 +169,8 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["thumbprint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["password", "pfxBlob"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
 }

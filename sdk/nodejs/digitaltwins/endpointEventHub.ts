@@ -130,13 +130,15 @@ export class EndpointEventHub extends pulumi.CustomResource {
             if ((!args || args.eventhubSecondaryConnectionString === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventhubSecondaryConnectionString'");
             }
-            resourceInputs["deadLetterStorageSecret"] = args ? args.deadLetterStorageSecret : undefined;
+            resourceInputs["deadLetterStorageSecret"] = args?.deadLetterStorageSecret ? pulumi.secret(args.deadLetterStorageSecret) : undefined;
             resourceInputs["digitalTwinsId"] = args ? args.digitalTwinsId : undefined;
-            resourceInputs["eventhubPrimaryConnectionString"] = args ? args.eventhubPrimaryConnectionString : undefined;
-            resourceInputs["eventhubSecondaryConnectionString"] = args ? args.eventhubSecondaryConnectionString : undefined;
+            resourceInputs["eventhubPrimaryConnectionString"] = args?.eventhubPrimaryConnectionString ? pulumi.secret(args.eventhubPrimaryConnectionString) : undefined;
+            resourceInputs["eventhubSecondaryConnectionString"] = args?.eventhubSecondaryConnectionString ? pulumi.secret(args.eventhubSecondaryConnectionString) : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["deadLetterStorageSecret", "eventhubPrimaryConnectionString", "eventhubSecondaryConnectionString"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(EndpointEventHub.__pulumiType, name, resourceInputs, opts);
     }
 }

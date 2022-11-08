@@ -148,11 +148,13 @@ export class SpringCloudAppMysqlAssociation extends pulumi.CustomResource {
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["mysqlServerId"] = args ? args.mysqlServerId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["springCloudAppId"] = args ? args.springCloudAppId : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["password"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(SpringCloudAppMysqlAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

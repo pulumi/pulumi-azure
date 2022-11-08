@@ -15,56 +15,6 @@ import (
 //
 // > **Note** A bot can only have a single Email Channel associated with it.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/bot"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := core.GetClientConfig(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleChannelsRegistration, err := bot.NewChannelsRegistration(ctx, "exampleChannelsRegistration", &bot.ChannelsRegistrationArgs{
-//				Location:          pulumi.String("global"),
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Sku:               pulumi.String("F0"),
-//				MicrosoftAppId:    pulumi.String(current.ClientId),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = bot.NewChannelEmail(ctx, "exampleChannelEmail", &bot.ChannelEmailArgs{
-//				BotName:           exampleChannelsRegistration.Name,
-//				Location:          exampleChannelsRegistration.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				EmailAddress:      pulumi.String("example.com"),
-//				EmailPassword:     pulumi.String("123456"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // The Email Integration for a Bot Channel can be imported using the `resource id`, e.g.
@@ -108,6 +58,13 @@ func NewChannelEmail(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.EmailPassword != nil {
+		args.EmailPassword = pulumi.ToSecret(args.EmailPassword).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"emailPassword",
+	})
+	opts = append(opts, secrets)
 	var resource ChannelEmail
 	err := ctx.RegisterResource("azure:bot/channelEmail:ChannelEmail", name, args, &resource, opts...)
 	if err != nil {

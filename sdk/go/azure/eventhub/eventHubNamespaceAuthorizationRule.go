@@ -113,6 +113,15 @@ func NewEventHubNamespaceAuthorizationRule(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"primaryConnectionString",
+		"primaryConnectionStringAlias",
+		"primaryKey",
+		"secondaryConnectionString",
+		"secondaryConnectionStringAlias",
+		"secondaryKey",
+	})
+	opts = append(opts, secrets)
 	var resource EventHubNamespaceAuthorizationRule
 	err := ctx.RegisterResource("azure:eventhub/eventHubNamespaceAuthorizationRule:EventHubNamespaceAuthorizationRule", name, args, &resource, opts...)
 	if err != nil {

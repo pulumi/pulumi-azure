@@ -356,7 +356,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["automation_account_name"] = automation_account_name
             if base64 is None and not opts.urn:
                 raise TypeError("Missing required property 'base64'")
-            __props__.__dict__["base64"] = base64
+            __props__.__dict__["base64"] = None if base64 is None else pulumi.Output.secret(base64)
             __props__.__dict__["description"] = description
             __props__.__dict__["exportable"] = exportable
             __props__.__dict__["name"] = name
@@ -364,6 +364,8 @@ class Certificate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["thumbprint"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["base64"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Certificate, __self__).__init__(
             'azure:automation/certificate:Certificate',
             resource_name,

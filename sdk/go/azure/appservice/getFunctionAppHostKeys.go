@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appservice.GetFunctionAppHostKeys(ctx, &appservice.GetFunctionAppHostKeysArgs{
+//			_, err = appservice.GetFunctionAppHostKeys(ctx, &appservice.GetFunctionAppHostKeysArgs{
 //				Name:              "example-function",
 //				ResourceGroupName: azurerm_resource_group.Example.Name,
 //			}, nil)

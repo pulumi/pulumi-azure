@@ -168,6 +168,10 @@ namespace Pulumi.Azure.AppService
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "sendKeyValue",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -280,11 +284,21 @@ namespace Pulumi.Azure.AppService
         [Input("sendKeyName")]
         public Input<string>? SendKeyName { get; set; }
 
+        [Input("sendKeyValue")]
+        private Input<string>? _sendKeyValue;
+
         /// <summary>
         /// The value of the Service Bus Primary Access key.
         /// </summary>
-        [Input("sendKeyValue")]
-        public Input<string>? SendKeyValue { get; set; }
+        public Input<string>? SendKeyValue
+        {
+            get => _sendKeyValue;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sendKeyValue = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name of the Service Bus namespace.

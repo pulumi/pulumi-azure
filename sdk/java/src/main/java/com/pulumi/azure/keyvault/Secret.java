@@ -11,76 +11,13 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
  * Manages a Key Vault Secret.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.keyvault.KeyVault;
- * import com.pulumi.azure.keyvault.KeyVaultArgs;
- * import com.pulumi.azure.keyvault.inputs.KeyVaultAccessPolicyArgs;
- * import com.pulumi.azure.keyvault.Secret;
- * import com.pulumi.azure.keyvault.SecretArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getClientConfig();
- * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;premium&#34;)
- *             .softDeleteRetentionDays(7)
- *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
- *                 .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *                 .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
- *                 .keyPermissions(                
- *                     &#34;Create&#34;,
- *                     &#34;Get&#34;)
- *                 .secretPermissions(                
- *                     &#34;Set&#34;,
- *                     &#34;Get&#34;,
- *                     &#34;Delete&#34;,
- *                     &#34;Purge&#34;,
- *                     &#34;Recover&#34;)
- *                 .build())
- *             .build());
- * 
- *         var exampleSecret = new Secret(&#34;exampleSecret&#34;, SecretArgs.builder()        
- *             .value(&#34;szechuan&#34;)
- *             .keyVaultId(exampleKeyVault.id())
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 
@@ -280,6 +217,9 @@ public class Secret extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "value"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

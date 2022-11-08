@@ -141,6 +141,13 @@ func NewOutputCosmosdb(ctx *pulumi.Context,
 	if args.StreamAnalyticsJobId == nil {
 		return nil, errors.New("invalid value for required argument 'StreamAnalyticsJobId'")
 	}
+	if args.CosmosdbAccountKey != nil {
+		args.CosmosdbAccountKey = pulumi.ToSecret(args.CosmosdbAccountKey).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"cosmosdbAccountKey",
+	})
+	opts = append(opts, secrets)
 	var resource OutputCosmosdb
 	err := ctx.RegisterResource("azure:streamanalytics/outputCosmosdb:OutputCosmosdb", name, args, &resource, opts...)
 	if err != nil {

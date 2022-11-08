@@ -560,11 +560,13 @@ class StreamInputEventHub(pulumi.CustomResource):
             if servicebus_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'servicebus_namespace'")
             __props__.__dict__["servicebus_namespace"] = servicebus_namespace
-            __props__.__dict__["shared_access_policy_key"] = shared_access_policy_key
+            __props__.__dict__["shared_access_policy_key"] = None if shared_access_policy_key is None else pulumi.Output.secret(shared_access_policy_key)
             __props__.__dict__["shared_access_policy_name"] = shared_access_policy_name
             if stream_analytics_job_name is None and not opts.urn:
                 raise TypeError("Missing required property 'stream_analytics_job_name'")
             __props__.__dict__["stream_analytics_job_name"] = stream_analytics_job_name
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["sharedAccessPolicyKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(StreamInputEventHub, __self__).__init__(
             'azure:streamanalytics/streamInputEventHub:StreamInputEventHub',
             resource_name,

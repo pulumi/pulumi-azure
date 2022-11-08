@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iot.GetDps(ctx, &iot.GetDpsArgs{
+//			_, err = iot.GetDps(ctx, &iot.GetDpsArgs{
 //				Name:              "iot_hub_dps_test",
 //				ResourceGroupName: "iothub_dps_rg",
 //			}, nil)

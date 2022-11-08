@@ -9,38 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Cosmos DB SQL Role Definition.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.cosmosdb.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     offerType: "Standard",
- *     kind: "GlobalDocumentDB",
- *     consistencyPolicy: {
- *         consistencyLevel: "Strong",
- *     },
- *     geoLocations: [{
- *         location: exampleResourceGroup.location,
- *         failoverPriority: 0,
- *     }],
- * });
- * const exampleSqlRoleDefinition = new azure.cosmosdb.SqlRoleDefinition("exampleSqlRoleDefinition", {
- *     roleDefinitionId: "84cf3a8b-4122-4448-bce2-fa423cfe0a15",
- *     resourceGroupName: exampleResourceGroup.name,
- *     accountName: exampleAccount.name,
- *     assignableScopes: [pulumi.all([current, exampleResourceGroup.name, exampleAccount.name]).apply(([current, exampleResourceGroupName, exampleAccountName]) => `/subscriptions/${current.subscriptionId}/resourceGroups/${exampleResourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/${exampleAccountName}/dbs/sales`)],
- *     permissions: [{
- *         dataActions: ["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Cosmos DB SQL Role Definitions can be imported using the `resource id`, e.g.

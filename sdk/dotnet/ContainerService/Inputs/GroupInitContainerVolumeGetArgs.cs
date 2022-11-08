@@ -51,7 +51,11 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public InputMap<string> Secret
         {
             get => _secret ?? (_secret = new InputMap<string>());
-            set => _secret = value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
+                _secret = Output.All(value, emptySecret).Apply(v => v[0]);
+            }
         }
 
         /// <summary>
@@ -60,11 +64,21 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("shareName")]
         public Input<string>? ShareName { get; set; }
 
+        [Input("storageAccountKey")]
+        private Input<string>? _storageAccountKey;
+
         /// <summary>
         /// The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("storageAccountKey")]
-        public Input<string>? StorageAccountKey { get; set; }
+        public Input<string>? StorageAccountKey
+        {
+            get => _storageAccountKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _storageAccountKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Azure storage account from which the volume is to be mounted. Changing this forces a new resource to be created.

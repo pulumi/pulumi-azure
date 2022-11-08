@@ -18,11 +18,21 @@ namespace Pulumi.Azure.HDInsight.Inputs
         [Input("logAnalyticsWorkspaceId", required: true)]
         public Input<string> LogAnalyticsWorkspaceId { get; set; } = null!;
 
+        [Input("primaryKey", required: true)]
+        private Input<string>? _primaryKey;
+
         /// <summary>
         /// The Operations Management Suite (OMS) workspace key.
         /// </summary>
-        [Input("primaryKey", required: true)]
-        public Input<string> PrimaryKey { get; set; } = null!;
+        public Input<string>? PrimaryKey
+        {
+            get => _primaryKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _primaryKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public HBaseClusterMonitorArgs()
         {

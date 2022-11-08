@@ -112,6 +112,15 @@ func NewNamespaceAuthorizationRule(ctx *pulumi.Context,
 		},
 	})
 	opts = append(opts, aliases)
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"primaryConnectionString",
+		"primaryConnectionStringAlias",
+		"primaryKey",
+		"secondaryConnectionString",
+		"secondaryConnectionStringAlias",
+		"secondaryKey",
+	})
+	opts = append(opts, secrets)
 	var resource NamespaceAuthorizationRule
 	err := ctx.RegisterResource("azure:servicebus/namespaceAuthorizationRule:NamespaceAuthorizationRule", name, args, &resource, opts...)
 	if err != nil {

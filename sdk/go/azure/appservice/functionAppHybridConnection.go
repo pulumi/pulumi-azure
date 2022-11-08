@@ -157,6 +157,10 @@ func NewFunctionAppHybridConnection(ctx *pulumi.Context,
 	if args.RelayId == nil {
 		return nil, errors.New("invalid value for required argument 'RelayId'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"sendKeyValue",
+	})
+	opts = append(opts, secrets)
 	var resource FunctionAppHybridConnection
 	err := ctx.RegisterResource("azure:appservice/functionAppHybridConnection:FunctionAppHybridConnection", name, args, &resource, opts...)
 	if err != nil {

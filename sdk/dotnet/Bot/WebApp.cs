@@ -12,33 +12,6 @@ namespace Pulumi.Azure.Bot
     /// <summary>
     /// Manages a Bot Web App.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleWebApp = new Azure.Bot.WebApp("exampleWebApp", new()
-    ///     {
-    ///         Location = "global",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = "F0",
-    ///         MicrosoftAppId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Bot Web App's can be imported using the `resource id`, e.g.
@@ -151,6 +124,11 @@ namespace Pulumi.Azure.Bot
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "developerAppInsightsApiKey",
+                    "luisKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -174,11 +152,21 @@ namespace Pulumi.Azure.Bot
 
     public sealed class WebAppArgs : global::Pulumi.ResourceArgs
     {
+        [Input("developerAppInsightsApiKey")]
+        private Input<string>? _developerAppInsightsApiKey;
+
         /// <summary>
         /// The Application Insights API Key to associate with the Web App Bot.
         /// </summary>
-        [Input("developerAppInsightsApiKey")]
-        public Input<string>? DeveloperAppInsightsApiKey { get; set; }
+        public Input<string>? DeveloperAppInsightsApiKey
+        {
+            get => _developerAppInsightsApiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _developerAppInsightsApiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Application Insights Application ID to associate with the Web App Bot.
@@ -222,11 +210,21 @@ namespace Pulumi.Azure.Bot
             set => _luisAppIds = value;
         }
 
+        [Input("luisKey")]
+        private Input<string>? _luisKey;
+
         /// <summary>
         /// The LUIS key to associate with the Web App Bot.
         /// </summary>
-        [Input("luisKey")]
-        public Input<string>? LuisKey { get; set; }
+        public Input<string>? LuisKey
+        {
+            get => _luisKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _luisKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Microsoft Application ID for the Web App Bot. Changing this forces a new resource to be created.
@@ -272,11 +270,21 @@ namespace Pulumi.Azure.Bot
 
     public sealed class WebAppState : global::Pulumi.ResourceArgs
     {
+        [Input("developerAppInsightsApiKey")]
+        private Input<string>? _developerAppInsightsApiKey;
+
         /// <summary>
         /// The Application Insights API Key to associate with the Web App Bot.
         /// </summary>
-        [Input("developerAppInsightsApiKey")]
-        public Input<string>? DeveloperAppInsightsApiKey { get; set; }
+        public Input<string>? DeveloperAppInsightsApiKey
+        {
+            get => _developerAppInsightsApiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _developerAppInsightsApiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Application Insights Application ID to associate with the Web App Bot.
@@ -320,11 +328,21 @@ namespace Pulumi.Azure.Bot
             set => _luisAppIds = value;
         }
 
+        [Input("luisKey")]
+        private Input<string>? _luisKey;
+
         /// <summary>
         /// The LUIS key to associate with the Web App Bot.
         /// </summary>
-        [Input("luisKey")]
-        public Input<string>? LuisKey { get; set; }
+        public Input<string>? LuisKey
+        {
+            get => _luisKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _luisKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Microsoft Application ID for the Web App Bot. Changing this forces a new resource to be created.

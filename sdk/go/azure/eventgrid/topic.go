@@ -110,6 +110,11 @@ func NewTopic(ctx *pulumi.Context,
 		},
 	})
 	opts = append(opts, aliases)
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"primaryAccessKey",
+		"secondaryAccessKey",
+	})
+	opts = append(opts, secrets)
 	var resource Topic
 	err := ctx.RegisterResource("azure:eventgrid/topic:Topic", name, args, &resource, opts...)
 	if err != nil {

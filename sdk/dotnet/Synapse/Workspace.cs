@@ -66,143 +66,6 @@ namespace Pulumi.Azure.Synapse
     /// 
     /// });
     /// ```
-    /// ### Creating A Workspace With Customer Managed Key And Azure AD Admin
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         AccountTier = "Standard",
-    ///         AccountReplicationType = "LRS",
-    ///         AccountKind = "StorageV2",
-    ///         IsHnsEnabled = true,
-    ///     });
-    /// 
-    ///     var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", new()
-    ///     {
-    ///         StorageAccountId = exampleAccount.Id,
-    ///     });
-    /// 
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         SkuName = "standard",
-    ///         PurgeProtectionEnabled = true,
-    ///     });
-    /// 
-    ///     var deployer = new Azure.KeyVault.AccessPolicy("deployer", new()
-    ///     {
-    ///         KeyVaultId = exampleKeyVault.Id,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
-    ///         KeyPermissions = new[]
-    ///         {
-    ///             "Create",
-    ///             "Get",
-    ///             "Delete",
-    ///             "Purge",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleKey = new Azure.KeyVault.Key("exampleKey", new()
-    ///     {
-    ///         KeyVaultId = exampleKeyVault.Id,
-    ///         KeyType = "RSA",
-    ///         KeySize = 2048,
-    ///         KeyOpts = new[]
-    ///         {
-    ///             "unwrapKey",
-    ///             "wrapKey",
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             deployer,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleWorkspace = new Azure.Synapse.Workspace("exampleWorkspace", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
-    ///         SqlAdministratorLogin = "sqladminuser",
-    ///         SqlAdministratorLoginPassword = "H@Sh1CoR3!",
-    ///         CustomerManagedKey = new Azure.Synapse.Inputs.WorkspaceCustomerManagedKeyArgs
-    ///         {
-    ///             KeyVersionlessId = exampleKey.VersionlessId,
-    ///             KeyName = "enckey",
-    ///         },
-    ///         Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Env", "production" },
-    ///         },
-    ///     });
-    /// 
-    ///     var workspacePolicy = new Azure.KeyVault.AccessPolicy("workspacePolicy", new()
-    ///     {
-    ///         KeyVaultId = exampleKeyVault.Id,
-    ///         TenantId = exampleWorkspace.Identity.Apply(identity =&gt; identity?.TenantId),
-    ///         ObjectId = exampleWorkspace.Identity.Apply(identity =&gt; identity?.PrincipalId),
-    ///         KeyPermissions = new[]
-    ///         {
-    ///             "Get",
-    ///             "WrapKey",
-    ///             "UnwrapKey",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleWorkspaceKey = new Azure.Synapse.WorkspaceKey("exampleWorkspaceKey", new()
-    ///     {
-    ///         CustomerManagedKeyVersionlessId = exampleKey.VersionlessId,
-    ///         SynapseWorkspaceId = exampleWorkspace.Id,
-    ///         Active = true,
-    ///         CustomerManagedKeyName = "enckey",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             workspacePolicy,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleWorkspaceAadAdmin = new Azure.Synapse.WorkspaceAadAdmin("exampleWorkspaceAadAdmin", new()
-    ///     {
-    ///         SynapseWorkspaceId = exampleWorkspace.Id,
-    ///         Login = "AzureAD Admin",
-    ///         ObjectId = "00000000-0000-0000-0000-000000000000",
-    ///         TenantId = "00000000-0000-0000-0000-000000000000",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleWorkspaceKey,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 
@@ -370,6 +233,10 @@ namespace Pulumi.Azure.Synapse
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "sqlAdministratorLoginPassword",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -501,11 +368,21 @@ namespace Pulumi.Azure.Synapse
         [Input("sqlAdministratorLogin")]
         public Input<string>? SqlAdministratorLogin { get; set; }
 
+        [Input("sqlAdministratorLoginPassword")]
+        private Input<string>? _sqlAdministratorLoginPassword;
+
         /// <summary>
         /// The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
         /// </summary>
-        [Input("sqlAdministratorLoginPassword")]
-        public Input<string>? SqlAdministratorLoginPassword { get; set; }
+        public Input<string>? SqlAdministratorLoginPassword
+        {
+            get => _sqlAdministratorLoginPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sqlAdministratorLoginPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
@@ -659,11 +536,21 @@ namespace Pulumi.Azure.Synapse
         [Input("sqlAdministratorLogin")]
         public Input<string>? SqlAdministratorLogin { get; set; }
 
+        [Input("sqlAdministratorLoginPassword")]
+        private Input<string>? _sqlAdministratorLoginPassword;
+
         /// <summary>
         /// The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
         /// </summary>
-        [Input("sqlAdministratorLoginPassword")]
-        public Input<string>? SqlAdministratorLoginPassword { get; set; }
+        public Input<string>? SqlAdministratorLoginPassword
+        {
+            get => _sqlAdministratorLoginPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sqlAdministratorLoginPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?

@@ -38,13 +38,13 @@ namespace Pulumi.Azure.ContainerService
     ///             {
     ///                 Location = "East US",
     ///                 ZoneRedundancyEnabled = true,
-    ///                 Tags = ,
+    ///                 Tags = null,
     ///             },
     ///             new Azure.ContainerService.Inputs.RegistryGeoreplicationArgs
     ///             {
     ///                 Location = "North Europe",
     ///                 ZoneRedundancyEnabled = true,
-    ///                 Tags = ,
+    ///                 Tags = null,
     ///             },
     ///         },
     ///     });
@@ -319,6 +319,10 @@ namespace Pulumi.Azure.ContainerService
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "adminPassword",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -482,11 +486,21 @@ namespace Pulumi.Azure.ContainerService
         [Input("adminEnabled")]
         public Input<bool>? AdminEnabled { get; set; }
 
+        [Input("adminPassword")]
+        private Input<string>? _adminPassword;
+
         /// <summary>
         /// The Password associated with the Container Registry Admin account - if the admin account is enabled.
         /// </summary>
-        [Input("adminPassword")]
-        public Input<string>? AdminPassword { get; set; }
+        public Input<string>? AdminPassword
+        {
+            get => _adminPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _adminPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Username associated with the Container Registry Admin account - if the admin account is enabled.

@@ -371,6 +371,8 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["writeEndpoints"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["connectionStrings", "primaryKey", "primaryReadonlyKey", "primaryReadonlySqlConnectionString", "primarySqlConnectionString", "secondaryKey", "secondaryReadonlyKey", "secondaryReadonlySqlConnectionString", "secondarySqlConnectionString"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Account.__pulumiType, name, resourceInputs, opts);
     }
 }

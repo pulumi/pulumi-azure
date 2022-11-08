@@ -776,6 +776,8 @@ class EventHubNamespace(pulumi.CustomResource):
             __props__.__dict__["default_secondary_connection_string"] = None
             __props__.__dict__["default_secondary_connection_string_alias"] = None
             __props__.__dict__["default_secondary_key"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["defaultPrimaryConnectionString", "defaultPrimaryConnectionStringAlias", "defaultPrimaryKey", "defaultSecondaryConnectionString", "defaultSecondaryConnectionStringAlias", "defaultSecondaryKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(EventHubNamespace, __self__).__init__(
             'azure:eventhub/eventHubNamespace:EventHubNamespace',
             resource_name,

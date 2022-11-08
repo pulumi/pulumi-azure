@@ -329,40 +329,6 @@ class Secret(pulumi.CustomResource):
         """
         Manages a Key Vault Secret.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            soft_delete_retention_days=7,
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                key_permissions=[
-                    "Create",
-                    "Get",
-                ],
-                secret_permissions=[
-                    "Set",
-                    "Get",
-                    "Delete",
-                    "Purge",
-                    "Recover",
-                ],
-            )])
-        example_secret = azure.keyvault.Secret("exampleSecret",
-            value="szechuan",
-            key_vault_id=example_key_vault.id)
-        ```
-
         ## Import
 
         Key Vault Secrets which are Enabled can be imported using the `resource id`, e.g.
@@ -389,40 +355,6 @@ class Secret(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Key Vault Secret.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            soft_delete_retention_days=7,
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                key_permissions=[
-                    "Create",
-                    "Get",
-                ],
-                secret_permissions=[
-                    "Set",
-                    "Get",
-                    "Delete",
-                    "Purge",
-                    "Recover",
-                ],
-            )])
-        example_secret = azure.keyvault.Secret("exampleSecret",
-            value="szechuan",
-            key_vault_id=example_key_vault.id)
-        ```
 
         ## Import
 
@@ -473,11 +405,13 @@ class Secret(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             if value is None and not opts.urn:
                 raise TypeError("Missing required property 'value'")
-            __props__.__dict__["value"] = value
+            __props__.__dict__["value"] = None if value is None else pulumi.Output.secret(value)
             __props__.__dict__["resource_id"] = None
             __props__.__dict__["resource_versionless_id"] = None
             __props__.__dict__["version"] = None
             __props__.__dict__["versionless_id"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["value"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Secret, __self__).__init__(
             'azure:keyvault/secret:Secret',
             resource_name,

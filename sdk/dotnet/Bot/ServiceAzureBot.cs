@@ -12,60 +12,6 @@ namespace Pulumi.Azure.Bot
     /// <summary>
     /// Manages an Azure Bot Service.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         ApplicationType = "web",
-    ///     });
-    /// 
-    ///     var exampleApiKey = new Azure.AppInsights.ApiKey("exampleApiKey", new()
-    ///     {
-    ///         ApplicationInsightsId = exampleInsights.Id,
-    ///         ReadPermissions = new[]
-    ///         {
-    ///             "aggregate",
-    ///             "api",
-    ///             "draft",
-    ///             "extendqueries",
-    ///             "search",
-    ///         },
-    ///     });
-    /// 
-    ///     var current = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var exampleServiceAzureBot = new Azure.Bot.ServiceAzureBot("exampleServiceAzureBot", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = "global",
-    ///         MicrosoftAppId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
-    ///         Sku = "F0",
-    ///         Endpoint = "https://example.com",
-    ///         DeveloperAppInsightsApiKey = exampleApiKey.ApiKey,
-    ///         DeveloperAppInsightsApplicationId = exampleInsights.AppId,
-    ///         Tags = 
-    ///         {
-    ///             { "environment", "test" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Azure Bot Services can be imported using the `resource id`, e.g.
@@ -202,6 +148,11 @@ namespace Pulumi.Azure.Bot
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "developerAppInsightsApiKey",
+                    "luisKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -225,11 +176,21 @@ namespace Pulumi.Azure.Bot
 
     public sealed class ServiceAzureBotArgs : global::Pulumi.ResourceArgs
     {
+        [Input("developerAppInsightsApiKey")]
+        private Input<string>? _developerAppInsightsApiKey;
+
         /// <summary>
         /// The Application Insights API Key to associate with this Azure Bot Service.
         /// </summary>
-        [Input("developerAppInsightsApiKey")]
-        public Input<string>? DeveloperAppInsightsApiKey { get; set; }
+        public Input<string>? DeveloperAppInsightsApiKey
+        {
+            get => _developerAppInsightsApiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _developerAppInsightsApiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The resource ID of the Application Insights instance to associate with this Azure Bot Service.
@@ -273,11 +234,21 @@ namespace Pulumi.Azure.Bot
             set => _luisAppIds = value;
         }
 
+        [Input("luisKey")]
+        private Input<string>? _luisKey;
+
         /// <summary>
         /// The LUIS key to associate with this Azure Bot Service.
         /// </summary>
-        [Input("luisKey")]
-        public Input<string>? LuisKey { get; set; }
+        public Input<string>? LuisKey
+        {
+            get => _luisKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _luisKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Microsoft Application ID for the Azure Bot Service. Changing this forces a new resource to be created.
@@ -347,11 +318,21 @@ namespace Pulumi.Azure.Bot
 
     public sealed class ServiceAzureBotState : global::Pulumi.ResourceArgs
     {
+        [Input("developerAppInsightsApiKey")]
+        private Input<string>? _developerAppInsightsApiKey;
+
         /// <summary>
         /// The Application Insights API Key to associate with this Azure Bot Service.
         /// </summary>
-        [Input("developerAppInsightsApiKey")]
-        public Input<string>? DeveloperAppInsightsApiKey { get; set; }
+        public Input<string>? DeveloperAppInsightsApiKey
+        {
+            get => _developerAppInsightsApiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _developerAppInsightsApiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The resource ID of the Application Insights instance to associate with this Azure Bot Service.
@@ -395,11 +376,21 @@ namespace Pulumi.Azure.Bot
             set => _luisAppIds = value;
         }
 
+        [Input("luisKey")]
+        private Input<string>? _luisKey;
+
         /// <summary>
         /// The LUIS key to associate with this Azure Bot Service.
         /// </summary>
-        [Input("luisKey")]
-        public Input<string>? LuisKey { get; set; }
+        public Input<string>? LuisKey
+        {
+            get => _luisKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _luisKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Microsoft Application ID for the Azure Bot Service. Changing this forces a new resource to be created.

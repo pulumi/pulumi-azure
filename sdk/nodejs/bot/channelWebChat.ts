@@ -7,28 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Web Chat integration for a Bot Channel
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleChannelsRegistration = new azure.bot.ChannelsRegistration("exampleChannelsRegistration", {
- *     location: "global",
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "F0",
- *     microsoftAppId: current.then(current => current.clientId),
- * });
- * const exampleChannelWebChat = new azure.bot.ChannelWebChat("exampleChannelWebChat", {
- *     botName: exampleChannelsRegistration.name,
- *     location: exampleChannelsRegistration.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     siteNames: ["TestSite"],
- * });
- * ```
- *
  * ## Import
  *
  * Web Chat Channels can be imported using the `resource id`, e.g.

@@ -12,11 +12,21 @@ namespace Pulumi.Azure.Network.Inputs
 
     public sealed class ApplicationGatewayTrustedRootCertificateGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("data")]
+        private Input<string>? _data;
+
         /// <summary>
         /// The contents of the Trusted Root Certificate which should be used. Required if `key_vault_secret_id` is not set.
         /// </summary>
-        [Input("data")]
-        public Input<string>? Data { get; set; }
+        public Input<string>? Data
+        {
+            get => _data;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _data = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The ID of the Rewrite Rule Set

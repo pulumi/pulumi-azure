@@ -362,10 +362,12 @@ class RedisCache(pulumi.CustomResource):
             __props__.__dict__["cache_location"] = cache_location
             if connection_string is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_string'")
-            __props__.__dict__["connection_string"] = connection_string
+            __props__.__dict__["connection_string"] = None if connection_string is None else pulumi.Output.secret(connection_string)
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
             __props__.__dict__["redis_cache_id"] = redis_cache_id
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["connectionString"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(RedisCache, __self__).__init__(
             'azure:apimanagement/redisCache:RedisCache',
             resource_name,

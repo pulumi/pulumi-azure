@@ -111,11 +111,17 @@ namespace Pulumi.Azure.KeyVault
         [Input("algorithm", required: true)]
         public string Algorithm { get; set; } = null!;
 
+        [Input("encryptedData")]
+        private string? _encryptedData;
+
         /// <summary>
         /// The Base64 URL Encoded Encrypted Data which should be decrypted into `plain_text_value`.
         /// </summary>
-        [Input("encryptedData")]
-        public string? EncryptedData { get; set; }
+        public string? EncryptedData
+        {
+            get => _encryptedData;
+            set => _encryptedData = value;
+        }
 
         /// <summary>
         /// The ID of the Key Vault Key which should be used to Decrypt/Encrypt this Value.
@@ -123,11 +129,17 @@ namespace Pulumi.Azure.KeyVault
         [Input("keyVaultKeyId", required: true)]
         public string KeyVaultKeyId { get; set; } = null!;
 
+        [Input("plainTextValue")]
+        private string? _plainTextValue;
+
         /// <summary>
         /// The plain-text value which should be Encrypted into `encrypted_data`.
         /// </summary>
-        [Input("plainTextValue")]
-        public string? PlainTextValue { get; set; }
+        public string? PlainTextValue
+        {
+            get => _plainTextValue;
+            set => _plainTextValue = value;
+        }
 
         public GetEncryptedValueArgs()
         {
@@ -143,11 +155,21 @@ namespace Pulumi.Azure.KeyVault
         [Input("algorithm", required: true)]
         public Input<string> Algorithm { get; set; } = null!;
 
+        [Input("encryptedData")]
+        private Input<string>? _encryptedData;
+
         /// <summary>
         /// The Base64 URL Encoded Encrypted Data which should be decrypted into `plain_text_value`.
         /// </summary>
-        [Input("encryptedData")]
-        public Input<string>? EncryptedData { get; set; }
+        public Input<string>? EncryptedData
+        {
+            get => _encryptedData;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _encryptedData = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The ID of the Key Vault Key which should be used to Decrypt/Encrypt this Value.
@@ -155,11 +177,21 @@ namespace Pulumi.Azure.KeyVault
         [Input("keyVaultKeyId", required: true)]
         public Input<string> KeyVaultKeyId { get; set; } = null!;
 
+        [Input("plainTextValue")]
+        private Input<string>? _plainTextValue;
+
         /// <summary>
         /// The plain-text value which should be Encrypted into `encrypted_data`.
         /// </summary>
-        [Input("plainTextValue")]
-        public Input<string>? PlainTextValue { get; set; }
+        public Input<string>? PlainTextValue
+        {
+            get => _plainTextValue;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _plainTextValue = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public GetEncryptedValueInvokeArgs()
         {

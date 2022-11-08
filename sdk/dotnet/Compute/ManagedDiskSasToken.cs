@@ -109,6 +109,10 @@ namespace Pulumi.Azure.Compute
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "sasUrl",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -176,11 +180,21 @@ namespace Pulumi.Azure.Compute
         [Input("managedDiskId")]
         public Input<string>? ManagedDiskId { get; set; }
 
+        [Input("sasUrl")]
+        private Input<string>? _sasUrl;
+
         /// <summary>
         /// The computed Shared Access Signature (SAS) of the Managed Disk.
         /// </summary>
-        [Input("sasUrl")]
-        public Input<string>? SasUrl { get; set; }
+        public Input<string>? SasUrl
+        {
+            get => _sasUrl;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sasUrl = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public ManagedDiskSasTokenState()
         {

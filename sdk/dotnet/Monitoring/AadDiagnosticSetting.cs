@@ -86,19 +86,19 @@ namespace Pulumi.Azure.Monitoring
     ///             {
     ///                 Category = "ManagedIdentitySignInLogs",
     ///                 Enabled = false,
-    ///                 RetentionPolicy = ,
+    ///                 RetentionPolicy = null,
     ///             },
     ///             new Azure.Monitoring.Inputs.AadDiagnosticSettingLogArgs
     ///             {
     ///                 Category = "ProvisioningLogs",
     ///                 Enabled = false,
-    ///                 RetentionPolicy = ,
+    ///                 RetentionPolicy = null,
     ///             },
     ///             new Azure.Monitoring.Inputs.AadDiagnosticSettingLogArgs
     ///             {
     ///                 Category = "ADFSSignInLogs",
     ///                 Enabled = false,
-    ///                 RetentionPolicy = ,
+    ///                 RetentionPolicy = null,
     ///             },
     ///         },
     ///     });

@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := siterecovery.LookupReplicationPolicy(ctx, &siterecovery.LookupReplicationPolicyArgs{
+//			_, err = siterecovery.LookupReplicationPolicy(ctx, &siterecovery.LookupReplicationPolicyArgs{
 //				Name:              "replication-policy",
 //				RecoveryVaultName: "tfex-recovery_vault",
 //				ResourceGroupName: "tfex-resource_group",

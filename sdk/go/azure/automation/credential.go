@@ -103,6 +103,13 @@ func NewCredential(ctx *pulumi.Context,
 	if args.Username == nil {
 		return nil, errors.New("invalid value for required argument 'Username'")
 	}
+	if args.Password != nil {
+		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"password",
+	})
+	opts = append(opts, secrets)
 	var resource Credential
 	err := ctx.RegisterResource("azure:automation/credential:Credential", name, args, &resource, opts...)
 	if err != nil {

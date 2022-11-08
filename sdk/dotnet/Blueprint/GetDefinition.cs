@@ -15,35 +15,6 @@ namespace Pulumi.Azure.Blueprint
         /// Use this data source to access information about an existing Azure Blueprint Definition
         /// 
         /// &gt; **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Azure.Core.GetClientConfig.Invoke();
-        /// 
-        ///     var root = Azure.Management.GetGroup.Invoke(new()
-        ///     {
-        ///         Name = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-        ///     });
-        /// 
-        ///     var example = Azure.Blueprint.GetDefinition.Invoke(new()
-        ///     {
-        ///         Name = "exampleManagementGroupBP",
-        ///         ScopeId = root.Apply(getGroupResult =&gt; getGroupResult.Id),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDefinitionResult> InvokeAsync(GetDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDefinitionResult>("azure:blueprint/getDefinition:getDefinition", args ?? new GetDefinitionArgs(), options.WithDefaults());
@@ -52,35 +23,6 @@ namespace Pulumi.Azure.Blueprint
         /// Use this data source to access information about an existing Azure Blueprint Definition
         /// 
         /// &gt; **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Azure.Core.GetClientConfig.Invoke();
-        /// 
-        ///     var root = Azure.Management.GetGroup.Invoke(new()
-        ///     {
-        ///         Name = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-        ///     });
-        /// 
-        ///     var example = Azure.Blueprint.GetDefinition.Invoke(new()
-        ///     {
-        ///         Name = "exampleManagementGroupBP",
-        ///         ScopeId = root.Apply(getGroupResult =&gt; getGroupResult.Id),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetDefinitionResult> Invoke(GetDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDefinitionResult>("azure:blueprint/getDefinition:getDefinition", args ?? new GetDefinitionInvokeArgs(), options.WithDefaults());

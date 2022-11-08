@@ -74,6 +74,27 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			backendAddressPoolName := exampleVirtualNetwork.Name.ApplyT(func(name string) (string, error) {
+//				return fmt.Sprintf("%v-beap", name), nil
+//			}).(pulumi.StringOutput)
+//			frontendPortName := exampleVirtualNetwork.Name.ApplyT(func(name string) (string, error) {
+//				return fmt.Sprintf("%v-feport", name), nil
+//			}).(pulumi.StringOutput)
+//			frontendIpConfigurationName := exampleVirtualNetwork.Name.ApplyT(func(name string) (string, error) {
+//				return fmt.Sprintf("%v-feip", name), nil
+//			}).(pulumi.StringOutput)
+//			httpSettingName := exampleVirtualNetwork.Name.ApplyT(func(name string) (string, error) {
+//				return fmt.Sprintf("%v-be-htst", name), nil
+//			}).(pulumi.StringOutput)
+//			listenerName := exampleVirtualNetwork.Name.ApplyT(func(name string) (string, error) {
+//				return fmt.Sprintf("%v-httplstn", name), nil
+//			}).(pulumi.StringOutput)
+//			requestRoutingRuleName := exampleVirtualNetwork.Name.ApplyT(func(name string) (string, error) {
+//				return fmt.Sprintf("%v-rqrt", name), nil
+//			}).(pulumi.StringOutput)
+//			_ = exampleVirtualNetwork.Name.ApplyT(func(name string) (string, error) {
+//				return fmt.Sprintf("%v-rdrcfg", name), nil
+//			}).(pulumi.StringOutput)
 //			_, err = network.NewApplicationGateway(ctx, "network", &network.ApplicationGatewayArgs{
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Location:          exampleResourceGroup.Location,

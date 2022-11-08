@@ -25,37 +25,6 @@ import * as utilities from "../utilities";
  *     connectionString: "jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh",
  * });
  * ```
- * ### With Password In Key Vault
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     tenantId: current.then(current => current.tenantId),
- *     skuName: "standard",
- * });
- * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleLinkedServiceKeyVault = new azure.datafactory.LinkedServiceKeyVault("exampleLinkedServiceKeyVault", {
- *     dataFactoryId: exampleFactory.id,
- *     keyVaultId: exampleKeyVault.id,
- * });
- * const exampleLinkedServiceSnowflake = new azure.datafactory.LinkedServiceSnowflake("exampleLinkedServiceSnowflake", {
- *     dataFactoryId: exampleFactory.id,
- *     connectionString: "jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh",
- *     keyVaultPassword: {
- *         linkedServiceName: exampleLinkedServiceKeyVault.name,
- *         secretName: "secret",
- *     },
- * });
- * ```
  *
  * ## Import
  *

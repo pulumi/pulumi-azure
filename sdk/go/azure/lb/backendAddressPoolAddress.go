@@ -68,14 +68,14 @@ import (
 //			}
 //			_, err = lb.NewBackendAddressPoolAddress(ctx, "example-1", &lb.BackendAddressPoolAddressArgs{
 //				BackendAddressPoolId:            pulumi.String(backend_pool_cr.Id),
-//				BackendAddressIpConfigurationId: pulumi.Any(azurerm_lb.Backend - lb - R1.Frontend_ip_configuration[0].Id),
+//				BackendAddressIpConfigurationId: pulumi.Any(azurerm_lb.BackendLbR1.Frontend_ip_configuration[0].Id),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = lb.NewBackendAddressPoolAddress(ctx, "example-2", &lb.BackendAddressPoolAddressArgs{
 //				BackendAddressPoolId:            pulumi.String(backend_pool_cr.Id),
-//				BackendAddressIpConfigurationId: pulumi.Any(azurerm_lb.Backend - lb - R2.Frontend_ip_configuration[0].Id),
+//				BackendAddressIpConfigurationId: pulumi.Any(azurerm_lb.BackendLbR2.Frontend_ip_configuration[0].Id),
 //			})
 //			if err != nil {
 //				return err

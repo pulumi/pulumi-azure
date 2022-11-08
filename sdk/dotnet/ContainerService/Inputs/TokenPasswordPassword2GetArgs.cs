@@ -18,11 +18,21 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("expiry")]
         public Input<string>? Expiry { get; set; }
 
+        [Input("value")]
+        private Input<string>? _value;
+
         /// <summary>
         /// The value of the password (Sensitive).
         /// </summary>
-        [Input("value")]
-        public Input<string>? Value { get; set; }
+        public Input<string>? Value
+        {
+            get => _value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _value = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public TokenPasswordPassword2GetArgs()
         {

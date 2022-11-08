@@ -319,7 +319,7 @@ export class FunctionApp extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["siteConfig"] = args ? args.siteConfig : undefined;
             resourceInputs["sourceControl"] = args ? args.sourceControl : undefined;
-            resourceInputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
+            resourceInputs["storageAccountAccessKey"] = args?.storageAccountAccessKey ? pulumi.secret(args.storageAccountAccessKey) : undefined;
             resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
@@ -331,6 +331,8 @@ export class FunctionApp extends pulumi.CustomResource {
             resourceInputs["siteCredentials"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["storageAccountAccessKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(FunctionApp.__pulumiType, name, resourceInputs, opts);
     }
 }

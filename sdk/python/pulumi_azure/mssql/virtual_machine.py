@@ -600,8 +600,8 @@ class VirtualMachine(pulumi.CustomResource):
             __props__.__dict__["r_services_enabled"] = r_services_enabled
             __props__.__dict__["sql_connectivity_port"] = sql_connectivity_port
             __props__.__dict__["sql_connectivity_type"] = sql_connectivity_type
-            __props__.__dict__["sql_connectivity_update_password"] = sql_connectivity_update_password
-            __props__.__dict__["sql_connectivity_update_username"] = sql_connectivity_update_username
+            __props__.__dict__["sql_connectivity_update_password"] = None if sql_connectivity_update_password is None else pulumi.Output.secret(sql_connectivity_update_password)
+            __props__.__dict__["sql_connectivity_update_username"] = None if sql_connectivity_update_username is None else pulumi.Output.secret(sql_connectivity_update_username)
             if sql_license_type is None and not opts.urn:
                 raise TypeError("Missing required property 'sql_license_type'")
             __props__.__dict__["sql_license_type"] = sql_license_type
@@ -610,6 +610,8 @@ class VirtualMachine(pulumi.CustomResource):
             if virtual_machine_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_machine_id'")
             __props__.__dict__["virtual_machine_id"] = virtual_machine_id
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["sqlConnectivityUpdatePassword", "sqlConnectivityUpdateUsername"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(VirtualMachine, __self__).__init__(
             'azure:mssql/virtualMachine:VirtualMachine',
             resource_name,

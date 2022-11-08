@@ -114,6 +114,15 @@ func NewTopicAuthorizationRule(ctx *pulumi.Context,
 	if args.TopicId == nil {
 		return nil, errors.New("invalid value for required argument 'TopicId'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"primaryConnectionString",
+		"primaryConnectionStringAlias",
+		"primaryKey",
+		"secondaryConnectionString",
+		"secondaryConnectionStringAlias",
+		"secondaryKey",
+	})
+	opts = append(opts, secrets)
 	var resource TopicAuthorizationRule
 	err := ctx.RegisterResource("azure:eventhub/topicAuthorizationRule:TopicAuthorizationRule", name, args, &resource, opts...)
 	if err != nil {

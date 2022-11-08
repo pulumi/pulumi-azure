@@ -118,6 +118,17 @@ func NewSubscription(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.PrimaryKey != nil {
+		args.PrimaryKey = pulumi.ToSecret(args.PrimaryKey).(pulumi.StringPtrOutput)
+	}
+	if args.SecondaryKey != nil {
+		args.SecondaryKey = pulumi.ToSecret(args.SecondaryKey).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"primaryKey",
+		"secondaryKey",
+	})
+	opts = append(opts, secrets)
 	var resource Subscription
 	err := ctx.RegisterResource("azure:apimanagement/subscription:Subscription", name, args, &resource, opts...)
 	if err != nil {

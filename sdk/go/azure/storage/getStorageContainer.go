@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := storage.GetStorageContainer(ctx, &storage.GetStorageContainerArgs{
+//			_, err = storage.GetStorageContainer(ctx, &storage.GetStorageContainerArgs{
 //				Name:               "example-container-name",
 //				StorageAccountName: "example-storage-account-name",
 //			}, nil)

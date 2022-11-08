@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicebus.LookupSubscription(ctx, &servicebus.LookupSubscriptionArgs{
+//			_, err = servicebus.LookupSubscription(ctx, &servicebus.LookupSubscriptionArgs{
 //				Name:              "examplesubscription",
 //				ResourceGroupName: pulumi.StringRef("exampleresources"),
 //				NamespaceName:     pulumi.StringRef("examplenamespace"),

@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kusto.LookupDatabase(ctx, &kusto.LookupDatabaseArgs{
+//			_, err = kusto.LookupDatabase(ctx, &kusto.LookupDatabaseArgs{
 //				ClusterName:       "test_cluster",
 //				Name:              "my-kusto-database",
 //				ResourceGroupName: "test_resource_group",

@@ -231,7 +231,7 @@ export class Extension extends pulumi.CustomResource {
             resourceInputs["automaticUpgradeEnabled"] = args ? args.automaticUpgradeEnabled : undefined;
             resourceInputs["failureSuppressionEnabled"] = args ? args.failureSuppressionEnabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["protectedSettings"] = args ? args.protectedSettings : undefined;
+            resourceInputs["protectedSettings"] = args?.protectedSettings ? pulumi.secret(args.protectedSettings) : undefined;
             resourceInputs["protectedSettingsFromKeyVault"] = args ? args.protectedSettingsFromKeyVault : undefined;
             resourceInputs["publisher"] = args ? args.publisher : undefined;
             resourceInputs["settings"] = args ? args.settings : undefined;
@@ -241,6 +241,8 @@ export class Extension extends pulumi.CustomResource {
             resourceInputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["protectedSettings"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Extension.__pulumiType, name, resourceInputs, opts);
     }
 }

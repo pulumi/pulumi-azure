@@ -148,7 +148,7 @@ export class EndpointServicebusQueue extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
-            resourceInputs["connectionString"] = args ? args.connectionString : undefined;
+            resourceInputs["connectionString"] = args?.connectionString ? pulumi.secret(args.connectionString) : undefined;
             resourceInputs["endpointUri"] = args ? args.endpointUri : undefined;
             resourceInputs["entityPath"] = args ? args.entityPath : undefined;
             resourceInputs["identityId"] = args ? args.identityId : undefined;
@@ -157,6 +157,8 @@ export class EndpointServicebusQueue extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["connectionString"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(EndpointServicebusQueue.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -7,30 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Bot Connection.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleChannelsRegistration = new azure.bot.ChannelsRegistration("exampleChannelsRegistration", {
- *     location: "global",
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "F0",
- *     microsoftAppId: current.then(current => current.clientId),
- * });
- * const exampleConnection = new azure.bot.Connection("exampleConnection", {
- *     botName: exampleChannelsRegistration.name,
- *     location: exampleChannelsRegistration.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     serviceProviderName: "box",
- *     clientId: "exampleId",
- *     clientSecret: "exampleSecret",
- * });
- * ```
- *
  * ## Import
  *
  * Bot Connection can be imported using the `resource id`, e.g.
@@ -152,7 +128,7 @@ export class Connection extends pulumi.CustomResource {
             }
             resourceInputs["botName"] = args ? args.botName : undefined;
             resourceInputs["clientId"] = args ? args.clientId : undefined;
-            resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
+            resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
@@ -162,6 +138,8 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["clientSecret"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Connection.__pulumiType, name, resourceInputs, opts);
     }
 }

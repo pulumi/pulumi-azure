@@ -169,6 +169,10 @@ namespace Pulumi.Azure.ApiManagement
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "clientSecret",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -216,11 +220,21 @@ namespace Pulumi.Azure.ApiManagement
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
+        [Input("clientSecret", required: true)]
+        private Input<string>? _clientSecret;
+
         /// <summary>
         /// Client secret of the Application in your B2C tenant.
         /// </summary>
-        [Input("clientSecret", required: true)]
-        public Input<string> ClientSecret { get; set; } = null!;
+        public Input<string>? ClientSecret
+        {
+            get => _clientSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Password reset Policy Name.
@@ -290,11 +304,21 @@ namespace Pulumi.Azure.ApiManagement
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
+        [Input("clientSecret")]
+        private Input<string>? _clientSecret;
+
         /// <summary>
         /// Client secret of the Application in your B2C tenant.
         /// </summary>
-        [Input("clientSecret")]
-        public Input<string>? ClientSecret { get; set; }
+        public Input<string>? ClientSecret
+        {
+            get => _clientSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Password reset Policy Name.

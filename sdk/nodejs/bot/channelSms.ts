@@ -9,30 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **Note** A bot can only have a single SMS Channel associated with it.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleChannelsRegistration = new azure.bot.ChannelsRegistration("exampleChannelsRegistration", {
- *     location: "global",
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "F0",
- *     microsoftAppId: current.then(current => current.clientId),
- * });
- * const exampleChannelSms = new azure.bot.ChannelSms("exampleChannelSms", {
- *     botName: exampleChannelsRegistration.name,
- *     location: exampleChannelsRegistration.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     smsChannelAccountSecurityId: "BG61f7cf5157f439b084e98256409c2815",
- *     smsChannelAuthToken: "jh8980432610052ed4e29565c5e232f",
- *     phoneNumber: "+12313803556",
- * });
- * ```
- *
  * ## Import
  *
  * The SMS Integration for a Bot Channel can be imported using the `resource id`, e.g.
@@ -135,9 +111,11 @@ export class ChannelSms extends pulumi.CustomResource {
             resourceInputs["phoneNumber"] = args ? args.phoneNumber : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["smsChannelAccountSecurityId"] = args ? args.smsChannelAccountSecurityId : undefined;
-            resourceInputs["smsChannelAuthToken"] = args ? args.smsChannelAuthToken : undefined;
+            resourceInputs["smsChannelAuthToken"] = args?.smsChannelAuthToken ? pulumi.secret(args.smsChannelAuthToken) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["smsChannelAuthToken"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ChannelSms.__pulumiType, name, resourceInputs, opts);
     }
 }

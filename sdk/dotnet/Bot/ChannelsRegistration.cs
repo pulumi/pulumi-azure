@@ -12,33 +12,6 @@ namespace Pulumi.Azure.Bot
     /// <summary>
     /// Manages a Bot Channels Registration.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleChannelsRegistration = new Azure.Bot.ChannelsRegistration("exampleChannelsRegistration", new()
-    ///     {
-    ///         Location = "global",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = "F0",
-    ///         MicrosoftAppId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Bot Channels Registration can be imported using the `resource id`, e.g.
@@ -175,6 +148,10 @@ namespace Pulumi.Azure.Bot
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "developerAppInsightsApiKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -210,11 +187,21 @@ namespace Pulumi.Azure.Bot
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("developerAppInsightsApiKey")]
+        private Input<string>? _developerAppInsightsApiKey;
+
         /// <summary>
         /// The Application Insights API Key to associate with the Bot Channels Registration.
         /// </summary>
-        [Input("developerAppInsightsApiKey")]
-        public Input<string>? DeveloperAppInsightsApiKey { get; set; }
+        public Input<string>? DeveloperAppInsightsApiKey
+        {
+            get => _developerAppInsightsApiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _developerAppInsightsApiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Application Insights Application ID to associate with the Bot Channels Registration.
@@ -326,11 +313,21 @@ namespace Pulumi.Azure.Bot
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("developerAppInsightsApiKey")]
+        private Input<string>? _developerAppInsightsApiKey;
+
         /// <summary>
         /// The Application Insights API Key to associate with the Bot Channels Registration.
         /// </summary>
-        [Input("developerAppInsightsApiKey")]
-        public Input<string>? DeveloperAppInsightsApiKey { get; set; }
+        public Input<string>? DeveloperAppInsightsApiKey
+        {
+            get => _developerAppInsightsApiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _developerAppInsightsApiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Application Insights Application ID to associate with the Bot Channels Registration.

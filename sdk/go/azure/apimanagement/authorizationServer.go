@@ -140,6 +140,17 @@ func NewAuthorizationServer(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.ClientSecret != nil {
+		args.ClientSecret = pulumi.ToSecret(args.ClientSecret).(pulumi.StringPtrOutput)
+	}
+	if args.ResourceOwnerPassword != nil {
+		args.ResourceOwnerPassword = pulumi.ToSecret(args.ResourceOwnerPassword).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"clientSecret",
+		"resourceOwnerPassword",
+	})
+	opts = append(opts, secrets)
 	var resource AuthorizationServer
 	err := ctx.RegisterResource("azure:apimanagement/authorizationServer:AuthorizationServer", name, args, &resource, opts...)
 	if err != nil {
