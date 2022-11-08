@@ -841,6 +841,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_kubernetes_cluster_node_pool": {
 				Tok: azureResource(azureContainerService, "KubernetesClusterNodePool"),
 			},
+			"azurerm_kubernetes_fleet_manager":                 {Tok: azureResource(azureContainerService, "KubernetesFleetManager")},
 			"azurerm_container_registry_scope_map":             {Tok: azureResource(azureContainerService, "RegistryScopeMap")},
 			"azurerm_container_registry_token":                 {Tok: azureResource(azureContainerService, "RegistryToken")},
 			"azurerm_container_registry_task":                  {Tok: azureResource(azureContainerService, "RegistryTask")},
@@ -1570,8 +1571,10 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mssql_managed_instance":                                {Tok: azureResource(azureMSSQL, "ManagedInstance")},
 			"azurerm_mssql_managed_instance_active_directory_administrator": {Tok: azureResource(azureMSSQL, "ManagedInstanceActiveDirectoryAdministrator")},
 			"azurerm_mssql_managed_instance_failover_group":                 {Tok: azureResource(azureMSSQL, "ManagedInstanceFailoverGroup")},
+			"azurerm_mssql_managed_instance_security_alert_policy":          {Tok: azureResource(azureMSSQL, "ManagedInstanceSecurityAlertPolicy")},
 			"azurerm_mssql_managed_instance_vulnerability_assessment":       {Tok: azureResource(azureMSSQL, "ManagedInstanceVulnerabilityAssessment")},
 			"azurerm_mssql_server_dns_alias":                                {Tok: azureResource(azureMSSQL, "ServerDnsAlias")},
+			"azurerm_mssql_server_microsoft_support_auditing_policy":        {Tok: azureResource(azureMSSQL, "ServerMicrosoftSupportAuditingPolicy")},
 
 			// MySQL
 			"azurerm_mysql_configuration": {
@@ -1653,8 +1656,10 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_private_dns_resolver":                        {Tok: azureResource(azurePrivateDNS, "Resolver")},
 			"azurerm_private_dns_resolver_dns_forwarding_ruleset": {Tok: azureResource(azurePrivateDNS, "ResolverDnsForwardingRuleset")},
+			"azurerm_private_dns_resolver_forwarding_rule":        {Tok: azureResource(azurePrivateDNS, "ResolverForwardingRule")},
 			"azurerm_private_dns_resolver_inbound_endpoint":       {Tok: azureResource(azurePrivateDNS, "ResolverInboundEndpoint")},
 			"azurerm_private_dns_resolver_outbound_endpoint":      {Tok: azureResource(azurePrivateDNS, "ResolverOutboundEndpoint")},
+			"azurerm_private_dns_resolver_virtual_network_link":   {Tok: azureResource(azurePrivateDNS, "ResolverVirtualNetworkLink")},
 
 			// SQL
 			"azurerm_sql_elasticpool":    {Tok: azureResource(azureSQL, "ElasticPool")},
