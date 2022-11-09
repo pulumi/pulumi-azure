@@ -18,6 +18,7 @@ import javax.annotation.Nullable;
  * Manages a Replica Set for an Active Directory Domain Service.
  * 
  * ## Example Usage
+ * 
  * ```java
  * package generated_program;
  * 
