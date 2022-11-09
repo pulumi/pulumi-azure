@@ -462,21 +462,6 @@ class WebApp(pulumi.CustomResource):
         """
         Manages a Bot Web App.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_web_app = azure.bot.WebApp("exampleWebApp",
-            location="global",
-            resource_group_name=example_resource_group.name,
-            sku="F0",
-            microsoft_app_id=current.client_id)
-        ```
-
         ## Import
 
         Bot Web App's can be imported using the `resource id`, e.g.
@@ -509,21 +494,6 @@ class WebApp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Bot Web App.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_web_app = azure.bot.WebApp("exampleWebApp",
-            location="global",
-            resource_group_name=example_resource_group.name,
-            sku="F0",
-            microsoft_app_id=current.client_id)
-        ```
 
         ## Import
 
@@ -570,14 +540,14 @@ class WebApp(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WebAppArgs.__new__(WebAppArgs)
 
-            __props__.__dict__["developer_app_insights_api_key"] = developer_app_insights_api_key
+            __props__.__dict__["developer_app_insights_api_key"] = None if developer_app_insights_api_key is None else pulumi.Output.secret(developer_app_insights_api_key)
             __props__.__dict__["developer_app_insights_application_id"] = developer_app_insights_application_id
             __props__.__dict__["developer_app_insights_key"] = developer_app_insights_key
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["endpoint"] = endpoint
             __props__.__dict__["location"] = location
             __props__.__dict__["luis_app_ids"] = luis_app_ids
-            __props__.__dict__["luis_key"] = luis_key
+            __props__.__dict__["luis_key"] = None if luis_key is None else pulumi.Output.secret(luis_key)
             if microsoft_app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'microsoft_app_id'")
             __props__.__dict__["microsoft_app_id"] = microsoft_app_id
@@ -589,6 +559,8 @@ class WebApp(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["developerAppInsightsApiKey", "luisKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(WebApp, __self__).__init__(
             'azure:bot/webApp:WebApp',
             resource_name,

@@ -871,7 +871,7 @@ class FlexibleServer(pulumi.CustomResource):
             __props__ = FlexibleServerArgs.__new__(FlexibleServerArgs)
 
             __props__.__dict__["administrator_login"] = administrator_login
-            __props__.__dict__["administrator_password"] = administrator_password
+            __props__.__dict__["administrator_password"] = None if administrator_password is None else pulumi.Output.secret(administrator_password)
             __props__.__dict__["backup_retention_days"] = backup_retention_days
             __props__.__dict__["create_mode"] = create_mode
             __props__.__dict__["delegated_subnet_id"] = delegated_subnet_id
@@ -893,6 +893,8 @@ class FlexibleServer(pulumi.CustomResource):
             __props__.__dict__["zone"] = zone
             __props__.__dict__["fqdn"] = None
             __props__.__dict__["public_network_access_enabled"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["administratorPassword"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(FlexibleServer, __self__).__init__(
             'azure:postgresql/flexibleServer:FlexibleServer',
             resource_name,

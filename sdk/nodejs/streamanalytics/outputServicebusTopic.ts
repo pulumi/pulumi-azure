@@ -181,13 +181,15 @@ export class OutputServicebusTopic extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serialization"] = args ? args.serialization : undefined;
             resourceInputs["servicebusNamespace"] = args ? args.servicebusNamespace : undefined;
-            resourceInputs["sharedAccessPolicyKey"] = args ? args.sharedAccessPolicyKey : undefined;
+            resourceInputs["sharedAccessPolicyKey"] = args?.sharedAccessPolicyKey ? pulumi.secret(args.sharedAccessPolicyKey) : undefined;
             resourceInputs["sharedAccessPolicyName"] = args ? args.sharedAccessPolicyName : undefined;
             resourceInputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
             resourceInputs["systemPropertyColumns"] = args ? args.systemPropertyColumns : undefined;
             resourceInputs["topicName"] = args ? args.topicName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["sharedAccessPolicyKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(OutputServicebusTopic.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -169,7 +169,7 @@ export class EndpointStorageContainer extends pulumi.CustomResource {
             }
             resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
             resourceInputs["batchFrequencyInSeconds"] = args ? args.batchFrequencyInSeconds : undefined;
-            resourceInputs["connectionString"] = args ? args.connectionString : undefined;
+            resourceInputs["connectionString"] = args?.connectionString ? pulumi.secret(args.connectionString) : undefined;
             resourceInputs["containerName"] = args ? args.containerName : undefined;
             resourceInputs["encoding"] = args ? args.encoding : undefined;
             resourceInputs["endpointUri"] = args ? args.endpointUri : undefined;
@@ -181,6 +181,8 @@ export class EndpointStorageContainer extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["connectionString"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(EndpointStorageContainer.__pulumiType, name, resourceInputs, opts);
     }
 }

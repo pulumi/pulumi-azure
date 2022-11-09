@@ -594,40 +594,6 @@ class ServiceAzureBot(pulumi.CustomResource):
         """
         Manages an Azure Bot Service.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_api_key = azure.appinsights.ApiKey("exampleApiKey",
-            application_insights_id=example_insights.id,
-            read_permissions=[
-                "aggregate",
-                "api",
-                "draft",
-                "extendqueries",
-                "search",
-            ])
-        current = azure.core.get_client_config()
-        example_service_azure_bot = azure.bot.ServiceAzureBot("exampleServiceAzureBot",
-            resource_group_name=example_resource_group.name,
-            location="global",
-            microsoft_app_id=current.client_id,
-            sku="F0",
-            endpoint="https://example.com",
-            developer_app_insights_api_key=example_api_key.api_key,
-            developer_app_insights_application_id=example_insights.app_id,
-            tags={
-                "environment": "test",
-            })
-        ```
-
         ## Import
 
         Azure Bot Services can be imported using the `resource id`, e.g.
@@ -664,40 +630,6 @@ class ServiceAzureBot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Bot Service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_api_key = azure.appinsights.ApiKey("exampleApiKey",
-            application_insights_id=example_insights.id,
-            read_permissions=[
-                "aggregate",
-                "api",
-                "draft",
-                "extendqueries",
-                "search",
-            ])
-        current = azure.core.get_client_config()
-        example_service_azure_bot = azure.bot.ServiceAzureBot("exampleServiceAzureBot",
-            resource_group_name=example_resource_group.name,
-            location="global",
-            microsoft_app_id=current.client_id,
-            sku="F0",
-            endpoint="https://example.com",
-            developer_app_insights_api_key=example_api_key.api_key,
-            developer_app_insights_application_id=example_insights.app_id,
-            tags={
-                "environment": "test",
-            })
-        ```
 
         ## Import
 
@@ -748,14 +680,14 @@ class ServiceAzureBot(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceAzureBotArgs.__new__(ServiceAzureBotArgs)
 
-            __props__.__dict__["developer_app_insights_api_key"] = developer_app_insights_api_key
+            __props__.__dict__["developer_app_insights_api_key"] = None if developer_app_insights_api_key is None else pulumi.Output.secret(developer_app_insights_api_key)
             __props__.__dict__["developer_app_insights_application_id"] = developer_app_insights_application_id
             __props__.__dict__["developer_app_insights_key"] = developer_app_insights_key
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["endpoint"] = endpoint
             __props__.__dict__["location"] = location
             __props__.__dict__["luis_app_ids"] = luis_app_ids
-            __props__.__dict__["luis_key"] = luis_key
+            __props__.__dict__["luis_key"] = None if luis_key is None else pulumi.Output.secret(luis_key)
             if microsoft_app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'microsoft_app_id'")
             __props__.__dict__["microsoft_app_id"] = microsoft_app_id
@@ -771,6 +703,8 @@ class ServiceAzureBot(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["streaming_endpoint_enabled"] = streaming_endpoint_enabled
             __props__.__dict__["tags"] = tags
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["developerAppInsightsApiKey", "luisKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceAzureBot, __self__).__init__(
             'azure:bot/serviceAzureBot:ServiceAzureBot',
             resource_name,

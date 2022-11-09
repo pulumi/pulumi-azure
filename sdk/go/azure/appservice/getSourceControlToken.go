@@ -24,7 +24,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appservice.LookupSourceControlToken(ctx, &appservice.LookupSourceControlTokenArgs{
+//			_, err = appservice.LookupSourceControlToken(ctx, &appservice.LookupSourceControlTokenArgs{
 //				Type: "GitHub",
 //			}, nil)
 //			if err != nil {

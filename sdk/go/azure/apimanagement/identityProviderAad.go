@@ -110,6 +110,13 @@ func NewIdentityProviderAad(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.ClientSecret != nil {
+		args.ClientSecret = pulumi.ToSecret(args.ClientSecret).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"clientSecret",
+	})
+	opts = append(opts, secrets)
 	var resource IdentityProviderAad
 	err := ctx.RegisterResource("azure:apimanagement/identityProviderAad:IdentityProviderAad", name, args, &resource, opts...)
 	if err != nil {

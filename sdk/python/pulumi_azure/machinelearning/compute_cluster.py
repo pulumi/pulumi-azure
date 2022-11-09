@@ -464,66 +464,6 @@ class ComputeCluster(pulumi.CustomResource):
         Manages a Machine Learning Compute Cluster.
         **NOTE:** At this point in time the resource cannot be updated (not supported by the backend Azure Go SDK). Therefore it can only be created and deleted, not updated. At the moment, there is also no possibility to specify ssh User Account Credentials to ssh into the compute cluster.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup",
-            location="west europe",
-            tags={
-                "stage": "example",
-            })
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            purge_protection_enabled=True)
-        example_account = azure.storage.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_workspace = azure.machinelearning.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_insights_id=example_insights.id,
-            key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.1.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.1.0.0/24"])
-        test = azure.machinelearning.ComputeCluster("test",
-            location=example_resource_group.location,
-            vm_priority="LowPriority",
-            vm_size="Standard_DS2_v2",
-            machine_learning_workspace_id=example_workspace.id,
-            subnet_resource_id=example_subnet.id,
-            scale_settings=azure.machinelearning.ComputeClusterScaleSettingsArgs(
-                min_node_count=0,
-                max_node_count=1,
-                scale_down_nodes_after_idle_duration="PT30S",
-            ),
-            identity=azure.machinelearning.ComputeClusterIdentityArgs(
-                type="SystemAssigned",
-            ))
-        ```
-
         ## Import
 
         Machine Learning Compute Clusters can be imported using the `resource id`, e.g.
@@ -557,66 +497,6 @@ class ComputeCluster(pulumi.CustomResource):
         """
         Manages a Machine Learning Compute Cluster.
         **NOTE:** At this point in time the resource cannot be updated (not supported by the backend Azure Go SDK). Therefore it can only be created and deleted, not updated. At the moment, there is also no possibility to specify ssh User Account Credentials to ssh into the compute cluster.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup",
-            location="west europe",
-            tags={
-                "stage": "example",
-            })
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            purge_protection_enabled=True)
-        example_account = azure.storage.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_workspace = azure.machinelearning.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_insights_id=example_insights.id,
-            key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.1.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.1.0.0/24"])
-        test = azure.machinelearning.ComputeCluster("test",
-            location=example_resource_group.location,
-            vm_priority="LowPriority",
-            vm_size="Standard_DS2_v2",
-            machine_learning_workspace_id=example_workspace.id,
-            subnet_resource_id=example_subnet.id,
-            scale_settings=azure.machinelearning.ComputeClusterScaleSettingsArgs(
-                min_node_count=0,
-                max_node_count=1,
-                scale_down_nodes_after_idle_duration="PT30S",
-            ),
-            identity=azure.machinelearning.ComputeClusterIdentityArgs(
-                type="SystemAssigned",
-            ))
-        ```
 
         ## Import
 

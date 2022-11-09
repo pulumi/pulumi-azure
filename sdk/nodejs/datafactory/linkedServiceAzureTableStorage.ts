@@ -129,7 +129,7 @@ export class LinkedServiceAzureTableStorage extends pulumi.CustomResource {
             }
             resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
             resourceInputs["annotations"] = args ? args.annotations : undefined;
-            resourceInputs["connectionString"] = args ? args.connectionString : undefined;
+            resourceInputs["connectionString"] = args?.connectionString ? pulumi.secret(args.connectionString) : undefined;
             resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
@@ -137,6 +137,8 @@ export class LinkedServiceAzureTableStorage extends pulumi.CustomResource {
             resourceInputs["parameters"] = args ? args.parameters : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["connectionString"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(LinkedServiceAzureTableStorage.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -153,7 +153,7 @@ export class OutputCosmosdb extends pulumi.CustomResource {
                 throw new Error("Missing required property 'streamAnalyticsJobId'");
             }
             resourceInputs["containerName"] = args ? args.containerName : undefined;
-            resourceInputs["cosmosdbAccountKey"] = args ? args.cosmosdbAccountKey : undefined;
+            resourceInputs["cosmosdbAccountKey"] = args?.cosmosdbAccountKey ? pulumi.secret(args.cosmosdbAccountKey) : undefined;
             resourceInputs["cosmosdbSqlDatabaseId"] = args ? args.cosmosdbSqlDatabaseId : undefined;
             resourceInputs["documentId"] = args ? args.documentId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -161,6 +161,8 @@ export class OutputCosmosdb extends pulumi.CustomResource {
             resourceInputs["streamAnalyticsJobId"] = args ? args.streamAnalyticsJobId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["cosmosdbAccountKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(OutputCosmosdb.__pulumiType, name, resourceInputs, opts);
     }
 }

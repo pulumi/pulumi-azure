@@ -120,6 +120,13 @@ func NewNamespaceDisasterRecoveryConfig(ctx *pulumi.Context,
 	if args.PrimaryNamespaceId == nil {
 		return nil, errors.New("invalid value for required argument 'PrimaryNamespaceId'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"defaultPrimaryKey",
+		"defaultSecondaryKey",
+		"primaryConnectionStringAlias",
+		"secondaryConnectionStringAlias",
+	})
+	opts = append(opts, secrets)
 	var resource NamespaceDisasterRecoveryConfig
 	err := ctx.RegisterResource("azure:servicebus/namespaceDisasterRecoveryConfig:NamespaceDisasterRecoveryConfig", name, args, &resource, opts...)
 	if err != nil {

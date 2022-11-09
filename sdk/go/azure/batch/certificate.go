@@ -141,6 +141,17 @@ func NewCertificate(ctx *pulumi.Context,
 	if args.ThumbprintAlgorithm == nil {
 		return nil, errors.New("invalid value for required argument 'ThumbprintAlgorithm'")
 	}
+	if args.Certificate != nil {
+		args.Certificate = pulumi.ToSecret(args.Certificate).(pulumi.StringOutput)
+	}
+	if args.Password != nil {
+		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"certificate",
+		"password",
+	})
+	opts = append(opts, secrets)
 	var resource Certificate
 	err := ctx.RegisterResource("azure:batch/certificate:Certificate", name, args, &resource, opts...)
 	if err != nil {

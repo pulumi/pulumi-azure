@@ -70,6 +70,17 @@ func NewSourceControlToken(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	if args.Token != nil {
+		args.Token = pulumi.ToSecret(args.Token).(pulumi.StringOutput)
+	}
+	if args.TokenSecret != nil {
+		args.TokenSecret = pulumi.ToSecret(args.TokenSecret).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"token",
+		"tokenSecret",
+	})
+	opts = append(opts, secrets)
 	var resource SourceControlToken
 	err := ctx.RegisterResource("azure:appservice/sourceControlToken:SourceControlToken", name, args, &resource, opts...)
 	if err != nil {

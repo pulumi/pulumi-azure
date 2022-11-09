@@ -12,54 +12,6 @@ namespace Pulumi.Azure.Kusto
     /// <summary>
     /// Manages a Managed Private Endpoint for a Kusto Cluster.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleCluster = new Azure.Kusto.Cluster("exampleCluster", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
-    ///         {
-    ///             Name = "Dev(No SLA)_Standard_D11_v2",
-    ///             Capacity = 1,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         AccountTier = "Standard",
-    ///         AccountReplicationType = "LRS",
-    ///     });
-    /// 
-    ///     var exampleClusterManagedPrivateEndpoint = new Azure.Kusto.ClusterManagedPrivateEndpoint("exampleClusterManagedPrivateEndpoint", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         ClusterName = exampleCluster.Name,
-    ///         PrivateLinkResourceId = exampleAccount.Id,
-    ///         PrivateLinkResourceRegion = exampleAccount.Location,
-    ///         GroupId = "blob",
-    ///         RequestMessage = "Please Approve",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Managed Private Endpoint for a Kusto Cluster can be imported using the `resource id`, e.g.

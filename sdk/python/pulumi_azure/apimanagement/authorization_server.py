@@ -802,7 +802,7 @@ class AuthorizationServer(pulumi.CustomResource):
             if client_registration_endpoint is None and not opts.urn:
                 raise TypeError("Missing required property 'client_registration_endpoint'")
             __props__.__dict__["client_registration_endpoint"] = client_registration_endpoint
-            __props__.__dict__["client_secret"] = client_secret
+            __props__.__dict__["client_secret"] = None if client_secret is None else pulumi.Output.secret(client_secret)
             __props__.__dict__["default_scope"] = default_scope
             __props__.__dict__["description"] = description
             if display_name is None and not opts.urn:
@@ -815,11 +815,13 @@ class AuthorizationServer(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["resource_owner_password"] = resource_owner_password
+            __props__.__dict__["resource_owner_password"] = None if resource_owner_password is None else pulumi.Output.secret(resource_owner_password)
             __props__.__dict__["resource_owner_username"] = resource_owner_username
             __props__.__dict__["support_state"] = support_state
             __props__.__dict__["token_body_parameters"] = token_body_parameters
             __props__.__dict__["token_endpoint"] = token_endpoint
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["clientSecret", "resourceOwnerPassword"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(AuthorizationServer, __self__).__init__(
             'azure:apimanagement/authorizationServer:AuthorizationServer',
             resource_name,

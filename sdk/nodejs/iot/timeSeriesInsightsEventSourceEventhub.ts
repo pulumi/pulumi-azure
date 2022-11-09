@@ -201,12 +201,14 @@ export class TimeSeriesInsightsEventSourceEventhub extends pulumi.CustomResource
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["sharedAccessKey"] = args ? args.sharedAccessKey : undefined;
+            resourceInputs["sharedAccessKey"] = args?.sharedAccessKey ? pulumi.secret(args.sharedAccessKey) : undefined;
             resourceInputs["sharedAccessKeyName"] = args ? args.sharedAccessKeyName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timestampPropertyName"] = args ? args.timestampPropertyName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["sharedAccessKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(TimeSeriesInsightsEventSourceEventhub.__pulumiType, name, resourceInputs, opts);
     }
 }

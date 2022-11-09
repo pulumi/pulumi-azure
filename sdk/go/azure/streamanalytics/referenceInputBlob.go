@@ -152,6 +152,13 @@ func NewReferenceInputBlob(ctx *pulumi.Context,
 	if args.TimeFormat == nil {
 		return nil, errors.New("invalid value for required argument 'TimeFormat'")
 	}
+	if args.StorageAccountKey != nil {
+		args.StorageAccountKey = pulumi.ToSecret(args.StorageAccountKey).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"storageAccountKey",
+	})
+	opts = append(opts, secrets)
 	var resource ReferenceInputBlob
 	err := ctx.RegisterResource("azure:streamanalytics/referenceInputBlob:ReferenceInputBlob", name, args, &resource, opts...)
 	if err != nil {

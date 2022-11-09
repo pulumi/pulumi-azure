@@ -308,6 +308,10 @@ public class Topic extends com.pulumi.resources.CustomResource {
             .aliases(List.of(
                 Output.of(Alias.builder().type("azure:eventhub/eventGridTopic:EventGridTopic").build())
             ))
+            .additionalSecretOutputs(List.of(
+                "primaryAccessKey",
+                "secondaryAccessKey"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

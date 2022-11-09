@@ -442,9 +442,11 @@ class Script(pulumi.CustomResource):
             __props__.__dict__["database_id"] = database_id
             __props__.__dict__["force_an_update_when_value_changed"] = force_an_update_when_value_changed
             __props__.__dict__["name"] = name
-            __props__.__dict__["sas_token"] = sas_token
-            __props__.__dict__["script_content"] = script_content
+            __props__.__dict__["sas_token"] = None if sas_token is None else pulumi.Output.secret(sas_token)
+            __props__.__dict__["script_content"] = None if script_content is None else pulumi.Output.secret(script_content)
             __props__.__dict__["url"] = url
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["sasToken", "scriptContent"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Script, __self__).__init__(
             'azure:kusto/script:Script',
             resource_name,

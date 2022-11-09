@@ -120,10 +120,12 @@ export class JobCredential extends pulumi.CustomResource {
             }
             resourceInputs["jobAgentId"] = args ? args.jobAgentId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["password"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(JobCredential.__pulumiType, name, resourceInputs, opts);
     }
 }

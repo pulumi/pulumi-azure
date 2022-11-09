@@ -209,20 +209,22 @@ export class AuthorizationServer extends pulumi.CustomResource {
             resourceInputs["clientAuthenticationMethods"] = args ? args.clientAuthenticationMethods : undefined;
             resourceInputs["clientId"] = args ? args.clientId : undefined;
             resourceInputs["clientRegistrationEndpoint"] = args ? args.clientRegistrationEndpoint : undefined;
-            resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
+            resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
             resourceInputs["defaultScope"] = args ? args.defaultScope : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["grantTypes"] = args ? args.grantTypes : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceOwnerPassword"] = args ? args.resourceOwnerPassword : undefined;
+            resourceInputs["resourceOwnerPassword"] = args?.resourceOwnerPassword ? pulumi.secret(args.resourceOwnerPassword) : undefined;
             resourceInputs["resourceOwnerUsername"] = args ? args.resourceOwnerUsername : undefined;
             resourceInputs["supportState"] = args ? args.supportState : undefined;
             resourceInputs["tokenBodyParameters"] = args ? args.tokenBodyParameters : undefined;
             resourceInputs["tokenEndpoint"] = args ? args.tokenEndpoint : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["clientSecret", "resourceOwnerPassword"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(AuthorizationServer.__pulumiType, name, resourceInputs, opts);
     }
 }

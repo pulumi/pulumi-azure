@@ -14,50 +14,6 @@ namespace Pulumi.Azure.Bot
     /// 
     /// &gt; **Note** A bot can only have a single Facebook Channel associated with it.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleChannelsRegistration = new Azure.Bot.ChannelsRegistration("exampleChannelsRegistration", new()
-    ///     {
-    ///         Location = "global",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = "F0",
-    ///         MicrosoftAppId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
-    ///     });
-    /// 
-    ///     var exampleChannelFacebook = new Azure.Bot.ChannelFacebook("exampleChannelFacebook", new()
-    ///     {
-    ///         BotName = exampleChannelsRegistration.Name,
-    ///         Location = exampleChannelsRegistration.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         FacebookApplicationId = "563490254873576",
-    ///         FacebookApplicationSecret = "8976d2536445ad5b976dee8437b9beb0",
-    ///         Pages = new[]
-    ///         {
-    ///             new Azure.Bot.Inputs.ChannelFacebookPageArgs
-    ///             {
-    ///                 Id = "876248795081953",
-    ///                 AccessToken = "CGGCec3UAFPMBAKwK3Ft8SEpO8ZCuvpNBI5DClaJCDfqJj2BgEHCKxcY0FDarmUQap6XxpZC9GWCW4nZCzjcKosAZAP7SO44X8Q8gAntbDIXgYUBGp9xtS8wUkwgKPobUePcOOVFkvClxvYZByuiQxoTiK9fQ9jZCPEorbmZCsKDZAx4VLnrNwCTZAPUwXxO61gfq4ZD",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// The Facebook Integration for a Bot Channel can be imported using the `resource id`, e.g.
@@ -128,6 +84,10 @@ namespace Pulumi.Azure.Bot
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "facebookApplicationSecret",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -163,11 +123,21 @@ namespace Pulumi.Azure.Bot
         [Input("facebookApplicationId", required: true)]
         public Input<string> FacebookApplicationId { get; set; } = null!;
 
+        [Input("facebookApplicationSecret", required: true)]
+        private Input<string>? _facebookApplicationSecret;
+
         /// <summary>
         /// The Facebook Application Secret for the Facebook Channel.
         /// </summary>
-        [Input("facebookApplicationSecret", required: true)]
-        public Input<string> FacebookApplicationSecret { get; set; } = null!;
+        public Input<string>? FacebookApplicationSecret
+        {
+            get => _facebookApplicationSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _facebookApplicationSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -213,11 +183,21 @@ namespace Pulumi.Azure.Bot
         [Input("facebookApplicationId")]
         public Input<string>? FacebookApplicationId { get; set; }
 
+        [Input("facebookApplicationSecret")]
+        private Input<string>? _facebookApplicationSecret;
+
         /// <summary>
         /// The Facebook Application Secret for the Facebook Channel.
         /// </summary>
-        [Input("facebookApplicationSecret")]
-        public Input<string>? FacebookApplicationSecret { get; set; }
+        public Input<string>? FacebookApplicationSecret
+        {
+            get => _facebookApplicationSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _facebookApplicationSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

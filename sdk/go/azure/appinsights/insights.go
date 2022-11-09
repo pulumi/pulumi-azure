@@ -162,6 +162,11 @@ func NewInsights(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"connectionString",
+		"instrumentationKey",
+	})
+	opts = append(opts, secrets)
 	var resource Insights
 	err := ctx.RegisterResource("azure:appinsights/insights:Insights", name, args, &resource, opts...)
 	if err != nil {

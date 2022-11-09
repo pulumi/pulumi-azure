@@ -145,6 +145,13 @@ func NewVirtualMachineScaleSetExtension(ctx *pulumi.Context,
 	if args.VirtualMachineScaleSetId == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualMachineScaleSetId'")
 	}
+	if args.ProtectedSettings != nil {
+		args.ProtectedSettings = pulumi.ToSecret(args.ProtectedSettings).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"protectedSettings",
+	})
+	opts = append(opts, secrets)
 	var resource VirtualMachineScaleSetExtension
 	err := ctx.RegisterResource("azure:compute/virtualMachineScaleSetExtension:VirtualMachineScaleSetExtension", name, args, &resource, opts...)
 	if err != nil {

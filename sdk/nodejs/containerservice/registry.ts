@@ -293,6 +293,8 @@ export class Registry extends pulumi.CustomResource {
             resourceInputs["loginServer"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["adminPassword"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Registry.__pulumiType, name, resourceInputs, opts);
     }
 }

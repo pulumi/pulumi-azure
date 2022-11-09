@@ -269,6 +269,14 @@ public class NamespaceAuthorizationRule extends com.pulumi.resources.CustomResou
             .aliases(List.of(
                 Output.of(Alias.builder().type("azure:eventhub/namespaceAuthorizationRule:NamespaceAuthorizationRule").build())
             ))
+            .additionalSecretOutputs(List.of(
+                "primaryConnectionString",
+                "primaryConnectionStringAlias",
+                "primaryKey",
+                "secondaryConnectionString",
+                "secondaryConnectionStringAlias",
+                "secondaryKey"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

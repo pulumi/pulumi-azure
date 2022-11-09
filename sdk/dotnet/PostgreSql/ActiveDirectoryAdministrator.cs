@@ -12,45 +12,6 @@ namespace Pulumi.Azure.PostgreSql
     /// <summary>
     /// Allows you to set a user or group as the AD administrator for an PostgreSQL server in Azure
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleServer = new Azure.PostgreSql.Server("exampleServer", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Version = "9.6",
-    ///         AdministratorLogin = "4dm1n157r470r",
-    ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
-    ///         SkuName = "GP_Gen5_2",
-    ///         SslEnforcementEnabled = true,
-    ///     });
-    /// 
-    ///     var exampleActiveDirectoryAdministrator = new Azure.PostgreSql.ActiveDirectoryAdministrator("exampleActiveDirectoryAdministrator", new()
-    ///     {
-    ///         ServerName = exampleServer.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Login = "sqladmin",
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// A PostgreSQL Active Directory Administrator can be imported using the `resource id`, e.g.

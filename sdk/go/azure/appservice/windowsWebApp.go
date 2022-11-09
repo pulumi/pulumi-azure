@@ -150,6 +150,10 @@ func NewWindowsWebApp(ctx *pulumi.Context,
 	if args.SiteConfig == nil {
 		return nil, errors.New("invalid value for required argument 'SiteConfig'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"customDomainVerificationId",
+	})
+	opts = append(opts, secrets)
 	var resource WindowsWebApp
 	err := ctx.RegisterResource("azure:appservice/windowsWebApp:WindowsWebApp", name, args, &resource, opts...)
 	if err != nil {

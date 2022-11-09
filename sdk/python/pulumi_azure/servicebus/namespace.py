@@ -640,6 +640,8 @@ class Namespace(pulumi.CustomResource):
             __props__.__dict__["default_secondary_key"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:eventhub/namespace:Namespace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["defaultPrimaryConnectionString", "defaultPrimaryKey", "defaultSecondaryConnectionString", "defaultSecondaryKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Namespace, __self__).__init__(
             'azure:servicebus/namespace:Namespace',
             resource_name,

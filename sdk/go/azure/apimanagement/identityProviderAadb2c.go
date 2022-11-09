@@ -150,6 +150,13 @@ func NewIdentityProviderAadb2c(ctx *pulumi.Context,
 	if args.SignupPolicy == nil {
 		return nil, errors.New("invalid value for required argument 'SignupPolicy'")
 	}
+	if args.ClientSecret != nil {
+		args.ClientSecret = pulumi.ToSecret(args.ClientSecret).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"clientSecret",
+	})
+	opts = append(opts, secrets)
 	var resource IdentityProviderAadb2c
 	err := ctx.RegisterResource("azure:apimanagement/identityProviderAadb2c:IdentityProviderAadb2c", name, args, &resource, opts...)
 	if err != nil {

@@ -12,11 +12,21 @@ namespace Pulumi.Azure.ApiManagement.Inputs
 
     public sealed class LoggerApplicationInsightsGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("instrumentationKey", required: true)]
+        private Input<string>? _instrumentationKey;
+
         /// <summary>
         /// The instrumentation key used to push data to Application Insights.
         /// </summary>
-        [Input("instrumentationKey", required: true)]
-        public Input<string> InstrumentationKey { get; set; } = null!;
+        public Input<string>? InstrumentationKey
+        {
+            get => _instrumentationKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _instrumentationKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public LoggerApplicationInsightsGetArgs()
         {

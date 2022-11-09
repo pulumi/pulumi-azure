@@ -233,31 +233,6 @@ class ChannelFacebook(pulumi.CustomResource):
 
         > **Note** A bot can only have a single Facebook Channel associated with it.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_channels_registration = azure.bot.ChannelsRegistration("exampleChannelsRegistration",
-            location="global",
-            resource_group_name=example_resource_group.name,
-            sku="F0",
-            microsoft_app_id=current.client_id)
-        example_channel_facebook = azure.bot.ChannelFacebook("exampleChannelFacebook",
-            bot_name=example_channels_registration.name,
-            location=example_channels_registration.location,
-            resource_group_name=example_resource_group.name,
-            facebook_application_id="563490254873576",
-            facebook_application_secret="8976d2536445ad5b976dee8437b9beb0",
-            pages=[azure.bot.ChannelFacebookPageArgs(
-                id="876248795081953",
-                access_token="CGGCec3UAFPMBAKwK3Ft8SEpO8ZCuvpNBI5DClaJCDfqJj2BgEHCKxcY0FDarmUQap6XxpZC9GWCW4nZCzjcKosAZAP7SO44X8Q8gAntbDIXgYUBGp9xtS8wUkwgKPobUePcOOVFkvClxvYZByuiQxoTiK9fQ9jZCPEorbmZCsKDZAx4VLnrNwCTZAPUwXxO61gfq4ZD",
-            )])
-        ```
-
         ## Import
 
         The Facebook Integration for a Bot Channel can be imported using the `resource id`, e.g.
@@ -285,31 +260,6 @@ class ChannelFacebook(pulumi.CustomResource):
         Manages a Facebook integration for a Bot Channel
 
         > **Note** A bot can only have a single Facebook Channel associated with it.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_channels_registration = azure.bot.ChannelsRegistration("exampleChannelsRegistration",
-            location="global",
-            resource_group_name=example_resource_group.name,
-            sku="F0",
-            microsoft_app_id=current.client_id)
-        example_channel_facebook = azure.bot.ChannelFacebook("exampleChannelFacebook",
-            bot_name=example_channels_registration.name,
-            location=example_channels_registration.location,
-            resource_group_name=example_resource_group.name,
-            facebook_application_id="563490254873576",
-            facebook_application_secret="8976d2536445ad5b976dee8437b9beb0",
-            pages=[azure.bot.ChannelFacebookPageArgs(
-                id="876248795081953",
-                access_token="CGGCec3UAFPMBAKwK3Ft8SEpO8ZCuvpNBI5DClaJCDfqJj2BgEHCKxcY0FDarmUQap6XxpZC9GWCW4nZCzjcKosAZAP7SO44X8Q8gAntbDIXgYUBGp9xtS8wUkwgKPobUePcOOVFkvClxvYZByuiQxoTiK9fQ9jZCPEorbmZCsKDZAx4VLnrNwCTZAPUwXxO61gfq4ZD",
-            )])
-        ```
 
         ## Import
 
@@ -357,7 +307,7 @@ class ChannelFacebook(pulumi.CustomResource):
             __props__.__dict__["facebook_application_id"] = facebook_application_id
             if facebook_application_secret is None and not opts.urn:
                 raise TypeError("Missing required property 'facebook_application_secret'")
-            __props__.__dict__["facebook_application_secret"] = facebook_application_secret
+            __props__.__dict__["facebook_application_secret"] = None if facebook_application_secret is None else pulumi.Output.secret(facebook_application_secret)
             __props__.__dict__["location"] = location
             if pages is None and not opts.urn:
                 raise TypeError("Missing required property 'pages'")
@@ -365,6 +315,8 @@ class ChannelFacebook(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["facebookApplicationSecret"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ChannelFacebook, __self__).__init__(
             'azure:bot/channelFacebook:ChannelFacebook',
             resource_name,

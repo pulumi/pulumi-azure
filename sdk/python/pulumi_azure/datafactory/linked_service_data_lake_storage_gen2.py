@@ -467,25 +467,6 @@ class LinkedServiceDataLakeStorageGen2(pulumi.CustomResource):
         """
         Manages a Linked Service (connection) between Data Lake Storage Gen2 and Azure Data Factory.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        current = azure.core.get_client_config()
-        example_linked_service_data_lake_storage_gen2 = azure.datafactory.LinkedServiceDataLakeStorageGen2("exampleLinkedServiceDataLakeStorageGen2",
-            data_factory_id=example_factory.id,
-            service_principal_id=current.client_id,
-            service_principal_key="exampleKey",
-            tenant="11111111-1111-1111-1111-111111111111",
-            url="https://datalakestoragegen2")
-        ```
-
         ## Import
 
         Data Factory Data Lake Storage Gen2 Linked Services can be imported using the `resource id`, e.g.
@@ -519,25 +500,6 @@ class LinkedServiceDataLakeStorageGen2(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between Data Lake Storage Gen2 and Azure Data Factory.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        current = azure.core.get_client_config()
-        example_linked_service_data_lake_storage_gen2 = azure.datafactory.LinkedServiceDataLakeStorageGen2("exampleLinkedServiceDataLakeStorageGen2",
-            data_factory_id=example_factory.id,
-            service_principal_id=current.client_id,
-            service_principal_key="exampleKey",
-            tenant="11111111-1111-1111-1111-111111111111",
-            url="https://datalakestoragegen2")
-        ```
 
         ## Import
 

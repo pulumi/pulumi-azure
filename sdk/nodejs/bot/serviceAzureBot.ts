@@ -7,43 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Bot Service.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     applicationType: "web",
- * });
- * const exampleApiKey = new azure.appinsights.ApiKey("exampleApiKey", {
- *     applicationInsightsId: exampleInsights.id,
- *     readPermissions: [
- *         "aggregate",
- *         "api",
- *         "draft",
- *         "extendqueries",
- *         "search",
- *     ],
- * });
- * const current = azure.core.getClientConfig({});
- * const exampleServiceAzureBot = new azure.bot.ServiceAzureBot("exampleServiceAzureBot", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: "global",
- *     microsoftAppId: current.then(current => current.clientId),
- *     sku: "F0",
- *     endpoint: "https://example.com",
- *     developerAppInsightsApiKey: exampleApiKey.apiKey,
- *     developerAppInsightsApplicationId: exampleInsights.appId,
- *     tags: {
- *         environment: "test",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Azure Bot Services can be imported using the `resource id`, e.g.
@@ -190,14 +153,14 @@ export class ServiceAzureBot extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["developerAppInsightsApiKey"] = args ? args.developerAppInsightsApiKey : undefined;
+            resourceInputs["developerAppInsightsApiKey"] = args?.developerAppInsightsApiKey ? pulumi.secret(args.developerAppInsightsApiKey) : undefined;
             resourceInputs["developerAppInsightsApplicationId"] = args ? args.developerAppInsightsApplicationId : undefined;
             resourceInputs["developerAppInsightsKey"] = args ? args.developerAppInsightsKey : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["endpoint"] = args ? args.endpoint : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["luisAppIds"] = args ? args.luisAppIds : undefined;
-            resourceInputs["luisKey"] = args ? args.luisKey : undefined;
+            resourceInputs["luisKey"] = args?.luisKey ? pulumi.secret(args.luisKey) : undefined;
             resourceInputs["microsoftAppId"] = args ? args.microsoftAppId : undefined;
             resourceInputs["microsoftAppMsiId"] = args ? args.microsoftAppMsiId : undefined;
             resourceInputs["microsoftAppTenantId"] = args ? args.microsoftAppTenantId : undefined;
@@ -209,6 +172,8 @@ export class ServiceAzureBot extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["developerAppInsightsApiKey", "luisKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ServiceAzureBot.__pulumiType, name, resourceInputs, opts);
     }
 }

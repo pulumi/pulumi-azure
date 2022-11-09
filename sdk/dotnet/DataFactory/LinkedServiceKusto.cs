@@ -189,6 +189,10 @@ namespace Pulumi.Azure.DataFactory
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "servicePrincipalKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -291,11 +295,21 @@ namespace Pulumi.Azure.DataFactory
         [Input("servicePrincipalId")]
         public Input<string>? ServicePrincipalId { get; set; }
 
+        [Input("servicePrincipalKey")]
+        private Input<string>? _servicePrincipalKey;
+
         /// <summary>
         /// The service principal key in which to authenticate against the Kusto Database.
         /// </summary>
-        [Input("servicePrincipalKey")]
-        public Input<string>? ServicePrincipalKey { get; set; }
+        public Input<string>? ServicePrincipalKey
+        {
+            get => _servicePrincipalKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _servicePrincipalKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The service principal tenant id or name in which to authenticate against the Kusto Database.
@@ -396,11 +410,21 @@ namespace Pulumi.Azure.DataFactory
         [Input("servicePrincipalId")]
         public Input<string>? ServicePrincipalId { get; set; }
 
+        [Input("servicePrincipalKey")]
+        private Input<string>? _servicePrincipalKey;
+
         /// <summary>
         /// The service principal key in which to authenticate against the Kusto Database.
         /// </summary>
-        [Input("servicePrincipalKey")]
-        public Input<string>? ServicePrincipalKey { get; set; }
+        public Input<string>? ServicePrincipalKey
+        {
+            get => _servicePrincipalKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _servicePrincipalKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The service principal tenant id or name in which to authenticate against the Kusto Database.

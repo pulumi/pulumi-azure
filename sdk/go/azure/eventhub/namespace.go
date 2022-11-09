@@ -116,6 +116,13 @@ func NewNamespace(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"defaultPrimaryConnectionString",
+		"defaultPrimaryKey",
+		"defaultSecondaryConnectionString",
+		"defaultSecondaryKey",
+	})
+	opts = append(opts, secrets)
 	var resource Namespace
 	err := ctx.RegisterResource("azure:eventhub/namespace:Namespace", name, args, &resource, opts...)
 	if err != nil {

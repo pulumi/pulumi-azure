@@ -87,11 +87,13 @@ export class SourceControlToken extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["token"] = args ? args.token : undefined;
-            resourceInputs["tokenSecret"] = args ? args.tokenSecret : undefined;
+            resourceInputs["token"] = args?.token ? pulumi.secret(args.token) : undefined;
+            resourceInputs["tokenSecret"] = args?.tokenSecret ? pulumi.secret(args.tokenSecret) : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["token", "tokenSecret"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(SourceControlToken.__pulumiType, name, resourceInputs, opts);
     }
 }

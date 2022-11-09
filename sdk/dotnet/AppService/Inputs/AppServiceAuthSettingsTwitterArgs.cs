@@ -16,7 +16,16 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string> ConsumerKey { get; set; } = null!;
 
         [Input("consumerSecret", required: true)]
-        public Input<string> ConsumerSecret { get; set; } = null!;
+        private Input<string>? _consumerSecret;
+        public Input<string>? ConsumerSecret
+        {
+            get => _consumerSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _consumerSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public AppServiceAuthSettingsTwitterArgs()
         {

@@ -176,6 +176,10 @@ namespace Pulumi.Azure.Iot
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "sharedAccessKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -235,11 +239,21 @@ namespace Pulumi.Azure.Iot
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("sharedAccessKey", required: true)]
+        private Input<string>? _sharedAccessKey;
+
         /// <summary>
         /// Specifies the value of the Shared Access Policy key that grants the Time Series Insights service read access to the IotHub.
         /// </summary>
-        [Input("sharedAccessKey", required: true)]
-        public Input<string> SharedAccessKey { get; set; } = null!;
+        public Input<string>? SharedAccessKey
+        {
+            get => _sharedAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sharedAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies the name of the Shared Access key that grants the Event Source access to the IotHub.
@@ -309,11 +323,21 @@ namespace Pulumi.Azure.Iot
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("sharedAccessKey")]
+        private Input<string>? _sharedAccessKey;
+
         /// <summary>
         /// Specifies the value of the Shared Access Policy key that grants the Time Series Insights service read access to the IotHub.
         /// </summary>
-        [Input("sharedAccessKey")]
-        public Input<string>? SharedAccessKey { get; set; }
+        public Input<string>? SharedAccessKey
+        {
+            get => _sharedAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sharedAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies the name of the Shared Access key that grants the Event Source access to the IotHub.

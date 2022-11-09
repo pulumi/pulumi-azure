@@ -11,33 +11,6 @@ import * as utilities from "../utilities";
  *
  * > **Note** A bot can only have a single Facebook Channel associated with it.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleChannelsRegistration = new azure.bot.ChannelsRegistration("exampleChannelsRegistration", {
- *     location: "global",
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "F0",
- *     microsoftAppId: current.then(current => current.clientId),
- * });
- * const exampleChannelFacebook = new azure.bot.ChannelFacebook("exampleChannelFacebook", {
- *     botName: exampleChannelsRegistration.name,
- *     location: exampleChannelsRegistration.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     facebookApplicationId: "563490254873576",
- *     facebookApplicationSecret: "8976d2536445ad5b976dee8437b9beb0",
- *     pages: [{
- *         id: "876248795081953",
- *         accessToken: "CGGCec3UAFPMBAKwK3Ft8SEpO8ZCuvpNBI5DClaJCDfqJj2BgEHCKxcY0FDarmUQap6XxpZC9GWCW4nZCzjcKosAZAP7SO44X8Q8gAntbDIXgYUBGp9xtS8wUkwgKPobUePcOOVFkvClxvYZByuiQxoTiK9fQ9jZCPEorbmZCsKDZAx4VLnrNwCTZAPUwXxO61gfq4ZD",
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * The Facebook Integration for a Bot Channel can be imported using the `resource id`, e.g.
@@ -137,12 +110,14 @@ export class ChannelFacebook extends pulumi.CustomResource {
             }
             resourceInputs["botName"] = args ? args.botName : undefined;
             resourceInputs["facebookApplicationId"] = args ? args.facebookApplicationId : undefined;
-            resourceInputs["facebookApplicationSecret"] = args ? args.facebookApplicationSecret : undefined;
+            resourceInputs["facebookApplicationSecret"] = args?.facebookApplicationSecret ? pulumi.secret(args.facebookApplicationSecret) : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["pages"] = args ? args.pages : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["facebookApplicationSecret"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ChannelFacebook.__pulumiType, name, resourceInputs, opts);
     }
 }

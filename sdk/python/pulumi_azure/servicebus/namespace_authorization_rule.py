@@ -415,6 +415,8 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             __props__.__dict__["secondary_key"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:eventhub/namespaceAuthorizationRule:NamespaceAuthorizationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["primaryConnectionString", "primaryConnectionStringAlias", "primaryKey", "secondaryConnectionString", "secondaryConnectionStringAlias", "secondaryKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(NamespaceAuthorizationRule, __self__).__init__(
             'azure:servicebus/namespaceAuthorizationRule:NamespaceAuthorizationRule',
             resource_name,

@@ -12,46 +12,6 @@ namespace Pulumi.Azure.Kusto
     /// <summary>
     /// Manages a Kusto Cluster Principal Assignment.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleCluster = new Azure.Kusto.Cluster("exampleCluster", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
-    ///         {
-    ///             Name = "Standard_D13_v2",
-    ///             Capacity = 2,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleClusterPrincipalAssignment = new Azure.Kusto.ClusterPrincipalAssignment("exampleClusterPrincipalAssignment", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         ClusterName = exampleCluster.Name,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         PrincipalId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
-    ///         PrincipalType = "App",
-    ///         Role = "AllDatabasesAdmin",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Data Explorer Cluster Principal Assignments can be imported using the `resource id`, e.g.

@@ -236,6 +236,10 @@ namespace Pulumi.Azure.Compute
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "userDataBase64",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -415,11 +419,21 @@ namespace Pulumi.Azure.Compute
         [Input("terminationNotification")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetTerminationNotificationArgs>? TerminationNotification { get; set; }
 
+        [Input("userDataBase64")]
+        private Input<string>? _userDataBase64;
+
         /// <summary>
         /// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         /// </summary>
-        [Input("userDataBase64")]
-        public Input<string>? UserDataBase64 { get; set; }
+        public Input<string>? UserDataBase64
+        {
+            get => _userDataBase64;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _userDataBase64 = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("zoneBalance")]
         public Input<bool>? ZoneBalance { get; set; }
@@ -606,11 +620,21 @@ namespace Pulumi.Azure.Compute
         [Input("uniqueId")]
         public Input<string>? UniqueId { get; set; }
 
+        [Input("userDataBase64")]
+        private Input<string>? _userDataBase64;
+
         /// <summary>
         /// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         /// </summary>
-        [Input("userDataBase64")]
-        public Input<string>? UserDataBase64 { get; set; }
+        public Input<string>? UserDataBase64
+        {
+            get => _userDataBase64;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _userDataBase64 = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("zoneBalance")]
         public Input<bool>? ZoneBalance { get; set; }

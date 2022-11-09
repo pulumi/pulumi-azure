@@ -213,6 +213,13 @@ func NewExpressRouteCircuitPeering(ctx *pulumi.Context,
 	if args.VlanId == nil {
 		return nil, errors.New("invalid value for required argument 'VlanId'")
 	}
+	if args.SharedKey != nil {
+		args.SharedKey = pulumi.ToSecret(args.SharedKey).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"sharedKey",
+	})
+	opts = append(opts, secrets)
 	var resource ExpressRouteCircuitPeering
 	err := ctx.RegisterResource("azure:network/expressRouteCircuitPeering:ExpressRouteCircuitPeering", name, args, &resource, opts...)
 	if err != nil {

@@ -761,6 +761,8 @@ class Insights(pulumi.CustomResource):
             __props__.__dict__["app_id"] = None
             __props__.__dict__["connection_string"] = None
             __props__.__dict__["instrumentation_key"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["connectionString", "instrumentationKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Insights, __self__).__init__(
             'azure:appinsights/insights:Insights',
             resource_name,

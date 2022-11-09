@@ -72,85 +72,6 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### With SAS URI And SAS Token
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.datafactory.Factory;
- * import com.pulumi.azure.datafactory.FactoryArgs;
- * import com.pulumi.azure.keyvault.KeyVault;
- * import com.pulumi.azure.keyvault.KeyVaultArgs;
- * import com.pulumi.azure.datafactory.LinkedServiceKeyVault;
- * import com.pulumi.azure.datafactory.LinkedServiceKeyVaultArgs;
- * import com.pulumi.azure.datafactory.LinkedServiceAzureBlobStorage;
- * import com.pulumi.azure.datafactory.LinkedServiceAzureBlobStorageArgs;
- * import com.pulumi.azure.datafactory.inputs.LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs;
- * import com.pulumi.azure.datafactory.inputs.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         final var current = CoreFunctions.getClientConfig();
- * 
- *         var testFactory = new Factory(&#34;testFactory&#34;, FactoryArgs.builder()        
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .build());
- * 
- *         var testKeyVault = new KeyVault(&#34;testKeyVault&#34;, KeyVaultArgs.builder()        
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;standard&#34;)
- *             .build());
- * 
- *         var testLinkedServiceKeyVault = new LinkedServiceKeyVault(&#34;testLinkedServiceKeyVault&#34;, LinkedServiceKeyVaultArgs.builder()        
- *             .dataFactoryId(testFactory.id())
- *             .keyVaultId(testKeyVault.id())
- *             .build());
- * 
- *         var testLinkedServiceAzureBlobStorage = new LinkedServiceAzureBlobStorage(&#34;testLinkedServiceAzureBlobStorage&#34;, LinkedServiceAzureBlobStorageArgs.builder()        
- *             .dataFactoryId(testFactory.id())
- *             .sasUri(&#34;https://example.blob.core.windows.net&#34;)
- *             .keyVaultSasToken(LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs.builder()
- *                 .linkedServiceName(testLinkedServiceKeyVault.name())
- *                 .secretName(&#34;secret&#34;)
- *                 .build())
- *             .build());
- * 
- *         var testDatafactory_linkedServiceAzureBlobStorageLinkedServiceAzureBlobStorage = new LinkedServiceAzureBlobStorage(&#34;testDatafactory/linkedServiceAzureBlobStorageLinkedServiceAzureBlobStorage&#34;, LinkedServiceAzureBlobStorageArgs.builder()        
- *             .dataFactoryId(testFactory.id())
- *             .serviceEndpoint(&#34;https://example.blob.core.windows.net&#34;)
- *             .servicePrincipalId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .tenantId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .servicePrincipalLinkedKeyVaultKey(LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs.builder()
- *                 .linkedServiceName(testLinkedServiceKeyVault.name())
- *                 .secretName(&#34;secret&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 
@@ -434,6 +355,11 @@ public class LinkedServiceAzureBlobStorage extends com.pulumi.resources.CustomRe
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "connectionString",
+                "sasUri",
+                "serviceEndpoint"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -154,9 +154,9 @@ export class Certificate extends pulumi.CustomResource {
                 throw new Error("Missing required property 'thumbprintAlgorithm'");
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["certificate"] = args ? args.certificate : undefined;
+            resourceInputs["certificate"] = args?.certificate ? pulumi.secret(args.certificate) : undefined;
             resourceInputs["format"] = args ? args.format : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["thumbprint"] = args ? args.thumbprint : undefined;
             resourceInputs["thumbprintAlgorithm"] = args ? args.thumbprintAlgorithm : undefined;
@@ -164,6 +164,8 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["publicData"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["certificate", "password"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
 }

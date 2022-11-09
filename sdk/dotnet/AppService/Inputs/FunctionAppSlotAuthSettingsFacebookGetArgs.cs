@@ -18,11 +18,21 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("appId", required: true)]
         public Input<string> AppId { get; set; } = null!;
 
+        [Input("appSecret", required: true)]
+        private Input<string>? _appSecret;
+
         /// <summary>
         /// The App Secret of the Facebook app used for Facebook login.
         /// </summary>
-        [Input("appSecret", required: true)]
-        public Input<string> AppSecret { get; set; } = null!;
+        public Input<string>? AppSecret
+        {
+            get => _appSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _appSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("oauthScopes")]
         private InputList<string>? _oauthScopes;

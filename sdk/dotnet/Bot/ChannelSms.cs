@@ -14,43 +14,6 @@ namespace Pulumi.Azure.Bot
     /// 
     /// &gt; **Note** A bot can only have a single SMS Channel associated with it.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleChannelsRegistration = new Azure.Bot.ChannelsRegistration("exampleChannelsRegistration", new()
-    ///     {
-    ///         Location = "global",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = "F0",
-    ///         MicrosoftAppId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
-    ///     });
-    /// 
-    ///     var exampleChannelSms = new Azure.Bot.ChannelSms("exampleChannelSms", new()
-    ///     {
-    ///         BotName = exampleChannelsRegistration.Name,
-    ///         Location = exampleChannelsRegistration.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         SmsChannelAccountSecurityId = "BG61f7cf5157f439b084e98256409c2815",
-    ///         SmsChannelAuthToken = "jh8980432610052ed4e29565c5e232f",
-    ///         PhoneNumber = "+12313803556",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// The SMS Integration for a Bot Channel can be imported using the `resource id`, e.g.
@@ -121,6 +84,10 @@ namespace Pulumi.Azure.Bot
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "smsChannelAuthToken",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -174,11 +141,21 @@ namespace Pulumi.Azure.Bot
         [Input("smsChannelAccountSecurityId", required: true)]
         public Input<string> SmsChannelAccountSecurityId { get; set; } = null!;
 
+        [Input("smsChannelAuthToken", required: true)]
+        private Input<string>? _smsChannelAuthToken;
+
         /// <summary>
         /// The authorization token for the SMS Channel.
         /// </summary>
-        [Input("smsChannelAuthToken", required: true)]
-        public Input<string> SmsChannelAuthToken { get; set; } = null!;
+        public Input<string>? SmsChannelAuthToken
+        {
+            get => _smsChannelAuthToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _smsChannelAuthToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public ChannelSmsArgs()
         {
@@ -218,11 +195,21 @@ namespace Pulumi.Azure.Bot
         [Input("smsChannelAccountSecurityId")]
         public Input<string>? SmsChannelAccountSecurityId { get; set; }
 
+        [Input("smsChannelAuthToken")]
+        private Input<string>? _smsChannelAuthToken;
+
         /// <summary>
         /// The authorization token for the SMS Channel.
         /// </summary>
-        [Input("smsChannelAuthToken")]
-        public Input<string>? SmsChannelAuthToken { get; set; }
+        public Input<string>? SmsChannelAuthToken
+        {
+            get => _smsChannelAuthToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _smsChannelAuthToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public ChannelSmsState()
         {

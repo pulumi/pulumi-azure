@@ -173,11 +173,11 @@ export class PrivateCloud extends pulumi.CustomResource {
             resourceInputs["managementCluster"] = args ? args.managementCluster : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkSubnetCidr"] = args ? args.networkSubnetCidr : undefined;
-            resourceInputs["nsxtPassword"] = args ? args.nsxtPassword : undefined;
+            resourceInputs["nsxtPassword"] = args?.nsxtPassword ? pulumi.secret(args.nsxtPassword) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["skuName"] = args ? args.skuName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vcenterPassword"] = args ? args.vcenterPassword : undefined;
+            resourceInputs["vcenterPassword"] = args?.vcenterPassword ? pulumi.secret(args.vcenterPassword) : undefined;
             resourceInputs["circuits"] = undefined /*out*/;
             resourceInputs["hcxCloudManagerEndpoint"] = undefined /*out*/;
             resourceInputs["managementSubnetCidr"] = undefined /*out*/;
@@ -189,6 +189,8 @@ export class PrivateCloud extends pulumi.CustomResource {
             resourceInputs["vmotionSubnetCidr"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["nsxtPassword", "vcenterPassword"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(PrivateCloud.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := compute.GetImages(ctx, &compute.GetImagesArgs{
+//			_, err = compute.GetImages(ctx, &compute.GetImagesArgs{
 //				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {

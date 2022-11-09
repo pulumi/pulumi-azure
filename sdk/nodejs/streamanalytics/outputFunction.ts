@@ -164,7 +164,7 @@ export class OutputFunction extends pulumi.CustomResource {
             if ((!args || args.streamAnalyticsJobName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'streamAnalyticsJobName'");
             }
-            resourceInputs["apiKey"] = args ? args.apiKey : undefined;
+            resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
             resourceInputs["batchMaxCount"] = args ? args.batchMaxCount : undefined;
             resourceInputs["batchMaxInBytes"] = args ? args.batchMaxInBytes : undefined;
             resourceInputs["functionApp"] = args ? args.functionApp : undefined;
@@ -174,6 +174,8 @@ export class OutputFunction extends pulumi.CustomResource {
             resourceInputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["apiKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(OutputFunction.__pulumiType, name, resourceInputs, opts);
     }
 }

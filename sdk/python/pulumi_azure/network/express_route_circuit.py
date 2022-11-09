@@ -566,6 +566,8 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["service_key"] = None
             __props__.__dict__["service_provider_provisioning_state"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["serviceKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ExpressRouteCircuit, __self__).__init__(
             'azure:network/expressRouteCircuit:ExpressRouteCircuit',
             resource_name,

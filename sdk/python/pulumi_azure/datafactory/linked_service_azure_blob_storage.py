@@ -614,42 +614,6 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             connection_string=example_account.primary_connection_string)
         ```
-        ### With SAS URI And SAS Token
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        current = azure.core.get_client_config()
-        test_factory = azure.datafactory.Factory("testFactory",
-            location=example.location,
-            resource_group_name=example.name)
-        test_key_vault = azure.keyvault.KeyVault("testKeyVault",
-            location=example.location,
-            resource_group_name=example.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard")
-        test_linked_service_key_vault = azure.datafactory.LinkedServiceKeyVault("testLinkedServiceKeyVault",
-            data_factory_id=test_factory.id,
-            key_vault_id=test_key_vault.id)
-        test_linked_service_azure_blob_storage = azure.datafactory.LinkedServiceAzureBlobStorage("testLinkedServiceAzureBlobStorage",
-            data_factory_id=test_factory.id,
-            sas_uri="https://example.blob.core.windows.net",
-            key_vault_sas_token=azure.datafactory.LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs(
-                linked_service_name=test_linked_service_key_vault.name,
-                secret_name="secret",
-            ))
-        test_datafactory_linked_service_azure_blob_storage_linked_service_azure_blob_storage = azure.datafactory.LinkedServiceAzureBlobStorage("testDatafactory/linkedServiceAzureBlobStorageLinkedServiceAzureBlobStorage",
-            data_factory_id=test_factory.id,
-            service_endpoint="https://example.blob.core.windows.net",
-            service_principal_id="00000000-0000-0000-0000-000000000000",
-            tenant_id="00000000-0000-0000-0000-000000000000",
-            service_principal_linked_key_vault_key=azure.datafactory.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs(
-                linked_service_name=test_linked_service_key_vault.name,
-                secret_name="secret",
-            ))
-        ```
 
         ## Import
 
@@ -704,42 +668,6 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             connection_string=example_account.primary_connection_string)
         ```
-        ### With SAS URI And SAS Token
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        current = azure.core.get_client_config()
-        test_factory = azure.datafactory.Factory("testFactory",
-            location=example.location,
-            resource_group_name=example.name)
-        test_key_vault = azure.keyvault.KeyVault("testKeyVault",
-            location=example.location,
-            resource_group_name=example.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard")
-        test_linked_service_key_vault = azure.datafactory.LinkedServiceKeyVault("testLinkedServiceKeyVault",
-            data_factory_id=test_factory.id,
-            key_vault_id=test_key_vault.id)
-        test_linked_service_azure_blob_storage = azure.datafactory.LinkedServiceAzureBlobStorage("testLinkedServiceAzureBlobStorage",
-            data_factory_id=test_factory.id,
-            sas_uri="https://example.blob.core.windows.net",
-            key_vault_sas_token=azure.datafactory.LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs(
-                linked_service_name=test_linked_service_key_vault.name,
-                secret_name="secret",
-            ))
-        test_datafactory_linked_service_azure_blob_storage_linked_service_azure_blob_storage = azure.datafactory.LinkedServiceAzureBlobStorage("testDatafactory/linkedServiceAzureBlobStorageLinkedServiceAzureBlobStorage",
-            data_factory_id=test_factory.id,
-            service_endpoint="https://example.blob.core.windows.net",
-            service_principal_id="00000000-0000-0000-0000-000000000000",
-            tenant_id="00000000-0000-0000-0000-000000000000",
-            service_principal_linked_key_vault_key=azure.datafactory.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs(
-                linked_service_name=test_linked_service_key_vault.name,
-                secret_name="secret",
-            ))
-        ```
 
         ## Import
 
@@ -792,7 +720,7 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
 
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations
-            __props__.__dict__["connection_string"] = connection_string
+            __props__.__dict__["connection_string"] = None if connection_string is None else pulumi.Output.secret(connection_string)
             if data_factory_id is None and not opts.urn:
                 raise TypeError("Missing required property 'data_factory_id'")
             __props__.__dict__["data_factory_id"] = data_factory_id
@@ -801,14 +729,16 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
             __props__.__dict__["key_vault_sas_token"] = key_vault_sas_token
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
-            __props__.__dict__["sas_uri"] = sas_uri
-            __props__.__dict__["service_endpoint"] = service_endpoint
+            __props__.__dict__["sas_uri"] = None if sas_uri is None else pulumi.Output.secret(sas_uri)
+            __props__.__dict__["service_endpoint"] = None if service_endpoint is None else pulumi.Output.secret(service_endpoint)
             __props__.__dict__["service_principal_id"] = service_principal_id
             __props__.__dict__["service_principal_key"] = service_principal_key
             __props__.__dict__["service_principal_linked_key_vault_key"] = service_principal_linked_key_vault_key
             __props__.__dict__["storage_kind"] = storage_kind
             __props__.__dict__["tenant_id"] = tenant_id
             __props__.__dict__["use_managed_identity"] = use_managed_identity
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["connectionString", "sasUri", "serviceEndpoint"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(LinkedServiceAzureBlobStorage, __self__).__init__(
             'azure:datafactory/linkedServiceAzureBlobStorage:LinkedServiceAzureBlobStorage',
             resource_name,

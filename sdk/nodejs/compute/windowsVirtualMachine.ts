@@ -401,14 +401,14 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             }
             resourceInputs["additionalCapabilities"] = args ? args.additionalCapabilities : undefined;
             resourceInputs["additionalUnattendContents"] = args ? args.additionalUnattendContents : undefined;
-            resourceInputs["adminPassword"] = args ? args.adminPassword : undefined;
+            resourceInputs["adminPassword"] = args?.adminPassword ? pulumi.secret(args.adminPassword) : undefined;
             resourceInputs["adminUsername"] = args ? args.adminUsername : undefined;
             resourceInputs["allowExtensionOperations"] = args ? args.allowExtensionOperations : undefined;
             resourceInputs["availabilitySetId"] = args ? args.availabilitySetId : undefined;
             resourceInputs["bootDiagnostics"] = args ? args.bootDiagnostics : undefined;
             resourceInputs["capacityReservationGroupId"] = args ? args.capacityReservationGroupId : undefined;
             resourceInputs["computerName"] = args ? args.computerName : undefined;
-            resourceInputs["customData"] = args ? args.customData : undefined;
+            resourceInputs["customData"] = args?.customData ? pulumi.secret(args.customData) : undefined;
             resourceInputs["dedicatedHostGroupId"] = args ? args.dedicatedHostGroupId : undefined;
             resourceInputs["dedicatedHostId"] = args ? args.dedicatedHostId : undefined;
             resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
@@ -453,6 +453,8 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             resourceInputs["virtualMachineId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["adminPassword", "customData"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(WindowsVirtualMachine.__pulumiType, name, resourceInputs, opts);
     }
 }

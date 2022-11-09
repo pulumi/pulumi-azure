@@ -18,11 +18,21 @@ namespace Pulumi.Azure.Hpc.Inputs
         [Input("dn", required: true)]
         public Input<string> Dn { get; set; } = null!;
 
+        [Input("password", required: true)]
+        private Input<string>? _password;
+
         /// <summary>
         /// The Bind password to be used in the secure LDAP connection.
         /// </summary>
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public CacheDirectoryLdapBindGetArgs()
         {

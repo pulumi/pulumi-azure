@@ -7,42 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Key Vault Secret.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     tenantId: current.then(current => current.tenantId),
- *     skuName: "premium",
- *     softDeleteRetentionDays: 7,
- *     accessPolicies: [{
- *         tenantId: current.then(current => current.tenantId),
- *         objectId: current.then(current => current.objectId),
- *         keyPermissions: [
- *             "Create",
- *             "Get",
- *         ],
- *         secretPermissions: [
- *             "Set",
- *             "Get",
- *             "Delete",
- *             "Purge",
- *             "Recover",
- *         ],
- *     }],
- * });
- * const exampleSecret = new azure.keyvault.Secret("exampleSecret", {
- *     value: "szechuan",
- *     keyVaultId: exampleKeyVault.id,
- * });
- * ```
- *
  * ## Import
  *
  * Key Vault Secrets which are Enabled can be imported using the `resource id`, e.g.
@@ -162,13 +126,15 @@ export class Secret extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["notBeforeDate"] = args ? args.notBeforeDate : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["value"] = args?.value ? pulumi.secret(args.value) : undefined;
             resourceInputs["resourceId"] = undefined /*out*/;
             resourceInputs["resourceVersionlessId"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
             resourceInputs["versionlessId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["value"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Secret.__pulumiType, name, resourceInputs, opts);
     }
 }

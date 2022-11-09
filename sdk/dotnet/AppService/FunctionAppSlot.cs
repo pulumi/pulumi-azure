@@ -244,6 +244,10 @@ namespace Pulumi.Azure.AppService
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "storageAccountAccessKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -369,11 +373,21 @@ namespace Pulumi.Azure.AppService
         [Input("siteConfig")]
         public Input<Inputs.FunctionAppSlotSiteConfigArgs>? SiteConfig { get; set; }
 
+        [Input("storageAccountAccessKey", required: true)]
+        private Input<string>? _storageAccountAccessKey;
+
         /// <summary>
         /// The access key which will be used to access the backend storage account for the Function App.
         /// </summary>
-        [Input("storageAccountAccessKey", required: true)]
-        public Input<string> StorageAccountAccessKey { get; set; } = null!;
+        public Input<string>? StorageAccountAccessKey
+        {
+            get => _storageAccountAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _storageAccountAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The backend storage account name which will be used by the Function App (such as the dashboard, logs).
@@ -545,11 +559,21 @@ namespace Pulumi.Azure.AppService
             set => _siteCredentials = value;
         }
 
+        [Input("storageAccountAccessKey")]
+        private Input<string>? _storageAccountAccessKey;
+
         /// <summary>
         /// The access key which will be used to access the backend storage account for the Function App.
         /// </summary>
-        [Input("storageAccountAccessKey")]
-        public Input<string>? StorageAccountAccessKey { get; set; }
+        public Input<string>? StorageAccountAccessKey
+        {
+            get => _storageAccountAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _storageAccountAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The backend storage account name which will be used by the Function App (such as the dashboard, logs).

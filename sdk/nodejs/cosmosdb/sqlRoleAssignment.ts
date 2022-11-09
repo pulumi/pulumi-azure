@@ -7,45 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Cosmos DB SQL Role Assignment.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.cosmosdb.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     offerType: "Standard",
- *     kind: "GlobalDocumentDB",
- *     consistencyPolicy: {
- *         consistencyLevel: "Strong",
- *     },
- *     geoLocations: [{
- *         location: exampleResourceGroup.location,
- *         failoverPriority: 0,
- *     }],
- * });
- * const exampleSqlRoleDefinition = new azure.cosmosdb.SqlRoleDefinition("exampleSqlRoleDefinition", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     accountName: exampleAccount.name,
- *     type: "CustomRole",
- *     assignableScopes: [pulumi.all([current, exampleResourceGroup.name, exampleAccount.name]).apply(([current, exampleResourceGroupName, exampleAccountName]) => `/subscriptions/${current.subscriptionId}/resourceGroups/${exampleResourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/${exampleAccountName}`)],
- *     permissions: [{
- *         dataActions: ["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
- *     }],
- * });
- * const exampleSqlRoleAssignment = new azure.cosmosdb.SqlRoleAssignment("exampleSqlRoleAssignment", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     accountName: exampleAccount.name,
- *     roleDefinitionId: exampleSqlRoleDefinition.id,
- *     principalId: current.then(current => current.objectId),
- *     scope: pulumi.all([current, exampleResourceGroup.name, exampleAccount.name]).apply(([current, exampleResourceGroupName, exampleAccountName]) => `/subscriptions/${current.subscriptionId}/resourceGroups/${exampleResourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/${exampleAccountName}`),
- * });
- * ```
- *
  * ## Import
  *
  * Cosmos DB SQL Role Assignments can be imported using the `resource id`, e.g.

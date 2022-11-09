@@ -263,32 +263,6 @@ class ChannelDirectLineSpeech(pulumi.CustomResource):
         """
         Manages a Direct Line Speech integration for a Bot Channel
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.cognitive.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            kind="SpeechServices",
-            sku_name="S0")
-        example_channels_registration = azure.bot.ChannelsRegistration("exampleChannelsRegistration",
-            location="global",
-            resource_group_name=example_resource_group.name,
-            sku="F0",
-            microsoft_app_id=current.client_id)
-        example_channel_direct_line_speech = azure.bot.ChannelDirectLineSpeech("exampleChannelDirectLineSpeech",
-            bot_name=example_channels_registration.name,
-            location=example_channels_registration.location,
-            resource_group_name=example_resource_group.name,
-            cognitive_service_location=example_account.location,
-            cognitive_service_access_key=example_account.primary_access_key)
-        ```
-
         ## Import
 
         Direct Line Speech Channels can be imported using the `resource id`, e.g.
@@ -315,32 +289,6 @@ class ChannelDirectLineSpeech(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Direct Line Speech integration for a Bot Channel
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.cognitive.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            kind="SpeechServices",
-            sku_name="S0")
-        example_channels_registration = azure.bot.ChannelsRegistration("exampleChannelsRegistration",
-            location="global",
-            resource_group_name=example_resource_group.name,
-            sku="F0",
-            microsoft_app_id=current.client_id)
-        example_channel_direct_line_speech = azure.bot.ChannelDirectLineSpeech("exampleChannelDirectLineSpeech",
-            bot_name=example_channels_registration.name,
-            location=example_channels_registration.location,
-            resource_group_name=example_resource_group.name,
-            cognitive_service_location=example_account.location,
-            cognitive_service_access_key=example_account.primary_access_key)
-        ```
 
         ## Import
 
@@ -386,7 +334,7 @@ class ChannelDirectLineSpeech(pulumi.CustomResource):
             __props__.__dict__["bot_name"] = bot_name
             if cognitive_service_access_key is None and not opts.urn:
                 raise TypeError("Missing required property 'cognitive_service_access_key'")
-            __props__.__dict__["cognitive_service_access_key"] = cognitive_service_access_key
+            __props__.__dict__["cognitive_service_access_key"] = None if cognitive_service_access_key is None else pulumi.Output.secret(cognitive_service_access_key)
             if cognitive_service_location is None and not opts.urn:
                 raise TypeError("Missing required property 'cognitive_service_location'")
             __props__.__dict__["cognitive_service_location"] = cognitive_service_location
@@ -396,6 +344,8 @@ class ChannelDirectLineSpeech(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["cognitiveServiceAccessKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ChannelDirectLineSpeech, __self__).__init__(
             'azure:bot/channelDirectLineSpeech:ChannelDirectLineSpeech',
             resource_name,

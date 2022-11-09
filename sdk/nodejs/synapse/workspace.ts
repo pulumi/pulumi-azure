@@ -44,96 +44,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * ### Creating A Workspace With Customer Managed Key And Azure AD Admin
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- *     accountKind: "StorageV2",
- *     isHnsEnabled: true,
- * });
- * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", {storageAccountId: exampleAccount.id});
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     tenantId: current.then(current => current.tenantId),
- *     skuName: "standard",
- *     purgeProtectionEnabled: true,
- * });
- * const deployer = new azure.keyvault.AccessPolicy("deployer", {
- *     keyVaultId: exampleKeyVault.id,
- *     tenantId: current.then(current => current.tenantId),
- *     objectId: current.then(current => current.objectId),
- *     keyPermissions: [
- *         "Create",
- *         "Get",
- *         "Delete",
- *         "Purge",
- *     ],
- * });
- * const exampleKey = new azure.keyvault.Key("exampleKey", {
- *     keyVaultId: exampleKeyVault.id,
- *     keyType: "RSA",
- *     keySize: 2048,
- *     keyOpts: [
- *         "unwrapKey",
- *         "wrapKey",
- *     ],
- * }, {
- *     dependsOn: [deployer],
- * });
- * const exampleWorkspace = new azure.synapse.Workspace("exampleWorkspace", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     storageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.id,
- *     sqlAdministratorLogin: "sqladminuser",
- *     sqlAdministratorLoginPassword: "H@Sh1CoR3!",
- *     customerManagedKey: {
- *         keyVersionlessId: exampleKey.versionlessId,
- *         keyName: "enckey",
- *     },
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- *     tags: {
- *         Env: "production",
- *     },
- * });
- * const workspacePolicy = new azure.keyvault.AccessPolicy("workspacePolicy", {
- *     keyVaultId: exampleKeyVault.id,
- *     tenantId: exampleWorkspace.identity.apply(identity => identity?.tenantId),
- *     objectId: exampleWorkspace.identity.apply(identity => identity?.principalId),
- *     keyPermissions: [
- *         "Get",
- *         "WrapKey",
- *         "UnwrapKey",
- *     ],
- * });
- * const exampleWorkspaceKey = new azure.synapse.WorkspaceKey("exampleWorkspaceKey", {
- *     customerManagedKeyVersionlessId: exampleKey.versionlessId,
- *     synapseWorkspaceId: exampleWorkspace.id,
- *     active: true,
- *     customerManagedKeyName: "enckey",
- * }, {
- *     dependsOn: [workspacePolicy],
- * });
- * const exampleWorkspaceAadAdmin = new azure.synapse.WorkspaceAadAdmin("exampleWorkspaceAadAdmin", {
- *     synapseWorkspaceId: exampleWorkspace.id,
- *     login: "AzureAD Admin",
- *     objectId: "00000000-0000-0000-0000-000000000000",
- *     tenantId: "00000000-0000-0000-0000-000000000000",
- * }, {
- *     dependsOn: [exampleWorkspaceKey],
- * });
- * ```
  *
  * ## Import
  *
@@ -320,13 +230,15 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sqlAadAdmin"] = args ? args.sqlAadAdmin : undefined;
             resourceInputs["sqlAdministratorLogin"] = args ? args.sqlAdministratorLogin : undefined;
-            resourceInputs["sqlAdministratorLoginPassword"] = args ? args.sqlAdministratorLoginPassword : undefined;
+            resourceInputs["sqlAdministratorLoginPassword"] = args?.sqlAdministratorLoginPassword ? pulumi.secret(args.sqlAdministratorLoginPassword) : undefined;
             resourceInputs["sqlIdentityControlEnabled"] = args ? args.sqlIdentityControlEnabled : undefined;
             resourceInputs["storageDataLakeGen2FilesystemId"] = args ? args.storageDataLakeGen2FilesystemId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["connectivityEndpoints"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["sqlAdministratorLoginPassword"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Workspace.__pulumiType, name, resourceInputs, opts);
     }
 }

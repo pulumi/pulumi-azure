@@ -1189,10 +1189,12 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["source_image_reference"] = source_image_reference
             __props__.__dict__["tags"] = tags
             __props__.__dict__["termination_notification"] = termination_notification
-            __props__.__dict__["user_data_base64"] = user_data_base64
+            __props__.__dict__["user_data_base64"] = None if user_data_base64 is None else pulumi.Output.secret(user_data_base64)
             __props__.__dict__["zone_balance"] = zone_balance
             __props__.__dict__["zones"] = zones
             __props__.__dict__["unique_id"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["userDataBase64"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(OrchestratedVirtualMachineScaleSet, __self__).__init__(
             'azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet',
             resource_name,

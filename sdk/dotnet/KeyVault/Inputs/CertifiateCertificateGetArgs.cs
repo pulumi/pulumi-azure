@@ -12,17 +12,37 @@ namespace Pulumi.Azure.KeyVault.Inputs
 
     public sealed class CertifiateCertificateGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("contents", required: true)]
+        private Input<string>? _contents;
+
         /// <summary>
         /// The base64-encoded certificate contents.
         /// </summary>
-        [Input("contents", required: true)]
-        public Input<string> Contents { get; set; } = null!;
+        public Input<string>? Contents
+        {
+            get => _contents;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _contents = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("password")]
+        private Input<string>? _password;
 
         /// <summary>
         /// The password associated with the certificate.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public CertifiateCertificateGetArgs()
         {

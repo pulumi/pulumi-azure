@@ -702,7 +702,7 @@ class Extension(pulumi.CustomResource):
             __props__.__dict__["automatic_upgrade_enabled"] = automatic_upgrade_enabled
             __props__.__dict__["failure_suppression_enabled"] = failure_suppression_enabled
             __props__.__dict__["name"] = name
-            __props__.__dict__["protected_settings"] = protected_settings
+            __props__.__dict__["protected_settings"] = None if protected_settings is None else pulumi.Output.secret(protected_settings)
             __props__.__dict__["protected_settings_from_key_vault"] = protected_settings_from_key_vault
             if publisher is None and not opts.urn:
                 raise TypeError("Missing required property 'publisher'")
@@ -718,6 +718,8 @@ class Extension(pulumi.CustomResource):
             if virtual_machine_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_machine_id'")
             __props__.__dict__["virtual_machine_id"] = virtual_machine_id
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["protectedSettings"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Extension, __self__).__init__(
             'azure:compute/extension:Extension',
             resource_name,

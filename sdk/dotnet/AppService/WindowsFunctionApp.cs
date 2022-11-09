@@ -49,7 +49,7 @@ namespace Pulumi.Azure.AppService
     ///         StorageAccountName = exampleAccount.Name,
     ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
     ///         ServicePlanId = exampleServicePlan.Id,
-    ///         SiteConfig = ,
+    ///         SiteConfig = null,
     ///     });
     /// 
     /// });
@@ -305,6 +305,11 @@ namespace Pulumi.Azure.AppService
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "customDomainVerificationId",
+                    "storageAccountAccessKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -466,11 +471,21 @@ namespace Pulumi.Azure.AppService
         [Input("stickySettings")]
         public Input<Inputs.WindowsFunctionAppStickySettingsArgs>? StickySettings { get; set; }
 
+        [Input("storageAccountAccessKey")]
+        private Input<string>? _storageAccountAccessKey;
+
         /// <summary>
         /// The access key which will be used to access the backend storage account for the Function App. Conflicts with `storage_uses_managed_identity`.
         /// </summary>
-        [Input("storageAccountAccessKey")]
-        public Input<string>? StorageAccountAccessKey { get; set; }
+        public Input<string>? StorageAccountAccessKey
+        {
+            get => _storageAccountAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _storageAccountAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The backend storage account name which will be used by this Function App.
@@ -594,11 +609,21 @@ namespace Pulumi.Azure.AppService
         [Input("contentShareForceDisabled")]
         public Input<bool>? ContentShareForceDisabled { get; set; }
 
+        [Input("customDomainVerificationId")]
+        private Input<string>? _customDomainVerificationId;
+
         /// <summary>
         /// The identifier used by App Service to perform domain ownership verification via DNS TXT record.
         /// </summary>
-        [Input("customDomainVerificationId")]
-        public Input<string>? CustomDomainVerificationId { get; set; }
+        public Input<string>? CustomDomainVerificationId
+        {
+            get => _customDomainVerificationId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _customDomainVerificationId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
@@ -732,11 +757,21 @@ namespace Pulumi.Azure.AppService
         [Input("stickySettings")]
         public Input<Inputs.WindowsFunctionAppStickySettingsGetArgs>? StickySettings { get; set; }
 
+        [Input("storageAccountAccessKey")]
+        private Input<string>? _storageAccountAccessKey;
+
         /// <summary>
         /// The access key which will be used to access the backend storage account for the Function App. Conflicts with `storage_uses_managed_identity`.
         /// </summary>
-        [Input("storageAccountAccessKey")]
-        public Input<string>? StorageAccountAccessKey { get; set; }
+        public Input<string>? StorageAccountAccessKey
+        {
+            get => _storageAccountAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _storageAccountAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The backend storage account name which will be used by this Function App.

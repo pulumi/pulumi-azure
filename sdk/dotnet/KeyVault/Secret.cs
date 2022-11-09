@@ -12,61 +12,6 @@ namespace Pulumi.Azure.KeyVault
     /// <summary>
     /// Manages a Key Vault Secret.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         SkuName = "premium",
-    ///         SoftDeleteRetentionDays = 7,
-    ///         AccessPolicies = new[]
-    ///         {
-    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
-    ///             {
-    ///                 TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///                 ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
-    ///                 KeyPermissions = new[]
-    ///                 {
-    ///                     "Create",
-    ///                     "Get",
-    ///                 },
-    ///                 SecretPermissions = new[]
-    ///                 {
-    ///                     "Set",
-    ///                     "Get",
-    ///                     "Delete",
-    ///                     "Purge",
-    ///                     "Recover",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleSecret = new Azure.KeyVault.Secret("exampleSecret", new()
-    ///     {
-    ///         Value = "szechuan",
-    ///         KeyVaultId = exampleKeyVault.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Key Vault Secrets which are Enabled can be imported using the `resource id`, e.g.
@@ -167,6 +112,10 @@ namespace Pulumi.Azure.KeyVault
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "value",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -232,11 +181,21 @@ namespace Pulumi.Azure.KeyVault
             set => _tags = value;
         }
 
+        [Input("value", required: true)]
+        private Input<string>? _value;
+
         /// <summary>
         /// Specifies the value of the Key Vault Secret.
         /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
+        public Input<string>? Value
+        {
+            get => _value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _value = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public SecretArgs()
         {
@@ -300,11 +259,21 @@ namespace Pulumi.Azure.KeyVault
             set => _tags = value;
         }
 
+        [Input("value")]
+        private Input<string>? _value;
+
         /// <summary>
         /// Specifies the value of the Key Vault Secret.
         /// </summary>
-        [Input("value")]
-        public Input<string>? Value { get; set; }
+        public Input<string>? Value
+        {
+            get => _value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _value = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The current version of the Key Vault Secret.

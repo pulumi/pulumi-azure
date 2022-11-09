@@ -165,6 +165,11 @@ namespace Pulumi.Azure.Redis
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "primaryAccessKey",
+                    "secondaryAccessKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -334,11 +339,21 @@ namespace Pulumi.Azure.Redis
         [Input("port")]
         public Input<int>? Port { get; set; }
 
+        [Input("primaryAccessKey")]
+        private Input<string>? _primaryAccessKey;
+
         /// <summary>
         /// The Primary Access Key for the Redis Enterprise Database Instance.
         /// </summary>
-        [Input("primaryAccessKey")]
-        public Input<string>? PrimaryAccessKey { get; set; }
+        public Input<string>? PrimaryAccessKey
+        {
+            get => _primaryAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _primaryAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
@@ -346,11 +361,21 @@ namespace Pulumi.Azure.Redis
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        [Input("secondaryAccessKey")]
+        private Input<string>? _secondaryAccessKey;
+
         /// <summary>
         /// The Secondary Access Key for the Redis Enterprise Database Instance.
         /// </summary>
-        [Input("secondaryAccessKey")]
-        public Input<string>? SecondaryAccessKey { get; set; }
+        public Input<string>? SecondaryAccessKey
+        {
+            get => _secondaryAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secondaryAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public EnterpriseDatabaseState()
         {

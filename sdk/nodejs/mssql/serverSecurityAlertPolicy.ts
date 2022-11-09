@@ -156,10 +156,12 @@ export class ServerSecurityAlertPolicy extends pulumi.CustomResource {
             resourceInputs["retentionDays"] = args ? args.retentionDays : undefined;
             resourceInputs["serverName"] = args ? args.serverName : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
+            resourceInputs["storageAccountAccessKey"] = args?.storageAccountAccessKey ? pulumi.secret(args.storageAccountAccessKey) : undefined;
             resourceInputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["storageAccountAccessKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ServerSecurityAlertPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := eventhub.GetConsumeGroup(ctx, &eventhub.GetConsumeGroupArgs{
+//			_, err = eventhub.GetConsumeGroup(ctx, &eventhub.GetConsumeGroupArgs{
 //				Name:              azurerm_eventhub_consumer_group.Test.Name,
 //				NamespaceName:     azurerm_eventhub_namespace.Test.Name,
 //				EventhubName:      azurerm_eventhub.Test.Name,

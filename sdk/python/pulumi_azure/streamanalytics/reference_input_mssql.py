@@ -572,7 +572,7 @@ class ReferenceInputMssql(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             if password is None and not opts.urn:
                 raise TypeError("Missing required property 'password'")
-            __props__.__dict__["password"] = password
+            __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             __props__.__dict__["refresh_interval_duration"] = refresh_interval_duration
             if refresh_type is None and not opts.urn:
                 raise TypeError("Missing required property 'refresh_type'")
@@ -590,6 +590,8 @@ class ReferenceInputMssql(pulumi.CustomResource):
             if username is None and not opts.urn:
                 raise TypeError("Missing required property 'username'")
             __props__.__dict__["username"] = username
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ReferenceInputMssql, __self__).__init__(
             'azure:streamanalytics/referenceInputMssql:ReferenceInputMssql',
             resource_name,

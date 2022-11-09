@@ -255,6 +255,8 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
             __props__.__dict__["static_site_id"] = static_site_id
             __props__.__dict__["validation_type"] = validation_type
             __props__.__dict__["validation_token"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["validationToken"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(StaticSiteCustomDomain, __self__).__init__(
             'azure:appservice/staticSiteCustomDomain:StaticSiteCustomDomain',
             resource_name,

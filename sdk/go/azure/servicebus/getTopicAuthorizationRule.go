@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicebus.LookupTopicAuthorizationRule(ctx, &servicebus.LookupTopicAuthorizationRuleArgs{
+//			_, err = servicebus.LookupTopicAuthorizationRule(ctx, &servicebus.LookupTopicAuthorizationRuleArgs{
 //				Name:              "example-tfex_name",
 //				ResourceGroupName: pulumi.StringRef("example-resources"),
 //				NamespaceName:     pulumi.StringRef("example-namespace"),

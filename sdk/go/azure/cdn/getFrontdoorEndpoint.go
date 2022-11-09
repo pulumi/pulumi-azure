@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cdn.LookupFrontdoorEndpoint(ctx, &cdn.LookupFrontdoorEndpointArgs{
+//			_, err = cdn.LookupFrontdoorEndpoint(ctx, &cdn.LookupFrontdoorEndpointArgs{
 //				Name:              "existing-endpoint",
 //				ProfileName:       "existing-cdn-profile",
 //				ResourceGroupName: "existing-resources",

@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := eventgrid.LookupSystemTopic(ctx, &eventgrid.LookupSystemTopicArgs{
+//			_, err = eventgrid.LookupSystemTopic(ctx, &eventgrid.LookupSystemTopicArgs{
 //				Name:              "eventgrid-system-topic",
 //				ResourceGroupName: "example-resources",
 //			}, nil)

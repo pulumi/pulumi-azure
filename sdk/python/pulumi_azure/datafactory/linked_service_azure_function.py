@@ -486,13 +486,15 @@ class LinkedServiceAzureFunction(pulumi.CustomResource):
             __props__.__dict__["data_factory_id"] = data_factory_id
             __props__.__dict__["description"] = description
             __props__.__dict__["integration_runtime_name"] = integration_runtime_name
-            __props__.__dict__["key"] = key
+            __props__.__dict__["key"] = None if key is None else pulumi.Output.secret(key)
             __props__.__dict__["key_vault_key"] = key_vault_key
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
             if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")
             __props__.__dict__["url"] = url
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["key"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(LinkedServiceAzureFunction, __self__).__init__(
             'azure:datafactory/linkedServiceAzureFunction:LinkedServiceAzureFunction',
             resource_name,

@@ -178,6 +178,10 @@ namespace Pulumi.Azure.MSSql
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "administratorLoginPassword",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -207,11 +211,21 @@ namespace Pulumi.Azure.MSSql
         [Input("administratorLogin")]
         public Input<string>? AdministratorLogin { get; set; }
 
+        [Input("administratorLoginPassword")]
+        private Input<string>? _administratorLoginPassword;
+
         /// <summary>
         /// The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`.
         /// </summary>
-        [Input("administratorLoginPassword")]
-        public Input<string>? AdministratorLoginPassword { get; set; }
+        public Input<string>? AdministratorLoginPassword
+        {
+            get => _administratorLoginPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _administratorLoginPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// An `azuread_administrator` block as defined below.
@@ -305,11 +319,21 @@ namespace Pulumi.Azure.MSSql
         [Input("administratorLogin")]
         public Input<string>? AdministratorLogin { get; set; }
 
+        [Input("administratorLoginPassword")]
+        private Input<string>? _administratorLoginPassword;
+
         /// <summary>
         /// The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`.
         /// </summary>
-        [Input("administratorLoginPassword")]
-        public Input<string>? AdministratorLoginPassword { get; set; }
+        public Input<string>? AdministratorLoginPassword
+        {
+            get => _administratorLoginPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _administratorLoginPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// An `azuread_administrator` block as defined below.

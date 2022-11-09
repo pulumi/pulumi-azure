@@ -179,6 +179,13 @@ func NewTimeSeriesInsightsEventSourceEventhub(ctx *pulumi.Context,
 	if args.SharedAccessKeyName == nil {
 		return nil, errors.New("invalid value for required argument 'SharedAccessKeyName'")
 	}
+	if args.SharedAccessKey != nil {
+		args.SharedAccessKey = pulumi.ToSecret(args.SharedAccessKey).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"sharedAccessKey",
+	})
+	opts = append(opts, secrets)
 	var resource TimeSeriesInsightsEventSourceEventhub
 	err := ctx.RegisterResource("azure:iot/timeSeriesInsightsEventSourceEventhub:TimeSeriesInsightsEventSourceEventhub", name, args, &resource, opts...)
 	if err != nil {

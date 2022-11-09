@@ -95,6 +95,13 @@ func NewServiceTrust(ctx *pulumi.Context,
 	if args.TrustedDomainFqdn == nil {
 		return nil, errors.New("invalid value for required argument 'TrustedDomainFqdn'")
 	}
+	if args.Password != nil {
+		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"password",
+	})
+	opts = append(opts, secrets)
 	var resource ServiceTrust
 	err := ctx.RegisterResource("azure:domainservices/serviceTrust:ServiceTrust", name, args, &resource, opts...)
 	if err != nil {

@@ -22,46 +22,6 @@ public final class BlueprintFunctions {
      * 
      * &gt; **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.core.CoreFunctions;
-     * import com.pulumi.azure.management.ManagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
-     * import com.pulumi.azure.blueprint.BlueprintFunctions;
-     * import com.pulumi.azure.blueprint.inputs.GetDefinitionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = CoreFunctions.getClientConfig();
-     * 
-     *         final var root = ManagementFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
-     *             .build());
-     * 
-     *         final var example = BlueprintFunctions.getDefinition(GetDefinitionArgs.builder()
-     *             .name(&#34;exampleManagementGroupBP&#34;)
-     *             .scopeId(root.applyValue(getGroupResult -&gt; getGroupResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDefinitionResult> getDefinition(GetDefinitionArgs args) {
         return getDefinition(args, InvokeOptions.Empty);
@@ -70,46 +30,6 @@ public final class BlueprintFunctions {
      * Use this data source to access information about an existing Azure Blueprint Definition
      * 
      * &gt; **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.core.CoreFunctions;
-     * import com.pulumi.azure.management.ManagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
-     * import com.pulumi.azure.blueprint.BlueprintFunctions;
-     * import com.pulumi.azure.blueprint.inputs.GetDefinitionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = CoreFunctions.getClientConfig();
-     * 
-     *         final var root = ManagementFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
-     *             .build());
-     * 
-     *         final var example = BlueprintFunctions.getDefinition(GetDefinitionArgs.builder()
-     *             .name(&#34;exampleManagementGroupBP&#34;)
-     *             .scopeId(root.applyValue(getGroupResult -&gt; getGroupResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDefinitionResult> getDefinitionPlain(GetDefinitionPlainArgs args) {
@@ -120,46 +40,6 @@ public final class BlueprintFunctions {
      * 
      * &gt; **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.core.CoreFunctions;
-     * import com.pulumi.azure.management.ManagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
-     * import com.pulumi.azure.blueprint.BlueprintFunctions;
-     * import com.pulumi.azure.blueprint.inputs.GetDefinitionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = CoreFunctions.getClientConfig();
-     * 
-     *         final var root = ManagementFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
-     *             .build());
-     * 
-     *         final var example = BlueprintFunctions.getDefinition(GetDefinitionArgs.builder()
-     *             .name(&#34;exampleManagementGroupBP&#34;)
-     *             .scopeId(root.applyValue(getGroupResult -&gt; getGroupResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDefinitionResult> getDefinition(GetDefinitionArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:blueprint/getDefinition:getDefinition", TypeShape.of(GetDefinitionResult.class), args, Utilities.withVersion(options));
@@ -168,46 +48,6 @@ public final class BlueprintFunctions {
      * Use this data source to access information about an existing Azure Blueprint Definition
      * 
      * &gt; **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.core.CoreFunctions;
-     * import com.pulumi.azure.management.ManagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
-     * import com.pulumi.azure.blueprint.BlueprintFunctions;
-     * import com.pulumi.azure.blueprint.inputs.GetDefinitionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = CoreFunctions.getClientConfig();
-     * 
-     *         final var root = ManagementFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
-     *             .build());
-     * 
-     *         final var example = BlueprintFunctions.getDefinition(GetDefinitionArgs.builder()
-     *             .name(&#34;exampleManagementGroupBP&#34;)
-     *             .scopeId(root.applyValue(getGroupResult -&gt; getGroupResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDefinitionResult> getDefinitionPlain(GetDefinitionPlainArgs args, InvokeOptions options) {

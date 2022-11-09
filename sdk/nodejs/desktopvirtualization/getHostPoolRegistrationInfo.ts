@@ -105,6 +105,8 @@ export class GetHostPoolRegistrationInfo extends pulumi.CustomResource {
             resourceInputs["token"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["token"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(GetHostPoolRegistrationInfo.__pulumiType, name, resourceInputs, opts);
     }
 }

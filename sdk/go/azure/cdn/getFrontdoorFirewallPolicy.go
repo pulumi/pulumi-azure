@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cdn.LookupFrontdoorFirewallPolicy(ctx, &cdn.LookupFrontdoorFirewallPolicyArgs{
+//			_, err = cdn.LookupFrontdoorFirewallPolicy(ctx, &cdn.LookupFrontdoorFirewallPolicyArgs{
 //				Name:              "examplecdnfdwafpolicy",
 //				ResourceGroupName: azurerm_resource_group.Example.Name,
 //			}, nil)

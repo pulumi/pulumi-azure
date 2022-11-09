@@ -16,56 +16,6 @@ namespace Pulumi.Azure.KeyVault
     /// 
     /// &gt; **Note:** It's possible to define Key Vault Access Policies both within the `azure.keyvault.KeyVault` resource via the `access_policy` block and by using the `azure.keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         EnabledForDiskEncryption = true,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         SoftDeleteRetentionDays = 7,
-    ///         PurgeProtectionEnabled = false,
-    ///         SkuName = "standard",
-    ///         AccessPolicies = new[]
-    ///         {
-    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
-    ///             {
-    ///                 TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///                 ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
-    ///                 KeyPermissions = new[]
-    ///                 {
-    ///                     "Get",
-    ///                 },
-    ///                 SecretPermissions = new[]
-    ///                 {
-    ///                     "Get",
-    ///                 },
-    ///                 StoragePermissions = new[]
-    ///                 {
-    ///                     "Get",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Key Vault's can be imported using the `resource id`, e.g.

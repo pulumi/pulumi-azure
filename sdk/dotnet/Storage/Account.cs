@@ -531,6 +531,15 @@ namespace Pulumi.Azure.Storage
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "primaryAccessKey",
+                    "primaryBlobConnectionString",
+                    "primaryConnectionString",
+                    "secondaryAccessKey",
+                    "secondaryBlobConnectionString",
+                    "secondaryConnectionString",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -906,17 +915,37 @@ namespace Pulumi.Azure.Storage
         [Input("nfsv3Enabled")]
         public Input<bool>? Nfsv3Enabled { get; set; }
 
+        [Input("primaryAccessKey")]
+        private Input<string>? _primaryAccessKey;
+
         /// <summary>
         /// The primary access key for the storage account.
         /// </summary>
-        [Input("primaryAccessKey")]
-        public Input<string>? PrimaryAccessKey { get; set; }
+        public Input<string>? PrimaryAccessKey
+        {
+            get => _primaryAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _primaryAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("primaryBlobConnectionString")]
+        private Input<string>? _primaryBlobConnectionString;
 
         /// <summary>
         /// The connection string associated with the primary blob location.
         /// </summary>
-        [Input("primaryBlobConnectionString")]
-        public Input<string>? PrimaryBlobConnectionString { get; set; }
+        public Input<string>? PrimaryBlobConnectionString
+        {
+            get => _primaryBlobConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _primaryBlobConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The endpoint URL for blob storage in the primary location.
@@ -930,11 +959,21 @@ namespace Pulumi.Azure.Storage
         [Input("primaryBlobHost")]
         public Input<string>? PrimaryBlobHost { get; set; }
 
+        [Input("primaryConnectionString")]
+        private Input<string>? _primaryConnectionString;
+
         /// <summary>
         /// The connection string associated with the primary location.
         /// </summary>
-        [Input("primaryConnectionString")]
-        public Input<string>? PrimaryConnectionString { get; set; }
+        public Input<string>? PrimaryConnectionString
+        {
+            get => _primaryConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _primaryConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The endpoint URL for DFS storage in the primary location.
@@ -1032,17 +1071,37 @@ namespace Pulumi.Azure.Storage
         [Input("routing")]
         public Input<Inputs.AccountRoutingGetArgs>? Routing { get; set; }
 
+        [Input("secondaryAccessKey")]
+        private Input<string>? _secondaryAccessKey;
+
         /// <summary>
         /// The secondary access key for the storage account.
         /// </summary>
-        [Input("secondaryAccessKey")]
-        public Input<string>? SecondaryAccessKey { get; set; }
+        public Input<string>? SecondaryAccessKey
+        {
+            get => _secondaryAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secondaryAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("secondaryBlobConnectionString")]
+        private Input<string>? _secondaryBlobConnectionString;
 
         /// <summary>
         /// The connection string associated with the secondary blob location.
         /// </summary>
-        [Input("secondaryBlobConnectionString")]
-        public Input<string>? SecondaryBlobConnectionString { get; set; }
+        public Input<string>? SecondaryBlobConnectionString
+        {
+            get => _secondaryBlobConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secondaryBlobConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The endpoint URL for blob storage in the secondary location.
@@ -1056,11 +1115,21 @@ namespace Pulumi.Azure.Storage
         [Input("secondaryBlobHost")]
         public Input<string>? SecondaryBlobHost { get; set; }
 
+        [Input("secondaryConnectionString")]
+        private Input<string>? _secondaryConnectionString;
+
         /// <summary>
         /// The connection string associated with the secondary location.
         /// </summary>
-        [Input("secondaryConnectionString")]
-        public Input<string>? SecondaryConnectionString { get; set; }
+        public Input<string>? SecondaryConnectionString
+        {
+            get => _secondaryConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secondaryConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The endpoint URL for DFS storage in the secondary location.

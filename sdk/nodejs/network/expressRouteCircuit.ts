@@ -170,6 +170,8 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
             resourceInputs["serviceProviderProvisioningState"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["serviceKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ExpressRouteCircuit.__pulumiType, name, resourceInputs, opts);
     }
 }

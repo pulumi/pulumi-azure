@@ -18,11 +18,21 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("retentionInDays")]
         public Input<int>? RetentionInDays { get; set; }
 
+        [Input("sasUrl", required: true)]
+        private Input<string>? _sasUrl;
+
         /// <summary>
         /// SAS url to an Azure blob container with read/write/list/delete permissions.
         /// </summary>
-        [Input("sasUrl", required: true)]
-        public Input<string> SasUrl { get; set; } = null!;
+        public Input<string>? SasUrl
+        {
+            get => _sasUrl;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sasUrl = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArgs()
         {

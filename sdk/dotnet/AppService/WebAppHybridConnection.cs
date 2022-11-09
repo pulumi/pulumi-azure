@@ -52,7 +52,7 @@ namespace Pulumi.Azure.AppService
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         ServicePlanId = exampleServicePlan.Id,
-    ///         SiteConfig = ,
+    ///         SiteConfig = null,
     ///     });
     /// 
     ///     var exampleWebAppHybridConnection = new Azure.AppService.WebAppHybridConnection("exampleWebAppHybridConnection", new()
@@ -160,6 +160,10 @@ namespace Pulumi.Azure.AppService
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "sendKeyValue",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -257,11 +261,21 @@ namespace Pulumi.Azure.AppService
         [Input("sendKeyName")]
         public Input<string>? SendKeyName { get; set; }
 
+        [Input("sendKeyValue")]
+        private Input<string>? _sendKeyValue;
+
         /// <summary>
         /// The Primary Access Key for the `send_key_name`
         /// </summary>
-        [Input("sendKeyValue")]
-        public Input<string>? SendKeyValue { get; set; }
+        public Input<string>? SendKeyValue
+        {
+            get => _sendKeyValue;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sendKeyValue = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Service Bus Namespace.

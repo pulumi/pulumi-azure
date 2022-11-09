@@ -161,11 +161,13 @@ export class Script extends pulumi.CustomResource {
             resourceInputs["databaseId"] = args ? args.databaseId : undefined;
             resourceInputs["forceAnUpdateWhenValueChanged"] = args ? args.forceAnUpdateWhenValueChanged : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["sasToken"] = args ? args.sasToken : undefined;
-            resourceInputs["scriptContent"] = args ? args.scriptContent : undefined;
+            resourceInputs["sasToken"] = args?.sasToken ? pulumi.secret(args.sasToken) : undefined;
+            resourceInputs["scriptContent"] = args?.scriptContent ? pulumi.secret(args.scriptContent) : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["sasToken", "scriptContent"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Script.__pulumiType, name, resourceInputs, opts);
     }
 }

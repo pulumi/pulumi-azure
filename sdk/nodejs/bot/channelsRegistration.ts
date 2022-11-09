@@ -7,22 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Bot Channels Registration.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleChannelsRegistration = new azure.bot.ChannelsRegistration("exampleChannelsRegistration", {
- *     location: "global",
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "F0",
- *     microsoftAppId: current.then(current => current.clientId),
- * });
- * ```
- *
  * ## Import
  *
  * Bot Channels Registration can be imported using the `resource id`, e.g.
@@ -173,7 +157,7 @@ export class ChannelsRegistration extends pulumi.CustomResource {
             }
             resourceInputs["cmkKeyVaultUrl"] = args ? args.cmkKeyVaultUrl : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["developerAppInsightsApiKey"] = args ? args.developerAppInsightsApiKey : undefined;
+            resourceInputs["developerAppInsightsApiKey"] = args?.developerAppInsightsApiKey ? pulumi.secret(args.developerAppInsightsApiKey) : undefined;
             resourceInputs["developerAppInsightsApplicationId"] = args ? args.developerAppInsightsApplicationId : undefined;
             resourceInputs["developerAppInsightsKey"] = args ? args.developerAppInsightsKey : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
@@ -190,6 +174,8 @@ export class ChannelsRegistration extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["developerAppInsightsApiKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ChannelsRegistration.__pulumiType, name, resourceInputs, opts);
     }
 }

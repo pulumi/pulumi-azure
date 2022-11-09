@@ -52,132 +52,6 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// });
     /// ```
-    /// ### With Storage Account Behind VNet And Firewall
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var primary = Azure.Core.GetSubscription.Invoke();
-    /// 
-    ///     var exampleClientConfig = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
-    ///     {
-    ///         AddressSpaces = new[]
-    ///         {
-    ///             "10.0.0.0/16",
-    ///         },
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.0.2.0/24",
-    ///         },
-    ///         ServiceEndpoints = new[]
-    ///         {
-    ///             "Microsoft.Sql",
-    ///             "Microsoft.Storage",
-    ///         },
-    ///         EnforcePrivateLinkEndpointNetworkPolicies = true,
-    ///     });
-    /// 
-    ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Version = "12.0",
-    ///         AdministratorLogin = "missadministrator",
-    ///         AdministratorLoginPassword = "AdminPassword123!",
-    ///         MinimumTlsVersion = "1.2",
-    ///         Identity = new Azure.MSSql.Inputs.ServerIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new()
-    ///     {
-    ///         Scope = primary.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
-    ///         RoleDefinitionName = "Storage Blob Data Contributor",
-    ///         PrincipalId = exampleServer.Identity.Apply(identity =&gt; identity?.PrincipalId),
-    ///     });
-    /// 
-    ///     var sqlvnetrule = new Azure.Sql.VirtualNetworkRule("sqlvnetrule", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         ServerName = exampleServer.Name,
-    ///         SubnetId = exampleSubnet.Id,
-    ///     });
-    /// 
-    ///     var exampleFirewallRule = new Azure.Sql.FirewallRule("exampleFirewallRule", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         ServerName = exampleServer.Name,
-    ///         StartIpAddress = "0.0.0.0",
-    ///         EndIpAddress = "0.0.0.0",
-    ///     });
-    /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         AccountTier = "Standard",
-    ///         AccountReplicationType = "LRS",
-    ///         AccountKind = "StorageV2",
-    ///         AllowNestedItemsToBePublic = false,
-    ///         NetworkRules = new Azure.Storage.Inputs.AccountNetworkRulesArgs
-    ///         {
-    ///             DefaultAction = "Deny",
-    ///             IpRules = new[]
-    ///             {
-    ///                 "127.0.0.1",
-    ///             },
-    ///             VirtualNetworkSubnetIds = new[]
-    ///             {
-    ///                 exampleSubnet.Id,
-    ///             },
-    ///             Bypasses = new[]
-    ///             {
-    ///                 "AzureServices",
-    ///             },
-    ///         },
-    ///         Identity = new Azure.Storage.Inputs.AccountIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleServerMicrosoftSupportAuditingPolicy = new Azure.MSSql.ServerMicrosoftSupportAuditingPolicy("exampleServerMicrosoftSupportAuditingPolicy", new()
-    ///     {
-    ///         BlobStorageEndpoint = exampleAccount.PrimaryBlobEndpoint,
-    ///         ServerId = exampleServer.Id,
-    ///         LogMonitoringEnabled = false,
-    ///         StorageAccountSubscriptionId = azurerm_subscription.Primary.Subscription_id,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAssignment,
-    ///             exampleAccount,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 
@@ -249,6 +123,11 @@ namespace Pulumi.Azure.MSSql
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "storageAccountAccessKey",
+                    "storageAccountSubscriptionId",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -296,17 +175,37 @@ namespace Pulumi.Azure.MSSql
         [Input("serverId", required: true)]
         public Input<string> ServerId { get; set; } = null!;
 
+        [Input("storageAccountAccessKey")]
+        private Input<string>? _storageAccountAccessKey;
+
         /// <summary>
         /// The access key to use for the auditing storage account.
         /// </summary>
-        [Input("storageAccountAccessKey")]
-        public Input<string>? StorageAccountAccessKey { get; set; }
+        public Input<string>? StorageAccountAccessKey
+        {
+            get => _storageAccountAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _storageAccountAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("storageAccountSubscriptionId")]
+        private Input<string>? _storageAccountSubscriptionId;
 
         /// <summary>
         /// The ID of the Subscription containing the Storage Account.
         /// </summary>
-        [Input("storageAccountSubscriptionId")]
-        public Input<string>? StorageAccountSubscriptionId { get; set; }
+        public Input<string>? StorageAccountSubscriptionId
+        {
+            get => _storageAccountSubscriptionId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _storageAccountSubscriptionId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public ServerMicrosoftSupportAuditingPolicyArgs()
         {
@@ -340,17 +239,37 @@ namespace Pulumi.Azure.MSSql
         [Input("serverId")]
         public Input<string>? ServerId { get; set; }
 
+        [Input("storageAccountAccessKey")]
+        private Input<string>? _storageAccountAccessKey;
+
         /// <summary>
         /// The access key to use for the auditing storage account.
         /// </summary>
-        [Input("storageAccountAccessKey")]
-        public Input<string>? StorageAccountAccessKey { get; set; }
+        public Input<string>? StorageAccountAccessKey
+        {
+            get => _storageAccountAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _storageAccountAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("storageAccountSubscriptionId")]
+        private Input<string>? _storageAccountSubscriptionId;
 
         /// <summary>
         /// The ID of the Subscription containing the Storage Account.
         /// </summary>
-        [Input("storageAccountSubscriptionId")]
-        public Input<string>? StorageAccountSubscriptionId { get; set; }
+        public Input<string>? StorageAccountSubscriptionId
+        {
+            get => _storageAccountSubscriptionId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _storageAccountSubscriptionId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public ServerMicrosoftSupportAuditingPolicyState()
         {

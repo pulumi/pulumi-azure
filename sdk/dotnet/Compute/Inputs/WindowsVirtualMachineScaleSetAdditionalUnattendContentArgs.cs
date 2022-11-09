@@ -12,11 +12,21 @@ namespace Pulumi.Azure.Compute.Inputs
 
     public sealed class WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs : global::Pulumi.ResourceArgs
     {
+        [Input("content", required: true)]
+        private Input<string>? _content;
+
         /// <summary>
         /// The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("content", required: true)]
-        public Input<string> Content { get; set; } = null!;
+        public Input<string>? Content
+        {
+            get => _content;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _content = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name of the setting to which the content applies. Possible values are `AutoLogon` and `FirstLogonCommands`. Changing this forces a new resource to be created.

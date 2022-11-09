@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cdn.LookupFrontdoorOriginGroup(ctx, &cdn.LookupFrontdoorOriginGroupArgs{
+//			_, err = cdn.LookupFrontdoorOriginGroup(ctx, &cdn.LookupFrontdoorOriginGroupArgs{
 //				Name:              "example-origin-group",
 //				ProfileName:       "example-profile",
 //				ResourceGroupName: "example-resources",

@@ -12,11 +12,21 @@ namespace Pulumi.Azure.Network.Inputs
 
     public sealed class ApplicationGatewayAuthenticationCertificateArgs : global::Pulumi.ResourceArgs
     {
+        [Input("data", required: true)]
+        private Input<string>? _data;
+
         /// <summary>
         /// The contents of the Authentication Certificate which should be used.
         /// </summary>
-        [Input("data", required: true)]
-        public Input<string> Data { get; set; } = null!;
+        public Input<string>? Data
+        {
+            get => _data;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _data = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The ID of the Rewrite Rule Set

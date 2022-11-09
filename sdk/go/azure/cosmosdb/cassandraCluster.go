@@ -165,6 +165,13 @@ func NewCassandraCluster(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.DefaultAdminPassword != nil {
+		args.DefaultAdminPassword = pulumi.ToSecret(args.DefaultAdminPassword).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"defaultAdminPassword",
+	})
+	opts = append(opts, secrets)
 	var resource CassandraCluster
 	err := ctx.RegisterResource("azure:cosmosdb/cassandraCluster:CassandraCluster", name, args, &resource, opts...)
 	if err != nil {

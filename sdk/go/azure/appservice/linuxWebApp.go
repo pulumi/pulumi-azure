@@ -150,6 +150,10 @@ func NewLinuxWebApp(ctx *pulumi.Context,
 	if args.SiteConfig == nil {
 		return nil, errors.New("invalid value for required argument 'SiteConfig'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"customDomainVerificationId",
+	})
+	opts = append(opts, secrets)
 	var resource LinuxWebApp
 	err := ctx.RegisterResource("azure:appservice/linuxWebApp:LinuxWebApp", name, args, &resource, opts...)
 	if err != nil {

@@ -169,12 +169,14 @@ export class OutputTable extends pulumi.CustomResource {
             resourceInputs["partitionKey"] = args ? args.partitionKey : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["rowKey"] = args ? args.rowKey : undefined;
-            resourceInputs["storageAccountKey"] = args ? args.storageAccountKey : undefined;
+            resourceInputs["storageAccountKey"] = args?.storageAccountKey ? pulumi.secret(args.storageAccountKey) : undefined;
             resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
             resourceInputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
             resourceInputs["table"] = args ? args.table : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["storageAccountKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(OutputTable.__pulumiType, name, resourceInputs, opts);
     }
 }

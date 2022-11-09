@@ -419,8 +419,10 @@ class NamedValue(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["secret"] = secret
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["value"] = value
+            __props__.__dict__["value"] = None if value is None else pulumi.Output.secret(value)
             __props__.__dict__["value_from_key_vault"] = value_from_key_vault
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["value"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(NamedValue, __self__).__init__(
             'azure:apimanagement/namedValue:NamedValue',
             resource_name,

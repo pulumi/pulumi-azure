@@ -24,11 +24,21 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        [Input("value", required: true)]
+        private Input<string>? _value;
+
         /// <summary>
         /// The connection string value.
         /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
+        public Input<string>? Value
+        {
+            get => _value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _value = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public WindowsFunctionAppSlotConnectionStringArgs()
         {

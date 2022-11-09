@@ -164,6 +164,8 @@ export class EventHubNamespaceAuthorizationRule extends pulumi.CustomResource {
             resourceInputs["secondaryKey"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["primaryConnectionString", "primaryConnectionStringAlias", "primaryKey", "secondaryConnectionString", "secondaryConnectionStringAlias", "secondaryKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(EventHubNamespaceAuthorizationRule.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -182,11 +182,13 @@ export class StreamInputEventHub extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serialization"] = args ? args.serialization : undefined;
             resourceInputs["servicebusNamespace"] = args ? args.servicebusNamespace : undefined;
-            resourceInputs["sharedAccessPolicyKey"] = args ? args.sharedAccessPolicyKey : undefined;
+            resourceInputs["sharedAccessPolicyKey"] = args?.sharedAccessPolicyKey ? pulumi.secret(args.sharedAccessPolicyKey) : undefined;
             resourceInputs["sharedAccessPolicyName"] = args ? args.sharedAccessPolicyName : undefined;
             resourceInputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["sharedAccessPolicyKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(StreamInputEventHub.__pulumiType, name, resourceInputs, opts);
     }
 }

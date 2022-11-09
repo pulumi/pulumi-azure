@@ -149,6 +149,8 @@ export class NamespaceDisasterRecoveryConfig extends pulumi.CustomResource {
             resourceInputs["secondaryConnectionStringAlias"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["defaultPrimaryKey", "defaultSecondaryKey", "primaryConnectionStringAlias", "secondaryConnectionStringAlias"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(NamespaceDisasterRecoveryConfig.__pulumiType, name, resourceInputs, opts);
     }
 }

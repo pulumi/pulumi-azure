@@ -498,7 +498,7 @@ class OutputTable(pulumi.CustomResource):
             __props__.__dict__["row_key"] = row_key
             if storage_account_key is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_key'")
-            __props__.__dict__["storage_account_key"] = storage_account_key
+            __props__.__dict__["storage_account_key"] = None if storage_account_key is None else pulumi.Output.secret(storage_account_key)
             if storage_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_name'")
             __props__.__dict__["storage_account_name"] = storage_account_name
@@ -508,6 +508,8 @@ class OutputTable(pulumi.CustomResource):
             if table is None and not opts.urn:
                 raise TypeError("Missing required property 'table'")
             __props__.__dict__["table"] = table
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["storageAccountKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(OutputTable, __self__).__init__(
             'azure:streamanalytics/outputTable:OutputTable',
             resource_name,

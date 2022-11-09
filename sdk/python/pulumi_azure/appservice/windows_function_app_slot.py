@@ -1171,7 +1171,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
             if site_config is None and not opts.urn:
                 raise TypeError("Missing required property 'site_config'")
             __props__.__dict__["site_config"] = site_config
-            __props__.__dict__["storage_account_access_key"] = storage_account_access_key
+            __props__.__dict__["storage_account_access_key"] = None if storage_account_access_key is None else pulumi.Output.secret(storage_account_access_key)
             __props__.__dict__["storage_account_name"] = storage_account_name
             __props__.__dict__["storage_accounts"] = storage_accounts
             __props__.__dict__["storage_key_vault_secret_id"] = storage_key_vault_secret_id
@@ -1186,6 +1186,8 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
             __props__.__dict__["possible_outbound_ip_address_lists"] = None
             __props__.__dict__["possible_outbound_ip_addresses"] = None
             __props__.__dict__["site_credentials"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["customDomainVerificationId", "storageAccountAccessKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(WindowsFunctionAppSlot, __self__).__init__(
             'azure:appservice/windowsFunctionAppSlot:WindowsFunctionAppSlot',
             resource_name,

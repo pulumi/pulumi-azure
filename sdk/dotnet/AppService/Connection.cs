@@ -76,7 +76,7 @@ namespace Pulumi.Azure.AppService
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         ServicePlanId = exampleServicePlan.Id,
-    ///         SiteConfig = ,
+    ///         SiteConfig = null,
     ///     });
     /// 
     ///     var exampleConnection = new Azure.AppService.Connection("exampleConnection", new()

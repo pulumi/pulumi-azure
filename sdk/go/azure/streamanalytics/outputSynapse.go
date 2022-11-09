@@ -152,6 +152,13 @@ func NewOutputSynapse(ctx *pulumi.Context,
 	if args.User == nil {
 		return nil, errors.New("invalid value for required argument 'User'")
 	}
+	if args.Password != nil {
+		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"password",
+	})
+	opts = append(opts, secrets)
 	var resource OutputSynapse
 	err := ctx.RegisterResource("azure:streamanalytics/outputSynapse:OutputSynapse", name, args, &resource, opts...)
 	if err != nil {

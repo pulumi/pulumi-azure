@@ -130,11 +130,13 @@ export class IdentityProviderAad extends pulumi.CustomResource {
             resourceInputs["allowedTenants"] = args ? args.allowedTenants : undefined;
             resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
             resourceInputs["clientId"] = args ? args.clientId : undefined;
-            resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
+            resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["signinTenant"] = args ? args.signinTenant : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["clientSecret"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(IdentityProviderAad.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -18,11 +18,21 @@ namespace Pulumi.Azure.DataFactory.Inputs
         [Input("blobContainerUri", required: true)]
         public Input<string> BlobContainerUri { get; set; } = null!;
 
+        [Input("sasToken", required: true)]
+        private Input<string>? _sasToken;
+
         /// <summary>
         /// A container SAS token that gives access to the files. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
         /// </summary>
-        [Input("sasToken", required: true)]
-        public Input<string> SasToken { get; set; } = null!;
+        public Input<string>? SasToken
+        {
+            get => _sasToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sasToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public IntegrationRuntimeManagedCustomSetupScriptArgs()
         {

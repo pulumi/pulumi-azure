@@ -134,6 +134,15 @@ func NewAuthorizationRule(ctx *pulumi.Context,
 		},
 	})
 	opts = append(opts, aliases)
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"primaryConnectionString",
+		"primaryConnectionStringAlias",
+		"primaryKey",
+		"secondaryConnectionString",
+		"secondaryConnectionStringAlias",
+		"secondaryKey",
+	})
+	opts = append(opts, secrets)
 	var resource AuthorizationRule
 	err := ctx.RegisterResource("azure:eventhub/authorizationRule:AuthorizationRule", name, args, &resource, opts...)
 	if err != nil {

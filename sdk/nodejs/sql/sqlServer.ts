@@ -154,7 +154,7 @@ export class SqlServer extends pulumi.CustomResource {
                 throw new Error("Missing required property 'version'");
             }
             resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
-            resourceInputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
+            resourceInputs["administratorLoginPassword"] = args?.administratorLoginPassword ? pulumi.secret(args.administratorLoginPassword) : undefined;
             resourceInputs["connectionPolicy"] = args ? args.connectionPolicy : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -166,6 +166,8 @@ export class SqlServer extends pulumi.CustomResource {
             resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["administratorLoginPassword"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(SqlServer.__pulumiType, name, resourceInputs, opts);
     }
 }

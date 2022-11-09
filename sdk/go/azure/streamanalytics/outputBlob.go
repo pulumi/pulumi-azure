@@ -154,6 +154,13 @@ func NewOutputBlob(ctx *pulumi.Context,
 	if args.TimeFormat == nil {
 		return nil, errors.New("invalid value for required argument 'TimeFormat'")
 	}
+	if args.StorageAccountKey != nil {
+		args.StorageAccountKey = pulumi.ToSecret(args.StorageAccountKey).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"storageAccountKey",
+	})
+	opts = append(opts, secrets)
 	var resource OutputBlob
 	err := ctx.RegisterResource("azure:streamanalytics/outputBlob:OutputBlob", name, args, &resource, opts...)
 	if err != nil {

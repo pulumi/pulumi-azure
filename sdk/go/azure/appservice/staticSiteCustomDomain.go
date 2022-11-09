@@ -105,6 +105,10 @@ func NewStaticSiteCustomDomain(ctx *pulumi.Context,
 	if args.StaticSiteId == nil {
 		return nil, errors.New("invalid value for required argument 'StaticSiteId'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"validationToken",
+	})
+	opts = append(opts, secrets)
 	var resource StaticSiteCustomDomain
 	err := ctx.RegisterResource("azure:appservice/staticSiteCustomDomain:StaticSiteCustomDomain", name, args, &resource, opts...)
 	if err != nil {
