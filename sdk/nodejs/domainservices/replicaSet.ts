@@ -7,6 +7,226 @@ import * as utilities from "../utilities";
 /**
  * Manages a Replica Set for an Active Directory Domain Service.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as azuread from "@pulumi/azuread";
+ *
+ * const primaryResourceGroup = new azure.core.ResourceGroup("primaryResourceGroup", {location: "West Europe"});
+ * const primaryVirtualNetwork = new azure.network.VirtualNetwork("primaryVirtualNetwork", {
+ *     location: primaryResourceGroup.location,
+ *     resourceGroupName: primaryResourceGroup.name,
+ *     addressSpaces: ["10.0.1.0/16"],
+ * });
+ * const primarySubnet = new azure.network.Subnet("primarySubnet", {
+ *     resourceGroupName: primaryResourceGroup.name,
+ *     virtualNetworkName: primaryVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.1.0/24"],
+ * });
+ * const primaryNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("primaryNetworkSecurityGroup", {
+ *     location: primaryResourceGroup.location,
+ *     resourceGroupName: primaryResourceGroup.name,
+ *     securityRules: [
+ *         {
+ *             name: "AllowSyncWithAzureAD",
+ *             priority: 101,
+ *             direction: "Inbound",
+ *             access: "Allow",
+ *             protocol: "Tcp",
+ *             sourcePortRange: "*",
+ *             destinationPortRange: "443",
+ *             sourceAddressPrefix: "AzureActiveDirectoryDomainServices",
+ *             destinationAddressPrefix: "*",
+ *         },
+ *         {
+ *             name: "AllowRD",
+ *             priority: 201,
+ *             direction: "Inbound",
+ *             access: "Allow",
+ *             protocol: "Tcp",
+ *             sourcePortRange: "*",
+ *             destinationPortRange: "3389",
+ *             sourceAddressPrefix: "CorpNetSaw",
+ *             destinationAddressPrefix: "*",
+ *         },
+ *         {
+ *             name: "AllowPSRemoting",
+ *             priority: 301,
+ *             direction: "Inbound",
+ *             access: "Allow",
+ *             protocol: "Tcp",
+ *             sourcePortRange: "*",
+ *             destinationPortRange: "5986",
+ *             sourceAddressPrefix: "AzureActiveDirectoryDomainServices",
+ *             destinationAddressPrefix: "*",
+ *         },
+ *         {
+ *             name: "AllowLDAPS",
+ *             priority: 401,
+ *             direction: "Inbound",
+ *             access: "Allow",
+ *             protocol: "Tcp",
+ *             sourcePortRange: "*",
+ *             destinationPortRange: "636",
+ *             sourceAddressPrefix: "*",
+ *             destinationAddressPrefix: "*",
+ *         },
+ *     ],
+ * });
+ * const primarySubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("primarySubnetNetworkSecurityGroupAssociation", {
+ *     subnetId: primarySubnet.id,
+ *     networkSecurityGroupId: primaryNetworkSecurityGroup.id,
+ * });
+ * const dcAdmins = new azuread.Group("dcAdmins", {
+ *     displayName: "aad-dc-administrators",
+ *     securityEnabled: true,
+ * });
+ * const adminUser = new azuread.User("adminUser", {
+ *     userPrincipalName: "dc-admin@hashicorp-example.net",
+ *     displayName: "DC Administrator",
+ *     password: "Pa55w0Rd!!1",
+ * });
+ * const adminGroupMember = new azuread.GroupMember("adminGroupMember", {
+ *     groupObjectId: dcAdmins.objectId,
+ *     memberObjectId: adminUser.objectId,
+ * });
+ * const exampleServicePrincipal = new azuread.ServicePrincipal("exampleServicePrincipal", {applicationId: "2565bd9d-da50-47d4-8b85-4c97f669dc36"});
+ * // published app for domain services
+ * const aadds = new azure.core.ResourceGroup("aadds", {location: "westeurope"});
+ * const exampleService = new azure.domainservices.Service("exampleService", {
+ *     location: aadds.location,
+ *     resourceGroupName: aadds.name,
+ *     domainName: "widgetslogin.net",
+ *     sku: "Enterprise",
+ *     filteredSyncEnabled: false,
+ *     initialReplicaSet: {
+ *         location: primaryVirtualNetwork.location,
+ *         subnetId: primarySubnet.id,
+ *     },
+ *     notifications: {
+ *         additionalRecipients: [
+ *             "notifyA@example.net",
+ *             "notifyB@example.org",
+ *         ],
+ *         notifyDcAdmins: true,
+ *         notifyGlobalAdmins: true,
+ *     },
+ *     security: {
+ *         syncKerberosPasswords: true,
+ *         syncNtlmPasswords: true,
+ *         syncOnPremPasswords: true,
+ *     },
+ *     tags: {
+ *         Environment: "prod",
+ *     },
+ * }, {
+ *     dependsOn: [
+ *         exampleServicePrincipal,
+ *         primarySubnetNetworkSecurityGroupAssociation,
+ *     ],
+ * });
+ * const replicaResourceGroup = new azure.core.ResourceGroup("replicaResourceGroup", {location: "North Europe"});
+ * const replicaVirtualNetwork = new azure.network.VirtualNetwork("replicaVirtualNetwork", {
+ *     location: replicaResourceGroup.location,
+ *     resourceGroupName: replicaResourceGroup.name,
+ *     addressSpaces: ["10.20.0.0/16"],
+ * });
+ * const aaddsReplicaSubnet = new azure.network.Subnet("aaddsReplicaSubnet", {
+ *     resourceGroupName: replicaResourceGroup.name,
+ *     virtualNetworkName: replicaVirtualNetwork.name,
+ *     addressPrefixes: ["10.20.0.0/24"],
+ * });
+ * const aaddsReplicaNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("aaddsReplicaNetworkSecurityGroup", {
+ *     location: replicaResourceGroup.location,
+ *     resourceGroupName: replicaResourceGroup.name,
+ *     securityRules: [
+ *         {
+ *             name: "AllowSyncWithAzureAD",
+ *             priority: 101,
+ *             direction: "Inbound",
+ *             access: "Allow",
+ *             protocol: "Tcp",
+ *             sourcePortRange: "*",
+ *             destinationPortRange: "443",
+ *             sourceAddressPrefix: "AzureActiveDirectoryDomainServices",
+ *             destinationAddressPrefix: "*",
+ *         },
+ *         {
+ *             name: "AllowRD",
+ *             priority: 201,
+ *             direction: "Inbound",
+ *             access: "Allow",
+ *             protocol: "Tcp",
+ *             sourcePortRange: "*",
+ *             destinationPortRange: "3389",
+ *             sourceAddressPrefix: "CorpNetSaw",
+ *             destinationAddressPrefix: "*",
+ *         },
+ *         {
+ *             name: "AllowPSRemoting",
+ *             priority: 301,
+ *             direction: "Inbound",
+ *             access: "Allow",
+ *             protocol: "Tcp",
+ *             sourcePortRange: "*",
+ *             destinationPortRange: "5986",
+ *             sourceAddressPrefix: "AzureActiveDirectoryDomainServices",
+ *             destinationAddressPrefix: "*",
+ *         },
+ *         {
+ *             name: "AllowLDAPS",
+ *             priority: 401,
+ *             direction: "Inbound",
+ *             access: "Allow",
+ *             protocol: "Tcp",
+ *             sourcePortRange: "*",
+ *             destinationPortRange: "636",
+ *             sourceAddressPrefix: "*",
+ *             destinationAddressPrefix: "*",
+ *         },
+ *     ],
+ * });
+ * const replicaSubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("replicaSubnetNetworkSecurityGroupAssociation", {
+ *     subnetId: aaddsReplicaSubnet.id,
+ *     networkSecurityGroupId: aaddsReplicaNetworkSecurityGroup.id,
+ * });
+ * const primaryReplica = new azure.network.VirtualNetworkPeering("primaryReplica", {
+ *     resourceGroupName: primaryVirtualNetwork.resourceGroupName,
+ *     virtualNetworkName: primaryVirtualNetwork.name,
+ *     remoteVirtualNetworkId: replicaVirtualNetwork.id,
+ *     allowForwardedTraffic: true,
+ *     allowGatewayTransit: false,
+ *     allowVirtualNetworkAccess: true,
+ *     useRemoteGateways: false,
+ * });
+ * const replicaPrimary = new azure.network.VirtualNetworkPeering("replicaPrimary", {
+ *     resourceGroupName: replicaVirtualNetwork.resourceGroupName,
+ *     virtualNetworkName: replicaVirtualNetwork.name,
+ *     remoteVirtualNetworkId: primaryVirtualNetwork.id,
+ *     allowForwardedTraffic: true,
+ *     allowGatewayTransit: false,
+ *     allowVirtualNetworkAccess: true,
+ *     useRemoteGateways: false,
+ * });
+ * const replicaVirtualNetworkDnsServers = new azure.network.VirtualNetworkDnsServers("replicaVirtualNetworkDnsServers", {
+ *     virtualNetworkId: replicaVirtualNetwork.id,
+ *     dnsServers: exampleService.initialReplicaSet.apply(initialReplicaSet => initialReplicaSet.domainControllerIpAddresses),
+ * });
+ * const replicaReplicaSet = new azure.domainservices.ReplicaSet("replicaReplicaSet", {
+ *     domainServiceId: exampleService.id,
+ *     location: replicaResourceGroup.location,
+ *     subnetId: aaddsReplicaSubnet.id,
+ * }, {
+ *     dependsOn: [
+ *         replicaSubnetNetworkSecurityGroupAssociation,
+ *         primaryReplica,
+ *         replicaPrimary,
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Domain Service Replica Sets can be imported using the resource ID of the parent Domain Service and the Replica Set ID, e.g.
