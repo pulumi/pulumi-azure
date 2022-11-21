@@ -319,11 +319,17 @@ func preConfigureCallback(vars resource.PropertyMap, c tfshim.ResourceConfig) er
 		ClientCertPassword:   stringValue(vars, "clientCertificatePassword", []string{"ARM_CLIENT_CERTIFICATE_PASSWORD"}),
 		MsiEndpoint:          stringValue(vars, "msiEndpoint", []string{"ARM_MSI_ENDPOINT"}),
 		AuxiliaryTenantIDs:   auxTenants,
+		IDTokenRequestToken:  stringValue(vars, "oidcRequestToken", []string{"ARM_OIDC_REQUEST_TOKEN"}),
+		IDTokenRequestURL:    stringValue(vars, "oidcRequestUrl", []string{"ARM_OIDC_REQUEST_URL"}),
+		IDToken:              stringValue(vars, "oidcToken", []string{"ARM_OIDC_TOKEN"}),
+		IDTokenFilePath:      stringValue(vars, "oidcTokenFilePath", []string{"ARM_OIDC_TOKEN_FILE_PATH"}),
+		MetadataHost:         stringValue(vars, "metadataHost", []string{"ARM_METADATA_HOSTNAME"}),
 		ClientSecretDocsLink: "https://www.pulumi.com/docs/intro/cloud-providers/azure/setup/#service-principal-authentication",
 
 		// Feature Toggles
 		SupportsClientCertAuth:         true,
 		SupportsClientSecretAuth:       true,
+		SupportsOIDCAuth:               boolValue(vars, "useOidc", []string{"ARM_USE_OIDC"}),
 		SupportsManagedServiceIdentity: boolValue(vars, "msiEndpoint", []string{"ARM_USE_MSI"}),
 		SupportsAzureCliToken:          true,
 		SupportsAuxiliaryTenants:       len(auxTenants) > 0,
