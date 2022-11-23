@@ -177,7 +177,7 @@ export class Assignment extends pulumi.CustomResource {
      */
     public readonly scope!: pulumi.Output<string>;
     /**
-     * If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. If it is not a `Service Principal` identity it will cause the role assignment to fail. Defaults to `false`.
+     * If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. Defaults to `false`.
      */
     public readonly skipServicePrincipalAadCheck!: pulumi.Output<boolean>;
 
@@ -277,7 +277,7 @@ export interface AssignmentState {
      */
     scope?: pulumi.Input<string>;
     /**
-     * If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. If it is not a `Service Principal` identity it will cause the role assignment to fail. Defaults to `false`.
+     * If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. Defaults to `false`.
      */
     skipServicePrincipalAadCheck?: pulumi.Input<boolean>;
 }
@@ -323,7 +323,7 @@ export interface AssignmentArgs {
      */
     scope: pulumi.Input<string>;
     /**
-     * If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. If it is not a `Service Principal` identity it will cause the role assignment to fail. Defaults to `false`.
+     * If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. Defaults to `false`.
      */
     skipServicePrincipalAadCheck?: pulumi.Input<boolean>;
 }

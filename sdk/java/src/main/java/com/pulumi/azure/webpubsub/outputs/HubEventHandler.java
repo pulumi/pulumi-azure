@@ -19,8 +19,7 @@ public final class HubEventHandler {
      */
     private @Nullable HubEventHandlerAuth auth;
     /**
-     * @return Specify the list of system events. Supported values are `connect`, `connected`
-     * and `disconnected`.
+     * @return Specify the list of system events. Supported values are `connect`, `connected` and `disconnected`.
      * 
      */
     private @Nullable List<String> systemEvents;
@@ -49,8 +48,7 @@ public final class HubEventHandler {
         return Optional.ofNullable(this.auth);
     }
     /**
-     * @return Specify the list of system events. Supported values are `connect`, `connected`
-     * and `disconnected`.
+     * @return Specify the list of system events. Supported values are `connect`, `connected` and `disconnected`.
      * 
      */
     public List<String> systemEvents() {

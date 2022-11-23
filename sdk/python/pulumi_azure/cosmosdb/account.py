@@ -69,7 +69,7 @@ class AccountArgs:
         :param pulumi.Input[str] ip_range_filter: CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
         :param pulumi.Input[bool] is_virtual_network_filter_enabled: Enables virtual network filtering for this Cosmos DB account.
         :param pulumi.Input[str] key_vault_key_id: A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] kind: Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] kind: Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] local_authentication_disabled: Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
@@ -384,7 +384,7 @@ class AccountArgs:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
+        Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "kind")
 
@@ -581,7 +581,7 @@ class _AccountState:
         :param pulumi.Input[str] ip_range_filter: CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
         :param pulumi.Input[bool] is_virtual_network_filter_enabled: Enables virtual network filtering for this Cosmos DB account.
         :param pulumi.Input[str] key_vault_key_id: A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] kind: Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] kind: Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] local_authentication_disabled: Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
@@ -932,7 +932,7 @@ class _AccountState:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
+        Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "kind")
 
@@ -1309,7 +1309,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] ip_range_filter: CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
         :param pulumi.Input[bool] is_virtual_network_filter_enabled: Enables virtual network filtering for this Cosmos DB account.
         :param pulumi.Input[str] key_vault_key_id: A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] kind: Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] kind: Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] local_authentication_disabled: Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
@@ -1574,7 +1574,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] ip_range_filter: CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
         :param pulumi.Input[bool] is_virtual_network_filter_enabled: Enables virtual network filtering for this Cosmos DB account.
         :param pulumi.Input[str] key_vault_key_id: A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] kind: Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] kind: Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] local_authentication_disabled: Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
@@ -1807,7 +1807,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
+        Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "kind")
 

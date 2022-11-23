@@ -31,14 +31,14 @@ public final class DatasetBinaryCompressionArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The type of compression used during transport.
+     * The type of compression used during transport. Possible values are `BZip2`, `Deflate`, `GZip`, `Tar`, `TarGZip` and `ZipDeflate`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of compression used during transport.
+     * @return The type of compression used during transport. Possible values are `BZip2`, `Deflate`, `GZip`, `Tar`, `TarGZip` and `ZipDeflate`.
      * 
      */
     public Output<String> type() {
@@ -92,7 +92,7 @@ public final class DatasetBinaryCompressionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param type The type of compression used during transport.
+         * @param type The type of compression used during transport. Possible values are `BZip2`, `Deflate`, `GZip`, `Tar`, `TarGZip` and `ZipDeflate`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class DatasetBinaryCompressionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param type The type of compression used during transport.
+         * @param type The type of compression used during transport. Possible values are `BZip2`, `Deflate`, `GZip`, `Tar`, `TarGZip` and `ZipDeflate`.
          * 
          * @return builder
          * 

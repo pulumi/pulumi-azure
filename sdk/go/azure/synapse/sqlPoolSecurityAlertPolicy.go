@@ -128,7 +128,7 @@ type SqlPoolSecurityAlertPolicy struct {
 	EmailAccountAdminsEnabled pulumi.BoolPtrOutput `pulumi:"emailAccountAdminsEnabled"`
 	// Specifies an array of email addresses to which the alert is sent.
 	EmailAddresses pulumi.StringArrayOutput `pulumi:"emailAddresses"`
-	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Allowed values are: `Disabled`, `Enabled`.
+	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Possible values are `Disabled`, `Enabled` and `New`.
 	PolicyState pulumi.StringOutput `pulumi:"policyState"`
 	// Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
 	RetentionDays pulumi.IntPtrOutput `pulumi:"retentionDays"`
@@ -181,7 +181,7 @@ type sqlPoolSecurityAlertPolicyState struct {
 	EmailAccountAdminsEnabled *bool `pulumi:"emailAccountAdminsEnabled"`
 	// Specifies an array of email addresses to which the alert is sent.
 	EmailAddresses []string `pulumi:"emailAddresses"`
-	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Allowed values are: `Disabled`, `Enabled`.
+	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Possible values are `Disabled`, `Enabled` and `New`.
 	PolicyState *string `pulumi:"policyState"`
 	// Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
 	RetentionDays *int `pulumi:"retentionDays"`
@@ -200,7 +200,7 @@ type SqlPoolSecurityAlertPolicyState struct {
 	EmailAccountAdminsEnabled pulumi.BoolPtrInput
 	// Specifies an array of email addresses to which the alert is sent.
 	EmailAddresses pulumi.StringArrayInput
-	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Allowed values are: `Disabled`, `Enabled`.
+	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Possible values are `Disabled`, `Enabled` and `New`.
 	PolicyState pulumi.StringPtrInput
 	// Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
 	RetentionDays pulumi.IntPtrInput
@@ -223,7 +223,7 @@ type sqlPoolSecurityAlertPolicyArgs struct {
 	EmailAccountAdminsEnabled *bool `pulumi:"emailAccountAdminsEnabled"`
 	// Specifies an array of email addresses to which the alert is sent.
 	EmailAddresses []string `pulumi:"emailAddresses"`
-	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Allowed values are: `Disabled`, `Enabled`.
+	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Possible values are `Disabled`, `Enabled` and `New`.
 	PolicyState string `pulumi:"policyState"`
 	// Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
 	RetentionDays *int `pulumi:"retentionDays"`
@@ -243,7 +243,7 @@ type SqlPoolSecurityAlertPolicyArgs struct {
 	EmailAccountAdminsEnabled pulumi.BoolPtrInput
 	// Specifies an array of email addresses to which the alert is sent.
 	EmailAddresses pulumi.StringArrayInput
-	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Allowed values are: `Disabled`, `Enabled`.
+	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Possible values are `Disabled`, `Enabled` and `New`.
 	PolicyState pulumi.StringInput
 	// Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
 	RetentionDays pulumi.IntPtrInput
@@ -357,7 +357,7 @@ func (o SqlPoolSecurityAlertPolicyOutput) EmailAddresses() pulumi.StringArrayOut
 	return o.ApplyT(func(v *SqlPoolSecurityAlertPolicy) pulumi.StringArrayOutput { return v.EmailAddresses }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Allowed values are: `Disabled`, `Enabled`.
+// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Possible values are `Disabled`, `Enabled` and `New`.
 func (o SqlPoolSecurityAlertPolicyOutput) PolicyState() pulumi.StringOutput {
 	return o.ApplyT(func(v *SqlPoolSecurityAlertPolicy) pulumi.StringOutput { return v.PolicyState }).(pulumi.StringOutput)
 }

@@ -135,7 +135,7 @@ namespace Pulumi.Azure.MariaDB
         public Output<string?> RestorePointInTime { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#sku).
+        /// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#sku). Possible values are `B_Gen5_1`, `B_Gen5_2`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_8`, `GP_Gen5_16`, `GP_Gen5_32`, `MO_Gen5_2`, `MO_Gen5_4`, `MO_Gen5_8` and `MO_Gen5_16`.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
@@ -283,7 +283,7 @@ namespace Pulumi.Azure.MariaDB
         public Input<string>? RestorePointInTime { get; set; }
 
         /// <summary>
-        /// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#sku).
+        /// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#sku). Possible values are `B_Gen5_1`, `B_Gen5_2`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_8`, `GP_Gen5_16`, `GP_Gen5_32`, `MO_Gen5_2`, `MO_Gen5_4`, `MO_Gen5_8` and `MO_Gen5_16`.
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
@@ -405,7 +405,7 @@ namespace Pulumi.Azure.MariaDB
         public Input<string>? RestorePointInTime { get; set; }
 
         /// <summary>
-        /// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#sku).
+        /// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#sku). Possible values are `B_Gen5_1`, `B_Gen5_2`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_8`, `GP_Gen5_16`, `GP_Gen5_32`, `MO_Gen5_2`, `MO_Gen5_4`, `MO_Gen5_8` and `MO_Gen5_16`.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }

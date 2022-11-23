@@ -1766,8 +1766,7 @@ func (o AccountImmutabilityPolicyPtrOutput) State() pulumi.StringPtrOutput {
 }
 
 type AccountNetworkRulesType struct {
-	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
-	// any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
 	Bypasses []string `pulumi:"bypasses"`
 	// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
 	DefaultAction string `pulumi:"defaultAction"`
@@ -1791,8 +1790,7 @@ type AccountNetworkRulesTypeInput interface {
 }
 
 type AccountNetworkRulesTypeArgs struct {
-	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
-	// any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
 	Bypasses pulumi.StringArrayInput `pulumi:"bypasses"`
 	// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
 	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
@@ -1881,8 +1879,7 @@ func (o AccountNetworkRulesTypeOutput) ToAccountNetworkRulesTypePtrOutputWithCon
 	}).(AccountNetworkRulesTypePtrOutput)
 }
 
-// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
-// any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
 func (o AccountNetworkRulesTypeOutput) Bypasses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountNetworkRulesType) []string { return v.Bypasses }).(pulumi.StringArrayOutput)
 }
@@ -1931,8 +1928,7 @@ func (o AccountNetworkRulesTypePtrOutput) Elem() AccountNetworkRulesTypeOutput {
 	}).(AccountNetworkRulesTypeOutput)
 }
 
-// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
-// any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
 func (o AccountNetworkRulesTypePtrOutput) Bypasses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountNetworkRulesType) []string {
 		if v == nil {
@@ -3300,6 +3296,162 @@ func (o AccountRoutingPtrOutput) PublishMicrosoftEndpoints() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
+type AccountSasPolicy struct {
+	// The SAS expiration action. The only possible value is `Log` at this moment. Defaults to `Log`.
+	ExpirationAction *string `pulumi:"expirationAction"`
+	// The SAS expiration period in format of `DD.HH:MM:SS`.
+	ExpirationPeriod string `pulumi:"expirationPeriod"`
+}
+
+// AccountSasPolicyInput is an input type that accepts AccountSasPolicyArgs and AccountSasPolicyOutput values.
+// You can construct a concrete instance of `AccountSasPolicyInput` via:
+//
+//	AccountSasPolicyArgs{...}
+type AccountSasPolicyInput interface {
+	pulumi.Input
+
+	ToAccountSasPolicyOutput() AccountSasPolicyOutput
+	ToAccountSasPolicyOutputWithContext(context.Context) AccountSasPolicyOutput
+}
+
+type AccountSasPolicyArgs struct {
+	// The SAS expiration action. The only possible value is `Log` at this moment. Defaults to `Log`.
+	ExpirationAction pulumi.StringPtrInput `pulumi:"expirationAction"`
+	// The SAS expiration period in format of `DD.HH:MM:SS`.
+	ExpirationPeriod pulumi.StringInput `pulumi:"expirationPeriod"`
+}
+
+func (AccountSasPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountSasPolicy)(nil)).Elem()
+}
+
+func (i AccountSasPolicyArgs) ToAccountSasPolicyOutput() AccountSasPolicyOutput {
+	return i.ToAccountSasPolicyOutputWithContext(context.Background())
+}
+
+func (i AccountSasPolicyArgs) ToAccountSasPolicyOutputWithContext(ctx context.Context) AccountSasPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountSasPolicyOutput)
+}
+
+func (i AccountSasPolicyArgs) ToAccountSasPolicyPtrOutput() AccountSasPolicyPtrOutput {
+	return i.ToAccountSasPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i AccountSasPolicyArgs) ToAccountSasPolicyPtrOutputWithContext(ctx context.Context) AccountSasPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountSasPolicyOutput).ToAccountSasPolicyPtrOutputWithContext(ctx)
+}
+
+// AccountSasPolicyPtrInput is an input type that accepts AccountSasPolicyArgs, AccountSasPolicyPtr and AccountSasPolicyPtrOutput values.
+// You can construct a concrete instance of `AccountSasPolicyPtrInput` via:
+//
+//	        AccountSasPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccountSasPolicyPtrInput interface {
+	pulumi.Input
+
+	ToAccountSasPolicyPtrOutput() AccountSasPolicyPtrOutput
+	ToAccountSasPolicyPtrOutputWithContext(context.Context) AccountSasPolicyPtrOutput
+}
+
+type accountSasPolicyPtrType AccountSasPolicyArgs
+
+func AccountSasPolicyPtr(v *AccountSasPolicyArgs) AccountSasPolicyPtrInput {
+	return (*accountSasPolicyPtrType)(v)
+}
+
+func (*accountSasPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountSasPolicy)(nil)).Elem()
+}
+
+func (i *accountSasPolicyPtrType) ToAccountSasPolicyPtrOutput() AccountSasPolicyPtrOutput {
+	return i.ToAccountSasPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *accountSasPolicyPtrType) ToAccountSasPolicyPtrOutputWithContext(ctx context.Context) AccountSasPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountSasPolicyPtrOutput)
+}
+
+type AccountSasPolicyOutput struct{ *pulumi.OutputState }
+
+func (AccountSasPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountSasPolicy)(nil)).Elem()
+}
+
+func (o AccountSasPolicyOutput) ToAccountSasPolicyOutput() AccountSasPolicyOutput {
+	return o
+}
+
+func (o AccountSasPolicyOutput) ToAccountSasPolicyOutputWithContext(ctx context.Context) AccountSasPolicyOutput {
+	return o
+}
+
+func (o AccountSasPolicyOutput) ToAccountSasPolicyPtrOutput() AccountSasPolicyPtrOutput {
+	return o.ToAccountSasPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o AccountSasPolicyOutput) ToAccountSasPolicyPtrOutputWithContext(ctx context.Context) AccountSasPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountSasPolicy) *AccountSasPolicy {
+		return &v
+	}).(AccountSasPolicyPtrOutput)
+}
+
+// The SAS expiration action. The only possible value is `Log` at this moment. Defaults to `Log`.
+func (o AccountSasPolicyOutput) ExpirationAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountSasPolicy) *string { return v.ExpirationAction }).(pulumi.StringPtrOutput)
+}
+
+// The SAS expiration period in format of `DD.HH:MM:SS`.
+func (o AccountSasPolicyOutput) ExpirationPeriod() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountSasPolicy) string { return v.ExpirationPeriod }).(pulumi.StringOutput)
+}
+
+type AccountSasPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountSasPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountSasPolicy)(nil)).Elem()
+}
+
+func (o AccountSasPolicyPtrOutput) ToAccountSasPolicyPtrOutput() AccountSasPolicyPtrOutput {
+	return o
+}
+
+func (o AccountSasPolicyPtrOutput) ToAccountSasPolicyPtrOutputWithContext(ctx context.Context) AccountSasPolicyPtrOutput {
+	return o
+}
+
+func (o AccountSasPolicyPtrOutput) Elem() AccountSasPolicyOutput {
+	return o.ApplyT(func(v *AccountSasPolicy) AccountSasPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret AccountSasPolicy
+		return ret
+	}).(AccountSasPolicyOutput)
+}
+
+// The SAS expiration action. The only possible value is `Log` at this moment. Defaults to `Log`.
+func (o AccountSasPolicyPtrOutput) ExpirationAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountSasPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExpirationAction
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SAS expiration period in format of `DD.HH:MM:SS`.
+func (o AccountSasPolicyPtrOutput) ExpirationPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountSasPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExpirationPeriod
+	}).(pulumi.StringPtrOutput)
+}
+
 type AccountShareProperties struct {
 	// A `corsRule` block as defined below.
 	CorsRules []AccountSharePropertiesCorsRule `pulumi:"corsRules"`
@@ -4273,6 +4425,8 @@ type BlobInventoryPolicyRuleFilter struct {
 	BlobTypes []string `pulumi:"blobTypes"`
 	// Includes blob versions in blob inventory or not? Defaults to `false`.
 	IncludeBlobVersions *bool `pulumi:"includeBlobVersions"`
+	// Includes deleted blobs in blob inventory or not? Defaults to `false`.
+	IncludeDeleted *bool `pulumi:"includeDeleted"`
 	// Includes blob snapshots in blob inventory or not? Defaults to `false`.
 	IncludeSnapshots *bool `pulumi:"includeSnapshots"`
 	// A set of strings for blob prefixes to be matched.
@@ -4295,6 +4449,8 @@ type BlobInventoryPolicyRuleFilterArgs struct {
 	BlobTypes pulumi.StringArrayInput `pulumi:"blobTypes"`
 	// Includes blob versions in blob inventory or not? Defaults to `false`.
 	IncludeBlobVersions pulumi.BoolPtrInput `pulumi:"includeBlobVersions"`
+	// Includes deleted blobs in blob inventory or not? Defaults to `false`.
+	IncludeDeleted pulumi.BoolPtrInput `pulumi:"includeDeleted"`
 	// Includes blob snapshots in blob inventory or not? Defaults to `false`.
 	IncludeSnapshots pulumi.BoolPtrInput `pulumi:"includeSnapshots"`
 	// A set of strings for blob prefixes to be matched.
@@ -4388,6 +4544,11 @@ func (o BlobInventoryPolicyRuleFilterOutput) IncludeBlobVersions() pulumi.BoolPt
 	return o.ApplyT(func(v BlobInventoryPolicyRuleFilter) *bool { return v.IncludeBlobVersions }).(pulumi.BoolPtrOutput)
 }
 
+// Includes deleted blobs in blob inventory or not? Defaults to `false`.
+func (o BlobInventoryPolicyRuleFilterOutput) IncludeDeleted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyRuleFilter) *bool { return v.IncludeDeleted }).(pulumi.BoolPtrOutput)
+}
+
 // Includes blob snapshots in blob inventory or not? Defaults to `false`.
 func (o BlobInventoryPolicyRuleFilterOutput) IncludeSnapshots() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyRuleFilter) *bool { return v.IncludeSnapshots }).(pulumi.BoolPtrOutput)
@@ -4439,6 +4600,16 @@ func (o BlobInventoryPolicyRuleFilterPtrOutput) IncludeBlobVersions() pulumi.Boo
 			return nil
 		}
 		return v.IncludeBlobVersions
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Includes deleted blobs in blob inventory or not? Defaults to `false`.
+func (o BlobInventoryPolicyRuleFilterPtrOutput) IncludeDeleted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicyRuleFilter) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeDeleted
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -8401,6 +8572,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountQueuePropertiesMinuteMetricsPtrInput)(nil)).Elem(), AccountQueuePropertiesMinuteMetricsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountRoutingInput)(nil)).Elem(), AccountRoutingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountRoutingPtrInput)(nil)).Elem(), AccountRoutingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountSasPolicyInput)(nil)).Elem(), AccountSasPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountSasPolicyPtrInput)(nil)).Elem(), AccountSasPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountSharePropertiesInput)(nil)).Elem(), AccountSharePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountSharePropertiesPtrInput)(nil)).Elem(), AccountSharePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountSharePropertiesCorsRuleInput)(nil)).Elem(), AccountSharePropertiesCorsRuleArgs{})
@@ -8510,6 +8683,8 @@ func init() {
 	pulumi.RegisterOutputType(AccountQueuePropertiesMinuteMetricsPtrOutput{})
 	pulumi.RegisterOutputType(AccountRoutingOutput{})
 	pulumi.RegisterOutputType(AccountRoutingPtrOutput{})
+	pulumi.RegisterOutputType(AccountSasPolicyOutput{})
+	pulumi.RegisterOutputType(AccountSasPolicyPtrOutput{})
 	pulumi.RegisterOutputType(AccountSharePropertiesOutput{})
 	pulumi.RegisterOutputType(AccountSharePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AccountSharePropertiesCorsRuleOutput{})

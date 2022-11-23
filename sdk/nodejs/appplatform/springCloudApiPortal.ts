@@ -88,7 +88,7 @@ export class SpringCloudApiPortal extends pulumi.CustomResource {
      */
     public readonly instanceCount!: pulumi.Output<number | undefined>;
     /**
-     * The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created.
+     * The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `default`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -165,7 +165,7 @@ export interface SpringCloudApiPortalState {
      */
     instanceCount?: pulumi.Input<number>;
     /**
-     * The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created.
+     * The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `default`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -203,7 +203,7 @@ export interface SpringCloudApiPortalArgs {
      */
     instanceCount?: pulumi.Input<number>;
     /**
-     * The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created.
+     * The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `default`.
      */
     name?: pulumi.Input<string>;
     /**

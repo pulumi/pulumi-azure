@@ -25,13 +25,13 @@ namespace Pulumi.Azure.Lb.Inputs
         public Input<int> Port { get; set; } = null!;
 
         /// <summary>
-        /// The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `Native` and `VXLAN`.
+        /// The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
         /// <summary>
-        /// The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `Internal` and `External`.
+        /// The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

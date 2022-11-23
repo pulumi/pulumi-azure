@@ -32,7 +32,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
      */
     private @Nullable String dockerContainerTag;
     /**
-     * @return The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
+     * @return The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0` .
      * 
      */
     private @Nullable String dotnetVersion;
@@ -47,7 +47,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
      */
     private @Nullable String javaContainerVersion;
     /**
-     * @return The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8` and `11`. Required with `java_container` and `java_container_version`.
+     * @return The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
      * 
      */
     private @Nullable String javaVersion;
@@ -97,7 +97,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
         return Optional.ofNullable(this.dockerContainerTag);
     }
     /**
-     * @return The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
+     * @return The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0` .
      * 
      */
     public Optional<String> dotnetVersion() {
@@ -118,7 +118,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
         return Optional.ofNullable(this.javaContainerVersion);
     }
     /**
-     * @return The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8` and `11`. Required with `java_container` and `java_container_version`.
+     * @return The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
      * 
      */
     public Optional<String> javaVersion() {

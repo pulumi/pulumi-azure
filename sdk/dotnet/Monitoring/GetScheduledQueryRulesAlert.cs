@@ -149,6 +149,9 @@ namespace Pulumi.Azure.Monitoring
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Specifies the Azure Region where the resource should exist.
+        /// </summary>
         public readonly string Location;
         public readonly string Name;
         /// <summary>

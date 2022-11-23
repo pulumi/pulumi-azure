@@ -97,7 +97,7 @@ namespace Pulumi.Azure.MSSql
         public Output<int?> SqlConnectivityPort { get; private set; } = null!;
 
         /// <summary>
-        /// The connectivity type used for this SQL Server. Defaults to `PRIVATE`.
+        /// The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`.
         /// </summary>
         [Output("sqlConnectivityType")]
         public Output<string?> SqlConnectivityType { get; private set; } = null!;
@@ -113,6 +113,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Output("sqlConnectivityUpdateUsername")]
         public Output<string?> SqlConnectivityUpdateUsername { get; private set; } = null!;
+
+        /// <summary>
+        /// A `sql_instance` block as defined below.
+        /// </summary>
+        [Output("sqlInstance")]
+        public Output<Outputs.VirtualMachineSqlInstance?> SqlInstance { get; private set; } = null!;
 
         /// <summary>
         /// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
@@ -221,7 +227,7 @@ namespace Pulumi.Azure.MSSql
         public Input<int>? SqlConnectivityPort { get; set; }
 
         /// <summary>
-        /// The connectivity type used for this SQL Server. Defaults to `PRIVATE`.
+        /// The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`.
         /// </summary>
         [Input("sqlConnectivityType")]
         public Input<string>? SqlConnectivityType { get; set; }
@@ -237,6 +243,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("sqlConnectivityUpdateUsername")]
         public Input<string>? SqlConnectivityUpdateUsername { get; set; }
+
+        /// <summary>
+        /// A `sql_instance` block as defined below.
+        /// </summary>
+        [Input("sqlInstance")]
+        public Input<Inputs.VirtualMachineSqlInstanceArgs>? SqlInstance { get; set; }
 
         /// <summary>
         /// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
@@ -313,7 +325,7 @@ namespace Pulumi.Azure.MSSql
         public Input<int>? SqlConnectivityPort { get; set; }
 
         /// <summary>
-        /// The connectivity type used for this SQL Server. Defaults to `PRIVATE`.
+        /// The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`.
         /// </summary>
         [Input("sqlConnectivityType")]
         public Input<string>? SqlConnectivityType { get; set; }
@@ -329,6 +341,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("sqlConnectivityUpdateUsername")]
         public Input<string>? SqlConnectivityUpdateUsername { get; set; }
+
+        /// <summary>
+        /// A `sql_instance` block as defined below.
+        /// </summary>
+        [Input("sqlInstance")]
+        public Input<Inputs.VirtualMachineSqlInstanceGetArgs>? SqlInstance { get; set; }
 
         /// <summary>
         /// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.

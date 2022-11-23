@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class AlertRuleScheduledEventGrouping {
     /**
-     * @return The aggregation type of grouping the events.
+     * @return The aggregation type of grouping the events. Possible values are `AlertPerResult` and `SingleAlert`.
      * 
      */
     private String aggregationMethod;
 
     private AlertRuleScheduledEventGrouping() {}
     /**
-     * @return The aggregation type of grouping the events.
+     * @return The aggregation type of grouping the events. Possible values are `AlertPerResult` and `SingleAlert`.
      * 
      */
     public String aggregationMethod() {

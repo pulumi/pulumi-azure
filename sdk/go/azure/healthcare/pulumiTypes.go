@@ -118,7 +118,7 @@ type DicomServiceIdentity struct {
 	IdentityIds []string `pulumi:"identityIds"`
 	PrincipalId *string  `pulumi:"principalId"`
 	TenantId    *string  `pulumi:"tenantId"`
-	// The type of identity used for the Healthcare DICOM service. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, an `identityIds` must be set as well.
+	// The type of identity used for the Healthcare DICOM service. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. If `UserAssigned` is set, an `identityIds` must be set as well.
 	Type string `pulumi:"type"`
 }
 
@@ -138,7 +138,7 @@ type DicomServiceIdentityArgs struct {
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
 	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
-	// The type of identity used for the Healthcare DICOM service. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, an `identityIds` must be set as well.
+	// The type of identity used for the Healthcare DICOM service. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. If `UserAssigned` is set, an `identityIds` must be set as well.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -232,7 +232,7 @@ func (o DicomServiceIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DicomServiceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the Healthcare DICOM service. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, an `identityIds` must be set as well.
+// The type of identity used for the Healthcare DICOM service. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. If `UserAssigned` is set, an `identityIds` must be set as well.
 func (o DicomServiceIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DicomServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -289,7 +289,7 @@ func (o DicomServiceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the Healthcare DICOM service. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, an `identityIds` must be set as well.
+// The type of identity used for the Healthcare DICOM service. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. If `UserAssigned` is set, an `identityIds` must be set as well.
 func (o DicomServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DicomServiceIdentity) *string {
 		if v == nil {
@@ -575,7 +575,7 @@ func (o FhirServiceAuthenticationPtrOutput) SmartProxyEnabled() pulumi.BoolPtrOu
 type FhirServiceCors struct {
 	// A set of headers to be allowed via CORS.
 	AllowedHeaders []string `pulumi:"allowedHeaders"`
-	// The methods to be allowed via CORS.
+	// The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
 	AllowedMethods []string `pulumi:"allowedMethods"`
 	// A set of origins to be allowed via CORS.
 	AllowedOrigins []string `pulumi:"allowedOrigins"`
@@ -599,7 +599,7 @@ type FhirServiceCorsInput interface {
 type FhirServiceCorsArgs struct {
 	// A set of headers to be allowed via CORS.
 	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
-	// The methods to be allowed via CORS.
+	// The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
 	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
 	// A set of origins to be allowed via CORS.
 	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
@@ -691,7 +691,7 @@ func (o FhirServiceCorsOutput) AllowedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FhirServiceCors) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
 }
 
-// The methods to be allowed via CORS.
+// The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
 func (o FhirServiceCorsOutput) AllowedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FhirServiceCors) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
 }
@@ -745,7 +745,7 @@ func (o FhirServiceCorsPtrOutput) AllowedHeaders() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The methods to be allowed via CORS.
+// The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
 func (o FhirServiceCorsPtrOutput) AllowedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FhirServiceCors) []string {
 		if v == nil {
@@ -1426,7 +1426,7 @@ type ServiceCorsConfiguration struct {
 	AllowCredentials *bool `pulumi:"allowCredentials"`
 	// A set of headers to be allowed via CORS.
 	AllowedHeaders []string `pulumi:"allowedHeaders"`
-	// The methods to be allowed via CORS.
+	// The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
 	AllowedMethods []string `pulumi:"allowedMethods"`
 	// A set of origins to be allowed via CORS.
 	AllowedOrigins []string `pulumi:"allowedOrigins"`
@@ -1450,7 +1450,7 @@ type ServiceCorsConfigurationArgs struct {
 	AllowCredentials pulumi.BoolPtrInput `pulumi:"allowCredentials"`
 	// A set of headers to be allowed via CORS.
 	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
-	// The methods to be allowed via CORS.
+	// The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
 	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
 	// A set of origins to be allowed via CORS.
 	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
@@ -1545,7 +1545,7 @@ func (o ServiceCorsConfigurationOutput) AllowedHeaders() pulumi.StringArrayOutpu
 	return o.ApplyT(func(v ServiceCorsConfiguration) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
 }
 
-// The methods to be allowed via CORS.
+// The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
 func (o ServiceCorsConfigurationOutput) AllowedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServiceCorsConfiguration) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
 }
@@ -1604,7 +1604,7 @@ func (o ServiceCorsConfigurationPtrOutput) AllowedHeaders() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// The methods to be allowed via CORS.
+// The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
 func (o ServiceCorsConfigurationPtrOutput) AllowedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServiceCorsConfiguration) []string {
 		if v == nil {

@@ -121,7 +121,7 @@ type CustomProviderResourceType struct {
 	Endpoint string `pulumi:"endpoint"`
 	// Specifies the name of the route definition.
 	Name string `pulumi:"name"`
-	// The routing type that is supported for the resource request. Valid values are `ResourceTypeRoutingProxy` or `ResourceTypeRoutingProxyCache`. This value defaults to `ResourceTypeRoutingProxy`.
+	// The routing type that is supported for the resource request. Valid values are `Proxy` and `Proxy,Cache`. This value defaults to `ResourceTypeRoutingProxy`.
 	RoutingType *string `pulumi:"routingType"`
 }
 
@@ -141,7 +141,7 @@ type CustomProviderResourceTypeArgs struct {
 	Endpoint pulumi.StringInput `pulumi:"endpoint"`
 	// Specifies the name of the route definition.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The routing type that is supported for the resource request. Valid values are `ResourceTypeRoutingProxy` or `ResourceTypeRoutingProxyCache`. This value defaults to `ResourceTypeRoutingProxy`.
+	// The routing type that is supported for the resource request. Valid values are `Proxy` and `Proxy,Cache`. This value defaults to `ResourceTypeRoutingProxy`.
 	RoutingType pulumi.StringPtrInput `pulumi:"routingType"`
 }
 
@@ -206,7 +206,7 @@ func (o CustomProviderResourceTypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomProviderResourceType) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The routing type that is supported for the resource request. Valid values are `ResourceTypeRoutingProxy` or `ResourceTypeRoutingProxyCache`. This value defaults to `ResourceTypeRoutingProxy`.
+// The routing type that is supported for the resource request. Valid values are `Proxy` and `Proxy,Cache`. This value defaults to `ResourceTypeRoutingProxy`.
 func (o CustomProviderResourceTypeOutput) RoutingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomProviderResourceType) *string { return v.RoutingType }).(pulumi.StringPtrOutput)
 }
@@ -331,7 +331,7 @@ func (o CustomProviderValidationArrayOutput) Index(i pulumi.IntInput) CustomProv
 type ResourceGroupCostManagementExportExportDataOptions struct {
 	// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
 	TimeFrame string `pulumi:"timeFrame"`
-	// The type of the query.
+	// The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
 	Type string `pulumi:"type"`
 }
 
@@ -349,7 +349,7 @@ type ResourceGroupCostManagementExportExportDataOptionsInput interface {
 type ResourceGroupCostManagementExportExportDataOptionsArgs struct {
 	// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
 	TimeFrame pulumi.StringInput `pulumi:"timeFrame"`
-	// The type of the query.
+	// The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -435,7 +435,7 @@ func (o ResourceGroupCostManagementExportExportDataOptionsOutput) TimeFrame() pu
 	return o.ApplyT(func(v ResourceGroupCostManagementExportExportDataOptions) string { return v.TimeFrame }).(pulumi.StringOutput)
 }
 
-// The type of the query.
+// The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
 func (o ResourceGroupCostManagementExportExportDataOptionsOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceGroupCostManagementExportExportDataOptions) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -474,7 +474,7 @@ func (o ResourceGroupCostManagementExportExportDataOptionsPtrOutput) TimeFrame()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of the query.
+// The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
 func (o ResourceGroupCostManagementExportExportDataOptionsPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceGroupCostManagementExportExportDataOptions) *string {
 		if v == nil {
@@ -1351,7 +1351,7 @@ func (o ResourceProviderRegistrationFeatureArrayOutput) Index(i pulumi.IntInput)
 type SubscriptionCostManagementExportExportDataOptions struct {
 	// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
 	TimeFrame string `pulumi:"timeFrame"`
-	// The type of the query.
+	// The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
 	Type string `pulumi:"type"`
 }
 
@@ -1369,7 +1369,7 @@ type SubscriptionCostManagementExportExportDataOptionsInput interface {
 type SubscriptionCostManagementExportExportDataOptionsArgs struct {
 	// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
 	TimeFrame pulumi.StringInput `pulumi:"timeFrame"`
-	// The type of the query.
+	// The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1455,7 +1455,7 @@ func (o SubscriptionCostManagementExportExportDataOptionsOutput) TimeFrame() pul
 	return o.ApplyT(func(v SubscriptionCostManagementExportExportDataOptions) string { return v.TimeFrame }).(pulumi.StringOutput)
 }
 
-// The type of the query.
+// The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
 func (o SubscriptionCostManagementExportExportDataOptionsOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SubscriptionCostManagementExportExportDataOptions) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1494,7 +1494,7 @@ func (o SubscriptionCostManagementExportExportDataOptionsPtrOutput) TimeFrame() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of the query.
+// The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
 func (o SubscriptionCostManagementExportExportDataOptionsPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionCostManagementExportExportDataOptions) *string {
 		if v == nil {

@@ -61,14 +61,14 @@ public final class ContactProfileLinkArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Polarization of the link. Possible values are `RHCP`, `LHCP`, `linearVertical` and `linearHorizonal`.
+     * Polarization of the link. Possible values are `LHCP`, `RHCP`, `linearVertical` and `linearHorizontal`.
      * 
      */
     @Import(name="polarization", required=true)
     private Output<String> polarization;
 
     /**
-     * @return Polarization of the link. Possible values are `RHCP`, `LHCP`, `linearVertical` and `linearHorizonal`.
+     * @return Polarization of the link. Possible values are `LHCP`, `RHCP`, `linearVertical` and `linearHorizontal`.
      * 
      */
     public Output<String> polarization() {
@@ -176,7 +176,7 @@ public final class ContactProfileLinkArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param polarization Polarization of the link. Possible values are `RHCP`, `LHCP`, `linearVertical` and `linearHorizonal`.
+         * @param polarization Polarization of the link. Possible values are `LHCP`, `RHCP`, `linearVertical` and `linearHorizontal`.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class ContactProfileLinkArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param polarization Polarization of the link. Possible values are `RHCP`, `LHCP`, `linearVertical` and `linearHorizonal`.
+         * @param polarization Polarization of the link. Possible values are `LHCP`, `RHCP`, `linearVertical` and `linearHorizontal`.
          * 
          * @return builder
          * 

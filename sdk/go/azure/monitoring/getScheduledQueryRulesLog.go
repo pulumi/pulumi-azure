@@ -68,7 +68,8 @@ type LookupScheduledQueryRulesLogResult struct {
 	// Whether this scheduled query rule is enabled.
 	Enabled bool `pulumi:"enabled"`
 	// The provider-assigned unique ID for this managed resource.
-	Id       string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Specifies the Azure Region where the resource should exist.
 	Location string `pulumi:"location"`
 	// Name of the dimension.
 	Name              string            `pulumi:"name"`
@@ -145,6 +146,7 @@ func (o LookupScheduledQueryRulesLogResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupScheduledQueryRulesLogResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Specifies the Azure Region where the resource should exist.
 func (o LookupScheduledQueryRulesLogResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupScheduledQueryRulesLogResult) string { return v.Location }).(pulumi.StringOutput)
 }

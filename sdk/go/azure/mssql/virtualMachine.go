@@ -84,12 +84,14 @@ type VirtualMachine struct {
 	RServicesEnabled pulumi.BoolPtrOutput `pulumi:"rServicesEnabled"`
 	// The SQL Server port. Defaults to `1433`.
 	SqlConnectivityPort pulumi.IntPtrOutput `pulumi:"sqlConnectivityPort"`
-	// The connectivity type used for this SQL Server. Defaults to `PRIVATE`.
+	// The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`.
 	SqlConnectivityType pulumi.StringPtrOutput `pulumi:"sqlConnectivityType"`
 	// The SQL Server sysadmin login password.
 	SqlConnectivityUpdatePassword pulumi.StringPtrOutput `pulumi:"sqlConnectivityUpdatePassword"`
 	// The SQL Server sysadmin login to create.
 	SqlConnectivityUpdateUsername pulumi.StringPtrOutput `pulumi:"sqlConnectivityUpdateUsername"`
+	// A `sqlInstance` block as defined below.
+	SqlInstance VirtualMachineSqlInstancePtrOutput `pulumi:"sqlInstance"`
 	// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
 	SqlLicenseType pulumi.StringOutput `pulumi:"sqlLicenseType"`
 	// An `storageConfiguration` block as defined below.
@@ -147,12 +149,14 @@ type virtualMachineState struct {
 	RServicesEnabled *bool `pulumi:"rServicesEnabled"`
 	// The SQL Server port. Defaults to `1433`.
 	SqlConnectivityPort *int `pulumi:"sqlConnectivityPort"`
-	// The connectivity type used for this SQL Server. Defaults to `PRIVATE`.
+	// The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`.
 	SqlConnectivityType *string `pulumi:"sqlConnectivityType"`
 	// The SQL Server sysadmin login password.
 	SqlConnectivityUpdatePassword *string `pulumi:"sqlConnectivityUpdatePassword"`
 	// The SQL Server sysadmin login to create.
 	SqlConnectivityUpdateUsername *string `pulumi:"sqlConnectivityUpdateUsername"`
+	// A `sqlInstance` block as defined below.
+	SqlInstance *VirtualMachineSqlInstance `pulumi:"sqlInstance"`
 	// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
 	SqlLicenseType *string `pulumi:"sqlLicenseType"`
 	// An `storageConfiguration` block as defined below.
@@ -176,12 +180,14 @@ type VirtualMachineState struct {
 	RServicesEnabled pulumi.BoolPtrInput
 	// The SQL Server port. Defaults to `1433`.
 	SqlConnectivityPort pulumi.IntPtrInput
-	// The connectivity type used for this SQL Server. Defaults to `PRIVATE`.
+	// The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`.
 	SqlConnectivityType pulumi.StringPtrInput
 	// The SQL Server sysadmin login password.
 	SqlConnectivityUpdatePassword pulumi.StringPtrInput
 	// The SQL Server sysadmin login to create.
 	SqlConnectivityUpdateUsername pulumi.StringPtrInput
+	// A `sqlInstance` block as defined below.
+	SqlInstance VirtualMachineSqlInstancePtrInput
 	// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
 	SqlLicenseType pulumi.StringPtrInput
 	// An `storageConfiguration` block as defined below.
@@ -209,12 +215,14 @@ type virtualMachineArgs struct {
 	RServicesEnabled *bool `pulumi:"rServicesEnabled"`
 	// The SQL Server port. Defaults to `1433`.
 	SqlConnectivityPort *int `pulumi:"sqlConnectivityPort"`
-	// The connectivity type used for this SQL Server. Defaults to `PRIVATE`.
+	// The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`.
 	SqlConnectivityType *string `pulumi:"sqlConnectivityType"`
 	// The SQL Server sysadmin login password.
 	SqlConnectivityUpdatePassword *string `pulumi:"sqlConnectivityUpdatePassword"`
 	// The SQL Server sysadmin login to create.
 	SqlConnectivityUpdateUsername *string `pulumi:"sqlConnectivityUpdateUsername"`
+	// A `sqlInstance` block as defined below.
+	SqlInstance *VirtualMachineSqlInstance `pulumi:"sqlInstance"`
 	// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
 	SqlLicenseType string `pulumi:"sqlLicenseType"`
 	// An `storageConfiguration` block as defined below.
@@ -239,12 +247,14 @@ type VirtualMachineArgs struct {
 	RServicesEnabled pulumi.BoolPtrInput
 	// The SQL Server port. Defaults to `1433`.
 	SqlConnectivityPort pulumi.IntPtrInput
-	// The connectivity type used for this SQL Server. Defaults to `PRIVATE`.
+	// The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`.
 	SqlConnectivityType pulumi.StringPtrInput
 	// The SQL Server sysadmin login password.
 	SqlConnectivityUpdatePassword pulumi.StringPtrInput
 	// The SQL Server sysadmin login to create.
 	SqlConnectivityUpdateUsername pulumi.StringPtrInput
+	// A `sqlInstance` block as defined below.
+	SqlInstance VirtualMachineSqlInstancePtrInput
 	// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
 	SqlLicenseType pulumi.StringInput
 	// An `storageConfiguration` block as defined below.
@@ -372,7 +382,7 @@ func (o VirtualMachineOutput) SqlConnectivityPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualMachine) pulumi.IntPtrOutput { return v.SqlConnectivityPort }).(pulumi.IntPtrOutput)
 }
 
-// The connectivity type used for this SQL Server. Defaults to `PRIVATE`.
+// The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`.
 func (o VirtualMachineOutput) SqlConnectivityType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachine) pulumi.StringPtrOutput { return v.SqlConnectivityType }).(pulumi.StringPtrOutput)
 }
@@ -385,6 +395,11 @@ func (o VirtualMachineOutput) SqlConnectivityUpdatePassword() pulumi.StringPtrOu
 // The SQL Server sysadmin login to create.
 func (o VirtualMachineOutput) SqlConnectivityUpdateUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachine) pulumi.StringPtrOutput { return v.SqlConnectivityUpdateUsername }).(pulumi.StringPtrOutput)
+}
+
+// A `sqlInstance` block as defined below.
+func (o VirtualMachineOutput) SqlInstance() VirtualMachineSqlInstancePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) VirtualMachineSqlInstancePtrOutput { return v.SqlInstance }).(VirtualMachineSqlInstancePtrOutput)
 }
 
 // The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.

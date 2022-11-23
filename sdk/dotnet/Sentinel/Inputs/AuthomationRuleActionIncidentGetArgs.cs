@@ -49,7 +49,7 @@ namespace Pulumi.Azure.Sentinel.Inputs
         public Input<string>? OwnerId { get; set; }
 
         /// <summary>
-        /// The severity to add to the incident.
+        /// The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
         /// </summary>
         [Input("severity")]
         public Input<string>? Severity { get; set; }

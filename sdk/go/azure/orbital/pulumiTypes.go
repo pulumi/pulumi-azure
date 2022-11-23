@@ -17,7 +17,7 @@ type ContactProfileLink struct {
 	Direction string `pulumi:"direction"`
 	// Name of the link.
 	Name string `pulumi:"name"`
-	// Polarization of the link. Possible values are `RHCP`, `LHCP`, `linearVertical` and `linearHorizonal`.
+	// Polarization of the link. Possible values are `LHCP`, `RHCP`, `linearVertical` and `linearHorizontal`.
 	Polarization string `pulumi:"polarization"`
 }
 
@@ -39,7 +39,7 @@ type ContactProfileLinkArgs struct {
 	Direction pulumi.StringInput `pulumi:"direction"`
 	// Name of the link.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Polarization of the link. Possible values are `RHCP`, `LHCP`, `linearVertical` and `linearHorizonal`.
+	// Polarization of the link. Possible values are `LHCP`, `RHCP`, `linearVertical` and `linearHorizontal`.
 	Polarization pulumi.StringInput `pulumi:"polarization"`
 }
 
@@ -109,7 +109,7 @@ func (o ContactProfileLinkOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactProfileLink) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Polarization of the link. Possible values are `RHCP`, `LHCP`, `linearVertical` and `linearHorizonal`.
+// Polarization of the link. Possible values are `LHCP`, `RHCP`, `linearVertical` and `linearHorizontal`.
 func (o ContactProfileLinkOutput) Polarization() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactProfileLink) string { return v.Polarization }).(pulumi.StringOutput)
 }

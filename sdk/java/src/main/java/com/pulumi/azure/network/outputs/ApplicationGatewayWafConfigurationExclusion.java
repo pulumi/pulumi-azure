@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ApplicationGatewayWafConfigurationExclusion {
     /**
-     * @return Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are `RequestHeaderNames`, `RequestArgNames` and `RequestCookieNames`
+     * @return Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames` and `RequestHeaderValues`
      * 
      */
     private String matchVariable;
@@ -22,14 +22,14 @@ public final class ApplicationGatewayWafConfigurationExclusion {
      */
     private @Nullable String selector;
     /**
-     * @return Operator which will be used to search in the variable content. Possible values are `Equals`, `StartsWith`, `EndsWith`, `Contains`. If empty will exclude all traffic on this `match_variable`
+     * @return Operator which will be used to search in the variable content. Possible values are `Contains`, `EndsWith`, `Equals`, `EqualsAny` and `StartsWith`. If empty will exclude all traffic on this `match_variable`
      * 
      */
     private @Nullable String selectorMatchOperator;
 
     private ApplicationGatewayWafConfigurationExclusion() {}
     /**
-     * @return Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are `RequestHeaderNames`, `RequestArgNames` and `RequestCookieNames`
+     * @return Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames` and `RequestHeaderValues`
      * 
      */
     public String matchVariable() {
@@ -43,7 +43,7 @@ public final class ApplicationGatewayWafConfigurationExclusion {
         return Optional.ofNullable(this.selector);
     }
     /**
-     * @return Operator which will be used to search in the variable content. Possible values are `Equals`, `StartsWith`, `EndsWith`, `Contains`. If empty will exclude all traffic on this `match_variable`
+     * @return Operator which will be used to search in the variable content. Possible values are `Contains`, `EndsWith`, `Equals`, `EqualsAny` and `StartsWith`. If empty will exclude all traffic on this `match_variable`
      * 
      */
     public Optional<String> selectorMatchOperator() {

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Waf.Outputs
     public sealed class PolicyCustomRule
     {
         /// <summary>
-        /// Type of action.
+        /// Type of action. Possible values are `Allow`, `Block` and `Log`.
         /// </summary>
         public readonly string Action;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Waf.Outputs
         /// </summary>
         public readonly int Priority;
         /// <summary>
-        /// Describes the type of rule.
+        /// Describes the type of rule. Possible values are `MatchRule` and `Invalid`.
         /// </summary>
         public readonly string RuleType;
 

@@ -86,9 +86,17 @@ public final class ScheduledQueryRulesLogArgs extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.enabled);
     }
 
+    /**
+     * Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="location")
     private @Nullable Output<String> location;
 
+    /**
+     * @return Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<Output<String>> location() {
         return Optional.ofNullable(this.location);
     }
@@ -267,11 +275,23 @@ public final class ScheduledQueryRulesLogArgs extends com.pulumi.resources.Resou
             return enabled(Output.of(enabled));
         }
 
+        /**
+         * @param location Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder location(@Nullable Output<String> location) {
             $.location = location;
             return this;
         }
 
+        /**
+         * @param location Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder location(String location) {
             return location(Output.of(location));
         }

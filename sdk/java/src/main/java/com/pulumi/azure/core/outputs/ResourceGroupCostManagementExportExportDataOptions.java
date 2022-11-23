@@ -15,7 +15,7 @@ public final class ResourceGroupCostManagementExportExportDataOptions {
      */
     private String timeFrame;
     /**
-     * @return The type of the query.
+     * @return The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
      * 
      */
     private String type;
@@ -29,7 +29,7 @@ public final class ResourceGroupCostManagementExportExportDataOptions {
         return this.timeFrame;
     }
     /**
-     * @return The type of the query.
+     * @return The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
      * 
      */
     public String type() {

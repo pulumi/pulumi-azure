@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Waf.Inputs
     public sealed class PolicyCustomRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of action.
+        /// Type of action. Possible values are `Allow`, `Block` and `Log`.
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Waf.Inputs
         public Input<int> Priority { get; set; } = null!;
 
         /// <summary>
-        /// Describes the type of rule.
+        /// Describes the type of rule. Possible values are `MatchRule` and `Invalid`.
         /// </summary>
         [Input("ruleType", required: true)]
         public Input<string> RuleType { get; set; } = null!;

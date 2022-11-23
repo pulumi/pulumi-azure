@@ -18,7 +18,7 @@ namespace Pulumi.Azure.DataFactory.Outputs
         /// </summary>
         public readonly string? Level;
         /// <summary>
-        /// The type of compression used during transport.
+        /// The type of compression used during transport. Possible values are `BZip2`, `Deflate`, `GZip`, `Tar`, `TarGZip` and `ZipDeflate`.
         /// </summary>
         public readonly string Type;
 

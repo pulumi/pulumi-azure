@@ -86,7 +86,7 @@ type Account struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The SKU of the account - only `Basic` is supported at this time.
+	// The SKU of the account. Possible values are `Basic` and `Free`.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -150,7 +150,7 @@ type accountState struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The SKU of the account - only `Basic` is supported at this time.
+	// The SKU of the account. Possible values are `Basic` and `Free`.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -180,7 +180,7 @@ type AccountState struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The SKU of the account - only `Basic` is supported at this time.
+	// The SKU of the account. Possible values are `Basic` and `Free`.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -205,7 +205,7 @@ type accountArgs struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU of the account - only `Basic` is supported at this time.
+	// The SKU of the account. Possible values are `Basic` and `Free`.
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -227,7 +227,7 @@ type AccountArgs struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The SKU of the account - only `Basic` is supported at this time.
+	// The SKU of the account. Possible values are `Basic` and `Free`.
 	SkuName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -379,7 +379,7 @@ func (o AccountOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The SKU of the account - only `Basic` is supported at this time.
+// The SKU of the account. Possible values are `Basic` and `Free`.
 func (o AccountOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }

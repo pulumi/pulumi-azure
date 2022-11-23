@@ -58,7 +58,7 @@ namespace Pulumi.Azure.AadB2C
         public Output<string> CountryCode { get; private set; } = null!;
 
         /// <summary>
-        /// Location in which the B2C tenant is hosted and data resides. The `data_residency_location` should be valid for the specified `country_code`. See [official docs](https://aka.ms/B2CDataResidenc) for more information. Changing this forces a new AAD B2C Directory to be created.
+        /// Location in which the B2C tenant is hosted and data resides. The `data_residency_location` should be valid for the specified `country_code`. See [official docs](https://aka.ms/B2CDataResidenc) for more information. Changing this forces a new AAD B2C Directory to be created. Possible values are `Asia Pacific`, `Australia`, `Europe`, `Global` and `United States`.
         /// </summary>
         [Output("dataResidencyLocation")]
         public Output<string> DataResidencyLocation { get; private set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.Azure.AadB2C
         public Input<string>? CountryCode { get; set; }
 
         /// <summary>
-        /// Location in which the B2C tenant is hosted and data resides. The `data_residency_location` should be valid for the specified `country_code`. See [official docs](https://aka.ms/B2CDataResidenc) for more information. Changing this forces a new AAD B2C Directory to be created.
+        /// Location in which the B2C tenant is hosted and data resides. The `data_residency_location` should be valid for the specified `country_code`. See [official docs](https://aka.ms/B2CDataResidenc) for more information. Changing this forces a new AAD B2C Directory to be created. Possible values are `Asia Pacific`, `Australia`, `Europe`, `Global` and `United States`.
         /// </summary>
         [Input("dataResidencyLocation", required: true)]
         public Input<string> DataResidencyLocation { get; set; } = null!;
@@ -220,7 +220,7 @@ namespace Pulumi.Azure.AadB2C
         public Input<string>? CountryCode { get; set; }
 
         /// <summary>
-        /// Location in which the B2C tenant is hosted and data resides. The `data_residency_location` should be valid for the specified `country_code`. See [official docs](https://aka.ms/B2CDataResidenc) for more information. Changing this forces a new AAD B2C Directory to be created.
+        /// Location in which the B2C tenant is hosted and data resides. The `data_residency_location` should be valid for the specified `country_code`. See [official docs](https://aka.ms/B2CDataResidenc) for more information. Changing this forces a new AAD B2C Directory to be created. Possible values are `Asia Pacific`, `Australia`, `Europe`, `Global` and `United States`.
         /// </summary>
         [Input("dataResidencyLocation")]
         public Input<string>? DataResidencyLocation { get; set; }

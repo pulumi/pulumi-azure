@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly string? StoreName;
         /// <summary>
-        /// Which user accounts on the compute node should have access to the private data of the certificate.
+        /// Which user accounts on the compute node should have access to the private data of the certificate. Possible values are `StartTask`, `Task` and `RemoteUser`.
         /// </summary>
         public readonly ImmutableArray<string> Visibilities;
 

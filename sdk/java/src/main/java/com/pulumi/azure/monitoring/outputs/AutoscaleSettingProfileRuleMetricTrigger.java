@@ -46,7 +46,7 @@ public final class AutoscaleSettingProfileRuleMetricTrigger {
      */
     private String operator;
     /**
-     * @return Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Min` and `Max`.
+     * @return Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Max`, `Min` and `Sum`.
      * 
      */
     private String statistic;
@@ -115,7 +115,7 @@ public final class AutoscaleSettingProfileRuleMetricTrigger {
         return this.operator;
     }
     /**
-     * @return Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Min` and `Max`.
+     * @return Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Max`, `Min` and `Sum`.
      * 
      */
     public String statistic() {

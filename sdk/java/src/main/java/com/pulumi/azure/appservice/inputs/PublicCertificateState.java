@@ -46,14 +46,14 @@ public final class PublicCertificateState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`.
+     * The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created.
      * 
      */
     @Import(name="certificateLocation")
     private @Nullable Output<String> certificateLocation;
 
     /**
-     * @return The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`.
+     * @return The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created.
      * 
      */
     public Optional<Output<String>> certificateLocation() {
@@ -177,7 +177,7 @@ public final class PublicCertificateState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param certificateLocation The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`.
+         * @param certificateLocation The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class PublicCertificateState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param certificateLocation The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`.
+         * @param certificateLocation The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created.
          * 
          * @return builder
          * 

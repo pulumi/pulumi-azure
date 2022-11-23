@@ -176,28 +176,28 @@ public class SparkPool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.nodeCount);
     }
     /**
-     * The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
+     * The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
      * 
      */
     @Export(name="nodeSize", type=String.class, parameters={})
     private Output<String> nodeSize;
 
     /**
-     * @return The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
+     * @return The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
      * 
      */
     public Output<String> nodeSize() {
         return this.nodeSize;
     }
     /**
-     * The kind of nodes that the Spark Pool provides. Possible value is `MemoryOptimized`.
+     * The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
      * 
      */
     @Export(name="nodeSizeFamily", type=String.class, parameters={})
     private Output<String> nodeSizeFamily;
 
     /**
-     * @return The kind of nodes that the Spark Pool provides. Possible value is `MemoryOptimized`.
+     * @return The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
      * 
      */
     public Output<String> nodeSizeFamily() {

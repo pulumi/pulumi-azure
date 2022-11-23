@@ -95,14 +95,14 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
+     * What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
      * 
      */
     @Import(name="licenseType", required=true)
     private Output<String> licenseType;
 
     /**
-     * @return What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
+     * @return What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
      * 
      */
     public Output<String> licenseType() {
@@ -468,7 +468,7 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param licenseType What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
+         * @param licenseType What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
          * 
          * @return builder
          * 
@@ -479,7 +479,7 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param licenseType What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
+         * @param licenseType What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
          * 
          * @return builder
          * 

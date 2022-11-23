@@ -26,6 +26,8 @@ if typing.TYPE_CHECKING:
     appplatform = __appplatform
     import pulumi_azure.appservice as __appservice
     appservice = __appservice
+    import pulumi_azure.armmsi as __armmsi
+    armmsi = __armmsi
     import pulumi_azure.attestation as __attestation
     attestation = __attestation
     import pulumi_azure.authorization as __authorization
@@ -237,6 +239,7 @@ else:
     appinsights = _utilities.lazy_import('pulumi_azure.appinsights')
     appplatform = _utilities.lazy_import('pulumi_azure.appplatform')
     appservice = _utilities.lazy_import('pulumi_azure.appservice')
+    armmsi = _utilities.lazy_import('pulumi_azure.armmsi')
     attestation = _utilities.lazy_import('pulumi_azure.attestation')
     authorization = _utilities.lazy_import('pulumi_azure.authorization')
     automation = _utilities.lazy_import('pulumi_azure.automation')
@@ -1284,6 +1287,14 @@ _utilities.register(
   "fqn": "pulumi_azure.appservice",
   "classes": {
    "azure:appservice/windowsWebAppSlot:WindowsWebAppSlot": "WindowsWebAppSlot"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "armmsi/federatedIdentityCredential",
+  "fqn": "pulumi_azure.armmsi",
+  "classes": {
+   "azure:armmsi/federatedIdentityCredential:FederatedIdentityCredential": "FederatedIdentityCredential"
   }
  },
  {
@@ -7316,6 +7327,14 @@ _utilities.register(
   "fqn": "pulumi_azure.streamanalytics",
   "classes": {
    "azure:streamanalytics/streamInputEventHub:StreamInputEventHub": "StreamInputEventHub"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "streamanalytics/streamInputEventHubV2",
+  "fqn": "pulumi_azure.streamanalytics",
+  "classes": {
+   "azure:streamanalytics/streamInputEventHubV2:StreamInputEventHubV2": "StreamInputEventHubV2"
   }
  },
  {

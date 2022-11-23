@@ -17,18 +17,14 @@ public final class EventGridDataConnectionState extends com.pulumi.resources.Res
     public static final EventGridDataConnectionState Empty = new EventGridDataConnectionState();
 
     /**
-     * Specifies the blob storage event type that needs to be processed. Possible
-     * Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults
-     * to `Microsoft.Storage.BlobCreated`.
+     * Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
      * 
      */
     @Import(name="blobStorageEventType")
     private @Nullable Output<String> blobStorageEventType;
 
     /**
-     * @return Specifies the blob storage event type that needs to be processed. Possible
-     * Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults
-     * to `Microsoft.Storage.BlobCreated`.
+     * @return Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
      * 
      */
     public Optional<Output<String>> blobStorageEventType() {
@@ -51,14 +47,14 @@ public final class EventGridDataConnectionState extends com.pulumi.resources.Res
     }
 
     /**
-     * Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
+     * Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
      * 
      */
     @Import(name="dataFormat")
     private @Nullable Output<String> dataFormat;
 
     /**
-     * @return Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
+     * @return Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
      * 
      */
     public Optional<Output<String>> dataFormat() {
@@ -304,9 +300,7 @@ public final class EventGridDataConnectionState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param blobStorageEventType Specifies the blob storage event type that needs to be processed. Possible
-         * Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults
-         * to `Microsoft.Storage.BlobCreated`.
+         * @param blobStorageEventType Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
          * 
          * @return builder
          * 
@@ -317,9 +311,7 @@ public final class EventGridDataConnectionState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param blobStorageEventType Specifies the blob storage event type that needs to be processed. Possible
-         * Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults
-         * to `Microsoft.Storage.BlobCreated`.
+         * @param blobStorageEventType Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
          * 
          * @return builder
          * 
@@ -350,7 +342,7 @@ public final class EventGridDataConnectionState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param dataFormat Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
+         * @param dataFormat Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
          * 
          * @return builder
          * 
@@ -361,7 +353,7 @@ public final class EventGridDataConnectionState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param dataFormat Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
+         * @param dataFormat Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
          * 
          * @return builder
          * 

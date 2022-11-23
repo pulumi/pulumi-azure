@@ -83,7 +83,7 @@ type IntegrationAccountMap struct {
 	Content pulumi.StringOutput `pulumi:"content"`
 	// The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Map to be created.
 	IntegrationAccountName pulumi.StringOutput `pulumi:"integrationAccountName"`
-	// The type of the Logic App Integration Account Map.
+	// The type of the Logic App Integration Account Map. Possible values are `Xslt`, `Xslt20`, `Xslt30` and `Liquid`.
 	MapType pulumi.StringOutput `pulumi:"mapType"`
 	// The metadata of the Logic App Integration Account Map.
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
@@ -138,7 +138,7 @@ type integrationAccountMapState struct {
 	Content *string `pulumi:"content"`
 	// The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Map to be created.
 	IntegrationAccountName *string `pulumi:"integrationAccountName"`
-	// The type of the Logic App Integration Account Map.
+	// The type of the Logic App Integration Account Map. Possible values are `Xslt`, `Xslt20`, `Xslt30` and `Liquid`.
 	MapType *string `pulumi:"mapType"`
 	// The metadata of the Logic App Integration Account Map.
 	Metadata map[string]string `pulumi:"metadata"`
@@ -153,7 +153,7 @@ type IntegrationAccountMapState struct {
 	Content pulumi.StringPtrInput
 	// The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Map to be created.
 	IntegrationAccountName pulumi.StringPtrInput
-	// The type of the Logic App Integration Account Map.
+	// The type of the Logic App Integration Account Map. Possible values are `Xslt`, `Xslt20`, `Xslt30` and `Liquid`.
 	MapType pulumi.StringPtrInput
 	// The metadata of the Logic App Integration Account Map.
 	Metadata pulumi.StringMapInput
@@ -172,7 +172,7 @@ type integrationAccountMapArgs struct {
 	Content string `pulumi:"content"`
 	// The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Map to be created.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The type of the Logic App Integration Account Map.
+	// The type of the Logic App Integration Account Map. Possible values are `Xslt`, `Xslt20`, `Xslt30` and `Liquid`.
 	MapType string `pulumi:"mapType"`
 	// The metadata of the Logic App Integration Account Map.
 	Metadata map[string]string `pulumi:"metadata"`
@@ -188,7 +188,7 @@ type IntegrationAccountMapArgs struct {
 	Content pulumi.StringInput
 	// The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Map to be created.
 	IntegrationAccountName pulumi.StringInput
-	// The type of the Logic App Integration Account Map.
+	// The type of the Logic App Integration Account Map. Possible values are `Xslt`, `Xslt20`, `Xslt30` and `Liquid`.
 	MapType pulumi.StringInput
 	// The metadata of the Logic App Integration Account Map.
 	Metadata pulumi.StringMapInput
@@ -295,7 +295,7 @@ func (o IntegrationAccountMapOutput) IntegrationAccountName() pulumi.StringOutpu
 	return o.ApplyT(func(v *IntegrationAccountMap) pulumi.StringOutput { return v.IntegrationAccountName }).(pulumi.StringOutput)
 }
 
-// The type of the Logic App Integration Account Map.
+// The type of the Logic App Integration Account Map. Possible values are `Xslt`, `Xslt20`, `Xslt30` and `Liquid`.
 func (o IntegrationAccountMapOutput) MapType() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntegrationAccountMap) pulumi.StringOutput { return v.MapType }).(pulumi.StringOutput)
 }

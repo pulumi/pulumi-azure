@@ -248,7 +248,7 @@ namespace Pulumi.Azure.Role
         public Output<string> Scope { get; private set; } = null!;
 
         /// <summary>
-        /// If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. If it is not a `Service Principal` identity it will cause the role assignment to fail. Defaults to `false`.
+        /// If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`.
         /// </summary>
         [Output("skipServicePrincipalAadCheck")]
         public Output<bool> SkipServicePrincipalAadCheck { get; private set; } = null!;
@@ -354,7 +354,7 @@ namespace Pulumi.Azure.Role
         public Input<string> Scope { get; set; } = null!;
 
         /// <summary>
-        /// If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. If it is not a `Service Principal` identity it will cause the role assignment to fail. Defaults to `false`.
+        /// If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`.
         /// </summary>
         [Input("skipServicePrincipalAadCheck")]
         public Input<bool>? SkipServicePrincipalAadCheck { get; set; }
@@ -428,7 +428,7 @@ namespace Pulumi.Azure.Role
         public Input<string>? Scope { get; set; }
 
         /// <summary>
-        /// If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. If it is not a `Service Principal` identity it will cause the role assignment to fail. Defaults to `false`.
+        /// If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`.
         /// </summary>
         [Input("skipServicePrincipalAadCheck")]
         public Input<bool>? SkipServicePrincipalAadCheck { get; set; }

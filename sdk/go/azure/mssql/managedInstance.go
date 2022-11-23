@@ -278,7 +278,7 @@ type ManagedInstance struct {
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// An `identity` block as defined below.
 	Identity ManagedInstanceIdentityPtrOutput `pulumi:"identity"`
-	// What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
+	// What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
 	LicenseType pulumi.StringOutput `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -375,7 +375,7 @@ type managedInstanceState struct {
 	Fqdn *string `pulumi:"fqdn"`
 	// An `identity` block as defined below.
 	Identity *ManagedInstanceIdentity `pulumi:"identity"`
-	// What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
+	// What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
 	LicenseType *string `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -420,7 +420,7 @@ type ManagedInstanceState struct {
 	Fqdn pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity ManagedInstanceIdentityPtrInput
-	// What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
+	// What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
 	LicenseType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -467,7 +467,7 @@ type managedInstanceArgs struct {
 	DnsZonePartnerId *string `pulumi:"dnsZonePartnerId"`
 	// An `identity` block as defined below.
 	Identity *ManagedInstanceIdentity `pulumi:"identity"`
-	// What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
+	// What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
 	LicenseType string `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -511,7 +511,7 @@ type ManagedInstanceArgs struct {
 	DnsZonePartnerId pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity ManagedInstanceIdentityPtrInput
-	// What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
+	// What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
 	LicenseType pulumi.StringInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -660,7 +660,7 @@ func (o ManagedInstanceOutput) Identity() ManagedInstanceIdentityPtrOutput {
 	return o.ApplyT(func(v *ManagedInstance) ManagedInstanceIdentityPtrOutput { return v.Identity }).(ManagedInstanceIdentityPtrOutput)
 }
 
-// What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
+// What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
 func (o ManagedInstanceOutput) LicenseType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedInstance) pulumi.StringOutput { return v.LicenseType }).(pulumi.StringOutput)
 }

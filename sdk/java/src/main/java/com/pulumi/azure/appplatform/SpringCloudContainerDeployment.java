@@ -181,14 +181,14 @@ public class SpringCloudContainerDeployment extends com.pulumi.resources.CustomR
         return Codegen.optional(this.instanceCount);
     }
     /**
-     * Specifies the language framework of the container image.
+     * Specifies the language framework of the container image. The only possible value is `springboot`.
      * 
      */
     @Export(name="languageFramework", type=String.class, parameters={})
     private Output</* @Nullable */ String> languageFramework;
 
     /**
-     * @return Specifies the language framework of the container image.
+     * @return Specifies the language framework of the container image. The only possible value is `springboot`.
      * 
      */
     public Output<Optional<String>> languageFramework() {

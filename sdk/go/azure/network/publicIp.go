@@ -65,6 +65,10 @@ type PublicIp struct {
 
 	// Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
 	AllocationMethod pulumi.StringOutput `pulumi:"allocationMethod"`
+	// The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
+	DdosProtectionMode pulumi.StringPtrOutput `pulumi:"ddosProtectionMode"`
+	// The ID of DDoS protection plan associated with the public IP.
+	DdosProtectionPlanId pulumi.StringPtrOutput `pulumi:"ddosProtectionPlanId"`
 	// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
 	DomainNameLabel pulumi.StringPtrOutput `pulumi:"domainNameLabel"`
 	// Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
@@ -136,6 +140,10 @@ func GetPublicIp(ctx *pulumi.Context,
 type publicIpState struct {
 	// Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
 	AllocationMethod *string `pulumi:"allocationMethod"`
+	// The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
+	DdosProtectionMode *string `pulumi:"ddosProtectionMode"`
+	// The ID of DDoS protection plan associated with the public IP.
+	DdosProtectionPlanId *string `pulumi:"ddosProtectionPlanId"`
 	// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
 	DomainNameLabel *string `pulumi:"domainNameLabel"`
 	// Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
@@ -173,6 +181,10 @@ type publicIpState struct {
 type PublicIpState struct {
 	// Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
 	AllocationMethod pulumi.StringPtrInput
+	// The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
+	DdosProtectionMode pulumi.StringPtrInput
+	// The ID of DDoS protection plan associated with the public IP.
+	DdosProtectionPlanId pulumi.StringPtrInput
 	// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
 	DomainNameLabel pulumi.StringPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
@@ -214,6 +226,10 @@ func (PublicIpState) ElementType() reflect.Type {
 type publicIpArgs struct {
 	// Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
 	AllocationMethod string `pulumi:"allocationMethod"`
+	// The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
+	DdosProtectionMode *string `pulumi:"ddosProtectionMode"`
+	// The ID of DDoS protection plan associated with the public IP.
+	DdosProtectionPlanId *string `pulumi:"ddosProtectionPlanId"`
 	// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
 	DomainNameLabel *string `pulumi:"domainNameLabel"`
 	// Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
@@ -248,6 +264,10 @@ type publicIpArgs struct {
 type PublicIpArgs struct {
 	// Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
 	AllocationMethod pulumi.StringInput
+	// The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
+	DdosProtectionMode pulumi.StringPtrInput
+	// The ID of DDoS protection plan associated with the public IP.
+	DdosProtectionPlanId pulumi.StringPtrInput
 	// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
 	DomainNameLabel pulumi.StringPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
@@ -368,6 +388,16 @@ func (o PublicIpOutput) ToPublicIpOutputWithContext(ctx context.Context) PublicI
 // Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
 func (o PublicIpOutput) AllocationMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v *PublicIp) pulumi.StringOutput { return v.AllocationMethod }).(pulumi.StringOutput)
+}
+
+// The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
+func (o PublicIpOutput) DdosProtectionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicIp) pulumi.StringPtrOutput { return v.DdosProtectionMode }).(pulumi.StringPtrOutput)
+}
+
+// The ID of DDoS protection plan associated with the public IP.
+func (o PublicIpOutput) DdosProtectionPlanId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicIp) pulumi.StringPtrOutput { return v.DdosProtectionPlanId }).(pulumi.StringPtrOutput)
 }
 
 // Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.

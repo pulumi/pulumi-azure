@@ -93,14 +93,14 @@ public final class AutomationRuleActionIncidentArgs extends com.pulumi.resources
     }
 
     /**
-     * The severity to add to the incident.
+     * The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
      * 
      */
     @Import(name="severity")
     private @Nullable Output<String> severity;
 
     /**
-     * @return The severity to add to the incident.
+     * @return The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
      * 
      */
     public Optional<Output<String>> severity() {
@@ -268,7 +268,7 @@ public final class AutomationRuleActionIncidentArgs extends com.pulumi.resources
         }
 
         /**
-         * @param severity The severity to add to the incident.
+         * @param severity The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class AutomationRuleActionIncidentArgs extends com.pulumi.resources
         }
 
         /**
-         * @param severity The severity to add to the incident.
+         * @param severity The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
          * 
          * @return builder
          * 

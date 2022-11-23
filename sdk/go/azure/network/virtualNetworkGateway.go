@@ -191,15 +191,13 @@ type VirtualNetworkGateway struct {
 	Sku pulumi.StringOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the Virtual Network Gateway. Valid options are
-	// `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
+	// The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// A `vpnClientConfiguration` block which
 	// is documented below. In this block the Virtual Network Gateway can be configured
 	// to accept IPSec point-to-site connections.
 	VpnClientConfiguration VirtualNetworkGatewayVpnClientConfigurationPtrOutput `pulumi:"vpnClientConfiguration"`
-	// The routing type of the Virtual Network Gateway. Valid
-	// options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+	// The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
 	VpnType pulumi.StringPtrOutput `pulumi:"vpnType"`
 }
 
@@ -292,15 +290,13 @@ type virtualNetworkGatewayState struct {
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the Virtual Network Gateway. Valid options are
-	// `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
+	// The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
 	Type *string `pulumi:"type"`
 	// A `vpnClientConfiguration` block which
 	// is documented below. In this block the Virtual Network Gateway can be configured
 	// to accept IPSec point-to-site connections.
 	VpnClientConfiguration *VirtualNetworkGatewayVpnClientConfiguration `pulumi:"vpnClientConfiguration"`
-	// The routing type of the Virtual Network Gateway. Valid
-	// options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+	// The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
 	VpnType *string `pulumi:"vpnType"`
 }
 
@@ -353,15 +349,13 @@ type VirtualNetworkGatewayState struct {
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The type of the Virtual Network Gateway. Valid options are
-	// `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
+	// The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
 	Type pulumi.StringPtrInput
 	// A `vpnClientConfiguration` block which
 	// is documented below. In this block the Virtual Network Gateway can be configured
 	// to accept IPSec point-to-site connections.
 	VpnClientConfiguration VirtualNetworkGatewayVpnClientConfigurationPtrInput
-	// The routing type of the Virtual Network Gateway. Valid
-	// options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+	// The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
 	VpnType pulumi.StringPtrInput
 }
 
@@ -418,15 +412,13 @@ type virtualNetworkGatewayArgs struct {
 	Sku string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the Virtual Network Gateway. Valid options are
-	// `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
+	// The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
 	Type string `pulumi:"type"`
 	// A `vpnClientConfiguration` block which
 	// is documented below. In this block the Virtual Network Gateway can be configured
 	// to accept IPSec point-to-site connections.
 	VpnClientConfiguration *VirtualNetworkGatewayVpnClientConfiguration `pulumi:"vpnClientConfiguration"`
-	// The routing type of the Virtual Network Gateway. Valid
-	// options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+	// The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
 	VpnType *string `pulumi:"vpnType"`
 }
 
@@ -480,15 +472,13 @@ type VirtualNetworkGatewayArgs struct {
 	Sku pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The type of the Virtual Network Gateway. Valid options are
-	// `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
+	// The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
 	Type pulumi.StringInput
 	// A `vpnClientConfiguration` block which
 	// is documented below. In this block the Virtual Network Gateway can be configured
 	// to accept IPSec point-to-site connections.
 	VpnClientConfiguration VirtualNetworkGatewayVpnClientConfigurationPtrInput
-	// The routing type of the Virtual Network Gateway. Valid
-	// options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+	// The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
 	VpnType pulumi.StringPtrInput
 }
 
@@ -671,8 +661,7 @@ func (o VirtualNetworkGatewayOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The type of the Virtual Network Gateway. Valid options are
-// `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
+// The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
 func (o VirtualNetworkGatewayOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
@@ -686,8 +675,7 @@ func (o VirtualNetworkGatewayOutput) VpnClientConfiguration() VirtualNetworkGate
 	}).(VirtualNetworkGatewayVpnClientConfigurationPtrOutput)
 }
 
-// The routing type of the Virtual Network Gateway. Valid
-// options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+// The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
 func (o VirtualNetworkGatewayOutput) VpnType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.StringPtrOutput { return v.VpnType }).(pulumi.StringPtrOutput)
 }

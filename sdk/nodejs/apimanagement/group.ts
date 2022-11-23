@@ -90,7 +90,7 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The type of this API Management Group. Possible values are `custom` and `external`. Default is `custom`.
+     * The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`.
      */
     public readonly type!: pulumi.Output<string | undefined>;
 
@@ -167,7 +167,7 @@ export interface GroupState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The type of this API Management Group. Possible values are `custom` and `external`. Default is `custom`.
+     * The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`.
      */
     type?: pulumi.Input<string>;
 }
@@ -201,7 +201,7 @@ export interface GroupArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The type of this API Management Group. Possible values are `custom` and `external`. Default is `custom`.
+     * The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`.
      */
     type?: pulumi.Input<string>;
 }

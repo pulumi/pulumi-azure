@@ -173,16 +173,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.storageAccounts;
     }
     /**
-     * Specifies the storage authentication type.
-     * Possible value is  `ManagedIdentity` or `System`.
+     * Specifies the storage authentication type. Possible value is  `ManagedIdentity` or `System`.
      * 
      */
     @Export(name="storageAuthenticationType", type=String.class, parameters={})
     private Output<String> storageAuthenticationType;
 
     /**
-     * @return Specifies the storage authentication type.
-     * Possible value is  `ManagedIdentity` or `System`.
+     * @return Specifies the storage authentication type. Possible value is  `ManagedIdentity` or `System`.
      * 
      */
     public Output<String> storageAuthenticationType() {

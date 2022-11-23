@@ -417,7 +417,7 @@ func (o ScalingPlanHostPoolArrayOutput) Index(i pulumi.IntInput) ScalingPlanHost
 }
 
 type ScalingPlanSchedule struct {
-	// A list of Days of the Week on which this schedule will be used..Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
+	// A list of Days of the Week on which this schedule will be used. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
 	DaysOfWeeks []string `pulumi:"daysOfWeeks"`
 	// The name of the schedule.
 	Name string `pulumi:"name"`
@@ -467,7 +467,7 @@ type ScalingPlanScheduleInput interface {
 }
 
 type ScalingPlanScheduleArgs struct {
-	// A list of Days of the Week on which this schedule will be used..Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
+	// A list of Days of the Week on which this schedule will be used. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
 	DaysOfWeeks pulumi.StringArrayInput `pulumi:"daysOfWeeks"`
 	// The name of the schedule.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -556,7 +556,7 @@ func (o ScalingPlanScheduleOutput) ToScalingPlanScheduleOutputWithContext(ctx co
 	return o
 }
 
-// A list of Days of the Week on which this schedule will be used..Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
+// A list of Days of the Week on which this schedule will be used. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
 func (o ScalingPlanScheduleOutput) DaysOfWeeks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ScalingPlanSchedule) []string { return v.DaysOfWeeks }).(pulumi.StringArrayOutput)
 }

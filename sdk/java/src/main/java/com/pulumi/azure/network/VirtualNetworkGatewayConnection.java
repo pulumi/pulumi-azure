@@ -277,25 +277,21 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
         return Codegen.optional(this.authorizationKey);
     }
     /**
-     * Connection mode to use. Possible
-     * values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
-     * Changing this value will force a resource to be created.
+     * Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
      * 
      */
     @Export(name="connectionMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> connectionMode;
 
     /**
-     * @return Connection mode to use. Possible
-     * values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
-     * Changing this value will force a resource to be created.
+     * @return Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
      * 
      */
     public Output<Optional<String>> connectionMode() {
         return Codegen.optional(this.connectionMode);
     }
     /**
-     * The IKE protocol version to use. Possible
+     * The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
      * values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
      * Changing this value will force a resource to be created.
      * &gt; **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
@@ -305,7 +301,7 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
     private Output<String> connectionProtocol;
 
     /**
-     * @return The IKE protocol version to use. Possible
+     * @return The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
      * values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
      * Changing this value will force a resource to be created.
      * &gt; **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.

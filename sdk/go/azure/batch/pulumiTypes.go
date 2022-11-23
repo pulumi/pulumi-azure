@@ -660,7 +660,7 @@ type PoolCertificate struct {
 	StoreLocation string `pulumi:"storeLocation"`
 	// The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used. The default value is `My`.
 	StoreName *string `pulumi:"storeName"`
-	// Which user accounts on the compute node should have access to the private data of the certificate.
+	// Which user accounts on the compute node should have access to the private data of the certificate. Possible values are `StartTask`, `Task` and `RemoteUser`.
 	Visibilities []string `pulumi:"visibilities"`
 }
 
@@ -682,7 +682,7 @@ type PoolCertificateArgs struct {
 	StoreLocation pulumi.StringInput `pulumi:"storeLocation"`
 	// The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used. The default value is `My`.
 	StoreName pulumi.StringPtrInput `pulumi:"storeName"`
-	// Which user accounts on the compute node should have access to the private data of the certificate.
+	// Which user accounts on the compute node should have access to the private data of the certificate. Possible values are `StartTask`, `Task` and `RemoteUser`.
 	Visibilities pulumi.StringArrayInput `pulumi:"visibilities"`
 }
 
@@ -752,7 +752,7 @@ func (o PoolCertificateOutput) StoreName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolCertificate) *string { return v.StoreName }).(pulumi.StringPtrOutput)
 }
 
-// Which user accounts on the compute node should have access to the private data of the certificate.
+// Which user accounts on the compute node should have access to the private data of the certificate. Possible values are `StartTask`, `Task` and `RemoteUser`.
 func (o PoolCertificateOutput) Visibilities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PoolCertificate) []string { return v.Visibilities }).(pulumi.StringArrayOutput)
 }
@@ -1079,7 +1079,7 @@ func (o PoolContainerConfigurationContainerRegistryArrayOutput) Index(i pulumi.I
 }
 
 type PoolDataDisk struct {
-	// Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: <https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/>.
+	// Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: <https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/>. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 	Caching *string `pulumi:"caching"`
 	// The initial disk size in GB when creating new data disk.
 	DiskSizeGb int `pulumi:"diskSizeGb"`
@@ -1101,7 +1101,7 @@ type PoolDataDiskInput interface {
 }
 
 type PoolDataDiskArgs struct {
-	// Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: <https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/>.
+	// Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: <https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/>. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 	Caching pulumi.StringPtrInput `pulumi:"caching"`
 	// The initial disk size in GB when creating new data disk.
 	DiskSizeGb pulumi.IntInput `pulumi:"diskSizeGb"`
@@ -1162,7 +1162,7 @@ func (o PoolDataDiskOutput) ToPoolDataDiskOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: <https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/>.
+// Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: <https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/>. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 func (o PoolDataDiskOutput) Caching() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolDataDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
 }

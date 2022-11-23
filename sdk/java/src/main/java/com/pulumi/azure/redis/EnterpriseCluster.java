@@ -97,14 +97,14 @@ public class EnterpriseCluster extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * The minimum TLS version.  Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
+     * The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
      * 
      */
     @Export(name="minimumTlsVersion", type=String.class, parameters={})
     private Output</* @Nullable */ String> minimumTlsVersion;
 
     /**
-     * @return The minimum TLS version.  Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
+     * @return The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
      * 
      */
     public Output<Optional<String>> minimumTlsVersion() {

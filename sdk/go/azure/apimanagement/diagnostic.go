@@ -143,7 +143,7 @@ type Diagnostic struct {
 	FrontendResponse DiagnosticFrontendResponseOutput `pulumi:"frontendResponse"`
 	// The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
 	HttpCorrelationProtocol pulumi.StringOutput `pulumi:"httpCorrelationProtocol"`
-	// The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
+	// The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
 	Identifier pulumi.StringOutput `pulumi:"identifier"`
 	// Log client IP address.
 	LogClientIp pulumi.BoolOutput `pulumi:"logClientIp"`
@@ -214,7 +214,7 @@ type diagnosticState struct {
 	FrontendResponse *DiagnosticFrontendResponse `pulumi:"frontendResponse"`
 	// The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
 	HttpCorrelationProtocol *string `pulumi:"httpCorrelationProtocol"`
-	// The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
+	// The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
 	Identifier *string `pulumi:"identifier"`
 	// Log client IP address.
 	LogClientIp *bool `pulumi:"logClientIp"`
@@ -245,7 +245,7 @@ type DiagnosticState struct {
 	FrontendResponse DiagnosticFrontendResponsePtrInput
 	// The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
 	HttpCorrelationProtocol pulumi.StringPtrInput
-	// The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
+	// The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
 	Identifier pulumi.StringPtrInput
 	// Log client IP address.
 	LogClientIp pulumi.BoolPtrInput
@@ -280,7 +280,7 @@ type diagnosticArgs struct {
 	FrontendResponse *DiagnosticFrontendResponse `pulumi:"frontendResponse"`
 	// The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
 	HttpCorrelationProtocol *string `pulumi:"httpCorrelationProtocol"`
-	// The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
+	// The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
 	Identifier string `pulumi:"identifier"`
 	// Log client IP address.
 	LogClientIp *bool `pulumi:"logClientIp"`
@@ -312,7 +312,7 @@ type DiagnosticArgs struct {
 	FrontendResponse DiagnosticFrontendResponsePtrInput
 	// The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
 	HttpCorrelationProtocol pulumi.StringPtrInput
-	// The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
+	// The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
 	Identifier pulumi.StringInput
 	// Log client IP address.
 	LogClientIp pulumi.BoolPtrInput
@@ -453,7 +453,7 @@ func (o DiagnosticOutput) HttpCorrelationProtocol() pulumi.StringOutput {
 	return o.ApplyT(func(v *Diagnostic) pulumi.StringOutput { return v.HttpCorrelationProtocol }).(pulumi.StringOutput)
 }
 
-// The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
+// The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
 func (o DiagnosticOutput) Identifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Diagnostic) pulumi.StringOutput { return v.Identifier }).(pulumi.StringOutput)
 }

@@ -946,7 +946,7 @@ class FrontdoorBackendPoolHealthProbe(dict):
         :param int interval_in_seconds: The number of seconds between each Health Probe. Defaults to `120`.
         :param str path: The path to use for the Health Probe. Default is `/`.
         :param str probe_method: Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `Get`.
-        :param str protocol: Protocol scheme to use for the Health Probe. Defaults to `Http`.
+        :param str protocol: Protocol scheme to use for the Health Probe. Possible values are `Http` and `Https`. Defaults to `Http`.
         """
         pulumi.set(__self__, "name", name)
         if enabled is not None:
@@ -1014,7 +1014,7 @@ class FrontdoorBackendPoolHealthProbe(dict):
     @pulumi.getter
     def protocol(self) -> Optional[str]:
         """
-        Protocol scheme to use for the Health Probe. Defaults to `Http`.
+        Protocol scheme to use for the Health Probe. Possible values are `Http` and `Https`. Defaults to `Http`.
         """
         return pulumi.get(self, "protocol")
 
@@ -1362,7 +1362,7 @@ class FrontdoorRoutingRule(dict):
                  id: Optional[str] = None,
                  redirect_configuration: Optional['outputs.FrontdoorRoutingRuleRedirectConfiguration'] = None):
         """
-        :param Sequence[str] accepted_protocols: Protocol schemes to match for the Backend Routing Rule. Defaults to `Http`.
+        :param Sequence[str] accepted_protocols: Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`. Defaults to `Http`.
         :param Sequence[str] frontend_endpoints: The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
         :param str name: Specifies the name of the Routing Rule.
         :param Sequence[str] patterns_to_matches: The route patterns for the Backend Routing Rule. Defaults to `/*`.
@@ -1388,7 +1388,7 @@ class FrontdoorRoutingRule(dict):
     @pulumi.getter(name="acceptedProtocols")
     def accepted_protocols(self) -> Sequence[str]:
         """
-        Protocol schemes to match for the Backend Routing Rule. Defaults to `Http`.
+        Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`. Defaults to `Http`.
         """
         return pulumi.get(self, "accepted_protocols")
 

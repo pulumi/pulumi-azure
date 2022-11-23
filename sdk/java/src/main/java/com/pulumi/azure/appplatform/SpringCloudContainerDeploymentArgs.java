@@ -110,14 +110,14 @@ public final class SpringCloudContainerDeploymentArgs extends com.pulumi.resourc
     }
 
     /**
-     * Specifies the language framework of the container image.
+     * Specifies the language framework of the container image. The only possible value is `springboot`.
      * 
      */
     @Import(name="languageFramework")
     private @Nullable Output<String> languageFramework;
 
     /**
-     * @return Specifies the language framework of the container image.
+     * @return Specifies the language framework of the container image. The only possible value is `springboot`.
      * 
      */
     public Optional<Output<String>> languageFramework() {
@@ -365,7 +365,7 @@ public final class SpringCloudContainerDeploymentArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param languageFramework Specifies the language framework of the container image.
+         * @param languageFramework Specifies the language framework of the container image. The only possible value is `springboot`.
          * 
          * @return builder
          * 
@@ -376,7 +376,7 @@ public final class SpringCloudContainerDeploymentArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param languageFramework Specifies the language framework of the container image.
+         * @param languageFramework Specifies the language framework of the container image. The only possible value is `springboot`.
          * 
          * @return builder
          * 

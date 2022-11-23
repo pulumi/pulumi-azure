@@ -73,6 +73,9 @@ export interface GetScheduledQueryRulesLogResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Specifies the Azure Region where the resource should exist.
+     */
     readonly location: string;
     /**
      * Name of the dimension.

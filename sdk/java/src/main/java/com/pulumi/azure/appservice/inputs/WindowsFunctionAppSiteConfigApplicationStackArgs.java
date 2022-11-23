@@ -17,14 +17,14 @@ public final class WindowsFunctionAppSiteConfigApplicationStackArgs extends com.
     public static final WindowsFunctionAppSiteConfigApplicationStackArgs Empty = new WindowsFunctionAppSiteConfigApplicationStackArgs();
 
     /**
-     * The version of .NET to use. Possible values include `3.1` and `6`.
+     * The version of .NET to use. Possible values include `3.1`, `6` and `7`.
      * 
      */
     @Import(name="dotnetVersion")
     private @Nullable Output<String> dotnetVersion;
 
     /**
-     * @return The version of .NET to use. Possible values include `3.1` and `6`.
+     * @return The version of .NET to use. Possible values include `3.1`, `6` and `7`.
      * 
      */
     public Optional<Output<String>> dotnetVersion() {
@@ -136,7 +136,7 @@ public final class WindowsFunctionAppSiteConfigApplicationStackArgs extends com.
         }
 
         /**
-         * @param dotnetVersion The version of .NET to use. Possible values include `3.1` and `6`.
+         * @param dotnetVersion The version of .NET to use. Possible values include `3.1`, `6` and `7`.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class WindowsFunctionAppSiteConfigApplicationStackArgs extends com.
         }
 
         /**
-         * @param dotnetVersion The version of .NET to use. Possible values include `3.1` and `6`.
+         * @param dotnetVersion The version of .NET to use. Possible values include `3.1`, `6` and `7`.
          * 
          * @return builder
          * 

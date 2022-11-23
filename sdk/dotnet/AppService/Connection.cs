@@ -116,7 +116,7 @@ namespace Pulumi.Azure.AppService
         public Output<Outputs.ConnectionAuthentication> Authentication { get; private set; } = null!;
 
         /// <summary>
-        /// The application client type. Possible values are `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs`, `springBoot`.
+        /// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
         /// </summary>
         [Output("clientType")]
         public Output<string?> ClientType { get; private set; } = null!;
@@ -198,7 +198,7 @@ namespace Pulumi.Azure.AppService
         public Input<Inputs.ConnectionAuthenticationArgs> Authentication { get; set; } = null!;
 
         /// <summary>
-        /// The application client type. Possible values are `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs`, `springBoot`.
+        /// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
         /// </summary>
         [Input("clientType")]
         public Input<string>? ClientType { get; set; }
@@ -242,7 +242,7 @@ namespace Pulumi.Azure.AppService
         public Input<Inputs.ConnectionAuthenticationGetArgs>? Authentication { get; set; }
 
         /// <summary>
-        /// The application client type. Possible values are `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs`, `springBoot`.
+        /// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
         /// </summary>
         [Input("clientType")]
         public Input<string>? ClientType { get; set; }

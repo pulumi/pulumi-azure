@@ -61,14 +61,14 @@ public final class OutputEventHubSerializationArgs extends com.pulumi.resources.
     }
 
     /**
-     * The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
+     * The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
+     * @return The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
      * 
      */
     public Output<String> type() {
@@ -166,7 +166,7 @@ public final class OutputEventHubSerializationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param type The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
+         * @param type The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class OutputEventHubSerializationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param type The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
+         * @param type The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
          * 
          * @return builder
          * 

@@ -84,13 +84,13 @@ namespace Pulumi.Azure.Synapse
         public Output<int?> NodeCount { get; private set; } = null!;
 
         /// <summary>
-        /// The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
+        /// The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
         /// </summary>
         [Output("nodeSize")]
         public Output<string> NodeSize { get; private set; } = null!;
 
         /// <summary>
-        /// The kind of nodes that the Spark Pool provides. Possible value is `MemoryOptimized`.
+        /// The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
         /// </summary>
         [Output("nodeSizeFamily")]
         public Output<string> NodeSizeFamily { get; private set; } = null!;
@@ -244,13 +244,13 @@ namespace Pulumi.Azure.Synapse
         public Input<int>? NodeCount { get; set; }
 
         /// <summary>
-        /// The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
+        /// The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
         /// </summary>
         [Input("nodeSize", required: true)]
         public Input<string> NodeSize { get; set; } = null!;
 
         /// <summary>
-        /// The kind of nodes that the Spark Pool provides. Possible value is `MemoryOptimized`.
+        /// The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
         /// </summary>
         [Input("nodeSizeFamily", required: true)]
         public Input<string> NodeSizeFamily { get; set; } = null!;
@@ -372,13 +372,13 @@ namespace Pulumi.Azure.Synapse
         public Input<int>? NodeCount { get; set; }
 
         /// <summary>
-        /// The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
+        /// The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
         /// </summary>
         [Input("nodeSize")]
         public Input<string>? NodeSize { get; set; }
 
         /// <summary>
-        /// The kind of nodes that the Spark Pool provides. Possible value is `MemoryOptimized`.
+        /// The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
         /// </summary>
         [Input("nodeSizeFamily")]
         public Input<string>? NodeSizeFamily { get; set; }

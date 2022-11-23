@@ -113,7 +113,7 @@ export class TrafficManagerProfile extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Specifies the algorithm used to route traffic, possible values are:
+     * Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
      */
     public readonly trafficRoutingMethod!: pulumi.Output<string>;
     /**
@@ -213,7 +213,7 @@ export interface TrafficManagerProfileState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Specifies the algorithm used to route traffic, possible values are:
+     * Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
      */
     trafficRoutingMethod?: pulumi.Input<string>;
     /**
@@ -255,7 +255,7 @@ export interface TrafficManagerProfileArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Specifies the algorithm used to route traffic, possible values are:
+     * Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
      */
     trafficRoutingMethod: pulumi.Input<string>;
     /**

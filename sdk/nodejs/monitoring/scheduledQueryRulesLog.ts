@@ -122,6 +122,9 @@ export class ScheduledQueryRulesLog extends pulumi.CustomResource {
      * Whether this scheduled query rule is enabled.  Default is `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
+     */
     public readonly location!: pulumi.Output<string>;
     /**
      * The name of the scheduled query rule. Changing this forces a new resource to be created.
@@ -205,6 +208,9 @@ export interface ScheduledQueryRulesLogState {
      * Whether this scheduled query rule is enabled.  Default is `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
+     */
     location?: pulumi.Input<string>;
     /**
      * The name of the scheduled query rule. Changing this forces a new resource to be created.
@@ -241,6 +247,9 @@ export interface ScheduledQueryRulesLogArgs {
      * Whether this scheduled query rule is enabled.  Default is `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
+     */
     location?: pulumi.Input<string>;
     /**
      * The name of the scheduled query rule. Changing this forces a new resource to be created.

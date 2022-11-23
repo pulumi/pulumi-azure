@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class ApplicationGatewayWafConfigurationExclusion
     {
         /// <summary>
-        /// Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are `RequestHeaderNames`, `RequestArgNames` and `RequestCookieNames`
+        /// Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames` and `RequestHeaderValues`
         /// </summary>
         public readonly string MatchVariable;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? Selector;
         /// <summary>
-        /// Operator which will be used to search in the variable content. Possible values are `Equals`, `StartsWith`, `EndsWith`, `Contains`. If empty will exclude all traffic on this `match_variable`
+        /// Operator which will be used to search in the variable content. Possible values are `Contains`, `EndsWith`, `Equals`, `EqualsAny` and `StartsWith`. If empty will exclude all traffic on this `match_variable`
         /// </summary>
         public readonly string? SelectorMatchOperator;
 

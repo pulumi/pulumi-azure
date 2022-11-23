@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PolicyCustomRule {
     /**
-     * @return Type of action.
+     * @return Type of action. Possible values are `Allow`, `Block` and `Log`.
      * 
      */
     private String action;
@@ -35,14 +35,14 @@ public final class PolicyCustomRule {
      */
     private Integer priority;
     /**
-     * @return Describes the type of rule.
+     * @return Describes the type of rule. Possible values are `MatchRule` and `Invalid`.
      * 
      */
     private String ruleType;
 
     private PolicyCustomRule() {}
     /**
-     * @return Type of action.
+     * @return Type of action. Possible values are `Allow`, `Block` and `Log`.
      * 
      */
     public String action() {
@@ -70,7 +70,7 @@ public final class PolicyCustomRule {
         return this.priority;
     }
     /**
-     * @return Describes the type of rule.
+     * @return Describes the type of rule. Possible values are `MatchRule` and `Invalid`.
      * 
      */
     public String ruleType() {

@@ -52,7 +52,7 @@ class FunctionAppSlotArgs:
         :param pulumi.Input['FunctionAppSlotIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app.
+        :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app. The only possible value is `linux`.
         :param pulumi.Input['FunctionAppSlotSiteConfigArgs'] site_config: A `site_config` object as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The runtime version associated with the Function App. Defaults to `~1`.
@@ -275,7 +275,7 @@ class FunctionAppSlotArgs:
     @pulumi.getter(name="osType")
     def os_type(self) -> Optional[pulumi.Input[str]]:
         """
-        A string indicating the Operating System type for this function app.
+        A string indicating the Operating System type for this function app. The only possible value is `linux`.
         """
         return pulumi.get(self, "os_type")
 
@@ -363,7 +363,7 @@ class _FunctionAppSlotState:
         :param pulumi.Input[str] kind: The Function App kind - such as `functionapp,linux,container`
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app.
+        :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app. The only possible value is `linux`.
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Function App Slot.
@@ -595,7 +595,7 @@ class _FunctionAppSlotState:
     @pulumi.getter(name="osType")
     def os_type(self) -> Optional[pulumi.Input[str]]:
         """
-        A string indicating the Operating System type for this function app.
+        A string indicating the Operating System type for this function app. The only possible value is `linux`.
         """
         return pulumi.get(self, "os_type")
 
@@ -795,7 +795,7 @@ class FunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FunctionAppSlotIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app.
+        :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app. The only possible value is `linux`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Function App Slot.
         :param pulumi.Input[pulumi.InputType['FunctionAppSlotSiteConfigArgs']] site_config: A `site_config` object as defined below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App.
@@ -985,7 +985,7 @@ class FunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[str] kind: The Function App kind - such as `functionapp,linux,container`
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app.
+        :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app. The only possible value is `linux`.
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Function App Slot.
@@ -1142,7 +1142,7 @@ class FunctionAppSlot(pulumi.CustomResource):
     @pulumi.getter(name="osType")
     def os_type(self) -> pulumi.Output[Optional[str]]:
         """
-        A string indicating the Operating System type for this function app.
+        A string indicating the Operating System type for this function app. The only possible value is `linux`.
         """
         return pulumi.get(self, "os_type")
 

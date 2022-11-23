@@ -49,8 +49,7 @@ class VirtualNetworkGatewayArgs:
                `generation` arguments.
                A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance`
                SKU is only supported by an `ExpressRoute` gateway.
-        :param pulumi.Input[str] type: The type of the Virtual Network Gateway. Valid options are
-               `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
+        :param pulumi.Input[str] type: The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
         :param pulumi.Input[bool] active_active: If `true`, an active-active Virtual Network Gateway
                will be created. An active-active gateway requires a `HighPerformance` or an
                `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
@@ -74,8 +73,7 @@ class VirtualNetworkGatewayArgs:
         :param pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationArgs'] vpn_client_configuration: A `vpn_client_configuration` block which
                is documented below. In this block the Virtual Network Gateway can be configured
                to accept IPSec point-to-site connections.
-        :param pulumi.Input[str] vpn_type: The routing type of the Virtual Network Gateway. Valid
-               options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+        :param pulumi.Input[str] vpn_type: The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
         """
         pulumi.set(__self__, "ip_configurations", ip_configurations)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -159,8 +157,7 @@ class VirtualNetworkGatewayArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of the Virtual Network Gateway. Valid options are
-        `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
+        The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
@@ -325,8 +322,7 @@ class VirtualNetworkGatewayArgs:
     @pulumi.getter(name="vpnType")
     def vpn_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The routing type of the Virtual Network Gateway. Valid
-        options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+        The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
         """
         return pulumi.get(self, "vpn_type")
 
@@ -391,13 +387,11 @@ class _VirtualNetworkGatewayState:
                A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance`
                SKU is only supported by an `ExpressRoute` gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] type: The type of the Virtual Network Gateway. Valid options are
-               `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
+        :param pulumi.Input[str] type: The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
         :param pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationArgs'] vpn_client_configuration: A `vpn_client_configuration` block which
                is documented below. In this block the Virtual Network Gateway can be configured
                to accept IPSec point-to-site connections.
-        :param pulumi.Input[str] vpn_type: The routing type of the Virtual Network Gateway. Valid
-               options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+        :param pulumi.Input[str] vpn_type: The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
         """
         if active_active is not None:
             pulumi.set(__self__, "active_active", active_active)
@@ -624,8 +618,7 @@ class _VirtualNetworkGatewayState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the Virtual Network Gateway. Valid options are
-        `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
+        The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
@@ -651,8 +644,7 @@ class _VirtualNetworkGatewayState:
     @pulumi.getter(name="vpnType")
     def vpn_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The routing type of the Virtual Network Gateway. Valid
-        options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+        The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
         """
         return pulumi.get(self, "vpn_type")
 
@@ -799,13 +791,11 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance`
                SKU is only supported by an `ExpressRoute` gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] type: The type of the Virtual Network Gateway. Valid options are
-               `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
+        :param pulumi.Input[str] type: The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayVpnClientConfigurationArgs']] vpn_client_configuration: A `vpn_client_configuration` block which
                is documented below. In this block the Virtual Network Gateway can be configured
                to accept IPSec point-to-site connections.
-        :param pulumi.Input[str] vpn_type: The routing type of the Virtual Network Gateway. Valid
-               options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+        :param pulumi.Input[str] vpn_type: The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
         """
         ...
     @overload
@@ -1026,13 +1016,11 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance`
                SKU is only supported by an `ExpressRoute` gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] type: The type of the Virtual Network Gateway. Valid options are
-               `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
+        :param pulumi.Input[str] type: The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayVpnClientConfigurationArgs']] vpn_client_configuration: A `vpn_client_configuration` block which
                is documented below. In this block the Virtual Network Gateway can be configured
                to accept IPSec point-to-site connections.
-        :param pulumi.Input[str] vpn_type: The routing type of the Virtual Network Gateway. Valid
-               options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+        :param pulumi.Input[str] vpn_type: The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1191,8 +1179,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the Virtual Network Gateway. Valid options are
-        `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
+        The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
@@ -1210,8 +1197,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
     @pulumi.getter(name="vpnType")
     def vpn_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The routing type of the Virtual Network Gateway. Valid
-        options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+        The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
         """
         return pulumi.get(self, "vpn_type")
 

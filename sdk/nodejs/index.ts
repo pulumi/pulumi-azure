@@ -22,6 +22,7 @@ import * as appconfiguration from "./appconfiguration";
 import * as appinsights from "./appinsights";
 import * as appplatform from "./appplatform";
 import * as appservice from "./appservice";
+import * as armmsi from "./armmsi";
 import * as attestation from "./attestation";
 import * as authorization from "./authorization";
 import * as automation from "./automation";
@@ -134,6 +135,7 @@ export {
     appinsights,
     appplatform,
     appservice,
+    armmsi,
     attestation,
     authorization,
     automation,

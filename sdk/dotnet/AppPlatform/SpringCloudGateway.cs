@@ -126,7 +126,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<int?> InstanceCount { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created.
+        /// The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -232,7 +232,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<int>? InstanceCount { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created.
+        /// The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -294,7 +294,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<int>? InstanceCount { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created.
+        /// The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -110,6 +110,11 @@ export type StreamInputEventHub = import("./streamInputEventHub").StreamInputEve
 export const StreamInputEventHub: typeof import("./streamInputEventHub").StreamInputEventHub = null as any;
 utilities.lazyLoad(exports, ["StreamInputEventHub"], () => require("./streamInputEventHub"));
 
+export { StreamInputEventHubV2Args, StreamInputEventHubV2State } from "./streamInputEventHubV2";
+export type StreamInputEventHubV2 = import("./streamInputEventHubV2").StreamInputEventHubV2;
+export const StreamInputEventHubV2: typeof import("./streamInputEventHubV2").StreamInputEventHubV2 = null as any;
+utilities.lazyLoad(exports, ["StreamInputEventHubV2"], () => require("./streamInputEventHubV2"));
+
 export { StreamInputIotHubArgs, StreamInputIotHubState } from "./streamInputIotHub";
 export type StreamInputIotHub = import("./streamInputIotHub").StreamInputIotHub;
 export const StreamInputIotHub: typeof import("./streamInputIotHub").StreamInputIotHub = null as any;
@@ -160,6 +165,8 @@ const _module = {
                 return new StreamInputBlob(name, <any>undefined, { urn })
             case "azure:streamanalytics/streamInputEventHub:StreamInputEventHub":
                 return new StreamInputEventHub(name, <any>undefined, { urn })
+            case "azure:streamanalytics/streamInputEventHubV2:StreamInputEventHubV2":
+                return new StreamInputEventHubV2(name, <any>undefined, { urn })
             case "azure:streamanalytics/streamInputIotHub:StreamInputIotHub":
                 return new StreamInputIotHub(name, <any>undefined, { urn })
             default:
@@ -187,4 +194,5 @@ pulumi.runtime.registerResourceModule("azure", "streamanalytics/referenceInputBl
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/referenceInputMssql", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/streamInputBlob", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/streamInputEventHub", _module)
+pulumi.runtime.registerResourceModule("azure", "streamanalytics/streamInputEventHubV2", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/streamInputIotHub", _module)

@@ -34,6 +34,36 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
+     * 
+     */
+    @Import(name="ddosProtectionMode")
+    private @Nullable Output<String> ddosProtectionMode;
+
+    /**
+     * @return The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
+     * 
+     */
+    public Optional<Output<String>> ddosProtectionMode() {
+        return Optional.ofNullable(this.ddosProtectionMode);
+    }
+
+    /**
+     * The ID of DDoS protection plan associated with the public IP.
+     * 
+     */
+    @Import(name="ddosProtectionPlanId")
+    private @Nullable Output<String> ddosProtectionPlanId;
+
+    /**
+     * @return The ID of DDoS protection plan associated with the public IP.
+     * 
+     */
+    public Optional<Output<String>> ddosProtectionPlanId() {
+        return Optional.ofNullable(this.ddosProtectionPlanId);
+    }
+
+    /**
      * Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
      * 
      */
@@ -247,6 +277,8 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
 
     private PublicIpArgs(PublicIpArgs $) {
         this.allocationMethod = $.allocationMethod;
+        this.ddosProtectionMode = $.ddosProtectionMode;
+        this.ddosProtectionPlanId = $.ddosProtectionPlanId;
         this.domainNameLabel = $.domainNameLabel;
         this.edgeZone = $.edgeZone;
         this.idleTimeoutInMinutes = $.idleTimeoutInMinutes;
@@ -300,6 +332,48 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder allocationMethod(String allocationMethod) {
             return allocationMethod(Output.of(allocationMethod));
+        }
+
+        /**
+         * @param ddosProtectionMode The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ddosProtectionMode(@Nullable Output<String> ddosProtectionMode) {
+            $.ddosProtectionMode = ddosProtectionMode;
+            return this;
+        }
+
+        /**
+         * @param ddosProtectionMode The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ddosProtectionMode(String ddosProtectionMode) {
+            return ddosProtectionMode(Output.of(ddosProtectionMode));
+        }
+
+        /**
+         * @param ddosProtectionPlanId The ID of DDoS protection plan associated with the public IP.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ddosProtectionPlanId(@Nullable Output<String> ddosProtectionPlanId) {
+            $.ddosProtectionPlanId = ddosProtectionPlanId;
+            return this;
+        }
+
+        /**
+         * @param ddosProtectionPlanId The ID of DDoS protection plan associated with the public IP.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ddosProtectionPlanId(String ddosProtectionPlanId) {
+            return ddosProtectionPlanId(Output.of(ddosProtectionPlanId));
         }
 
         /**

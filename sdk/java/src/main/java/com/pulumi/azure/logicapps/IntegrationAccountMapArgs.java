@@ -47,14 +47,14 @@ public final class IntegrationAccountMapArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The type of the Logic App Integration Account Map.
+     * The type of the Logic App Integration Account Map. Possible values are `Xslt`, `Xslt20`, `Xslt30` and `Liquid`.
      * 
      */
     @Import(name="mapType", required=true)
     private Output<String> mapType;
 
     /**
-     * @return The type of the Logic App Integration Account Map.
+     * @return The type of the Logic App Integration Account Map. Possible values are `Xslt`, `Xslt20`, `Xslt30` and `Liquid`.
      * 
      */
     public Output<String> mapType() {
@@ -178,7 +178,7 @@ public final class IntegrationAccountMapArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param mapType The type of the Logic App Integration Account Map.
+         * @param mapType The type of the Logic App Integration Account Map. Possible values are `Xslt`, `Xslt20`, `Xslt30` and `Liquid`.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class IntegrationAccountMapArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param mapType The type of the Logic App Integration Account Map.
+         * @param mapType The type of the Logic App Integration Account Map. Possible values are `Xslt`, `Xslt20`, `Xslt30` and `Liquid`.
          * 
          * @return builder
          * 

@@ -114,7 +114,7 @@ export class SqlPoolSecurityAlertPolicy extends pulumi.CustomResource {
      */
     public readonly emailAddresses!: pulumi.Output<string[] | undefined>;
     /**
-     * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Allowed values are: `Disabled`, `Enabled`.
+     * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Possible values are `Disabled`, `Enabled` and `New`.
      */
     public readonly policyState!: pulumi.Output<string>;
     /**
@@ -194,7 +194,7 @@ export interface SqlPoolSecurityAlertPolicyState {
      */
     emailAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Allowed values are: `Disabled`, `Enabled`.
+     * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Possible values are `Disabled`, `Enabled` and `New`.
      */
     policyState?: pulumi.Input<string>;
     /**
@@ -232,7 +232,7 @@ export interface SqlPoolSecurityAlertPolicyArgs {
      */
     emailAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Allowed values are: `Disabled`, `Enabled`.
+     * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Possible values are `Disabled`, `Enabled` and `New`.
      */
     policyState: pulumi.Input<string>;
     /**

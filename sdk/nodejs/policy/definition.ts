@@ -111,7 +111,7 @@ export class Definition extends pulumi.CustomResource {
      */
     public readonly metadata!: pulumi.Output<string>;
     /**
-     * The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
+     * The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
      */
     public readonly mode!: pulumi.Output<string>;
     /**
@@ -131,7 +131,7 @@ export class Definition extends pulumi.CustomResource {
      */
     public readonly policyRule!: pulumi.Output<string | undefined>;
     /**
-     * The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
+     * The policy type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
      */
     public readonly policyType!: pulumi.Output<string>;
     /**
@@ -212,7 +212,7 @@ export interface DefinitionState {
      */
     metadata?: pulumi.Input<string>;
     /**
-     * The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
+     * The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
      */
     mode?: pulumi.Input<string>;
     /**
@@ -232,7 +232,7 @@ export interface DefinitionState {
      */
     policyRule?: pulumi.Input<string>;
     /**
-     * The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
+     * The policy type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
      */
     policyType?: pulumi.Input<string>;
     /**
@@ -264,7 +264,7 @@ export interface DefinitionArgs {
      */
     metadata?: pulumi.Input<string>;
     /**
-     * The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
+     * The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
      */
     mode: pulumi.Input<string>;
     /**
@@ -284,7 +284,7 @@ export interface DefinitionArgs {
      */
     policyRule?: pulumi.Input<string>;
     /**
-     * The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
+     * The policy type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
      */
     policyType: pulumi.Input<string>;
 }

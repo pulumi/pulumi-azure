@@ -108,14 +108,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:privatedns/resolverInboundEndpoint:ResolverInboundEndpoint")
 public class ResolverInboundEndpoint extends com.pulumi.resources.CustomResource {
     /**
-     * An `ip_configurations` block as defined below.
+     * Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
      * 
      */
     @Export(name="ipConfigurations", type=List.class, parameters={ResolverInboundEndpointIpConfiguration.class})
     private Output<List<ResolverInboundEndpointIpConfiguration>> ipConfigurations;
 
     /**
-     * @return An `ip_configurations` block as defined below.
+     * @return Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
      * 
      */
     public Output<List<ResolverInboundEndpointIpConfiguration>> ipConfigurations() {

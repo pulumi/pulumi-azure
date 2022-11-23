@@ -164,14 +164,14 @@ public class Definition extends com.pulumi.resources.CustomResource {
         return this.metadata;
     }
     /**
-     * The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
+     * The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
      * 
      */
     @Export(name="mode", type=String.class, parameters={})
     private Output<String> mode;
 
     /**
-     * @return The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
+     * @return The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
      * 
      */
     public Output<String> mode() {
@@ -228,14 +228,14 @@ public class Definition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.policyRule);
     }
     /**
-     * The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
+     * The policy type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="policyType", type=String.class, parameters={})
     private Output<String> policyType;
 
     /**
-     * @return The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
+     * @return The policy type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> policyType() {

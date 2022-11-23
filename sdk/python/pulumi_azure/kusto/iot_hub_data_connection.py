@@ -37,7 +37,7 @@ class IotHubDataConnectionArgs:
         :param pulumi.Input[str] shared_access_policy_name: Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
         :param pulumi.Input[str] data_format: Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
         :param pulumi.Input[str] database_routing_type: Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_system_properties: Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_system_properties: Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
         :param pulumi.Input[str] location: The location where the Kusto Database should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mapping_rule_name: Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
         :param pulumi.Input[str] name: The name of the Kusto IotHub Data Connection to create. Changing this forces a new resource to be created.
@@ -164,7 +164,7 @@ class IotHubDataConnectionArgs:
     @pulumi.getter(name="eventSystemProperties")
     def event_system_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
+        Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
         """
         return pulumi.get(self, "event_system_properties")
 
@@ -244,7 +244,7 @@ class _IotHubDataConnectionState:
         :param pulumi.Input[str] data_format: Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
         :param pulumi.Input[str] database_name: Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_routing_type: Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_system_properties: Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_system_properties: Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
         :param pulumi.Input[str] iothub_id: Specifies the resource id of the IotHub this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the Kusto Database should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mapping_rule_name: Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
@@ -344,7 +344,7 @@ class _IotHubDataConnectionState:
     @pulumi.getter(name="eventSystemProperties")
     def event_system_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
+        Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
         """
         return pulumi.get(self, "event_system_properties")
 
@@ -527,7 +527,7 @@ class IotHubDataConnection(pulumi.CustomResource):
         :param pulumi.Input[str] data_format: Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
         :param pulumi.Input[str] database_name: Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_routing_type: Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_system_properties: Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_system_properties: Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
         :param pulumi.Input[str] iothub_id: Specifies the resource id of the IotHub this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the Kusto Database should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mapping_rule_name: Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
@@ -703,7 +703,7 @@ class IotHubDataConnection(pulumi.CustomResource):
         :param pulumi.Input[str] data_format: Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
         :param pulumi.Input[str] database_name: Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_routing_type: Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_system_properties: Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_system_properties: Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
         :param pulumi.Input[str] iothub_id: Specifies the resource id of the IotHub this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the Kusto Database should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mapping_rule_name: Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
@@ -775,7 +775,7 @@ class IotHubDataConnection(pulumi.CustomResource):
     @pulumi.getter(name="eventSystemProperties")
     def event_system_properties(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
+        Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
         """
         return pulumi.get(self, "event_system_properties")
 

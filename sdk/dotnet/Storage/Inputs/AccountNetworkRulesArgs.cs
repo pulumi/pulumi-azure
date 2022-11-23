@@ -16,8 +16,7 @@ namespace Pulumi.Azure.Storage.Inputs
         private InputList<string>? _bypasses;
 
         /// <summary>
-        /// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
-        /// any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+        /// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
         /// </summary>
         public InputList<string> Bypasses
         {

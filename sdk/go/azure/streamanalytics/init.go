@@ -61,6 +61,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &StreamInputBlob{}
 	case "azure:streamanalytics/streamInputEventHub:StreamInputEventHub":
 		r = &StreamInputEventHub{}
+	case "azure:streamanalytics/streamInputEventHubV2:StreamInputEventHubV2":
+		r = &StreamInputEventHubV2{}
 	case "azure:streamanalytics/streamInputIotHub:StreamInputIotHub":
 		r = &StreamInputIotHub{}
 	default:
@@ -174,6 +176,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"streamanalytics/streamInputEventHub",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"streamanalytics/streamInputEventHubV2",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

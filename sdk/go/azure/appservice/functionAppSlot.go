@@ -121,7 +121,7 @@ type FunctionAppSlot struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Function App. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A string indicating the Operating System type for this function app.
+	// A string indicating the Operating System type for this function app. The only possible value is `linux`.
 	OsType pulumi.StringPtrOutput `pulumi:"osType"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses pulumi.StringOutput `pulumi:"outboundIpAddresses"`
@@ -215,7 +215,7 @@ type functionAppSlotState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Function App. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A string indicating the Operating System type for this function app.
+	// A string indicating the Operating System type for this function app. The only possible value is `linux`.
 	OsType *string `pulumi:"osType"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses *string `pulumi:"outboundIpAddresses"`
@@ -266,7 +266,7 @@ type FunctionAppSlotState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Function App. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A string indicating the Operating System type for this function app.
+	// A string indicating the Operating System type for this function app. The only possible value is `linux`.
 	OsType pulumi.StringPtrInput
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses pulumi.StringPtrInput
@@ -317,7 +317,7 @@ type functionAppSlotArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Function App. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A string indicating the Operating System type for this function app.
+	// A string indicating the Operating System type for this function app. The only possible value is `linux`.
 	OsType *string `pulumi:"osType"`
 	// The name of the resource group in which to create the Function App Slot.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -359,7 +359,7 @@ type FunctionAppSlotArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Function App. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A string indicating the Operating System type for this function app.
+	// A string indicating the Operating System type for this function app. The only possible value is `linux`.
 	OsType pulumi.StringPtrInput
 	// The name of the resource group in which to create the Function App Slot.
 	ResourceGroupName pulumi.StringInput
@@ -532,7 +532,7 @@ func (o FunctionAppSlotOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionAppSlot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A string indicating the Operating System type for this function app.
+// A string indicating the Operating System type for this function app. The only possible value is `linux`.
 func (o FunctionAppSlotOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionAppSlot) pulumi.StringPtrOutput { return v.OsType }).(pulumi.StringPtrOutput)
 }

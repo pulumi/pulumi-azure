@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Orbital.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Polarization of the link. Possible values are `RHCP`, `LHCP`, `linearVertical` and `linearHorizonal`.
+        /// Polarization of the link. Possible values are `LHCP`, `RHCP`, `linearVertical` and `linearHorizontal`.
         /// </summary>
         [Input("polarization", required: true)]
         public Input<string> Polarization { get; set; } = null!;

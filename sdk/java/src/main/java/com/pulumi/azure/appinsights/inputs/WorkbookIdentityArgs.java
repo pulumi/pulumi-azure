@@ -62,14 +62,14 @@ public final class WorkbookIdentityArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The type of Managed Service Identity that is configured on this Workbook.
+     * The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of Managed Service Identity that is configured on this Workbook.
+     * @return The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
      * 
      */
     public Output<String> type() {
@@ -177,7 +177,7 @@ public final class WorkbookIdentityArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param type The type of Managed Service Identity that is configured on this Workbook.
+         * @param type The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class WorkbookIdentityArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param type The type of Managed Service Identity that is configured on this Workbook.
+         * @param type The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
          * 
          * @return builder
          * 

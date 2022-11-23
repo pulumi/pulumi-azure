@@ -171,14 +171,14 @@ public class DatasetDelimitedText extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.columnDelimiter);
     }
     /**
-     * The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+     * The compression codec used to read/write text files. Valid values are `None`, `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy` and `lz4`. Please note these values are case sensitive.
      * 
      */
     @Export(name="compressionCodec", type=String.class, parameters={})
     private Output</* @Nullable */ String> compressionCodec;
 
     /**
-     * @return The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+     * @return The compression codec used to read/write text files. Valid values are `None`, `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy` and `lz4`. Please note these values are case sensitive.
      * 
      */
     public Output<Optional<String>> compressionCodec() {

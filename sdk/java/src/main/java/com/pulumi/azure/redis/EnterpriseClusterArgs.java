@@ -33,14 +33,14 @@ public final class EnterpriseClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The minimum TLS version.  Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
+     * The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
      * 
      */
     @Import(name="minimumTlsVersion")
     private @Nullable Output<String> minimumTlsVersion;
 
     /**
-     * @return The minimum TLS version.  Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
+     * @return The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
      * 
      */
     public Optional<Output<String>> minimumTlsVersion() {
@@ -174,7 +174,7 @@ public final class EnterpriseClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param minimumTlsVersion The minimum TLS version.  Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
+         * @param minimumTlsVersion The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class EnterpriseClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param minimumTlsVersion The minimum TLS version.  Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
+         * @param minimumTlsVersion The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
          * 
          * @return builder
          * 

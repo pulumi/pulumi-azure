@@ -3204,7 +3204,7 @@ class AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs:
                  end_time: Optional[pulumi.Input[str]] = None,
                  start_time: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] days_of_weeks: Specifies a list of dayOfWeek to recurrence.Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] days_of_weeks: Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
         :param pulumi.Input[str] end_time: Specifies the recurrence end time (H:M:S).
         :param pulumi.Input[str] start_time: Specifies the recurrence start time (H:M:S).
         """
@@ -3218,7 +3218,7 @@ class AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs:
     @pulumi.getter(name="daysOfWeeks")
     def days_of_weeks(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Specifies a list of dayOfWeek to recurrence.Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+        Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
         """
         return pulumi.get(self, "days_of_weeks")
 
@@ -4065,7 +4065,7 @@ class AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs:
                  end_time: Optional[pulumi.Input[str]] = None,
                  start_time: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] days_of_weeks: Specifies a list of dayOfWeek to recurrence.Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] days_of_weeks: Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
         :param pulumi.Input[str] end_time: Specifies the recurrence end time (H:M:S).
         :param pulumi.Input[str] start_time: Specifies the recurrence start time (H:M:S).
         """
@@ -4079,7 +4079,7 @@ class AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs:
     @pulumi.getter(name="daysOfWeeks")
     def days_of_weeks(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Specifies a list of dayOfWeek to recurrence.Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+        Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
         """
         return pulumi.get(self, "days_of_weeks")
 
@@ -4557,7 +4557,7 @@ class AutoscaleSettingProfileRuleMetricTriggerArgs:
         :param pulumi.Input[str] metric_name: The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
         :param pulumi.Input[str] metric_resource_id: The ID of the Resource which the Rule monitors.
         :param pulumi.Input[str] operator: Specifies the operator used to compare the metric data and threshold. Possible values are: `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`.
-        :param pulumi.Input[str] statistic: Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Min` and `Max`.
+        :param pulumi.Input[str] statistic: Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Max`, `Min` and `Sum`.
         :param pulumi.Input[float] threshold: Specifies the threshold of the metric that triggers the scale action.
         :param pulumi.Input[str] time_aggregation: Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`. Defaults to `Average`.
         :param pulumi.Input[str] time_grain: Specifies the granularity of metrics that the rule monitors, which must be one of the pre-defined values returned from the metric definitions for the metric. This value must be between 1 minute and 12 hours an be formatted as an ISO 8601 string.
@@ -4621,7 +4621,7 @@ class AutoscaleSettingProfileRuleMetricTriggerArgs:
     @pulumi.getter
     def statistic(self) -> pulumi.Input[str]:
         """
-        Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Min` and `Max`.
+        Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Max`, `Min` and `Sum`.
         """
         return pulumi.get(self, "statistic")
 

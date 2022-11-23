@@ -99,7 +99,7 @@ type PolicySetDefinition struct {
 	PolicyDefinitionGroups PolicySetDefinitionPolicyDefinitionGroupArrayOutput `pulumi:"policyDefinitionGroups"`
 	// One or more `policyDefinitionReference` blocks as defined below.
 	PolicyDefinitionReferences PolicySetDefinitionPolicyDefinitionReferenceArrayOutput `pulumi:"policyDefinitionReferences"`
-	// The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
+	// The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
 	PolicyType pulumi.StringOutput `pulumi:"policyType"`
 }
 
@@ -157,7 +157,7 @@ type policySetDefinitionState struct {
 	PolicyDefinitionGroups []PolicySetDefinitionPolicyDefinitionGroup `pulumi:"policyDefinitionGroups"`
 	// One or more `policyDefinitionReference` blocks as defined below.
 	PolicyDefinitionReferences []PolicySetDefinitionPolicyDefinitionReference `pulumi:"policyDefinitionReferences"`
-	// The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
+	// The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
 	PolicyType *string `pulumi:"policyType"`
 }
 
@@ -178,7 +178,7 @@ type PolicySetDefinitionState struct {
 	PolicyDefinitionGroups PolicySetDefinitionPolicyDefinitionGroupArrayInput
 	// One or more `policyDefinitionReference` blocks as defined below.
 	PolicyDefinitionReferences PolicySetDefinitionPolicyDefinitionReferenceArrayInput
-	// The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
+	// The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
 	PolicyType pulumi.StringPtrInput
 }
 
@@ -203,7 +203,7 @@ type policySetDefinitionArgs struct {
 	PolicyDefinitionGroups []PolicySetDefinitionPolicyDefinitionGroup `pulumi:"policyDefinitionGroups"`
 	// One or more `policyDefinitionReference` blocks as defined below.
 	PolicyDefinitionReferences []PolicySetDefinitionPolicyDefinitionReference `pulumi:"policyDefinitionReferences"`
-	// The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
+	// The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
 	PolicyType string `pulumi:"policyType"`
 }
 
@@ -225,7 +225,7 @@ type PolicySetDefinitionArgs struct {
 	PolicyDefinitionGroups PolicySetDefinitionPolicyDefinitionGroupArrayInput
 	// One or more `policyDefinitionReference` blocks as defined below.
 	PolicyDefinitionReferences PolicySetDefinitionPolicyDefinitionReferenceArrayInput
-	// The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
+	// The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
 	PolicyType pulumi.StringInput
 }
 
@@ -360,7 +360,7 @@ func (o PolicySetDefinitionOutput) PolicyDefinitionReferences() PolicySetDefinit
 	}).(PolicySetDefinitionPolicyDefinitionReferenceArrayOutput)
 }
 
-// The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
+// The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
 func (o PolicySetDefinitionOutput) PolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicySetDefinition) pulumi.StringOutput { return v.PolicyType }).(pulumi.StringOutput)
 }

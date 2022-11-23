@@ -71,7 +71,8 @@ type LookupScheduledQueryRulesAlertResult struct {
 	// Frequency at which rule condition should be evaluated.
 	Frequency int `pulumi:"frequency"`
 	// The provider-assigned unique ID for this managed resource.
-	Id       string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Specifies the Azure Region where the resource should exist.
 	Location string `pulumi:"location"`
 	Name     string `pulumi:"name"`
 	// Log search query.
@@ -164,6 +165,7 @@ func (o LookupScheduledQueryRulesAlertResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupScheduledQueryRulesAlertResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Specifies the Azure Region where the resource should exist.
 func (o LookupScheduledQueryRulesAlertResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupScheduledQueryRulesAlertResult) string { return v.Location }).(pulumi.StringOutput)
 }

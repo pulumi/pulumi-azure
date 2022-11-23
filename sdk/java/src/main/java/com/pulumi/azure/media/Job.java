@@ -202,14 +202,14 @@ public class Job extends com.pulumi.resources.CustomResource {
         return this.outputAssets;
     }
     /**
-     * Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created.
+     * Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created. Possible values are `High`, `Normal` and `Low`.
      * 
      */
     @Export(name="priority", type=String.class, parameters={})
     private Output</* @Nullable */ String> priority;
 
     /**
-     * @return Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created.
+     * @return Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created. Possible values are `High`, `Normal` and `Low`.
      * 
      */
     public Output<Optional<String>> priority() {

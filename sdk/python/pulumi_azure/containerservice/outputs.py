@@ -7052,7 +7052,7 @@ class TokenPasswordPassword1(dict):
                  expiry: Optional[str] = None,
                  value: Optional[str] = None):
         """
-        :param str expiry: The expiration date of the password in RFC3339 format.
+        :param str expiry: The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
         :param str value: The value of the password (Sensitive).
         """
         if expiry is not None:
@@ -7064,7 +7064,7 @@ class TokenPasswordPassword1(dict):
     @pulumi.getter
     def expiry(self) -> Optional[str]:
         """
-        The expiration date of the password in RFC3339 format.
+        The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "expiry")
 
@@ -7083,7 +7083,7 @@ class TokenPasswordPassword2(dict):
                  expiry: Optional[str] = None,
                  value: Optional[str] = None):
         """
-        :param str expiry: The expiration date of the password in RFC3339 format.
+        :param str expiry: The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
         :param str value: The value of the password (Sensitive).
         """
         if expiry is not None:
@@ -7095,7 +7095,7 @@ class TokenPasswordPassword2(dict):
     @pulumi.getter
     def expiry(self) -> Optional[str]:
         """
-        The expiration date of the password in RFC3339 format.
+        The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "expiry")
 

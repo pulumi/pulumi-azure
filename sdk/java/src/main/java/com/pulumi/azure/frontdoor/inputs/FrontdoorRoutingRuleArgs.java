@@ -20,14 +20,14 @@ public final class FrontdoorRoutingRuleArgs extends com.pulumi.resources.Resourc
     public static final FrontdoorRoutingRuleArgs Empty = new FrontdoorRoutingRuleArgs();
 
     /**
-     * Protocol schemes to match for the Backend Routing Rule. Defaults to `Http`.
+     * Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`. Defaults to `Http`.
      * 
      */
     @Import(name="acceptedProtocols", required=true)
     private Output<List<String>> acceptedProtocols;
 
     /**
-     * @return Protocol schemes to match for the Backend Routing Rule. Defaults to `Http`.
+     * @return Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`. Defaults to `Http`.
      * 
      */
     public Output<List<String>> acceptedProtocols() {
@@ -171,7 +171,7 @@ public final class FrontdoorRoutingRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param acceptedProtocols Protocol schemes to match for the Backend Routing Rule. Defaults to `Http`.
+         * @param acceptedProtocols Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`. Defaults to `Http`.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class FrontdoorRoutingRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param acceptedProtocols Protocol schemes to match for the Backend Routing Rule. Defaults to `Http`.
+         * @param acceptedProtocols Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`. Defaults to `Http`.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class FrontdoorRoutingRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param acceptedProtocols Protocol schemes to match for the Backend Routing Rule. Defaults to `Http`.
+         * @param acceptedProtocols Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`. Defaults to `Http`.
          * 
          * @return builder
          * 

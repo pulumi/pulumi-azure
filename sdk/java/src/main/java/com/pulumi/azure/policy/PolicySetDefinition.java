@@ -206,14 +206,14 @@ public class PolicySetDefinition extends com.pulumi.resources.CustomResource {
         return this.policyDefinitionReferences;
     }
     /**
-     * The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
+     * The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="policyType", type=String.class, parameters={})
     private Output<String> policyType;
 
     /**
-     * @return The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
+     * @return The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> policyType() {

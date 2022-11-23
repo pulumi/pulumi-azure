@@ -20,7 +20,7 @@ public final class LinuxFunctionAppSiteConfigApplicationStack {
      */
     private @Nullable List<LinuxFunctionAppSiteConfigApplicationStackDocker> dockers;
     /**
-     * @return The version of .NET to use. Possible values include `3.1` and `6.0`.
+     * @return The version of .NET to use. Possible values include `3.1`, `6.0` and `7.0`.
      * 
      */
     private @Nullable String dotnetVersion;
@@ -64,7 +64,7 @@ public final class LinuxFunctionAppSiteConfigApplicationStack {
         return this.dockers == null ? List.of() : this.dockers;
     }
     /**
-     * @return The version of .NET to use. Possible values include `3.1` and `6.0`.
+     * @return The version of .NET to use. Possible values include `3.1`, `6.0` and `7.0`.
      * 
      */
     public Optional<String> dotnetVersion() {

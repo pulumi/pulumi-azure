@@ -139,7 +139,7 @@ type Account struct {
 	IsVirtualNetworkFilterEnabled pulumi.BoolPtrOutput `pulumi:"isVirtualNetworkFilterEnabled"`
 	// A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
 	KeyVaultKeyId pulumi.StringPtrOutput `pulumi:"keyVaultKeyId"`
-	// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
+	// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
 	LocalAuthenticationDisabled pulumi.BoolPtrOutput `pulumi:"localAuthenticationDisabled"`
@@ -264,7 +264,7 @@ type accountState struct {
 	IsVirtualNetworkFilterEnabled *bool `pulumi:"isVirtualNetworkFilterEnabled"`
 	// A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
-	// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
+	// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
 	Kind *string `pulumi:"kind"`
 	// Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
 	LocalAuthenticationDisabled *bool `pulumi:"localAuthenticationDisabled"`
@@ -349,7 +349,7 @@ type AccountState struct {
 	IsVirtualNetworkFilterEnabled pulumi.BoolPtrInput
 	// A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
 	KeyVaultKeyId pulumi.StringPtrInput
-	// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
+	// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
 	Kind pulumi.StringPtrInput
 	// Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
 	LocalAuthenticationDisabled pulumi.BoolPtrInput
@@ -434,7 +434,7 @@ type accountArgs struct {
 	IsVirtualNetworkFilterEnabled *bool `pulumi:"isVirtualNetworkFilterEnabled"`
 	// A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
-	// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
+	// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
 	Kind *string `pulumi:"kind"`
 	// Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
 	LocalAuthenticationDisabled *bool `pulumi:"localAuthenticationDisabled"`
@@ -500,7 +500,7 @@ type AccountArgs struct {
 	IsVirtualNetworkFilterEnabled pulumi.BoolPtrInput
 	// A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
 	KeyVaultKeyId pulumi.StringPtrInput
-	// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
+	// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
 	Kind pulumi.StringPtrInput
 	// Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
 	LocalAuthenticationDisabled pulumi.BoolPtrInput
@@ -715,7 +715,7 @@ func (o AccountOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.KeyVaultKeyId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
+// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
 func (o AccountOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
 }

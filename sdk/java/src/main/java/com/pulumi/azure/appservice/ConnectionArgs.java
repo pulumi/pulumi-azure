@@ -47,14 +47,14 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The application client type. Possible values are `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs`, `springBoot`.
+     * The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
      * 
      */
     @Import(name="clientType")
     private @Nullable Output<String> clientType;
 
     /**
-     * @return The application client type. Possible values are `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs`, `springBoot`.
+     * @return The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
      * 
      */
     public Optional<Output<String>> clientType() {
@@ -178,7 +178,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientType The application client type. Possible values are `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs`, `springBoot`.
+         * @param clientType The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientType The application client type. Possible values are `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs`, `springBoot`.
+         * @param clientType The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
          * 
          * @return builder
          * 

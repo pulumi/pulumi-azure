@@ -119,11 +119,12 @@ type ResolverDnsForwardingRuleset struct {
 	// Specifies the Azure Region where the Private DNS Resolver Dns Forwarding Ruleset should exist. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name which should be used for this Private DNS Resolver Dns Forwarding Ruleset. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
-	Name                                  pulumi.StringOutput      `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The list of IDs of the Private DNS Resolver Outbound Endpoint that is linked to the Private DNS Resolver Dns Forwarding Ruleset.
 	PrivateDnsResolverOutboundEndpointIds pulumi.StringArrayOutput `pulumi:"privateDnsResolverOutboundEndpointIds"`
 	// Specifies the name of the Resource Group where the Private DNS Resolver Dns Forwarding Ruleset should exist. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// A mapping of tags which should be assigned to the Private DNS Resolver Dns Forwarding Ruleset.
+	// A mapping of tags to assign to the Private DNS Resolver Dns Forwarding Ruleset.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -165,11 +166,12 @@ type resolverDnsForwardingRulesetState struct {
 	// Specifies the Azure Region where the Private DNS Resolver Dns Forwarding Ruleset should exist. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name which should be used for this Private DNS Resolver Dns Forwarding Ruleset. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
-	Name                                  *string  `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The list of IDs of the Private DNS Resolver Outbound Endpoint that is linked to the Private DNS Resolver Dns Forwarding Ruleset.
 	PrivateDnsResolverOutboundEndpointIds []string `pulumi:"privateDnsResolverOutboundEndpointIds"`
 	// Specifies the name of the Resource Group where the Private DNS Resolver Dns Forwarding Ruleset should exist. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// A mapping of tags which should be assigned to the Private DNS Resolver Dns Forwarding Ruleset.
+	// A mapping of tags to assign to the Private DNS Resolver Dns Forwarding Ruleset.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -177,11 +179,12 @@ type ResolverDnsForwardingRulesetState struct {
 	// Specifies the Azure Region where the Private DNS Resolver Dns Forwarding Ruleset should exist. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name which should be used for this Private DNS Resolver Dns Forwarding Ruleset. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
-	Name                                  pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The list of IDs of the Private DNS Resolver Outbound Endpoint that is linked to the Private DNS Resolver Dns Forwarding Ruleset.
 	PrivateDnsResolverOutboundEndpointIds pulumi.StringArrayInput
 	// Specifies the name of the Resource Group where the Private DNS Resolver Dns Forwarding Ruleset should exist. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// A mapping of tags which should be assigned to the Private DNS Resolver Dns Forwarding Ruleset.
+	// A mapping of tags to assign to the Private DNS Resolver Dns Forwarding Ruleset.
 	Tags pulumi.StringMapInput
 }
 
@@ -193,11 +196,12 @@ type resolverDnsForwardingRulesetArgs struct {
 	// Specifies the Azure Region where the Private DNS Resolver Dns Forwarding Ruleset should exist. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name which should be used for this Private DNS Resolver Dns Forwarding Ruleset. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
-	Name                                  *string  `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The list of IDs of the Private DNS Resolver Outbound Endpoint that is linked to the Private DNS Resolver Dns Forwarding Ruleset.
 	PrivateDnsResolverOutboundEndpointIds []string `pulumi:"privateDnsResolverOutboundEndpointIds"`
 	// Specifies the name of the Resource Group where the Private DNS Resolver Dns Forwarding Ruleset should exist. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A mapping of tags which should be assigned to the Private DNS Resolver Dns Forwarding Ruleset.
+	// A mapping of tags to assign to the Private DNS Resolver Dns Forwarding Ruleset.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -206,11 +210,12 @@ type ResolverDnsForwardingRulesetArgs struct {
 	// Specifies the Azure Region where the Private DNS Resolver Dns Forwarding Ruleset should exist. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name which should be used for this Private DNS Resolver Dns Forwarding Ruleset. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
-	Name                                  pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The list of IDs of the Private DNS Resolver Outbound Endpoint that is linked to the Private DNS Resolver Dns Forwarding Ruleset.
 	PrivateDnsResolverOutboundEndpointIds pulumi.StringArrayInput
 	// Specifies the name of the Resource Group where the Private DNS Resolver Dns Forwarding Ruleset should exist. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
 	ResourceGroupName pulumi.StringInput
-	// A mapping of tags which should be assigned to the Private DNS Resolver Dns Forwarding Ruleset.
+	// A mapping of tags to assign to the Private DNS Resolver Dns Forwarding Ruleset.
 	Tags pulumi.StringMapInput
 }
 
@@ -311,6 +316,7 @@ func (o ResolverDnsForwardingRulesetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverDnsForwardingRuleset) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The list of IDs of the Private DNS Resolver Outbound Endpoint that is linked to the Private DNS Resolver Dns Forwarding Ruleset.
 func (o ResolverDnsForwardingRulesetOutput) PrivateDnsResolverOutboundEndpointIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResolverDnsForwardingRuleset) pulumi.StringArrayOutput {
 		return v.PrivateDnsResolverOutboundEndpointIds
@@ -322,7 +328,7 @@ func (o ResolverDnsForwardingRulesetOutput) ResourceGroupName() pulumi.StringOut
 	return o.ApplyT(func(v *ResolverDnsForwardingRuleset) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// A mapping of tags which should be assigned to the Private DNS Resolver Dns Forwarding Ruleset.
+// A mapping of tags to assign to the Private DNS Resolver Dns Forwarding Ruleset.
 func (o ResolverDnsForwardingRulesetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResolverDnsForwardingRuleset) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

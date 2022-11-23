@@ -64,14 +64,14 @@ public final class PolicyCustomRuleMatchConditionArgs extends com.pulumi.resourc
     }
 
     /**
-     * Describes operator to be matched.
+     * Describes operator to be matched. Possible values are `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
      * 
      */
     @Import(name="operator", required=true)
     private Output<String> operator;
 
     /**
-     * @return Describes operator to be matched.
+     * @return Describes operator to be matched. Possible values are `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
      * 
      */
     public Output<String> operator() {
@@ -79,14 +79,14 @@ public final class PolicyCustomRuleMatchConditionArgs extends com.pulumi.resourc
     }
 
     /**
-     * A list of transformations to do before the match is attempted.
+     * A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
      * 
      */
     @Import(name="transforms")
     private @Nullable Output<List<String>> transforms;
 
     /**
-     * @return A list of transformations to do before the match is attempted.
+     * @return A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
      * 
      */
     public Optional<Output<List<String>>> transforms() {
@@ -205,7 +205,7 @@ public final class PolicyCustomRuleMatchConditionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param operator Describes operator to be matched.
+         * @param operator Describes operator to be matched. Possible values are `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class PolicyCustomRuleMatchConditionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param operator Describes operator to be matched.
+         * @param operator Describes operator to be matched. Possible values are `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class PolicyCustomRuleMatchConditionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param transforms A list of transformations to do before the match is attempted.
+         * @param transforms A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class PolicyCustomRuleMatchConditionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param transforms A list of transformations to do before the match is attempted.
+         * @param transforms A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class PolicyCustomRuleMatchConditionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param transforms A list of transformations to do before the match is attempted.
+         * @param transforms A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
          * 
          * @return builder
          * 

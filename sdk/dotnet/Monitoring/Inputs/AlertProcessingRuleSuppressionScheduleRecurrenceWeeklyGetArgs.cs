@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<string>? _daysOfWeeks;
 
         /// <summary>
-        /// Specifies a list of dayOfWeek to recurrence.Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+        /// Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
         /// </summary>
         public InputList<string> DaysOfWeeks
         {

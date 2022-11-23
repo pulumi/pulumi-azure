@@ -5,8 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages private and isolated Logic App instances within an Azure virtual network.
- *
  * ## Example Usage
  *
  * ```typescript

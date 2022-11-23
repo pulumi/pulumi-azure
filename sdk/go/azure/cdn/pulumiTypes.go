@@ -3127,7 +3127,7 @@ type EndpointDeliveryRuleUrlRedirectAction struct {
 	Hostname *string `pulumi:"hostname"`
 	// Specifies the path part of the URL. This value must begin with a `/`.
 	Path *string `pulumi:"path"`
-	// Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+	// Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
 	Protocol *string `pulumi:"protocol"`
 	// Specifies the query string part of the URL. This value must not start with a `?` or `&` and must be in `<key>=<value>` format separated by `&`.
 	QueryString *string `pulumi:"queryString"`
@@ -3153,7 +3153,7 @@ type EndpointDeliveryRuleUrlRedirectActionArgs struct {
 	Hostname pulumi.StringPtrInput `pulumi:"hostname"`
 	// Specifies the path part of the URL. This value must begin with a `/`.
 	Path pulumi.StringPtrInput `pulumi:"path"`
-	// Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+	// Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 	// Specifies the query string part of the URL. This value must not start with a `?` or `&` and must be in `<key>=<value>` format separated by `&`.
 	QueryString pulumi.StringPtrInput `pulumi:"queryString"`
@@ -3253,7 +3253,7 @@ func (o EndpointDeliveryRuleUrlRedirectActionOutput) Path() pulumi.StringPtrOutp
 	return o.ApplyT(func(v EndpointDeliveryRuleUrlRedirectAction) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+// Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
 func (o EndpointDeliveryRuleUrlRedirectActionOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointDeliveryRuleUrlRedirectAction) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
@@ -3322,7 +3322,7 @@ func (o EndpointDeliveryRuleUrlRedirectActionPtrOutput) Path() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+// Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
 func (o EndpointDeliveryRuleUrlRedirectActionPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointDeliveryRuleUrlRedirectAction) *string {
 		if v == nil {
@@ -4435,7 +4435,7 @@ type EndpointGlobalDeliveryRuleUrlRedirectAction struct {
 	Hostname *string `pulumi:"hostname"`
 	// Specifies the path part of the URL. This value must begin with a `/`.
 	Path *string `pulumi:"path"`
-	// Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+	// Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
 	Protocol *string `pulumi:"protocol"`
 	// Specifies the query string part of the URL. This value must not start with a `?` or `&` and must be in `<key>=<value>` format separated by `&`.
 	QueryString *string `pulumi:"queryString"`
@@ -4461,7 +4461,7 @@ type EndpointGlobalDeliveryRuleUrlRedirectActionArgs struct {
 	Hostname pulumi.StringPtrInput `pulumi:"hostname"`
 	// Specifies the path part of the URL. This value must begin with a `/`.
 	Path pulumi.StringPtrInput `pulumi:"path"`
-	// Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+	// Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 	// Specifies the query string part of the URL. This value must not start with a `?` or `&` and must be in `<key>=<value>` format separated by `&`.
 	QueryString pulumi.StringPtrInput `pulumi:"queryString"`
@@ -4561,7 +4561,7 @@ func (o EndpointGlobalDeliveryRuleUrlRedirectActionOutput) Path() pulumi.StringP
 	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRedirectAction) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+// Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
 func (o EndpointGlobalDeliveryRuleUrlRedirectActionOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRedirectAction) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
@@ -4630,7 +4630,7 @@ func (o EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput) Path() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+// Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
 func (o EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointGlobalDeliveryRuleUrlRedirectAction) *string {
 		if v == nil {
@@ -5925,7 +5925,7 @@ func (o FrontdoorFirewallPolicyManagedRuleOverrideExclusionArrayOutput) Index(i 
 }
 
 type FrontdoorFirewallPolicyManagedRuleOverrideRule struct {
-	// The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+	// The action to be applied when the rule matches. Possible values are `Allow`, `Log`, `Block`, `Redirect` and `AnomalyScoring`.
 	Action string `pulumi:"action"`
 	// Is the managed rule override enabled or disabled. Defaults to `false`
 	Enabled *bool `pulumi:"enabled"`
@@ -5947,7 +5947,7 @@ type FrontdoorFirewallPolicyManagedRuleOverrideRuleInput interface {
 }
 
 type FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs struct {
-	// The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+	// The action to be applied when the rule matches. Possible values are `Allow`, `Log`, `Block`, `Redirect` and `AnomalyScoring`.
 	Action pulumi.StringInput `pulumi:"action"`
 	// Is the managed rule override enabled or disabled. Defaults to `false`
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -6008,7 +6008,7 @@ func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleOutput) ToFrontdoorFirewal
 	return o
 }
 
-// The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+// The action to be applied when the rule matches. Possible values are `Allow`, `Log`, `Block`, `Redirect` and `AnomalyScoring`.
 func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRuleOverrideRule) string { return v.Action }).(pulumi.StringOutput)
 }
@@ -7627,11 +7627,11 @@ func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) QueryStri
 type FrontdoorRuleActionsUrlRedirectAction struct {
 	// The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string.
 	DestinationFragment *string `pulumi:"destinationFragment"`
-	// The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host. Defaults to an empty string.
+	// The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host.
 	DestinationHostname string `pulumi:"destinationHostname"`
 	// The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string.
 	DestinationPath *string `pulumi:"destinationPath"`
-	// The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Defaults to an empty string.
+	// The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string.
 	QueryString *string `pulumi:"queryString"`
 	// The protocol the request will be redirected as. Possible values include `MatchRequest`, `Http` or `Https`. Defaults to `MatchRequest`.
 	RedirectProtocol *string `pulumi:"redirectProtocol"`
@@ -7653,11 +7653,11 @@ type FrontdoorRuleActionsUrlRedirectActionInput interface {
 type FrontdoorRuleActionsUrlRedirectActionArgs struct {
 	// The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string.
 	DestinationFragment pulumi.StringPtrInput `pulumi:"destinationFragment"`
-	// The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host. Defaults to an empty string.
+	// The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host.
 	DestinationHostname pulumi.StringInput `pulumi:"destinationHostname"`
 	// The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string.
 	DestinationPath pulumi.StringPtrInput `pulumi:"destinationPath"`
-	// The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Defaults to an empty string.
+	// The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string.
 	QueryString pulumi.StringPtrInput `pulumi:"queryString"`
 	// The protocol the request will be redirected as. Possible values include `MatchRequest`, `Http` or `Https`. Defaults to `MatchRequest`.
 	RedirectProtocol pulumi.StringPtrInput `pulumi:"redirectProtocol"`
@@ -7747,7 +7747,7 @@ func (o FrontdoorRuleActionsUrlRedirectActionOutput) DestinationFragment() pulum
 	return o.ApplyT(func(v FrontdoorRuleActionsUrlRedirectAction) *string { return v.DestinationFragment }).(pulumi.StringPtrOutput)
 }
 
-// The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host. Defaults to an empty string.
+// The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host.
 func (o FrontdoorRuleActionsUrlRedirectActionOutput) DestinationHostname() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorRuleActionsUrlRedirectAction) string { return v.DestinationHostname }).(pulumi.StringOutput)
 }
@@ -7757,7 +7757,7 @@ func (o FrontdoorRuleActionsUrlRedirectActionOutput) DestinationPath() pulumi.St
 	return o.ApplyT(func(v FrontdoorRuleActionsUrlRedirectAction) *string { return v.DestinationPath }).(pulumi.StringPtrOutput)
 }
 
-// The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Defaults to an empty string.
+// The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string.
 func (o FrontdoorRuleActionsUrlRedirectActionOutput) QueryString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorRuleActionsUrlRedirectAction) *string { return v.QueryString }).(pulumi.StringPtrOutput)
 }
@@ -7806,7 +7806,7 @@ func (o FrontdoorRuleActionsUrlRedirectActionPtrOutput) DestinationFragment() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host. Defaults to an empty string.
+// The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host.
 func (o FrontdoorRuleActionsUrlRedirectActionPtrOutput) DestinationHostname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRuleActionsUrlRedirectAction) *string {
 		if v == nil {
@@ -7826,7 +7826,7 @@ func (o FrontdoorRuleActionsUrlRedirectActionPtrOutput) DestinationPath() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Defaults to an empty string.
+// The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string.
 func (o FrontdoorRuleActionsUrlRedirectActionPtrOutput) QueryString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRuleActionsUrlRedirectAction) *string {
 		if v == nil {

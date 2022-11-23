@@ -24,6 +24,11 @@ public final class BlobInventoryPolicyRuleFilter {
      */
     private @Nullable Boolean includeBlobVersions;
     /**
+     * @return Includes deleted blobs in blob inventory or not? Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean includeDeleted;
+    /**
      * @return Includes blob snapshots in blob inventory or not? Defaults to `false`.
      * 
      */
@@ -48,6 +53,13 @@ public final class BlobInventoryPolicyRuleFilter {
      */
     public Optional<Boolean> includeBlobVersions() {
         return Optional.ofNullable(this.includeBlobVersions);
+    }
+    /**
+     * @return Includes deleted blobs in blob inventory or not? Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> includeDeleted() {
+        return Optional.ofNullable(this.includeDeleted);
     }
     /**
      * @return Includes blob snapshots in blob inventory or not? Defaults to `false`.
@@ -75,6 +87,7 @@ public final class BlobInventoryPolicyRuleFilter {
     public static final class Builder {
         private List<String> blobTypes;
         private @Nullable Boolean includeBlobVersions;
+        private @Nullable Boolean includeDeleted;
         private @Nullable Boolean includeSnapshots;
         private @Nullable List<String> prefixMatches;
         public Builder() {}
@@ -82,6 +95,7 @@ public final class BlobInventoryPolicyRuleFilter {
     	      Objects.requireNonNull(defaults);
     	      this.blobTypes = defaults.blobTypes;
     	      this.includeBlobVersions = defaults.includeBlobVersions;
+    	      this.includeDeleted = defaults.includeDeleted;
     	      this.includeSnapshots = defaults.includeSnapshots;
     	      this.prefixMatches = defaults.prefixMatches;
         }
@@ -97,6 +111,11 @@ public final class BlobInventoryPolicyRuleFilter {
         @CustomType.Setter
         public Builder includeBlobVersions(@Nullable Boolean includeBlobVersions) {
             this.includeBlobVersions = includeBlobVersions;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder includeDeleted(@Nullable Boolean includeDeleted) {
+            this.includeDeleted = includeDeleted;
             return this;
         }
         @CustomType.Setter
@@ -116,6 +135,7 @@ public final class BlobInventoryPolicyRuleFilter {
             final var o = new BlobInventoryPolicyRuleFilter();
             o.blobTypes = blobTypes;
             o.includeBlobVersions = includeBlobVersions;
+            o.includeDeleted = includeDeleted;
             o.includeSnapshots = includeSnapshots;
             o.prefixMatches = prefixMatches;
             return o;

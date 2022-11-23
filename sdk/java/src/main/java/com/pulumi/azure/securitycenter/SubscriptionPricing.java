@@ -76,6 +76,20 @@ public class SubscriptionPricing extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.resourceType);
     }
     /**
+     * Resource type pricing subplan. Contact your MSFT representative for possible values.
+     * 
+     */
+    @Export(name="subplan", type=String.class, parameters={})
+    private Output</* @Nullable */ String> subplan;
+
+    /**
+     * @return Resource type pricing subplan. Contact your MSFT representative for possible values.
+     * 
+     */
+    public Output<Optional<String>> subplan() {
+        return Codegen.optional(this.subplan);
+    }
+    /**
      * The pricing tier to use. Possible values are `Free` and `Standard`.
      * 
      */

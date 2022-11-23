@@ -17,7 +17,7 @@ type WorkbookIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Workbook.
 	TenantId *string `pulumi:"tenantId"`
-	// The type of Managed Service Identity that is configured on this Workbook.
+	// The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -39,7 +39,7 @@ type WorkbookIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Workbook.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The type of Managed Service Identity that is configured on this Workbook.
+	// The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -135,7 +135,7 @@ func (o WorkbookIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkbookIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The type of Managed Service Identity that is configured on this Workbook.
+// The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
 func (o WorkbookIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkbookIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -194,7 +194,7 @@ func (o WorkbookIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of Managed Service Identity that is configured on this Workbook.
+// The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
 func (o WorkbookIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkbookIdentity) *string {
 		if v == nil {

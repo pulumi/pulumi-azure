@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Sentinel.Outputs
     public sealed class AlertRuleScheduledEventGrouping
     {
         /// <summary>
-        /// The aggregation type of grouping the events.
+        /// The aggregation type of grouping the events. Possible values are `AlertPerResult` and `SingleAlert`.
         /// </summary>
         public readonly string AggregationMethod;
 

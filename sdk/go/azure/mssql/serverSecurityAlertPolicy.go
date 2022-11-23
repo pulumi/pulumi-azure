@@ -102,7 +102,7 @@ type ServerSecurityAlertPolicy struct {
 	RetentionDays pulumi.IntPtrOutput `pulumi:"retentionDays"`
 	// Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
 	ServerName pulumi.StringOutput `pulumi:"serverName"`
-	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`.
+	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Possible values are `Disabled`, `Enabled` and `New`.
 	State pulumi.StringOutput `pulumi:"state"`
 	// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
 	StorageAccountAccessKey pulumi.StringPtrOutput `pulumi:"storageAccountAccessKey"`
@@ -160,7 +160,7 @@ type serverSecurityAlertPolicyState struct {
 	RetentionDays *int `pulumi:"retentionDays"`
 	// Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
 	ServerName *string `pulumi:"serverName"`
-	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`.
+	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Possible values are `Disabled`, `Enabled` and `New`.
 	State *string `pulumi:"state"`
 	// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
@@ -181,7 +181,7 @@ type ServerSecurityAlertPolicyState struct {
 	RetentionDays pulumi.IntPtrInput
 	// Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
 	ServerName pulumi.StringPtrInput
-	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`.
+	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Possible values are `Disabled`, `Enabled` and `New`.
 	State pulumi.StringPtrInput
 	// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
 	StorageAccountAccessKey pulumi.StringPtrInput
@@ -206,7 +206,7 @@ type serverSecurityAlertPolicyArgs struct {
 	RetentionDays *int `pulumi:"retentionDays"`
 	// Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
 	ServerName string `pulumi:"serverName"`
-	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`.
+	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Possible values are `Disabled`, `Enabled` and `New`.
 	State string `pulumi:"state"`
 	// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
@@ -228,7 +228,7 @@ type ServerSecurityAlertPolicyArgs struct {
 	RetentionDays pulumi.IntPtrInput
 	// Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
 	ServerName pulumi.StringInput
-	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`.
+	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Possible values are `Disabled`, `Enabled` and `New`.
 	State pulumi.StringInput
 	// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
 	StorageAccountAccessKey pulumi.StringPtrInput
@@ -353,7 +353,7 @@ func (o ServerSecurityAlertPolicyOutput) ServerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerSecurityAlertPolicy) pulumi.StringOutput { return v.ServerName }).(pulumi.StringOutput)
 }
 
-// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`.
+// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Possible values are `Disabled`, `Enabled` and `New`.
 func (o ServerSecurityAlertPolicyOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerSecurityAlertPolicy) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }

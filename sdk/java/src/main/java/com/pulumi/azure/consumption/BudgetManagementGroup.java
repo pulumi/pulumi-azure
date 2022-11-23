@@ -199,14 +199,14 @@ public class BudgetManagementGroup extends com.pulumi.resources.CustomResource {
         return this.notifications;
     }
     /**
-     * The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `Monthly`, `Quarterly`, `Annually`, `BillingMonth`, `BillingQuarter`, or `BillingYear`. Defaults to `Monthly`.
+     * The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`.
      * 
      */
     @Export(name="timeGrain", type=String.class, parameters={})
     private Output</* @Nullable */ String> timeGrain;
 
     /**
-     * @return The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `Monthly`, `Quarterly`, `Annually`, `BillingMonth`, `BillingQuarter`, or `BillingYear`. Defaults to `Monthly`.
+     * @return The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`.
      * 
      */
     public Output<Optional<String>> timeGrain() {

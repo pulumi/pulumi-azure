@@ -17,6 +17,7 @@ type Features struct {
 	CognitiveAccount       *FeaturesCognitiveAccount       `pulumi:"cognitiveAccount"`
 	KeyVault               *FeaturesKeyVault               `pulumi:"keyVault"`
 	LogAnalyticsWorkspace  *FeaturesLogAnalyticsWorkspace  `pulumi:"logAnalyticsWorkspace"`
+	ManagedDisk            *FeaturesManagedDisk            `pulumi:"managedDisk"`
 	Network                *FeaturesNetwork                `pulumi:"network"`
 	ResourceGroup          *FeaturesResourceGroup          `pulumi:"resourceGroup"`
 	TemplateDeployment     *FeaturesTemplateDeployment     `pulumi:"templateDeployment"`
@@ -42,6 +43,7 @@ type FeaturesArgs struct {
 	CognitiveAccount       FeaturesCognitiveAccountPtrInput       `pulumi:"cognitiveAccount"`
 	KeyVault               FeaturesKeyVaultPtrInput               `pulumi:"keyVault"`
 	LogAnalyticsWorkspace  FeaturesLogAnalyticsWorkspacePtrInput  `pulumi:"logAnalyticsWorkspace"`
+	ManagedDisk            FeaturesManagedDiskPtrInput            `pulumi:"managedDisk"`
 	Network                FeaturesNetworkPtrInput                `pulumi:"network"`
 	ResourceGroup          FeaturesResourceGroupPtrInput          `pulumi:"resourceGroup"`
 	TemplateDeployment     FeaturesTemplateDeploymentPtrInput     `pulumi:"templateDeployment"`
@@ -97,6 +99,10 @@ func (o FeaturesOutput) KeyVault() FeaturesKeyVaultPtrOutput {
 
 func (o FeaturesOutput) LogAnalyticsWorkspace() FeaturesLogAnalyticsWorkspacePtrOutput {
 	return o.ApplyT(func(v Features) *FeaturesLogAnalyticsWorkspace { return v.LogAnalyticsWorkspace }).(FeaturesLogAnalyticsWorkspacePtrOutput)
+}
+
+func (o FeaturesOutput) ManagedDisk() FeaturesManagedDiskPtrOutput {
+	return o.ApplyT(func(v Features) *FeaturesManagedDisk { return v.ManagedDisk }).(FeaturesManagedDiskPtrOutput)
 }
 
 func (o FeaturesOutput) Network() FeaturesNetworkPtrOutput {
@@ -1067,6 +1073,139 @@ func (o FeaturesLogAnalyticsWorkspacePtrOutput) PermanentlyDeleteOnDestroy() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
+type FeaturesManagedDisk struct {
+	ExpandWithoutDowntime *bool `pulumi:"expandWithoutDowntime"`
+}
+
+// FeaturesManagedDiskInput is an input type that accepts FeaturesManagedDiskArgs and FeaturesManagedDiskOutput values.
+// You can construct a concrete instance of `FeaturesManagedDiskInput` via:
+//
+//	FeaturesManagedDiskArgs{...}
+type FeaturesManagedDiskInput interface {
+	pulumi.Input
+
+	ToFeaturesManagedDiskOutput() FeaturesManagedDiskOutput
+	ToFeaturesManagedDiskOutputWithContext(context.Context) FeaturesManagedDiskOutput
+}
+
+type FeaturesManagedDiskArgs struct {
+	ExpandWithoutDowntime pulumi.BoolPtrInput `pulumi:"expandWithoutDowntime"`
+}
+
+func (FeaturesManagedDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesManagedDisk)(nil)).Elem()
+}
+
+func (i FeaturesManagedDiskArgs) ToFeaturesManagedDiskOutput() FeaturesManagedDiskOutput {
+	return i.ToFeaturesManagedDiskOutputWithContext(context.Background())
+}
+
+func (i FeaturesManagedDiskArgs) ToFeaturesManagedDiskOutputWithContext(ctx context.Context) FeaturesManagedDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesManagedDiskOutput)
+}
+
+func (i FeaturesManagedDiskArgs) ToFeaturesManagedDiskPtrOutput() FeaturesManagedDiskPtrOutput {
+	return i.ToFeaturesManagedDiskPtrOutputWithContext(context.Background())
+}
+
+func (i FeaturesManagedDiskArgs) ToFeaturesManagedDiskPtrOutputWithContext(ctx context.Context) FeaturesManagedDiskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesManagedDiskOutput).ToFeaturesManagedDiskPtrOutputWithContext(ctx)
+}
+
+// FeaturesManagedDiskPtrInput is an input type that accepts FeaturesManagedDiskArgs, FeaturesManagedDiskPtr and FeaturesManagedDiskPtrOutput values.
+// You can construct a concrete instance of `FeaturesManagedDiskPtrInput` via:
+//
+//	        FeaturesManagedDiskArgs{...}
+//
+//	or:
+//
+//	        nil
+type FeaturesManagedDiskPtrInput interface {
+	pulumi.Input
+
+	ToFeaturesManagedDiskPtrOutput() FeaturesManagedDiskPtrOutput
+	ToFeaturesManagedDiskPtrOutputWithContext(context.Context) FeaturesManagedDiskPtrOutput
+}
+
+type featuresManagedDiskPtrType FeaturesManagedDiskArgs
+
+func FeaturesManagedDiskPtr(v *FeaturesManagedDiskArgs) FeaturesManagedDiskPtrInput {
+	return (*featuresManagedDiskPtrType)(v)
+}
+
+func (*featuresManagedDiskPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesManagedDisk)(nil)).Elem()
+}
+
+func (i *featuresManagedDiskPtrType) ToFeaturesManagedDiskPtrOutput() FeaturesManagedDiskPtrOutput {
+	return i.ToFeaturesManagedDiskPtrOutputWithContext(context.Background())
+}
+
+func (i *featuresManagedDiskPtrType) ToFeaturesManagedDiskPtrOutputWithContext(ctx context.Context) FeaturesManagedDiskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesManagedDiskPtrOutput)
+}
+
+type FeaturesManagedDiskOutput struct{ *pulumi.OutputState }
+
+func (FeaturesManagedDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesManagedDisk)(nil)).Elem()
+}
+
+func (o FeaturesManagedDiskOutput) ToFeaturesManagedDiskOutput() FeaturesManagedDiskOutput {
+	return o
+}
+
+func (o FeaturesManagedDiskOutput) ToFeaturesManagedDiskOutputWithContext(ctx context.Context) FeaturesManagedDiskOutput {
+	return o
+}
+
+func (o FeaturesManagedDiskOutput) ToFeaturesManagedDiskPtrOutput() FeaturesManagedDiskPtrOutput {
+	return o.ToFeaturesManagedDiskPtrOutputWithContext(context.Background())
+}
+
+func (o FeaturesManagedDiskOutput) ToFeaturesManagedDiskPtrOutputWithContext(ctx context.Context) FeaturesManagedDiskPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesManagedDisk) *FeaturesManagedDisk {
+		return &v
+	}).(FeaturesManagedDiskPtrOutput)
+}
+
+func (o FeaturesManagedDiskOutput) ExpandWithoutDowntime() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FeaturesManagedDisk) *bool { return v.ExpandWithoutDowntime }).(pulumi.BoolPtrOutput)
+}
+
+type FeaturesManagedDiskPtrOutput struct{ *pulumi.OutputState }
+
+func (FeaturesManagedDiskPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesManagedDisk)(nil)).Elem()
+}
+
+func (o FeaturesManagedDiskPtrOutput) ToFeaturesManagedDiskPtrOutput() FeaturesManagedDiskPtrOutput {
+	return o
+}
+
+func (o FeaturesManagedDiskPtrOutput) ToFeaturesManagedDiskPtrOutputWithContext(ctx context.Context) FeaturesManagedDiskPtrOutput {
+	return o
+}
+
+func (o FeaturesManagedDiskPtrOutput) Elem() FeaturesManagedDiskOutput {
+	return o.ApplyT(func(v *FeaturesManagedDisk) FeaturesManagedDisk {
+		if v != nil {
+			return *v
+		}
+		var ret FeaturesManagedDisk
+		return ret
+	}).(FeaturesManagedDiskOutput)
+}
+
+func (o FeaturesManagedDiskPtrOutput) ExpandWithoutDowntime() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FeaturesManagedDisk) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ExpandWithoutDowntime
+	}).(pulumi.BoolPtrOutput)
+}
+
 type FeaturesNetwork struct {
 	RelaxedLocking bool `pulumi:"relaxedLocking"`
 }
@@ -1806,6 +1945,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesKeyVaultPtrInput)(nil)).Elem(), FeaturesKeyVaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesLogAnalyticsWorkspaceInput)(nil)).Elem(), FeaturesLogAnalyticsWorkspaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesLogAnalyticsWorkspacePtrInput)(nil)).Elem(), FeaturesLogAnalyticsWorkspaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesManagedDiskInput)(nil)).Elem(), FeaturesManagedDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesManagedDiskPtrInput)(nil)).Elem(), FeaturesManagedDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesNetworkInput)(nil)).Elem(), FeaturesNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesNetworkPtrInput)(nil)).Elem(), FeaturesNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesResourceGroupInput)(nil)).Elem(), FeaturesResourceGroupArgs{})
@@ -1829,6 +1970,8 @@ func init() {
 	pulumi.RegisterOutputType(FeaturesKeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(FeaturesLogAnalyticsWorkspaceOutput{})
 	pulumi.RegisterOutputType(FeaturesLogAnalyticsWorkspacePtrOutput{})
+	pulumi.RegisterOutputType(FeaturesManagedDiskOutput{})
+	pulumi.RegisterOutputType(FeaturesManagedDiskPtrOutput{})
 	pulumi.RegisterOutputType(FeaturesNetworkOutput{})
 	pulumi.RegisterOutputType(FeaturesNetworkPtrOutput{})
 	pulumi.RegisterOutputType(FeaturesResourceGroupOutput{})

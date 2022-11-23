@@ -112,7 +112,7 @@ export class NatPool extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+     * The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
      */
     public readonly protocol!: pulumi.Output<string>;
     /**
@@ -228,7 +228,7 @@ export interface NatPoolState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+     * The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
      */
     protocol?: pulumi.Input<string>;
     /**
@@ -278,7 +278,7 @@ export interface NatPoolArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+     * The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
      */
     protocol: pulumi.Input<string>;
     /**

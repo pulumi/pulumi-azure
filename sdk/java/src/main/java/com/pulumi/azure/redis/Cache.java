@@ -110,14 +110,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:redis/cache:Cache")
 public class Cache extends com.pulumi.resources.CustomResource {
     /**
-     * The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
+     * The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
      * 
      */
     @Export(name="capacity", type=Integer.class, parameters={})
     private Output<Integer> capacity;
 
     /**
-     * @return The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
+     * @return The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
      * 
      */
     public Output<Integer> capacity() {
@@ -194,14 +194,14 @@ public class Cache extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * The minimum TLS version.  Defaults to `1.0`.
+     * The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
      * 
      */
     @Export(name="minimumTlsVersion", type=String.class, parameters={})
     private Output</* @Nullable */ String> minimumTlsVersion;
 
     /**
-     * @return The minimum TLS version.  Defaults to `1.0`.
+     * @return The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
      * 
      */
     public Output<Optional<String>> minimumTlsVersion() {

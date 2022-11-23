@@ -128,7 +128,7 @@ public class HostPool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.friendlyName);
     }
     /**
-     * `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool.
+     * `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
      * `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
      * `Persistent` should be used if the host pool type is `Personal`
      * 
@@ -137,7 +137,7 @@ public class HostPool extends com.pulumi.resources.CustomResource {
     private Output<String> loadBalancerType;
 
     /**
-     * @return `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool.
+     * @return `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
      * `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
      * `Persistent` should be used if the host pool type is `Personal`
      * 
@@ -194,7 +194,7 @@ public class HostPool extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * `Automatic` assignment – The service will select an available host and assign it to an user.
+     * `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`.
      * `Direct` Assignment – Admin selects a specific host to assign to an user.
      * 
      */
@@ -202,7 +202,7 @@ public class HostPool extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> personalDesktopAssignmentType;
 
     /**
-     * @return `Automatic` assignment – The service will select an available host and assign it to an user.
+     * @return `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`.
      * `Direct` Assignment – Admin selects a specific host to assign to an user.
      * 
      */
@@ -210,16 +210,14 @@ public class HostPool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.personalDesktopAssignmentType);
     }
     /**
-     * Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
-     * Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
+     * Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
      * 
      */
     @Export(name="preferredAppGroupType", type=String.class, parameters={})
     private Output</* @Nullable */ String> preferredAppGroupType;
 
     /**
-     * @return Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
-     * Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
+     * @return Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
      * 
      */
     public Output<Optional<String>> preferredAppGroupType() {
@@ -286,16 +284,14 @@ public class HostPool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * The type of the Virtual Desktop Host Pool. Valid options are
-     * `Personal` or `Pooled`. Changing the type forces a new resource to be created.
+     * The type of the Virtual Desktop Host Pool. Valid options are `Personal` or `Pooled`. Changing the type forces a new resource to be created.
      * 
      */
     @Export(name="type", type=String.class, parameters={})
     private Output<String> type;
 
     /**
-     * @return The type of the Virtual Desktop Host Pool. Valid options are
-     * `Personal` or `Pooled`. Changing the type forces a new resource to be created.
+     * @return The type of the Virtual Desktop Host Pool. Valid options are `Personal` or `Pooled`. Changing the type forces a new resource to be created.
      * 
      */
     public Output<String> type() {

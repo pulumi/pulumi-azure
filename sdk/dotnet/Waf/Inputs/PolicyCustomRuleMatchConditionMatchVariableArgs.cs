@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Waf.Inputs
         public Input<string>? Selector { get; set; }
 
         /// <summary>
-        /// The name of the Match Variable
+        /// The name of the Match Variable. Possible values are `RemoteAddr`, `RequestMethod`, `QueryString`, `PostArgs`, `RequestUri`, `RequestHeaders`, `RequestBody` and `RequestCookies`.
         /// </summary>
         [Input("variableName", required: true)]
         public Input<string> VariableName { get; set; } = null!;

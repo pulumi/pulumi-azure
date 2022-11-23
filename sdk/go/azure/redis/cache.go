@@ -95,7 +95,7 @@ import (
 type Cache struct {
 	pulumi.CustomResourceState
 
-	// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
+	// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
 	Capacity pulumi.IntOutput `pulumi:"capacity"`
 	// Enable the non-SSL port (6379) - disabled by default.
 	EnableNonSslPort pulumi.BoolPtrOutput `pulumi:"enableNonSslPort"`
@@ -107,7 +107,7 @@ type Cache struct {
 	Identity CacheIdentityPtrOutput `pulumi:"identity"`
 	// The location of the resource group.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The minimum TLS version.  Defaults to `1.0`.
+	// The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 	MinimumTlsVersion pulumi.StringPtrOutput `pulumi:"minimumTlsVersion"`
 	// The name of the Redis instance. Changing this forces a
 	// new resource to be created.
@@ -196,7 +196,7 @@ func GetCache(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cache resources.
 type cacheState struct {
-	// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
+	// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
 	Capacity *int `pulumi:"capacity"`
 	// Enable the non-SSL port (6379) - disabled by default.
 	EnableNonSslPort *bool `pulumi:"enableNonSslPort"`
@@ -208,7 +208,7 @@ type cacheState struct {
 	Identity *CacheIdentity `pulumi:"identity"`
 	// The location of the resource group.
 	Location *string `pulumi:"location"`
-	// The minimum TLS version.  Defaults to `1.0`.
+	// The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name of the Redis instance. Changing this forces a
 	// new resource to be created.
@@ -257,7 +257,7 @@ type cacheState struct {
 }
 
 type CacheState struct {
-	// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
+	// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
 	Capacity pulumi.IntPtrInput
 	// Enable the non-SSL port (6379) - disabled by default.
 	EnableNonSslPort pulumi.BoolPtrInput
@@ -269,7 +269,7 @@ type CacheState struct {
 	Identity CacheIdentityPtrInput
 	// The location of the resource group.
 	Location pulumi.StringPtrInput
-	// The minimum TLS version.  Defaults to `1.0`.
+	// The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 	MinimumTlsVersion pulumi.StringPtrInput
 	// The name of the Redis instance. Changing this forces a
 	// new resource to be created.
@@ -322,7 +322,7 @@ func (CacheState) ElementType() reflect.Type {
 }
 
 type cacheArgs struct {
-	// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
+	// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
 	Capacity int `pulumi:"capacity"`
 	// Enable the non-SSL port (6379) - disabled by default.
 	EnableNonSslPort *bool `pulumi:"enableNonSslPort"`
@@ -332,7 +332,7 @@ type cacheArgs struct {
 	Identity *CacheIdentity `pulumi:"identity"`
 	// The location of the resource group.
 	Location *string `pulumi:"location"`
-	// The minimum TLS version.  Defaults to `1.0`.
+	// The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name of the Redis instance. Changing this forces a
 	// new resource to be created.
@@ -370,7 +370,7 @@ type cacheArgs struct {
 
 // The set of arguments for constructing a Cache resource.
 type CacheArgs struct {
-	// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
+	// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
 	Capacity pulumi.IntInput
 	// Enable the non-SSL port (6379) - disabled by default.
 	EnableNonSslPort pulumi.BoolPtrInput
@@ -380,7 +380,7 @@ type CacheArgs struct {
 	Identity CacheIdentityPtrInput
 	// The location of the resource group.
 	Location pulumi.StringPtrInput
-	// The minimum TLS version.  Defaults to `1.0`.
+	// The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 	MinimumTlsVersion pulumi.StringPtrInput
 	// The name of the Redis instance. Changing this forces a
 	// new resource to be created.
@@ -503,7 +503,7 @@ func (o CacheOutput) ToCacheOutputWithContext(ctx context.Context) CacheOutput {
 	return o
 }
 
-// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
+// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
 func (o CacheOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v *Cache) pulumi.IntOutput { return v.Capacity }).(pulumi.IntOutput)
 }
@@ -533,7 +533,7 @@ func (o CacheOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cache) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The minimum TLS version.  Defaults to `1.0`.
+// The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 func (o CacheOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cache) pulumi.StringPtrOutput { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
 }

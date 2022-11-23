@@ -10,6 +10,7 @@ import com.pulumi.azure.mssql.outputs.VirtualMachineAssessment;
 import com.pulumi.azure.mssql.outputs.VirtualMachineAutoBackup;
 import com.pulumi.azure.mssql.outputs.VirtualMachineAutoPatching;
 import com.pulumi.azure.mssql.outputs.VirtualMachineKeyVaultCredential;
+import com.pulumi.azure.mssql.outputs.VirtualMachineSqlInstance;
 import com.pulumi.azure.mssql.outputs.VirtualMachineStorageConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -172,14 +173,14 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sqlConnectivityPort);
     }
     /**
-     * The connectivity type used for this SQL Server. Defaults to `PRIVATE`.
+     * The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`.
      * 
      */
     @Export(name="sqlConnectivityType", type=String.class, parameters={})
     private Output</* @Nullable */ String> sqlConnectivityType;
 
     /**
-     * @return The connectivity type used for this SQL Server. Defaults to `PRIVATE`.
+     * @return The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`.
      * 
      */
     public Output<Optional<String>> sqlConnectivityType() {
@@ -212,6 +213,20 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> sqlConnectivityUpdateUsername() {
         return Codegen.optional(this.sqlConnectivityUpdateUsername);
+    }
+    /**
+     * A `sql_instance` block as defined below.
+     * 
+     */
+    @Export(name="sqlInstance", type=VirtualMachineSqlInstance.class, parameters={})
+    private Output</* @Nullable */ VirtualMachineSqlInstance> sqlInstance;
+
+    /**
+     * @return A `sql_instance` block as defined below.
+     * 
+     */
+    public Output<Optional<VirtualMachineSqlInstance>> sqlInstance() {
+        return Codegen.optional(this.sqlInstance);
     }
     /**
      * The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.

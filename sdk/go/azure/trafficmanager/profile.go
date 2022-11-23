@@ -102,7 +102,7 @@ type Profile struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Specifies the algorithm used to route traffic, possible values are:
+	// Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
 	TrafficRoutingMethod pulumi.StringOutput `pulumi:"trafficRoutingMethod"`
 	// Indicates whether Traffic View is enabled for the Traffic Manager profile.
 	TrafficViewEnabled pulumi.BoolPtrOutput `pulumi:"trafficViewEnabled"`
@@ -165,7 +165,7 @@ type profileState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies the algorithm used to route traffic, possible values are:
+	// Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
 	TrafficRoutingMethod *string `pulumi:"trafficRoutingMethod"`
 	// Indicates whether Traffic View is enabled for the Traffic Manager profile.
 	TrafficViewEnabled *bool `pulumi:"trafficViewEnabled"`
@@ -188,7 +188,7 @@ type ProfileState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Specifies the algorithm used to route traffic, possible values are:
+	// Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
 	TrafficRoutingMethod pulumi.StringPtrInput
 	// Indicates whether Traffic View is enabled for the Traffic Manager profile.
 	TrafficViewEnabled pulumi.BoolPtrInput
@@ -213,7 +213,7 @@ type profileArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies the algorithm used to route traffic, possible values are:
+	// Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
 	TrafficRoutingMethod string `pulumi:"trafficRoutingMethod"`
 	// Indicates whether Traffic View is enabled for the Traffic Manager profile.
 	TrafficViewEnabled *bool `pulumi:"trafficViewEnabled"`
@@ -235,7 +235,7 @@ type ProfileArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Specifies the algorithm used to route traffic, possible values are:
+	// Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
 	TrafficRoutingMethod pulumi.StringInput
 	// Indicates whether Traffic View is enabled for the Traffic Manager profile.
 	TrafficViewEnabled pulumi.BoolPtrInput
@@ -368,7 +368,7 @@ func (o ProfileOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Specifies the algorithm used to route traffic, possible values are:
+// Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
 func (o ProfileOutput) TrafficRoutingMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.TrafficRoutingMethod }).(pulumi.StringOutput)
 }

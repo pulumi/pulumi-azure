@@ -31,6 +31,21 @@ public final class SubscriptionPricingState extends com.pulumi.resources.Resourc
     }
 
     /**
+     * Resource type pricing subplan. Contact your MSFT representative for possible values.
+     * 
+     */
+    @Import(name="subplan")
+    private @Nullable Output<String> subplan;
+
+    /**
+     * @return Resource type pricing subplan. Contact your MSFT representative for possible values.
+     * 
+     */
+    public Optional<Output<String>> subplan() {
+        return Optional.ofNullable(this.subplan);
+    }
+
+    /**
      * The pricing tier to use. Possible values are `Free` and `Standard`.
      * 
      */
@@ -49,6 +64,7 @@ public final class SubscriptionPricingState extends com.pulumi.resources.Resourc
 
     private SubscriptionPricingState(SubscriptionPricingState $) {
         this.resourceType = $.resourceType;
+        this.subplan = $.subplan;
         this.tier = $.tier;
     }
 
@@ -89,6 +105,27 @@ public final class SubscriptionPricingState extends com.pulumi.resources.Resourc
          */
         public Builder resourceType(String resourceType) {
             return resourceType(Output.of(resourceType));
+        }
+
+        /**
+         * @param subplan Resource type pricing subplan. Contact your MSFT representative for possible values.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subplan(@Nullable Output<String> subplan) {
+            $.subplan = subplan;
+            return this;
+        }
+
+        /**
+         * @param subplan Resource type pricing subplan. Contact your MSFT representative for possible values.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subplan(String subplan) {
+            return subplan(Output.of(subplan));
         }
 
         /**

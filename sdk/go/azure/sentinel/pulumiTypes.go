@@ -10,6 +10,236 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AlertRuleFusionSource struct {
+	// Whether this source signal is enabled or disabled in Fusion detection? Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
+	// The name of the Fusion source signal. Refer to Fusion alert rule template for supported values.
+	Name string `pulumi:"name"`
+	// One or more `subType` blocks as defined below.
+	SubTypes []AlertRuleFusionSourceSubType `pulumi:"subTypes"`
+}
+
+// AlertRuleFusionSourceInput is an input type that accepts AlertRuleFusionSourceArgs and AlertRuleFusionSourceOutput values.
+// You can construct a concrete instance of `AlertRuleFusionSourceInput` via:
+//
+//	AlertRuleFusionSourceArgs{...}
+type AlertRuleFusionSourceInput interface {
+	pulumi.Input
+
+	ToAlertRuleFusionSourceOutput() AlertRuleFusionSourceOutput
+	ToAlertRuleFusionSourceOutputWithContext(context.Context) AlertRuleFusionSourceOutput
+}
+
+type AlertRuleFusionSourceArgs struct {
+	// Whether this source signal is enabled or disabled in Fusion detection? Defaults to `true`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The name of the Fusion source signal. Refer to Fusion alert rule template for supported values.
+	Name pulumi.StringInput `pulumi:"name"`
+	// One or more `subType` blocks as defined below.
+	SubTypes AlertRuleFusionSourceSubTypeArrayInput `pulumi:"subTypes"`
+}
+
+func (AlertRuleFusionSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleFusionSource)(nil)).Elem()
+}
+
+func (i AlertRuleFusionSourceArgs) ToAlertRuleFusionSourceOutput() AlertRuleFusionSourceOutput {
+	return i.ToAlertRuleFusionSourceOutputWithContext(context.Background())
+}
+
+func (i AlertRuleFusionSourceArgs) ToAlertRuleFusionSourceOutputWithContext(ctx context.Context) AlertRuleFusionSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleFusionSourceOutput)
+}
+
+// AlertRuleFusionSourceArrayInput is an input type that accepts AlertRuleFusionSourceArray and AlertRuleFusionSourceArrayOutput values.
+// You can construct a concrete instance of `AlertRuleFusionSourceArrayInput` via:
+//
+//	AlertRuleFusionSourceArray{ AlertRuleFusionSourceArgs{...} }
+type AlertRuleFusionSourceArrayInput interface {
+	pulumi.Input
+
+	ToAlertRuleFusionSourceArrayOutput() AlertRuleFusionSourceArrayOutput
+	ToAlertRuleFusionSourceArrayOutputWithContext(context.Context) AlertRuleFusionSourceArrayOutput
+}
+
+type AlertRuleFusionSourceArray []AlertRuleFusionSourceInput
+
+func (AlertRuleFusionSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleFusionSource)(nil)).Elem()
+}
+
+func (i AlertRuleFusionSourceArray) ToAlertRuleFusionSourceArrayOutput() AlertRuleFusionSourceArrayOutput {
+	return i.ToAlertRuleFusionSourceArrayOutputWithContext(context.Background())
+}
+
+func (i AlertRuleFusionSourceArray) ToAlertRuleFusionSourceArrayOutputWithContext(ctx context.Context) AlertRuleFusionSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleFusionSourceArrayOutput)
+}
+
+type AlertRuleFusionSourceOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleFusionSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleFusionSource)(nil)).Elem()
+}
+
+func (o AlertRuleFusionSourceOutput) ToAlertRuleFusionSourceOutput() AlertRuleFusionSourceOutput {
+	return o
+}
+
+func (o AlertRuleFusionSourceOutput) ToAlertRuleFusionSourceOutputWithContext(ctx context.Context) AlertRuleFusionSourceOutput {
+	return o
+}
+
+// Whether this source signal is enabled or disabled in Fusion detection? Defaults to `true`.
+func (o AlertRuleFusionSourceOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AlertRuleFusionSource) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the Fusion source signal. Refer to Fusion alert rule template for supported values.
+func (o AlertRuleFusionSourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertRuleFusionSource) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// One or more `subType` blocks as defined below.
+func (o AlertRuleFusionSourceOutput) SubTypes() AlertRuleFusionSourceSubTypeArrayOutput {
+	return o.ApplyT(func(v AlertRuleFusionSource) []AlertRuleFusionSourceSubType { return v.SubTypes }).(AlertRuleFusionSourceSubTypeArrayOutput)
+}
+
+type AlertRuleFusionSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleFusionSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleFusionSource)(nil)).Elem()
+}
+
+func (o AlertRuleFusionSourceArrayOutput) ToAlertRuleFusionSourceArrayOutput() AlertRuleFusionSourceArrayOutput {
+	return o
+}
+
+func (o AlertRuleFusionSourceArrayOutput) ToAlertRuleFusionSourceArrayOutputWithContext(ctx context.Context) AlertRuleFusionSourceArrayOutput {
+	return o
+}
+
+func (o AlertRuleFusionSourceArrayOutput) Index(i pulumi.IntInput) AlertRuleFusionSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertRuleFusionSource {
+		return vs[0].([]AlertRuleFusionSource)[vs[1].(int)]
+	}).(AlertRuleFusionSourceOutput)
+}
+
+type AlertRuleFusionSourceSubType struct {
+	// Whether this source subtype under source signal is enabled or disabled in Fusion detection. Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
+	// The Name of the source subtype under a given source signal in Fusion detection. Refer to Fusion alert rule template for supported values.
+	Name string `pulumi:"name"`
+	// A list of severities that are enabled for this source subtype consumed in Fusion detection. Possible values for each element are `High`, `Medium`, `Low`, `Informational`.
+	SeveritiesAlloweds []string `pulumi:"severitiesAlloweds"`
+}
+
+// AlertRuleFusionSourceSubTypeInput is an input type that accepts AlertRuleFusionSourceSubTypeArgs and AlertRuleFusionSourceSubTypeOutput values.
+// You can construct a concrete instance of `AlertRuleFusionSourceSubTypeInput` via:
+//
+//	AlertRuleFusionSourceSubTypeArgs{...}
+type AlertRuleFusionSourceSubTypeInput interface {
+	pulumi.Input
+
+	ToAlertRuleFusionSourceSubTypeOutput() AlertRuleFusionSourceSubTypeOutput
+	ToAlertRuleFusionSourceSubTypeOutputWithContext(context.Context) AlertRuleFusionSourceSubTypeOutput
+}
+
+type AlertRuleFusionSourceSubTypeArgs struct {
+	// Whether this source subtype under source signal is enabled or disabled in Fusion detection. Defaults to `true`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The Name of the source subtype under a given source signal in Fusion detection. Refer to Fusion alert rule template for supported values.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A list of severities that are enabled for this source subtype consumed in Fusion detection. Possible values for each element are `High`, `Medium`, `Low`, `Informational`.
+	SeveritiesAlloweds pulumi.StringArrayInput `pulumi:"severitiesAlloweds"`
+}
+
+func (AlertRuleFusionSourceSubTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleFusionSourceSubType)(nil)).Elem()
+}
+
+func (i AlertRuleFusionSourceSubTypeArgs) ToAlertRuleFusionSourceSubTypeOutput() AlertRuleFusionSourceSubTypeOutput {
+	return i.ToAlertRuleFusionSourceSubTypeOutputWithContext(context.Background())
+}
+
+func (i AlertRuleFusionSourceSubTypeArgs) ToAlertRuleFusionSourceSubTypeOutputWithContext(ctx context.Context) AlertRuleFusionSourceSubTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleFusionSourceSubTypeOutput)
+}
+
+// AlertRuleFusionSourceSubTypeArrayInput is an input type that accepts AlertRuleFusionSourceSubTypeArray and AlertRuleFusionSourceSubTypeArrayOutput values.
+// You can construct a concrete instance of `AlertRuleFusionSourceSubTypeArrayInput` via:
+//
+//	AlertRuleFusionSourceSubTypeArray{ AlertRuleFusionSourceSubTypeArgs{...} }
+type AlertRuleFusionSourceSubTypeArrayInput interface {
+	pulumi.Input
+
+	ToAlertRuleFusionSourceSubTypeArrayOutput() AlertRuleFusionSourceSubTypeArrayOutput
+	ToAlertRuleFusionSourceSubTypeArrayOutputWithContext(context.Context) AlertRuleFusionSourceSubTypeArrayOutput
+}
+
+type AlertRuleFusionSourceSubTypeArray []AlertRuleFusionSourceSubTypeInput
+
+func (AlertRuleFusionSourceSubTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleFusionSourceSubType)(nil)).Elem()
+}
+
+func (i AlertRuleFusionSourceSubTypeArray) ToAlertRuleFusionSourceSubTypeArrayOutput() AlertRuleFusionSourceSubTypeArrayOutput {
+	return i.ToAlertRuleFusionSourceSubTypeArrayOutputWithContext(context.Background())
+}
+
+func (i AlertRuleFusionSourceSubTypeArray) ToAlertRuleFusionSourceSubTypeArrayOutputWithContext(ctx context.Context) AlertRuleFusionSourceSubTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleFusionSourceSubTypeArrayOutput)
+}
+
+type AlertRuleFusionSourceSubTypeOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleFusionSourceSubTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleFusionSourceSubType)(nil)).Elem()
+}
+
+func (o AlertRuleFusionSourceSubTypeOutput) ToAlertRuleFusionSourceSubTypeOutput() AlertRuleFusionSourceSubTypeOutput {
+	return o
+}
+
+func (o AlertRuleFusionSourceSubTypeOutput) ToAlertRuleFusionSourceSubTypeOutputWithContext(ctx context.Context) AlertRuleFusionSourceSubTypeOutput {
+	return o
+}
+
+// Whether this source subtype under source signal is enabled or disabled in Fusion detection. Defaults to `true`.
+func (o AlertRuleFusionSourceSubTypeOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AlertRuleFusionSourceSubType) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The Name of the source subtype under a given source signal in Fusion detection. Refer to Fusion alert rule template for supported values.
+func (o AlertRuleFusionSourceSubTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertRuleFusionSourceSubType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A list of severities that are enabled for this source subtype consumed in Fusion detection. Possible values for each element are `High`, `Medium`, `Low`, `Informational`.
+func (o AlertRuleFusionSourceSubTypeOutput) SeveritiesAlloweds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertRuleFusionSourceSubType) []string { return v.SeveritiesAlloweds }).(pulumi.StringArrayOutput)
+}
+
+type AlertRuleFusionSourceSubTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleFusionSourceSubTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleFusionSourceSubType)(nil)).Elem()
+}
+
+func (o AlertRuleFusionSourceSubTypeArrayOutput) ToAlertRuleFusionSourceSubTypeArrayOutput() AlertRuleFusionSourceSubTypeArrayOutput {
+	return o
+}
+
+func (o AlertRuleFusionSourceSubTypeArrayOutput) ToAlertRuleFusionSourceSubTypeArrayOutputWithContext(ctx context.Context) AlertRuleFusionSourceSubTypeArrayOutput {
+	return o
+}
+
+func (o AlertRuleFusionSourceSubTypeArrayOutput) Index(i pulumi.IntInput) AlertRuleFusionSourceSubTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertRuleFusionSourceSubType {
+		return vs[0].([]AlertRuleFusionSourceSubType)[vs[1].(int)]
+	}).(AlertRuleFusionSourceSubTypeOutput)
+}
+
 type AlertRuleNrtAlertDetailsOverride struct {
 	// The format containing columns name(s) to override the description of this Sentinel Alert Rule.
 	DescriptionFormat *string `pulumi:"descriptionFormat"`
@@ -503,7 +733,7 @@ func (o AlertRuleNrtIncidentPtrOutput) Grouping() AlertRuleNrtIncidentGroupingPt
 }
 
 type AlertRuleNrtIncidentGrouping struct {
-	// A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`.
+	// A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `DisplayName` and `Severity`.
 	ByAlertDetails []string `pulumi:"byAlertDetails"`
 	// A list of custom details keys to group by, only when the `entityMatchingMethod` is `Selected`. Only keys defined in the `customDetails` may be used.
 	ByCustomDetails []string `pulumi:"byCustomDetails"`
@@ -531,7 +761,7 @@ type AlertRuleNrtIncidentGroupingInput interface {
 }
 
 type AlertRuleNrtIncidentGroupingArgs struct {
-	// A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`.
+	// A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `DisplayName` and `Severity`.
 	ByAlertDetails pulumi.StringArrayInput `pulumi:"byAlertDetails"`
 	// A list of custom details keys to group by, only when the `entityMatchingMethod` is `Selected`. Only keys defined in the `customDetails` may be used.
 	ByCustomDetails pulumi.StringArrayInput `pulumi:"byCustomDetails"`
@@ -624,7 +854,7 @@ func (o AlertRuleNrtIncidentGroupingOutput) ToAlertRuleNrtIncidentGroupingPtrOut
 	}).(AlertRuleNrtIncidentGroupingPtrOutput)
 }
 
-// A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`.
+// A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `DisplayName` and `Severity`.
 func (o AlertRuleNrtIncidentGroupingOutput) ByAlertDetails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AlertRuleNrtIncidentGrouping) []string { return v.ByAlertDetails }).(pulumi.StringArrayOutput)
 }
@@ -683,7 +913,7 @@ func (o AlertRuleNrtIncidentGroupingPtrOutput) Elem() AlertRuleNrtIncidentGroupi
 	}).(AlertRuleNrtIncidentGroupingOutput)
 }
 
-// A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`.
+// A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `DisplayName` and `Severity`.
 func (o AlertRuleNrtIncidentGroupingPtrOutput) ByAlertDetails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AlertRuleNrtIncidentGrouping) []string {
 		if v == nil {
@@ -1092,7 +1322,7 @@ func (o AlertRuleScheduledEntityMappingFieldMappingArrayOutput) Index(i pulumi.I
 }
 
 type AlertRuleScheduledEventGrouping struct {
-	// The aggregation type of grouping the events.
+	// The aggregation type of grouping the events. Possible values are `AlertPerResult` and `SingleAlert`.
 	AggregationMethod string `pulumi:"aggregationMethod"`
 }
 
@@ -1108,7 +1338,7 @@ type AlertRuleScheduledEventGroupingInput interface {
 }
 
 type AlertRuleScheduledEventGroupingArgs struct {
-	// The aggregation type of grouping the events.
+	// The aggregation type of grouping the events. Possible values are `AlertPerResult` and `SingleAlert`.
 	AggregationMethod pulumi.StringInput `pulumi:"aggregationMethod"`
 }
 
@@ -1189,7 +1419,7 @@ func (o AlertRuleScheduledEventGroupingOutput) ToAlertRuleScheduledEventGrouping
 	}).(AlertRuleScheduledEventGroupingPtrOutput)
 }
 
-// The aggregation type of grouping the events.
+// The aggregation type of grouping the events. Possible values are `AlertPerResult` and `SingleAlert`.
 func (o AlertRuleScheduledEventGroupingOutput) AggregationMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertRuleScheduledEventGrouping) string { return v.AggregationMethod }).(pulumi.StringOutput)
 }
@@ -1218,7 +1448,7 @@ func (o AlertRuleScheduledEventGroupingPtrOutput) Elem() AlertRuleScheduledEvent
 	}).(AlertRuleScheduledEventGroupingOutput)
 }
 
-// The aggregation type of grouping the events.
+// The aggregation type of grouping the events. Possible values are `AlertPerResult` and `SingleAlert`.
 func (o AlertRuleScheduledEventGroupingPtrOutput) AggregationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertRuleScheduledEventGrouping) *string {
 		if v == nil {
@@ -1640,7 +1870,7 @@ type AuthomationRuleActionIncident struct {
 	Order int `pulumi:"order"`
 	// The object ID of the entity this incident is assigned to.
 	OwnerId *string `pulumi:"ownerId"`
-	// The severity to add to the incident.
+	// The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
 	Severity *string `pulumi:"severity"`
 	// The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
 	Status *string `pulumi:"status"`
@@ -1668,7 +1898,7 @@ type AuthomationRuleActionIncidentArgs struct {
 	Order pulumi.IntInput `pulumi:"order"`
 	// The object ID of the entity this incident is assigned to.
 	OwnerId pulumi.StringPtrInput `pulumi:"ownerId"`
-	// The severity to add to the incident.
+	// The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
 	Severity pulumi.StringPtrInput `pulumi:"severity"`
 	// The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
@@ -1750,7 +1980,7 @@ func (o AuthomationRuleActionIncidentOutput) OwnerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AuthomationRuleActionIncident) *string { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
-// The severity to add to the incident.
+// The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
 func (o AuthomationRuleActionIncidentOutput) Severity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AuthomationRuleActionIncident) *string { return v.Severity }).(pulumi.StringPtrOutput)
 }
@@ -2021,7 +2251,7 @@ type AutomationRuleActionIncident struct {
 	Order int `pulumi:"order"`
 	// The object ID of the entity this incident is assigned to.
 	OwnerId *string `pulumi:"ownerId"`
-	// The severity to add to the incident.
+	// The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
 	Severity *string `pulumi:"severity"`
 	// The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
 	Status *string `pulumi:"status"`
@@ -2049,7 +2279,7 @@ type AutomationRuleActionIncidentArgs struct {
 	Order pulumi.IntInput `pulumi:"order"`
 	// The object ID of the entity this incident is assigned to.
 	OwnerId pulumi.StringPtrInput `pulumi:"ownerId"`
-	// The severity to add to the incident.
+	// The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
 	Severity pulumi.StringPtrInput `pulumi:"severity"`
 	// The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
@@ -2131,7 +2361,7 @@ func (o AutomationRuleActionIncidentOutput) OwnerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleActionIncident) *string { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
-// The severity to add to the incident.
+// The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
 func (o AutomationRuleActionIncidentOutput) Severity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleActionIncident) *string { return v.Severity }).(pulumi.StringPtrOutput)
 }
@@ -2782,6 +3012,10 @@ func (o GetAlertRuleTemplateSecurityIncidentTemplateArrayOutput) Index(i pulumi.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleFusionSourceInput)(nil)).Elem(), AlertRuleFusionSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleFusionSourceArrayInput)(nil)).Elem(), AlertRuleFusionSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleFusionSourceSubTypeInput)(nil)).Elem(), AlertRuleFusionSourceSubTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleFusionSourceSubTypeArrayInput)(nil)).Elem(), AlertRuleFusionSourceSubTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleNrtAlertDetailsOverrideInput)(nil)).Elem(), AlertRuleNrtAlertDetailsOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleNrtAlertDetailsOverrideArrayInput)(nil)).Elem(), AlertRuleNrtAlertDetailsOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleNrtEntityMappingInput)(nil)).Elem(), AlertRuleNrtEntityMappingArgs{})
@@ -2822,6 +3056,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleTemplateScheduledTemplateArrayInput)(nil)).Elem(), GetAlertRuleTemplateScheduledTemplateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleTemplateSecurityIncidentTemplateInput)(nil)).Elem(), GetAlertRuleTemplateSecurityIncidentTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleTemplateSecurityIncidentTemplateArrayInput)(nil)).Elem(), GetAlertRuleTemplateSecurityIncidentTemplateArray{})
+	pulumi.RegisterOutputType(AlertRuleFusionSourceOutput{})
+	pulumi.RegisterOutputType(AlertRuleFusionSourceArrayOutput{})
+	pulumi.RegisterOutputType(AlertRuleFusionSourceSubTypeOutput{})
+	pulumi.RegisterOutputType(AlertRuleFusionSourceSubTypeArrayOutput{})
 	pulumi.RegisterOutputType(AlertRuleNrtAlertDetailsOverrideOutput{})
 	pulumi.RegisterOutputType(AlertRuleNrtAlertDetailsOverrideArrayOutput{})
 	pulumi.RegisterOutputType(AlertRuleNrtEntityMappingOutput{})

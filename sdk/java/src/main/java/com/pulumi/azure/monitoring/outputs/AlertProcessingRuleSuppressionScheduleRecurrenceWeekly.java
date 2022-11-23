@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AlertProcessingRuleSuppressionScheduleRecurrenceWeekly {
     /**
-     * @return Specifies a list of dayOfWeek to recurrence.Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+     * @return Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
      * 
      */
     private List<String> daysOfWeeks;
@@ -30,7 +30,7 @@ public final class AlertProcessingRuleSuppressionScheduleRecurrenceWeekly {
 
     private AlertProcessingRuleSuppressionScheduleRecurrenceWeekly() {}
     /**
-     * @return Specifies a list of dayOfWeek to recurrence.Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+     * @return Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
      * 
      */
     public List<String> daysOfWeeks() {

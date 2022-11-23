@@ -88,7 +88,7 @@ class DicomServiceIdentity(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: The type of identity used for the Healthcare DICOM service. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, an `identity_ids` must be set as well.
+        :param str type: The type of identity used for the Healthcare DICOM service. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. If `UserAssigned` is set, an `identity_ids` must be set as well.
         :param Sequence[str] identity_ids: A list of User Assigned Identity IDs which should be assigned to this Healthcare DICOM service.
         """
         pulumi.set(__self__, "type", type)
@@ -103,7 +103,7 @@ class DicomServiceIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of identity used for the Healthcare DICOM service. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, an `identity_ids` must be set as well.
+        The type of identity used for the Healthcare DICOM service. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. If `UserAssigned` is set, an `identity_ids` must be set as well.
         """
         return pulumi.get(self, "type")
 
@@ -242,7 +242,7 @@ class FhirServiceCors(dict):
                  max_age_in_seconds: Optional[int] = None):
         """
         :param Sequence[str] allowed_headers: A set of headers to be allowed via CORS.
-        :param Sequence[str] allowed_methods: The methods to be allowed via CORS.
+        :param Sequence[str] allowed_methods: The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
         :param Sequence[str] allowed_origins: A set of origins to be allowed via CORS.
         :param bool credentials_allowed: If credentials are allowed via CORS.
         :param int max_age_in_seconds: The max age to be allowed via CORS.
@@ -267,7 +267,7 @@ class FhirServiceCors(dict):
     @pulumi.getter(name="allowedMethods")
     def allowed_methods(self) -> Sequence[str]:
         """
-        The methods to be allowed via CORS.
+        The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
         """
         return pulumi.get(self, "allowed_methods")
 
@@ -569,7 +569,7 @@ class ServiceCorsConfiguration(dict):
         """
         :param bool allow_credentials: If credentials are allowed via CORS.
         :param Sequence[str] allowed_headers: A set of headers to be allowed via CORS.
-        :param Sequence[str] allowed_methods: The methods to be allowed via CORS.
+        :param Sequence[str] allowed_methods: The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
         :param Sequence[str] allowed_origins: A set of origins to be allowed via CORS.
         :param int max_age_in_seconds: The max age to be allowed via CORS.
         """
@@ -604,7 +604,7 @@ class ServiceCorsConfiguration(dict):
     @pulumi.getter(name="allowedMethods")
     def allowed_methods(self) -> Optional[Sequence[str]]:
         """
-        The methods to be allowed via CORS.
+        The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
         """
         return pulumi.get(self, "allowed_methods")
 

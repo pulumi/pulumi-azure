@@ -19,7 +19,7 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public Input<string>? Level { get; set; }
 
         /// <summary>
-        /// The type of compression used during transport.
+        /// The type of compression used during transport. Possible values are `BZip2`, `Deflate`, `GZip`, `Tar`, `TarGZip` and `ZipDeflate`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

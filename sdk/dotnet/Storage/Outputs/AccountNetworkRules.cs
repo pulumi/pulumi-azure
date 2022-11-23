@@ -14,8 +14,7 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class AccountNetworkRules
     {
         /// <summary>
-        /// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
-        /// any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+        /// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
         /// </summary>
         public readonly ImmutableArray<string> Bypasses;
         /// <summary>

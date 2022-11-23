@@ -16,6 +16,8 @@ class PublicIpArgs:
     def __init__(__self__, *,
                  allocation_method: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 ddos_protection_mode: Optional[pulumi.Input[str]] = None,
+                 ddos_protection_plan_id: Optional[pulumi.Input[str]] = None,
                  domain_name_label: Optional[pulumi.Input[str]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
@@ -33,6 +35,8 @@ class PublicIpArgs:
         The set of arguments for constructing a PublicIp resource.
         :param pulumi.Input[str] allocation_method: Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where this Public IP should exist. Changing this forces a new Public IP to be created.
+        :param pulumi.Input[str] ddos_protection_mode: The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
+        :param pulumi.Input[str] ddos_protection_plan_id: The ID of DDoS protection plan associated with the public IP.
         :param pulumi.Input[str] domain_name_label: Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
         :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
@@ -49,6 +53,10 @@ class PublicIpArgs:
         """
         pulumi.set(__self__, "allocation_method", allocation_method)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if ddos_protection_mode is not None:
+            pulumi.set(__self__, "ddos_protection_mode", ddos_protection_mode)
+        if ddos_protection_plan_id is not None:
+            pulumi.set(__self__, "ddos_protection_plan_id", ddos_protection_plan_id)
         if domain_name_label is not None:
             pulumi.set(__self__, "domain_name_label", domain_name_label)
         if edge_zone is not None:
@@ -99,6 +107,30 @@ class PublicIpArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="ddosProtectionMode")
+    def ddos_protection_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
+        """
+        return pulumi.get(self, "ddos_protection_mode")
+
+    @ddos_protection_mode.setter
+    def ddos_protection_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ddos_protection_mode", value)
+
+    @property
+    @pulumi.getter(name="ddosProtectionPlanId")
+    def ddos_protection_plan_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of DDoS protection plan associated with the public IP.
+        """
+        return pulumi.get(self, "ddos_protection_plan_id")
+
+    @ddos_protection_plan_id.setter
+    def ddos_protection_plan_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ddos_protection_plan_id", value)
 
     @property
     @pulumi.getter(name="domainNameLabel")
@@ -261,6 +293,8 @@ class PublicIpArgs:
 class _PublicIpState:
     def __init__(__self__, *,
                  allocation_method: Optional[pulumi.Input[str]] = None,
+                 ddos_protection_mode: Optional[pulumi.Input[str]] = None,
+                 ddos_protection_plan_id: Optional[pulumi.Input[str]] = None,
                  domain_name_label: Optional[pulumi.Input[str]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
                  fqdn: Optional[pulumi.Input[str]] = None,
@@ -280,6 +314,8 @@ class _PublicIpState:
         """
         Input properties used for looking up and filtering PublicIp resources.
         :param pulumi.Input[str] allocation_method: Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
+        :param pulumi.Input[str] ddos_protection_mode: The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
+        :param pulumi.Input[str] ddos_protection_plan_id: The ID of DDoS protection plan associated with the public IP.
         :param pulumi.Input[str] domain_name_label: Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
         :param pulumi.Input[str] fqdn: Fully qualified domain name of the A DNS record associated with the public IP. `domain_name_label` must be specified to get the `fqdn`. This is the concatenation of the `domain_name_label` and the regionalized DNS zone
@@ -299,6 +335,10 @@ class _PublicIpState:
         """
         if allocation_method is not None:
             pulumi.set(__self__, "allocation_method", allocation_method)
+        if ddos_protection_mode is not None:
+            pulumi.set(__self__, "ddos_protection_mode", ddos_protection_mode)
+        if ddos_protection_plan_id is not None:
+            pulumi.set(__self__, "ddos_protection_plan_id", ddos_protection_plan_id)
         if domain_name_label is not None:
             pulumi.set(__self__, "domain_name_label", domain_name_label)
         if edge_zone is not None:
@@ -343,6 +383,30 @@ class _PublicIpState:
     @allocation_method.setter
     def allocation_method(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "allocation_method", value)
+
+    @property
+    @pulumi.getter(name="ddosProtectionMode")
+    def ddos_protection_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
+        """
+        return pulumi.get(self, "ddos_protection_mode")
+
+    @ddos_protection_mode.setter
+    def ddos_protection_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ddos_protection_mode", value)
+
+    @property
+    @pulumi.getter(name="ddosProtectionPlanId")
+    def ddos_protection_plan_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of DDoS protection plan associated with the public IP.
+        """
+        return pulumi.get(self, "ddos_protection_plan_id")
+
+    @ddos_protection_plan_id.setter
+    def ddos_protection_plan_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ddos_protection_plan_id", value)
 
     @property
     @pulumi.getter(name="domainNameLabel")
@@ -543,6 +607,8 @@ class PublicIp(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocation_method: Optional[pulumi.Input[str]] = None,
+                 ddos_protection_mode: Optional[pulumi.Input[str]] = None,
+                 ddos_protection_plan_id: Optional[pulumi.Input[str]] = None,
                  domain_name_label: Optional[pulumi.Input[str]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
@@ -588,6 +654,8 @@ class PublicIp(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] allocation_method: Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
+        :param pulumi.Input[str] ddos_protection_mode: The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
+        :param pulumi.Input[str] ddos_protection_plan_id: The ID of DDoS protection plan associated with the public IP.
         :param pulumi.Input[str] domain_name_label: Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
         :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
@@ -652,6 +720,8 @@ class PublicIp(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocation_method: Optional[pulumi.Input[str]] = None,
+                 ddos_protection_mode: Optional[pulumi.Input[str]] = None,
+                 ddos_protection_plan_id: Optional[pulumi.Input[str]] = None,
                  domain_name_label: Optional[pulumi.Input[str]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
@@ -678,6 +748,8 @@ class PublicIp(pulumi.CustomResource):
             if allocation_method is None and not opts.urn:
                 raise TypeError("Missing required property 'allocation_method'")
             __props__.__dict__["allocation_method"] = allocation_method
+            __props__.__dict__["ddos_protection_mode"] = ddos_protection_mode
+            __props__.__dict__["ddos_protection_plan_id"] = ddos_protection_plan_id
             __props__.__dict__["domain_name_label"] = domain_name_label
             __props__.__dict__["edge_zone"] = edge_zone
             __props__.__dict__["idle_timeout_in_minutes"] = idle_timeout_in_minutes
@@ -707,6 +779,8 @@ class PublicIp(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             allocation_method: Optional[pulumi.Input[str]] = None,
+            ddos_protection_mode: Optional[pulumi.Input[str]] = None,
+            ddos_protection_plan_id: Optional[pulumi.Input[str]] = None,
             domain_name_label: Optional[pulumi.Input[str]] = None,
             edge_zone: Optional[pulumi.Input[str]] = None,
             fqdn: Optional[pulumi.Input[str]] = None,
@@ -731,6 +805,8 @@ class PublicIp(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] allocation_method: Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
+        :param pulumi.Input[str] ddos_protection_mode: The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
+        :param pulumi.Input[str] ddos_protection_plan_id: The ID of DDoS protection plan associated with the public IP.
         :param pulumi.Input[str] domain_name_label: Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
         :param pulumi.Input[str] fqdn: Fully qualified domain name of the A DNS record associated with the public IP. `domain_name_label` must be specified to get the `fqdn`. This is the concatenation of the `domain_name_label` and the regionalized DNS zone
@@ -753,6 +829,8 @@ class PublicIp(pulumi.CustomResource):
         __props__ = _PublicIpState.__new__(_PublicIpState)
 
         __props__.__dict__["allocation_method"] = allocation_method
+        __props__.__dict__["ddos_protection_mode"] = ddos_protection_mode
+        __props__.__dict__["ddos_protection_plan_id"] = ddos_protection_plan_id
         __props__.__dict__["domain_name_label"] = domain_name_label
         __props__.__dict__["edge_zone"] = edge_zone
         __props__.__dict__["fqdn"] = fqdn
@@ -778,6 +856,22 @@ class PublicIp(pulumi.CustomResource):
         Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
         """
         return pulumi.get(self, "allocation_method")
+
+    @property
+    @pulumi.getter(name="ddosProtectionMode")
+    def ddos_protection_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
+        """
+        return pulumi.get(self, "ddos_protection_mode")
+
+    @property
+    @pulumi.getter(name="ddosProtectionPlanId")
+    def ddos_protection_plan_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of DDoS protection plan associated with the public IP.
+        """
+        return pulumi.get(self, "ddos_protection_plan_id")
 
     @property
     @pulumi.getter(name="domainNameLabel")

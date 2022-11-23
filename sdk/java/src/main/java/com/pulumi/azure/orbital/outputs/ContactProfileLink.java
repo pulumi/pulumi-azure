@@ -27,7 +27,7 @@ public final class ContactProfileLink {
      */
     private String name;
     /**
-     * @return Polarization of the link. Possible values are `RHCP`, `LHCP`, `linearVertical` and `linearHorizonal`.
+     * @return Polarization of the link. Possible values are `LHCP`, `RHCP`, `linearVertical` and `linearHorizontal`.
      * 
      */
     private String polarization;
@@ -55,7 +55,7 @@ public final class ContactProfileLink {
         return this.name;
     }
     /**
-     * @return Polarization of the link. Possible values are `RHCP`, `LHCP`, `linearVertical` and `linearHorizonal`.
+     * @return Polarization of the link. Possible values are `LHCP`, `RHCP`, `linearVertical` and `linearHorizontal`.
      * 
      */
     public String polarization() {

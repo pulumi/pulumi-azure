@@ -38,7 +38,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string Operator;
         /// <summary>
-        /// Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Min` and `Max`.
+        /// Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Max`, `Min` and `Sum`.
         /// </summary>
         public readonly string Statistic;
         /// <summary>

@@ -19,14 +19,14 @@ public final class ScalingPlanScheduleArgs extends com.pulumi.resources.Resource
     public static final ScalingPlanScheduleArgs Empty = new ScalingPlanScheduleArgs();
 
     /**
-     * A list of Days of the Week on which this schedule will be used..Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
+     * A list of Days of the Week on which this schedule will be used. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
      * 
      */
     @Import(name="daysOfWeeks", required=true)
     private Output<List<String>> daysOfWeeks;
 
     /**
-     * @return A list of Days of the Week on which this schedule will be used..Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
+     * @return A list of Days of the Week on which this schedule will be used. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
      * 
      */
     public Output<List<String>> daysOfWeeks() {
@@ -330,7 +330,7 @@ public final class ScalingPlanScheduleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param daysOfWeeks A list of Days of the Week on which this schedule will be used..Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
+         * @param daysOfWeeks A list of Days of the Week on which this schedule will be used. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
          * 
          * @return builder
          * 
@@ -341,7 +341,7 @@ public final class ScalingPlanScheduleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param daysOfWeeks A list of Days of the Week on which this schedule will be used..Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
+         * @param daysOfWeeks A list of Days of the Week on which this schedule will be used. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
          * 
          * @return builder
          * 
@@ -351,7 +351,7 @@ public final class ScalingPlanScheduleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param daysOfWeeks A list of Days of the Week on which this schedule will be used..Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
+         * @param daysOfWeeks A list of Days of the Week on which this schedule will be used. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
          * 
          * @return builder
          * 

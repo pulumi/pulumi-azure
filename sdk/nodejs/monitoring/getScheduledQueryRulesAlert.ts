@@ -80,6 +80,9 @@ export interface GetScheduledQueryRulesAlertResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Specifies the Azure Region where the resource should exist.
+     */
     readonly location: string;
     readonly name: string;
     /**

@@ -62,14 +62,14 @@ public final class PoolCertificateArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Which user accounts on the compute node should have access to the private data of the certificate.
+     * Which user accounts on the compute node should have access to the private data of the certificate. Possible values are `StartTask`, `Task` and `RemoteUser`.
      * 
      */
     @Import(name="visibilities")
     private @Nullable Output<List<String>> visibilities;
 
     /**
-     * @return Which user accounts on the compute node should have access to the private data of the certificate.
+     * @return Which user accounts on the compute node should have access to the private data of the certificate. Possible values are `StartTask`, `Task` and `RemoteUser`.
      * 
      */
     public Optional<Output<List<String>>> visibilities() {
@@ -167,7 +167,7 @@ public final class PoolCertificateArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param visibilities Which user accounts on the compute node should have access to the private data of the certificate.
+         * @param visibilities Which user accounts on the compute node should have access to the private data of the certificate. Possible values are `StartTask`, `Task` and `RemoteUser`.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class PoolCertificateArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param visibilities Which user accounts on the compute node should have access to the private data of the certificate.
+         * @param visibilities Which user accounts on the compute node should have access to the private data of the certificate. Possible values are `StartTask`, `Task` and `RemoteUser`.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class PoolCertificateArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param visibilities Which user accounts on the compute node should have access to the private data of the certificate.
+         * @param visibilities Which user accounts on the compute node should have access to the private data of the certificate. Possible values are `StartTask`, `Task` and `RemoteUser`.
          * 
          * @return builder
          * 

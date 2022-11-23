@@ -199,14 +199,14 @@ public class IotHubDataConnection extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.databaseRoutingType);
     }
     /**
-     * Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
+     * Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
      * 
      */
     @Export(name="eventSystemProperties", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> eventSystemProperties;
 
     /**
-     * @return Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
+     * @return Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
      * 
      */
     public Output<Optional<List<String>>> eventSystemProperties() {

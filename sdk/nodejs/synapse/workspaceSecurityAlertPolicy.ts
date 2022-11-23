@@ -109,7 +109,7 @@ export class WorkspaceSecurityAlertPolicy extends pulumi.CustomResource {
      */
     public readonly emailAddresses!: pulumi.Output<string[] | undefined>;
     /**
-     * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Allowed values are: `Disabled`, `Enabled`.
+     * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Possible values are `Disabled`, `Enabled` and `New`.
      */
     public readonly policyState!: pulumi.Output<string>;
     /**
@@ -189,7 +189,7 @@ export interface WorkspaceSecurityAlertPolicyState {
      */
     emailAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Allowed values are: `Disabled`, `Enabled`.
+     * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Possible values are `Disabled`, `Enabled` and `New`.
      */
     policyState?: pulumi.Input<string>;
     /**
@@ -227,7 +227,7 @@ export interface WorkspaceSecurityAlertPolicyArgs {
      */
     emailAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Allowed values are: `Disabled`, `Enabled`.
+     * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Possible values are `Disabled`, `Enabled` and `New`.
      */
     policyState: pulumi.Input<string>;
     /**

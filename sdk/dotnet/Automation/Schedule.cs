@@ -129,7 +129,7 @@ namespace Pulumi.Azure.Automation
         public Output<string?> Timezone { get; private set; } = null!;
 
         /// <summary>
-        /// List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+        /// List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
         /// </summary>
         [Output("weekDays")]
         public Output<ImmutableArray<string>> WeekDays { get; private set; } = null!;
@@ -262,7 +262,7 @@ namespace Pulumi.Azure.Automation
         private InputList<string>? _weekDays;
 
         /// <summary>
-        /// List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+        /// List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
         /// </summary>
         public InputList<string> WeekDays
         {
@@ -360,7 +360,7 @@ namespace Pulumi.Azure.Automation
         private InputList<string>? _weekDays;
 
         /// <summary>
-        /// List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+        /// List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
         /// </summary>
         public InputList<string> WeekDays
         {

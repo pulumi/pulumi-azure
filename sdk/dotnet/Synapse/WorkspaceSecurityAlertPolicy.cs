@@ -119,7 +119,7 @@ namespace Pulumi.Azure.Synapse
         public Output<ImmutableArray<string>> EmailAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Allowed values are: `Disabled`, `Enabled`.
+        /// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Possible values are `Disabled`, `Enabled` and `New`.
         /// </summary>
         [Output("policyState")]
         public Output<string> PolicyState { get; private set; } = null!;
@@ -225,7 +225,7 @@ namespace Pulumi.Azure.Synapse
         }
 
         /// <summary>
-        /// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Allowed values are: `Disabled`, `Enabled`.
+        /// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Possible values are `Disabled`, `Enabled` and `New`.
         /// </summary>
         [Input("policyState", required: true)]
         public Input<string> PolicyState { get; set; } = null!;
@@ -293,7 +293,7 @@ namespace Pulumi.Azure.Synapse
         }
 
         /// <summary>
-        /// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Allowed values are: `Disabled`, `Enabled`.
+        /// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Possible values are `Disabled`, `Enabled` and `New`.
         /// </summary>
         [Input("policyState")]
         public Input<string>? PolicyState { get; set; }

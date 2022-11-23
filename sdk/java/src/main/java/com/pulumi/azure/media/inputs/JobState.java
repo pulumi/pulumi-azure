@@ -94,14 +94,14 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created.
+     * Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created. Possible values are `High`, `Normal` and `Low`.
      * 
      */
     @Import(name="priority")
     private @Nullable Output<String> priority;
 
     /**
-     * @return Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created.
+     * @return Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created. Possible values are `High`, `Normal` and `Low`.
      * 
      */
     public Optional<Output<String>> priority() {
@@ -285,7 +285,7 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priority Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created.
+         * @param priority Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created. Possible values are `High`, `Normal` and `Low`.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priority Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created.
+         * @param priority Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created. Possible values are `High`, `Normal` and `Low`.
          * 
          * @return builder
          * 

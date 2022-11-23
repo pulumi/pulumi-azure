@@ -26,11 +26,11 @@ namespace Pulumi.Azure.Waf.Outputs
         /// </summary>
         public readonly bool? NegationCondition;
         /// <summary>
-        /// Describes operator to be matched.
+        /// Describes operator to be matched. Possible values are `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
         /// </summary>
         public readonly string Operator;
         /// <summary>
-        /// A list of transformations to do before the match is attempted.
+        /// A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
         /// </summary>
         public readonly ImmutableArray<string> Transforms;
 

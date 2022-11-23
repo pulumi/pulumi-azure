@@ -126,14 +126,14 @@ public final class TrafficManagerProfileArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Specifies the algorithm used to route traffic, possible values are:
+     * Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
      * 
      */
     @Import(name="trafficRoutingMethod", required=true)
     private Output<String> trafficRoutingMethod;
 
     /**
-     * @return Specifies the algorithm used to route traffic, possible values are:
+     * @return Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
      * 
      */
     public Output<String> trafficRoutingMethod() {
@@ -335,7 +335,7 @@ public final class TrafficManagerProfileArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param trafficRoutingMethod Specifies the algorithm used to route traffic, possible values are:
+         * @param trafficRoutingMethod Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
          * 
          * @return builder
          * 
@@ -346,7 +346,7 @@ public final class TrafficManagerProfileArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param trafficRoutingMethod Specifies the algorithm used to route traffic, possible values are:
+         * @param trafficRoutingMethod Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
          * 
          * @return builder
          * 

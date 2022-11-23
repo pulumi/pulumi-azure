@@ -31,14 +31,14 @@ public final class PolicyCustomRuleMatchConditionMatchVariableArgs extends com.p
     }
 
     /**
-     * The name of the Match Variable
+     * The name of the Match Variable. Possible values are `RemoteAddr`, `RequestMethod`, `QueryString`, `PostArgs`, `RequestUri`, `RequestHeaders`, `RequestBody` and `RequestCookies`.
      * 
      */
     @Import(name="variableName", required=true)
     private Output<String> variableName;
 
     /**
-     * @return The name of the Match Variable
+     * @return The name of the Match Variable. Possible values are `RemoteAddr`, `RequestMethod`, `QueryString`, `PostArgs`, `RequestUri`, `RequestHeaders`, `RequestBody` and `RequestCookies`.
      * 
      */
     public Output<String> variableName() {
@@ -92,7 +92,7 @@ public final class PolicyCustomRuleMatchConditionMatchVariableArgs extends com.p
         }
 
         /**
-         * @param variableName The name of the Match Variable
+         * @param variableName The name of the Match Variable. Possible values are `RemoteAddr`, `RequestMethod`, `QueryString`, `PostArgs`, `RequestUri`, `RequestHeaders`, `RequestBody` and `RequestCookies`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class PolicyCustomRuleMatchConditionMatchVariableArgs extends com.p
         }
 
         /**
-         * @param variableName The name of the Match Variable
+         * @param variableName The name of the Match Variable. Possible values are `RemoteAddr`, `RequestMethod`, `QueryString`, `PostArgs`, `RequestUri`, `RequestHeaders`, `RequestBody` and `RequestCookies`.
          * 
          * @return builder
          * 

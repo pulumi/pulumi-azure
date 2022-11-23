@@ -134,6 +134,10 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
      */
     public readonly encryptionType!: pulumi.Output<string | undefined>;
     /**
+     * Multi-tenant application client id to access key vault in a different tenant.
+     */
+    public readonly federatedClientId!: pulumi.Output<string | undefined>;
+    /**
      * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.compute.DiskEncryptionSetIdentity>;
@@ -173,6 +177,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
             const state = argsOrState as DiskEncryptionSetState | undefined;
             resourceInputs["autoKeyRotationEnabled"] = state ? state.autoKeyRotationEnabled : undefined;
             resourceInputs["encryptionType"] = state ? state.encryptionType : undefined;
+            resourceInputs["federatedClientId"] = state ? state.federatedClientId : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
@@ -192,6 +197,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
             }
             resourceInputs["autoKeyRotationEnabled"] = args ? args.autoKeyRotationEnabled : undefined;
             resourceInputs["encryptionType"] = args ? args.encryptionType : undefined;
+            resourceInputs["federatedClientId"] = args ? args.federatedClientId : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -216,6 +222,10 @@ export interface DiskEncryptionSetState {
      * The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`.
      */
     encryptionType?: pulumi.Input<string>;
+    /**
+     * Multi-tenant application client id to access key vault in a different tenant.
+     */
+    federatedClientId?: pulumi.Input<string>;
     /**
      * An `identity` block as defined below.
      */
@@ -254,6 +264,10 @@ export interface DiskEncryptionSetArgs {
      * The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`.
      */
     encryptionType?: pulumi.Input<string>;
+    /**
+     * Multi-tenant application client id to access key vault in a different tenant.
+     */
+    federatedClientId?: pulumi.Input<string>;
     /**
      * An `identity` block as defined below.
      */

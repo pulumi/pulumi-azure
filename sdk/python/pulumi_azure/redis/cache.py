@@ -39,7 +39,7 @@ class CacheArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Cache resource.
-        :param pulumi.Input[int] capacity: The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
+        :param pulumi.Input[int] capacity: The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
         :param pulumi.Input[str] family: The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the Redis instance.
@@ -47,7 +47,7 @@ class CacheArgs:
         :param pulumi.Input[bool] enable_non_ssl_port: Enable the non-SSL port (6379) - disabled by default.
         :param pulumi.Input['CacheIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The location of the resource group.
-        :param pulumi.Input[str] minimum_tls_version: The minimum TLS version.  Defaults to `1.0`.
+        :param pulumi.Input[str] minimum_tls_version: The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
         :param pulumi.Input[str] name: The name of the Redis instance. Changing this forces a
                new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArgs']]] patch_schedules: A list of `patch_schedule` blocks as defined below.
@@ -106,7 +106,7 @@ class CacheArgs:
     @pulumi.getter
     def capacity(self) -> pulumi.Input[int]:
         """
-        The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
+        The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
         """
         return pulumi.get(self, "capacity")
 
@@ -191,7 +191,7 @@ class CacheArgs:
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The minimum TLS version.  Defaults to `1.0`.
+        The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -390,13 +390,13 @@ class _CacheState:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Cache resources.
-        :param pulumi.Input[int] capacity: The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
+        :param pulumi.Input[int] capacity: The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
         :param pulumi.Input[bool] enable_non_ssl_port: Enable the non-SSL port (6379) - disabled by default.
         :param pulumi.Input[str] family: The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
         :param pulumi.Input[str] hostname: The Hostname of the Redis Instance
         :param pulumi.Input['CacheIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The location of the resource group.
-        :param pulumi.Input[str] minimum_tls_version: The minimum TLS version.  Defaults to `1.0`.
+        :param pulumi.Input[str] minimum_tls_version: The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
         :param pulumi.Input[str] name: The name of the Redis instance. Changing this forces a
                new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArgs']]] patch_schedules: A list of `patch_schedule` blocks as defined below.
@@ -482,7 +482,7 @@ class _CacheState:
     @pulumi.getter
     def capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
+        The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
         """
         return pulumi.get(self, "capacity")
 
@@ -554,7 +554,7 @@ class _CacheState:
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The minimum TLS version.  Defaults to `1.0`.
+        The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -906,12 +906,12 @@ class Cache(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] capacity: The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
+        :param pulumi.Input[int] capacity: The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
         :param pulumi.Input[bool] enable_non_ssl_port: Enable the non-SSL port (6379) - disabled by default.
         :param pulumi.Input[str] family: The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
         :param pulumi.Input[pulumi.InputType['CacheIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The location of the resource group.
-        :param pulumi.Input[str] minimum_tls_version: The minimum TLS version.  Defaults to `1.0`.
+        :param pulumi.Input[str] minimum_tls_version: The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
         :param pulumi.Input[str] name: The name of the Redis instance. Changing this forces a
                new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CachePatchScheduleArgs']]]] patch_schedules: A list of `patch_schedule` blocks as defined below.
@@ -1122,13 +1122,13 @@ class Cache(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] capacity: The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
+        :param pulumi.Input[int] capacity: The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
         :param pulumi.Input[bool] enable_non_ssl_port: Enable the non-SSL port (6379) - disabled by default.
         :param pulumi.Input[str] family: The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
         :param pulumi.Input[str] hostname: The Hostname of the Redis Instance
         :param pulumi.Input[pulumi.InputType['CacheIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The location of the resource group.
-        :param pulumi.Input[str] minimum_tls_version: The minimum TLS version.  Defaults to `1.0`.
+        :param pulumi.Input[str] minimum_tls_version: The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
         :param pulumi.Input[str] name: The name of the Redis instance. Changing this forces a
                new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CachePatchScheduleArgs']]]] patch_schedules: A list of `patch_schedule` blocks as defined below.
@@ -1191,7 +1191,7 @@ class Cache(pulumi.CustomResource):
     @pulumi.getter
     def capacity(self) -> pulumi.Output[int]:
         """
-        The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
+        The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
         """
         return pulumi.get(self, "capacity")
 
@@ -1239,7 +1239,7 @@ class Cache(pulumi.CustomResource):
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> pulumi.Output[Optional[str]]:
         """
-        The minimum TLS version.  Defaults to `1.0`.
+        The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
         """
         return pulumi.get(self, "minimum_tls_version")
 

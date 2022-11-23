@@ -108,7 +108,7 @@ type LinkedServer struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group where the Redis caches exists. Changing this forces a new Redis to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created.
+	// The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
 	ServerRole pulumi.StringOutput `pulumi:"serverRole"`
 	// The name of Redis cache to link with. Changing this forces a new Redis to be created. (eg The primary role)
 	TargetRedisCacheName pulumi.StringOutput `pulumi:"targetRedisCacheName"`
@@ -166,7 +166,7 @@ type linkedServerState struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Redis caches exists. Changing this forces a new Redis to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created.
+	// The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
 	ServerRole *string `pulumi:"serverRole"`
 	// The name of Redis cache to link with. Changing this forces a new Redis to be created. (eg The primary role)
 	TargetRedisCacheName *string `pulumi:"targetRedisCacheName"`
@@ -181,7 +181,7 @@ type LinkedServerState struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Redis caches exists. Changing this forces a new Redis to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created.
+	// The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
 	ServerRole pulumi.StringPtrInput
 	// The name of Redis cache to link with. Changing this forces a new Redis to be created. (eg The primary role)
 	TargetRedisCacheName pulumi.StringPtrInput
@@ -198,7 +198,7 @@ type linkedServerArgs struct {
 	LinkedRedisCacheLocation string `pulumi:"linkedRedisCacheLocation"`
 	// The name of the Resource Group where the Redis caches exists. Changing this forces a new Redis to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created.
+	// The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
 	ServerRole string `pulumi:"serverRole"`
 	// The name of Redis cache to link with. Changing this forces a new Redis to be created. (eg The primary role)
 	TargetRedisCacheName string `pulumi:"targetRedisCacheName"`
@@ -212,7 +212,7 @@ type LinkedServerArgs struct {
 	LinkedRedisCacheLocation pulumi.StringInput
 	// The name of the Resource Group where the Redis caches exists. Changing this forces a new Redis to be created.
 	ResourceGroupName pulumi.StringInput
-	// The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created.
+	// The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
 	ServerRole pulumi.StringInput
 	// The name of Redis cache to link with. Changing this forces a new Redis to be created. (eg The primary role)
 	TargetRedisCacheName pulumi.StringInput
@@ -325,7 +325,7 @@ func (o LinkedServerOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkedServer) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created.
+// The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
 func (o LinkedServerOutput) ServerRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkedServer) pulumi.StringOutput { return v.ServerRole }).(pulumi.StringOutput)
 }

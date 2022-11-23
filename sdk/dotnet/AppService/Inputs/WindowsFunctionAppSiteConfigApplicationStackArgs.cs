@@ -13,7 +13,7 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class WindowsFunctionAppSiteConfigApplicationStackArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The version of .NET to use. Possible values include `3.1` and `6`.
+        /// The version of .NET to use. Possible values include `3.1`, `6` and `7`.
         /// </summary>
         [Input("dotnetVersion")]
         public Input<string>? DotnetVersion { get; set; }

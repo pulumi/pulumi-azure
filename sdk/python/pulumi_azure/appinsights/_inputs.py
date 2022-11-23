@@ -22,7 +22,7 @@ class WorkbookIdentityArgs:
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The type of Managed Service Identity that is configured on this Workbook.
+        :param pulumi.Input[str] type: The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: The list of User Assigned Managed Identity IDs assigned to this Workbook.
         :param pulumi.Input[str] principal_id: The Principal ID of the System Assigned Managed Service Identity that is configured on this Workbook.
         :param pulumi.Input[str] tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this Workbook.
@@ -39,7 +39,7 @@ class WorkbookIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of Managed Service Identity that is configured on this Workbook.
+        The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "type")
 

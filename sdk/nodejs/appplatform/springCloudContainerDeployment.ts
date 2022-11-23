@@ -105,7 +105,7 @@ export class SpringCloudContainerDeployment extends pulumi.CustomResource {
      */
     public readonly instanceCount!: pulumi.Output<number | undefined>;
     /**
-     * Specifies the language framework of the container image.
+     * Specifies the language framework of the container image. The only possible value is `springboot`.
      */
     public readonly languageFramework!: pulumi.Output<string | undefined>;
     /**
@@ -206,7 +206,7 @@ export interface SpringCloudContainerDeploymentState {
      */
     instanceCount?: pulumi.Input<number>;
     /**
-     * Specifies the language framework of the container image.
+     * Specifies the language framework of the container image. The only possible value is `springboot`.
      */
     languageFramework?: pulumi.Input<string>;
     /**
@@ -256,7 +256,7 @@ export interface SpringCloudContainerDeploymentArgs {
      */
     instanceCount?: pulumi.Input<number>;
     /**
-     * Specifies the language framework of the container image.
+     * Specifies the language framework of the container image. The only possible value is `springboot`.
      */
     languageFramework?: pulumi.Input<string>;
     /**

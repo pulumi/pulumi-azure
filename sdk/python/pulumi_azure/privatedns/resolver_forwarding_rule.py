@@ -26,7 +26,8 @@ class ResolverForwardingRuleArgs:
         The set of arguments for constructing a ResolverForwardingRule resource.
         :param pulumi.Input[str] dns_forwarding_ruleset_id: Specifies the ID of the Private DNS Resolver Forwarding Ruleset. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
         :param pulumi.Input[str] domain_name: Specifies the domain name for the Private DNS Resolver Forwarding Rule.
-        :param pulumi.Input[Sequence[pulumi.Input['ResolverForwardingRuleTargetDnsServerArgs']]] target_dns_servers: A `target_dns_servers` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ResolverForwardingRuleTargetDnsServerArgs']]] target_dns_servers: Can be specified multiple times to define multiple target DNS servers. Each `target_dns_servers` block as defined below.
+        :param pulumi.Input[bool] enabled: Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Metadata attached to the Private DNS Resolver Forwarding Rule.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
         """
@@ -68,7 +69,7 @@ class ResolverForwardingRuleArgs:
     @pulumi.getter(name="targetDnsServers")
     def target_dns_servers(self) -> pulumi.Input[Sequence[pulumi.Input['ResolverForwardingRuleTargetDnsServerArgs']]]:
         """
-        A `target_dns_servers` block as defined below.
+        Can be specified multiple times to define multiple target DNS servers. Each `target_dns_servers` block as defined below.
         """
         return pulumi.get(self, "target_dns_servers")
 
@@ -79,6 +80,9 @@ class ResolverForwardingRuleArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -123,9 +127,10 @@ class _ResolverForwardingRuleState:
         Input properties used for looking up and filtering ResolverForwardingRule resources.
         :param pulumi.Input[str] dns_forwarding_ruleset_id: Specifies the ID of the Private DNS Resolver Forwarding Ruleset. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
         :param pulumi.Input[str] domain_name: Specifies the domain name for the Private DNS Resolver Forwarding Rule.
+        :param pulumi.Input[bool] enabled: Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Metadata attached to the Private DNS Resolver Forwarding Rule.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['ResolverForwardingRuleTargetDnsServerArgs']]] target_dns_servers: A `target_dns_servers` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ResolverForwardingRuleTargetDnsServerArgs']]] target_dns_servers: Can be specified multiple times to define multiple target DNS servers. Each `target_dns_servers` block as defined below.
         """
         if dns_forwarding_ruleset_id is not None:
             pulumi.set(__self__, "dns_forwarding_ruleset_id", dns_forwarding_ruleset_id)
@@ -167,6 +172,9 @@ class _ResolverForwardingRuleState:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -201,7 +209,7 @@ class _ResolverForwardingRuleState:
     @pulumi.getter(name="targetDnsServers")
     def target_dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResolverForwardingRuleTargetDnsServerArgs']]]]:
         """
-        A `target_dns_servers` block as defined below.
+        Can be specified multiple times to define multiple target DNS servers. Each `target_dns_servers` block as defined below.
         """
         return pulumi.get(self, "target_dns_servers")
 
@@ -283,9 +291,10 @@ class ResolverForwardingRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dns_forwarding_ruleset_id: Specifies the ID of the Private DNS Resolver Forwarding Ruleset. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
         :param pulumi.Input[str] domain_name: Specifies the domain name for the Private DNS Resolver Forwarding Rule.
+        :param pulumi.Input[bool] enabled: Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Metadata attached to the Private DNS Resolver Forwarding Rule.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverForwardingRuleTargetDnsServerArgs']]]] target_dns_servers: A `target_dns_servers` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverForwardingRuleTargetDnsServerArgs']]]] target_dns_servers: Can be specified multiple times to define multiple target DNS servers. Each `target_dns_servers` block as defined below.
         """
         ...
     @overload
@@ -417,9 +426,10 @@ class ResolverForwardingRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dns_forwarding_ruleset_id: Specifies the ID of the Private DNS Resolver Forwarding Ruleset. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
         :param pulumi.Input[str] domain_name: Specifies the domain name for the Private DNS Resolver Forwarding Rule.
+        :param pulumi.Input[bool] enabled: Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Metadata attached to the Private DNS Resolver Forwarding Rule.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverForwardingRuleTargetDnsServerArgs']]]] target_dns_servers: A `target_dns_servers` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverForwardingRuleTargetDnsServerArgs']]]] target_dns_servers: Can be specified multiple times to define multiple target DNS servers. Each `target_dns_servers` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -452,6 +462,9 @@ class ResolverForwardingRule(pulumi.CustomResource):
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
+        """
         return pulumi.get(self, "enabled")
 
     @property
@@ -474,7 +487,7 @@ class ResolverForwardingRule(pulumi.CustomResource):
     @pulumi.getter(name="targetDnsServers")
     def target_dns_servers(self) -> pulumi.Output[Sequence['outputs.ResolverForwardingRuleTargetDnsServer']]:
         """
-        A `target_dns_servers` block as defined below.
+        Can be specified multiple times to define multiple target DNS servers. Each `target_dns_servers` block as defined below.
         """
         return pulumi.get(self, "target_dns_servers")
 

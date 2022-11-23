@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class TokenPasswordPassword2
     {
         /// <summary>
-        /// The expiration date of the password in RFC3339 format.
+        /// The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? Expiry;
         /// <summary>

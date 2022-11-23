@@ -55,10 +55,8 @@ class VirtualNetworkGatewayConnectionArgs:
         :param pulumi.Input[str] authorization_key: The authorization key associated with the
                Express Route Circuit. This field is required only if the type is an
                ExpressRoute connection.
-        :param pulumi.Input[str] connection_mode: Connection mode to use. Possible
-               values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
-               Changing this value will force a resource to be created.
-        :param pulumi.Input[str] connection_protocol: The IKE protocol version to use. Possible
+        :param pulumi.Input[str] connection_mode: Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
+        :param pulumi.Input[str] connection_protocol: The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
                values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
                Changing this value will force a resource to be created.
                > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
@@ -206,9 +204,7 @@ class VirtualNetworkGatewayConnectionArgs:
     @pulumi.getter(name="connectionMode")
     def connection_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Connection mode to use. Possible
-        values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
-        Changing this value will force a resource to be created.
+        Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
         """
         return pulumi.get(self, "connection_mode")
 
@@ -220,7 +216,7 @@ class VirtualNetworkGatewayConnectionArgs:
     @pulumi.getter(name="connectionProtocol")
     def connection_protocol(self) -> Optional[pulumi.Input[str]]:
         """
-        The IKE protocol version to use. Possible
+        The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
         values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
         Changing this value will force a resource to be created.
         > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
@@ -498,10 +494,8 @@ class _VirtualNetworkGatewayConnectionState:
         :param pulumi.Input[str] authorization_key: The authorization key associated with the
                Express Route Circuit. This field is required only if the type is an
                ExpressRoute connection.
-        :param pulumi.Input[str] connection_mode: Connection mode to use. Possible
-               values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
-               Changing this value will force a resource to be created.
-        :param pulumi.Input[str] connection_protocol: The IKE protocol version to use. Possible
+        :param pulumi.Input[str] connection_mode: Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
+        :param pulumi.Input[str] connection_protocol: The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
                values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
                Changing this value will force a resource to be created.
                > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
@@ -619,9 +613,7 @@ class _VirtualNetworkGatewayConnectionState:
     @pulumi.getter(name="connectionMode")
     def connection_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Connection mode to use. Possible
-        values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
-        Changing this value will force a resource to be created.
+        Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
         """
         return pulumi.get(self, "connection_mode")
 
@@ -633,7 +625,7 @@ class _VirtualNetworkGatewayConnectionState:
     @pulumi.getter(name="connectionProtocol")
     def connection_protocol(self) -> Optional[pulumi.Input[str]]:
         """
-        The IKE protocol version to use. Possible
+        The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
         values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
         Changing this value will force a resource to be created.
         > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
@@ -1090,10 +1082,8 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[str] authorization_key: The authorization key associated with the
                Express Route Circuit. This field is required only if the type is an
                ExpressRoute connection.
-        :param pulumi.Input[str] connection_mode: Connection mode to use. Possible
-               values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
-               Changing this value will force a resource to be created.
-        :param pulumi.Input[str] connection_protocol: The IKE protocol version to use. Possible
+        :param pulumi.Input[str] connection_mode: Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
+        :param pulumi.Input[str] connection_protocol: The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
                values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
                Changing this value will force a resource to be created.
                > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
@@ -1405,10 +1395,8 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[str] authorization_key: The authorization key associated with the
                Express Route Circuit. This field is required only if the type is an
                ExpressRoute connection.
-        :param pulumi.Input[str] connection_mode: Connection mode to use. Possible
-               values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
-               Changing this value will force a resource to be created.
-        :param pulumi.Input[str] connection_protocol: The IKE protocol version to use. Possible
+        :param pulumi.Input[str] connection_mode: Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
+        :param pulumi.Input[str] connection_protocol: The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
                values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
                Changing this value will force a resource to be created.
                > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
@@ -1503,9 +1491,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
     @pulumi.getter(name="connectionMode")
     def connection_mode(self) -> pulumi.Output[Optional[str]]:
         """
-        Connection mode to use. Possible
-        values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
-        Changing this value will force a resource to be created.
+        Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
         """
         return pulumi.get(self, "connection_mode")
 
@@ -1513,7 +1499,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
     @pulumi.getter(name="connectionProtocol")
     def connection_protocol(self) -> pulumi.Output[str]:
         """
-        The IKE protocol version to use. Possible
+        The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
         values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
         Changing this value will force a resource to be created.
         > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.

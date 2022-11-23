@@ -83,7 +83,7 @@ type Group struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group in which the API Management Group should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The type of this API Management Group. Possible values are `custom` and `external`. Default is `custom`.
+	// The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
@@ -137,7 +137,7 @@ type groupState struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group in which the API Management Group should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The type of this API Management Group. Possible values are `custom` and `external`. Default is `custom`.
+	// The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`.
 	Type *string `pulumi:"type"`
 }
 
@@ -154,7 +154,7 @@ type GroupState struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group in which the API Management Group should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The type of this API Management Group. Possible values are `custom` and `external`. Default is `custom`.
+	// The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`.
 	Type pulumi.StringPtrInput
 }
 
@@ -175,7 +175,7 @@ type groupArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group in which the API Management Group should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The type of this API Management Group. Possible values are `custom` and `external`. Default is `custom`.
+	// The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`.
 	Type *string `pulumi:"type"`
 }
 
@@ -193,7 +193,7 @@ type GroupArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group in which the API Management Group should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The type of this API Management Group. Possible values are `custom` and `external`. Default is `custom`.
+	// The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`.
 	Type pulumi.StringPtrInput
 }
 
@@ -314,7 +314,7 @@ func (o GroupOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The type of this API Management Group. Possible values are `custom` and `external`. Default is `custom`.
+// The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`.
 func (o GroupOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }

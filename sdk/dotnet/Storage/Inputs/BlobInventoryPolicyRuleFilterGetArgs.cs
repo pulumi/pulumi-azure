@@ -31,6 +31,12 @@ namespace Pulumi.Azure.Storage.Inputs
         public Input<bool>? IncludeBlobVersions { get; set; }
 
         /// <summary>
+        /// Includes deleted blobs in blob inventory or not? Defaults to `false`.
+        /// </summary>
+        [Input("includeDeleted")]
+        public Input<bool>? IncludeDeleted { get; set; }
+
+        /// <summary>
         /// Includes blob snapshots in blob inventory or not? Defaults to `false`.
         /// </summary>
         [Input("includeSnapshots")]

@@ -30,12 +30,12 @@ public final class PolicyCustomRuleMatchCondition {
      */
     private @Nullable Boolean negationCondition;
     /**
-     * @return Describes operator to be matched.
+     * @return Describes operator to be matched. Possible values are `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
      * 
      */
     private String operator;
     /**
-     * @return A list of transformations to do before the match is attempted.
+     * @return A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
      * 
      */
     private @Nullable List<String> transforms;
@@ -63,14 +63,14 @@ public final class PolicyCustomRuleMatchCondition {
         return Optional.ofNullable(this.negationCondition);
     }
     /**
-     * @return Describes operator to be matched.
+     * @return Describes operator to be matched. Possible values are `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
      * 
      */
     public String operator() {
         return this.operator;
     }
     /**
-     * @return A list of transformations to do before the match is attempted.
+     * @return A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
      * 
      */
     public List<String> transforms() {

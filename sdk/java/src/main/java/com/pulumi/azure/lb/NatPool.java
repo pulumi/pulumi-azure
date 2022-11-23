@@ -215,14 +215,14 @@ public class NatPool extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+     * The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
      * 
      */
     @Export(name="protocol", type=String.class, parameters={})
     private Output<String> protocol;
 
     /**
-     * @return The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+     * @return The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
      * 
      */
     public Output<String> protocol() {

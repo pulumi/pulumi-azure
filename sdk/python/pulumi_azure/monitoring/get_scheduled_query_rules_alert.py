@@ -134,6 +134,9 @@ class GetScheduledQueryRulesAlertResult:
     @property
     @pulumi.getter
     def location(self) -> str:
+        """
+        Specifies the Azure Region where the resource should exist.
+        """
         return pulumi.get(self, "location")
 
     @property

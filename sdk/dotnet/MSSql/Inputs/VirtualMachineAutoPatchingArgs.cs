@@ -13,7 +13,7 @@ namespace Pulumi.Azure.MSSql.Inputs
     public sealed class VirtualMachineAutoPatchingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The day of week to apply the patch on.
+        /// The day of week to apply the patch on. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
         /// </summary>
         [Input("dayOfWeek", required: true)]
         public Input<string> DayOfWeek { get; set; } = null!;

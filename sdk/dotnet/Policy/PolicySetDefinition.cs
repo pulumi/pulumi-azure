@@ -122,7 +122,7 @@ namespace Pulumi.Azure.Policy
         public Output<ImmutableArray<Outputs.PolicySetDefinitionPolicyDefinitionReference>> PolicyDefinitionReferences { get; private set; } = null!;
 
         /// <summary>
-        /// The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
+        /// The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("policyType")]
         public Output<string> PolicyType { get; private set; } = null!;
@@ -234,7 +234,7 @@ namespace Pulumi.Azure.Policy
         }
 
         /// <summary>
-        /// The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
+        /// The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("policyType", required: true)]
         public Input<string> PolicyType { get; set; } = null!;
@@ -308,7 +308,7 @@ namespace Pulumi.Azure.Policy
         }
 
         /// <summary>
-        /// The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
+        /// The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("policyType")]
         public Input<string>? PolicyType { get; set; }

@@ -22,7 +22,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
      */
     private @Nullable String dockerImageTag;
     /**
-     * @return The version of .NET to use. Possible values include `3.1`, `5.0`, and `6.0`.
+     * @return The version of .NET to use. Possible values include `3.1`, `6.0` and `7.0`.
      * 
      */
     private @Nullable String dotnetVersion;
@@ -78,7 +78,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
         return Optional.ofNullable(this.dockerImageTag);
     }
     /**
-     * @return The version of .NET to use. Possible values include `3.1`, `5.0`, and `6.0`.
+     * @return The version of .NET to use. Possible values include `3.1`, `6.0` and `7.0`.
      * 
      */
     public Optional<String> dotnetVersion() {

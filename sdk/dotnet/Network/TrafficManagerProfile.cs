@@ -123,7 +123,7 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the algorithm used to route traffic, possible values are:
+        /// Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
         /// </summary>
         [Output("trafficRoutingMethod")]
         public Output<string> TrafficRoutingMethod { get; private set; } = null!;
@@ -233,7 +233,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// Specifies the algorithm used to route traffic, possible values are:
+        /// Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
         /// </summary>
         [Input("trafficRoutingMethod", required: true)]
         public Input<string> TrafficRoutingMethod { get; set; } = null!;
@@ -307,7 +307,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// Specifies the algorithm used to route traffic, possible values are:
+        /// Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
         /// </summary>
         [Input("trafficRoutingMethod")]
         public Input<string>? TrafficRoutingMethod { get; set; }

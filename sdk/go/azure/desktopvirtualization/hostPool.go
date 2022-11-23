@@ -82,7 +82,7 @@ type HostPool struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A friendly name for the Virtual Desktop Host Pool.
 	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
-	// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool.
+	// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
 	// `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
 	// `Persistent` should be used if the host pool type is `Personal`
 	LoadBalancerType pulumi.StringOutput `pulumi:"loadBalancerType"`
@@ -95,11 +95,10 @@ type HostPool struct {
 	// The name of the Virtual Desktop Host Pool. Changing the name
 	// forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// `Automatic` assignment – The service will select an available host and assign it to an user.
+	// `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`.
 	// `Direct` Assignment – Admin selects a specific host to assign to an user.
 	PersonalDesktopAssignmentType pulumi.StringPtrOutput `pulumi:"personalDesktopAssignmentType"`
-	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
-	// Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
+	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
 	PreferredAppGroupType pulumi.StringPtrOutput `pulumi:"preferredAppGroupType"`
 	// The name of the resource group in which to
 	// create the Virtual Desktop Host Pool. Changing the resource group name forces
@@ -111,8 +110,7 @@ type HostPool struct {
 	StartVmOnConnect pulumi.BoolPtrOutput `pulumi:"startVmOnConnect"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the Virtual Desktop Host Pool. Valid options are
-	// `Personal` or `Pooled`. Changing the type forces a new resource to be created.
+	// The type of the Virtual Desktop Host Pool. Valid options are `Personal` or `Pooled`. Changing the type forces a new resource to be created.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Allows you to test service changes before they are deployed to production. Defaults to `false`.
 	ValidateEnvironment pulumi.BoolPtrOutput `pulumi:"validateEnvironment"`
@@ -162,7 +160,7 @@ type hostPoolState struct {
 	Description *string `pulumi:"description"`
 	// A friendly name for the Virtual Desktop Host Pool.
 	FriendlyName *string `pulumi:"friendlyName"`
-	// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool.
+	// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
 	// `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
 	// `Persistent` should be used if the host pool type is `Personal`
 	LoadBalancerType *string `pulumi:"loadBalancerType"`
@@ -175,11 +173,10 @@ type hostPoolState struct {
 	// The name of the Virtual Desktop Host Pool. Changing the name
 	// forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// `Automatic` assignment – The service will select an available host and assign it to an user.
+	// `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`.
 	// `Direct` Assignment – Admin selects a specific host to assign to an user.
 	PersonalDesktopAssignmentType *string `pulumi:"personalDesktopAssignmentType"`
-	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
-	// Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
+	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
 	PreferredAppGroupType *string `pulumi:"preferredAppGroupType"`
 	// The name of the resource group in which to
 	// create the Virtual Desktop Host Pool. Changing the resource group name forces
@@ -191,8 +188,7 @@ type hostPoolState struct {
 	StartVmOnConnect *bool `pulumi:"startVmOnConnect"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the Virtual Desktop Host Pool. Valid options are
-	// `Personal` or `Pooled`. Changing the type forces a new resource to be created.
+	// The type of the Virtual Desktop Host Pool. Valid options are `Personal` or `Pooled`. Changing the type forces a new resource to be created.
 	Type *string `pulumi:"type"`
 	// Allows you to test service changes before they are deployed to production. Defaults to `false`.
 	ValidateEnvironment *bool `pulumi:"validateEnvironment"`
@@ -205,7 +201,7 @@ type HostPoolState struct {
 	Description pulumi.StringPtrInput
 	// A friendly name for the Virtual Desktop Host Pool.
 	FriendlyName pulumi.StringPtrInput
-	// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool.
+	// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
 	// `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
 	// `Persistent` should be used if the host pool type is `Personal`
 	LoadBalancerType pulumi.StringPtrInput
@@ -218,11 +214,10 @@ type HostPoolState struct {
 	// The name of the Virtual Desktop Host Pool. Changing the name
 	// forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// `Automatic` assignment – The service will select an available host and assign it to an user.
+	// `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`.
 	// `Direct` Assignment – Admin selects a specific host to assign to an user.
 	PersonalDesktopAssignmentType pulumi.StringPtrInput
-	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
-	// Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
+	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
 	PreferredAppGroupType pulumi.StringPtrInput
 	// The name of the resource group in which to
 	// create the Virtual Desktop Host Pool. Changing the resource group name forces
@@ -234,8 +229,7 @@ type HostPoolState struct {
 	StartVmOnConnect pulumi.BoolPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The type of the Virtual Desktop Host Pool. Valid options are
-	// `Personal` or `Pooled`. Changing the type forces a new resource to be created.
+	// The type of the Virtual Desktop Host Pool. Valid options are `Personal` or `Pooled`. Changing the type forces a new resource to be created.
 	Type pulumi.StringPtrInput
 	// Allows you to test service changes before they are deployed to production. Defaults to `false`.
 	ValidateEnvironment pulumi.BoolPtrInput
@@ -252,7 +246,7 @@ type hostPoolArgs struct {
 	Description *string `pulumi:"description"`
 	// A friendly name for the Virtual Desktop Host Pool.
 	FriendlyName *string `pulumi:"friendlyName"`
-	// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool.
+	// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
 	// `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
 	// `Persistent` should be used if the host pool type is `Personal`
 	LoadBalancerType string `pulumi:"loadBalancerType"`
@@ -265,11 +259,10 @@ type hostPoolArgs struct {
 	// The name of the Virtual Desktop Host Pool. Changing the name
 	// forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// `Automatic` assignment – The service will select an available host and assign it to an user.
+	// `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`.
 	// `Direct` Assignment – Admin selects a specific host to assign to an user.
 	PersonalDesktopAssignmentType *string `pulumi:"personalDesktopAssignmentType"`
-	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
-	// Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
+	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
 	PreferredAppGroupType *string `pulumi:"preferredAppGroupType"`
 	// The name of the resource group in which to
 	// create the Virtual Desktop Host Pool. Changing the resource group name forces
@@ -281,8 +274,7 @@ type hostPoolArgs struct {
 	StartVmOnConnect *bool `pulumi:"startVmOnConnect"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the Virtual Desktop Host Pool. Valid options are
-	// `Personal` or `Pooled`. Changing the type forces a new resource to be created.
+	// The type of the Virtual Desktop Host Pool. Valid options are `Personal` or `Pooled`. Changing the type forces a new resource to be created.
 	Type string `pulumi:"type"`
 	// Allows you to test service changes before they are deployed to production. Defaults to `false`.
 	ValidateEnvironment *bool `pulumi:"validateEnvironment"`
@@ -296,7 +288,7 @@ type HostPoolArgs struct {
 	Description pulumi.StringPtrInput
 	// A friendly name for the Virtual Desktop Host Pool.
 	FriendlyName pulumi.StringPtrInput
-	// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool.
+	// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
 	// `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
 	// `Persistent` should be used if the host pool type is `Personal`
 	LoadBalancerType pulumi.StringInput
@@ -309,11 +301,10 @@ type HostPoolArgs struct {
 	// The name of the Virtual Desktop Host Pool. Changing the name
 	// forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// `Automatic` assignment – The service will select an available host and assign it to an user.
+	// `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`.
 	// `Direct` Assignment – Admin selects a specific host to assign to an user.
 	PersonalDesktopAssignmentType pulumi.StringPtrInput
-	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
-	// Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
+	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
 	PreferredAppGroupType pulumi.StringPtrInput
 	// The name of the resource group in which to
 	// create the Virtual Desktop Host Pool. Changing the resource group name forces
@@ -325,8 +316,7 @@ type HostPoolArgs struct {
 	StartVmOnConnect pulumi.BoolPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The type of the Virtual Desktop Host Pool. Valid options are
-	// `Personal` or `Pooled`. Changing the type forces a new resource to be created.
+	// The type of the Virtual Desktop Host Pool. Valid options are `Personal` or `Pooled`. Changing the type forces a new resource to be created.
 	Type pulumi.StringInput
 	// Allows you to test service changes before they are deployed to production. Defaults to `false`.
 	ValidateEnvironment pulumi.BoolPtrInput
@@ -434,7 +424,7 @@ func (o HostPoolOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HostPool) pulumi.StringPtrOutput { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool.
+// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
 // `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
 // `Persistent` should be used if the host pool type is `Personal`
 func (o HostPoolOutput) LoadBalancerType() pulumi.StringOutput {
@@ -459,14 +449,13 @@ func (o HostPoolOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostPool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// `Automatic` assignment – The service will select an available host and assign it to an user.
+// `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`.
 // `Direct` Assignment – Admin selects a specific host to assign to an user.
 func (o HostPoolOutput) PersonalDesktopAssignmentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HostPool) pulumi.StringPtrOutput { return v.PersonalDesktopAssignmentType }).(pulumi.StringPtrOutput)
 }
 
-// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
-// Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
+// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
 func (o HostPoolOutput) PreferredAppGroupType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HostPool) pulumi.StringPtrOutput { return v.PreferredAppGroupType }).(pulumi.StringPtrOutput)
 }
@@ -493,8 +482,7 @@ func (o HostPoolOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HostPool) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The type of the Virtual Desktop Host Pool. Valid options are
-// `Personal` or `Pooled`. Changing the type forces a new resource to be created.
+// The type of the Virtual Desktop Host Pool. Valid options are `Personal` or `Pooled`. Changing the type forces a new resource to be created.
 func (o HostPoolOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostPool) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

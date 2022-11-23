@@ -235,14 +235,14 @@ public final class FunctionAppSlotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A string indicating the Operating System type for this function app.
+     * A string indicating the Operating System type for this function app. The only possible value is `linux`.
      * 
      */
     @Import(name="osType")
     private @Nullable Output<String> osType;
 
     /**
-     * @return A string indicating the Operating System type for this function app.
+     * @return A string indicating the Operating System type for this function app. The only possible value is `linux`.
      * 
      */
     public Optional<Output<String>> osType() {
@@ -736,7 +736,7 @@ public final class FunctionAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param osType A string indicating the Operating System type for this function app.
+         * @param osType A string indicating the Operating System type for this function app. The only possible value is `linux`.
          * 
          * @return builder
          * 
@@ -747,7 +747,7 @@ public final class FunctionAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param osType A string indicating the Operating System type for this function app.
+         * @param osType A string indicating the Operating System type for this function app. The only possible value is `linux`.
          * 
          * @return builder
          * 

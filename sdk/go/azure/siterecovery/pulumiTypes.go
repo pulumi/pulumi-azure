@@ -19,9 +19,9 @@ type ReplicatedVMManagedDisk struct {
 	TargetDiskEncryption *ReplicatedVMManagedDiskTargetDiskEncryption `pulumi:"targetDiskEncryption"`
 	// The Disk Encryption Set that the Managed Disk will be associated with.
 	TargetDiskEncryptionSetId *string `pulumi:"targetDiskEncryptionSetId"`
-	// What type should the disk be when a failover is done.
+	// What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
 	TargetDiskType string `pulumi:"targetDiskType"`
-	// What type should the disk be that holds the replication data.
+	// What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
 	TargetReplicaDiskType string `pulumi:"targetReplicaDiskType"`
 	// Resource group disk should belong to when a failover is done.
 	TargetResourceGroupId string `pulumi:"targetResourceGroupId"`
@@ -47,9 +47,9 @@ type ReplicatedVMManagedDiskArgs struct {
 	TargetDiskEncryption ReplicatedVMManagedDiskTargetDiskEncryptionPtrInput `pulumi:"targetDiskEncryption"`
 	// The Disk Encryption Set that the Managed Disk will be associated with.
 	TargetDiskEncryptionSetId pulumi.StringPtrInput `pulumi:"targetDiskEncryptionSetId"`
-	// What type should the disk be when a failover is done.
+	// What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
 	TargetDiskType pulumi.StringInput `pulumi:"targetDiskType"`
-	// What type should the disk be that holds the replication data.
+	// What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
 	TargetReplicaDiskType pulumi.StringInput `pulumi:"targetReplicaDiskType"`
 	// Resource group disk should belong to when a failover is done.
 	TargetResourceGroupId pulumi.StringInput `pulumi:"targetResourceGroupId"`
@@ -128,12 +128,12 @@ func (o ReplicatedVMManagedDiskOutput) TargetDiskEncryptionSetId() pulumi.String
 	return o.ApplyT(func(v ReplicatedVMManagedDisk) *string { return v.TargetDiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
 
-// What type should the disk be when a failover is done.
+// What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
 func (o ReplicatedVMManagedDiskOutput) TargetDiskType() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicatedVMManagedDisk) string { return v.TargetDiskType }).(pulumi.StringOutput)
 }
 
-// What type should the disk be that holds the replication data.
+// What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
 func (o ReplicatedVMManagedDiskOutput) TargetReplicaDiskType() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicatedVMManagedDisk) string { return v.TargetReplicaDiskType }).(pulumi.StringOutput)
 }

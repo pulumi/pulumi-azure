@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class VirtualMachineAutoPatching {
     /**
-     * @return The day of week to apply the patch on.
+     * @return The day of week to apply the patch on. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
      * 
      */
     private String dayOfWeek;
@@ -28,7 +28,7 @@ public final class VirtualMachineAutoPatching {
 
     private VirtualMachineAutoPatching() {}
     /**
-     * @return The day of week to apply the patch on.
+     * @return The day of week to apply the patch on. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
      * 
      */
     public String dayOfWeek() {

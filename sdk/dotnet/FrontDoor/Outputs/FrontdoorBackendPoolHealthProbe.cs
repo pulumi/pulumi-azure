@@ -38,7 +38,7 @@ namespace Pulumi.Azure.FrontDoor.Outputs
         /// </summary>
         public readonly string? ProbeMethod;
         /// <summary>
-        /// Protocol scheme to use for the Health Probe. Defaults to `Http`.
+        /// Protocol scheme to use for the Health Probe. Possible values are `Http` and `Https`. Defaults to `Http`.
         /// </summary>
         public readonly string? Protocol;
 

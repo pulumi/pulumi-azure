@@ -86,11 +86,11 @@ export class SparkPool extends pulumi.CustomResource {
      */
     public readonly nodeCount!: pulumi.Output<number | undefined>;
     /**
-     * The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
+     * The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
      */
     public readonly nodeSize!: pulumi.Output<string>;
     /**
-     * The kind of nodes that the Spark Pool provides. Possible value is `MemoryOptimized`.
+     * The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
      */
     public readonly nodeSizeFamily!: pulumi.Output<string>;
     /**
@@ -235,11 +235,11 @@ export interface SparkPoolState {
      */
     nodeCount?: pulumi.Input<number>;
     /**
-     * The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
+     * The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
      */
     nodeSize?: pulumi.Input<string>;
     /**
-     * The kind of nodes that the Spark Pool provides. Possible value is `MemoryOptimized`.
+     * The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
      */
     nodeSizeFamily?: pulumi.Input<string>;
     /**
@@ -317,11 +317,11 @@ export interface SparkPoolArgs {
      */
     nodeCount?: pulumi.Input<number>;
     /**
-     * The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
+     * The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
      */
     nodeSize: pulumi.Input<string>;
     /**
-     * The kind of nodes that the Spark Pool provides. Possible value is `MemoryOptimized`.
+     * The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
      */
     nodeSizeFamily: pulumi.Input<string>;
     /**

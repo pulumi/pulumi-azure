@@ -61,14 +61,14 @@ public final class EndpointGlobalDeliveryRuleUrlRedirectActionArgs extends com.p
     }
 
     /**
-     * Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+     * Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
      * 
      */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
     /**
-     * @return Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+     * @return Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
      * 
      */
     public Optional<Output<String>> protocol() {
@@ -198,7 +198,7 @@ public final class EndpointGlobalDeliveryRuleUrlRedirectActionArgs extends com.p
         }
 
         /**
-         * @param protocol Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+         * @param protocol Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class EndpointGlobalDeliveryRuleUrlRedirectActionArgs extends com.p
         }
 
         /**
-         * @param protocol Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+         * @param protocol Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
          * 
          * @return builder
          * 

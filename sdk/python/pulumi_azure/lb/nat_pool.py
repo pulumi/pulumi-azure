@@ -32,7 +32,7 @@ class NatPoolArgs:
         :param pulumi.Input[int] frontend_port_end: The last port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
         :param pulumi.Input[int] frontend_port_start: The first port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the NAT pool.
-        :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+        :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
         :param pulumi.Input[bool] floating_ip_enabled: Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
         :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30`. Defaults to `4`.
@@ -119,7 +119,7 @@ class NatPoolArgs:
     @pulumi.getter
     def protocol(self) -> pulumi.Input[str]:
         """
-        The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+        The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
         """
         return pulumi.get(self, "protocol")
 
@@ -213,7 +213,7 @@ class _NatPoolState:
         :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30`. Defaults to `4`.
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the NAT pool.
         :param pulumi.Input[str] name: Specifies the name of the NAT pool.
-        :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+        :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
         :param pulumi.Input[bool] tcp_reset_enabled: Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
         """
@@ -351,7 +351,7 @@ class _NatPoolState:
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
         """
-        The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+        The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
         """
         return pulumi.get(self, "protocol")
 
@@ -454,7 +454,7 @@ class NatPool(pulumi.CustomResource):
         :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30`. Defaults to `4`.
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the NAT pool.
         :param pulumi.Input[str] name: Specifies the name of the NAT pool.
-        :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+        :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
         :param pulumi.Input[bool] tcp_reset_enabled: Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
         """
@@ -605,7 +605,7 @@ class NatPool(pulumi.CustomResource):
         :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30`. Defaults to `4`.
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the NAT pool.
         :param pulumi.Input[str] name: Specifies the name of the NAT pool.
-        :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+        :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
         :param pulumi.Input[bool] tcp_reset_enabled: Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
         """
@@ -700,7 +700,7 @@ class NatPool(pulumi.CustomResource):
     @pulumi.getter
     def protocol(self) -> pulumi.Output[str]:
         """
-        The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+        The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
         """
         return pulumi.get(self, "protocol")
 

@@ -6,12 +6,14 @@ package com.pulumi.azure.sentinel;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.sentinel.AlertRuleFusionArgs;
 import com.pulumi.azure.sentinel.inputs.AlertRuleFusionState;
+import com.pulumi.azure.sentinel.outputs.AlertRuleFusionSource;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -144,6 +146,20 @@ public class AlertRuleFusion extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * One or more `source` blocks as defined below.
+     * 
+     */
+    @Export(name="sources", type=List.class, parameters={AlertRuleFusionSource.class})
+    private Output<List<AlertRuleFusionSource>> sources;
+
+    /**
+     * @return One or more `source` blocks as defined below.
+     * 
+     */
+    public Output<List<AlertRuleFusionSource>> sources() {
+        return this.sources;
     }
 
     /**

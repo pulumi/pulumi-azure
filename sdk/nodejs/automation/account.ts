@@ -108,7 +108,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The SKU of the account - only `Basic` is supported at this time.
+     * The SKU of the account. Possible values are `Basic` and `Free`.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -221,7 +221,7 @@ export interface AccountState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The SKU of the account - only `Basic` is supported at this time.
+     * The SKU of the account. Possible values are `Basic` and `Free`.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -263,7 +263,7 @@ export interface AccountArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The SKU of the account - only `Basic` is supported at this time.
+     * The SKU of the account. Possible values are `Basic` and `Free`.
      */
     skuName: pulumi.Input<string>;
     /**

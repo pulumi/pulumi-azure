@@ -305,6 +305,14 @@ namespace Pulumi.Azure.Network
     {
         public readonly string AllocationMethod;
         /// <summary>
+        /// The DDoS protection mode of the public IP.
+        /// </summary>
+        public readonly string DdosProtectionMode;
+        /// <summary>
+        /// The ID of DDoS protection plan associated with the public IP.
+        /// </summary>
+        public readonly string DdosProtectionPlanId;
+        /// <summary>
         /// The label for the Domain Name.
         /// </summary>
         public readonly string DomainNameLabel;
@@ -353,6 +361,10 @@ namespace Pulumi.Azure.Network
         private GetPublicIPResult(
             string allocationMethod,
 
+            string ddosProtectionMode,
+
+            string ddosProtectionPlanId,
+
             string domainNameLabel,
 
             string fqdn,
@@ -382,6 +394,8 @@ namespace Pulumi.Azure.Network
             ImmutableArray<string> zones)
         {
             AllocationMethod = allocationMethod;
+            DdosProtectionMode = ddosProtectionMode;
+            DdosProtectionPlanId = ddosProtectionPlanId;
             DomainNameLabel = domainNameLabel;
             Fqdn = fqdn;
             Id = id;

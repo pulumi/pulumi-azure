@@ -19,7 +19,7 @@ class SettingArgs:
         """
         The set of arguments for constructing a Setting resource.
         :param pulumi.Input[bool] enabled: Boolean flag to enable/disable data access.
-        :param pulumi.Input[str] setting_name: The setting to manage. Possible values are `MCAS` and `WDATP`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] setting_name: The setting to manage. Possible values are `MCAS` , `WDATP` and `SENTINEL`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "setting_name", setting_name)
@@ -40,7 +40,7 @@ class SettingArgs:
     @pulumi.getter(name="settingName")
     def setting_name(self) -> pulumi.Input[str]:
         """
-        The setting to manage. Possible values are `MCAS` and `WDATP`. Changing this forces a new resource to be created.
+        The setting to manage. Possible values are `MCAS` , `WDATP` and `SENTINEL`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "setting_name")
 
@@ -57,7 +57,7 @@ class _SettingState:
         """
         Input properties used for looking up and filtering Setting resources.
         :param pulumi.Input[bool] enabled: Boolean flag to enable/disable data access.
-        :param pulumi.Input[str] setting_name: The setting to manage. Possible values are `MCAS` and `WDATP`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] setting_name: The setting to manage. Possible values are `MCAS` , `WDATP` and `SENTINEL`. Changing this forces a new resource to be created.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -80,7 +80,7 @@ class _SettingState:
     @pulumi.getter(name="settingName")
     def setting_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The setting to manage. Possible values are `MCAS` and `WDATP`. Changing this forces a new resource to be created.
+        The setting to manage. Possible values are `MCAS` , `WDATP` and `SENTINEL`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "setting_name")
 
@@ -126,7 +126,7 @@ class Setting(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Boolean flag to enable/disable data access.
-        :param pulumi.Input[str] setting_name: The setting to manage. Possible values are `MCAS` and `WDATP`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] setting_name: The setting to manage. Possible values are `MCAS` , `WDATP` and `SENTINEL`. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -212,7 +212,7 @@ class Setting(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Boolean flag to enable/disable data access.
-        :param pulumi.Input[str] setting_name: The setting to manage. Possible values are `MCAS` and `WDATP`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] setting_name: The setting to manage. Possible values are `MCAS` , `WDATP` and `SENTINEL`. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -234,7 +234,7 @@ class Setting(pulumi.CustomResource):
     @pulumi.getter(name="settingName")
     def setting_name(self) -> pulumi.Output[str]:
         """
-        The setting to manage. Possible values are `MCAS` and `WDATP`. Changing this forces a new resource to be created.
+        The setting to manage. Possible values are `MCAS` , `WDATP` and `SENTINEL`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "setting_name")
 

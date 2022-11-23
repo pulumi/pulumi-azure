@@ -150,14 +150,14 @@ public class IntegrationRuntimeManaged extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.edition);
     }
     /**
-     * The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
+     * The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
      * 
      */
     @Export(name="licenseType", type=String.class, parameters={})
     private Output</* @Nullable */ String> licenseType;
 
     /**
-     * @return The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
+     * @return The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
      * 
      */
     public Output<Optional<String>> licenseType() {

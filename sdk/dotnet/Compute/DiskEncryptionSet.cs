@@ -145,6 +145,12 @@ namespace Pulumi.Azure.Compute
         public Output<string?> EncryptionType { get; private set; } = null!;
 
         /// <summary>
+        /// Multi-tenant application client id to access key vault in a different tenant.
+        /// </summary>
+        [Output("federatedClientId")]
+        public Output<string?> FederatedClientId { get; private set; } = null!;
+
+        /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
@@ -239,6 +245,12 @@ namespace Pulumi.Azure.Compute
         public Input<string>? EncryptionType { get; set; }
 
         /// <summary>
+        /// Multi-tenant application client id to access key vault in a different tenant.
+        /// </summary>
+        [Input("federatedClientId")]
+        public Input<string>? FederatedClientId { get; set; }
+
+        /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
         [Input("identity", required: true)]
@@ -299,6 +311,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("encryptionType")]
         public Input<string>? EncryptionType { get; set; }
+
+        /// <summary>
+        /// Multi-tenant application client id to access key vault in a different tenant.
+        /// </summary>
+        [Input("federatedClientId")]
+        public Input<string>? FederatedClientId { get; set; }
 
         /// <summary>
         /// An `identity` block as defined below.

@@ -23,14 +23,14 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
     public static final CacheArgs Empty = new CacheArgs();
 
     /**
-     * The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
+     * The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
      * 
      */
     @Import(name="capacity", required=true)
     private Output<Integer> capacity;
 
     /**
-     * @return The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
+     * @return The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
      * 
      */
     public Output<Integer> capacity() {
@@ -98,14 +98,14 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The minimum TLS version.  Defaults to `1.0`.
+     * The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
      * 
      */
     @Import(name="minimumTlsVersion")
     private @Nullable Output<String> minimumTlsVersion;
 
     /**
-     * @return The minimum TLS version.  Defaults to `1.0`.
+     * @return The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
      * 
      */
     public Optional<Output<String>> minimumTlsVersion() {
@@ -386,7 +386,7 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capacity The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
+         * @param capacity The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
          * 
          * @return builder
          * 
@@ -397,7 +397,7 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capacity The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
+         * @param capacity The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
          * 
          * @return builder
          * 
@@ -491,7 +491,7 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minimumTlsVersion The minimum TLS version.  Defaults to `1.0`.
+         * @param minimumTlsVersion The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
          * 
          * @return builder
          * 
@@ -502,7 +502,7 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minimumTlsVersion The minimum TLS version.  Defaults to `1.0`.
+         * @param minimumTlsVersion The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
          * 
          * @return builder
          * 

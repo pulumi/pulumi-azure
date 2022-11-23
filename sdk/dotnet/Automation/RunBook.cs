@@ -96,8 +96,7 @@ namespace Pulumi.Azure.Automation
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
-        /// Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+        /// Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
         /// </summary>
         [Output("logActivityTraceLevel")]
         public Output<int?> LogActivityTraceLevel { get; private set; } = null!;
@@ -229,8 +228,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
-        /// Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+        /// Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
         /// </summary>
         [Input("logActivityTraceLevel")]
         public Input<int>? LogActivityTraceLevel { get; set; }
@@ -330,8 +328,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
-        /// Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+        /// Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
         /// </summary>
         [Input("logActivityTraceLevel")]
         public Input<int>? LogActivityTraceLevel { get; set; }

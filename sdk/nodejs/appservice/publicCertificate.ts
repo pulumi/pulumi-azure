@@ -82,7 +82,7 @@ export class PublicCertificate extends pulumi.CustomResource {
      */
     public readonly blob!: pulumi.Output<string>;
     /**
-     * The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`.
+     * The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created.
      */
     public readonly certificateLocation!: pulumi.Output<string>;
     /**
@@ -159,7 +159,7 @@ export interface PublicCertificateState {
      */
     blob?: pulumi.Input<string>;
     /**
-     * The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`.
+     * The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created.
      */
     certificateLocation?: pulumi.Input<string>;
     /**
@@ -189,7 +189,7 @@ export interface PublicCertificateArgs {
      */
     blob: pulumi.Input<string>;
     /**
-     * The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`.
+     * The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created.
      */
     certificateLocation: pulumi.Input<string>;
     /**

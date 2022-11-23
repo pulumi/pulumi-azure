@@ -101,7 +101,7 @@ namespace Pulumi.Azure.PrivateDns
     public partial class ResolverInboundEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `ip_configurations` block as defined below.
+        /// Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
         /// </summary>
         [Output("ipConfigurations")]
         public Output<ImmutableArray<Outputs.ResolverInboundEndpointIpConfiguration>> IpConfigurations { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Azure.PrivateDns
         private InputList<Inputs.ResolverInboundEndpointIpConfigurationArgs>? _ipConfigurations;
 
         /// <summary>
-        /// An `ip_configurations` block as defined below.
+        /// Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
         /// </summary>
         public InputList<Inputs.ResolverInboundEndpointIpConfigurationArgs> IpConfigurations
         {
@@ -230,7 +230,7 @@ namespace Pulumi.Azure.PrivateDns
         private InputList<Inputs.ResolverInboundEndpointIpConfigurationGetArgs>? _ipConfigurations;
 
         /// <summary>
-        /// An `ip_configurations` block as defined below.
+        /// Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
         /// </summary>
         public InputList<Inputs.ResolverInboundEndpointIpConfigurationGetArgs> IpConfigurations
         {

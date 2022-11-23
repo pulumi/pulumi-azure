@@ -169,14 +169,14 @@ public class SpringCloudGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.instanceCount);
     }
     /**
-     * The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created.
+     * The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created.
+     * @return The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
      * 
      */
     public Output<String> name() {

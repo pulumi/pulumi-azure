@@ -170,14 +170,14 @@ public class SqlPoolSecurityAlertPolicy extends com.pulumi.resources.CustomResou
         return Codegen.optional(this.emailAddresses);
     }
     /**
-     * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Allowed values are: `Disabled`, `Enabled`.
+     * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Possible values are `Disabled`, `Enabled` and `New`.
      * 
      */
     @Export(name="policyState", type=String.class, parameters={})
     private Output<String> policyState;
 
     /**
-     * @return Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Allowed values are: `Disabled`, `Enabled`.
+     * @return Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Possible values are `Disabled`, `Enabled` and `New`.
      * 
      */
     public Output<String> policyState() {

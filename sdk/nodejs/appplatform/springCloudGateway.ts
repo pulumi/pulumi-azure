@@ -109,7 +109,7 @@ export class SpringCloudGateway extends pulumi.CustomResource {
      */
     public readonly instanceCount!: pulumi.Output<number | undefined>;
     /**
-     * The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created.
+     * The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -198,7 +198,7 @@ export interface SpringCloudGatewayState {
      */
     instanceCount?: pulumi.Input<number>;
     /**
-     * The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created.
+     * The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -244,7 +244,7 @@ export interface SpringCloudGatewayArgs {
      */
     instanceCount?: pulumi.Input<number>;
     /**
-     * The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created.
+     * The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
      */
     name?: pulumi.Input<string>;
     /**

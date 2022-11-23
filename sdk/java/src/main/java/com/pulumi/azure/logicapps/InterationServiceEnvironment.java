@@ -17,8 +17,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages private and isolated Logic App instances within an Azure virtual network.
- * 
  * ## Example Usage
  * ```java
  * package generated_program;

@@ -116,8 +116,10 @@ type AlertRuleNrt struct {
 	SuppressionDuration pulumi.StringPtrOutput `pulumi:"suppressionDuration"`
 	// Should the Sentinel NRT Alert Rulea stop running query after alert is generated? Defaults to `false`.
 	SuppressionEnabled pulumi.BoolPtrOutput `pulumi:"suppressionEnabled"`
-	// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
+	// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation` and `PreAttack`.
 	Tactics pulumi.StringArrayOutput `pulumi:"tactics"`
+	// A list of techniques of attacks by which to classify the rule.
+	Techniques pulumi.StringArrayOutput `pulumi:"techniques"`
 }
 
 // NewAlertRuleNrt registers a new resource with the given unique name, arguments, and options.
@@ -191,8 +193,10 @@ type alertRuleNrtState struct {
 	SuppressionDuration *string `pulumi:"suppressionDuration"`
 	// Should the Sentinel NRT Alert Rulea stop running query after alert is generated? Defaults to `false`.
 	SuppressionEnabled *bool `pulumi:"suppressionEnabled"`
-	// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
+	// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation` and `PreAttack`.
 	Tactics []string `pulumi:"tactics"`
+	// A list of techniques of attacks by which to classify the rule.
+	Techniques []string `pulumi:"techniques"`
 }
 
 type AlertRuleNrtState struct {
@@ -226,8 +230,10 @@ type AlertRuleNrtState struct {
 	SuppressionDuration pulumi.StringPtrInput
 	// Should the Sentinel NRT Alert Rulea stop running query after alert is generated? Defaults to `false`.
 	SuppressionEnabled pulumi.BoolPtrInput
-	// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
+	// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation` and `PreAttack`.
 	Tactics pulumi.StringArrayInput
+	// A list of techniques of attacks by which to classify the rule.
+	Techniques pulumi.StringArrayInput
 }
 
 func (AlertRuleNrtState) ElementType() reflect.Type {
@@ -265,8 +271,10 @@ type alertRuleNrtArgs struct {
 	SuppressionDuration *string `pulumi:"suppressionDuration"`
 	// Should the Sentinel NRT Alert Rulea stop running query after alert is generated? Defaults to `false`.
 	SuppressionEnabled *bool `pulumi:"suppressionEnabled"`
-	// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
+	// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation` and `PreAttack`.
 	Tactics []string `pulumi:"tactics"`
+	// A list of techniques of attacks by which to classify the rule.
+	Techniques []string `pulumi:"techniques"`
 }
 
 // The set of arguments for constructing a AlertRuleNrt resource.
@@ -301,8 +309,10 @@ type AlertRuleNrtArgs struct {
 	SuppressionDuration pulumi.StringPtrInput
 	// Should the Sentinel NRT Alert Rulea stop running query after alert is generated? Defaults to `false`.
 	SuppressionEnabled pulumi.BoolPtrInput
-	// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
+	// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation` and `PreAttack`.
 	Tactics pulumi.StringArrayInput
+	// A list of techniques of attacks by which to classify the rule.
+	Techniques pulumi.StringArrayInput
 }
 
 func (AlertRuleNrtArgs) ElementType() reflect.Type {
@@ -467,9 +477,14 @@ func (o AlertRuleNrtOutput) SuppressionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AlertRuleNrt) pulumi.BoolPtrOutput { return v.SuppressionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
+// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation` and `PreAttack`.
 func (o AlertRuleNrtOutput) Tactics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AlertRuleNrt) pulumi.StringArrayOutput { return v.Tactics }).(pulumi.StringArrayOutput)
+}
+
+// A list of techniques of attacks by which to classify the rule.
+func (o AlertRuleNrtOutput) Techniques() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertRuleNrt) pulumi.StringArrayOutput { return v.Techniques }).(pulumi.StringArrayOutput)
 }
 
 type AlertRuleNrtArrayOutput struct{ *pulumi.OutputState }

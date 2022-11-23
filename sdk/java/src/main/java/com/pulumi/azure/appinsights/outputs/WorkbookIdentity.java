@@ -28,7 +28,7 @@ public final class WorkbookIdentity {
      */
     private @Nullable String tenantId;
     /**
-     * @return The type of Managed Service Identity that is configured on this Workbook.
+     * @return The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
      * 
      */
     private String type;
@@ -56,7 +56,7 @@ public final class WorkbookIdentity {
         return Optional.ofNullable(this.tenantId);
     }
     /**
-     * @return The type of Managed Service Identity that is configured on this Workbook.
+     * @return The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
      * 
      */
     public String type() {

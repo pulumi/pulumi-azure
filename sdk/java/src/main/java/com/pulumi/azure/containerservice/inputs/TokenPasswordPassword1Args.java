@@ -16,14 +16,14 @@ public final class TokenPasswordPassword1Args extends com.pulumi.resources.Resou
     public static final TokenPasswordPassword1Args Empty = new TokenPasswordPassword1Args();
 
     /**
-     * The expiration date of the password in RFC3339 format.
+     * The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="expiry")
     private @Nullable Output<String> expiry;
 
     /**
-     * @return The expiration date of the password in RFC3339 format.
+     * @return The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> expiry() {
@@ -71,7 +71,7 @@ public final class TokenPasswordPassword1Args extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param expiry The expiration date of the password in RFC3339 format.
+         * @param expiry The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class TokenPasswordPassword1Args extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param expiry The expiration date of the password in RFC3339 format.
+         * @param expiry The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

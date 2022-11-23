@@ -86,8 +86,7 @@ type RunBook struct {
 	JobSchedules RunBookJobScheduleArrayOutput `pulumi:"jobSchedules"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
-	// Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+	// Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
 	LogActivityTraceLevel pulumi.IntPtrOutput `pulumi:"logActivityTraceLevel"`
 	// Progress log option.
 	LogProgress pulumi.BoolOutput `pulumi:"logProgress"`
@@ -160,8 +159,7 @@ type runBookState struct {
 	JobSchedules []RunBookJobSchedule `pulumi:"jobSchedules"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
-	// Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+	// Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
 	LogActivityTraceLevel *int `pulumi:"logActivityTraceLevel"`
 	// Progress log option.
 	LogProgress *bool `pulumi:"logProgress"`
@@ -191,8 +189,7 @@ type RunBookState struct {
 	JobSchedules RunBookJobScheduleArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
-	// Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+	// Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
 	LogActivityTraceLevel pulumi.IntPtrInput
 	// Progress log option.
 	LogProgress pulumi.BoolPtrInput
@@ -226,8 +223,7 @@ type runBookArgs struct {
 	JobSchedules []RunBookJobSchedule `pulumi:"jobSchedules"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
-	// Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+	// Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
 	LogActivityTraceLevel *int `pulumi:"logActivityTraceLevel"`
 	// Progress log option.
 	LogProgress bool `pulumi:"logProgress"`
@@ -258,8 +254,7 @@ type RunBookArgs struct {
 	JobSchedules RunBookJobScheduleArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
-	// Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+	// Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
 	LogActivityTraceLevel pulumi.IntPtrInput
 	// Progress log option.
 	LogProgress pulumi.BoolInput
@@ -393,8 +388,7 @@ func (o RunBookOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *RunBook) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
-// Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+// Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
 func (o RunBookOutput) LogActivityTraceLevel() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RunBook) pulumi.IntPtrOutput { return v.LogActivityTraceLevel }).(pulumi.IntPtrOutput)
 }

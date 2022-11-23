@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FrontdoorRoutingRule {
     /**
-     * @return Protocol schemes to match for the Backend Routing Rule. Defaults to `Http`.
+     * @return Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`. Defaults to `Http`.
      * 
      */
     private List<String> acceptedProtocols;
@@ -58,7 +58,7 @@ public final class FrontdoorRoutingRule {
 
     private FrontdoorRoutingRule() {}
     /**
-     * @return Protocol schemes to match for the Backend Routing Rule. Defaults to `Http`.
+     * @return Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`. Defaults to `Http`.
      * 
      */
     public List<String> acceptedProtocols() {

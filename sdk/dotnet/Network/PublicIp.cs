@@ -58,6 +58,18 @@ namespace Pulumi.Azure.Network
         public Output<string> AllocationMethod { get; private set; } = null!;
 
         /// <summary>
+        /// The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
+        /// </summary>
+        [Output("ddosProtectionMode")]
+        public Output<string?> DdosProtectionMode { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of DDoS protection plan associated with the public IP.
+        /// </summary>
+        [Output("ddosProtectionPlanId")]
+        public Output<string?> DdosProtectionPlanId { get; private set; } = null!;
+
+        /// <summary>
         /// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
         /// </summary>
         [Output("domainNameLabel")]
@@ -206,6 +218,18 @@ namespace Pulumi.Azure.Network
         public Input<string> AllocationMethod { get; set; } = null!;
 
         /// <summary>
+        /// The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
+        /// </summary>
+        [Input("ddosProtectionMode")]
+        public Input<string>? DdosProtectionMode { get; set; }
+
+        /// <summary>
+        /// The ID of DDoS protection plan associated with the public IP.
+        /// </summary>
+        [Input("ddosProtectionPlanId")]
+        public Input<string>? DdosProtectionPlanId { get; set; }
+
+        /// <summary>
         /// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
         /// </summary>
         [Input("domainNameLabel")]
@@ -320,6 +344,18 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("allocationMethod")]
         public Input<string>? AllocationMethod { get; set; }
+
+        /// <summary>
+        /// The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
+        /// </summary>
+        [Input("ddosProtectionMode")]
+        public Input<string>? DdosProtectionMode { get; set; }
+
+        /// <summary>
+        /// The ID of DDoS protection plan associated with the public IP.
+        /// </summary>
+        [Input("ddosProtectionPlanId")]
+        public Input<string>? DdosProtectionPlanId { get; set; }
 
         /// <summary>
         /// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.

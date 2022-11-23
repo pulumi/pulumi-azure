@@ -18,8 +18,7 @@ namespace Pulumi.Azure.WebPubSub.Outputs
         /// </summary>
         public readonly Outputs.HubEventHandlerAuth? Auth;
         /// <summary>
-        /// Specify the list of system events. Supported values are `connect`, `connected`
-        /// and `disconnected`.
+        /// Specify the list of system events. Supported values are `connect`, `connected` and `disconnected`.
         /// </summary>
         public readonly ImmutableArray<string> SystemEvents;
         /// <summary>

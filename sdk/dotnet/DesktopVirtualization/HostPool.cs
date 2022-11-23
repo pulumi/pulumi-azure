@@ -85,7 +85,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Output<string?> FriendlyName { get; private set; } = null!;
 
         /// <summary>
-        /// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool.
+        /// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
         /// `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
         /// `Persistent` should be used if the host pool type is `Personal`
         /// </summary>
@@ -114,15 +114,14 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// `Automatic` assignment – The service will select an available host and assign it to an user.
+        /// `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`.
         /// `Direct` Assignment – Admin selects a specific host to assign to an user.
         /// </summary>
         [Output("personalDesktopAssignmentType")]
         public Output<string?> PersonalDesktopAssignmentType { get; private set; } = null!;
 
         /// <summary>
-        /// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
-        /// Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
+        /// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
         /// </summary>
         [Output("preferredAppGroupType")]
         public Output<string?> PreferredAppGroupType { get; private set; } = null!;
@@ -154,8 +153,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the Virtual Desktop Host Pool. Valid options are
-        /// `Personal` or `Pooled`. Changing the type forces a new resource to be created.
+        /// The type of the Virtual Desktop Host Pool. Valid options are `Personal` or `Pooled`. Changing the type forces a new resource to be created.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -231,7 +229,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string>? FriendlyName { get; set; }
 
         /// <summary>
-        /// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool.
+        /// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
         /// `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
         /// `Persistent` should be used if the host pool type is `Personal`
         /// </summary>
@@ -260,15 +258,14 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// `Automatic` assignment – The service will select an available host and assign it to an user.
+        /// `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`.
         /// `Direct` Assignment – Admin selects a specific host to assign to an user.
         /// </summary>
         [Input("personalDesktopAssignmentType")]
         public Input<string>? PersonalDesktopAssignmentType { get; set; }
 
         /// <summary>
-        /// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
-        /// Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
+        /// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
         /// </summary>
         [Input("preferredAppGroupType")]
         public Input<string>? PreferredAppGroupType { get; set; }
@@ -306,8 +303,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         }
 
         /// <summary>
-        /// The type of the Virtual Desktop Host Pool. Valid options are
-        /// `Personal` or `Pooled`. Changing the type forces a new resource to be created.
+        /// The type of the Virtual Desktop Host Pool. Valid options are `Personal` or `Pooled`. Changing the type forces a new resource to be created.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -345,7 +341,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string>? FriendlyName { get; set; }
 
         /// <summary>
-        /// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool.
+        /// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
         /// `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
         /// `Persistent` should be used if the host pool type is `Personal`
         /// </summary>
@@ -374,15 +370,14 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// `Automatic` assignment – The service will select an available host and assign it to an user.
+        /// `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`.
         /// `Direct` Assignment – Admin selects a specific host to assign to an user.
         /// </summary>
         [Input("personalDesktopAssignmentType")]
         public Input<string>? PersonalDesktopAssignmentType { get; set; }
 
         /// <summary>
-        /// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
-        /// Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
+        /// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
         /// </summary>
         [Input("preferredAppGroupType")]
         public Input<string>? PreferredAppGroupType { get; set; }
@@ -420,8 +415,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         }
 
         /// <summary>
-        /// The type of the Virtual Desktop Host Pool. Valid options are
-        /// `Personal` or `Pooled`. Changing the type forces a new resource to be created.
+        /// The type of the Virtual Desktop Host Pool. Valid options are `Personal` or `Pooled`. Changing the type forces a new resource to be created.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

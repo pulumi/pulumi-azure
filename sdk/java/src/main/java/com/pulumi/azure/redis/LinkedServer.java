@@ -159,14 +159,14 @@ public class LinkedServer extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * The role of the linked Redis cache (eg &#34;Secondary&#34;). Changing this forces a new Redis to be created.
+     * The role of the linked Redis cache (eg &#34;Secondary&#34;). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
      * 
      */
     @Export(name="serverRole", type=String.class, parameters={})
     private Output<String> serverRole;
 
     /**
-     * @return The role of the linked Redis cache (eg &#34;Secondary&#34;). Changing this forces a new Redis to be created.
+     * @return The role of the linked Redis cache (eg &#34;Secondary&#34;). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
      * 
      */
     public Output<String> serverRole() {

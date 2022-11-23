@@ -79,7 +79,7 @@ export class SqlDedicatedGateway extends pulumi.CustomResource {
      */
     public readonly instanceCount!: pulumi.Output<number>;
     /**
-     * The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created.
+     * The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
      */
     public readonly instanceSize!: pulumi.Output<string>;
 
@@ -132,7 +132,7 @@ export interface SqlDedicatedGatewayState {
      */
     instanceCount?: pulumi.Input<number>;
     /**
-     * The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created.
+     * The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
      */
     instanceSize?: pulumi.Input<string>;
 }
@@ -150,7 +150,7 @@ export interface SqlDedicatedGatewayArgs {
      */
     instanceCount: pulumi.Input<number>;
     /**
-     * The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created.
+     * The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
      */
     instanceSize: pulumi.Input<string>;
 }

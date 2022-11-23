@@ -312,18 +312,32 @@ public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.suppressionEnabled);
     }
     /**
-     * A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
+     * A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation` and `PreAttack`.
      * 
      */
     @Export(name="tactics", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> tactics;
 
     /**
-     * @return A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
+     * @return A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation` and `PreAttack`.
      * 
      */
     public Output<Optional<List<String>>> tactics() {
         return Codegen.optional(this.tactics);
+    }
+    /**
+     * A list of techniques of attacks by which to classify the rule.
+     * 
+     */
+    @Export(name="techniques", type=List.class, parameters={String.class})
+    private Output</* @Nullable */ List<String>> techniques;
+
+    /**
+     * @return A list of techniques of attacks by which to classify the rule.
+     * 
+     */
+    public Output<Optional<List<String>>> techniques() {
+        return Codegen.optional(this.techniques);
     }
 
     /**

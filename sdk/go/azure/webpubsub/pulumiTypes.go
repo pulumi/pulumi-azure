@@ -13,8 +13,7 @@ import (
 type HubEventHandler struct {
 	// An `auth` block as defined below.
 	Auth *HubEventHandlerAuth `pulumi:"auth"`
-	// Specify the list of system events. Supported values are `connect`, `connected`
-	// and `disconnected`.
+	// Specify the list of system events. Supported values are `connect`, `connected` and `disconnected`.
 	SystemEvents []string `pulumi:"systemEvents"`
 	// The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are
 	// available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request
@@ -41,8 +40,7 @@ type HubEventHandlerInput interface {
 type HubEventHandlerArgs struct {
 	// An `auth` block as defined below.
 	Auth HubEventHandlerAuthPtrInput `pulumi:"auth"`
-	// Specify the list of system events. Supported values are `connect`, `connected`
-	// and `disconnected`.
+	// Specify the list of system events. Supported values are `connect`, `connected` and `disconnected`.
 	SystemEvents pulumi.StringArrayInput `pulumi:"systemEvents"`
 	// The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are
 	// available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request
@@ -111,8 +109,7 @@ func (o HubEventHandlerOutput) Auth() HubEventHandlerAuthPtrOutput {
 	return o.ApplyT(func(v HubEventHandler) *HubEventHandlerAuth { return v.Auth }).(HubEventHandlerAuthPtrOutput)
 }
 
-// Specify the list of system events. Supported values are `connect`, `connected`
-// and `disconnected`.
+// Specify the list of system events. Supported values are `connect`, `connected` and `disconnected`.
 func (o HubEventHandlerOutput) SystemEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v HubEventHandler) []string { return v.SystemEvents }).(pulumi.StringArrayOutput)
 }

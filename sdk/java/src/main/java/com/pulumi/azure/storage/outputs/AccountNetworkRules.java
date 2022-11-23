@@ -13,8 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AccountNetworkRules {
     /**
-     * @return Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
-     * any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+     * @return Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
      * 
      */
     private @Nullable List<String> bypasses;
@@ -41,8 +40,7 @@ public final class AccountNetworkRules {
 
     private AccountNetworkRules() {}
     /**
-     * @return Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
-     * any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+     * @return Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
      * 
      */
     public List<String> bypasses() {

@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Batch.Inputs
         private InputList<string>? _visibilities;
 
         /// <summary>
-        /// Which user accounts on the compute node should have access to the private data of the certificate.
+        /// Which user accounts on the compute node should have access to the private data of the certificate. Possible values are `StartTask`, `Task` and `RemoteUser`.
         /// </summary>
         public InputList<string> Visibilities
         {

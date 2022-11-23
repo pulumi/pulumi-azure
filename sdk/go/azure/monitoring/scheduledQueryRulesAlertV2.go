@@ -51,7 +51,7 @@ type ScheduledQueryRulesAlertV2 struct {
 	MuteActionsAfterAlertDuration pulumi.StringPtrOutput `pulumi:"muteActionsAfterAlertDuration"`
 	// Specifies the name which should be used for this Monitor Scheduled Query Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Set this if the alert evaluation period is different from the query time range. If not specified, the value is `windowDuration`*`numberOfEvaluationPeriods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+	// Set this if the alert evaluation period is different from the query time range. If not specified, the value is `windowDuration`*`numberOfEvaluationPeriods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
 	QueryTimeRangeOverride pulumi.StringPtrOutput `pulumi:"queryTimeRangeOverride"`
 	// Specifies the name of the Resource Group where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -141,7 +141,7 @@ type scheduledQueryRulesAlertV2State struct {
 	MuteActionsAfterAlertDuration *string `pulumi:"muteActionsAfterAlertDuration"`
 	// Specifies the name which should be used for this Monitor Scheduled Query Rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Set this if the alert evaluation period is different from the query time range. If not specified, the value is `windowDuration`*`numberOfEvaluationPeriods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+	// Set this if the alert evaluation period is different from the query time range. If not specified, the value is `windowDuration`*`numberOfEvaluationPeriods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
 	QueryTimeRangeOverride *string `pulumi:"queryTimeRangeOverride"`
 	// Specifies the name of the Resource Group where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -188,7 +188,7 @@ type ScheduledQueryRulesAlertV2State struct {
 	MuteActionsAfterAlertDuration pulumi.StringPtrInput
 	// Specifies the name which should be used for this Monitor Scheduled Query Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Set this if the alert evaluation period is different from the query time range. If not specified, the value is `windowDuration`*`numberOfEvaluationPeriods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+	// Set this if the alert evaluation period is different from the query time range. If not specified, the value is `windowDuration`*`numberOfEvaluationPeriods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
 	QueryTimeRangeOverride pulumi.StringPtrInput
 	// Specifies the name of the Resource Group where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -233,7 +233,7 @@ type scheduledQueryRulesAlertV2Args struct {
 	MuteActionsAfterAlertDuration *string `pulumi:"muteActionsAfterAlertDuration"`
 	// Specifies the name which should be used for this Monitor Scheduled Query Rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Set this if the alert evaluation period is different from the query time range. If not specified, the value is `windowDuration`*`numberOfEvaluationPeriods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+	// Set this if the alert evaluation period is different from the query time range. If not specified, the value is `windowDuration`*`numberOfEvaluationPeriods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
 	QueryTimeRangeOverride *string `pulumi:"queryTimeRangeOverride"`
 	// Specifies the name of the Resource Group where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -275,7 +275,7 @@ type ScheduledQueryRulesAlertV2Args struct {
 	MuteActionsAfterAlertDuration pulumi.StringPtrInput
 	// Specifies the name which should be used for this Monitor Scheduled Query Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Set this if the alert evaluation period is different from the query time range. If not specified, the value is `windowDuration`*`numberOfEvaluationPeriods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+	// Set this if the alert evaluation period is different from the query time range. If not specified, the value is `windowDuration`*`numberOfEvaluationPeriods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
 	QueryTimeRangeOverride pulumi.StringPtrInput
 	// Specifies the name of the Resource Group where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -447,7 +447,7 @@ func (o ScheduledQueryRulesAlertV2Output) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Set this if the alert evaluation period is different from the query time range. If not specified, the value is `windowDuration`*`numberOfEvaluationPeriods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+// Set this if the alert evaluation period is different from the query time range. If not specified, the value is `windowDuration`*`numberOfEvaluationPeriods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
 func (o ScheduledQueryRulesAlertV2Output) QueryTimeRangeOverride() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2) pulumi.StringPtrOutput { return v.QueryTimeRangeOverride }).(pulumi.StringPtrOutput)
 }

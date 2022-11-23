@@ -383,6 +383,12 @@ namespace Pulumi.Azure.Storage
         public Output<Outputs.AccountRouting> Routing { get; private set; } = null!;
 
         /// <summary>
+        /// A `sas_policy` block as defined below.
+        /// </summary>
+        [Output("sasPolicy")]
+        public Output<Outputs.AccountSasPolicy?> SasPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// The secondary access key for the storage account.
         /// </summary>
         [Output("secondaryAccessKey")]
@@ -724,6 +730,12 @@ namespace Pulumi.Azure.Storage
         public Input<Inputs.AccountRoutingArgs>? Routing { get; set; }
 
         /// <summary>
+        /// A `sas_policy` block as defined below.
+        /// </summary>
+        [Input("sasPolicy")]
+        public Input<Inputs.AccountSasPolicyArgs>? SasPolicy { get; set; }
+
+        /// <summary>
         /// A `share_properties` block as defined below.
         /// </summary>
         [Input("shareProperties")]
@@ -1031,6 +1043,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("routing")]
         public Input<Inputs.AccountRoutingGetArgs>? Routing { get; set; }
+
+        /// <summary>
+        /// A `sas_policy` block as defined below.
+        /// </summary>
+        [Input("sasPolicy")]
+        public Input<Inputs.AccountSasPolicyGetArgs>? SasPolicy { get; set; }
 
         /// <summary>
         /// The secondary access key for the storage account.

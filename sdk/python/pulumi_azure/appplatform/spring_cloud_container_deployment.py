@@ -37,7 +37,7 @@ class SpringCloudContainerDeploymentArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: Specifies the entrypoint array. It will not be executed within a shell. The docker image's `ENTRYPOINT` is used if not specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
-        :param pulumi.Input[str] language_framework: Specifies the language framework of the container image.
+        :param pulumi.Input[str] language_framework: Specifies the language framework of the container image. The only possible value is `springboot`.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Container Deployment. Changing this forces a new Spring Cloud Container Deployment to be created.
         :param pulumi.Input['SpringCloudContainerDeploymentQuotaArgs'] quota: A `quota` block as defined below.
         """
@@ -161,7 +161,7 @@ class SpringCloudContainerDeploymentArgs:
     @pulumi.getter(name="languageFramework")
     def language_framework(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the language framework of the container image.
+        Specifies the language framework of the container image. The only possible value is `springboot`.
         """
         return pulumi.get(self, "language_framework")
 
@@ -216,7 +216,7 @@ class _SpringCloudContainerDeploymentState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
         :param pulumi.Input[str] image: Container image of the custom container. This should be in the form of `<repository>:<tag>` without the server name of the registry.
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
-        :param pulumi.Input[str] language_framework: Specifies the language framework of the container image.
+        :param pulumi.Input[str] language_framework: Specifies the language framework of the container image. The only possible value is `springboot`.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Container Deployment. Changing this forces a new Spring Cloud Container Deployment to be created.
         :param pulumi.Input['SpringCloudContainerDeploymentQuotaArgs'] quota: A `quota` block as defined below.
         :param pulumi.Input[str] server: The name of the registry that contains the container image.
@@ -321,7 +321,7 @@ class _SpringCloudContainerDeploymentState:
     @pulumi.getter(name="languageFramework")
     def language_framework(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the language framework of the container image.
+        Specifies the language framework of the container image. The only possible value is `springboot`.
         """
         return pulumi.get(self, "language_framework")
 
@@ -446,7 +446,7 @@ class SpringCloudContainerDeployment(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
         :param pulumi.Input[str] image: Container image of the custom container. This should be in the form of `<repository>:<tag>` without the server name of the registry.
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
-        :param pulumi.Input[str] language_framework: Specifies the language framework of the container image.
+        :param pulumi.Input[str] language_framework: Specifies the language framework of the container image. The only possible value is `springboot`.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Container Deployment. Changing this forces a new Spring Cloud Container Deployment to be created.
         :param pulumi.Input[pulumi.InputType['SpringCloudContainerDeploymentQuotaArgs']] quota: A `quota` block as defined below.
         :param pulumi.Input[str] server: The name of the registry that contains the container image.
@@ -587,7 +587,7 @@ class SpringCloudContainerDeployment(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
         :param pulumi.Input[str] image: Container image of the custom container. This should be in the form of `<repository>:<tag>` without the server name of the registry.
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
-        :param pulumi.Input[str] language_framework: Specifies the language framework of the container image.
+        :param pulumi.Input[str] language_framework: Specifies the language framework of the container image. The only possible value is `springboot`.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Container Deployment. Changing this forces a new Spring Cloud Container Deployment to be created.
         :param pulumi.Input[pulumi.InputType['SpringCloudContainerDeploymentQuotaArgs']] quota: A `quota` block as defined below.
         :param pulumi.Input[str] server: The name of the registry that contains the container image.
@@ -662,7 +662,7 @@ class SpringCloudContainerDeployment(pulumi.CustomResource):
     @pulumi.getter(name="languageFramework")
     def language_framework(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the language framework of the container image.
+        Specifies the language framework of the container image. The only possible value is `springboot`.
         """
         return pulumi.get(self, "language_framework")
 

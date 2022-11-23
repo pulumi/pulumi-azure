@@ -33,16 +33,14 @@ public final class HubEventHandlerArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specify the list of system events. Supported values are `connect`, `connected`
-     * and `disconnected`.
+     * Specify the list of system events. Supported values are `connect`, `connected` and `disconnected`.
      * 
      */
     @Import(name="systemEvents")
     private @Nullable Output<List<String>> systemEvents;
 
     /**
-     * @return Specify the list of system events. Supported values are `connect`, `connected`
-     * and `disconnected`.
+     * @return Specify the list of system events. Supported values are `connect`, `connected` and `disconnected`.
      * 
      */
     public Optional<Output<List<String>>> systemEvents() {
@@ -138,8 +136,7 @@ public final class HubEventHandlerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param systemEvents Specify the list of system events. Supported values are `connect`, `connected`
-         * and `disconnected`.
+         * @param systemEvents Specify the list of system events. Supported values are `connect`, `connected` and `disconnected`.
          * 
          * @return builder
          * 
@@ -150,8 +147,7 @@ public final class HubEventHandlerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param systemEvents Specify the list of system events. Supported values are `connect`, `connected`
-         * and `disconnected`.
+         * @param systemEvents Specify the list of system events. Supported values are `connect`, `connected` and `disconnected`.
          * 
          * @return builder
          * 
@@ -161,8 +157,7 @@ public final class HubEventHandlerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param systemEvents Specify the list of system events. Supported values are `connect`, `connected`
-         * and `disconnected`.
+         * @param systemEvents Specify the list of system events. Supported values are `connect`, `connected` and `disconnected`.
          * 
          * @return builder
          * 

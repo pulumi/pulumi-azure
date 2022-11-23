@@ -139,14 +139,14 @@ public final class PolicySetDefinitionState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
+     * The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="policyType")
     private @Nullable Output<String> policyType;
 
     /**
-     * @return The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
+     * @return The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> policyType() {
@@ -374,7 +374,7 @@ public final class PolicySetDefinitionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param policyType The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
+         * @param policyType The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class PolicySetDefinitionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param policyType The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
+         * @param policyType The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

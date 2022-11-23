@@ -65,6 +65,14 @@ export class PublicIp extends pulumi.CustomResource {
      */
     public readonly allocationMethod!: pulumi.Output<string>;
     /**
+     * The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
+     */
+    public readonly ddosProtectionMode!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of DDoS protection plan associated with the public IP.
+     */
+    public readonly ddosProtectionPlanId!: pulumi.Output<string | undefined>;
+    /**
      * Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
      */
     public readonly domainNameLabel!: pulumi.Output<string | undefined>;
@@ -143,6 +151,8 @@ export class PublicIp extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as PublicIpState | undefined;
             resourceInputs["allocationMethod"] = state ? state.allocationMethod : undefined;
+            resourceInputs["ddosProtectionMode"] = state ? state.ddosProtectionMode : undefined;
+            resourceInputs["ddosProtectionPlanId"] = state ? state.ddosProtectionPlanId : undefined;
             resourceInputs["domainNameLabel"] = state ? state.domainNameLabel : undefined;
             resourceInputs["edgeZone"] = state ? state.edgeZone : undefined;
             resourceInputs["fqdn"] = state ? state.fqdn : undefined;
@@ -168,6 +178,8 @@ export class PublicIp extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["allocationMethod"] = args ? args.allocationMethod : undefined;
+            resourceInputs["ddosProtectionMode"] = args ? args.ddosProtectionMode : undefined;
+            resourceInputs["ddosProtectionPlanId"] = args ? args.ddosProtectionPlanId : undefined;
             resourceInputs["domainNameLabel"] = args ? args.domainNameLabel : undefined;
             resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
             resourceInputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
@@ -198,6 +210,14 @@ export interface PublicIpState {
      * Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
      */
     allocationMethod?: pulumi.Input<string>;
+    /**
+     * The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
+     */
+    ddosProtectionMode?: pulumi.Input<string>;
+    /**
+     * The ID of DDoS protection plan associated with the public IP.
+     */
+    ddosProtectionPlanId?: pulumi.Input<string>;
     /**
      * Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
      */
@@ -272,6 +292,14 @@ export interface PublicIpArgs {
      * Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
      */
     allocationMethod: pulumi.Input<string>;
+    /**
+     * The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
+     */
+    ddosProtectionMode?: pulumi.Input<string>;
+    /**
+     * The ID of DDoS protection plan associated with the public IP.
+     */
+    ddosProtectionPlanId?: pulumi.Input<string>;
     /**
      * Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
      */

@@ -124,7 +124,7 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly outputAssets!: pulumi.Output<outputs.media.JobOutputAsset[]>;
     /**
-     * Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created.
+     * Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created. Possible values are `High`, `Normal` and `Low`.
      */
     public readonly priority!: pulumi.Output<string | undefined>;
     /**
@@ -213,7 +213,7 @@ export interface JobState {
      */
     outputAssets?: pulumi.Input<pulumi.Input<inputs.media.JobOutputAsset>[]>;
     /**
-     * Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created.
+     * Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created. Possible values are `High`, `Normal` and `Low`.
      */
     priority?: pulumi.Input<string>;
     /**
@@ -251,7 +251,7 @@ export interface JobArgs {
      */
     outputAssets: pulumi.Input<pulumi.Input<inputs.media.JobOutputAsset>[]>;
     /**
-     * Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created.
+     * Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created. Possible values are `High`, `Normal` and `Low`.
      */
     priority?: pulumi.Input<string>;
     /**

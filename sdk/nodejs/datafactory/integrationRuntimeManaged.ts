@@ -86,7 +86,7 @@ export class IntegrationRuntimeManaged extends pulumi.CustomResource {
      */
     public readonly edition!: pulumi.Output<string | undefined>;
     /**
-     * The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
+     * The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
      */
     public readonly licenseType!: pulumi.Output<string | undefined>;
     /**
@@ -190,7 +190,7 @@ export interface IntegrationRuntimeManagedState {
      */
     edition?: pulumi.Input<string>;
     /**
-     * The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
+     * The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
      */
     licenseType?: pulumi.Input<string>;
     /**
@@ -244,7 +244,7 @@ export interface IntegrationRuntimeManagedArgs {
      */
     edition?: pulumi.Input<string>;
     /**
-     * The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
+     * The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
      */
     licenseType?: pulumi.Input<string>;
     /**

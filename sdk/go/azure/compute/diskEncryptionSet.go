@@ -156,6 +156,8 @@ type DiskEncryptionSet struct {
 	AutoKeyRotationEnabled pulumi.BoolPtrOutput `pulumi:"autoKeyRotationEnabled"`
 	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`.
 	EncryptionType pulumi.StringPtrOutput `pulumi:"encryptionType"`
+	// Multi-tenant application client id to access key vault in a different tenant.
+	FederatedClientId pulumi.StringPtrOutput `pulumi:"federatedClientId"`
 	// An `identity` block as defined below.
 	Identity DiskEncryptionSetIdentityOutput `pulumi:"identity"`
 	// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
@@ -212,6 +214,8 @@ type diskEncryptionSetState struct {
 	AutoKeyRotationEnabled *bool `pulumi:"autoKeyRotationEnabled"`
 	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`.
 	EncryptionType *string `pulumi:"encryptionType"`
+	// Multi-tenant application client id to access key vault in a different tenant.
+	FederatedClientId *string `pulumi:"federatedClientId"`
 	// An `identity` block as defined below.
 	Identity *DiskEncryptionSetIdentity `pulumi:"identity"`
 	// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
@@ -231,6 +235,8 @@ type DiskEncryptionSetState struct {
 	AutoKeyRotationEnabled pulumi.BoolPtrInput
 	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`.
 	EncryptionType pulumi.StringPtrInput
+	// Multi-tenant application client id to access key vault in a different tenant.
+	FederatedClientId pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity DiskEncryptionSetIdentityPtrInput
 	// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
@@ -254,6 +260,8 @@ type diskEncryptionSetArgs struct {
 	AutoKeyRotationEnabled *bool `pulumi:"autoKeyRotationEnabled"`
 	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`.
 	EncryptionType *string `pulumi:"encryptionType"`
+	// Multi-tenant application client id to access key vault in a different tenant.
+	FederatedClientId *string `pulumi:"federatedClientId"`
 	// An `identity` block as defined below.
 	Identity DiskEncryptionSetIdentity `pulumi:"identity"`
 	// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
@@ -274,6 +282,8 @@ type DiskEncryptionSetArgs struct {
 	AutoKeyRotationEnabled pulumi.BoolPtrInput
 	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`.
 	EncryptionType pulumi.StringPtrInput
+	// Multi-tenant application client id to access key vault in a different tenant.
+	FederatedClientId pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity DiskEncryptionSetIdentityInput
 	// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
@@ -383,6 +393,11 @@ func (o DiskEncryptionSetOutput) AutoKeyRotationEnabled() pulumi.BoolPtrOutput {
 // The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`.
 func (o DiskEncryptionSetOutput) EncryptionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiskEncryptionSet) pulumi.StringPtrOutput { return v.EncryptionType }).(pulumi.StringPtrOutput)
+}
+
+// Multi-tenant application client id to access key vault in a different tenant.
+func (o DiskEncryptionSetOutput) FederatedClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DiskEncryptionSet) pulumi.StringPtrOutput { return v.FederatedClientId }).(pulumi.StringPtrOutput)
 }
 
 // An `identity` block as defined below.

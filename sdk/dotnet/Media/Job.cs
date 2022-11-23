@@ -146,7 +146,7 @@ namespace Pulumi.Azure.Media
         public Output<ImmutableArray<Outputs.JobOutputAsset>> OutputAssets { get; private set; } = null!;
 
         /// <summary>
-        /// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created.
+        /// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created. Possible values are `High`, `Normal` and `Low`.
         /// </summary>
         [Output("priority")]
         public Output<string?> Priority { get; private set; } = null!;
@@ -246,7 +246,7 @@ namespace Pulumi.Azure.Media
         }
 
         /// <summary>
-        /// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created.
+        /// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created. Possible values are `High`, `Normal` and `Low`.
         /// </summary>
         [Input("priority")]
         public Input<string>? Priority { get; set; }
@@ -308,7 +308,7 @@ namespace Pulumi.Azure.Media
         }
 
         /// <summary>
-        /// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created.
+        /// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created. Possible values are `High`, `Normal` and `Low`.
         /// </summary>
         [Input("priority")]
         public Input<string>? Priority { get; set; }

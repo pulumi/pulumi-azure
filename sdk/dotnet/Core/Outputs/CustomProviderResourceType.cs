@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Core.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The routing type that is supported for the resource request. Valid values are `ResourceTypeRoutingProxy` or `ResourceTypeRoutingProxyCache`. This value defaults to `ResourceTypeRoutingProxy`.
+        /// The routing type that is supported for the resource request. Valid values are `Proxy` and `Proxy,Cache`. This value defaults to `ResourceTypeRoutingProxy`.
         /// </summary>
         public readonly string? RoutingType;
 

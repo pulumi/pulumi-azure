@@ -21,7 +21,7 @@ class SqlDedicatedGatewayArgs:
         The set of arguments for constructing a SqlDedicatedGateway resource.
         :param pulumi.Input[str] cosmosdb_account_id: The resource ID of the CosmosDB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[int] instance_count: The instance count for the CosmosDB SQL Dedicated Gateway. Possible value is between `1` and `5`.
-        :param pulumi.Input[str] instance_size: The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] instance_size: The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
         """
         pulumi.set(__self__, "cosmosdb_account_id", cosmosdb_account_id)
         pulumi.set(__self__, "instance_count", instance_count)
@@ -55,7 +55,7 @@ class SqlDedicatedGatewayArgs:
     @pulumi.getter(name="instanceSize")
     def instance_size(self) -> pulumi.Input[str]:
         """
-        The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created.
+        The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
         """
         return pulumi.get(self, "instance_size")
 
@@ -74,7 +74,7 @@ class _SqlDedicatedGatewayState:
         Input properties used for looking up and filtering SqlDedicatedGateway resources.
         :param pulumi.Input[str] cosmosdb_account_id: The resource ID of the CosmosDB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[int] instance_count: The instance count for the CosmosDB SQL Dedicated Gateway. Possible value is between `1` and `5`.
-        :param pulumi.Input[str] instance_size: The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] instance_size: The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
         """
         if cosmosdb_account_id is not None:
             pulumi.set(__self__, "cosmosdb_account_id", cosmosdb_account_id)
@@ -111,7 +111,7 @@ class _SqlDedicatedGatewayState:
     @pulumi.getter(name="instanceSize")
     def instance_size(self) -> Optional[pulumi.Input[str]]:
         """
-        The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created.
+        The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
         """
         return pulumi.get(self, "instance_size")
 
@@ -169,7 +169,7 @@ class SqlDedicatedGateway(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cosmosdb_account_id: The resource ID of the CosmosDB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[int] instance_count: The instance count for the CosmosDB SQL Dedicated Gateway. Possible value is between `1` and `5`.
-        :param pulumi.Input[str] instance_size: The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] instance_size: The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
         """
         ...
     @overload
@@ -271,7 +271,7 @@ class SqlDedicatedGateway(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cosmosdb_account_id: The resource ID of the CosmosDB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[int] instance_count: The instance count for the CosmosDB SQL Dedicated Gateway. Possible value is between `1` and `5`.
-        :param pulumi.Input[str] instance_size: The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] instance_size: The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -302,7 +302,7 @@ class SqlDedicatedGateway(pulumi.CustomResource):
     @pulumi.getter(name="instanceSize")
     def instance_size(self) -> pulumi.Output[str]:
         """
-        The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created.
+        The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
         """
         return pulumi.get(self, "instance_size")
 

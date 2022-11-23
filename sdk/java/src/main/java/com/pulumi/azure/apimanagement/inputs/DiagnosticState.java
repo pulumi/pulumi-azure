@@ -142,14 +142,14 @@ public final class DiagnosticState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
+     * The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="identifier")
     private @Nullable Output<String> identifier;
 
     /**
-     * @return The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
+     * @return The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> identifier() {
@@ -437,7 +437,7 @@ public final class DiagnosticState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identifier The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
+         * @param identifier The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -448,7 +448,7 @@ public final class DiagnosticState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identifier The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
+         * @param identifier The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

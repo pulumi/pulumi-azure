@@ -59,14 +59,14 @@ public final class LinkedServerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The role of the linked Redis cache (eg &#34;Secondary&#34;). Changing this forces a new Redis to be created.
+     * The role of the linked Redis cache (eg &#34;Secondary&#34;). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
      * 
      */
     @Import(name="serverRole", required=true)
     private Output<String> serverRole;
 
     /**
-     * @return The role of the linked Redis cache (eg &#34;Secondary&#34;). Changing this forces a new Redis to be created.
+     * @return The role of the linked Redis cache (eg &#34;Secondary&#34;). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
      * 
      */
     public Output<String> serverRole() {
@@ -180,7 +180,7 @@ public final class LinkedServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverRole The role of the linked Redis cache (eg &#34;Secondary&#34;). Changing this forces a new Redis to be created.
+         * @param serverRole The role of the linked Redis cache (eg &#34;Secondary&#34;). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class LinkedServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverRole The role of the linked Redis cache (eg &#34;Secondary&#34;). Changing this forces a new Redis to be created.
+         * @param serverRole The role of the linked Redis cache (eg &#34;Secondary&#34;). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
          * 
          * @return builder
          * 

@@ -82,14 +82,14 @@ public final class SpringCloudGatewayState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created.
+     * The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created.
+     * @return The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -289,7 +289,7 @@ public final class SpringCloudGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created.
+         * @param name The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
          * 
          * @return builder
          * 
@@ -300,7 +300,7 @@ public final class SpringCloudGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created.
+         * @param name The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
          * 
          * @return builder
          * 

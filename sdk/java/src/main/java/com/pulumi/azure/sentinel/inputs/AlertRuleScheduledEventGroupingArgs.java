@@ -14,14 +14,14 @@ public final class AlertRuleScheduledEventGroupingArgs extends com.pulumi.resour
     public static final AlertRuleScheduledEventGroupingArgs Empty = new AlertRuleScheduledEventGroupingArgs();
 
     /**
-     * The aggregation type of grouping the events.
+     * The aggregation type of grouping the events. Possible values are `AlertPerResult` and `SingleAlert`.
      * 
      */
     @Import(name="aggregationMethod", required=true)
     private Output<String> aggregationMethod;
 
     /**
-     * @return The aggregation type of grouping the events.
+     * @return The aggregation type of grouping the events. Possible values are `AlertPerResult` and `SingleAlert`.
      * 
      */
     public Output<String> aggregationMethod() {
@@ -53,7 +53,7 @@ public final class AlertRuleScheduledEventGroupingArgs extends com.pulumi.resour
         }
 
         /**
-         * @param aggregationMethod The aggregation type of grouping the events.
+         * @param aggregationMethod The aggregation type of grouping the events. Possible values are `AlertPerResult` and `SingleAlert`.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class AlertRuleScheduledEventGroupingArgs extends com.pulumi.resour
         }
 
         /**
-         * @param aggregationMethod The aggregation type of grouping the events.
+         * @param aggregationMethod The aggregation type of grouping the events. Possible values are `AlertPerResult` and `SingleAlert`.
          * 
          * @return builder
          * 

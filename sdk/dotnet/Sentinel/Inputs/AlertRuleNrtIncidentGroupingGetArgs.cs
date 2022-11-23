@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Sentinel.Inputs
         private InputList<string>? _byAlertDetails;
 
         /// <summary>
-        /// A list of alert details to group by, only when the `entity_matching_method` is `Selected`.
+        /// A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
         /// </summary>
         public InputList<string> ByAlertDetails
         {

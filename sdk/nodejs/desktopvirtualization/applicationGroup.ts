@@ -118,8 +118,7 @@ export class ApplicationGroup extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Type of Virtual Desktop Application Group.
-     * Valid options are `RemoteApp` or `Desktop` application groups.
+     * Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -212,8 +211,7 @@ export interface ApplicationGroupState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Type of Virtual Desktop Application Group.
-     * Valid options are `RemoteApp` or `Desktop` application groups.
+     * Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
      */
     type?: pulumi.Input<string>;
 }
@@ -259,8 +257,7 @@ export interface ApplicationGroupArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Type of Virtual Desktop Application Group.
-     * Valid options are `RemoteApp` or `Desktop` application groups.
+     * Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
      */
     type: pulumi.Input<string>;
 }

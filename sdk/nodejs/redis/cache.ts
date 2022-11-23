@@ -96,7 +96,7 @@ export class Cache extends pulumi.CustomResource {
     }
 
     /**
-     * The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
+     * The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
      */
     public readonly capacity!: pulumi.Output<number>;
     /**
@@ -120,7 +120,7 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The minimum TLS version.  Defaults to `1.0`.
+     * The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
      */
     public readonly minimumTlsVersion!: pulumi.Output<string | undefined>;
     /**
@@ -304,7 +304,7 @@ export class Cache extends pulumi.CustomResource {
  */
 export interface CacheState {
     /**
-     * The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
+     * The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
      */
     capacity?: pulumi.Input<number>;
     /**
@@ -328,7 +328,7 @@ export interface CacheState {
      */
     location?: pulumi.Input<string>;
     /**
-     * The minimum TLS version.  Defaults to `1.0`.
+     * The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
      */
     minimumTlsVersion?: pulumi.Input<string>;
     /**
@@ -424,7 +424,7 @@ export interface CacheState {
  */
 export interface CacheArgs {
     /**
-     * The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
+     * The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
      */
     capacity: pulumi.Input<number>;
     /**
@@ -444,7 +444,7 @@ export interface CacheArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The minimum TLS version.  Defaults to `1.0`.
+     * The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
      */
     minimumTlsVersion?: pulumi.Input<string>;
     /**

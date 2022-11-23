@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FrontdoorFirewallPolicyManagedRuleOverrideRule {
     /**
-     * @return The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+     * @return The action to be applied when the rule matches. Possible values are `Allow`, `Log`, `Block`, `Redirect` and `AnomalyScoring`.
      * 
      */
     private String action;
@@ -37,7 +37,7 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideRule {
 
     private FrontdoorFirewallPolicyManagedRuleOverrideRule() {}
     /**
-     * @return The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+     * @return The action to be applied when the rule matches. Possible values are `Allow`, `Log`, `Block`, `Redirect` and `AnomalyScoring`.
      * 
      */
     public String action() {

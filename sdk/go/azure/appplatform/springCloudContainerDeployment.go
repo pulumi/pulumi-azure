@@ -101,7 +101,7 @@ type SpringCloudContainerDeployment struct {
 	Image pulumi.StringOutput `pulumi:"image"`
 	// Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
 	InstanceCount pulumi.IntPtrOutput `pulumi:"instanceCount"`
-	// Specifies the language framework of the container image.
+	// Specifies the language framework of the container image. The only possible value is `springboot`.
 	LanguageFramework pulumi.StringPtrOutput `pulumi:"languageFramework"`
 	// The name which should be used for this Spring Cloud Container Deployment. Changing this forces a new Spring Cloud Container Deployment to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -163,7 +163,7 @@ type springCloudContainerDeploymentState struct {
 	Image *string `pulumi:"image"`
 	// Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
 	InstanceCount *int `pulumi:"instanceCount"`
-	// Specifies the language framework of the container image.
+	// Specifies the language framework of the container image. The only possible value is `springboot`.
 	LanguageFramework *string `pulumi:"languageFramework"`
 	// The name which should be used for this Spring Cloud Container Deployment. Changing this forces a new Spring Cloud Container Deployment to be created.
 	Name *string `pulumi:"name"`
@@ -188,7 +188,7 @@ type SpringCloudContainerDeploymentState struct {
 	Image pulumi.StringPtrInput
 	// Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
 	InstanceCount pulumi.IntPtrInput
-	// Specifies the language framework of the container image.
+	// Specifies the language framework of the container image. The only possible value is `springboot`.
 	LanguageFramework pulumi.StringPtrInput
 	// The name which should be used for this Spring Cloud Container Deployment. Changing this forces a new Spring Cloud Container Deployment to be created.
 	Name pulumi.StringPtrInput
@@ -217,7 +217,7 @@ type springCloudContainerDeploymentArgs struct {
 	Image string `pulumi:"image"`
 	// Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
 	InstanceCount *int `pulumi:"instanceCount"`
-	// Specifies the language framework of the container image.
+	// Specifies the language framework of the container image. The only possible value is `springboot`.
 	LanguageFramework *string `pulumi:"languageFramework"`
 	// The name which should be used for this Spring Cloud Container Deployment. Changing this forces a new Spring Cloud Container Deployment to be created.
 	Name *string `pulumi:"name"`
@@ -243,7 +243,7 @@ type SpringCloudContainerDeploymentArgs struct {
 	Image pulumi.StringInput
 	// Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
 	InstanceCount pulumi.IntPtrInput
-	// Specifies the language framework of the container image.
+	// Specifies the language framework of the container image. The only possible value is `springboot`.
 	LanguageFramework pulumi.StringPtrInput
 	// The name which should be used for this Spring Cloud Container Deployment. Changing this forces a new Spring Cloud Container Deployment to be created.
 	Name pulumi.StringPtrInput
@@ -372,7 +372,7 @@ func (o SpringCloudContainerDeploymentOutput) InstanceCount() pulumi.IntPtrOutpu
 	return o.ApplyT(func(v *SpringCloudContainerDeployment) pulumi.IntPtrOutput { return v.InstanceCount }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the language framework of the container image.
+// Specifies the language framework of the container image. The only possible value is `springboot`.
 func (o SpringCloudContainerDeploymentOutput) LanguageFramework() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpringCloudContainerDeployment) pulumi.StringPtrOutput { return v.LanguageFramework }).(pulumi.StringPtrOutput)
 }

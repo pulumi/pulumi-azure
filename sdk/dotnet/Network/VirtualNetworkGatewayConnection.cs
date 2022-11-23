@@ -255,15 +255,13 @@ namespace Pulumi.Azure.Network
         public Output<string?> AuthorizationKey { get; private set; } = null!;
 
         /// <summary>
-        /// Connection mode to use. Possible
-        /// values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
-        /// Changing this value will force a resource to be created.
+        /// Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
         /// </summary>
         [Output("connectionMode")]
         public Output<string?> ConnectionMode { get; private set; } = null!;
 
         /// <summary>
-        /// The IKE protocol version to use. Possible
+        /// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
         /// values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
         /// Changing this value will force a resource to be created.
         /// &gt; **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
@@ -477,15 +475,13 @@ namespace Pulumi.Azure.Network
         public Input<string>? AuthorizationKey { get; set; }
 
         /// <summary>
-        /// Connection mode to use. Possible
-        /// values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
-        /// Changing this value will force a resource to be created.
+        /// Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
         /// </summary>
         [Input("connectionMode")]
         public Input<string>? ConnectionMode { get; set; }
 
         /// <summary>
-        /// The IKE protocol version to use. Possible
+        /// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
         /// values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
         /// Changing this value will force a resource to be created.
         /// &gt; **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
@@ -679,15 +675,13 @@ namespace Pulumi.Azure.Network
         public Input<string>? AuthorizationKey { get; set; }
 
         /// <summary>
-        /// Connection mode to use. Possible
-        /// values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
-        /// Changing this value will force a resource to be created.
+        /// Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
         /// </summary>
         [Input("connectionMode")]
         public Input<string>? ConnectionMode { get; set; }
 
         /// <summary>
-        /// The IKE protocol version to use. Possible
+        /// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
         /// values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
         /// Changing this value will force a resource to be created.
         /// &gt; **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.

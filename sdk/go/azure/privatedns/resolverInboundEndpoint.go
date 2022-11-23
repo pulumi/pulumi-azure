@@ -108,7 +108,7 @@ import (
 type ResolverInboundEndpoint struct {
 	pulumi.CustomResourceState
 
-	// An `ipConfigurations` block as defined below.
+	// Can be specified multiple times to define multiple IP configurations. Each `ipConfigurations` block as defined below.
 	IpConfigurations ResolverInboundEndpointIpConfigurationArrayOutput `pulumi:"ipConfigurations"`
 	// Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -155,7 +155,7 @@ func GetResolverInboundEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResolverInboundEndpoint resources.
 type resolverInboundEndpointState struct {
-	// An `ipConfigurations` block as defined below.
+	// Can be specified multiple times to define multiple IP configurations. Each `ipConfigurations` block as defined below.
 	IpConfigurations []ResolverInboundEndpointIpConfiguration `pulumi:"ipConfigurations"`
 	// Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
 	Location *string `pulumi:"location"`
@@ -168,7 +168,7 @@ type resolverInboundEndpointState struct {
 }
 
 type ResolverInboundEndpointState struct {
-	// An `ipConfigurations` block as defined below.
+	// Can be specified multiple times to define multiple IP configurations. Each `ipConfigurations` block as defined below.
 	IpConfigurations ResolverInboundEndpointIpConfigurationArrayInput
 	// Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
 	Location pulumi.StringPtrInput
@@ -185,7 +185,7 @@ func (ResolverInboundEndpointState) ElementType() reflect.Type {
 }
 
 type resolverInboundEndpointArgs struct {
-	// An `ipConfigurations` block as defined below.
+	// Can be specified multiple times to define multiple IP configurations. Each `ipConfigurations` block as defined below.
 	IpConfigurations []ResolverInboundEndpointIpConfiguration `pulumi:"ipConfigurations"`
 	// Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
 	Location *string `pulumi:"location"`
@@ -199,7 +199,7 @@ type resolverInboundEndpointArgs struct {
 
 // The set of arguments for constructing a ResolverInboundEndpoint resource.
 type ResolverInboundEndpointArgs struct {
-	// An `ipConfigurations` block as defined below.
+	// Can be specified multiple times to define multiple IP configurations. Each `ipConfigurations` block as defined below.
 	IpConfigurations ResolverInboundEndpointIpConfigurationArrayInput
 	// Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
 	Location pulumi.StringPtrInput
@@ -298,7 +298,7 @@ func (o ResolverInboundEndpointOutput) ToResolverInboundEndpointOutputWithContex
 	return o
 }
 
-// An `ipConfigurations` block as defined below.
+// Can be specified multiple times to define multiple IP configurations. Each `ipConfigurations` block as defined below.
 func (o ResolverInboundEndpointOutput) IpConfigurations() ResolverInboundEndpointIpConfigurationArrayOutput {
 	return o.ApplyT(func(v *ResolverInboundEndpoint) ResolverInboundEndpointIpConfigurationArrayOutput {
 		return v.IpConfigurations

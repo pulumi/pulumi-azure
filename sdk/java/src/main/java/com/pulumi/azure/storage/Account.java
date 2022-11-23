@@ -15,6 +15,7 @@ import com.pulumi.azure.storage.outputs.AccountImmutabilityPolicy;
 import com.pulumi.azure.storage.outputs.AccountNetworkRules;
 import com.pulumi.azure.storage.outputs.AccountQueueProperties;
 import com.pulumi.azure.storage.outputs.AccountRouting;
+import com.pulumi.azure.storage.outputs.AccountSasPolicy;
 import com.pulumi.azure.storage.outputs.AccountShareProperties;
 import com.pulumi.azure.storage.outputs.AccountStaticWebsite;
 import com.pulumi.core.Output;
@@ -762,6 +763,20 @@ public class Account extends com.pulumi.resources.CustomResource {
      */
     public Output<AccountRouting> routing() {
         return this.routing;
+    }
+    /**
+     * A `sas_policy` block as defined below.
+     * 
+     */
+    @Export(name="sasPolicy", type=AccountSasPolicy.class, parameters={})
+    private Output</* @Nullable */ AccountSasPolicy> sasPolicy;
+
+    /**
+     * @return A `sas_policy` block as defined below.
+     * 
+     */
+    public Output<Optional<AccountSasPolicy>> sasPolicy() {
+        return Codegen.optional(this.sasPolicy);
     }
     /**
      * The secondary access key for the storage account.

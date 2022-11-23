@@ -26,7 +26,7 @@ namespace Pulumi.Azure.AppInsights.Outputs
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// The type of Managed Service Identity that is configured on this Workbook.
+        /// The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
         /// </summary>
         public readonly string Type;
 

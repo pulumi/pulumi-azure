@@ -190,13 +190,11 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
      */
     public readonly authorizationKey!: pulumi.Output<string | undefined>;
     /**
-     * Connection mode to use. Possible
-     * values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
-     * Changing this value will force a resource to be created.
+     * Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
      */
     public readonly connectionMode!: pulumi.Output<string | undefined>;
     /**
-     * The IKE protocol version to use. Possible
+     * The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
      * values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
      * Changing this value will force a resource to be created.
      * > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
@@ -401,13 +399,11 @@ export interface VirtualNetworkGatewayConnectionState {
      */
     authorizationKey?: pulumi.Input<string>;
     /**
-     * Connection mode to use. Possible
-     * values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
-     * Changing this value will force a resource to be created.
+     * Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
      */
     connectionMode?: pulumi.Input<string>;
     /**
-     * The IKE protocol version to use. Possible
+     * The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
      * values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
      * Changing this value will force a resource to be created.
      * > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
@@ -535,13 +531,11 @@ export interface VirtualNetworkGatewayConnectionArgs {
      */
     authorizationKey?: pulumi.Input<string>;
     /**
-     * Connection mode to use. Possible
-     * values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
-     * Changing this value will force a resource to be created.
+     * Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
      */
     connectionMode?: pulumi.Input<string>;
     /**
-     * The IKE protocol version to use. Possible
+     * The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
      * values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
      * Changing this value will force a resource to be created.
      * > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.

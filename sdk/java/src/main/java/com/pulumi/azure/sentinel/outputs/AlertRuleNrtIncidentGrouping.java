@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AlertRuleNrtIncidentGrouping {
     /**
-     * @return A list of alert details to group by, only when the `entity_matching_method` is `Selected`.
+     * @return A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
      * 
      */
     private @Nullable List<String> byAlertDetails;
@@ -51,7 +51,7 @@ public final class AlertRuleNrtIncidentGrouping {
 
     private AlertRuleNrtIncidentGrouping() {}
     /**
-     * @return A list of alert details to group by, only when the `entity_matching_method` is `Selected`.
+     * @return A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
      * 
      */
     public List<String> byAlertDetails() {

@@ -234,14 +234,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * The SKU of the account - only `Basic` is supported at this time.
+     * The SKU of the account. Possible values are `Basic` and `Free`.
      * 
      */
     @Export(name="skuName", type=String.class, parameters={})
     private Output<String> skuName;
 
     /**
-     * @return The SKU of the account - only `Basic` is supported at this time.
+     * @return The SKU of the account. Possible values are `Basic` and `Free`.
      * 
      */
     public Output<String> skuName() {

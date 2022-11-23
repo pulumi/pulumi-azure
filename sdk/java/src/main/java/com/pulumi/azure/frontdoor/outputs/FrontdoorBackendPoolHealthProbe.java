@@ -44,7 +44,7 @@ public final class FrontdoorBackendPoolHealthProbe {
      */
     private @Nullable String probeMethod;
     /**
-     * @return Protocol scheme to use for the Health Probe. Defaults to `Http`.
+     * @return Protocol scheme to use for the Health Probe. Possible values are `Http` and `Https`. Defaults to `Http`.
      * 
      */
     private @Nullable String protocol;
@@ -93,7 +93,7 @@ public final class FrontdoorBackendPoolHealthProbe {
         return Optional.ofNullable(this.probeMethod);
     }
     /**
-     * @return Protocol scheme to use for the Health Probe. Defaults to `Http`.
+     * @return Protocol scheme to use for the Health Probe. Possible values are `Http` and `Https`. Defaults to `Http`.
      * 
      */
     public Optional<String> protocol() {

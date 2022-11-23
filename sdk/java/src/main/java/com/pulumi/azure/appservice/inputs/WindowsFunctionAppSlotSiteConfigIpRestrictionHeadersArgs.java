@@ -32,14 +32,14 @@ public final class WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArgs exte
     }
 
     /**
-     * Specifies if a Front Door Health Probe should be expected.
+     * Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
      * 
      */
     @Import(name="xFdHealthProbe")
     private @Nullable Output<String> xFdHealthProbe;
 
     /**
-     * @return Specifies if a Front Door Health Probe should be expected.
+     * @return Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
      * 
      */
     public Optional<Output<String>> xFdHealthProbe() {
@@ -135,7 +135,7 @@ public final class WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArgs exte
         }
 
         /**
-         * @param xFdHealthProbe Specifies if a Front Door Health Probe should be expected.
+         * @param xFdHealthProbe Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArgs exte
         }
 
         /**
-         * @param xFdHealthProbe Specifies if a Front Door Health Probe should be expected.
+         * @param xFdHealthProbe Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
          * 
          * @return builder
          * 

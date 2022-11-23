@@ -31,7 +31,7 @@ namespace Pulumi.Azure.StreamAnalytics.Inputs
         public Input<string>? Format { get; set; }
 
         /// <summary>
-        /// The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
+        /// The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

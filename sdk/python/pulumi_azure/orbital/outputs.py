@@ -28,7 +28,7 @@ class ContactProfileLink(dict):
         :param Sequence['ContactProfileLinkChannelArgs'] channels: A list of contact profile link channels. A `channel` block as defined below.
         :param str direction: Direction of the link. Possible values are `Uplink` and `Downlink`.
         :param str name: Name of the link.
-        :param str polarization: Polarization of the link. Possible values are `RHCP`, `LHCP`, `linearVertical` and `linearHorizonal`.
+        :param str polarization: Polarization of the link. Possible values are `LHCP`, `RHCP`, `linearVertical` and `linearHorizontal`.
         """
         pulumi.set(__self__, "channels", channels)
         pulumi.set(__self__, "direction", direction)
@@ -63,7 +63,7 @@ class ContactProfileLink(dict):
     @pulumi.getter
     def polarization(self) -> str:
         """
-        Polarization of the link. Possible values are `RHCP`, `LHCP`, `linearVertical` and `linearHorizonal`.
+        Polarization of the link. Possible values are `LHCP`, `RHCP`, `linearVertical` and `linearHorizontal`.
         """
         return pulumi.get(self, "polarization")
 

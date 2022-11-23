@@ -220,14 +220,14 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A string indicating the Operating System type for this function app.
+     * A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
      * 
      */
     @Import(name="osType")
     private @Nullable Output<String> osType;
 
     /**
-     * @return A string indicating the Operating System type for this function app.
+     * @return A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
      * 
      */
     public Optional<Output<String>> osType() {
@@ -667,7 +667,7 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osType A string indicating the Operating System type for this function app.
+         * @param osType A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
          * 
          * @return builder
          * 
@@ -678,7 +678,7 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osType A string indicating the Operating System type for this function app.
+         * @param osType A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
          * 
          * @return builder
          * 

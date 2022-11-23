@@ -122,7 +122,7 @@ type AlertRuleScheduled struct {
 	SuppressionDuration pulumi.StringPtrOutput `pulumi:"suppressionDuration"`
 	// Should the Sentinel Scheduled Alert Rulea stop running query after alert is generated? Defaults to `false`.
 	SuppressionEnabled pulumi.BoolPtrOutput `pulumi:"suppressionEnabled"`
-	// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`,  `PrivilegeEscalation`, `ImpairProcessControl`, `InhibitResponseFunction`, `Reconnaissance` and `ResourceDevelopment`.
+	// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `ImpairProcessControl`, `InhibitResponseFunction`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation`, `PreAttack`, `Reconnaissance` and `ResourceDevelopment`.
 	Tactics pulumi.StringArrayOutput `pulumi:"tactics"`
 	// A list of techniques of attacks by which to classify the rule.
 	Techniques pulumi.StringArrayOutput `pulumi:"techniques"`
@@ -209,7 +209,7 @@ type alertRuleScheduledState struct {
 	SuppressionDuration *string `pulumi:"suppressionDuration"`
 	// Should the Sentinel Scheduled Alert Rulea stop running query after alert is generated? Defaults to `false`.
 	SuppressionEnabled *bool `pulumi:"suppressionEnabled"`
-	// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`,  `PrivilegeEscalation`, `ImpairProcessControl`, `InhibitResponseFunction`, `Reconnaissance` and `ResourceDevelopment`.
+	// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `ImpairProcessControl`, `InhibitResponseFunction`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation`, `PreAttack`, `Reconnaissance` and `ResourceDevelopment`.
 	Tactics []string `pulumi:"tactics"`
 	// A list of techniques of attacks by which to classify the rule.
 	Techniques []string `pulumi:"techniques"`
@@ -256,7 +256,7 @@ type AlertRuleScheduledState struct {
 	SuppressionDuration pulumi.StringPtrInput
 	// Should the Sentinel Scheduled Alert Rulea stop running query after alert is generated? Defaults to `false`.
 	SuppressionEnabled pulumi.BoolPtrInput
-	// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`,  `PrivilegeEscalation`, `ImpairProcessControl`, `InhibitResponseFunction`, `Reconnaissance` and `ResourceDevelopment`.
+	// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `ImpairProcessControl`, `InhibitResponseFunction`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation`, `PreAttack`, `Reconnaissance` and `ResourceDevelopment`.
 	Tactics pulumi.StringArrayInput
 	// A list of techniques of attacks by which to classify the rule.
 	Techniques pulumi.StringArrayInput
@@ -307,7 +307,7 @@ type alertRuleScheduledArgs struct {
 	SuppressionDuration *string `pulumi:"suppressionDuration"`
 	// Should the Sentinel Scheduled Alert Rulea stop running query after alert is generated? Defaults to `false`.
 	SuppressionEnabled *bool `pulumi:"suppressionEnabled"`
-	// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`,  `PrivilegeEscalation`, `ImpairProcessControl`, `InhibitResponseFunction`, `Reconnaissance` and `ResourceDevelopment`.
+	// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `ImpairProcessControl`, `InhibitResponseFunction`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation`, `PreAttack`, `Reconnaissance` and `ResourceDevelopment`.
 	Tactics []string `pulumi:"tactics"`
 	// A list of techniques of attacks by which to classify the rule.
 	Techniques []string `pulumi:"techniques"`
@@ -355,7 +355,7 @@ type AlertRuleScheduledArgs struct {
 	SuppressionDuration pulumi.StringPtrInput
 	// Should the Sentinel Scheduled Alert Rulea stop running query after alert is generated? Defaults to `false`.
 	SuppressionEnabled pulumi.BoolPtrInput
-	// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`,  `PrivilegeEscalation`, `ImpairProcessControl`, `InhibitResponseFunction`, `Reconnaissance` and `ResourceDevelopment`.
+	// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `ImpairProcessControl`, `InhibitResponseFunction`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation`, `PreAttack`, `Reconnaissance` and `ResourceDevelopment`.
 	Tactics pulumi.StringArrayInput
 	// A list of techniques of attacks by which to classify the rule.
 	Techniques pulumi.StringArrayInput
@@ -546,7 +546,7 @@ func (o AlertRuleScheduledOutput) SuppressionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AlertRuleScheduled) pulumi.BoolPtrOutput { return v.SuppressionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`,  `PrivilegeEscalation`, `ImpairProcessControl`, `InhibitResponseFunction`, `Reconnaissance` and `ResourceDevelopment`.
+// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `ImpairProcessControl`, `InhibitResponseFunction`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation`, `PreAttack`, `Reconnaissance` and `ResourceDevelopment`.
 func (o AlertRuleScheduledOutput) Tactics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AlertRuleScheduled) pulumi.StringArrayOutput { return v.Tactics }).(pulumi.StringArrayOutput)
 }

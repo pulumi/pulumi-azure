@@ -65,7 +65,7 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool.
+     * `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
      * `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
      * `Persistent` should be used if the host pool type is `Personal`
      * 
@@ -74,7 +74,7 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
     private Output<String> loadBalancerType;
 
     /**
-     * @return `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool.
+     * @return `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
      * `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
      * `Persistent` should be used if the host pool type is `Personal`
      * 
@@ -135,7 +135,7 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * `Automatic` assignment – The service will select an available host and assign it to an user.
+     * `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`.
      * `Direct` Assignment – Admin selects a specific host to assign to an user.
      * 
      */
@@ -143,7 +143,7 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> personalDesktopAssignmentType;
 
     /**
-     * @return `Automatic` assignment – The service will select an available host and assign it to an user.
+     * @return `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`.
      * `Direct` Assignment – Admin selects a specific host to assign to an user.
      * 
      */
@@ -152,16 +152,14 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
-     * Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
+     * Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
      * 
      */
     @Import(name="preferredAppGroupType")
     private @Nullable Output<String> preferredAppGroupType;
 
     /**
-     * @return Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
-     * Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
+     * @return Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
      * 
      */
     public Optional<Output<String>> preferredAppGroupType() {
@@ -233,16 +231,14 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of the Virtual Desktop Host Pool. Valid options are
-     * `Personal` or `Pooled`. Changing the type forces a new resource to be created.
+     * The type of the Virtual Desktop Host Pool. Valid options are `Personal` or `Pooled`. Changing the type forces a new resource to be created.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of the Virtual Desktop Host Pool. Valid options are
-     * `Personal` or `Pooled`. Changing the type forces a new resource to be created.
+     * @return The type of the Virtual Desktop Host Pool. Valid options are `Personal` or `Pooled`. Changing the type forces a new resource to be created.
      * 
      */
     public Output<String> type() {
@@ -366,7 +362,7 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancerType `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool.
+         * @param loadBalancerType `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
          * `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
          * `Persistent` should be used if the host pool type is `Personal`
          * 
@@ -379,7 +375,7 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancerType `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool.
+         * @param loadBalancerType `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
          * `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
          * `Persistent` should be used if the host pool type is `Personal`
          * 
@@ -460,7 +456,7 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param personalDesktopAssignmentType `Automatic` assignment – The service will select an available host and assign it to an user.
+         * @param personalDesktopAssignmentType `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`.
          * `Direct` Assignment – Admin selects a specific host to assign to an user.
          * 
          * @return builder
@@ -472,7 +468,7 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param personalDesktopAssignmentType `Automatic` assignment – The service will select an available host and assign it to an user.
+         * @param personalDesktopAssignmentType `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`.
          * `Direct` Assignment – Admin selects a specific host to assign to an user.
          * 
          * @return builder
@@ -483,8 +479,7 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preferredAppGroupType Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
-         * Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
+         * @param preferredAppGroupType Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
          * 
          * @return builder
          * 
@@ -495,8 +490,7 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preferredAppGroupType Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
-         * Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
+         * @param preferredAppGroupType Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
          * 
          * @return builder
          * 
@@ -594,8 +588,7 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of the Virtual Desktop Host Pool. Valid options are
-         * `Personal` or `Pooled`. Changing the type forces a new resource to be created.
+         * @param type The type of the Virtual Desktop Host Pool. Valid options are `Personal` or `Pooled`. Changing the type forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -606,8 +599,7 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of the Virtual Desktop Host Pool. Valid options are
-         * `Personal` or `Pooled`. Changing the type forces a new resource to be created.
+         * @param type The type of the Virtual Desktop Host Pool. Valid options are `Personal` or `Pooled`. Changing the type forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -28,7 +28,7 @@ public final class PoolCertificate {
      */
     private @Nullable String storeName;
     /**
-     * @return Which user accounts on the compute node should have access to the private data of the certificate.
+     * @return Which user accounts on the compute node should have access to the private data of the certificate. Possible values are `StartTask`, `Task` and `RemoteUser`.
      * 
      */
     private @Nullable List<String> visibilities;
@@ -56,7 +56,7 @@ public final class PoolCertificate {
         return Optional.ofNullable(this.storeName);
     }
     /**
-     * @return Which user accounts on the compute node should have access to the private data of the certificate.
+     * @return Which user accounts on the compute node should have access to the private data of the certificate. Possible values are `StartTask`, `Task` and `RemoteUser`.
      * 
      */
     public List<String> visibilities() {

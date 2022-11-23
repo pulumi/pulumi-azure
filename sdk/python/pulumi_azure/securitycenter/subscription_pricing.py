@@ -15,15 +15,19 @@ __all__ = ['SubscriptionPricingArgs', 'SubscriptionPricing']
 class SubscriptionPricingArgs:
     def __init__(__self__, *,
                  tier: pulumi.Input[str],
-                 resource_type: Optional[pulumi.Input[str]] = None):
+                 resource_type: Optional[pulumi.Input[str]] = None,
+                 subplan: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SubscriptionPricing resource.
         :param pulumi.Input[str] tier: The pricing tier to use. Possible values are `Free` and `Standard`.
         :param pulumi.Input[str] resource_type: The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `OpenSourceRelationalDatabases`, `Containers` and `Dns`. Defaults to `VirtualMachines`.
+        :param pulumi.Input[str] subplan: Resource type pricing subplan. Contact your MSFT representative for possible values.
         """
         pulumi.set(__self__, "tier", tier)
         if resource_type is not None:
             pulumi.set(__self__, "resource_type", resource_type)
+        if subplan is not None:
+            pulumi.set(__self__, "subplan", subplan)
 
     @property
     @pulumi.getter
@@ -49,19 +53,35 @@ class SubscriptionPricingArgs:
     def resource_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_type", value)
 
+    @property
+    @pulumi.getter
+    def subplan(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource type pricing subplan. Contact your MSFT representative for possible values.
+        """
+        return pulumi.get(self, "subplan")
+
+    @subplan.setter
+    def subplan(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subplan", value)
+
 
 @pulumi.input_type
 class _SubscriptionPricingState:
     def __init__(__self__, *,
                  resource_type: Optional[pulumi.Input[str]] = None,
+                 subplan: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SubscriptionPricing resources.
         :param pulumi.Input[str] resource_type: The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `OpenSourceRelationalDatabases`, `Containers` and `Dns`. Defaults to `VirtualMachines`.
+        :param pulumi.Input[str] subplan: Resource type pricing subplan. Contact your MSFT representative for possible values.
         :param pulumi.Input[str] tier: The pricing tier to use. Possible values are `Free` and `Standard`.
         """
         if resource_type is not None:
             pulumi.set(__self__, "resource_type", resource_type)
+        if subplan is not None:
+            pulumi.set(__self__, "subplan", subplan)
         if tier is not None:
             pulumi.set(__self__, "tier", tier)
 
@@ -76,6 +96,18 @@ class _SubscriptionPricingState:
     @resource_type.setter
     def resource_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_type", value)
+
+    @property
+    @pulumi.getter
+    def subplan(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource type pricing subplan. Contact your MSFT representative for possible values.
+        """
+        return pulumi.get(self, "subplan")
+
+    @subplan.setter
+    def subplan(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subplan", value)
 
     @property
     @pulumi.getter
@@ -96,6 +128,7 @@ class SubscriptionPricing(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
+                 subplan: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -125,6 +158,7 @@ class SubscriptionPricing(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] resource_type: The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `OpenSourceRelationalDatabases`, `Containers` and `Dns`. Defaults to `VirtualMachines`.
+        :param pulumi.Input[str] subplan: Resource type pricing subplan. Contact your MSFT representative for possible values.
         :param pulumi.Input[str] tier: The pricing tier to use. Possible values are `Free` and `Standard`.
         """
         ...
@@ -173,6 +207,7 @@ class SubscriptionPricing(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
+                 subplan: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -184,6 +219,7 @@ class SubscriptionPricing(pulumi.CustomResource):
             __props__ = SubscriptionPricingArgs.__new__(SubscriptionPricingArgs)
 
             __props__.__dict__["resource_type"] = resource_type
+            __props__.__dict__["subplan"] = subplan
             if tier is None and not opts.urn:
                 raise TypeError("Missing required property 'tier'")
             __props__.__dict__["tier"] = tier
@@ -198,6 +234,7 @@ class SubscriptionPricing(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             resource_type: Optional[pulumi.Input[str]] = None,
+            subplan: Optional[pulumi.Input[str]] = None,
             tier: Optional[pulumi.Input[str]] = None) -> 'SubscriptionPricing':
         """
         Get an existing SubscriptionPricing resource's state with the given name, id, and optional extra
@@ -207,6 +244,7 @@ class SubscriptionPricing(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] resource_type: The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `OpenSourceRelationalDatabases`, `Containers` and `Dns`. Defaults to `VirtualMachines`.
+        :param pulumi.Input[str] subplan: Resource type pricing subplan. Contact your MSFT representative for possible values.
         :param pulumi.Input[str] tier: The pricing tier to use. Possible values are `Free` and `Standard`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -214,6 +252,7 @@ class SubscriptionPricing(pulumi.CustomResource):
         __props__ = _SubscriptionPricingState.__new__(_SubscriptionPricingState)
 
         __props__.__dict__["resource_type"] = resource_type
+        __props__.__dict__["subplan"] = subplan
         __props__.__dict__["tier"] = tier
         return SubscriptionPricing(resource_name, opts=opts, __props__=__props__)
 
@@ -224,6 +263,14 @@ class SubscriptionPricing(pulumi.CustomResource):
         The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `OpenSourceRelationalDatabases`, `Containers` and `Dns`. Defaults to `VirtualMachines`.
         """
         return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter
+    def subplan(self) -> pulumi.Output[Optional[str]]:
+        """
+        Resource type pricing subplan. Contact your MSFT representative for possible values.
+        """
+        return pulumi.get(self, "subplan")
 
     @property
     @pulumi.getter

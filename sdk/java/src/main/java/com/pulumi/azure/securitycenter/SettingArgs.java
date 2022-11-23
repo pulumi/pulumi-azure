@@ -30,14 +30,14 @@ public final class SettingArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The setting to manage. Possible values are `MCAS` and `WDATP`. Changing this forces a new resource to be created.
+     * The setting to manage. Possible values are `MCAS` , `WDATP` and `SENTINEL`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="settingName", required=true)
     private Output<String> settingName;
 
     /**
-     * @return The setting to manage. Possible values are `MCAS` and `WDATP`. Changing this forces a new resource to be created.
+     * @return The setting to manage. Possible values are `MCAS` , `WDATP` and `SENTINEL`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> settingName() {
@@ -91,7 +91,7 @@ public final class SettingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param settingName The setting to manage. Possible values are `MCAS` and `WDATP`. Changing this forces a new resource to be created.
+         * @param settingName The setting to manage. Possible values are `MCAS` , `WDATP` and `SENTINEL`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class SettingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param settingName The setting to manage. Possible values are `MCAS` and `WDATP`. Changing this forces a new resource to be created.
+         * @param settingName The setting to manage. Possible values are `MCAS` , `WDATP` and `SENTINEL`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

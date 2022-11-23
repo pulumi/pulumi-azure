@@ -182,7 +182,7 @@ namespace Pulumi.Azure.Sentinel
         public Output<bool?> SuppressionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`,  `PrivilegeEscalation`, `ImpairProcessControl`, `InhibitResponseFunction`, `Reconnaissance` and `ResourceDevelopment`.
+        /// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `ImpairProcessControl`, `InhibitResponseFunction`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation`, `PreAttack`, `Reconnaissance` and `ResourceDevelopment`.
         /// </summary>
         [Output("tactics")]
         public Output<ImmutableArray<string>> Tactics { get; private set; } = null!;
@@ -381,7 +381,7 @@ namespace Pulumi.Azure.Sentinel
         private InputList<string>? _tactics;
 
         /// <summary>
-        /// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`,  `PrivilegeEscalation`, `ImpairProcessControl`, `InhibitResponseFunction`, `Reconnaissance` and `ResourceDevelopment`.
+        /// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `ImpairProcessControl`, `InhibitResponseFunction`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation`, `PreAttack`, `Reconnaissance` and `ResourceDevelopment`.
         /// </summary>
         public InputList<string> Tactics
         {
@@ -551,7 +551,7 @@ namespace Pulumi.Azure.Sentinel
         private InputList<string>? _tactics;
 
         /// <summary>
-        /// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`,  `PrivilegeEscalation`, `ImpairProcessControl`, `InhibitResponseFunction`, `Reconnaissance` and `ResourceDevelopment`.
+        /// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `ImpairProcessControl`, `InhibitResponseFunction`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation`, `PreAttack`, `Reconnaissance` and `ResourceDevelopment`.
         /// </summary>
         public InputList<string> Tactics
         {

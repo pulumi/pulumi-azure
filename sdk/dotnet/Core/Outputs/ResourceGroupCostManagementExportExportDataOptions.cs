@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Core.Outputs
         /// </summary>
         public readonly string TimeFrame;
         /// <summary>
-        /// The type of the query.
+        /// The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
         /// </summary>
         public readonly string Type;
 

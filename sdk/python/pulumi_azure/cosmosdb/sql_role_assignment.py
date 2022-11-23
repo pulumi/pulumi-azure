@@ -253,7 +253,7 @@ class SqlRoleAssignment(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             account_name=example_account.name,
             type="CustomRole",
-            assignable_scopes=[pulumi.Output.all(example_resource_group.name, example_account.name).apply(lambda exampleResourceGroupName, exampleAccountName: f"/subscriptions/{current.subscription_id}/resourceGroups/{example_resource_group_name}/providers/Microsoft.DocumentDB/databaseAccounts/{example_account_name}")],
+            assignable_scopes=[example_account.id],
             permissions=[azure.cosmosdb.SqlRoleDefinitionPermissionArgs(
                 data_actions=["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
             )])
@@ -262,7 +262,7 @@ class SqlRoleAssignment(pulumi.CustomResource):
             account_name=example_account.name,
             role_definition_id=example_sql_role_definition.id,
             principal_id=current.object_id,
-            scope=pulumi.Output.all(example_resource_group.name, example_account.name).apply(lambda exampleResourceGroupName, exampleAccountName: f"/subscriptions/{current.subscription_id}/resourceGroups/{example_resource_group_name}/providers/Microsoft.DocumentDB/databaseAccounts/{example_account_name}"))
+            scope=example_account.id)
         ```
 
         ## Import
@@ -315,7 +315,7 @@ class SqlRoleAssignment(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             account_name=example_account.name,
             type="CustomRole",
-            assignable_scopes=[pulumi.Output.all(example_resource_group.name, example_account.name).apply(lambda exampleResourceGroupName, exampleAccountName: f"/subscriptions/{current.subscription_id}/resourceGroups/{example_resource_group_name}/providers/Microsoft.DocumentDB/databaseAccounts/{example_account_name}")],
+            assignable_scopes=[example_account.id],
             permissions=[azure.cosmosdb.SqlRoleDefinitionPermissionArgs(
                 data_actions=["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
             )])
@@ -324,7 +324,7 @@ class SqlRoleAssignment(pulumi.CustomResource):
             account_name=example_account.name,
             role_definition_id=example_sql_role_definition.id,
             principal_id=current.object_id,
-            scope=pulumi.Output.all(example_resource_group.name, example_account.name).apply(lambda exampleResourceGroupName, exampleAccountName: f"/subscriptions/{current.subscription_id}/resourceGroups/{example_resource_group_name}/providers/Microsoft.DocumentDB/databaseAccounts/{example_account_name}"))
+            scope=example_account.id)
         ```
 
         ## Import

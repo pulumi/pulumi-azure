@@ -34,7 +34,7 @@ class DiagnosticArgs:
         The set of arguments for constructing a Diagnostic resource.
         :param pulumi.Input[str] api_management_logger_id: The id of the target API Management Logger where the API Management Diagnostic should be saved.
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this Diagnostic should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] identifier: The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] identifier: The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] always_log_errors: Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
         :param pulumi.Input['DiagnosticBackendRequestArgs'] backend_request: A `backend_request` block as defined below.
@@ -100,7 +100,7 @@ class DiagnosticArgs:
     @pulumi.getter
     def identifier(self) -> pulumi.Input[str]:
         """
-        The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
+        The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "identifier")
 
@@ -268,7 +268,7 @@ class _DiagnosticState:
         :param pulumi.Input['DiagnosticFrontendRequestArgs'] frontend_request: A `frontend_request` block as defined below.
         :param pulumi.Input['DiagnosticFrontendResponseArgs'] frontend_response: A `frontend_response` block as defined below.
         :param pulumi.Input[str] http_correlation_protocol: The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
-        :param pulumi.Input[str] identifier: The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] identifier: The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] log_client_ip: Log client IP address.
         :param pulumi.Input[str] operation_name_format: The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
@@ -404,7 +404,7 @@ class _DiagnosticState:
     @pulumi.getter
     def identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
+        The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "identifier")
 
@@ -581,7 +581,7 @@ class Diagnostic(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DiagnosticFrontendRequestArgs']] frontend_request: A `frontend_request` block as defined below.
         :param pulumi.Input[pulumi.InputType['DiagnosticFrontendResponseArgs']] frontend_response: A `frontend_response` block as defined below.
         :param pulumi.Input[str] http_correlation_protocol: The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
-        :param pulumi.Input[str] identifier: The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] identifier: The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] log_client_ip: Log client IP address.
         :param pulumi.Input[str] operation_name_format: The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
@@ -771,7 +771,7 @@ class Diagnostic(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DiagnosticFrontendRequestArgs']] frontend_request: A `frontend_request` block as defined below.
         :param pulumi.Input[pulumi.InputType['DiagnosticFrontendResponseArgs']] frontend_response: A `frontend_response` block as defined below.
         :param pulumi.Input[str] http_correlation_protocol: The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
-        :param pulumi.Input[str] identifier: The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] identifier: The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] log_client_ip: Log client IP address.
         :param pulumi.Input[str] operation_name_format: The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
@@ -866,7 +866,7 @@ class Diagnostic(pulumi.CustomResource):
     @pulumi.getter
     def identifier(self) -> pulumi.Output[str]:
         """
-        The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
+        The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "identifier")
 

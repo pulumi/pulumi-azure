@@ -32,7 +32,7 @@ class SpringCloudGatewayArgs:
         :param pulumi.Input['SpringCloudGatewayCorsArgs'] cors: A `cors` block as defined below.
         :param pulumi.Input[bool] https_only: is only https is allowed?
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
-        :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
         :param pulumi.Input[bool] public_network_access_enabled: Indicates whether the Spring Cloud Gateway exposes endpoint.
         :param pulumi.Input['SpringCloudGatewayQuotaArgs'] quota: A `quota` block as defined below.
         :param pulumi.Input['SpringCloudGatewaySsoArgs'] sso: A `sso` block as defined below.
@@ -119,7 +119,7 @@ class SpringCloudGatewayArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created.
+        The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
         """
         return pulumi.get(self, "name")
 
@@ -183,7 +183,7 @@ class _SpringCloudGatewayState:
         :param pulumi.Input['SpringCloudGatewayCorsArgs'] cors: A `cors` block as defined below.
         :param pulumi.Input[bool] https_only: is only https is allowed?
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
-        :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
         :param pulumi.Input[bool] public_network_access_enabled: Indicates whether the Spring Cloud Gateway exposes endpoint.
         :param pulumi.Input['SpringCloudGatewayQuotaArgs'] quota: A `quota` block as defined below.
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Gateway to be created.
@@ -263,7 +263,7 @@ class _SpringCloudGatewayState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created.
+        The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
         """
         return pulumi.get(self, "name")
 
@@ -409,7 +409,7 @@ class SpringCloudGateway(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SpringCloudGatewayCorsArgs']] cors: A `cors` block as defined below.
         :param pulumi.Input[bool] https_only: is only https is allowed?
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
-        :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
         :param pulumi.Input[bool] public_network_access_enabled: Indicates whether the Spring Cloud Gateway exposes endpoint.
         :param pulumi.Input[pulumi.InputType['SpringCloudGatewayQuotaArgs']] quota: A `quota` block as defined below.
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Gateway to be created.
@@ -553,7 +553,7 @@ class SpringCloudGateway(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SpringCloudGatewayCorsArgs']] cors: A `cors` block as defined below.
         :param pulumi.Input[bool] https_only: is only https is allowed?
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
-        :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
         :param pulumi.Input[bool] public_network_access_enabled: Indicates whether the Spring Cloud Gateway exposes endpoint.
         :param pulumi.Input[pulumi.InputType['SpringCloudGatewayQuotaArgs']] quota: A `quota` block as defined below.
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Gateway to be created.
@@ -612,7 +612,7 @@ class SpringCloudGateway(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created.
+        The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
         """
         return pulumi.get(self, "name")
 

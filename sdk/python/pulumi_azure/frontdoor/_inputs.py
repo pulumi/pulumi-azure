@@ -942,7 +942,7 @@ class FrontdoorBackendPoolHealthProbeArgs:
         :param pulumi.Input[int] interval_in_seconds: The number of seconds between each Health Probe. Defaults to `120`.
         :param pulumi.Input[str] path: The path to use for the Health Probe. Default is `/`.
         :param pulumi.Input[str] probe_method: Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `Get`.
-        :param pulumi.Input[str] protocol: Protocol scheme to use for the Health Probe. Defaults to `Http`.
+        :param pulumi.Input[str] protocol: Protocol scheme to use for the Health Probe. Possible values are `Http` and `Https`. Defaults to `Http`.
         """
         pulumi.set(__self__, "name", name)
         if enabled is not None:
@@ -1034,7 +1034,7 @@ class FrontdoorBackendPoolHealthProbeArgs:
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
         """
-        Protocol scheme to use for the Health Probe. Defaults to `Http`.
+        Protocol scheme to use for the Health Probe. Possible values are `Http` and `Https`. Defaults to `Http`.
         """
         return pulumi.get(self, "protocol")
 
@@ -1345,7 +1345,7 @@ class FrontdoorRoutingRuleArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  redirect_configuration: Optional[pulumi.Input['FrontdoorRoutingRuleRedirectConfigurationArgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] accepted_protocols: Protocol schemes to match for the Backend Routing Rule. Defaults to `Http`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] accepted_protocols: Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`. Defaults to `Http`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] frontend_endpoints: The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
         :param pulumi.Input[str] name: Specifies the name of the Routing Rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] patterns_to_matches: The route patterns for the Backend Routing Rule. Defaults to `/*`.
@@ -1371,7 +1371,7 @@ class FrontdoorRoutingRuleArgs:
     @pulumi.getter(name="acceptedProtocols")
     def accepted_protocols(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Protocol schemes to match for the Backend Routing Rule. Defaults to `Http`.
+        Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`. Defaults to `Http`.
         """
         return pulumi.get(self, "accepted_protocols")
 

@@ -98,7 +98,7 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly sqlConnectivityPort!: pulumi.Output<number | undefined>;
     /**
-     * The connectivity type used for this SQL Server. Defaults to `PRIVATE`.
+     * The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`.
      */
     public readonly sqlConnectivityType!: pulumi.Output<string | undefined>;
     /**
@@ -109,6 +109,10 @@ export class VirtualMachine extends pulumi.CustomResource {
      * The SQL Server sysadmin login to create.
      */
     public readonly sqlConnectivityUpdateUsername!: pulumi.Output<string | undefined>;
+    /**
+     * A `sqlInstance` block as defined below.
+     */
+    public readonly sqlInstance!: pulumi.Output<outputs.mssql.VirtualMachineSqlInstance | undefined>;
     /**
      * The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
      */
@@ -148,6 +152,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["sqlConnectivityType"] = state ? state.sqlConnectivityType : undefined;
             resourceInputs["sqlConnectivityUpdatePassword"] = state ? state.sqlConnectivityUpdatePassword : undefined;
             resourceInputs["sqlConnectivityUpdateUsername"] = state ? state.sqlConnectivityUpdateUsername : undefined;
+            resourceInputs["sqlInstance"] = state ? state.sqlInstance : undefined;
             resourceInputs["sqlLicenseType"] = state ? state.sqlLicenseType : undefined;
             resourceInputs["storageConfiguration"] = state ? state.storageConfiguration : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -169,6 +174,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["sqlConnectivityType"] = args ? args.sqlConnectivityType : undefined;
             resourceInputs["sqlConnectivityUpdatePassword"] = args ? args.sqlConnectivityUpdatePassword : undefined;
             resourceInputs["sqlConnectivityUpdateUsername"] = args ? args.sqlConnectivityUpdateUsername : undefined;
+            resourceInputs["sqlInstance"] = args ? args.sqlInstance : undefined;
             resourceInputs["sqlLicenseType"] = args ? args.sqlLicenseType : undefined;
             resourceInputs["storageConfiguration"] = args ? args.storageConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -208,7 +214,7 @@ export interface VirtualMachineState {
      */
     sqlConnectivityPort?: pulumi.Input<number>;
     /**
-     * The connectivity type used for this SQL Server. Defaults to `PRIVATE`.
+     * The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`.
      */
     sqlConnectivityType?: pulumi.Input<string>;
     /**
@@ -219,6 +225,10 @@ export interface VirtualMachineState {
      * The SQL Server sysadmin login to create.
      */
     sqlConnectivityUpdateUsername?: pulumi.Input<string>;
+    /**
+     * A `sqlInstance` block as defined below.
+     */
+    sqlInstance?: pulumi.Input<inputs.mssql.VirtualMachineSqlInstance>;
     /**
      * The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
      */
@@ -266,7 +276,7 @@ export interface VirtualMachineArgs {
      */
     sqlConnectivityPort?: pulumi.Input<number>;
     /**
-     * The connectivity type used for this SQL Server. Defaults to `PRIVATE`.
+     * The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`.
      */
     sqlConnectivityType?: pulumi.Input<string>;
     /**
@@ -277,6 +287,10 @@ export interface VirtualMachineArgs {
      * The SQL Server sysadmin login to create.
      */
     sqlConnectivityUpdateUsername?: pulumi.Input<string>;
+    /**
+     * A `sqlInstance` block as defined below.
+     */
+    sqlInstance?: pulumi.Input<inputs.mssql.VirtualMachineSqlInstance>;
     /**
      * The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
      */

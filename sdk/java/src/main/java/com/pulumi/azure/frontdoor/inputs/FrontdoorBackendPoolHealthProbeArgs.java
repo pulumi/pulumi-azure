@@ -108,14 +108,14 @@ public final class FrontdoorBackendPoolHealthProbeArgs extends com.pulumi.resour
     }
 
     /**
-     * Protocol scheme to use for the Health Probe. Defaults to `Http`.
+     * Protocol scheme to use for the Health Probe. Possible values are `Http` and `Https`. Defaults to `Http`.
      * 
      */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
     /**
-     * @return Protocol scheme to use for the Health Probe. Defaults to `Http`.
+     * @return Protocol scheme to use for the Health Probe. Possible values are `Http` and `Https`. Defaults to `Http`.
      * 
      */
     public Optional<Output<String>> protocol() {
@@ -279,7 +279,7 @@ public final class FrontdoorBackendPoolHealthProbeArgs extends com.pulumi.resour
         }
 
         /**
-         * @param protocol Protocol scheme to use for the Health Probe. Defaults to `Http`.
+         * @param protocol Protocol scheme to use for the Health Probe. Possible values are `Http` and `Https`. Defaults to `Http`.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class FrontdoorBackendPoolHealthProbeArgs extends com.pulumi.resour
         }
 
         /**
-         * @param protocol Protocol scheme to use for the Health Probe. Defaults to `Http`.
+         * @param protocol Protocol scheme to use for the Health Probe. Possible values are `Http` and `Https`. Defaults to `Http`.
          * 
          * @return builder
          * 

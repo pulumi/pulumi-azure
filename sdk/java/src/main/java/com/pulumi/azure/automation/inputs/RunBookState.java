@@ -105,16 +105,14 @@ public final class RunBookState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
-     * Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+     * Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
      * 
      */
     @Import(name="logActivityTraceLevel")
     private @Nullable Output<Integer> logActivityTraceLevel;
 
     /**
-     * @return Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
-     * Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+     * @return Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
      * 
      */
     public Optional<Output<Integer>> logActivityTraceLevel() {
@@ -382,8 +380,7 @@ public final class RunBookState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logActivityTraceLevel Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
-         * Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+         * @param logActivityTraceLevel Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
          * 
          * @return builder
          * 
@@ -394,8 +391,7 @@ public final class RunBookState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logActivityTraceLevel Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
-         * Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+         * @param logActivityTraceLevel Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
          * 
          * @return builder
          * 

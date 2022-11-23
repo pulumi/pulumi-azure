@@ -104,6 +104,9 @@ export class ResolverForwardingRule extends pulumi.CustomResource {
      * Specifies the domain name for the Private DNS Resolver Forwarding Rule.
      */
     public readonly domainName!: pulumi.Output<string>;
+    /**
+     * Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
+     */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * Metadata attached to the Private DNS Resolver Forwarding Rule.
@@ -114,7 +117,7 @@ export class ResolverForwardingRule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A `targetDnsServers` block as defined below.
+     * Can be specified multiple times to define multiple target DNS servers. Each `targetDnsServers` block as defined below.
      */
     public readonly targetDnsServers!: pulumi.Output<outputs.privatedns.ResolverForwardingRuleTargetDnsServer[]>;
 
@@ -172,6 +175,9 @@ export interface ResolverForwardingRuleState {
      * Specifies the domain name for the Private DNS Resolver Forwarding Rule.
      */
     domainName?: pulumi.Input<string>;
+    /**
+     * Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
+     */
     enabled?: pulumi.Input<boolean>;
     /**
      * Metadata attached to the Private DNS Resolver Forwarding Rule.
@@ -182,7 +188,7 @@ export interface ResolverForwardingRuleState {
      */
     name?: pulumi.Input<string>;
     /**
-     * A `targetDnsServers` block as defined below.
+     * Can be specified multiple times to define multiple target DNS servers. Each `targetDnsServers` block as defined below.
      */
     targetDnsServers?: pulumi.Input<pulumi.Input<inputs.privatedns.ResolverForwardingRuleTargetDnsServer>[]>;
 }
@@ -199,6 +205,9 @@ export interface ResolverForwardingRuleArgs {
      * Specifies the domain name for the Private DNS Resolver Forwarding Rule.
      */
     domainName: pulumi.Input<string>;
+    /**
+     * Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
+     */
     enabled?: pulumi.Input<boolean>;
     /**
      * Metadata attached to the Private DNS Resolver Forwarding Rule.
@@ -209,7 +218,7 @@ export interface ResolverForwardingRuleArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A `targetDnsServers` block as defined below.
+     * Can be specified multiple times to define multiple target DNS servers. Each `targetDnsServers` block as defined below.
      */
     targetDnsServers: pulumi.Input<pulumi.Input<inputs.privatedns.ResolverForwardingRuleTargetDnsServer>[]>;
 }

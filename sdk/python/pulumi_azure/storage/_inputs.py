@@ -29,6 +29,7 @@ __all__ = [
     'AccountQueuePropertiesLoggingArgs',
     'AccountQueuePropertiesMinuteMetricsArgs',
     'AccountRoutingArgs',
+    'AccountSasPolicyArgs',
     'AccountSharePropertiesArgs',
     'AccountSharePropertiesCorsRuleArgs',
     'AccountSharePropertiesRetentionPolicyArgs',
@@ -665,8 +666,7 @@ class AccountNetworkRulesArgs:
                  virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] default_action: Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] bypasses: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
-               any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] bypasses: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_rules: List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
         :param pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessArgs']]] private_link_accesses: One or More `private_link_access` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_subnet_ids: A list of resource ids for subnets.
@@ -697,8 +697,7 @@ class AccountNetworkRulesArgs:
     @pulumi.getter
     def bypasses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
-        any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+        Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
         """
         return pulumi.get(self, "bypasses")
 
@@ -1251,6 +1250,44 @@ class AccountRoutingArgs:
 
 
 @pulumi.input_type
+class AccountSasPolicyArgs:
+    def __init__(__self__, *,
+                 expiration_period: pulumi.Input[str],
+                 expiration_action: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] expiration_period: The SAS expiration period in format of `DD.HH:MM:SS`.
+        :param pulumi.Input[str] expiration_action: The SAS expiration action. The only possible value is `Log` at this moment. Defaults to `Log`.
+        """
+        pulumi.set(__self__, "expiration_period", expiration_period)
+        if expiration_action is not None:
+            pulumi.set(__self__, "expiration_action", expiration_action)
+
+    @property
+    @pulumi.getter(name="expirationPeriod")
+    def expiration_period(self) -> pulumi.Input[str]:
+        """
+        The SAS expiration period in format of `DD.HH:MM:SS`.
+        """
+        return pulumi.get(self, "expiration_period")
+
+    @expiration_period.setter
+    def expiration_period(self, value: pulumi.Input[str]):
+        pulumi.set(self, "expiration_period", value)
+
+    @property
+    @pulumi.getter(name="expirationAction")
+    def expiration_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SAS expiration action. The only possible value is `Log` at this moment. Defaults to `Log`.
+        """
+        return pulumi.get(self, "expiration_action")
+
+    @expiration_action.setter
+    def expiration_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiration_action", value)
+
+
+@pulumi.input_type
 class AccountSharePropertiesArgs:
     def __init__(__self__, *,
                  cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountSharePropertiesCorsRuleArgs']]]] = None,
@@ -1656,17 +1693,21 @@ class BlobInventoryPolicyRuleFilterArgs:
     def __init__(__self__, *,
                  blob_types: pulumi.Input[Sequence[pulumi.Input[str]]],
                  include_blob_versions: Optional[pulumi.Input[bool]] = None,
+                 include_deleted: Optional[pulumi.Input[bool]] = None,
                  include_snapshots: Optional[pulumi.Input[bool]] = None,
                  prefix_matches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] blob_types: A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `is_hns_enabled` is `true` doesn't support `pageBlob`.
         :param pulumi.Input[bool] include_blob_versions: Includes blob versions in blob inventory or not? Defaults to `false`.
+        :param pulumi.Input[bool] include_deleted: Includes deleted blobs in blob inventory or not? Defaults to `false`.
         :param pulumi.Input[bool] include_snapshots: Includes blob snapshots in blob inventory or not? Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_matches: A set of strings for blob prefixes to be matched.
         """
         pulumi.set(__self__, "blob_types", blob_types)
         if include_blob_versions is not None:
             pulumi.set(__self__, "include_blob_versions", include_blob_versions)
+        if include_deleted is not None:
+            pulumi.set(__self__, "include_deleted", include_deleted)
         if include_snapshots is not None:
             pulumi.set(__self__, "include_snapshots", include_snapshots)
         if prefix_matches is not None:
@@ -1695,6 +1736,18 @@ class BlobInventoryPolicyRuleFilterArgs:
     @include_blob_versions.setter
     def include_blob_versions(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "include_blob_versions", value)
+
+    @property
+    @pulumi.getter(name="includeDeleted")
+    def include_deleted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Includes deleted blobs in blob inventory or not? Defaults to `false`.
+        """
+        return pulumi.get(self, "include_deleted")
+
+    @include_deleted.setter
+    def include_deleted(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_deleted", value)
 
     @property
     @pulumi.getter(name="includeSnapshots")

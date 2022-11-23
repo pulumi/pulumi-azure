@@ -91,6 +91,12 @@ namespace Pulumi.Azure.Sentinel
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// One or more `source` blocks as defined below.
+        /// </summary>
+        [Output("sources")]
+        public Output<ImmutableArray<Outputs.AlertRuleFusionSource>> Sources { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a AlertRuleFusion resource with the given unique name, arguments, and options.
@@ -161,6 +167,18 @@ namespace Pulumi.Azure.Sentinel
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("sources")]
+        private InputList<Inputs.AlertRuleFusionSourceArgs>? _sources;
+
+        /// <summary>
+        /// One or more `source` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.AlertRuleFusionSourceArgs> Sources
+        {
+            get => _sources ?? (_sources = new InputList<Inputs.AlertRuleFusionSourceArgs>());
+            set => _sources = value;
+        }
+
         public AlertRuleFusionArgs()
         {
         }
@@ -192,6 +210,18 @@ namespace Pulumi.Azure.Sentinel
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("sources")]
+        private InputList<Inputs.AlertRuleFusionSourceGetArgs>? _sources;
+
+        /// <summary>
+        /// One or more `source` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.AlertRuleFusionSourceGetArgs> Sources
+        {
+            get => _sources ?? (_sources = new InputList<Inputs.AlertRuleFusionSourceGetArgs>());
+            set => _sources = value;
+        }
 
         public AlertRuleFusionState()
         {

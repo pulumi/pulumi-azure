@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PoolDataDisk {
     /**
-     * @return Values are: &#34;none&#34; - The caching mode for the disk is not enabled. &#34;readOnly&#34; - The caching mode for the disk is read only. &#34;readWrite&#34; - The caching mode for the disk is read and write. The default value for caching is &#34;none&#34;. For information about the caching options see: &lt;https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/&gt;.
+     * @return Values are: &#34;none&#34; - The caching mode for the disk is not enabled. &#34;readOnly&#34; - The caching mode for the disk is read only. &#34;readWrite&#34; - The caching mode for the disk is read and write. The default value for caching is &#34;none&#34;. For information about the caching options see: &lt;https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/&gt;. Possible values are `None`, `ReadOnly` and `ReadWrite`.
      * 
      */
     private @Nullable String caching;
@@ -35,7 +35,7 @@ public final class PoolDataDisk {
 
     private PoolDataDisk() {}
     /**
-     * @return Values are: &#34;none&#34; - The caching mode for the disk is not enabled. &#34;readOnly&#34; - The caching mode for the disk is read only. &#34;readWrite&#34; - The caching mode for the disk is read and write. The default value for caching is &#34;none&#34;. For information about the caching options see: &lt;https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/&gt;.
+     * @return Values are: &#34;none&#34; - The caching mode for the disk is not enabled. &#34;readOnly&#34; - The caching mode for the disk is read only. &#34;readWrite&#34; - The caching mode for the disk is read and write. The default value for caching is &#34;none&#34;. For information about the caching options see: &lt;https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/&gt;. Possible values are `None`, `ReadOnly` and `ReadWrite`.
      * 
      */
     public Optional<String> caching() {

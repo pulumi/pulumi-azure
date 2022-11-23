@@ -31,14 +31,14 @@ public final class FrontdoorRuleActionsUrlRedirectActionArgs extends com.pulumi.
     }
 
     /**
-     * The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host. Defaults to an empty string.
+     * The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host.
      * 
      */
     @Import(name="destinationHostname", required=true)
     private Output<String> destinationHostname;
 
     /**
-     * @return The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host. Defaults to an empty string.
+     * @return The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host.
      * 
      */
     public Output<String> destinationHostname() {
@@ -61,14 +61,14 @@ public final class FrontdoorRuleActionsUrlRedirectActionArgs extends com.pulumi.
     }
 
     /**
-     * The query string used in the redirect URL. The value must be in the &amp;lt;key&gt;=&amp;lt;value&gt; or &amp;lt;key&gt;={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Defaults to an empty string.
+     * The query string used in the redirect URL. The value must be in the &amp;lt;key&gt;=&amp;lt;value&gt; or &amp;lt;key&gt;={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string.
      * 
      */
     @Import(name="queryString")
     private @Nullable Output<String> queryString;
 
     /**
-     * @return The query string used in the redirect URL. The value must be in the &amp;lt;key&gt;=&amp;lt;value&gt; or &amp;lt;key&gt;={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Defaults to an empty string.
+     * @return The query string used in the redirect URL. The value must be in the &amp;lt;key&gt;=&amp;lt;value&gt; or &amp;lt;key&gt;={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string.
      * 
      */
     public Optional<Output<String>> queryString() {
@@ -156,7 +156,7 @@ public final class FrontdoorRuleActionsUrlRedirectActionArgs extends com.pulumi.
         }
 
         /**
-         * @param destinationHostname The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host. Defaults to an empty string.
+         * @param destinationHostname The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class FrontdoorRuleActionsUrlRedirectActionArgs extends com.pulumi.
         }
 
         /**
-         * @param destinationHostname The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host. Defaults to an empty string.
+         * @param destinationHostname The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class FrontdoorRuleActionsUrlRedirectActionArgs extends com.pulumi.
         }
 
         /**
-         * @param queryString The query string used in the redirect URL. The value must be in the &amp;lt;key&gt;=&amp;lt;value&gt; or &amp;lt;key&gt;={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Defaults to an empty string.
+         * @param queryString The query string used in the redirect URL. The value must be in the &amp;lt;key&gt;=&amp;lt;value&gt; or &amp;lt;key&gt;={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class FrontdoorRuleActionsUrlRedirectActionArgs extends com.pulumi.
         }
 
         /**
-         * @param queryString The query string used in the redirect URL. The value must be in the &amp;lt;key&gt;=&amp;lt;value&gt; or &amp;lt;key&gt;={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Defaults to an empty string.
+         * @param queryString The query string used in the redirect URL. The value must be in the &amp;lt;key&gt;=&amp;lt;value&gt; or &amp;lt;key&gt;={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string.
          * 
          * @return builder
          * 

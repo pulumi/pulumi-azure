@@ -18,7 +18,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.LinuxFunctionAppSlotSiteConfigApplicationStackDocker> Dockers;
         /// <summary>
-        /// The version of .Net. Possible values are `3.1` and `6.0`.
+        /// The version of .Net. Possible values are `3.1`, `6.0` and `7.0`.
         /// </summary>
         public readonly string? DotnetVersion;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? JavaVersion;
         /// <summary>
-        /// The version of Node to use. Possible values include `12`, and `14`
+        /// The version of Node to use. Possible values include `12`, `14`, `16` and `18`
         /// </summary>
         public readonly string? NodeVersion;
         /// <summary>

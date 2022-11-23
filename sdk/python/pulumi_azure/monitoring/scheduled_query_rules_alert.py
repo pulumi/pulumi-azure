@@ -47,6 +47,7 @@ class ScheduledQueryRulesAlertArgs:
                > **NOTE** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
         :param pulumi.Input[str] description: The description of the scheduled query rule.
         :param pulumi.Input[bool] enabled: Whether this scheduled query rule is enabled.  Default is `true`.
+        :param pulumi.Input[str] location: Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the scheduled query rule. Changing this forces a new resource to be created.
         :param pulumi.Input[int] severity: Severity of the alert. Possible values include: 0, 1, 2, 3, or 4.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -216,6 +217,9 @@ class ScheduledQueryRulesAlertArgs:
     @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -310,6 +314,7 @@ class _ScheduledQueryRulesAlertState:
         :param pulumi.Input[str] description: The description of the scheduled query rule.
         :param pulumi.Input[bool] enabled: Whether this scheduled query rule is enabled.  Default is `true`.
         :param pulumi.Input[int] frequency: Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
+        :param pulumi.Input[str] location: Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the scheduled query rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] query: Log search query.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the scheduled query rule instance.
@@ -442,6 +447,9 @@ class _ScheduledQueryRulesAlertState:
     @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -598,6 +606,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the scheduled query rule.
         :param pulumi.Input[bool] enabled: Whether this scheduled query rule is enabled.  Default is `true`.
         :param pulumi.Input[int] frequency: Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
+        :param pulumi.Input[str] location: Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the scheduled query rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] query: Log search query.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the scheduled query rule instance.
@@ -738,6 +747,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the scheduled query rule.
         :param pulumi.Input[bool] enabled: Whether this scheduled query rule is enabled.  Default is `true`.
         :param pulumi.Input[int] frequency: Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
+        :param pulumi.Input[str] location: Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the scheduled query rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] query: Log search query.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the scheduled query rule instance.
@@ -830,6 +840,9 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
     @property
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
+        """
+        Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "location")
 
     @property

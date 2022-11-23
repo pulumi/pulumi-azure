@@ -12,6 +12,7 @@ export interface ProviderFeatures {
     cognitiveAccount?: pulumi.Input<inputs.ProviderFeaturesCognitiveAccount>;
     keyVault?: pulumi.Input<inputs.ProviderFeaturesKeyVault>;
     logAnalyticsWorkspace?: pulumi.Input<inputs.ProviderFeaturesLogAnalyticsWorkspace>;
+    managedDisk?: pulumi.Input<inputs.ProviderFeaturesManagedDisk>;
     network?: pulumi.Input<inputs.ProviderFeaturesNetwork>;
     resourceGroup?: pulumi.Input<inputs.ProviderFeaturesResourceGroup>;
     templateDeployment?: pulumi.Input<inputs.ProviderFeaturesTemplateDeployment>;
@@ -51,6 +52,10 @@ export interface ProviderFeaturesKeyVault {
 
 export interface ProviderFeaturesLogAnalyticsWorkspace {
     permanentlyDeleteOnDestroy?: pulumi.Input<boolean>;
+}
+
+export interface ProviderFeaturesManagedDisk {
+    expandWithoutDowntime?: pulumi.Input<boolean>;
 }
 
 export interface ProviderFeaturesNetwork {
@@ -1924,7 +1929,7 @@ export namespace appinsights {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The type of Managed Service Identity that is configured on this Workbook.
+         * The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -2188,7 +2193,7 @@ export namespace appplatform {
          */
         allowedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
+         * Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
          */
         allowedMethods?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -2843,7 +2848,7 @@ export namespace appservice {
          */
         remoteDebuggingEnabled?: pulumi.Input<boolean>;
         /**
-         * Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
+         * Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
          */
         remoteDebuggingVersion?: pulumi.Input<string>;
         /**
@@ -4299,7 +4304,7 @@ export namespace appservice {
          */
         dockers?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxFunctionAppSiteConfigApplicationStackDocker>[]>;
         /**
-         * The version of .NET to use. Possible values include `3.1` and `6.0`.
+         * The version of .NET to use. Possible values include `3.1`, `6.0` and `7.0`.
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
@@ -4894,7 +4899,7 @@ export namespace appservice {
          */
         dockers?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxFunctionAppSlotSiteConfigApplicationStackDocker>[]>;
         /**
-         * The version of .Net. Possible values are `3.1` and `6.0`.
+         * The version of .Net. Possible values are `3.1`, `6.0` and `7.0`.
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
@@ -4902,7 +4907,7 @@ export namespace appservice {
          */
         javaVersion?: pulumi.Input<string>;
         /**
-         * The version of Node to use. Possible values include `12`, and `14`
+         * The version of Node to use. Possible values include `12`, `14`, `16` and `18`
          */
         nodeVersion?: pulumi.Input<string>;
         /**
@@ -5593,7 +5598,7 @@ export namespace appservice {
          */
         dockerImageTag?: pulumi.Input<string>;
         /**
-         * The version of .NET to use. Possible values include `3.1`, `5.0`, and `6.0`.
+         * The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0` and `7.0`.
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
@@ -6303,7 +6308,7 @@ export namespace appservice {
          */
         dockerImageTag?: pulumi.Input<string>;
         /**
-         * The version of .NET to use. Possible values include `3.1`, `5.0`, and `6.0`.
+         * The version of .NET to use. Possible values include `3.1`, `6.0` and `7.0`.
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
@@ -6962,7 +6967,7 @@ export namespace appservice {
          */
         remoteDebuggingEnabled?: pulumi.Input<boolean>;
         /**
-         * Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
+         * Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
          */
         remoteDebuggingVersion?: pulumi.Input<string>;
         /**
@@ -7208,7 +7213,7 @@ export namespace appservice {
 
     export interface SourceControlSlotGithubActionConfigurationCodeConfiguration {
         /**
-         * The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created.
+         * The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created. Possible values are `dotnetcore`, `spring`, `tomcat`, `node` and `python`.
          */
         runtimeStack: pulumi.Input<string>;
         /**
@@ -7645,7 +7650,7 @@ export namespace appservice {
 
     export interface WindowsFunctionAppSiteConfigApplicationStack {
         /**
-         * The version of .NET to use. Possible values include `3.1` and `6`.
+         * The version of .NET to use. Possible values include `3.1`, `6` and `7`.
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
@@ -8201,7 +8206,7 @@ export namespace appservice {
 
     export interface WindowsFunctionAppSlotSiteConfigApplicationStack {
         /**
-         * The version of .Net. Possible values are `3.1` and `6`
+         * The version of .Net. Possible values are `3.1`, `6` and `7`
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
@@ -8209,7 +8214,7 @@ export namespace appservice {
          */
         javaVersion?: pulumi.Input<string>;
         /**
-         * The version of Node to use. Possible values include `12`, and `14`
+         * The version of Node to use. Possible values are `~12`, `~14`, `~16` and `~18`.
          */
         nodeVersion?: pulumi.Input<string>;
         /**
@@ -8274,7 +8279,7 @@ export namespace appservice {
          */
         xAzureFdids?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies if a Front Door Health Probe should be expected.
+         * Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
          */
         xFdHealthProbe?: pulumi.Input<string>;
         /**
@@ -8324,7 +8329,7 @@ export namespace appservice {
          */
         xAzureFdids?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies if a Front Door Health Probe should be expected.
+         * Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
          */
         xFdHealthProbe?: pulumi.Input<string>;
         /**
@@ -8883,7 +8888,7 @@ export namespace appservice {
          */
         dockerContainerTag?: pulumi.Input<string>;
         /**
-         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`,`core3.1`, `v4.0`, `v5.0`, and `v6.0`.
+         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`,`core3.1`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
@@ -8895,7 +8900,7 @@ export namespace appservice {
          */
         javaContainerVersion?: pulumi.Input<string>;
         /**
-         * The version of Java to use when `currentStack` is set to `java`. Possible values include `1.7`, `1.8` and `11`. Required with `javaContainer` and `javaContainerVersion`.
+         * The version of Java to use when `currentStack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `javaContainer` and `javaContainerVersion`.
          */
         javaVersion?: pulumi.Input<string>;
         /**
@@ -9650,7 +9655,7 @@ export namespace appservice {
          */
         dockerContainerTag?: pulumi.Input<string>;
         /**
-         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
+         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0` .
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
@@ -9662,7 +9667,7 @@ export namespace appservice {
          */
         javaContainerVersion?: pulumi.Input<string>;
         /**
-         * The version of Java to use when `currentStack` is set to `java`. Possible values include `1.7`, `1.8` and `11`. Required with `javaContainer` and `javaContainerVersion`.
+         * The version of Java to use when `currentStack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `javaContainer` and `javaContainerVersion`.
          */
         javaVersion?: pulumi.Input<string>;
         /**
@@ -10794,7 +10799,7 @@ export namespace batch {
          */
         storeName?: pulumi.Input<string>;
         /**
-         * Which user accounts on the compute node should have access to the private data of the certificate.
+         * Which user accounts on the compute node should have access to the private data of the certificate. Possible values are `StartTask`, `Task` and `RemoteUser`.
          */
         visibilities?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -10835,7 +10840,7 @@ export namespace batch {
 
     export interface PoolDataDisk {
         /**
-         * Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: <https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/>.
+         * Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: <https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/>. Possible values are `None`, `ReadOnly` and `ReadWrite`.
          */
         caching?: pulumi.Input<string>;
         /**
@@ -11836,7 +11841,7 @@ export namespace cdn {
          */
         path?: pulumi.Input<string>;
         /**
-         * Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+         * Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
          */
         protocol?: pulumi.Input<string>;
         /**
@@ -11972,7 +11977,7 @@ export namespace cdn {
          */
         path?: pulumi.Input<string>;
         /**
-         * Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+         * Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
          */
         protocol?: pulumi.Input<string>;
         /**
@@ -12166,7 +12171,7 @@ export namespace cdn {
 
     export interface FrontdoorFirewallPolicyManagedRuleOverrideRule {
         /**
-         * The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+         * The action to be applied when the rule matches. Possible values are `Allow`, `Log`, `Block`, `Redirect` and `AnomalyScoring`.
          */
         action: pulumi.Input<string>;
         /**
@@ -12360,7 +12365,7 @@ export namespace cdn {
          */
         destinationFragment?: pulumi.Input<string>;
         /**
-         * The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host. Defaults to an empty string.
+         * The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host.
          */
         destinationHostname: pulumi.Input<string>;
         /**
@@ -12368,7 +12373,7 @@ export namespace cdn {
          */
         destinationPath?: pulumi.Input<string>;
         /**
-         * The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Defaults to an empty string.
+         * The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string.
          */
         queryString?: pulumi.Input<string>;
         /**
@@ -17688,7 +17693,7 @@ export namespace containerservice {
 
     export interface TokenPasswordPassword1 {
         /**
-         * The expiration date of the password in RFC3339 format.
+         * The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
          */
         expiry?: pulumi.Input<string>;
         /**
@@ -17699,7 +17704,7 @@ export namespace containerservice {
 
     export interface TokenPasswordPassword2 {
         /**
-         * The expiration date of the password in RFC3339 format.
+         * The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
          */
         expiry?: pulumi.Input<string>;
         /**
@@ -17731,7 +17736,7 @@ export namespace core {
          */
         name: pulumi.Input<string>;
         /**
-         * The routing type that is supported for the resource request. Valid values are `ResourceTypeRoutingProxy` or `ResourceTypeRoutingProxyCache`. This value defaults to `ResourceTypeRoutingProxy`.
+         * The routing type that is supported for the resource request. Valid values are `Proxy` and `Proxy,Cache`. This value defaults to `ResourceTypeRoutingProxy`.
          */
         routingType?: pulumi.Input<string>;
     }
@@ -17749,7 +17754,7 @@ export namespace core {
          */
         timeFrame: pulumi.Input<string>;
         /**
-         * The type of the query.
+         * The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
          */
         type: pulumi.Input<string>;
     }
@@ -17842,7 +17847,7 @@ export namespace core {
          */
         timeFrame: pulumi.Input<string>;
         /**
-         * The type of the query.
+         * The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
          */
         type: pulumi.Input<string>;
     }
@@ -19020,7 +19025,7 @@ export namespace datafactory {
          */
         level?: pulumi.Input<string>;
         /**
-         * The type of compression used during transport.
+         * The type of compression used during transport. Possible values are `BZip2`, `Deflate`, `GZip`, `Tar`, `TarGZip` and `ZipDeflate`.
          */
         type: pulumi.Input<string>;
     }
@@ -20414,7 +20419,7 @@ export namespace desktopvirtualization {
 
     export interface ScalingPlanSchedule {
         /**
-         * A list of Days of the Week on which this schedule will be used..Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
+         * A list of Days of the Week on which this schedule will be used. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
          */
         daysOfWeeks: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -23007,7 +23012,7 @@ export namespace frontdoor {
          */
         probeMethod?: pulumi.Input<string>;
         /**
-         * Protocol scheme to use for the Health Probe. Defaults to `Http`.
+         * Protocol scheme to use for the Health Probe. Possible values are `Http` and `Https`. Defaults to `Http`.
          */
         protocol?: pulumi.Input<string>;
     }
@@ -23083,7 +23088,7 @@ export namespace frontdoor {
 
     export interface FrontdoorRoutingRule {
         /**
-         * Protocol schemes to match for the Backend Routing Rule. Defaults to `Http`.
+         * Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`. Defaults to `Http`.
          */
         acceptedProtocols: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -25458,7 +25463,7 @@ export namespace healthcare {
         principalId?: pulumi.Input<string>;
         tenantId?: pulumi.Input<string>;
         /**
-         * The type of identity used for the Healthcare DICOM service. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, an `identityIds` must be set as well.
+         * The type of identity used for the Healthcare DICOM service. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. If `UserAssigned` is set, an `identityIds` must be set as well.
          */
         type: pulumi.Input<string>;
     }
@@ -25489,7 +25494,7 @@ export namespace healthcare {
          */
         allowedHeaders: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The methods to be allowed via CORS.
+         * The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
          */
         allowedMethods: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -25571,7 +25576,7 @@ export namespace healthcare {
          */
         allowedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The methods to be allowed via CORS.
+         * The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
          */
         allowedMethods?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -26858,11 +26863,11 @@ export namespace lb {
          */
         port: pulumi.Input<number>;
         /**
-         * The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `Native` and `VXLAN`.
+         * The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
          */
         protocol: pulumi.Input<string>;
         /**
-         * The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `Internal` and `External`.
+         * The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
          */
         type: pulumi.Input<string>;
     }
@@ -28583,7 +28588,7 @@ export namespace media {
          */
         audioAnalysisMode?: pulumi.Input<string>;
         /**
-         * The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>.
+         * The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>. Possible values are `ar-EG`, `ar-SY`, `de-DE`, `en-AU`, `en-GB`, `en-US`, `es-ES`, `es-MX`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `ru-RU` and `zh-CN`.
          */
         audioLanguage?: pulumi.Input<string>;
     }
@@ -28608,7 +28613,7 @@ export namespace media {
          */
         audioAnalysisMode?: pulumi.Input<string>;
         /**
-         * The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>.
+         * The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>. Possible values are `ar-EG`, `ar-SY`, `de-DE`, `en-AU`, `en-GB`, `en-US`, `es-ES`, `es-MX`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `ru-RU` and `zh-CN`.
          */
         audioLanguage?: pulumi.Input<string>;
         /**
@@ -29520,7 +29525,7 @@ export namespace monitoring {
 
     export interface AlertProcessingRuleActionGroupScheduleRecurrenceWeekly {
         /**
-         * Specifies a list of dayOfWeek to recurrence.Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+         * Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
          */
         daysOfWeeks: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -29763,7 +29768,7 @@ export namespace monitoring {
 
     export interface AlertProcessingRuleSuppressionScheduleRecurrenceWeekly {
         /**
-         * Specifies a list of dayOfWeek to recurrence.Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+         * Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
          */
         daysOfWeeks: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -29922,7 +29927,7 @@ export namespace monitoring {
          */
         operator: pulumi.Input<string>;
         /**
-         * Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Min` and `Max`.
+         * Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Max`, `Min` and `Sum`.
          */
         statistic: pulumi.Input<string>;
         /**
@@ -30837,7 +30842,7 @@ export namespace mssql {
 
     export interface VirtualMachineAssessmentSchedule {
         /**
-         * What day of the week the assessment will be run. Default value is `Monday`.
+         * What day of the week the assessment will be run. Default value is `Monday`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
          */
         dayOfWeek: pulumi.Input<string>;
         /**
@@ -30906,7 +30911,7 @@ export namespace mssql {
 
     export interface VirtualMachineAutoPatching {
         /**
-         * The day of week to apply the patch on.
+         * The day of week to apply the patch on. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
          */
         dayOfWeek: pulumi.Input<string>;
         /**
@@ -30936,6 +30941,37 @@ export namespace mssql {
          * The service principal name secret to access key vault. Changing this forces a new resource to be created.
          */
         servicePrincipalSecret: pulumi.Input<string>;
+    }
+
+    export interface VirtualMachineSqlInstance {
+        /**
+         * Specifies if the SQL Server is optimized for adhoc workloads. Possible values are `true` and `false`. Defaults to `false`.
+         */
+        adhocWorkloadsOptimizationEnabled?: pulumi.Input<boolean>;
+        /**
+         * Collation of the SQL Server. Defaults to `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
+         */
+        collation?: pulumi.Input<string>;
+        /**
+         * Specifies if Instant File Initialization is enabled for the SQL Server. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
+         */
+        instantFileInitializationEnabled?: pulumi.Input<boolean>;
+        /**
+         * Specifies if Lock Pages in Memory is enabled for the SQL Server. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
+         */
+        lockPagesInMemoryEnabled?: pulumi.Input<boolean>;
+        /**
+         * Maximum Degree of Parallelism of the SQL Server. Possible values are between `0` and `32767`. Defaults to `0`.
+         */
+        maxDop?: pulumi.Input<number>;
+        /**
+         * Maximum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `128` and `2147483647` Defaults to `2147483647`.
+         */
+        maxServerMemoryMb?: pulumi.Input<number>;
+        /**
+         * Minimum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `0` and `2147483647` Defaults to `0`.
+         */
+        minServerMemoryMb?: pulumi.Input<number>;
     }
 
     export interface VirtualMachineStorageConfiguration {
@@ -31922,7 +31958,7 @@ export namespace network {
 
     export interface ApplicationGatewaySslPolicy {
         /**
-         * A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
+         * A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
          */
         cipherSuites?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -31969,7 +32005,7 @@ export namespace network {
 
     export interface ApplicationGatewaySslProfileSslPolicy {
         /**
-         * A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
+         * A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
          */
         cipherSuites?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -32172,7 +32208,7 @@ export namespace network {
 
     export interface ApplicationGatewayWafConfigurationExclusion {
         /**
-         * Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are `RequestHeaderNames`, `RequestArgNames` and `RequestCookieNames`
+         * Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames` and `RequestHeaderValues`
          */
         matchVariable: pulumi.Input<string>;
         /**
@@ -32180,7 +32216,7 @@ export namespace network {
          */
         selector?: pulumi.Input<string>;
         /**
-         * Operator which will be used to search in the variable content. Possible values are `Equals`, `StartsWith`, `EndsWith`, `Contains`. If empty will exclude all traffic on this `matchVariable`
+         * Operator which will be used to search in the variable content. Possible values are `Contains`, `EndsWith`, `Equals`, `EqualsAny` and `StartsWith`. If empty will exclude all traffic on this `matchVariable`
          */
         selectorMatchOperator?: pulumi.Input<string>;
     }
@@ -34441,7 +34477,7 @@ export namespace orbital {
          */
         name: pulumi.Input<string>;
         /**
-         * Polarization of the link. Possible values are `RHCP`, `LHCP`, `linearVertical` and `linearHorizonal`.
+         * Polarization of the link. Possible values are `LHCP`, `RHCP`, `linearVertical` and `linearHorizontal`.
          */
         polarization: pulumi.Input<string>;
     }
@@ -34939,7 +34975,7 @@ export namespace purview {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Purview Account. The only possible value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Purview Account. Possible values are `UserAssigned` and `SystemAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -35209,6 +35245,36 @@ export namespace securitycenter {
 }
 
 export namespace sentinel {
+    export interface AlertRuleFusionSource {
+        /**
+         * Whether this source signal is enabled or disabled in Fusion detection? Defaults to `true`.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The name of the Fusion source signal. Refer to Fusion alert rule template for supported values.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * One or more `subType` blocks as defined below.
+         */
+        subTypes?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleFusionSourceSubType>[]>;
+    }
+
+    export interface AlertRuleFusionSourceSubType {
+        /**
+         * Whether this source subtype under source signal is enabled or disabled in Fusion detection. Defaults to `true`.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The Name of the source subtype under a given source signal in Fusion detection. Refer to Fusion alert rule template for supported values.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A list of severities that are enabled for this source subtype consumed in Fusion detection. Possible values for each element are `High`, `Medium`, `Low`, `Informational`.
+         */
+        severitiesAlloweds: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface AlertRuleNrtAlertDetailsOverride {
         /**
          * The format containing columns name(s) to override the description of this Sentinel Alert Rule.
@@ -35263,7 +35329,7 @@ export namespace sentinel {
 
     export interface AlertRuleNrtIncidentGrouping {
         /**
-         * A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`.
+         * A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `DisplayName` and `Severity`.
          */
         byAlertDetails?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -35335,7 +35401,7 @@ export namespace sentinel {
 
     export interface AlertRuleScheduledEventGrouping {
         /**
-         * The aggregation type of grouping the events.
+         * The aggregation type of grouping the events. Possible values are `AlertPerResult` and `SingleAlert`.
          */
         aggregationMethod: pulumi.Input<string>;
     }
@@ -35398,7 +35464,7 @@ export namespace sentinel {
          */
         ownerId?: pulumi.Input<string>;
         /**
-         * The severity to add to the incident.
+         * The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
          */
         severity?: pulumi.Input<string>;
         /**
@@ -35459,7 +35525,7 @@ export namespace sentinel {
          */
         ownerId?: pulumi.Input<string>;
         /**
-         * The severity to add to the incident.
+         * The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
          */
         severity?: pulumi.Input<string>;
         /**
@@ -36167,11 +36233,11 @@ export namespace siterecovery {
          */
         targetDiskEncryptionSetId?: pulumi.Input<string>;
         /**
-         * What type should the disk be when a failover is done.
+         * What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
          */
         targetDiskType: pulumi.Input<string>;
         /**
-         * What type should the disk be that holds the replication data.
+         * What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
          */
         targetReplicaDiskType: pulumi.Input<string>;
         /**
@@ -36583,8 +36649,7 @@ export namespace storage {
 
     export interface AccountNetworkRules {
         /**
-         * Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
-         * any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+         * Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
          */
         bypasses?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -36746,6 +36811,17 @@ export namespace storage {
         publishMicrosoftEndpoints?: pulumi.Input<boolean>;
     }
 
+    export interface AccountSasPolicy {
+        /**
+         * The SAS expiration action. The only possible value is `Log` at this moment. Defaults to `Log`.
+         */
+        expirationAction?: pulumi.Input<string>;
+        /**
+         * The SAS expiration period in format of `DD.HH:MM:SS`.
+         */
+        expirationPeriod: pulumi.Input<string>;
+    }
+
     export interface AccountShareProperties {
         /**
          * A `corsRule` block as defined below.
@@ -36866,6 +36942,10 @@ export namespace storage {
          * Includes blob versions in blob inventory or not? Defaults to `false`.
          */
         includeBlobVersions?: pulumi.Input<boolean>;
+        /**
+         * Includes deleted blobs in blob inventory or not? Defaults to `false`.
+         */
+        includeDeleted?: pulumi.Input<boolean>;
         /**
          * Includes blob snapshots in blob inventory or not? Defaults to `false`.
          */
@@ -37480,7 +37560,7 @@ export namespace streamanalytics {
          */
         format?: pulumi.Input<string>;
         /**
-         * The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
+         * The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
          */
         type: pulumi.Input<string>;
     }
@@ -37499,7 +37579,7 @@ export namespace streamanalytics {
          */
         format?: pulumi.Input<string>;
         /**
-         * The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
+         * The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
          */
         type: pulumi.Input<string>;
     }
@@ -37518,7 +37598,7 @@ export namespace streamanalytics {
          */
         format?: pulumi.Input<string>;
         /**
-         * The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
+         * The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
          */
         type: pulumi.Input<string>;
     }
@@ -37554,6 +37634,21 @@ export namespace streamanalytics {
     }
 
     export interface StreamInputEventHubSerialization {
+        /**
+         * The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
+         */
+        encoding?: pulumi.Input<string>;
+        /**
+         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are `` (space), `,` (comma), `` (tab), `|` (pipe) and `;`.
+         */
+        fieldDelimiter?: pulumi.Input<string>;
+        /**
+         * The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface StreamInputEventHubV2Serialization {
         /**
          * The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
          */
@@ -37889,7 +37984,7 @@ export namespace videoanalyzer {
 export namespace waf {
     export interface PolicyCustomRule {
         /**
-         * Type of action.
+         * Type of action. Possible values are `Allow`, `Block` and `Log`.
          */
         action: pulumi.Input<string>;
         /**
@@ -37905,7 +38000,7 @@ export namespace waf {
          */
         priority: pulumi.Input<number>;
         /**
-         * Describes the type of rule.
+         * Describes the type of rule. Possible values are `MatchRule` and `Invalid`.
          */
         ruleType: pulumi.Input<string>;
     }
@@ -37924,11 +38019,11 @@ export namespace waf {
          */
         negationCondition?: pulumi.Input<boolean>;
         /**
-         * Describes operator to be matched.
+         * Describes operator to be matched. Possible values are `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
          */
         operator: pulumi.Input<string>;
         /**
-         * A list of transformations to do before the match is attempted.
+         * A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
          */
         transforms?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -37939,7 +38034,7 @@ export namespace waf {
          */
         selector?: pulumi.Input<string>;
         /**
-         * The name of the Match Variable
+         * The name of the Match Variable. Possible values are `RemoteAddr`, `RequestMethod`, `QueryString`, `PostArgs`, `RequestUri`, `RequestHeaders`, `RequestBody` and `RequestCookies`.
          */
         variableName: pulumi.Input<string>;
     }
@@ -38057,8 +38152,7 @@ export namespace webpubsub {
          */
         auth?: pulumi.Input<inputs.webpubsub.HubEventHandlerAuth>;
         /**
-         * Specify the list of system events. Supported values are `connect`, `connected`
-         * and `disconnected`.
+         * Specify the list of system events. Supported values are `connect`, `connected` and `disconnected`.
          */
         systemEvents?: pulumi.Input<pulumi.Input<string>[]>;
         /**

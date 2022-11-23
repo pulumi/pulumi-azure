@@ -150,18 +150,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:kusto/eventGridDataConnection:EventGridDataConnection")
 public class EventGridDataConnection extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies the blob storage event type that needs to be processed. Possible
-     * Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults
-     * to `Microsoft.Storage.BlobCreated`.
+     * Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
      * 
      */
     @Export(name="blobStorageEventType", type=String.class, parameters={})
     private Output</* @Nullable */ String> blobStorageEventType;
 
     /**
-     * @return Specifies the blob storage event type that needs to be processed. Possible
-     * Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults
-     * to `Microsoft.Storage.BlobCreated`.
+     * @return Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
      * 
      */
     public Output<Optional<String>> blobStorageEventType() {
@@ -182,14 +178,14 @@ public class EventGridDataConnection extends com.pulumi.resources.CustomResource
         return this.clusterName;
     }
     /**
-     * Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
+     * Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
      * 
      */
     @Export(name="dataFormat", type=String.class, parameters={})
     private Output</* @Nullable */ String> dataFormat;
 
     /**
-     * @return Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
+     * @return Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
      * 
      */
     public Output<Optional<String>> dataFormat() {

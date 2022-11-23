@@ -183,7 +183,7 @@ class ScalingPlanScheduleArgs:
                  ramp_up_capacity_threshold_percent: Optional[pulumi.Input[int]] = None,
                  ramp_up_minimum_hosts_percent: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] days_of_weeks: A list of Days of the Week on which this schedule will be used..Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] days_of_weeks: A list of Days of the Week on which this schedule will be used. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
         :param pulumi.Input[str] name: The name of the schedule.
         :param pulumi.Input[str] off_peak_load_balancing_algorithm: The load Balancing Algorithm to use during Off-Peak Hours. Possible values are `DepthFirst` and `BreadthFirst`.
         :param pulumi.Input[str] off_peak_start_time: The time at which Off-Peak scaling will begin. This is also the end-time for the Ramp-Down period. The time must be specified in "HH:MM" format.
@@ -227,7 +227,7 @@ class ScalingPlanScheduleArgs:
     @pulumi.getter(name="daysOfWeeks")
     def days_of_weeks(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        A list of Days of the Week on which this schedule will be used..Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
+        A list of Days of the Week on which this schedule will be used. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
         """
         return pulumi.get(self, "days_of_weeks")
 

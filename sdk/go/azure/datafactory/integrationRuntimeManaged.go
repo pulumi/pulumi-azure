@@ -79,7 +79,7 @@ type IntegrationRuntimeManaged struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
 	Edition pulumi.StringPtrOutput `pulumi:"edition"`
-	// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
+	// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
 	LicenseType pulumi.StringPtrOutput `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -140,7 +140,7 @@ type integrationRuntimeManagedState struct {
 	Description *string `pulumi:"description"`
 	// The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
 	Edition *string `pulumi:"edition"`
-	// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
+	// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
 	LicenseType *string `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -167,7 +167,7 @@ type IntegrationRuntimeManagedState struct {
 	Description pulumi.StringPtrInput
 	// The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
 	Edition pulumi.StringPtrInput
-	// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
+	// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
 	LicenseType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -198,7 +198,7 @@ type integrationRuntimeManagedArgs struct {
 	Description *string `pulumi:"description"`
 	// The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
 	Edition *string `pulumi:"edition"`
-	// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
+	// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
 	LicenseType *string `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -226,7 +226,7 @@ type IntegrationRuntimeManagedArgs struct {
 	Description pulumi.StringPtrInput
 	// The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
 	Edition pulumi.StringPtrInput
-	// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
+	// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
 	LicenseType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -356,7 +356,7 @@ func (o IntegrationRuntimeManagedOutput) Edition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeManaged) pulumi.StringPtrOutput { return v.Edition }).(pulumi.StringPtrOutput)
 }
 
-// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
+// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
 func (o IntegrationRuntimeManagedOutput) LicenseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeManaged) pulumi.StringPtrOutput { return v.LicenseType }).(pulumi.StringPtrOutput)
 }

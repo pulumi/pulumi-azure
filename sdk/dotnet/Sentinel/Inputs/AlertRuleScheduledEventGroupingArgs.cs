@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Sentinel.Inputs
     public sealed class AlertRuleScheduledEventGroupingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The aggregation type of grouping the events.
+        /// The aggregation type of grouping the events. Possible values are `AlertPerResult` and `SingleAlert`.
         /// </summary>
         [Input("aggregationMethod", required: true)]
         public Input<string> AggregationMethod { get; set; } = null!;

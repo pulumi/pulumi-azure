@@ -3,10 +3,12 @@
 
 package com.pulumi.azure.sentinel.inputs;
 
+import com.pulumi.azure.sentinel.inputs.AlertRuleFusionSourceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -76,6 +78,21 @@ public final class AlertRuleFusionState extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * One or more `source` blocks as defined below.
+     * 
+     */
+    @Import(name="sources")
+    private @Nullable Output<List<AlertRuleFusionSourceArgs>> sources;
+
+    /**
+     * @return One or more `source` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<AlertRuleFusionSourceArgs>>> sources() {
+        return Optional.ofNullable(this.sources);
+    }
+
     private AlertRuleFusionState() {}
 
     private AlertRuleFusionState(AlertRuleFusionState $) {
@@ -83,6 +100,7 @@ public final class AlertRuleFusionState extends com.pulumi.resources.ResourceArg
         this.enabled = $.enabled;
         this.logAnalyticsWorkspaceId = $.logAnalyticsWorkspaceId;
         this.name = $.name;
+        this.sources = $.sources;
     }
 
     public static Builder builder() {
@@ -185,6 +203,37 @@ public final class AlertRuleFusionState extends com.pulumi.resources.ResourceArg
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param sources One or more `source` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sources(@Nullable Output<List<AlertRuleFusionSourceArgs>> sources) {
+            $.sources = sources;
+            return this;
+        }
+
+        /**
+         * @param sources One or more `source` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sources(List<AlertRuleFusionSourceArgs> sources) {
+            return sources(Output.of(sources));
+        }
+
+        /**
+         * @param sources One or more `source` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sources(AlertRuleFusionSourceArgs... sources) {
+            return sources(List.of(sources));
         }
 
         public AlertRuleFusionState build() {

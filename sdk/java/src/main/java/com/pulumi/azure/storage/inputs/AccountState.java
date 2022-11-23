@@ -12,6 +12,7 @@ import com.pulumi.azure.storage.inputs.AccountImmutabilityPolicyArgs;
 import com.pulumi.azure.storage.inputs.AccountNetworkRulesArgs;
 import com.pulumi.azure.storage.inputs.AccountQueuePropertiesArgs;
 import com.pulumi.azure.storage.inputs.AccountRoutingArgs;
+import com.pulumi.azure.storage.inputs.AccountSasPolicyArgs;
 import com.pulumi.azure.storage.inputs.AccountSharePropertiesArgs;
 import com.pulumi.azure.storage.inputs.AccountStaticWebsiteArgs;
 import com.pulumi.core.Output;
@@ -691,6 +692,21 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A `sas_policy` block as defined below.
+     * 
+     */
+    @Import(name="sasPolicy")
+    private @Nullable Output<AccountSasPolicyArgs> sasPolicy;
+
+    /**
+     * @return A `sas_policy` block as defined below.
+     * 
+     */
+    public Optional<Output<AccountSasPolicyArgs>> sasPolicy() {
+        return Optional.ofNullable(this.sasPolicy);
+    }
+
+    /**
      * The secondary access key for the storage account.
      * 
      */
@@ -1052,6 +1068,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.queueProperties = $.queueProperties;
         this.resourceGroupName = $.resourceGroupName;
         this.routing = $.routing;
+        this.sasPolicy = $.sasPolicy;
         this.secondaryAccessKey = $.secondaryAccessKey;
         this.secondaryBlobConnectionString = $.secondaryBlobConnectionString;
         this.secondaryBlobEndpoint = $.secondaryBlobEndpoint;
@@ -2017,6 +2034,27 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder routing(AccountRoutingArgs routing) {
             return routing(Output.of(routing));
+        }
+
+        /**
+         * @param sasPolicy A `sas_policy` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sasPolicy(@Nullable Output<AccountSasPolicyArgs> sasPolicy) {
+            $.sasPolicy = sasPolicy;
+            return this;
+        }
+
+        /**
+         * @param sasPolicy A `sas_policy` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sasPolicy(AccountSasPolicyArgs sasPolicy) {
+            return sasPolicy(Output.of(sasPolicy));
         }
 
         /**

@@ -42,18 +42,14 @@ public final class VirtualNetworkGatewayConnectionArgs extends com.pulumi.resour
     }
 
     /**
-     * Connection mode to use. Possible
-     * values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
-     * Changing this value will force a resource to be created.
+     * Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
      * 
      */
     @Import(name="connectionMode")
     private @Nullable Output<String> connectionMode;
 
     /**
-     * @return Connection mode to use. Possible
-     * values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
-     * Changing this value will force a resource to be created.
+     * @return Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
      * 
      */
     public Optional<Output<String>> connectionMode() {
@@ -61,7 +57,7 @@ public final class VirtualNetworkGatewayConnectionArgs extends com.pulumi.resour
     }
 
     /**
-     * The IKE protocol version to use. Possible
+     * The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
      * values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
      * Changing this value will force a resource to be created.
      * &gt; **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
@@ -71,7 +67,7 @@ public final class VirtualNetworkGatewayConnectionArgs extends com.pulumi.resour
     private @Nullable Output<String> connectionProtocol;
 
     /**
-     * @return The IKE protocol version to use. Possible
+     * @return The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
      * values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
      * Changing this value will force a resource to be created.
      * &gt; **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
@@ -519,9 +515,7 @@ public final class VirtualNetworkGatewayConnectionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param connectionMode Connection mode to use. Possible
-         * values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
-         * Changing this value will force a resource to be created.
+         * @param connectionMode Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
          * 
          * @return builder
          * 
@@ -532,9 +526,7 @@ public final class VirtualNetworkGatewayConnectionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param connectionMode Connection mode to use. Possible
-         * values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
-         * Changing this value will force a resource to be created.
+         * @param connectionMode Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
          * 
          * @return builder
          * 
@@ -544,7 +536,7 @@ public final class VirtualNetworkGatewayConnectionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param connectionProtocol The IKE protocol version to use. Possible
+         * @param connectionProtocol The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
          * values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
          * Changing this value will force a resource to be created.
          * &gt; **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
@@ -558,7 +550,7 @@ public final class VirtualNetworkGatewayConnectionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param connectionProtocol The IKE protocol version to use. Possible
+         * @param connectionProtocol The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
          * values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
          * Changing this value will force a resource to be created.
          * &gt; **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.

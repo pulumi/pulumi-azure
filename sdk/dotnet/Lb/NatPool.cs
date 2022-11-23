@@ -128,7 +128,7 @@ namespace Pulumi.Azure.Lb
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+        /// The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
         /// </summary>
         [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
@@ -240,7 +240,7 @@ namespace Pulumi.Azure.Lb
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+        /// The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
@@ -317,7 +317,7 @@ namespace Pulumi.Azure.Lb
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+        /// The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }

@@ -162,7 +162,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A string indicating the Operating System type for this function app.
+        /// A string indicating the Operating System type for this function app. The only possible value is `linux`.
         /// </summary>
         [Output("osType")]
         public Output<string?> OsType { get; private set; } = null!;
@@ -352,7 +352,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A string indicating the Operating System type for this function app.
+        /// A string indicating the Operating System type for this function app. The only possible value is `linux`.
         /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }
@@ -504,7 +504,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A string indicating the Operating System type for this function app.
+        /// A string indicating the Operating System type for this function app. The only possible value is `linux`.
         /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }

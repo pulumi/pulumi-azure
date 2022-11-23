@@ -66,7 +66,7 @@ export class EnterpriseCluster extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The minimum TLS version.  Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
+     * The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
      */
     public readonly minimumTlsVersion!: pulumi.Output<string | undefined>;
     /**
@@ -146,7 +146,7 @@ export interface EnterpriseClusterState {
      */
     location?: pulumi.Input<string>;
     /**
-     * The minimum TLS version.  Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
+     * The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
      */
     minimumTlsVersion?: pulumi.Input<string>;
     /**
@@ -180,7 +180,7 @@ export interface EnterpriseClusterArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The minimum TLS version.  Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
+     * The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
      */
     minimumTlsVersion?: pulumi.Input<string>;
     /**

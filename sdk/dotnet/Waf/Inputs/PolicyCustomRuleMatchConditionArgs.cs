@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Waf.Inputs
         public Input<bool>? NegationCondition { get; set; }
 
         /// <summary>
-        /// Describes operator to be matched.
+        /// Describes operator to be matched. Possible values are `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
         /// </summary>
         [Input("operator", required: true)]
         public Input<string> Operator { get; set; } = null!;
@@ -52,7 +52,7 @@ namespace Pulumi.Azure.Waf.Inputs
         private InputList<string>? _transforms;
 
         /// <summary>
-        /// A list of transformations to do before the match is attempted.
+        /// A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
         /// </summary>
         public InputList<string> Transforms
         {

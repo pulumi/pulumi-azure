@@ -235,7 +235,7 @@ type FunctionApp struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A string indicating the Operating System type for this function app.
+	// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
 	OsType pulumi.StringPtrOutput `pulumi:"osType"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses pulumi.StringOutput `pulumi:"outboundIpAddresses"`
@@ -332,7 +332,7 @@ type functionAppState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
 	Name *string `pulumi:"name"`
-	// A string indicating the Operating System type for this function app.
+	// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
 	OsType *string `pulumi:"osType"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses *string `pulumi:"outboundIpAddresses"`
@@ -389,7 +389,7 @@ type FunctionAppState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
 	Name pulumi.StringPtrInput
-	// A string indicating the Operating System type for this function app.
+	// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
 	OsType pulumi.StringPtrInput
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses pulumi.StringPtrInput
@@ -444,7 +444,7 @@ type functionAppArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
 	Name *string `pulumi:"name"`
-	// A string indicating the Operating System type for this function app.
+	// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
 	OsType *string `pulumi:"osType"`
 	// The name of the resource group in which to create the Function App.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -490,7 +490,7 @@ type FunctionAppArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
 	Name pulumi.StringPtrInput
-	// A string indicating the Operating System type for this function app.
+	// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
 	OsType pulumi.StringPtrInput
 	// The name of the resource group in which to create the Function App.
 	ResourceGroupName pulumi.StringInput
@@ -675,7 +675,7 @@ func (o FunctionAppOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionApp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A string indicating the Operating System type for this function app.
+// A string indicating the Operating System type for this function app. Possible values are `linux` and “(empty string).
 func (o FunctionAppOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionApp) pulumi.StringPtrOutput { return v.OsType }).(pulumi.StringPtrOutput)
 }

@@ -15,14 +15,14 @@ public final class VirtualMachineAutoPatchingArgs extends com.pulumi.resources.R
     public static final VirtualMachineAutoPatchingArgs Empty = new VirtualMachineAutoPatchingArgs();
 
     /**
-     * The day of week to apply the patch on.
+     * The day of week to apply the patch on. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
      * 
      */
     @Import(name="dayOfWeek", required=true)
     private Output<String> dayOfWeek;
 
     /**
-     * @return The day of week to apply the patch on.
+     * @return The day of week to apply the patch on. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
      * 
      */
     public Output<String> dayOfWeek() {
@@ -86,7 +86,7 @@ public final class VirtualMachineAutoPatchingArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param dayOfWeek The day of week to apply the patch on.
+         * @param dayOfWeek The day of week to apply the patch on. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class VirtualMachineAutoPatchingArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param dayOfWeek The day of week to apply the patch on.
+         * @param dayOfWeek The day of week to apply the patch on. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
          * 
          * @return builder
          * 

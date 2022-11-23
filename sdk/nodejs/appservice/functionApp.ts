@@ -204,7 +204,7 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A string indicating the Operating System type for this function app.
+     * A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
      */
     public readonly osType!: pulumi.Output<string | undefined>;
     /**
@@ -404,7 +404,7 @@ export interface FunctionAppState {
      */
     name?: pulumi.Input<string>;
     /**
-     * A string indicating the Operating System type for this function app.
+     * A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
      */
     osType?: pulumi.Input<string>;
     /**
@@ -506,7 +506,7 @@ export interface FunctionAppArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A string indicating the Operating System type for this function app.
+     * A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
      */
     osType?: pulumi.Input<string>;
     /**
