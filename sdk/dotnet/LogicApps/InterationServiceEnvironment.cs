@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.LogicApps
 {
     /// <summary>
-    /// Manages private and isolated Logic App instances within an Azure virtual network.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

@@ -184,7 +184,7 @@ namespace Pulumi.Azure.PostgreSql
         public Output<Outputs.ServerThreatDetectionPolicy?> ThreatDetectionPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `11`. Changing this forces a new resource to be created.
+        /// Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, `10.2` and `11`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
@@ -362,7 +362,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<Inputs.ServerThreatDetectionPolicyArgs>? ThreatDetectionPolicy { get; set; }
 
         /// <summary>
-        /// Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `11`. Changing this forces a new resource to be created.
+        /// Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, `10.2` and `11`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
@@ -508,7 +508,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<Inputs.ServerThreatDetectionPolicyGetArgs>? ThreatDetectionPolicy { get; set; }
 
         /// <summary>
-        /// Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `11`. Changing this forces a new resource to be created.
+        /// Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, `10.2` and `11`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

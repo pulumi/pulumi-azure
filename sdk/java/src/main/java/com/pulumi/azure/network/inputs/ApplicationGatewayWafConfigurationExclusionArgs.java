@@ -16,14 +16,14 @@ public final class ApplicationGatewayWafConfigurationExclusionArgs extends com.p
     public static final ApplicationGatewayWafConfigurationExclusionArgs Empty = new ApplicationGatewayWafConfigurationExclusionArgs();
 
     /**
-     * Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are `RequestHeaderNames`, `RequestArgNames` and `RequestCookieNames`
+     * Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames` and `RequestHeaderValues`
      * 
      */
     @Import(name="matchVariable", required=true)
     private Output<String> matchVariable;
 
     /**
-     * @return Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are `RequestHeaderNames`, `RequestArgNames` and `RequestCookieNames`
+     * @return Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames` and `RequestHeaderValues`
      * 
      */
     public Output<String> matchVariable() {
@@ -46,14 +46,14 @@ public final class ApplicationGatewayWafConfigurationExclusionArgs extends com.p
     }
 
     /**
-     * Operator which will be used to search in the variable content. Possible values are `Equals`, `StartsWith`, `EndsWith`, `Contains`. If empty will exclude all traffic on this `match_variable`
+     * Operator which will be used to search in the variable content. Possible values are `Contains`, `EndsWith`, `Equals`, `EqualsAny` and `StartsWith`. If empty will exclude all traffic on this `match_variable`
      * 
      */
     @Import(name="selectorMatchOperator")
     private @Nullable Output<String> selectorMatchOperator;
 
     /**
-     * @return Operator which will be used to search in the variable content. Possible values are `Equals`, `StartsWith`, `EndsWith`, `Contains`. If empty will exclude all traffic on this `match_variable`
+     * @return Operator which will be used to search in the variable content. Possible values are `Contains`, `EndsWith`, `Equals`, `EqualsAny` and `StartsWith`. If empty will exclude all traffic on this `match_variable`
      * 
      */
     public Optional<Output<String>> selectorMatchOperator() {
@@ -87,7 +87,7 @@ public final class ApplicationGatewayWafConfigurationExclusionArgs extends com.p
         }
 
         /**
-         * @param matchVariable Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are `RequestHeaderNames`, `RequestArgNames` and `RequestCookieNames`
+         * @param matchVariable Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames` and `RequestHeaderValues`
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class ApplicationGatewayWafConfigurationExclusionArgs extends com.p
         }
 
         /**
-         * @param matchVariable Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are `RequestHeaderNames`, `RequestArgNames` and `RequestCookieNames`
+         * @param matchVariable Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames` and `RequestHeaderValues`
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class ApplicationGatewayWafConfigurationExclusionArgs extends com.p
         }
 
         /**
-         * @param selectorMatchOperator Operator which will be used to search in the variable content. Possible values are `Equals`, `StartsWith`, `EndsWith`, `Contains`. If empty will exclude all traffic on this `match_variable`
+         * @param selectorMatchOperator Operator which will be used to search in the variable content. Possible values are `Contains`, `EndsWith`, `Equals`, `EqualsAny` and `StartsWith`. If empty will exclude all traffic on this `match_variable`
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ApplicationGatewayWafConfigurationExclusionArgs extends com.p
         }
 
         /**
-         * @param selectorMatchOperator Operator which will be used to search in the variable content. Possible values are `Equals`, `StartsWith`, `EndsWith`, `Contains`. If empty will exclude all traffic on this `match_variable`
+         * @param selectorMatchOperator Operator which will be used to search in the variable content. Possible values are `Contains`, `EndsWith`, `Equals`, `EqualsAny` and `StartsWith`. If empty will exclude all traffic on this `match_variable`
          * 
          * @return builder
          * 

@@ -184,14 +184,14 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+     * List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
      * 
      */
     @Import(name="weekDays")
     private @Nullable Output<List<String>> weekDays;
 
     /**
-     * @return List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+     * @return List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
      * 
      */
     public Optional<Output<List<String>>> weekDays() {
@@ -485,7 +485,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param weekDays List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+         * @param weekDays List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
          * 
          * @return builder
          * 
@@ -496,7 +496,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param weekDays List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+         * @param weekDays List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
          * 
          * @return builder
          * 
@@ -506,7 +506,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param weekDays List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+         * @param weekDays List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
          * 
          * @return builder
          * 

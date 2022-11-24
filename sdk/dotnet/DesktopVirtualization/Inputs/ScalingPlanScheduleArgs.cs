@@ -16,7 +16,7 @@ namespace Pulumi.Azure.DesktopVirtualization.Inputs
         private InputList<string>? _daysOfWeeks;
 
         /// <summary>
-        /// A list of Days of the Week on which this schedule will be used..Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
+        /// A list of Days of the Week on which this schedule will be used. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
         /// </summary>
         public InputList<string> DaysOfWeeks
         {

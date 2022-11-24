@@ -62,6 +62,10 @@ export class SubscriptionPricing extends pulumi.CustomResource {
      */
     public readonly resourceType!: pulumi.Output<string | undefined>;
     /**
+     * Resource type pricing subplan. Contact your MSFT representative for possible values.
+     */
+    public readonly subplan!: pulumi.Output<string | undefined>;
+    /**
      * The pricing tier to use. Possible values are `Free` and `Standard`.
      */
     public readonly tier!: pulumi.Output<string>;
@@ -80,6 +84,7 @@ export class SubscriptionPricing extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SubscriptionPricingState | undefined;
             resourceInputs["resourceType"] = state ? state.resourceType : undefined;
+            resourceInputs["subplan"] = state ? state.subplan : undefined;
             resourceInputs["tier"] = state ? state.tier : undefined;
         } else {
             const args = argsOrState as SubscriptionPricingArgs | undefined;
@@ -87,6 +92,7 @@ export class SubscriptionPricing extends pulumi.CustomResource {
                 throw new Error("Missing required property 'tier'");
             }
             resourceInputs["resourceType"] = args ? args.resourceType : undefined;
+            resourceInputs["subplan"] = args ? args.subplan : undefined;
             resourceInputs["tier"] = args ? args.tier : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -103,6 +109,10 @@ export interface SubscriptionPricingState {
      */
     resourceType?: pulumi.Input<string>;
     /**
+     * Resource type pricing subplan. Contact your MSFT representative for possible values.
+     */
+    subplan?: pulumi.Input<string>;
+    /**
      * The pricing tier to use. Possible values are `Free` and `Standard`.
      */
     tier?: pulumi.Input<string>;
@@ -116,6 +126,10 @@ export interface SubscriptionPricingArgs {
      * The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `OpenSourceRelationalDatabases`, `Containers` and `Dns`. Defaults to `VirtualMachines`.
      */
     resourceType?: pulumi.Input<string>;
+    /**
+     * Resource type pricing subplan. Contact your MSFT representative for possible values.
+     */
+    subplan?: pulumi.Input<string>;
     /**
      * The pricing tier to use. Possible values are `Free` and `Standard`.
      */

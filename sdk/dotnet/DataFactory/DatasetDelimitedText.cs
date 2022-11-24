@@ -103,7 +103,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> ColumnDelimiter { get; private set; } = null!;
 
         /// <summary>
-        /// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+        /// The compression codec used to read/write text files. Valid values are `None`, `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy` and `lz4`. Please note these values are case sensitive.
         /// </summary>
         [Output("compressionCodec")]
         public Output<string?> CompressionCodec { get; private set; } = null!;
@@ -287,7 +287,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? ColumnDelimiter { get; set; }
 
         /// <summary>
-        /// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+        /// The compression codec used to read/write text files. Valid values are `None`, `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy` and `lz4`. Please note these values are case sensitive.
         /// </summary>
         [Input("compressionCodec")]
         public Input<string>? CompressionCodec { get; set; }
@@ -445,7 +445,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? ColumnDelimiter { get; set; }
 
         /// <summary>
-        /// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+        /// The compression codec used to read/write text files. Valid values are `None`, `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy` and `lz4`. Please note these values are case sensitive.
         /// </summary>
         [Input("compressionCodec")]
         public Input<string>? CompressionCodec { get; set; }

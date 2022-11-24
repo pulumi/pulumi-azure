@@ -55,13 +55,7 @@ namespace Pulumi.Azure.CosmosDB
     ///         AccountName = exampleAccount.Name,
     ///         AssignableScopes = new[]
     ///         {
-    ///             Output.Tuple(current.Apply(getClientConfigResult =&gt; getClientConfigResult), exampleResourceGroup.Name, exampleAccount.Name).Apply(values =&gt;
-    ///             {
-    ///                 var current = values.Item1;
-    ///                 var exampleResourceGroupName = values.Item2;
-    ///                 var exampleAccountName = values.Item3;
-    ///                 return $"/subscriptions/{current.Apply(getClientConfigResult =&gt; getClientConfigResult.SubscriptionId)}/resourceGroups/{exampleResourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{exampleAccountName}/dbs/sales";
-    ///             }),
+    ///             exampleAccount.Id.Apply(id =&gt; $"{id}/dbs/sales"),
     ///         },
     ///         Permissions = new[]
     ///         {

@@ -15394,7 +15394,7 @@ func (o RegistryTrustPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type TokenPasswordPassword1 struct {
-	// The expiration date of the password in RFC3339 format.
+	// The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
 	Expiry *string `pulumi:"expiry"`
 	// The value of the password (Sensitive).
 	Value *string `pulumi:"value"`
@@ -15412,7 +15412,7 @@ type TokenPasswordPassword1Input interface {
 }
 
 type TokenPasswordPassword1Args struct {
-	// The expiration date of the password in RFC3339 format.
+	// The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
 	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
 	// The value of the password (Sensitive).
 	Value pulumi.StringPtrInput `pulumi:"value"`
@@ -15495,7 +15495,7 @@ func (o TokenPasswordPassword1Output) ToTokenPasswordPassword1PtrOutputWithConte
 	}).(TokenPasswordPassword1PtrOutput)
 }
 
-// The expiration date of the password in RFC3339 format.
+// The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
 func (o TokenPasswordPassword1Output) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TokenPasswordPassword1) *string { return v.Expiry }).(pulumi.StringPtrOutput)
 }
@@ -15529,7 +15529,7 @@ func (o TokenPasswordPassword1PtrOutput) Elem() TokenPasswordPassword1Output {
 	}).(TokenPasswordPassword1Output)
 }
 
-// The expiration date of the password in RFC3339 format.
+// The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
 func (o TokenPasswordPassword1PtrOutput) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TokenPasswordPassword1) *string {
 		if v == nil {
@@ -15550,7 +15550,7 @@ func (o TokenPasswordPassword1PtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 type TokenPasswordPassword2 struct {
-	// The expiration date of the password in RFC3339 format.
+	// The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
 	Expiry *string `pulumi:"expiry"`
 	// The value of the password (Sensitive).
 	Value *string `pulumi:"value"`
@@ -15568,7 +15568,7 @@ type TokenPasswordPassword2Input interface {
 }
 
 type TokenPasswordPassword2Args struct {
-	// The expiration date of the password in RFC3339 format.
+	// The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
 	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
 	// The value of the password (Sensitive).
 	Value pulumi.StringPtrInput `pulumi:"value"`
@@ -15651,7 +15651,7 @@ func (o TokenPasswordPassword2Output) ToTokenPasswordPassword2PtrOutputWithConte
 	}).(TokenPasswordPassword2PtrOutput)
 }
 
-// The expiration date of the password in RFC3339 format.
+// The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
 func (o TokenPasswordPassword2Output) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TokenPasswordPassword2) *string { return v.Expiry }).(pulumi.StringPtrOutput)
 }
@@ -15685,7 +15685,7 @@ func (o TokenPasswordPassword2PtrOutput) Elem() TokenPasswordPassword2Output {
 	}).(TokenPasswordPassword2Output)
 }
 
-// The expiration date of the password in RFC3339 format.
+// The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
 func (o TokenPasswordPassword2PtrOutput) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TokenPasswordPassword2) *string {
 		if v == nil {

@@ -26,7 +26,7 @@ namespace Pulumi.Azure.StreamAnalytics.Outputs
         /// </summary>
         public readonly string? Format;
         /// <summary>
-        /// The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
+        /// The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
         /// </summary>
         public readonly string Type;
 

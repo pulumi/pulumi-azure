@@ -17,7 +17,7 @@ public final class PolicyCustomRuleMatchConditionMatchVariable {
      */
     private @Nullable String selector;
     /**
-     * @return The name of the Match Variable
+     * @return The name of the Match Variable. Possible values are `RemoteAddr`, `RequestMethod`, `QueryString`, `PostArgs`, `RequestUri`, `RequestHeaders`, `RequestBody` and `RequestCookies`.
      * 
      */
     private String variableName;
@@ -31,7 +31,7 @@ public final class PolicyCustomRuleMatchConditionMatchVariable {
         return Optional.ofNullable(this.selector);
     }
     /**
-     * @return The name of the Match Variable
+     * @return The name of the Match Variable. Possible values are `RemoteAddr`, `RequestMethod`, `QueryString`, `PostArgs`, `RequestUri`, `RequestHeaders`, `RequestBody` and `RequestCookies`.
      * 
      */
     public String variableName() {

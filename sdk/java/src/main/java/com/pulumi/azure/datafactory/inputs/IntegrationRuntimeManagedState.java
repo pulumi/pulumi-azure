@@ -95,14 +95,14 @@ public final class IntegrationRuntimeManagedState extends com.pulumi.resources.R
     }
 
     /**
-     * The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
+     * The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
      * 
      */
     @Import(name="licenseType")
     private @Nullable Output<String> licenseType;
 
     /**
-     * @return The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
+     * @return The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
      * 
      */
     public Optional<Output<String>> licenseType() {
@@ -340,7 +340,7 @@ public final class IntegrationRuntimeManagedState extends com.pulumi.resources.R
         }
 
         /**
-         * @param licenseType The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
+         * @param licenseType The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
          * 
          * @return builder
          * 
@@ -351,7 +351,7 @@ public final class IntegrationRuntimeManagedState extends com.pulumi.resources.R
         }
 
         /**
-         * @param licenseType The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
+         * @param licenseType The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
          * 
          * @return builder
          * 

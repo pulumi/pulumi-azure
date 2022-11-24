@@ -22,6 +22,10 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly bool? IncludeBlobVersions;
         /// <summary>
+        /// Includes deleted blobs in blob inventory or not? Defaults to `false`.
+        /// </summary>
+        public readonly bool? IncludeDeleted;
+        /// <summary>
         /// Includes blob snapshots in blob inventory or not? Defaults to `false`.
         /// </summary>
         public readonly bool? IncludeSnapshots;
@@ -36,12 +40,15 @@ namespace Pulumi.Azure.Storage.Outputs
 
             bool? includeBlobVersions,
 
+            bool? includeDeleted,
+
             bool? includeSnapshots,
 
             ImmutableArray<string> prefixMatches)
         {
             BlobTypes = blobTypes;
             IncludeBlobVersions = includeBlobVersions;
+            IncludeDeleted = includeDeleted;
             IncludeSnapshots = includeSnapshots;
             PrefixMatches = prefixMatches;
         }

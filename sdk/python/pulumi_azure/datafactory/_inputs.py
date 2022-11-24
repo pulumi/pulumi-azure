@@ -1161,7 +1161,7 @@ class DatasetBinaryCompressionArgs:
                  type: pulumi.Input[str],
                  level: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The type of compression used during transport.
+        :param pulumi.Input[str] type: The type of compression used during transport. Possible values are `BZip2`, `Deflate`, `GZip`, `Tar`, `TarGZip` and `ZipDeflate`.
         :param pulumi.Input[str] level: The level of compression. Possible values are `Fastest` and `Optimal`.
         """
         pulumi.set(__self__, "type", type)
@@ -1172,7 +1172,7 @@ class DatasetBinaryCompressionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of compression used during transport.
+        The type of compression used during transport. Possible values are `BZip2`, `Deflate`, `GZip`, `Tar`, `TarGZip` and `ZipDeflate`.
         """
         return pulumi.get(self, "type")
 

@@ -155,7 +155,7 @@ namespace Pulumi.Azure.Consumption
         public Output<string> ResourceGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `Monthly`, `Quarterly`, `Annually`, `BillingMonth`, `BillingQuarter`, or `BillingYear`. Defaults to `Monthly`.
+        /// The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`.
         /// </summary>
         [Output("timeGrain")]
         public Output<string?> TimeGrain { get; private set; } = null!;
@@ -255,7 +255,7 @@ namespace Pulumi.Azure.Consumption
         public Input<string> ResourceGroupId { get; set; } = null!;
 
         /// <summary>
-        /// The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `Monthly`, `Quarterly`, `Annually`, `BillingMonth`, `BillingQuarter`, or `BillingYear`. Defaults to `Monthly`.
+        /// The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`.
         /// </summary>
         [Input("timeGrain")]
         public Input<string>? TimeGrain { get; set; }
@@ -317,7 +317,7 @@ namespace Pulumi.Azure.Consumption
         public Input<string>? ResourceGroupId { get; set; }
 
         /// <summary>
-        /// The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `Monthly`, `Quarterly`, `Annually`, `BillingMonth`, `BillingQuarter`, or `BillingYear`. Defaults to `Monthly`.
+        /// The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`.
         /// </summary>
         [Input("timeGrain")]
         public Input<string>? TimeGrain { get; set; }

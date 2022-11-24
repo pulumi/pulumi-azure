@@ -24,7 +24,7 @@ class LinkedServerArgs:
         :param pulumi.Input[str] linked_redis_cache_id: The ID of the linked Redis cache. Changing this forces a new Redis to be created.
         :param pulumi.Input[str] linked_redis_cache_location: The location of the linked Redis cache. Changing this forces a new Redis to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Redis caches exists. Changing this forces a new Redis to be created.
-        :param pulumi.Input[str] server_role: The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created.
+        :param pulumi.Input[str] server_role: The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
         :param pulumi.Input[str] target_redis_cache_name: The name of Redis cache to link with. Changing this forces a new Redis to be created. (eg The primary role)
         """
         pulumi.set(__self__, "linked_redis_cache_id", linked_redis_cache_id)
@@ -73,7 +73,7 @@ class LinkedServerArgs:
     @pulumi.getter(name="serverRole")
     def server_role(self) -> pulumi.Input[str]:
         """
-        The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created.
+        The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
         """
         return pulumi.get(self, "server_role")
 
@@ -109,7 +109,7 @@ class _LinkedServerState:
         :param pulumi.Input[str] linked_redis_cache_location: The location of the linked Redis cache. Changing this forces a new Redis to be created.
         :param pulumi.Input[str] name: The name of the linked server.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Redis caches exists. Changing this forces a new Redis to be created.
-        :param pulumi.Input[str] server_role: The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created.
+        :param pulumi.Input[str] server_role: The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
         :param pulumi.Input[str] target_redis_cache_name: The name of Redis cache to link with. Changing this forces a new Redis to be created. (eg The primary role)
         """
         if linked_redis_cache_id is not None:
@@ -177,7 +177,7 @@ class _LinkedServerState:
     @pulumi.getter(name="serverRole")
     def server_role(self) -> Optional[pulumi.Input[str]]:
         """
-        The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created.
+        The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
         """
         return pulumi.get(self, "server_role")
 
@@ -265,7 +265,7 @@ class LinkedServer(pulumi.CustomResource):
         :param pulumi.Input[str] linked_redis_cache_id: The ID of the linked Redis cache. Changing this forces a new Redis to be created.
         :param pulumi.Input[str] linked_redis_cache_location: The location of the linked Redis cache. Changing this forces a new Redis to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Redis caches exists. Changing this forces a new Redis to be created.
-        :param pulumi.Input[str] server_role: The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created.
+        :param pulumi.Input[str] server_role: The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
         :param pulumi.Input[str] target_redis_cache_name: The name of Redis cache to link with. Changing this forces a new Redis to be created. (eg The primary role)
         """
         ...
@@ -397,7 +397,7 @@ class LinkedServer(pulumi.CustomResource):
         :param pulumi.Input[str] linked_redis_cache_location: The location of the linked Redis cache. Changing this forces a new Redis to be created.
         :param pulumi.Input[str] name: The name of the linked server.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Redis caches exists. Changing this forces a new Redis to be created.
-        :param pulumi.Input[str] server_role: The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created.
+        :param pulumi.Input[str] server_role: The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
         :param pulumi.Input[str] target_redis_cache_name: The name of Redis cache to link with. Changing this forces a new Redis to be created. (eg The primary role)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -448,7 +448,7 @@ class LinkedServer(pulumi.CustomResource):
     @pulumi.getter(name="serverRole")
     def server_role(self) -> pulumi.Output[str]:
         """
-        The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created.
+        The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
         """
         return pulumi.get(self, "server_role")
 

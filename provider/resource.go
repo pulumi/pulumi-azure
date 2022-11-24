@@ -55,6 +55,7 @@ const (
 	azureAppInsights           = "AppInsights"           // AppInsights
 	azureAppPlatform           = "AppPlatform"           // AppPlatform
 	azureAppService            = "AppService"            // App Service
+	armMsi                     = "ArmMsi"                // ARM MSI (managed service identity)
 	azureAttestation           = "Attestation"           // Attestation
 	azureAutomation            = "Automation"            // Automation
 	azureAuthorization         = "Authorization"         // Authorization
@@ -123,7 +124,7 @@ const (
 	azureNginx                 = "Nginx"                 // Nginx
 	azureNotificationHub       = "NotificationHub"       // Notification Hub
 	azureOperationalInsights   = "OperationalInsights"   // Operational Insights
-	azureOrbital               = "Orbital"               //Orbital
+	azureOrbital               = "Orbital"               // Orbital
 	azurePostgresql            = "PostgreSql"            // Postgress SQL
 	azurePolicy                = "Policy"                // Policy
 	azurePortal                = "Portal"                // Portal
@@ -2068,6 +2069,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_stream_analytics_stream_input_eventhub": {
 				Tok: azureResource(azureStreamAnalytics, "StreamInputEventHub"),
 			},
+			"azurerm_stream_analytics_stream_input_eventhub_v2": {
+				Tok: azureResource(azureStreamAnalytics, "StreamInputEventHubV2"),
+			},
 			"azurerm_stream_analytics_stream_input_iothub": {
 				Tok: azureResource(azureStreamAnalytics, "StreamInputIotHub"),
 			},
@@ -2485,6 +2489,9 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"azurerm_orbital_contact_profile": {Tok: azureResource(azureOrbital, "ContactProfile")},
+
+			// ARM MSI
+			"azurerm_federated_identity_credential": {Tok: azureResource(armMsi, "FederatedIdentityCredential")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_aadb2c_directory": {Tok: azureDataSource(aadb2c, "getDirectory")},

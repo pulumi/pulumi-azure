@@ -162,14 +162,14 @@ public class WorkspaceSecurityAlertPolicy extends com.pulumi.resources.CustomRes
         return Codegen.optional(this.emailAddresses);
     }
     /**
-     * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Allowed values are: `Disabled`, `Enabled`.
+     * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Possible values are `Disabled`, `Enabled` and `New`.
      * 
      */
     @Export(name="policyState", type=String.class, parameters={})
     private Output<String> policyState;
 
     /**
-     * @return Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Allowed values are: `Disabled`, `Enabled`.
+     * @return Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Possible values are `Disabled`, `Enabled` and `New`.
      * 
      */
     public Output<String> policyState() {

@@ -217,16 +217,14 @@ public class ApplicationGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * Type of Virtual Desktop Application Group.
-     * Valid options are `RemoteApp` or `Desktop` application groups.
+     * Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
      * 
      */
     @Export(name="type", type=String.class, parameters={})
     private Output<String> type;
 
     /**
-     * @return Type of Virtual Desktop Application Group.
-     * Valid options are `RemoteApp` or `Desktop` application groups.
+     * @return Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
      * 
      */
     public Output<String> type() {

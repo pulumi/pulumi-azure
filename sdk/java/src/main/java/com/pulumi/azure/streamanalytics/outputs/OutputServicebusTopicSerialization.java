@@ -27,7 +27,7 @@ public final class OutputServicebusTopicSerialization {
      */
     private @Nullable String format;
     /**
-     * @return The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
+     * @return The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
      * 
      */
     private String type;
@@ -55,7 +55,7 @@ public final class OutputServicebusTopicSerialization {
         return Optional.ofNullable(this.format);
     }
     /**
-     * @return The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
+     * @return The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
      * 
      */
     public String type() {

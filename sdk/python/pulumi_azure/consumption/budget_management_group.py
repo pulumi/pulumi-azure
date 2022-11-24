@@ -33,7 +33,7 @@ class BudgetManagementGroupArgs:
         :param pulumi.Input[str] etag: The ETag of the Management Group Consumption Budget.
         :param pulumi.Input['BudgetManagementGroupFilterArgs'] filter: A `filter` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Management Group Consumption Budget. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `Monthly`, `Quarterly`, `Annually`, `BillingMonth`, `BillingQuarter`, or `BillingYear`. Defaults to `Monthly`.
+        :param pulumi.Input[str] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`.
         """
         pulumi.set(__self__, "amount", amount)
         pulumi.set(__self__, "management_group_id", management_group_id)
@@ -136,7 +136,7 @@ class BudgetManagementGroupArgs:
     @pulumi.getter(name="timeGrain")
     def time_grain(self) -> Optional[pulumi.Input[str]]:
         """
-        The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `Monthly`, `Quarterly`, `Annually`, `BillingMonth`, `BillingQuarter`, or `BillingYear`. Defaults to `Monthly`.
+        The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`.
         """
         return pulumi.get(self, "time_grain")
 
@@ -164,7 +164,7 @@ class _BudgetManagementGroupState:
         :param pulumi.Input[str] management_group_id: The ID of the Management Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Management Group Consumption Budget. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupNotificationArgs']]] notifications: One or more `notification` blocks as defined below.
-        :param pulumi.Input[str] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `Monthly`, `Quarterly`, `Annually`, `BillingMonth`, `BillingQuarter`, or `BillingYear`. Defaults to `Monthly`.
+        :param pulumi.Input[str] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`.
         :param pulumi.Input['BudgetManagementGroupTimePeriodArgs'] time_period: A `time_period` block as defined below.
         """
         if amount is not None:
@@ -260,7 +260,7 @@ class _BudgetManagementGroupState:
     @pulumi.getter(name="timeGrain")
     def time_grain(self) -> Optional[pulumi.Input[str]]:
         """
-        The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `Monthly`, `Quarterly`, `Annually`, `BillingMonth`, `BillingQuarter`, or `BillingYear`. Defaults to `Monthly`.
+        The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`.
         """
         return pulumi.get(self, "time_grain")
 
@@ -366,7 +366,7 @@ class BudgetManagementGroup(pulumi.CustomResource):
         :param pulumi.Input[str] management_group_id: The ID of the Management Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Management Group Consumption Budget. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetManagementGroupNotificationArgs']]]] notifications: One or more `notification` blocks as defined below.
-        :param pulumi.Input[str] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `Monthly`, `Quarterly`, `Annually`, `BillingMonth`, `BillingQuarter`, or `BillingYear`. Defaults to `Monthly`.
+        :param pulumi.Input[str] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`.
         :param pulumi.Input[pulumi.InputType['BudgetManagementGroupTimePeriodArgs']] time_period: A `time_period` block as defined below.
         """
         ...
@@ -517,7 +517,7 @@ class BudgetManagementGroup(pulumi.CustomResource):
         :param pulumi.Input[str] management_group_id: The ID of the Management Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Management Group Consumption Budget. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetManagementGroupNotificationArgs']]]] notifications: One or more `notification` blocks as defined below.
-        :param pulumi.Input[str] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `Monthly`, `Quarterly`, `Annually`, `BillingMonth`, `BillingQuarter`, or `BillingYear`. Defaults to `Monthly`.
+        :param pulumi.Input[str] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`.
         :param pulumi.Input[pulumi.InputType['BudgetManagementGroupTimePeriodArgs']] time_period: A `time_period` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -586,7 +586,7 @@ class BudgetManagementGroup(pulumi.CustomResource):
     @pulumi.getter(name="timeGrain")
     def time_grain(self) -> pulumi.Output[Optional[str]]:
         """
-        The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `Monthly`, `Quarterly`, `Annually`, `BillingMonth`, `BillingQuarter`, or `BillingYear`. Defaults to `Monthly`.
+        The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`.
         """
         return pulumi.get(self, "time_grain")
 

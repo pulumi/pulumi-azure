@@ -50,6 +50,12 @@ namespace Pulumi.Azure.SecurityCenter
         public Output<string?> ResourceType { get; private set; } = null!;
 
         /// <summary>
+        /// Resource type pricing subplan. Contact your MSFT representative for possible values.
+        /// </summary>
+        [Output("subplan")]
+        public Output<string?> Subplan { get; private set; } = null!;
+
+        /// <summary>
         /// The pricing tier to use. Possible values are `Free` and `Standard`.
         /// </summary>
         [Output("tier")]
@@ -108,6 +114,12 @@ namespace Pulumi.Azure.SecurityCenter
         public Input<string>? ResourceType { get; set; }
 
         /// <summary>
+        /// Resource type pricing subplan. Contact your MSFT representative for possible values.
+        /// </summary>
+        [Input("subplan")]
+        public Input<string>? Subplan { get; set; }
+
+        /// <summary>
         /// The pricing tier to use. Possible values are `Free` and `Standard`.
         /// </summary>
         [Input("tier", required: true)]
@@ -126,6 +138,12 @@ namespace Pulumi.Azure.SecurityCenter
         /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }
+
+        /// <summary>
+        /// Resource type pricing subplan. Contact your MSFT representative for possible values.
+        /// </summary>
+        [Input("subplan")]
+        public Input<string>? Subplan { get; set; }
 
         /// <summary>
         /// The pricing tier to use. Possible values are `Free` and `Standard`.

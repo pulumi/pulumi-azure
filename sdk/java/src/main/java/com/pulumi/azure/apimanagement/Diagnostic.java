@@ -252,14 +252,14 @@ public class Diagnostic extends com.pulumi.resources.CustomResource {
         return this.httpCorrelationProtocol;
     }
     /**
-     * The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
+     * The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="identifier", type=String.class, parameters={})
     private Output<String> identifier;
 
     /**
-     * @return The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
+     * @return The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> identifier() {

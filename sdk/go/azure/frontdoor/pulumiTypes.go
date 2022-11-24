@@ -1570,7 +1570,7 @@ type FrontdoorBackendPoolHealthProbe struct {
 	Path *string `pulumi:"path"`
 	// Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `Get`.
 	ProbeMethod *string `pulumi:"probeMethod"`
-	// Protocol scheme to use for the Health Probe. Defaults to `Http`.
+	// Protocol scheme to use for the Health Probe. Possible values are `Http` and `Https`. Defaults to `Http`.
 	Protocol *string `pulumi:"protocol"`
 }
 
@@ -1598,7 +1598,7 @@ type FrontdoorBackendPoolHealthProbeArgs struct {
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `Get`.
 	ProbeMethod pulumi.StringPtrInput `pulumi:"probeMethod"`
-	// Protocol scheme to use for the Health Probe. Defaults to `Http`.
+	// Protocol scheme to use for the Health Probe. Possible values are `Http` and `Https`. Defaults to `Http`.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 }
 
@@ -1683,7 +1683,7 @@ func (o FrontdoorBackendPoolHealthProbeOutput) ProbeMethod() pulumi.StringPtrOut
 	return o.ApplyT(func(v FrontdoorBackendPoolHealthProbe) *string { return v.ProbeMethod }).(pulumi.StringPtrOutput)
 }
 
-// Protocol scheme to use for the Health Probe. Defaults to `Http`.
+// Protocol scheme to use for the Health Probe. Possible values are `Http` and `Https`. Defaults to `Http`.
 func (o FrontdoorBackendPoolHealthProbeOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorBackendPoolHealthProbe) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
@@ -2208,7 +2208,7 @@ func (o FrontdoorFrontendEndpointArrayOutput) Index(i pulumi.IntInput) Frontdoor
 }
 
 type FrontdoorRoutingRule struct {
-	// Protocol schemes to match for the Backend Routing Rule. Defaults to `Http`.
+	// Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`. Defaults to `Http`.
 	AcceptedProtocols []string `pulumi:"acceptedProtocols"`
 	// `Enable` or `Disable` use of this Backend Routing Rule. Permitted values are `true` or `false`. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
@@ -2238,7 +2238,7 @@ type FrontdoorRoutingRuleInput interface {
 }
 
 type FrontdoorRoutingRuleArgs struct {
-	// Protocol schemes to match for the Backend Routing Rule. Defaults to `Http`.
+	// Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`. Defaults to `Http`.
 	AcceptedProtocols pulumi.StringArrayInput `pulumi:"acceptedProtocols"`
 	// `Enable` or `Disable` use of this Backend Routing Rule. Permitted values are `true` or `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -2307,7 +2307,7 @@ func (o FrontdoorRoutingRuleOutput) ToFrontdoorRoutingRuleOutputWithContext(ctx 
 	return o
 }
 
-// Protocol schemes to match for the Backend Routing Rule. Defaults to `Http`.
+// Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`. Defaults to `Http`.
 func (o FrontdoorRoutingRuleOutput) AcceptedProtocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRoutingRule) []string { return v.AcceptedProtocols }).(pulumi.StringArrayOutput)
 }

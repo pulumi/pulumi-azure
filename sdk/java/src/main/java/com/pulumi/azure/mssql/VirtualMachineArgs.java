@@ -7,6 +7,7 @@ import com.pulumi.azure.mssql.inputs.VirtualMachineAssessmentArgs;
 import com.pulumi.azure.mssql.inputs.VirtualMachineAutoBackupArgs;
 import com.pulumi.azure.mssql.inputs.VirtualMachineAutoPatchingArgs;
 import com.pulumi.azure.mssql.inputs.VirtualMachineKeyVaultCredentialArgs;
+import com.pulumi.azure.mssql.inputs.VirtualMachineSqlInstanceArgs;
 import com.pulumi.azure.mssql.inputs.VirtualMachineStorageConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -114,14 +115,14 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The connectivity type used for this SQL Server. Defaults to `PRIVATE`.
+     * The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`.
      * 
      */
     @Import(name="sqlConnectivityType")
     private @Nullable Output<String> sqlConnectivityType;
 
     /**
-     * @return The connectivity type used for this SQL Server. Defaults to `PRIVATE`.
+     * @return The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`.
      * 
      */
     public Optional<Output<String>> sqlConnectivityType() {
@@ -156,6 +157,21 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
      */
     public Optional<Output<String>> sqlConnectivityUpdateUsername() {
         return Optional.ofNullable(this.sqlConnectivityUpdateUsername);
+    }
+
+    /**
+     * A `sql_instance` block as defined below.
+     * 
+     */
+    @Import(name="sqlInstance")
+    private @Nullable Output<VirtualMachineSqlInstanceArgs> sqlInstance;
+
+    /**
+     * @return A `sql_instance` block as defined below.
+     * 
+     */
+    public Optional<Output<VirtualMachineSqlInstanceArgs>> sqlInstance() {
+        return Optional.ofNullable(this.sqlInstance);
     }
 
     /**
@@ -230,6 +246,7 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         this.sqlConnectivityType = $.sqlConnectivityType;
         this.sqlConnectivityUpdatePassword = $.sqlConnectivityUpdatePassword;
         this.sqlConnectivityUpdateUsername = $.sqlConnectivityUpdateUsername;
+        this.sqlInstance = $.sqlInstance;
         this.sqlLicenseType = $.sqlLicenseType;
         this.storageConfiguration = $.storageConfiguration;
         this.tags = $.tags;
@@ -381,7 +398,7 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sqlConnectivityType The connectivity type used for this SQL Server. Defaults to `PRIVATE`.
+         * @param sqlConnectivityType The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`.
          * 
          * @return builder
          * 
@@ -392,7 +409,7 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sqlConnectivityType The connectivity type used for this SQL Server. Defaults to `PRIVATE`.
+         * @param sqlConnectivityType The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`.
          * 
          * @return builder
          * 
@@ -441,6 +458,27 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder sqlConnectivityUpdateUsername(String sqlConnectivityUpdateUsername) {
             return sqlConnectivityUpdateUsername(Output.of(sqlConnectivityUpdateUsername));
+        }
+
+        /**
+         * @param sqlInstance A `sql_instance` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sqlInstance(@Nullable Output<VirtualMachineSqlInstanceArgs> sqlInstance) {
+            $.sqlInstance = sqlInstance;
+            return this;
+        }
+
+        /**
+         * @param sqlInstance A `sql_instance` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sqlInstance(VirtualMachineSqlInstanceArgs sqlInstance) {
+            return sqlInstance(Output.of(sqlInstance));
         }
 
         /**

@@ -30,7 +30,7 @@ class ProfileArgs:
         :param pulumi.Input['ProfileDnsConfigArgs'] dns_config: This block specifies the DNS configuration of the Profile, it supports the fields documented below.
         :param pulumi.Input['ProfileMonitorConfigArgs'] monitor_config: This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Traffic Manager profile.
-        :param pulumi.Input[str] traffic_routing_method: Specifies the algorithm used to route traffic, possible values are:
+        :param pulumi.Input[str] traffic_routing_method: Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
         :param pulumi.Input[int] max_return: The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
         :param pulumi.Input[str] name: The name of the Traffic Manager profile. Changing this forces a new resource to be created.
         :param pulumi.Input[str] profile_status: The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
@@ -92,7 +92,7 @@ class ProfileArgs:
     @pulumi.getter(name="trafficRoutingMethod")
     def traffic_routing_method(self) -> pulumi.Input[str]:
         """
-        Specifies the algorithm used to route traffic, possible values are:
+        Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
         """
         return pulumi.get(self, "traffic_routing_method")
 
@@ -184,7 +184,7 @@ class _ProfileState:
         :param pulumi.Input[str] profile_status: The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Traffic Manager profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] traffic_routing_method: Specifies the algorithm used to route traffic, possible values are:
+        :param pulumi.Input[str] traffic_routing_method: Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
         :param pulumi.Input[bool] traffic_view_enabled: Indicates whether Traffic View is enabled for the Traffic Manager profile.
         """
         if dns_config is not None:
@@ -308,7 +308,7 @@ class _ProfileState:
     @pulumi.getter(name="trafficRoutingMethod")
     def traffic_routing_method(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the algorithm used to route traffic, possible values are:
+        Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
         """
         return pulumi.get(self, "traffic_routing_method")
 
@@ -402,7 +402,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[str] profile_status: The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Traffic Manager profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] traffic_routing_method: Specifies the algorithm used to route traffic, possible values are:
+        :param pulumi.Input[str] traffic_routing_method: Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
         :param pulumi.Input[bool] traffic_view_enabled: Indicates whether Traffic View is enabled for the Traffic Manager profile.
         """
         ...
@@ -542,7 +542,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[str] profile_status: The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Traffic Manager profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] traffic_routing_method: Specifies the algorithm used to route traffic, possible values are:
+        :param pulumi.Input[str] traffic_routing_method: Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
         :param pulumi.Input[bool] traffic_view_enabled: Indicates whether Traffic View is enabled for the Traffic Manager profile.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -629,7 +629,7 @@ class Profile(pulumi.CustomResource):
     @pulumi.getter(name="trafficRoutingMethod")
     def traffic_routing_method(self) -> pulumi.Output[str]:
         """
-        Specifies the algorithm used to route traffic, possible values are:
+        Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
         """
         return pulumi.get(self, "traffic_routing_method")
 

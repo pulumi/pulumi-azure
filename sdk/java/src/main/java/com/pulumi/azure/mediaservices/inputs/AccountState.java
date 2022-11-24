@@ -111,16 +111,14 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the storage authentication type.
-     * Possible value is  `ManagedIdentity` or `System`.
+     * Specifies the storage authentication type. Possible value is  `ManagedIdentity` or `System`.
      * 
      */
     @Import(name="storageAuthenticationType")
     private @Nullable Output<String> storageAuthenticationType;
 
     /**
-     * @return Specifies the storage authentication type.
-     * Possible value is  `ManagedIdentity` or `System`.
+     * @return Specifies the storage authentication type. Possible value is  `ManagedIdentity` or `System`.
      * 
      */
     public Optional<Output<String>> storageAuthenticationType() {
@@ -310,8 +308,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAuthenticationType Specifies the storage authentication type.
-         * Possible value is  `ManagedIdentity` or `System`.
+         * @param storageAuthenticationType Specifies the storage authentication type. Possible value is  `ManagedIdentity` or `System`.
          * 
          * @return builder
          * 
@@ -322,8 +319,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAuthenticationType Specifies the storage authentication type.
-         * Possible value is  `ManagedIdentity` or `System`.
+         * @param storageAuthenticationType Specifies the storage authentication type. Possible value is  `ManagedIdentity` or `System`.
          * 
          * @return builder
          * 

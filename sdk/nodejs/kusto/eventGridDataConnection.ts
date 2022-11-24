@@ -117,9 +117,7 @@ export class EventGridDataConnection extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the blob storage event type that needs to be processed. Possible
-     * Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults
-     * to `Microsoft.Storage.BlobCreated`.
+     * Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
      */
     public readonly blobStorageEventType!: pulumi.Output<string | undefined>;
     /**
@@ -127,7 +125,7 @@ export class EventGridDataConnection extends pulumi.CustomResource {
      */
     public readonly clusterName!: pulumi.Output<string>;
     /**
-     * Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
+     * Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
      */
     public readonly dataFormat!: pulumi.Output<string | undefined>;
     /**
@@ -261,9 +259,7 @@ export class EventGridDataConnection extends pulumi.CustomResource {
  */
 export interface EventGridDataConnectionState {
     /**
-     * Specifies the blob storage event type that needs to be processed. Possible
-     * Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults
-     * to `Microsoft.Storage.BlobCreated`.
+     * Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
      */
     blobStorageEventType?: pulumi.Input<string>;
     /**
@@ -271,7 +267,7 @@ export interface EventGridDataConnectionState {
      */
     clusterName?: pulumi.Input<string>;
     /**
-     * Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
+     * Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
      */
     dataFormat?: pulumi.Input<string>;
     /**
@@ -335,9 +331,7 @@ export interface EventGridDataConnectionState {
  */
 export interface EventGridDataConnectionArgs {
     /**
-     * Specifies the blob storage event type that needs to be processed. Possible
-     * Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults
-     * to `Microsoft.Storage.BlobCreated`.
+     * Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
      */
     blobStorageEventType?: pulumi.Input<string>;
     /**
@@ -345,7 +339,7 @@ export interface EventGridDataConnectionArgs {
      */
     clusterName: pulumi.Input<string>;
     /**
-     * Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
+     * Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
      */
     dataFormat?: pulumi.Input<string>;
     /**

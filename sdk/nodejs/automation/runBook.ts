@@ -93,8 +93,7 @@ export class RunBook extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
-     * Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+     * Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
      */
     public readonly logActivityTraceLevel!: pulumi.Output<number | undefined>;
     /**
@@ -216,8 +215,7 @@ export interface RunBookState {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
-     * Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+     * Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
      */
     logActivityTraceLevel?: pulumi.Input<number>;
     /**
@@ -276,8 +274,7 @@ export interface RunBookArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
-     * Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+     * Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
      */
     logActivityTraceLevel?: pulumi.Input<number>;
     /**

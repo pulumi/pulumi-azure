@@ -221,19 +221,19 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @deprecated
-     * the &#39;network_profile_id&#39; has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the &#39;subnet_id&#39; field instead
+     * the &#39;network_profile_id&#39; has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the &#39;subnet_ids&#39; field instead
      * 
      */
-    @Deprecated /* the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead */
+    @Deprecated /* the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead */
     @Import(name="networkProfileId")
     private @Nullable Output<String> networkProfileId;
 
     /**
      * @deprecated
-     * the &#39;network_profile_id&#39; has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the &#39;subnet_id&#39; field instead
+     * the &#39;network_profile_id&#39; has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the &#39;subnet_ids&#39; field instead
      * 
      */
-    @Deprecated /* the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead */
+    @Deprecated /* the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead */
     public Optional<Output<String>> networkProfileId() {
         return Optional.ofNullable(this.networkProfileId);
     }
@@ -688,10 +688,10 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * the &#39;network_profile_id&#39; has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the &#39;subnet_id&#39; field instead
+         * the &#39;network_profile_id&#39; has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the &#39;subnet_ids&#39; field instead
          * 
          */
-        @Deprecated /* the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead */
+        @Deprecated /* the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead */
         public Builder networkProfileId(@Nullable Output<String> networkProfileId) {
             $.networkProfileId = networkProfileId;
             return this;
@@ -701,10 +701,10 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * the &#39;network_profile_id&#39; has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the &#39;subnet_id&#39; field instead
+         * the &#39;network_profile_id&#39; has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the &#39;subnet_ids&#39; field instead
          * 
          */
-        @Deprecated /* the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead */
+        @Deprecated /* the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead */
         public Builder networkProfileId(String networkProfileId) {
             return networkProfileId(Output.of(networkProfileId));
         }

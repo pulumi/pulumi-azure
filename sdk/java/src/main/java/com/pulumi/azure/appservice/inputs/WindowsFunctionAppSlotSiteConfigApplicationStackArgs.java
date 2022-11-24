@@ -17,14 +17,14 @@ public final class WindowsFunctionAppSlotSiteConfigApplicationStackArgs extends 
     public static final WindowsFunctionAppSlotSiteConfigApplicationStackArgs Empty = new WindowsFunctionAppSlotSiteConfigApplicationStackArgs();
 
     /**
-     * The version of .Net. Possible values are `3.1` and `6`
+     * The version of .Net. Possible values are `3.1`, `6` and `7`
      * 
      */
     @Import(name="dotnetVersion")
     private @Nullable Output<String> dotnetVersion;
 
     /**
-     * @return The version of .Net. Possible values are `3.1` and `6`
+     * @return The version of .Net. Possible values are `3.1`, `6` and `7`
      * 
      */
     public Optional<Output<String>> dotnetVersion() {
@@ -47,14 +47,14 @@ public final class WindowsFunctionAppSlotSiteConfigApplicationStackArgs extends 
     }
 
     /**
-     * The version of Node to use. Possible values include `12`, and `14`
+     * The version of Node to use. Possible values are `~12`, `~14`, `~16` and `~18`.
      * 
      */
     @Import(name="nodeVersion")
     private @Nullable Output<String> nodeVersion;
 
     /**
-     * @return The version of Node to use. Possible values include `12`, and `14`
+     * @return The version of Node to use. Possible values are `~12`, `~14`, `~16` and `~18`.
      * 
      */
     public Optional<Output<String>> nodeVersion() {
@@ -136,7 +136,7 @@ public final class WindowsFunctionAppSlotSiteConfigApplicationStackArgs extends 
         }
 
         /**
-         * @param dotnetVersion The version of .Net. Possible values are `3.1` and `6`
+         * @param dotnetVersion The version of .Net. Possible values are `3.1`, `6` and `7`
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class WindowsFunctionAppSlotSiteConfigApplicationStackArgs extends 
         }
 
         /**
-         * @param dotnetVersion The version of .Net. Possible values are `3.1` and `6`
+         * @param dotnetVersion The version of .Net. Possible values are `3.1`, `6` and `7`
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class WindowsFunctionAppSlotSiteConfigApplicationStackArgs extends 
         }
 
         /**
-         * @param nodeVersion The version of Node to use. Possible values include `12`, and `14`
+         * @param nodeVersion The version of Node to use. Possible values are `~12`, `~14`, `~16` and `~18`.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class WindowsFunctionAppSlotSiteConfigApplicationStackArgs extends 
         }
 
         /**
-         * @param nodeVersion The version of Node to use. Possible values include `12`, and `14`
+         * @param nodeVersion The version of Node to use. Possible values are `~12`, `~14`, `~16` and `~18`.
          * 
          * @return builder
          * 

@@ -28,7 +28,7 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         private InputList<string>? _allowedMethods;
 
         /// <summary>
-        /// Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
+        /// Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
         /// </summary>
         public InputList<string> AllowedMethods
         {

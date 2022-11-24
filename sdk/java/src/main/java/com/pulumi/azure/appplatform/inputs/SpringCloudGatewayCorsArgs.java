@@ -34,14 +34,14 @@ public final class SpringCloudGatewayCorsArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
+     * Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
      * 
      */
     @Import(name="allowedMethods")
     private @Nullable Output<List<String>> allowedMethods;
 
     /**
-     * @return Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
+     * @return Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
      * 
      */
     public Optional<Output<List<String>>> allowedMethods() {
@@ -169,7 +169,7 @@ public final class SpringCloudGatewayCorsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param allowedMethods Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
+         * @param allowedMethods Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class SpringCloudGatewayCorsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param allowedMethods Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
+         * @param allowedMethods Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class SpringCloudGatewayCorsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param allowedMethods Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
+         * @param allowedMethods Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
          * 
          * @return builder
          * 

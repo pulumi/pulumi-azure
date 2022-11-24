@@ -54,14 +54,14 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the type of Managed Service Identity that should be configured on this Purview Account. The only possible value is `SystemAssigned`.
+     * Specifies the type of Managed Service Identity that should be configured on this Purview Account. Possible values are `UserAssigned` and `SystemAssigned`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this Purview Account. The only possible value is `SystemAssigned`.
+     * @return Specifies the type of Managed Service Identity that should be configured on this Purview Account. Possible values are `UserAssigned` and `SystemAssigned`.
      * 
      */
     public Output<String> type() {
@@ -151,7 +151,7 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this Purview Account. The only possible value is `SystemAssigned`.
+         * @param type Specifies the type of Managed Service Identity that should be configured on this Purview Account. Possible values are `UserAssigned` and `SystemAssigned`.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this Purview Account. The only possible value is `SystemAssigned`.
+         * @param type Specifies the type of Managed Service Identity that should be configured on this Purview Account. Possible values are `UserAssigned` and `SystemAssigned`.
          * 
          * @return builder
          * 

@@ -149,7 +149,7 @@ export class Diagnostic extends pulumi.CustomResource {
      */
     public readonly httpCorrelationProtocol!: pulumi.Output<string>;
     /**
-     * The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
+     * The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
      */
     public readonly identifier!: pulumi.Output<string>;
     /**
@@ -271,7 +271,7 @@ export interface DiagnosticState {
      */
     httpCorrelationProtocol?: pulumi.Input<string>;
     /**
-     * The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
+     * The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
      */
     identifier?: pulumi.Input<string>;
     /**
@@ -333,7 +333,7 @@ export interface DiagnosticArgs {
      */
     httpCorrelationProtocol?: pulumi.Input<string>;
     /**
-     * The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
+     * The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
      */
     identifier: pulumi.Input<string>;
     /**

@@ -29,7 +29,7 @@ class SpringCloudApiPortalArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] gateway_ids: Specifies a list of Spring Cloud Gateway.
         :param pulumi.Input[bool] https_only_enabled: is only https is allowed?
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud API Portal. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
-        :param pulumi.Input[str] name: The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `default`.
         :param pulumi.Input[bool] public_network_access_enabled: Is the public network access enabled?
         :param pulumi.Input['SpringCloudApiPortalSsoArgs'] sso: A `sso` block as defined below.
         """
@@ -99,7 +99,7 @@ class SpringCloudApiPortalArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created.
+        The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `default`.
         """
         return pulumi.get(self, "name")
 
@@ -148,7 +148,7 @@ class _SpringCloudApiPortalState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] gateway_ids: Specifies a list of Spring Cloud Gateway.
         :param pulumi.Input[bool] https_only_enabled: is only https is allowed?
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud API Portal. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
-        :param pulumi.Input[str] name: The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `default`.
         :param pulumi.Input[bool] public_network_access_enabled: Is the public network access enabled?
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud API Portal to be created.
         :param pulumi.Input['SpringCloudApiPortalSsoArgs'] sso: A `sso` block as defined below.
@@ -211,7 +211,7 @@ class _SpringCloudApiPortalState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created.
+        The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `default`.
         """
         return pulumi.get(self, "name")
 
@@ -325,7 +325,7 @@ class SpringCloudApiPortal(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] gateway_ids: Specifies a list of Spring Cloud Gateway.
         :param pulumi.Input[bool] https_only_enabled: is only https is allowed?
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud API Portal. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
-        :param pulumi.Input[str] name: The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `default`.
         :param pulumi.Input[bool] public_network_access_enabled: Is the public network access enabled?
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud API Portal to be created.
         :param pulumi.Input[pulumi.InputType['SpringCloudApiPortalSsoArgs']] sso: A `sso` block as defined below.
@@ -444,7 +444,7 @@ class SpringCloudApiPortal(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] gateway_ids: Specifies a list of Spring Cloud Gateway.
         :param pulumi.Input[bool] https_only_enabled: is only https is allowed?
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud API Portal. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
-        :param pulumi.Input[str] name: The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `default`.
         :param pulumi.Input[bool] public_network_access_enabled: Is the public network access enabled?
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud API Portal to be created.
         :param pulumi.Input[pulumi.InputType['SpringCloudApiPortalSsoArgs']] sso: A `sso` block as defined below.
@@ -492,7 +492,7 @@ class SpringCloudApiPortal(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created.
+        The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `default`.
         """
         return pulumi.get(self, "name")
 

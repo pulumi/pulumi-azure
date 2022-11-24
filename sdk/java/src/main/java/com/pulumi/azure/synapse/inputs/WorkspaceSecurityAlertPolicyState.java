@@ -64,14 +64,14 @@ public final class WorkspaceSecurityAlertPolicyState extends com.pulumi.resource
     }
 
     /**
-     * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Allowed values are: `Disabled`, `Enabled`.
+     * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Possible values are `Disabled`, `Enabled` and `New`.
      * 
      */
     @Import(name="policyState")
     private @Nullable Output<String> policyState;
 
     /**
-     * @return Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Allowed values are: `Disabled`, `Enabled`.
+     * @return Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Possible values are `Disabled`, `Enabled` and `New`.
      * 
      */
     public Optional<Output<String>> policyState() {
@@ -253,7 +253,7 @@ public final class WorkspaceSecurityAlertPolicyState extends com.pulumi.resource
         }
 
         /**
-         * @param policyState Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Allowed values are: `Disabled`, `Enabled`.
+         * @param policyState Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Possible values are `Disabled`, `Enabled` and `New`.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class WorkspaceSecurityAlertPolicyState extends com.pulumi.resource
         }
 
         /**
-         * @param policyState Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Allowed values are: `Disabled`, `Enabled`.
+         * @param policyState Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Possible values are `Disabled`, `Enabled` and `New`.
          * 
          * @return builder
          * 

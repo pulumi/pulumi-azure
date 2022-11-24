@@ -45,9 +45,9 @@ type SparkPool struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The number of nodes in the Spark Pool. Exactly one of `nodeCount` or `autoScale` must be specified.
 	NodeCount pulumi.IntPtrOutput `pulumi:"nodeCount"`
-	// The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
+	// The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
 	NodeSize pulumi.StringOutput `pulumi:"nodeSize"`
-	// The kind of nodes that the Spark Pool provides. Possible value is `MemoryOptimized`.
+	// The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
 	NodeSizeFamily pulumi.StringOutput `pulumi:"nodeSizeFamily"`
 	// Indicates whether session level packages are enabled or not. Defaults to `false`.
 	SessionLevelPackagesEnabled pulumi.BoolPtrOutput `pulumi:"sessionLevelPackagesEnabled"`
@@ -123,9 +123,9 @@ type sparkPoolState struct {
 	Name *string `pulumi:"name"`
 	// The number of nodes in the Spark Pool. Exactly one of `nodeCount` or `autoScale` must be specified.
 	NodeCount *int `pulumi:"nodeCount"`
-	// The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
+	// The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
 	NodeSize *string `pulumi:"nodeSize"`
-	// The kind of nodes that the Spark Pool provides. Possible value is `MemoryOptimized`.
+	// The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
 	NodeSizeFamily *string `pulumi:"nodeSizeFamily"`
 	// Indicates whether session level packages are enabled or not. Defaults to `false`.
 	SessionLevelPackagesEnabled *bool `pulumi:"sessionLevelPackagesEnabled"`
@@ -164,9 +164,9 @@ type SparkPoolState struct {
 	Name pulumi.StringPtrInput
 	// The number of nodes in the Spark Pool. Exactly one of `nodeCount` or `autoScale` must be specified.
 	NodeCount pulumi.IntPtrInput
-	// The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
+	// The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
 	NodeSize pulumi.StringPtrInput
-	// The kind of nodes that the Spark Pool provides. Possible value is `MemoryOptimized`.
+	// The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
 	NodeSizeFamily pulumi.StringPtrInput
 	// Indicates whether session level packages are enabled or not. Defaults to `false`.
 	SessionLevelPackagesEnabled pulumi.BoolPtrInput
@@ -209,9 +209,9 @@ type sparkPoolArgs struct {
 	Name *string `pulumi:"name"`
 	// The number of nodes in the Spark Pool. Exactly one of `nodeCount` or `autoScale` must be specified.
 	NodeCount *int `pulumi:"nodeCount"`
-	// The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
+	// The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
 	NodeSize string `pulumi:"nodeSize"`
-	// The kind of nodes that the Spark Pool provides. Possible value is `MemoryOptimized`.
+	// The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
 	NodeSizeFamily string `pulumi:"nodeSizeFamily"`
 	// Indicates whether session level packages are enabled or not. Defaults to `false`.
 	SessionLevelPackagesEnabled *bool `pulumi:"sessionLevelPackagesEnabled"`
@@ -251,9 +251,9 @@ type SparkPoolArgs struct {
 	Name pulumi.StringPtrInput
 	// The number of nodes in the Spark Pool. Exactly one of `nodeCount` or `autoScale` must be specified.
 	NodeCount pulumi.IntPtrInput
-	// The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
+	// The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
 	NodeSize pulumi.StringInput
-	// The kind of nodes that the Spark Pool provides. Possible value is `MemoryOptimized`.
+	// The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
 	NodeSizeFamily pulumi.StringInput
 	// Indicates whether session level packages are enabled or not. Defaults to `false`.
 	SessionLevelPackagesEnabled pulumi.BoolPtrInput
@@ -408,12 +408,12 @@ func (o SparkPoolOutput) NodeCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SparkPool) pulumi.IntPtrOutput { return v.NodeCount }).(pulumi.IntPtrOutput)
 }
 
-// The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
+// The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
 func (o SparkPoolOutput) NodeSize() pulumi.StringOutput {
 	return o.ApplyT(func(v *SparkPool) pulumi.StringOutput { return v.NodeSize }).(pulumi.StringOutput)
 }
 
-// The kind of nodes that the Spark Pool provides. Possible value is `MemoryOptimized`.
+// The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
 func (o SparkPoolOutput) NodeSizeFamily() pulumi.StringOutput {
 	return o.ApplyT(func(v *SparkPool) pulumi.StringOutput { return v.NodeSizeFamily }).(pulumi.StringOutput)
 }

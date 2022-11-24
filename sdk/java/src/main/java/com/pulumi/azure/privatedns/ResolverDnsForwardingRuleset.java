@@ -139,9 +139,17 @@ public class ResolverDnsForwardingRuleset extends com.pulumi.resources.CustomRes
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The list of IDs of the Private DNS Resolver Outbound Endpoint that is linked to the Private DNS Resolver Dns Forwarding Ruleset.
+     * 
+     */
     @Export(name="privateDnsResolverOutboundEndpointIds", type=List.class, parameters={String.class})
     private Output<List<String>> privateDnsResolverOutboundEndpointIds;
 
+    /**
+     * @return The list of IDs of the Private DNS Resolver Outbound Endpoint that is linked to the Private DNS Resolver Dns Forwarding Ruleset.
+     * 
+     */
     public Output<List<String>> privateDnsResolverOutboundEndpointIds() {
         return this.privateDnsResolverOutboundEndpointIds;
     }
@@ -160,14 +168,14 @@ public class ResolverDnsForwardingRuleset extends com.pulumi.resources.CustomRes
         return this.resourceGroupName;
     }
     /**
-     * A mapping of tags which should be assigned to the Private DNS Resolver Dns Forwarding Ruleset.
+     * A mapping of tags to assign to the Private DNS Resolver Dns Forwarding Ruleset.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags which should be assigned to the Private DNS Resolver Dns Forwarding Ruleset.
+     * @return A mapping of tags to assign to the Private DNS Resolver Dns Forwarding Ruleset.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

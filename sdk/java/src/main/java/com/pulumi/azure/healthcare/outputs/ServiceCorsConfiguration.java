@@ -25,7 +25,7 @@ public final class ServiceCorsConfiguration {
      */
     private @Nullable List<String> allowedHeaders;
     /**
-     * @return The methods to be allowed via CORS.
+     * @return The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
      * 
      */
     private @Nullable List<String> allowedMethods;
@@ -56,7 +56,7 @@ public final class ServiceCorsConfiguration {
         return this.allowedHeaders == null ? List.of() : this.allowedHeaders;
     }
     /**
-     * @return The methods to be allowed via CORS.
+     * @return The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
      * 
      */
     public List<String> allowedMethods() {

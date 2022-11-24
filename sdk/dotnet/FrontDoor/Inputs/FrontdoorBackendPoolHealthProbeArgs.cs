@@ -49,7 +49,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public Input<string>? ProbeMethod { get; set; }
 
         /// <summary>
-        /// Protocol scheme to use for the Health Probe. Defaults to `Http`.
+        /// Protocol scheme to use for the Health Probe. Possible values are `Http` and `Https`. Defaults to `Http`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }

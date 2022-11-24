@@ -194,14 +194,14 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The SKU of the account - only `Basic` is supported at this time.
+     * The SKU of the account. Possible values are `Basic` and `Free`.
      * 
      */
     @Import(name="skuName")
     private @Nullable Output<String> skuName;
 
     /**
-     * @return The SKU of the account - only `Basic` is supported at this time.
+     * @return The SKU of the account. Possible values are `Basic` and `Free`.
      * 
      */
     public Optional<Output<String>> skuName() {
@@ -515,7 +515,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skuName The SKU of the account - only `Basic` is supported at this time.
+         * @param skuName The SKU of the account. Possible values are `Basic` and `Free`.
          * 
          * @return builder
          * 
@@ -526,7 +526,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skuName The SKU of the account - only `Basic` is supported at this time.
+         * @param skuName The SKU of the account. Possible values are `Basic` and `Free`.
          * 
          * @return builder
          * 

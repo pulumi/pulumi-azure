@@ -247,18 +247,33 @@ public final class AlertRuleNrtState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
+     * A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation` and `PreAttack`.
      * 
      */
     @Import(name="tactics")
     private @Nullable Output<List<String>> tactics;
 
     /**
-     * @return A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
+     * @return A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation` and `PreAttack`.
      * 
      */
     public Optional<Output<List<String>>> tactics() {
         return Optional.ofNullable(this.tactics);
+    }
+
+    /**
+     * A list of techniques of attacks by which to classify the rule.
+     * 
+     */
+    @Import(name="techniques")
+    private @Nullable Output<List<String>> techniques;
+
+    /**
+     * @return A list of techniques of attacks by which to classify the rule.
+     * 
+     */
+    public Optional<Output<List<String>>> techniques() {
+        return Optional.ofNullable(this.techniques);
     }
 
     private AlertRuleNrtState() {}
@@ -280,6 +295,7 @@ public final class AlertRuleNrtState extends com.pulumi.resources.ResourceArgs {
         this.suppressionDuration = $.suppressionDuration;
         this.suppressionEnabled = $.suppressionEnabled;
         this.tactics = $.tactics;
+        this.techniques = $.techniques;
     }
 
     public static Builder builder() {
@@ -636,7 +652,7 @@ public final class AlertRuleNrtState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tactics A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
+         * @param tactics A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation` and `PreAttack`.
          * 
          * @return builder
          * 
@@ -647,7 +663,7 @@ public final class AlertRuleNrtState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tactics A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
+         * @param tactics A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation` and `PreAttack`.
          * 
          * @return builder
          * 
@@ -657,13 +673,44 @@ public final class AlertRuleNrtState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tactics A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
+         * @param tactics A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation` and `PreAttack`.
          * 
          * @return builder
          * 
          */
         public Builder tactics(String... tactics) {
             return tactics(List.of(tactics));
+        }
+
+        /**
+         * @param techniques A list of techniques of attacks by which to classify the rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder techniques(@Nullable Output<List<String>> techniques) {
+            $.techniques = techniques;
+            return this;
+        }
+
+        /**
+         * @param techniques A list of techniques of attacks by which to classify the rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder techniques(List<String> techniques) {
+            return techniques(Output.of(techniques));
+        }
+
+        /**
+         * @param techniques A list of techniques of attacks by which to classify the rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder techniques(String... techniques) {
+            return techniques(List.of(techniques));
         }
 
         public AlertRuleNrtState build() {

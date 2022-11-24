@@ -13,7 +13,7 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class SourceControlSlotGithubActionConfigurationCodeConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created.
+        /// The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created. Possible values are `dotnetcore`, `spring`, `tomcat`, `node` and `python`.
         /// </summary>
         [Input("runtimeStack", required: true)]
         public Input<string> RuntimeStack { get; set; } = null!;

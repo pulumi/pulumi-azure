@@ -1696,7 +1696,7 @@ class AppServiceSiteConfig(dict):
         :param str php_version: The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3` and `7.4`.
         :param str python_version: The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
         :param bool remote_debugging_enabled: Is Remote Debugging Enabled? Defaults to `false`.
-        :param str remote_debugging_version: Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
+        :param str remote_debugging_version: Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
         :param Sequence['AppServiceSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
         :param str scm_type: The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
         :param bool scm_use_main_ip_restriction: IP security restrictions for scm to use main. Defaults to false.
@@ -1953,7 +1953,7 @@ class AppServiceSiteConfig(dict):
     @pulumi.getter(name="remoteDebuggingVersion")
     def remote_debugging_version(self) -> Optional[str]:
         """
-        Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
+        Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
         """
         return pulumi.get(self, "remote_debugging_version")
 
@@ -7394,7 +7394,7 @@ class LinuxFunctionAppSiteConfigApplicationStack(dict):
                  use_dotnet_isolated_runtime: Optional[bool] = None):
         """
         :param Sequence['LinuxFunctionAppSiteConfigApplicationStackDockerArgs'] dockers: One or more `docker` blocks as defined below.
-        :param str dotnet_version: The version of .NET to use. Possible values include `3.1` and `6.0`.
+        :param str dotnet_version: The version of .NET to use. Possible values include `3.1`, `6.0` and `7.0`.
         :param str java_version: The Version of Java to use. Supported versions include `8`, `11` & `17` (In-Preview).
         :param str node_version: The version of Node to run. Possible values include `12`, `14`, `16` and `18`.
         :param str powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, and `7.2`.
@@ -7431,7 +7431,7 @@ class LinuxFunctionAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[str]:
         """
-        The version of .NET to use. Possible values include `3.1` and `6.0`.
+        The version of .NET to use. Possible values include `3.1`, `6.0` and `7.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -9616,9 +9616,9 @@ class LinuxFunctionAppSlotSiteConfigApplicationStack(dict):
                  use_dotnet_isolated_runtime: Optional[bool] = None):
         """
         :param Sequence['LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgs'] dockers: a `docker` block as detailed below.
-        :param str dotnet_version: The version of .Net. Possible values are `3.1` and `6.0`.
+        :param str dotnet_version: The version of .Net. Possible values are `3.1`, `6.0` and `7.0`.
         :param str java_version: The version of Java to use. Possible values are `8`, `11` & `17` (In-Preview).
-        :param str node_version: The version of Node to use. Possible values include `12`, and `14`
+        :param str node_version: The version of Node to use. Possible values include `12`, `14`, `16` and `18`
         :param str powershell_core_version: The version of PowerShell Core to use. Possibles values are `7` , and `7.2`.
         :param str python_version: The version of Python to use. Possible values include `3.9`, `3.8`, and `3.7`.
         :param bool use_custom_runtime: Should the Linux Function App use a custom runtime?
@@ -9653,7 +9653,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[str]:
         """
-        The version of .Net. Possible values are `3.1` and `6.0`.
+        The version of .Net. Possible values are `3.1`, `6.0` and `7.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -9669,7 +9669,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> Optional[str]:
         """
-        The version of Node to use. Possible values include `12`, and `14`
+        The version of Node to use. Possible values include `12`, `14`, `16` and `18`
         """
         return pulumi.get(self, "node_version")
 
@@ -12288,7 +12288,7 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
         """
         :param str docker_image: The Docker image reference, including repository host as needed.
         :param str docker_image_tag: The image Tag to use. e.g. `latest`.
-        :param str dotnet_version: The version of .NET to use. Possible values include `3.1`, `5.0`, and `6.0`.
+        :param str dotnet_version: The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0` and `7.0`.
         :param str java_server: The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
         :param str java_server_version: The Version of the `java_server` to use.
         :param str java_version: The Version of Java to use. Supported versions of Java vary depending on the `java_server` and `java_server_version`, as well as security and fixes to major versions. Please see Azure documentation for the latest information.
@@ -12338,7 +12338,7 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[str]:
         """
-        The version of .NET to use. Possible values include `3.1`, `5.0`, and `6.0`.
+        The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0` and `7.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -14995,7 +14995,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
         """
         :param str docker_image: The Docker image reference, including repository host as needed.
         :param str docker_image_tag: The image Tag to use. e.g. `latest`.
-        :param str dotnet_version: The version of .NET to use. Possible values include `3.1`, `5.0`, and `6.0`.
+        :param str dotnet_version: The version of .NET to use. Possible values include `3.1`, `6.0` and `7.0`.
         :param str java_server: The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
         :param str java_server_version: The Version of the `java_server` to use.
         :param str java_version: The Version of Java to use. Supported versions of Java vary depending on the `java_server` and `java_server_version`, as well as security and fixes to major versions. Please see Azure documentation for the latest information.
@@ -15045,7 +15045,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[str]:
         """
-        The version of .NET to use. Possible values include `3.1`, `5.0`, and `6.0`.
+        The version of .NET to use. Possible values include `3.1`, `6.0` and `7.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -17261,7 +17261,7 @@ class SlotSiteConfig(dict):
         :param str php_version: The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3`, and `7.4`.
         :param str python_version: The version of Python to use in this App Service Slot. Possible values are `2.7` and `3.4`.
         :param bool remote_debugging_enabled: Is Remote Debugging Enabled? Defaults to `false`.
-        :param str remote_debugging_version: Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
+        :param str remote_debugging_version: Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
         :param Sequence['SlotSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
         :param str scm_type: The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
         :param bool scm_use_main_ip_restriction: IP security restrictions for scm to use main. Defaults to false.
@@ -17521,7 +17521,7 @@ class SlotSiteConfig(dict):
     @pulumi.getter(name="remoteDebuggingVersion")
     def remote_debugging_version(self) -> Optional[str]:
         """
-        Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
+        Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
         """
         return pulumi.get(self, "remote_debugging_version")
 
@@ -18436,7 +18436,7 @@ class SourceControlSlotGithubActionConfigurationCodeConfiguration(dict):
                  runtime_stack: str,
                  runtime_version: str):
         """
-        :param str runtime_stack: The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created.
+        :param str runtime_stack: The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created. Possible values are `dotnetcore`, `spring`, `tomcat`, `node` and `python`.
         :param str runtime_version: The value to use for the Runtime Version in the workflow file content for code base apps. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "runtime_stack", runtime_stack)
@@ -18446,7 +18446,7 @@ class SourceControlSlotGithubActionConfigurationCodeConfiguration(dict):
     @pulumi.getter(name="runtimeStack")
     def runtime_stack(self) -> str:
         """
-        The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created.
+        The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created. Possible values are `dotnetcore`, `spring`, `tomcat`, `node` and `python`.
         """
         return pulumi.get(self, "runtime_stack")
 
@@ -20126,7 +20126,7 @@ class WindowsFunctionAppSiteConfigApplicationStack(dict):
                  use_custom_runtime: Optional[bool] = None,
                  use_dotnet_isolated_runtime: Optional[bool] = None):
         """
-        :param str dotnet_version: The version of .NET to use. Possible values include `3.1` and `6`.
+        :param str dotnet_version: The version of .NET to use. Possible values include `3.1`, `6` and `7`.
         :param str java_version: The Version of Java to use. Supported versions include `8`, `11` & `17` (In-Preview).
         :param str node_version: The version of Node to run. Possible values include `~12`, `~14`, `~16` and `~18`.
         :param str powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, and `7.2`.
@@ -20150,7 +20150,7 @@ class WindowsFunctionAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[str]:
         """
-        The version of .NET to use. Possible values include `3.1` and `6`.
+        The version of .NET to use. Possible values include `3.1`, `6` and `7`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -22205,9 +22205,9 @@ class WindowsFunctionAppSlotSiteConfigApplicationStack(dict):
                  use_custom_runtime: Optional[bool] = None,
                  use_dotnet_isolated_runtime: Optional[bool] = None):
         """
-        :param str dotnet_version: The version of .Net. Possible values are `3.1` and `6`
+        :param str dotnet_version: The version of .Net. Possible values are `3.1`, `6` and `7`
         :param str java_version: The version of Java to use. Possible values are `8`, `11` & `17` (In-Preview).
-        :param str node_version: The version of Node to use. Possible values include `12`, and `14`
+        :param str node_version: The version of Node to use. Possible values are `~12`, `~14`, `~16` and `~18`.
         :param str powershell_core_version: The PowerShell Core version to use. Possible values are `7`, and `7.2`.
         :param bool use_custom_runtime: Does the Function App use a custom Application Stack?
         :param bool use_dotnet_isolated_runtime: Should the DotNet process use an isolated runtime. Defaults to `false`.
@@ -22229,7 +22229,7 @@ class WindowsFunctionAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[str]:
         """
-        The version of .Net. Possible values are `3.1` and `6`
+        The version of .Net. Possible values are `3.1`, `6` and `7`
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -22245,7 +22245,7 @@ class WindowsFunctionAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> Optional[str]:
         """
-        The version of Node to use. Possible values include `12`, and `14`
+        The version of Node to use. Possible values are `~12`, `~14`, `~16` and `~18`.
         """
         return pulumi.get(self, "node_version")
 
@@ -22467,7 +22467,7 @@ class WindowsFunctionAppSlotSiteConfigIpRestrictionHeaders(dict):
                  x_forwarded_hosts: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] x_azure_fdids: Specifies a list of Azure Front Door IDs.
-        :param str x_fd_health_probe: Specifies if a Front Door Health Probe should be expected.
+        :param str x_fd_health_probe: Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
         :param Sequence[str] x_forwarded_fors: Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
         :param Sequence[str] x_forwarded_hosts: Specifies a list of Hosts for which matching should be applied.
         """
@@ -22492,7 +22492,7 @@ class WindowsFunctionAppSlotSiteConfigIpRestrictionHeaders(dict):
     @pulumi.getter(name="xFdHealthProbe")
     def x_fd_health_probe(self) -> Optional[str]:
         """
-        Specifies if a Front Door Health Probe should be expected.
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
         """
         return pulumi.get(self, "x_fd_health_probe")
 
@@ -22657,7 +22657,7 @@ class WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeaders(dict):
                  x_forwarded_hosts: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] x_azure_fdids: Specifies a list of Azure Front Door IDs.
-        :param str x_fd_health_probe: Specifies if a Front Door Health Probe should be expected.
+        :param str x_fd_health_probe: Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
         :param Sequence[str] x_forwarded_fors: Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
         :param Sequence[str] x_forwarded_hosts: Specifies a list of Hosts for which matching should be applied.
         """
@@ -22682,7 +22682,7 @@ class WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeaders(dict):
     @pulumi.getter(name="xFdHealthProbe")
     def x_fd_health_probe(self) -> Optional[str]:
         """
-        Specifies if a Front Door Health Probe should be expected.
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
         """
         return pulumi.get(self, "x_fd_health_probe")
 
@@ -24792,10 +24792,10 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
         :param str docker_container_name: The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
         :param str docker_container_registry: The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
         :param str docker_container_tag: The Image Tag of the specified Docker Container to use. For example `latest`
-        :param str dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`,`core3.1`, `v4.0`, `v5.0`, and `v6.0`.
+        :param str dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`,`core3.1`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
         :param str java_container: The Java container type to use when `current_stack` is set to `java`. Possible values include `JAVA`, `JETTY`, and `TOMCAT`. Required with `java_version` and `java_container_version`.
         :param str java_container_version: The Version of the `java_container` to use. Required with `java_version` and `java_container`.
-        :param str java_version: The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8` and `11`. Required with `java_container` and `java_container_version`.
+        :param str java_version: The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
         :param str node_version: The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, and `16-LTS`.
         :param str php_version: The version of PHP to use when `current_stack` is set to `php`. Possible values include `v7.4`.
         :param str python_version: The version of Python to use when `current_stack` is set to `python`. Possible values include `2.7` and `3.4.0`.
@@ -24859,7 +24859,7 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[str]:
         """
-        The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`,`core3.1`, `v4.0`, `v5.0`, and `v6.0`.
+        The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`,`core3.1`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -24883,7 +24883,7 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="javaVersion")
     def java_version(self) -> Optional[str]:
         """
-        The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8` and `11`. Required with `java_container` and `java_container_version`.
+        The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
         """
         return pulumi.get(self, "java_version")
 
@@ -27706,10 +27706,10 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
         :param str docker_container_name: The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
         :param str docker_container_registry: The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
         :param str docker_container_tag: The Image Tag of the specified Docker Container to use. For example `latest`
-        :param str dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
+        :param str dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0` .
         :param str java_container: The Java container type to use when `current_stack` is set to `java`. Possible values include `JAVA`, `JETTY`, and `TOMCAT`. Required with `java_version` and `java_container_version`.
         :param str java_container_version: The Version of the `java_container` to use. Required with `java_version` and `java_container`.
-        :param str java_version: The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8` and `11`. Required with `java_container` and `java_container_version`.
+        :param str java_version: The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
         :param str node_version: The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, and `16-LTS`.
         :param str php_version: The version of PHP to use when `current_stack` is set to `php`. Possible values include `v7.4`.
         :param str python_version: The version of Python to use when `current_stack` is set to `python`. Possible values include `2.7` and `3.4.0`.
@@ -27773,7 +27773,7 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[str]:
         """
-        The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
+        The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0` .
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -27797,7 +27797,7 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="javaVersion")
     def java_version(self) -> Optional[str]:
         """
-        The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8` and `11`. Required with `java_container` and `java_container_version`.
+        The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
         """
         return pulumi.get(self, "java_version")
 

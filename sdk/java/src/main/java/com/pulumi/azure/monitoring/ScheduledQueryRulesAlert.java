@@ -134,9 +134,17 @@ public class ScheduledQueryRulesAlert extends com.pulumi.resources.CustomResourc
     public Output<Integer> frequency() {
         return this.frequency;
     }
+    /**
+     * Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
+     * 
+     */
     @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
+    /**
+     * @return Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<String> location() {
         return this.location;
     }

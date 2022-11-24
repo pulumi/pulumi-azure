@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Cdn.Inputs
     public sealed class FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+        /// The action to be applied when the rule matches. Possible values are `Allow`, `Log`, `Block`, `Redirect` and `AnomalyScoring`.
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;

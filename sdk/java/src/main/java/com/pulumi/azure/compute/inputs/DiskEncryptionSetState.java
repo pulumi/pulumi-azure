@@ -49,6 +49,21 @@ public final class DiskEncryptionSetState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * Multi-tenant application client id to access key vault in a different tenant.
+     * 
+     */
+    @Import(name="federatedClientId")
+    private @Nullable Output<String> federatedClientId;
+
+    /**
+     * @return Multi-tenant application client id to access key vault in a different tenant.
+     * 
+     */
+    public Optional<Output<String>> federatedClientId() {
+        return Optional.ofNullable(this.federatedClientId);
+    }
+
+    /**
      * An `identity` block as defined below.
      * 
      */
@@ -143,6 +158,7 @@ public final class DiskEncryptionSetState extends com.pulumi.resources.ResourceA
     private DiskEncryptionSetState(DiskEncryptionSetState $) {
         this.autoKeyRotationEnabled = $.autoKeyRotationEnabled;
         this.encryptionType = $.encryptionType;
+        this.federatedClientId = $.federatedClientId;
         this.identity = $.identity;
         this.keyVaultKeyId = $.keyVaultKeyId;
         this.location = $.location;
@@ -209,6 +225,27 @@ public final class DiskEncryptionSetState extends com.pulumi.resources.ResourceA
          */
         public Builder encryptionType(String encryptionType) {
             return encryptionType(Output.of(encryptionType));
+        }
+
+        /**
+         * @param federatedClientId Multi-tenant application client id to access key vault in a different tenant.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder federatedClientId(@Nullable Output<String> federatedClientId) {
+            $.federatedClientId = federatedClientId;
+            return this;
+        }
+
+        /**
+         * @param federatedClientId Multi-tenant application client id to access key vault in a different tenant.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder federatedClientId(String federatedClientId) {
+            return federatedClientId(Output.of(federatedClientId));
         }
 
         /**

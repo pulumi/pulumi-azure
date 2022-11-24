@@ -123,13 +123,14 @@ type ResolverForwardingRule struct {
 	// Specifies the ID of the Private DNS Resolver Forwarding Ruleset. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
 	DnsForwardingRulesetId pulumi.StringOutput `pulumi:"dnsForwardingRulesetId"`
 	// Specifies the domain name for the Private DNS Resolver Forwarding Rule.
-	DomainName pulumi.StringOutput  `pulumi:"domainName"`
-	Enabled    pulumi.BoolPtrOutput `pulumi:"enabled"`
+	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	// Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Metadata attached to the Private DNS Resolver Forwarding Rule.
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
 	// Specifies the name which should be used for this Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A `targetDnsServers` block as defined below.
+	// Can be specified multiple times to define multiple target DNS servers. Each `targetDnsServers` block as defined below.
 	TargetDnsServers ResolverForwardingRuleTargetDnsServerArrayOutput `pulumi:"targetDnsServers"`
 }
 
@@ -175,12 +176,13 @@ type resolverForwardingRuleState struct {
 	DnsForwardingRulesetId *string `pulumi:"dnsForwardingRulesetId"`
 	// Specifies the domain name for the Private DNS Resolver Forwarding Rule.
 	DomainName *string `pulumi:"domainName"`
-	Enabled    *bool   `pulumi:"enabled"`
+	// Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
 	// Metadata attached to the Private DNS Resolver Forwarding Rule.
 	Metadata map[string]string `pulumi:"metadata"`
 	// Specifies the name which should be used for this Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
 	Name *string `pulumi:"name"`
-	// A `targetDnsServers` block as defined below.
+	// Can be specified multiple times to define multiple target DNS servers. Each `targetDnsServers` block as defined below.
 	TargetDnsServers []ResolverForwardingRuleTargetDnsServer `pulumi:"targetDnsServers"`
 }
 
@@ -189,12 +191,13 @@ type ResolverForwardingRuleState struct {
 	DnsForwardingRulesetId pulumi.StringPtrInput
 	// Specifies the domain name for the Private DNS Resolver Forwarding Rule.
 	DomainName pulumi.StringPtrInput
-	Enabled    pulumi.BoolPtrInput
+	// Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
+	Enabled pulumi.BoolPtrInput
 	// Metadata attached to the Private DNS Resolver Forwarding Rule.
 	Metadata pulumi.StringMapInput
 	// Specifies the name which should be used for this Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
 	Name pulumi.StringPtrInput
-	// A `targetDnsServers` block as defined below.
+	// Can be specified multiple times to define multiple target DNS servers. Each `targetDnsServers` block as defined below.
 	TargetDnsServers ResolverForwardingRuleTargetDnsServerArrayInput
 }
 
@@ -207,12 +210,13 @@ type resolverForwardingRuleArgs struct {
 	DnsForwardingRulesetId string `pulumi:"dnsForwardingRulesetId"`
 	// Specifies the domain name for the Private DNS Resolver Forwarding Rule.
 	DomainName string `pulumi:"domainName"`
-	Enabled    *bool  `pulumi:"enabled"`
+	// Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
 	// Metadata attached to the Private DNS Resolver Forwarding Rule.
 	Metadata map[string]string `pulumi:"metadata"`
 	// Specifies the name which should be used for this Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
 	Name *string `pulumi:"name"`
-	// A `targetDnsServers` block as defined below.
+	// Can be specified multiple times to define multiple target DNS servers. Each `targetDnsServers` block as defined below.
 	TargetDnsServers []ResolverForwardingRuleTargetDnsServer `pulumi:"targetDnsServers"`
 }
 
@@ -222,12 +226,13 @@ type ResolverForwardingRuleArgs struct {
 	DnsForwardingRulesetId pulumi.StringInput
 	// Specifies the domain name for the Private DNS Resolver Forwarding Rule.
 	DomainName pulumi.StringInput
-	Enabled    pulumi.BoolPtrInput
+	// Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
+	Enabled pulumi.BoolPtrInput
 	// Metadata attached to the Private DNS Resolver Forwarding Rule.
 	Metadata pulumi.StringMapInput
 	// Specifies the name which should be used for this Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
 	Name pulumi.StringPtrInput
-	// A `targetDnsServers` block as defined below.
+	// Can be specified multiple times to define multiple target DNS servers. Each `targetDnsServers` block as defined below.
 	TargetDnsServers ResolverForwardingRuleTargetDnsServerArrayInput
 }
 
@@ -328,6 +333,7 @@ func (o ResolverForwardingRuleOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverForwardingRule) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
+// Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
 func (o ResolverForwardingRuleOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResolverForwardingRule) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -342,7 +348,7 @@ func (o ResolverForwardingRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverForwardingRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A `targetDnsServers` block as defined below.
+// Can be specified multiple times to define multiple target DNS servers. Each `targetDnsServers` block as defined below.
 func (o ResolverForwardingRuleOutput) TargetDnsServers() ResolverForwardingRuleTargetDnsServerArrayOutput {
 	return o.ApplyT(func(v *ResolverForwardingRule) ResolverForwardingRuleTargetDnsServerArrayOutput {
 		return v.TargetDnsServers

@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['AlertRuleFusionArgs', 'AlertRuleFusion']
 
@@ -17,13 +19,15 @@ class AlertRuleFusionArgs:
                  alert_rule_template_guid: pulumi.Input[str],
                  log_analytics_workspace_id: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceArgs']]]] = None):
         """
         The set of arguments for constructing a AlertRuleFusion resource.
         :param pulumi.Input[str] alert_rule_template_guid: The GUID of the alert rule template which is used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
         :param pulumi.Input[bool] enabled: Should this Sentinel Fusion Alert Rule be enabled? Defaults to `true`.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceArgs']]] sources: One or more `source` blocks as defined below.
         """
         pulumi.set(__self__, "alert_rule_template_guid", alert_rule_template_guid)
         pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
@@ -31,6 +35,8 @@ class AlertRuleFusionArgs:
             pulumi.set(__self__, "enabled", enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if sources is not None:
+            pulumi.set(__self__, "sources", sources)
 
     @property
     @pulumi.getter(name="alertRuleTemplateGuid")
@@ -80,6 +86,18 @@ class AlertRuleFusionArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceArgs']]]]:
+        """
+        One or more `source` blocks as defined below.
+        """
+        return pulumi.get(self, "sources")
+
+    @sources.setter
+    def sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceArgs']]]]):
+        pulumi.set(self, "sources", value)
+
 
 @pulumi.input_type
 class _AlertRuleFusionState:
@@ -87,13 +105,15 @@ class _AlertRuleFusionState:
                  alert_rule_template_guid: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceArgs']]]] = None):
         """
         Input properties used for looking up and filtering AlertRuleFusion resources.
         :param pulumi.Input[str] alert_rule_template_guid: The GUID of the alert rule template which is used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
         :param pulumi.Input[bool] enabled: Should this Sentinel Fusion Alert Rule be enabled? Defaults to `true`.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceArgs']]] sources: One or more `source` blocks as defined below.
         """
         if alert_rule_template_guid is not None:
             pulumi.set(__self__, "alert_rule_template_guid", alert_rule_template_guid)
@@ -103,6 +123,8 @@ class _AlertRuleFusionState:
             pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if sources is not None:
+            pulumi.set(__self__, "sources", sources)
 
     @property
     @pulumi.getter(name="alertRuleTemplateGuid")
@@ -152,6 +174,18 @@ class _AlertRuleFusionState:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceArgs']]]]:
+        """
+        One or more `source` blocks as defined below.
+        """
+        return pulumi.get(self, "sources")
+
+    @sources.setter
+    def sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceArgs']]]]):
+        pulumi.set(self, "sources", value)
+
 
 class AlertRuleFusion(pulumi.CustomResource):
     @overload
@@ -162,6 +196,7 @@ class AlertRuleFusion(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleFusionSourceArgs']]]]] = None,
                  __props__=None):
         """
         Manages a Sentinel Fusion Alert Rule.
@@ -206,6 +241,7 @@ class AlertRuleFusion(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Should this Sentinel Fusion Alert Rule be enabled? Defaults to `true`.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleFusionSourceArgs']]]] sources: One or more `source` blocks as defined below.
         """
         ...
     @overload
@@ -269,6 +305,7 @@ class AlertRuleFusion(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleFusionSourceArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -286,6 +323,7 @@ class AlertRuleFusion(pulumi.CustomResource):
                 raise TypeError("Missing required property 'log_analytics_workspace_id'")
             __props__.__dict__["log_analytics_workspace_id"] = log_analytics_workspace_id
             __props__.__dict__["name"] = name
+            __props__.__dict__["sources"] = sources
         super(AlertRuleFusion, __self__).__init__(
             'azure:sentinel/alertRuleFusion:AlertRuleFusion',
             resource_name,
@@ -299,7 +337,8 @@ class AlertRuleFusion(pulumi.CustomResource):
             alert_rule_template_guid: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
-            name: Optional[pulumi.Input[str]] = None) -> 'AlertRuleFusion':
+            name: Optional[pulumi.Input[str]] = None,
+            sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleFusionSourceArgs']]]]] = None) -> 'AlertRuleFusion':
         """
         Get an existing AlertRuleFusion resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -311,6 +350,7 @@ class AlertRuleFusion(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Should this Sentinel Fusion Alert Rule be enabled? Defaults to `true`.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleFusionSourceArgs']]]] sources: One or more `source` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -320,6 +360,7 @@ class AlertRuleFusion(pulumi.CustomResource):
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["log_analytics_workspace_id"] = log_analytics_workspace_id
         __props__.__dict__["name"] = name
+        __props__.__dict__["sources"] = sources
         return AlertRuleFusion(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -353,4 +394,12 @@ class AlertRuleFusion(pulumi.CustomResource):
         The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def sources(self) -> pulumi.Output[Sequence['outputs.AlertRuleFusionSource']]:
+        """
+        One or more `source` blocks as defined below.
+        """
+        return pulumi.get(self, "sources")
 

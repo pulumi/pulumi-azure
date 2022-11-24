@@ -86,8 +86,8 @@ class GroupArgs:
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_profile_id is not None:
-            warnings.warn("""the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead""", DeprecationWarning)
-            pulumi.log.warn("""network_profile_id is deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead""")
+            warnings.warn("""the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead""", DeprecationWarning)
+            pulumi.log.warn("""network_profile_id is deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead""")
         if network_profile_id is not None:
             pulumi.set(__self__, "network_profile_id", network_profile_id)
         if restart_policy is not None:
@@ -417,8 +417,8 @@ class _GroupState:
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_profile_id is not None:
-            warnings.warn("""the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead""", DeprecationWarning)
-            pulumi.log.warn("""network_profile_id is deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead""")
+            warnings.warn("""the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead""", DeprecationWarning)
+            pulumi.log.warn("""network_profile_id is deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead""")
         if network_profile_id is not None:
             pulumi.set(__self__, "network_profile_id", network_profile_id)
         if os_type is not None:
@@ -912,8 +912,8 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             if network_profile_id is not None and not opts.urn:
-                warnings.warn("""the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead""", DeprecationWarning)
-                pulumi.log.warn("""network_profile_id is deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead""")
+                warnings.warn("""the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead""", DeprecationWarning)
+                pulumi.log.warn("""network_profile_id is deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead""")
             __props__.__dict__["network_profile_id"] = network_profile_id
             if os_type is None and not opts.urn:
                 raise TypeError("Missing required property 'os_type'")

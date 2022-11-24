@@ -14,14 +14,14 @@ public final class SourceControlSlotGithubActionConfigurationCodeConfigurationAr
     public static final SourceControlSlotGithubActionConfigurationCodeConfigurationArgs Empty = new SourceControlSlotGithubActionConfigurationCodeConfigurationArgs();
 
     /**
-     * The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created.
+     * The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created. Possible values are `dotnetcore`, `spring`, `tomcat`, `node` and `python`.
      * 
      */
     @Import(name="runtimeStack", required=true)
     private Output<String> runtimeStack;
 
     /**
-     * @return The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created.
+     * @return The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created. Possible values are `dotnetcore`, `spring`, `tomcat`, `node` and `python`.
      * 
      */
     public Output<String> runtimeStack() {
@@ -69,7 +69,7 @@ public final class SourceControlSlotGithubActionConfigurationCodeConfigurationAr
         }
 
         /**
-         * @param runtimeStack The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created.
+         * @param runtimeStack The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created. Possible values are `dotnetcore`, `spring`, `tomcat`, `node` and `python`.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class SourceControlSlotGithubActionConfigurationCodeConfigurationAr
         }
 
         /**
-         * @param runtimeStack The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created.
+         * @param runtimeStack The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created. Possible values are `dotnetcore`, `spring`, `tomcat`, `node` and `python`.
          * 
          * @return builder
          * 

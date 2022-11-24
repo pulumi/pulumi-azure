@@ -14,7 +14,7 @@ namespace Pulumi.Azure.MSSql.Outputs
     public sealed class VirtualMachineAutoPatching
     {
         /// <summary>
-        /// The day of week to apply the patch on.
+        /// The day of week to apply the patch on. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
         /// </summary>
         public readonly string DayOfWeek;
         /// <summary>

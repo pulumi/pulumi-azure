@@ -305,14 +305,14 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A string indicating the Operating System type for this function app.
+     * A string indicating the Operating System type for this function app. The only possible value is `linux`.
      * 
      */
     @Export(name="osType", type=String.class, parameters={})
     private Output</* @Nullable */ String> osType;
 
     /**
-     * @return A string indicating the Operating System type for this function app.
+     * @return A string indicating the Operating System type for this function app. The only possible value is `linux`.
      * 
      */
     public Output<Optional<String>> osType() {

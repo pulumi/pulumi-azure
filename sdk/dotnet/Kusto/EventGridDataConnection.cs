@@ -128,9 +128,7 @@ namespace Pulumi.Azure.Kusto
     public partial class EventGridDataConnection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the blob storage event type that needs to be processed. Possible
-        /// Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults
-        /// to `Microsoft.Storage.BlobCreated`.
+        /// Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
         /// </summary>
         [Output("blobStorageEventType")]
         public Output<string?> BlobStorageEventType { get; private set; } = null!;
@@ -142,7 +140,7 @@ namespace Pulumi.Azure.Kusto
         public Output<string> ClusterName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
+        /// Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
         /// </summary>
         [Output("dataFormat")]
         public Output<string?> DataFormat { get; private set; } = null!;
@@ -274,9 +272,7 @@ namespace Pulumi.Azure.Kusto
     public sealed class EventGridDataConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the blob storage event type that needs to be processed. Possible
-        /// Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults
-        /// to `Microsoft.Storage.BlobCreated`.
+        /// Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
         /// </summary>
         [Input("blobStorageEventType")]
         public Input<string>? BlobStorageEventType { get; set; }
@@ -288,7 +284,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
+        /// Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
         /// </summary>
         [Input("dataFormat")]
         public Input<string>? DataFormat { get; set; }
@@ -382,9 +378,7 @@ namespace Pulumi.Azure.Kusto
     public sealed class EventGridDataConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the blob storage event type that needs to be processed. Possible
-        /// Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults
-        /// to `Microsoft.Storage.BlobCreated`.
+        /// Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
         /// </summary>
         [Input("blobStorageEventType")]
         public Input<string>? BlobStorageEventType { get; set; }
@@ -396,7 +390,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? ClusterName { get; set; }
 
         /// <summary>
-        /// Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
+        /// Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
         /// </summary>
         [Input("dataFormat")]
         public Input<string>? DataFormat { get; set; }

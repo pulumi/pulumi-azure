@@ -130,9 +130,9 @@ type BackendAddressPoolTunnelInterface struct {
 	Identifier int `pulumi:"identifier"`
 	// The port number that this Gateway Lodbalancer Tunnel Interface listens to.
 	Port int `pulumi:"port"`
-	// The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `Native` and `VXLAN`.
+	// The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
 	Protocol string `pulumi:"protocol"`
-	// The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `Internal` and `External`.
+	// The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
 	Type string `pulumi:"type"`
 }
 
@@ -152,9 +152,9 @@ type BackendAddressPoolTunnelInterfaceArgs struct {
 	Identifier pulumi.IntInput `pulumi:"identifier"`
 	// The port number that this Gateway Lodbalancer Tunnel Interface listens to.
 	Port pulumi.IntInput `pulumi:"port"`
-	// The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `Native` and `VXLAN`.
+	// The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `Internal` and `External`.
+	// The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -219,12 +219,12 @@ func (o BackendAddressPoolTunnelInterfaceOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v BackendAddressPoolTunnelInterface) int { return v.Port }).(pulumi.IntOutput)
 }
 
-// The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `Native` and `VXLAN`.
+// The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
 func (o BackendAddressPoolTunnelInterfaceOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v BackendAddressPoolTunnelInterface) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `Internal` and `External`.
+// The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
 func (o BackendAddressPoolTunnelInterfaceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BackendAddressPoolTunnelInterface) string { return v.Type }).(pulumi.StringOutput)
 }

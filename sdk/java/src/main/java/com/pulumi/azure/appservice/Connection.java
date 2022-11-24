@@ -155,14 +155,14 @@ public class Connection extends com.pulumi.resources.CustomResource {
         return this.authentication;
     }
     /**
-     * The application client type. Possible values are `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs`, `springBoot`.
+     * The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
      * 
      */
     @Export(name="clientType", type=String.class, parameters={})
     private Output</* @Nullable */ String> clientType;
 
     /**
-     * @return The application client type. Possible values are `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs`, `springBoot`.
+     * @return The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
      * 
      */
     public Output<Optional<String>> clientType() {

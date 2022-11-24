@@ -33,12 +33,12 @@ public final class ReplicatedVMManagedDisk {
      */
     private @Nullable String targetDiskEncryptionSetId;
     /**
-     * @return What type should the disk be when a failover is done.
+     * @return What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
      * 
      */
     private String targetDiskType;
     /**
-     * @return What type should the disk be that holds the replication data.
+     * @return What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
      * 
      */
     private String targetReplicaDiskType;
@@ -78,14 +78,14 @@ public final class ReplicatedVMManagedDisk {
         return Optional.ofNullable(this.targetDiskEncryptionSetId);
     }
     /**
-     * @return What type should the disk be when a failover is done.
+     * @return What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
      * 
      */
     public String targetDiskType() {
         return this.targetDiskType;
     }
     /**
-     * @return What type should the disk be that holds the replication data.
+     * @return What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
      * 
      */
     public String targetReplicaDiskType() {

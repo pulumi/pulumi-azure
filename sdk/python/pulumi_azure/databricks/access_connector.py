@@ -191,8 +191,6 @@ class AccessConnector(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        > **NOTE:** Databricks Access Connectors are in Private Preview and potentially subject to breaking change without notice. If you would like to use these features please contact your Microsoft support representative on how to opt-in to the Databricks Access Connector Private Preview feature program.
-
         Manages a Databricks Access Connector
 
         ## Example Usage
@@ -235,8 +233,6 @@ class AccessConnector(pulumi.CustomResource):
                  args: AccessConnectorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **NOTE:** Databricks Access Connectors are in Private Preview and potentially subject to breaking change without notice. If you would like to use these features please contact your Microsoft support representative on how to opt-in to the Databricks Access Connector Private Preview feature program.
-
         Manages a Databricks Access Connector
 
         ## Example Usage

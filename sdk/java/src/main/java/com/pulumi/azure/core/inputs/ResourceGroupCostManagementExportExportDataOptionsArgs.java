@@ -29,14 +29,14 @@ public final class ResourceGroupCostManagementExportExportDataOptionsArgs extend
     }
 
     /**
-     * The type of the query.
+     * The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of the query.
+     * @return The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
      * 
      */
     public Output<String> type() {
@@ -90,7 +90,7 @@ public final class ResourceGroupCostManagementExportExportDataOptionsArgs extend
         }
 
         /**
-         * @param type The type of the query.
+         * @param type The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class ResourceGroupCostManagementExportExportDataOptionsArgs extend
         }
 
         /**
-         * @param type The type of the query.
+         * @param type The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
          * 
          * @return builder
          * 

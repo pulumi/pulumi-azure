@@ -110,14 +110,14 @@ public final class AutoscaleSettingProfileRuleMetricTriggerArgs extends com.pulu
     }
 
     /**
-     * Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Min` and `Max`.
+     * Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Max`, `Min` and `Sum`.
      * 
      */
     @Import(name="statistic", required=true)
     private Output<String> statistic;
 
     /**
-     * @return Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Min` and `Max`.
+     * @return Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Max`, `Min` and `Sum`.
      * 
      */
     public Output<String> statistic() {
@@ -355,7 +355,7 @@ public final class AutoscaleSettingProfileRuleMetricTriggerArgs extends com.pulu
         }
 
         /**
-         * @param statistic Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Min` and `Max`.
+         * @param statistic Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Max`, `Min` and `Sum`.
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class AutoscaleSettingProfileRuleMetricTriggerArgs extends com.pulu
         }
 
         /**
-         * @param statistic Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Min` and `Max`.
+         * @param statistic Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Max`, `Min` and `Sum`.
          * 
          * @return builder
          * 

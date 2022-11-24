@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Waf.Outputs
         /// </summary>
         public readonly string? Selector;
         /// <summary>
-        /// The name of the Match Variable
+        /// The name of the Match Variable. Possible values are `RemoteAddr`, `RequestMethod`, `QueryString`, `PostArgs`, `RequestUri`, `RequestHeaders`, `RequestBody` and `RequestCookies`.
         /// </summary>
         public readonly string VariableName;
 

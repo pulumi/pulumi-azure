@@ -97,7 +97,7 @@ type Schedule struct {
 	StartTime pulumi.StringOutput `pulumi:"startTime"`
 	// The timezone of the start time. Defaults to `UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
 	Timezone pulumi.StringPtrOutput `pulumi:"timezone"`
-	// List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+	// List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
 	WeekDays pulumi.StringArrayOutput `pulumi:"weekDays"`
 }
 
@@ -161,7 +161,7 @@ type scheduleState struct {
 	StartTime *string `pulumi:"startTime"`
 	// The timezone of the start time. Defaults to `UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
 	Timezone *string `pulumi:"timezone"`
-	// List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+	// List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
 	WeekDays []string `pulumi:"weekDays"`
 }
 
@@ -188,7 +188,7 @@ type ScheduleState struct {
 	StartTime pulumi.StringPtrInput
 	// The timezone of the start time. Defaults to `UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
 	Timezone pulumi.StringPtrInput
-	// List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+	// List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
 	WeekDays pulumi.StringArrayInput
 }
 
@@ -219,7 +219,7 @@ type scheduleArgs struct {
 	StartTime *string `pulumi:"startTime"`
 	// The timezone of the start time. Defaults to `UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
 	Timezone *string `pulumi:"timezone"`
-	// List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+	// List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
 	WeekDays []string `pulumi:"weekDays"`
 }
 
@@ -247,7 +247,7 @@ type ScheduleArgs struct {
 	StartTime pulumi.StringPtrInput
 	// The timezone of the start time. Defaults to `UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
 	Timezone pulumi.StringPtrInput
-	// List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+	// List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
 	WeekDays pulumi.StringArrayInput
 }
 
@@ -393,7 +393,7 @@ func (o ScheduleOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringPtrOutput { return v.Timezone }).(pulumi.StringPtrOutput)
 }
 
-// List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+// List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
 func (o ScheduleOutput) WeekDays() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringArrayOutput { return v.WeekDays }).(pulumi.StringArrayOutput)
 }

@@ -32,6 +32,7 @@ __all__ = [
     'VirtualMachineAutoBackupManualScheduleArgs',
     'VirtualMachineAutoPatchingArgs',
     'VirtualMachineKeyVaultCredentialArgs',
+    'VirtualMachineSqlInstanceArgs',
     'VirtualMachineStorageConfigurationArgs',
     'VirtualMachineStorageConfigurationDataSettingsArgs',
     'VirtualMachineStorageConfigurationLogSettingsArgs',
@@ -1041,7 +1042,7 @@ class VirtualMachineAssessmentScheduleArgs:
                  monthly_occurrence: Optional[pulumi.Input[int]] = None,
                  weekly_interval: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] day_of_week: What day of the week the assessment will be run. Default value is `Monday`.
+        :param pulumi.Input[str] day_of_week: What day of the week the assessment will be run. Default value is `Monday`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
         :param pulumi.Input[str] start_time: What time the assessment will be run. Must be in the format `HH:mm`.
         :param pulumi.Input[int] monthly_occurrence: How many months between assessment runs. Valid values are between `1` and `5`.
         :param pulumi.Input[int] weekly_interval: How many weeks between assessment runs. Valid values are between `1` and `6`.
@@ -1057,7 +1058,7 @@ class VirtualMachineAssessmentScheduleArgs:
     @pulumi.getter(name="dayOfWeek")
     def day_of_week(self) -> pulumi.Input[str]:
         """
-        What day of the week the assessment will be run. Default value is `Monday`.
+        What day of the week the assessment will be run. Default value is `Monday`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
         """
         return pulumi.get(self, "day_of_week")
 
@@ -1292,7 +1293,7 @@ class VirtualMachineAutoPatchingArgs:
                  maintenance_window_duration_in_minutes: pulumi.Input[int],
                  maintenance_window_starting_hour: pulumi.Input[int]):
         """
-        :param pulumi.Input[str] day_of_week: The day of week to apply the patch on.
+        :param pulumi.Input[str] day_of_week: The day of week to apply the patch on. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
         :param pulumi.Input[int] maintenance_window_duration_in_minutes: The size of the Maintenance Window in minutes.
         :param pulumi.Input[int] maintenance_window_starting_hour: The Hour, in the Virtual Machine Time-Zone when the patching maintenance window should begin.
         """
@@ -1304,7 +1305,7 @@ class VirtualMachineAutoPatchingArgs:
     @pulumi.getter(name="dayOfWeek")
     def day_of_week(self) -> pulumi.Input[str]:
         """
-        The day of week to apply the patch on.
+        The day of week to apply the patch on. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
         """
         return pulumi.get(self, "day_of_week")
 
@@ -1402,6 +1403,125 @@ class VirtualMachineKeyVaultCredentialArgs:
     @service_principal_secret.setter
     def service_principal_secret(self, value: pulumi.Input[str]):
         pulumi.set(self, "service_principal_secret", value)
+
+
+@pulumi.input_type
+class VirtualMachineSqlInstanceArgs:
+    def __init__(__self__, *,
+                 adhoc_workloads_optimization_enabled: Optional[pulumi.Input[bool]] = None,
+                 collation: Optional[pulumi.Input[str]] = None,
+                 instant_file_initialization_enabled: Optional[pulumi.Input[bool]] = None,
+                 lock_pages_in_memory_enabled: Optional[pulumi.Input[bool]] = None,
+                 max_dop: Optional[pulumi.Input[int]] = None,
+                 max_server_memory_mb: Optional[pulumi.Input[int]] = None,
+                 min_server_memory_mb: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[bool] adhoc_workloads_optimization_enabled: Specifies if the SQL Server is optimized for adhoc workloads. Possible values are `true` and `false`. Defaults to `false`.
+        :param pulumi.Input[str] collation: Collation of the SQL Server. Defaults to `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] instant_file_initialization_enabled: Specifies if Instant File Initialization is enabled for the SQL Server. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] lock_pages_in_memory_enabled: Specifies if Lock Pages in Memory is enabled for the SQL Server. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] max_dop: Maximum Degree of Parallelism of the SQL Server. Possible values are between `0` and `32767`. Defaults to `0`.
+        :param pulumi.Input[int] max_server_memory_mb: Maximum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `128` and `2147483647` Defaults to `2147483647`.
+        :param pulumi.Input[int] min_server_memory_mb: Minimum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `0` and `2147483647` Defaults to `0`.
+        """
+        if adhoc_workloads_optimization_enabled is not None:
+            pulumi.set(__self__, "adhoc_workloads_optimization_enabled", adhoc_workloads_optimization_enabled)
+        if collation is not None:
+            pulumi.set(__self__, "collation", collation)
+        if instant_file_initialization_enabled is not None:
+            pulumi.set(__self__, "instant_file_initialization_enabled", instant_file_initialization_enabled)
+        if lock_pages_in_memory_enabled is not None:
+            pulumi.set(__self__, "lock_pages_in_memory_enabled", lock_pages_in_memory_enabled)
+        if max_dop is not None:
+            pulumi.set(__self__, "max_dop", max_dop)
+        if max_server_memory_mb is not None:
+            pulumi.set(__self__, "max_server_memory_mb", max_server_memory_mb)
+        if min_server_memory_mb is not None:
+            pulumi.set(__self__, "min_server_memory_mb", min_server_memory_mb)
+
+    @property
+    @pulumi.getter(name="adhocWorkloadsOptimizationEnabled")
+    def adhoc_workloads_optimization_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the SQL Server is optimized for adhoc workloads. Possible values are `true` and `false`. Defaults to `false`.
+        """
+        return pulumi.get(self, "adhoc_workloads_optimization_enabled")
+
+    @adhoc_workloads_optimization_enabled.setter
+    def adhoc_workloads_optimization_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "adhoc_workloads_optimization_enabled", value)
+
+    @property
+    @pulumi.getter
+    def collation(self) -> Optional[pulumi.Input[str]]:
+        """
+        Collation of the SQL Server. Defaults to `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "collation")
+
+    @collation.setter
+    def collation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "collation", value)
+
+    @property
+    @pulumi.getter(name="instantFileInitializationEnabled")
+    def instant_file_initialization_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if Instant File Initialization is enabled for the SQL Server. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "instant_file_initialization_enabled")
+
+    @instant_file_initialization_enabled.setter
+    def instant_file_initialization_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "instant_file_initialization_enabled", value)
+
+    @property
+    @pulumi.getter(name="lockPagesInMemoryEnabled")
+    def lock_pages_in_memory_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if Lock Pages in Memory is enabled for the SQL Server. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "lock_pages_in_memory_enabled")
+
+    @lock_pages_in_memory_enabled.setter
+    def lock_pages_in_memory_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "lock_pages_in_memory_enabled", value)
+
+    @property
+    @pulumi.getter(name="maxDop")
+    def max_dop(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum Degree of Parallelism of the SQL Server. Possible values are between `0` and `32767`. Defaults to `0`.
+        """
+        return pulumi.get(self, "max_dop")
+
+    @max_dop.setter
+    def max_dop(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_dop", value)
+
+    @property
+    @pulumi.getter(name="maxServerMemoryMb")
+    def max_server_memory_mb(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `128` and `2147483647` Defaults to `2147483647`.
+        """
+        return pulumi.get(self, "max_server_memory_mb")
+
+    @max_server_memory_mb.setter
+    def max_server_memory_mb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_server_memory_mb", value)
+
+    @property
+    @pulumi.getter(name="minServerMemoryMb")
+    def min_server_memory_mb(self) -> Optional[pulumi.Input[int]]:
+        """
+        Minimum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `0` and `2147483647` Defaults to `0`.
+        """
+        return pulumi.get(self, "min_server_memory_mb")
+
+    @min_server_memory_mb.setter
+    def min_server_memory_mb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_server_memory_mb", value)
 
 
 @pulumi.input_type

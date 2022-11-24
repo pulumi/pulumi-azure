@@ -145,16 +145,14 @@ public final class ApplicationGroupState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Type of Virtual Desktop Application Group.
-     * Valid options are `RemoteApp` or `Desktop` application groups.
+     * Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Type of Virtual Desktop Application Group.
-     * Valid options are `RemoteApp` or `Desktop` application groups.
+     * @return Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
      * 
      */
     public Optional<Output<String>> type() {
@@ -370,8 +368,7 @@ public final class ApplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param type Type of Virtual Desktop Application Group.
-         * Valid options are `RemoteApp` or `Desktop` application groups.
+         * @param type Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
          * 
          * @return builder
          * 
@@ -382,8 +379,7 @@ public final class ApplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param type Type of Virtual Desktop Application Group.
-         * Valid options are `RemoteApp` or `Desktop` application groups.
+         * @param type Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
          * 
          * @return builder
          * 

@@ -28,7 +28,7 @@ class AccountArgs:
         """
         The set of arguments for constructing a Account resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku_name: The SKU of the account - only `Basic` is supported at this time.
+        :param pulumi.Input[str] sku_name: The SKU of the account. Possible values are `Basic` and `Free`.
         :param pulumi.Input[Sequence[pulumi.Input['AccountEncryptionArgs']]] encryptions: An `encryption` block as defined below.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_authentication_enabled: Whether requests using non-AAD authentication are blocked.
@@ -70,7 +70,7 @@ class AccountArgs:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Input[str]:
         """
-        The SKU of the account - only `Basic` is supported at this time.
+        The SKU of the account. Possible values are `Basic` and `Free`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -193,7 +193,7 @@ class _AccountState:
         :param pulumi.Input[str] name: Specifies the name of the Automation Account. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku_name: The SKU of the account - only `Basic` is supported at this time.
+        :param pulumi.Input[str] sku_name: The SKU of the account. Possible values are `Basic` and `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if dsc_primary_access_key is not None:
@@ -370,7 +370,7 @@ class _AccountState:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The SKU of the account - only `Basic` is supported at this time.
+        The SKU of the account. Possible values are `Basic` and `Free`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -442,7 +442,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Automation Account. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku_name: The SKU of the account - only `Basic` is supported at this time.
+        :param pulumi.Input[str] sku_name: The SKU of the account. Possible values are `Basic` and `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -571,7 +571,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Automation Account. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku_name: The SKU of the account - only `Basic` is supported at this time.
+        :param pulumi.Input[str] sku_name: The SKU of the account. Possible values are `Basic` and `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -691,7 +691,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Output[str]:
         """
-        The SKU of the account - only `Basic` is supported at this time.
+        The SKU of the account. Possible values are `Basic` and `Free`.
         """
         return pulumi.get(self, "sku_name")
 

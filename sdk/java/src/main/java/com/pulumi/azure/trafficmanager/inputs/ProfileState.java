@@ -141,14 +141,14 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the algorithm used to route traffic, possible values are:
+     * Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
      * 
      */
     @Import(name="trafficRoutingMethod")
     private @Nullable Output<String> trafficRoutingMethod;
 
     /**
-     * @return Specifies the algorithm used to route traffic, possible values are:
+     * @return Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
      * 
      */
     public Optional<Output<String>> trafficRoutingMethod() {
@@ -372,7 +372,7 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trafficRoutingMethod Specifies the algorithm used to route traffic, possible values are:
+         * @param trafficRoutingMethod Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
          * 
          * @return builder
          * 
@@ -383,7 +383,7 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trafficRoutingMethod Specifies the algorithm used to route traffic, possible values are:
+         * @param trafficRoutingMethod Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
          * 
          * @return builder
          * 

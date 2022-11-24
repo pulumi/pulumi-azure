@@ -147,7 +147,7 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * @deprecated the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead
+     * @deprecated the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead
      */
     public readonly networkProfileId!: pulumi.Output<string>;
     /**
@@ -314,7 +314,7 @@ export interface GroupState {
      */
     name?: pulumi.Input<string>;
     /**
-     * @deprecated the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead
+     * @deprecated the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead
      */
     networkProfileId?: pulumi.Input<string>;
     /**
@@ -400,7 +400,7 @@ export interface GroupArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * @deprecated the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead
+     * @deprecated the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead
      */
     networkProfileId?: pulumi.Input<string>;
     /**

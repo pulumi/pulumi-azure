@@ -130,8 +130,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Type of Virtual Desktop Application Group.
-        /// Valid options are `RemoteApp` or `Desktop` application groups.
+        /// Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -241,8 +240,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         }
 
         /// <summary>
-        /// Type of Virtual Desktop Application Group.
-        /// Valid options are `RemoteApp` or `Desktop` application groups.
+        /// Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -314,8 +312,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         }
 
         /// <summary>
-        /// Type of Virtual Desktop Application Group.
-        /// Valid options are `RemoteApp` or `Desktop` application groups.
+        /// Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

@@ -56,6 +56,8 @@ type SubscriptionPricing struct {
 
 	// The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `OpenSourceRelationalDatabases`, `Containers` and `Dns`. Defaults to `VirtualMachines`.
 	ResourceType pulumi.StringPtrOutput `pulumi:"resourceType"`
+	// Resource type pricing subplan. Contact your MSFT representative for possible values.
+	Subplan pulumi.StringPtrOutput `pulumi:"subplan"`
 	// The pricing tier to use. Possible values are `Free` and `Standard`.
 	Tier pulumi.StringOutput `pulumi:"tier"`
 }
@@ -94,6 +96,8 @@ func GetSubscriptionPricing(ctx *pulumi.Context,
 type subscriptionPricingState struct {
 	// The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `OpenSourceRelationalDatabases`, `Containers` and `Dns`. Defaults to `VirtualMachines`.
 	ResourceType *string `pulumi:"resourceType"`
+	// Resource type pricing subplan. Contact your MSFT representative for possible values.
+	Subplan *string `pulumi:"subplan"`
 	// The pricing tier to use. Possible values are `Free` and `Standard`.
 	Tier *string `pulumi:"tier"`
 }
@@ -101,6 +105,8 @@ type subscriptionPricingState struct {
 type SubscriptionPricingState struct {
 	// The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `OpenSourceRelationalDatabases`, `Containers` and `Dns`. Defaults to `VirtualMachines`.
 	ResourceType pulumi.StringPtrInput
+	// Resource type pricing subplan. Contact your MSFT representative for possible values.
+	Subplan pulumi.StringPtrInput
 	// The pricing tier to use. Possible values are `Free` and `Standard`.
 	Tier pulumi.StringPtrInput
 }
@@ -112,6 +118,8 @@ func (SubscriptionPricingState) ElementType() reflect.Type {
 type subscriptionPricingArgs struct {
 	// The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `OpenSourceRelationalDatabases`, `Containers` and `Dns`. Defaults to `VirtualMachines`.
 	ResourceType *string `pulumi:"resourceType"`
+	// Resource type pricing subplan. Contact your MSFT representative for possible values.
+	Subplan *string `pulumi:"subplan"`
 	// The pricing tier to use. Possible values are `Free` and `Standard`.
 	Tier string `pulumi:"tier"`
 }
@@ -120,6 +128,8 @@ type subscriptionPricingArgs struct {
 type SubscriptionPricingArgs struct {
 	// The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `OpenSourceRelationalDatabases`, `Containers` and `Dns`. Defaults to `VirtualMachines`.
 	ResourceType pulumi.StringPtrInput
+	// Resource type pricing subplan. Contact your MSFT representative for possible values.
+	Subplan pulumi.StringPtrInput
 	// The pricing tier to use. Possible values are `Free` and `Standard`.
 	Tier pulumi.StringInput
 }
@@ -214,6 +224,11 @@ func (o SubscriptionPricingOutput) ToSubscriptionPricingOutputWithContext(ctx co
 // The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `OpenSourceRelationalDatabases`, `Containers` and `Dns`. Defaults to `VirtualMachines`.
 func (o SubscriptionPricingOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionPricing) pulumi.StringPtrOutput { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+// Resource type pricing subplan. Contact your MSFT representative for possible values.
+func (o SubscriptionPricingOutput) Subplan() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriptionPricing) pulumi.StringPtrOutput { return v.Subplan }).(pulumi.StringPtrOutput)
 }
 
 // The pricing tier to use. Possible values are `Free` and `Standard`.

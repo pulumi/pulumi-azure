@@ -7099,7 +7099,7 @@ class TokenPasswordPassword1Args:
                  expiry: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] expiry: The expiration date of the password in RFC3339 format.
+        :param pulumi.Input[str] expiry: The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
         :param pulumi.Input[str] value: The value of the password (Sensitive).
         """
         if expiry is not None:
@@ -7111,7 +7111,7 @@ class TokenPasswordPassword1Args:
     @pulumi.getter
     def expiry(self) -> Optional[pulumi.Input[str]]:
         """
-        The expiration date of the password in RFC3339 format.
+        The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "expiry")
 
@@ -7138,7 +7138,7 @@ class TokenPasswordPassword2Args:
                  expiry: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] expiry: The expiration date of the password in RFC3339 format.
+        :param pulumi.Input[str] expiry: The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
         :param pulumi.Input[str] value: The value of the password (Sensitive).
         """
         if expiry is not None:
@@ -7150,7 +7150,7 @@ class TokenPasswordPassword2Args:
     @pulumi.getter
     def expiry(self) -> Optional[pulumi.Input[str]]:
         """
-        The expiration date of the password in RFC3339 format.
+        The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "expiry")
 

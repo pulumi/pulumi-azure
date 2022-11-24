@@ -39,8 +39,9 @@ type ScheduledQueryRulesAlert struct {
 	// Whether this scheduled query rule is enabled.  Default is `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
-	Frequency pulumi.IntOutput    `pulumi:"frequency"`
-	Location  pulumi.StringOutput `pulumi:"location"`
+	Frequency pulumi.IntOutput `pulumi:"frequency"`
+	// Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the scheduled query rule. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Log search query.
@@ -124,8 +125,9 @@ type scheduledQueryRulesAlertState struct {
 	// Whether this scheduled query rule is enabled.  Default is `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
-	Frequency *int    `pulumi:"frequency"`
-	Location  *string `pulumi:"location"`
+	Frequency *int `pulumi:"frequency"`
+	// Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
+	Location *string `pulumi:"location"`
 	// The name of the scheduled query rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Log search query.
@@ -161,7 +163,8 @@ type ScheduledQueryRulesAlertState struct {
 	Enabled pulumi.BoolPtrInput
 	// Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
 	Frequency pulumi.IntPtrInput
-	Location  pulumi.StringPtrInput
+	// Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
+	Location pulumi.StringPtrInput
 	// The name of the scheduled query rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Log search query.
@@ -200,8 +203,9 @@ type scheduledQueryRulesAlertArgs struct {
 	// Whether this scheduled query rule is enabled.  Default is `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
-	Frequency int     `pulumi:"frequency"`
-	Location  *string `pulumi:"location"`
+	Frequency int `pulumi:"frequency"`
+	// Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
+	Location *string `pulumi:"location"`
 	// The name of the scheduled query rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Log search query.
@@ -238,7 +242,8 @@ type ScheduledQueryRulesAlertArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
 	Frequency pulumi.IntInput
-	Location  pulumi.StringPtrInput
+	// Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
+	Location pulumi.StringPtrInput
 	// The name of the scheduled query rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Log search query.
@@ -381,6 +386,7 @@ func (o ScheduledQueryRulesAlertOutput) Frequency() pulumi.IntOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlert) pulumi.IntOutput { return v.Frequency }).(pulumi.IntOutput)
 }
 
+// Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
 func (o ScheduledQueryRulesAlertOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlert) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }

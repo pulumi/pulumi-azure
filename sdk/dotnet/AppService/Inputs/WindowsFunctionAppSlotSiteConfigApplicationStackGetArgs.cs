@@ -13,7 +13,7 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class WindowsFunctionAppSlotSiteConfigApplicationStackGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The version of .Net. Possible values are `3.1` and `6`
+        /// The version of .Net. Possible values are `3.1`, `6` and `7`
         /// </summary>
         [Input("dotnetVersion")]
         public Input<string>? DotnetVersion { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? JavaVersion { get; set; }
 
         /// <summary>
-        /// The version of Node to use. Possible values include `12`, and `14`
+        /// The version of Node to use. Possible values are `~12`, `~14`, `~16` and `~18`.
         /// </summary>
         [Input("nodeVersion")]
         public Input<string>? NodeVersion { get; set; }

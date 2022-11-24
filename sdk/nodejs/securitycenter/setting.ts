@@ -64,7 +64,7 @@ export class Setting extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean>;
     /**
-     * The setting to manage. Possible values are `MCAS` and `WDATP`. Changing this forces a new resource to be created.
+     * The setting to manage. Possible values are `MCAS` , `WDATP` and `SENTINEL`. Changing this forces a new resource to be created.
      */
     public readonly settingName!: pulumi.Output<string>;
 
@@ -108,7 +108,7 @@ export interface SettingState {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * The setting to manage. Possible values are `MCAS` and `WDATP`. Changing this forces a new resource to be created.
+     * The setting to manage. Possible values are `MCAS` , `WDATP` and `SENTINEL`. Changing this forces a new resource to be created.
      */
     settingName?: pulumi.Input<string>;
 }
@@ -122,7 +122,7 @@ export interface SettingArgs {
      */
     enabled: pulumi.Input<boolean>;
     /**
-     * The setting to manage. Possible values are `MCAS` and `WDATP`. Changing this forces a new resource to be created.
+     * The setting to manage. Possible values are `MCAS` , `WDATP` and `SENTINEL`. Changing this forces a new resource to be created.
      */
     settingName: pulumi.Input<string>;
 }

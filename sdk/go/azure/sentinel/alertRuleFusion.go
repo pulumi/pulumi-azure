@@ -90,6 +90,8 @@ type AlertRuleFusion struct {
 	LogAnalyticsWorkspaceId pulumi.StringOutput `pulumi:"logAnalyticsWorkspaceId"`
 	// The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// One or more `source` blocks as defined below.
+	Sources AlertRuleFusionSourceArrayOutput `pulumi:"sources"`
 }
 
 // NewAlertRuleFusion registers a new resource with the given unique name, arguments, and options.
@@ -135,6 +137,8 @@ type alertRuleFusionState struct {
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
 	// The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
 	Name *string `pulumi:"name"`
+	// One or more `source` blocks as defined below.
+	Sources []AlertRuleFusionSource `pulumi:"sources"`
 }
 
 type AlertRuleFusionState struct {
@@ -146,6 +150,8 @@ type AlertRuleFusionState struct {
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
 	// The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
 	Name pulumi.StringPtrInput
+	// One or more `source` blocks as defined below.
+	Sources AlertRuleFusionSourceArrayInput
 }
 
 func (AlertRuleFusionState) ElementType() reflect.Type {
@@ -161,6 +167,8 @@ type alertRuleFusionArgs struct {
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
 	// The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
 	Name *string `pulumi:"name"`
+	// One or more `source` blocks as defined below.
+	Sources []AlertRuleFusionSource `pulumi:"sources"`
 }
 
 // The set of arguments for constructing a AlertRuleFusion resource.
@@ -173,6 +181,8 @@ type AlertRuleFusionArgs struct {
 	LogAnalyticsWorkspaceId pulumi.StringInput
 	// The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
 	Name pulumi.StringPtrInput
+	// One or more `source` blocks as defined below.
+	Sources AlertRuleFusionSourceArrayInput
 }
 
 func (AlertRuleFusionArgs) ElementType() reflect.Type {
@@ -280,6 +290,11 @@ func (o AlertRuleFusionOutput) LogAnalyticsWorkspaceId() pulumi.StringOutput {
 // The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
 func (o AlertRuleFusionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertRuleFusion) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// One or more `source` blocks as defined below.
+func (o AlertRuleFusionOutput) Sources() AlertRuleFusionSourceArrayOutput {
+	return o.ApplyT(func(v *AlertRuleFusion) AlertRuleFusionSourceArrayOutput { return v.Sources }).(AlertRuleFusionSourceArrayOutput)
 }
 
 type AlertRuleFusionArrayOutput struct{ *pulumi.OutputState }

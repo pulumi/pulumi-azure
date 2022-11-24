@@ -41,8 +41,7 @@ class RunBookArgs:
         :param pulumi.Input[str] description: A description for this credential.
         :param pulumi.Input['RunBookDraftArgs'] draft: A `draft` block as defined below .
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] log_activity_trace_level: Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
-               Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+        :param pulumi.Input[int] log_activity_trace_level: Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
         :param pulumi.Input[str] name: Specifies the name of the Runbook. Changing this forces a new resource to be created.
         :param pulumi.Input['RunBookPublishContentLinkArgs'] publish_content_link: The published runbook content link.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -192,8 +191,7 @@ class RunBookArgs:
     @pulumi.getter(name="logActivityTraceLevel")
     def log_activity_trace_level(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
-        Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+        Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
         """
         return pulumi.get(self, "log_activity_trace_level")
 
@@ -262,8 +260,7 @@ class _RunBookState:
         :param pulumi.Input[str] description: A description for this credential.
         :param pulumi.Input['RunBookDraftArgs'] draft: A `draft` block as defined below .
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] log_activity_trace_level: Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
-               Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+        :param pulumi.Input[int] log_activity_trace_level: Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
         :param pulumi.Input[bool] log_progress: Progress log option.
         :param pulumi.Input[bool] log_verbose: Verbose log option.
         :param pulumi.Input[str] name: Specifies the name of the Runbook. Changing this forces a new resource to be created.
@@ -374,8 +371,7 @@ class _RunBookState:
     @pulumi.getter(name="logActivityTraceLevel")
     def log_activity_trace_level(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
-        Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+        Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
         """
         return pulumi.get(self, "log_activity_trace_level")
 
@@ -530,8 +526,7 @@ class RunBook(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description for this credential.
         :param pulumi.Input[pulumi.InputType['RunBookDraftArgs']] draft: A `draft` block as defined below .
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] log_activity_trace_level: Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
-               Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+        :param pulumi.Input[int] log_activity_trace_level: Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
         :param pulumi.Input[bool] log_progress: Progress log option.
         :param pulumi.Input[bool] log_verbose: Verbose log option.
         :param pulumi.Input[str] name: Specifies the name of the Runbook. Changing this forces a new resource to be created.
@@ -679,8 +674,7 @@ class RunBook(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description for this credential.
         :param pulumi.Input[pulumi.InputType['RunBookDraftArgs']] draft: A `draft` block as defined below .
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] log_activity_trace_level: Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
-               Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+        :param pulumi.Input[int] log_activity_trace_level: Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
         :param pulumi.Input[bool] log_progress: Progress log option.
         :param pulumi.Input[bool] log_verbose: Verbose log option.
         :param pulumi.Input[str] name: Specifies the name of the Runbook. Changing this forces a new resource to be created.
@@ -758,8 +752,7 @@ class RunBook(pulumi.CustomResource):
     @pulumi.getter(name="logActivityTraceLevel")
     def log_activity_trace_level(self) -> pulumi.Output[Optional[int]]:
         """
-        Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
-        Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+        Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
         """
         return pulumi.get(self, "log_activity_trace_level")
 

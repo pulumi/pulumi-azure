@@ -26,6 +26,7 @@ from .reference_input_blob import *
 from .reference_input_mssql import *
 from .stream_input_blob import *
 from .stream_input_event_hub import *
+from .stream_input_event_hub_v2 import *
 from .stream_input_iot_hub import *
 from ._inputs import *
 from . import outputs

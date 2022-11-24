@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  * IoT Central Application Network Rule Sets can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:iotcentral/applicationNetworkRuleSet:ApplicationNetworkRuleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.IoTCentral/ioTApps/app1
+ *  $ pulumi import azure:iotcentral/applicationNetworkRuleSet:ApplicationNetworkRuleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.IoTCentral/iotApps/app1
  * ```
  */
 export class ApplicationNetworkRuleSet extends pulumi.CustomResource {

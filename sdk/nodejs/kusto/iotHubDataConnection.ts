@@ -123,7 +123,7 @@ export class IotHubDataConnection extends pulumi.CustomResource {
      */
     public readonly databaseRoutingType!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
+     * Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
      */
     public readonly eventSystemProperties!: pulumi.Output<string[] | undefined>;
     /**
@@ -245,7 +245,7 @@ export interface IotHubDataConnectionState {
      */
     databaseRoutingType?: pulumi.Input<string>;
     /**
-     * Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
+     * Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
      */
     eventSystemProperties?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -303,7 +303,7 @@ export interface IotHubDataConnectionArgs {
      */
     databaseRoutingType?: pulumi.Input<string>;
     /**
-     * Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
+     * Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
      */
     eventSystemProperties?: pulumi.Input<pulumi.Input<string>[]>;
     /**

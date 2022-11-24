@@ -225,6 +225,8 @@ type Account struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `routing` block as defined below.
 	Routing AccountRoutingOutput `pulumi:"routing"`
+	// A `sasPolicy` block as defined below.
+	SasPolicy AccountSasPolicyPtrOutput `pulumi:"sasPolicy"`
 	// The secondary access key for the storage account.
 	SecondaryAccessKey pulumi.StringOutput `pulumi:"secondaryAccessKey"`
 	// The connection string associated with the secondary blob location.
@@ -396,6 +398,8 @@ type accountState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `routing` block as defined below.
 	Routing *AccountRouting `pulumi:"routing"`
+	// A `sasPolicy` block as defined below.
+	SasPolicy *AccountSasPolicy `pulumi:"sasPolicy"`
 	// The secondary access key for the storage account.
 	SecondaryAccessKey *string `pulumi:"secondaryAccessKey"`
 	// The connection string associated with the secondary blob location.
@@ -530,6 +534,8 @@ type AccountState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A `routing` block as defined below.
 	Routing AccountRoutingPtrInput
+	// A `sasPolicy` block as defined below.
+	SasPolicy AccountSasPolicyPtrInput
 	// The secondary access key for the storage account.
 	SecondaryAccessKey pulumi.StringPtrInput
 	// The connection string associated with the secondary blob location.
@@ -636,6 +642,8 @@ type accountArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `routing` block as defined below.
 	Routing *AccountRouting `pulumi:"routing"`
+	// A `sasPolicy` block as defined below.
+	SasPolicy *AccountSasPolicy `pulumi:"sasPolicy"`
 	// A `shareProperties` block as defined below.
 	ShareProperties *AccountShareProperties `pulumi:"shareProperties"`
 	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
@@ -707,6 +715,8 @@ type AccountArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A `routing` block as defined below.
 	Routing AccountRoutingPtrInput
+	// A `sasPolicy` block as defined below.
+	SasPolicy AccountSasPolicyPtrInput
 	// A `shareProperties` block as defined below.
 	ShareProperties AccountSharePropertiesPtrInput
 	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
@@ -1025,6 +1035,11 @@ func (o AccountOutput) ResourceGroupName() pulumi.StringOutput {
 // A `routing` block as defined below.
 func (o AccountOutput) Routing() AccountRoutingOutput {
 	return o.ApplyT(func(v *Account) AccountRoutingOutput { return v.Routing }).(AccountRoutingOutput)
+}
+
+// A `sasPolicy` block as defined below.
+func (o AccountOutput) SasPolicy() AccountSasPolicyPtrOutput {
+	return o.ApplyT(func(v *Account) AccountSasPolicyPtrOutput { return v.SasPolicy }).(AccountSasPolicyPtrOutput)
 }
 
 // The secondary access key for the storage account.

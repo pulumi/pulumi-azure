@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     accountName: exampleAccount.name,
  *     type: "CustomRole",
- *     assignableScopes: [pulumi.all([current, exampleResourceGroup.name, exampleAccount.name]).apply(([current, exampleResourceGroupName, exampleAccountName]) => `/subscriptions/${current.subscriptionId}/resourceGroups/${exampleResourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/${exampleAccountName}`)],
+ *     assignableScopes: [exampleAccount.id],
  *     permissions: [{
  *         dataActions: ["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
  *     }],
@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *     accountName: exampleAccount.name,
  *     roleDefinitionId: exampleSqlRoleDefinition.id,
  *     principalId: current.then(current => current.objectId),
- *     scope: pulumi.all([current, exampleResourceGroup.name, exampleAccount.name]).apply(([current, exampleResourceGroupName, exampleAccountName]) => `/subscriptions/${current.subscriptionId}/resourceGroups/${exampleResourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/${exampleAccountName}`),
+ *     scope: exampleAccount.id,
  * });
  * ```
  *

@@ -341,14 +341,14 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identity);
     }
     /**
-     * What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
+     * What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
      * 
      */
     @Export(name="licenseType", type=String.class, parameters={})
     private Output<String> licenseType;
 
     /**
-     * @return What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
+     * @return What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
      * 
      */
     public Output<String> licenseType() {

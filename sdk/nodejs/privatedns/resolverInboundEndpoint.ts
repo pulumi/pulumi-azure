@@ -88,7 +88,7 @@ export class ResolverInboundEndpoint extends pulumi.CustomResource {
     }
 
     /**
-     * An `ipConfigurations` block as defined below.
+     * Can be specified multiple times to define multiple IP configurations. Each `ipConfigurations` block as defined below.
      */
     public readonly ipConfigurations!: pulumi.Output<outputs.privatedns.ResolverInboundEndpointIpConfiguration[]>;
     /**
@@ -150,7 +150,7 @@ export class ResolverInboundEndpoint extends pulumi.CustomResource {
  */
 export interface ResolverInboundEndpointState {
     /**
-     * An `ipConfigurations` block as defined below.
+     * Can be specified multiple times to define multiple IP configurations. Each `ipConfigurations` block as defined below.
      */
     ipConfigurations?: pulumi.Input<pulumi.Input<inputs.privatedns.ResolverInboundEndpointIpConfiguration>[]>;
     /**
@@ -176,7 +176,7 @@ export interface ResolverInboundEndpointState {
  */
 export interface ResolverInboundEndpointArgs {
     /**
-     * An `ipConfigurations` block as defined below.
+     * Can be specified multiple times to define multiple IP configurations. Each `ipConfigurations` block as defined below.
      */
     ipConfigurations: pulumi.Input<pulumi.Input<inputs.privatedns.ResolverInboundEndpointIpConfiguration>[]>;
     /**

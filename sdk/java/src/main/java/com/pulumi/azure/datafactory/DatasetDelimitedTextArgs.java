@@ -98,14 +98,14 @@ public final class DatasetDelimitedTextArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+     * The compression codec used to read/write text files. Valid values are `None`, `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy` and `lz4`. Please note these values are case sensitive.
      * 
      */
     @Import(name="compressionCodec")
     private @Nullable Output<String> compressionCodec;
 
     /**
-     * @return The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+     * @return The compression codec used to read/write text files. Valid values are `None`, `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy` and `lz4`. Please note these values are case sensitive.
      * 
      */
     public Optional<Output<String>> compressionCodec() {
@@ -497,7 +497,7 @@ public final class DatasetDelimitedTextArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param compressionCodec The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+         * @param compressionCodec The compression codec used to read/write text files. Valid values are `None`, `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy` and `lz4`. Please note these values are case sensitive.
          * 
          * @return builder
          * 
@@ -508,7 +508,7 @@ public final class DatasetDelimitedTextArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param compressionCodec The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+         * @param compressionCodec The compression codec used to read/write text files. Valid values are `None`, `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy` and `lz4`. Please note these values are case sensitive.
          * 
          * @return builder
          * 

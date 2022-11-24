@@ -116,7 +116,7 @@ export class PolicySetDefinition extends pulumi.CustomResource {
      */
     public readonly policyDefinitionReferences!: pulumi.Output<outputs.policy.PolicySetDefinitionPolicyDefinitionReference[]>;
     /**
-     * The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
+     * The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
      */
     public readonly policyType!: pulumi.Output<string>;
 
@@ -205,7 +205,7 @@ export interface PolicySetDefinitionState {
      */
     policyDefinitionReferences?: pulumi.Input<pulumi.Input<inputs.policy.PolicySetDefinitionPolicyDefinitionReference>[]>;
     /**
-     * The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
+     * The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
      */
     policyType?: pulumi.Input<string>;
 }
@@ -247,7 +247,7 @@ export interface PolicySetDefinitionArgs {
      */
     policyDefinitionReferences: pulumi.Input<pulumi.Input<inputs.policy.PolicySetDefinitionPolicyDefinitionReference>[]>;
     /**
-     * The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
+     * The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
      */
     policyType: pulumi.Input<string>;
 }

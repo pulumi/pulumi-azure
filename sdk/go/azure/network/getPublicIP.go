@@ -151,6 +151,10 @@ type GetPublicIPArgs struct {
 // A collection of values returned by getPublicIP.
 type GetPublicIPResult struct {
 	AllocationMethod string `pulumi:"allocationMethod"`
+	// The DDoS protection mode of the public IP.
+	DdosProtectionMode string `pulumi:"ddosProtectionMode"`
+	// The ID of DDoS protection plan associated with the public IP.
+	DdosProtectionPlanId string `pulumi:"ddosProtectionPlanId"`
 	// The label for the Domain Name.
 	DomainNameLabel string `pulumi:"domainNameLabel"`
 	// Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
@@ -219,6 +223,16 @@ func (o GetPublicIPResultOutput) ToGetPublicIPResultOutputWithContext(ctx contex
 
 func (o GetPublicIPResultOutput) AllocationMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPublicIPResult) string { return v.AllocationMethod }).(pulumi.StringOutput)
+}
+
+// The DDoS protection mode of the public IP.
+func (o GetPublicIPResultOutput) DdosProtectionMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicIPResult) string { return v.DdosProtectionMode }).(pulumi.StringOutput)
+}
+
+// The ID of DDoS protection plan associated with the public IP.
+func (o GetPublicIPResultOutput) DdosProtectionPlanId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicIPResult) string { return v.DdosProtectionPlanId }).(pulumi.StringOutput)
 }
 
 // The label for the Domain Name.

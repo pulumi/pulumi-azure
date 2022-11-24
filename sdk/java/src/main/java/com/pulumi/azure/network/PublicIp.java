@@ -85,6 +85,34 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
         return this.allocationMethod;
     }
     /**
+     * The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
+     * 
+     */
+    @Export(name="ddosProtectionMode", type=String.class, parameters={})
+    private Output</* @Nullable */ String> ddosProtectionMode;
+
+    /**
+     * @return The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
+     * 
+     */
+    public Output<Optional<String>> ddosProtectionMode() {
+        return Codegen.optional(this.ddosProtectionMode);
+    }
+    /**
+     * The ID of DDoS protection plan associated with the public IP.
+     * 
+     */
+    @Export(name="ddosProtectionPlanId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> ddosProtectionPlanId;
+
+    /**
+     * @return The ID of DDoS protection plan associated with the public IP.
+     * 
+     */
+    public Output<Optional<String>> ddosProtectionPlanId() {
+        return Codegen.optional(this.ddosProtectionPlanId);
+    }
+    /**
      * Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
      * 
      */

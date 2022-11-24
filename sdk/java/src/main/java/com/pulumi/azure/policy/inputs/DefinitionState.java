@@ -81,14 +81,14 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
+     * The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
      * 
      */
     @Import(name="mode")
     private @Nullable Output<String> mode;
 
     /**
-     * @return The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
+     * @return The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
      * 
      */
     public Optional<Output<String>> mode() {
@@ -149,14 +149,14 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
+     * The policy type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="policyType")
     private @Nullable Output<String> policyType;
 
     /**
-     * @return The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
+     * @return The policy type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> policyType() {
@@ -300,7 +300,7 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mode The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
+         * @param mode The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mode The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
+         * @param mode The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
          * 
          * @return builder
          * 
@@ -392,7 +392,7 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyType The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
+         * @param policyType The policy type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -403,7 +403,7 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyType The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
+         * @param policyType The policy type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

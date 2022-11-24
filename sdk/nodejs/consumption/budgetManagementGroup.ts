@@ -123,7 +123,7 @@ export class BudgetManagementGroup extends pulumi.CustomResource {
      */
     public readonly notifications!: pulumi.Output<outputs.consumption.BudgetManagementGroupNotification[]>;
     /**
-     * The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `Monthly`, `Quarterly`, `Annually`, `BillingMonth`, `BillingQuarter`, or `BillingYear`. Defaults to `Monthly`.
+     * The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`.
      */
     public readonly timeGrain!: pulumi.Output<string | undefined>;
     /**
@@ -209,7 +209,7 @@ export interface BudgetManagementGroupState {
      */
     notifications?: pulumi.Input<pulumi.Input<inputs.consumption.BudgetManagementGroupNotification>[]>;
     /**
-     * The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `Monthly`, `Quarterly`, `Annually`, `BillingMonth`, `BillingQuarter`, or `BillingYear`. Defaults to `Monthly`.
+     * The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`.
      */
     timeGrain?: pulumi.Input<string>;
     /**
@@ -247,7 +247,7 @@ export interface BudgetManagementGroupArgs {
      */
     notifications: pulumi.Input<pulumi.Input<inputs.consumption.BudgetManagementGroupNotification>[]>;
     /**
-     * The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `Monthly`, `Quarterly`, `Annually`, `BillingMonth`, `BillingQuarter`, or `BillingYear`. Defaults to `Monthly`.
+     * The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`.
      */
     timeGrain?: pulumi.Input<string>;
     /**

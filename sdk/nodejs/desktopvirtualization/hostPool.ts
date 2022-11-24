@@ -86,7 +86,7 @@ export class HostPool extends pulumi.CustomResource {
      */
     public readonly friendlyName!: pulumi.Output<string | undefined>;
     /**
-     * `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool.
+     * `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
      * `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
      * `Persistent` should be used if the host pool type is `Personal`
      */
@@ -107,13 +107,12 @@ export class HostPool extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * `Automatic` assignment – The service will select an available host and assign it to an user.
+     * `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`.
      * `Direct` Assignment – Admin selects a specific host to assign to an user.
      */
     public readonly personalDesktopAssignmentType!: pulumi.Output<string | undefined>;
     /**
-     * Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
-     * Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
+     * Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
      */
     public readonly preferredAppGroupType!: pulumi.Output<string | undefined>;
     /**
@@ -135,8 +134,7 @@ export class HostPool extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the Virtual Desktop Host Pool. Valid options are
-     * `Personal` or `Pooled`. Changing the type forces a new resource to be created.
+     * The type of the Virtual Desktop Host Pool. Valid options are `Personal` or `Pooled`. Changing the type forces a new resource to be created.
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -221,7 +219,7 @@ export interface HostPoolState {
      */
     friendlyName?: pulumi.Input<string>;
     /**
-     * `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool.
+     * `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
      * `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
      * `Persistent` should be used if the host pool type is `Personal`
      */
@@ -242,13 +240,12 @@ export interface HostPoolState {
      */
     name?: pulumi.Input<string>;
     /**
-     * `Automatic` assignment – The service will select an available host and assign it to an user.
+     * `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`.
      * `Direct` Assignment – Admin selects a specific host to assign to an user.
      */
     personalDesktopAssignmentType?: pulumi.Input<string>;
     /**
-     * Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
-     * Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
+     * Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
      */
     preferredAppGroupType?: pulumi.Input<string>;
     /**
@@ -270,8 +267,7 @@ export interface HostPoolState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of the Virtual Desktop Host Pool. Valid options are
-     * `Personal` or `Pooled`. Changing the type forces a new resource to be created.
+     * The type of the Virtual Desktop Host Pool. Valid options are `Personal` or `Pooled`. Changing the type forces a new resource to be created.
      */
     type?: pulumi.Input<string>;
     /**
@@ -297,7 +293,7 @@ export interface HostPoolArgs {
      */
     friendlyName?: pulumi.Input<string>;
     /**
-     * `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool.
+     * `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
      * `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
      * `Persistent` should be used if the host pool type is `Personal`
      */
@@ -318,13 +314,12 @@ export interface HostPoolArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * `Automatic` assignment – The service will select an available host and assign it to an user.
+     * `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`.
      * `Direct` Assignment – Admin selects a specific host to assign to an user.
      */
     personalDesktopAssignmentType?: pulumi.Input<string>;
     /**
-     * Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
-     * Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
+     * Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
      */
     preferredAppGroupType?: pulumi.Input<string>;
     /**
@@ -346,8 +341,7 @@ export interface HostPoolArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of the Virtual Desktop Host Pool. Valid options are
-     * `Personal` or `Pooled`. Changing the type forces a new resource to be created.
+     * The type of the Virtual Desktop Host Pool. Valid options are `Personal` or `Pooled`. Changing the type forces a new resource to be created.
      */
     type: pulumi.Input<string>;
     /**

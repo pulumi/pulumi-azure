@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ScalingPlanSchedule {
     /**
-     * @return A list of Days of the Week on which this schedule will be used..Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
+     * @return A list of Days of the Week on which this schedule will be used. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
      * 
      */
     private List<String> daysOfWeeks;
@@ -107,7 +107,7 @@ public final class ScalingPlanSchedule {
 
     private ScalingPlanSchedule() {}
     /**
-     * @return A list of Days of the Week on which this schedule will be used..Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
+     * @return A list of Days of the Week on which this schedule will be used. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
      * 
      */
     public List<String> daysOfWeeks() {

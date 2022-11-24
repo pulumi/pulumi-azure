@@ -66,6 +66,9 @@ namespace Pulumi.Azure.Monitoring
         [Output("frequency")]
         public Output<int> Frequency { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
@@ -215,6 +218,9 @@ namespace Pulumi.Azure.Monitoring
         [Input("frequency", required: true)]
         public Input<int> Frequency { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
@@ -332,6 +338,9 @@ namespace Pulumi.Azure.Monitoring
         [Input("frequency")]
         public Input<int>? Frequency { get; set; }
 
+        /// <summary>
+        /// Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 

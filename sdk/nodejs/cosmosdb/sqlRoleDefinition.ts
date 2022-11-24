@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *     roleDefinitionId: "84cf3a8b-4122-4448-bce2-fa423cfe0a15",
  *     resourceGroupName: exampleResourceGroup.name,
  *     accountName: exampleAccount.name,
- *     assignableScopes: [pulumi.all([current, exampleResourceGroup.name, exampleAccount.name]).apply(([current, exampleResourceGroupName, exampleAccountName]) => `/subscriptions/${current.subscriptionId}/resourceGroups/${exampleResourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/${exampleAccountName}/dbs/sales`)],
+ *     assignableScopes: [pulumi.interpolate`${exampleAccount.id}/dbs/sales`],
  *     permissions: [{
  *         dataActions: ["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
  *     }],

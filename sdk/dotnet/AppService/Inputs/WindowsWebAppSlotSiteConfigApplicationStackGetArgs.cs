@@ -37,7 +37,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? DockerContainerTag { get; set; }
 
         /// <summary>
-        /// The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
+        /// The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0` .
         /// </summary>
         [Input("dotnetVersion")]
         public Input<string>? DotnetVersion { get; set; }
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? JavaContainerVersion { get; set; }
 
         /// <summary>
-        /// The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8` and `11`. Required with `java_container` and `java_container_version`.
+        /// The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
         /// </summary>
         [Input("javaVersion")]
         public Input<string>? JavaVersion { get; set; }

@@ -312,10 +312,10 @@ public class Group extends com.pulumi.resources.CustomResource {
     }
     /**
      * @deprecated
-     * the &#39;network_profile_id&#39; has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the &#39;subnet_id&#39; field instead
+     * the &#39;network_profile_id&#39; has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the &#39;subnet_ids&#39; field instead
      * 
      */
-    @Deprecated /* the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead */
+    @Deprecated /* the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead */
     @Export(name="networkProfileId", type=String.class, parameters={})
     private Output<String> networkProfileId;
 

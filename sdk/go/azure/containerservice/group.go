@@ -119,7 +119,7 @@ type Group struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead
+	// Deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead
 	NetworkProfileId pulumi.StringOutput `pulumi:"networkProfileId"`
 	// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
 	OsType pulumi.StringOutput `pulumi:"osType"`
@@ -203,7 +203,7 @@ type groupState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead
+	// Deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead
 	NetworkProfileId *string `pulumi:"networkProfileId"`
 	// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
 	OsType *string `pulumi:"osType"`
@@ -250,7 +250,7 @@ type GroupState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead
+	// Deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead
 	NetworkProfileId pulumi.StringPtrInput
 	// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
 	OsType pulumi.StringPtrInput
@@ -297,7 +297,7 @@ type groupArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead
+	// Deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead
 	NetworkProfileId *string `pulumi:"networkProfileId"`
 	// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
 	OsType string `pulumi:"osType"`
@@ -341,7 +341,7 @@ type GroupArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead
+	// Deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead
 	NetworkProfileId pulumi.StringPtrInput
 	// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
 	OsType pulumi.StringInput
@@ -519,7 +519,7 @@ func (o GroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_id' field instead
+// Deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead
 func (o GroupOutput) NetworkProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.NetworkProfileId }).(pulumi.StringOutput)
 }

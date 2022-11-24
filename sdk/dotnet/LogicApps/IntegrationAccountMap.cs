@@ -69,7 +69,7 @@ namespace Pulumi.Azure.LogicApps
         public Output<string> IntegrationAccountName { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the Logic App Integration Account Map.
+        /// The type of the Logic App Integration Account Map. Possible values are `Xslt`, `Xslt20`, `Xslt30` and `Liquid`.
         /// </summary>
         [Output("mapType")]
         public Output<string> MapType { get; private set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<string> IntegrationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// The type of the Logic App Integration Account Map.
+        /// The type of the Logic App Integration Account Map. Possible values are `Xslt`, `Xslt20`, `Xslt30` and `Liquid`.
         /// </summary>
         [Input("mapType", required: true)]
         public Input<string> MapType { get; set; } = null!;
@@ -201,7 +201,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<string>? IntegrationAccountName { get; set; }
 
         /// <summary>
-        /// The type of the Logic App Integration Account Map.
+        /// The type of the Logic App Integration Account Map. Possible values are `Xslt`, `Xslt20`, `Xslt30` and `Liquid`.
         /// </summary>
         [Input("mapType")]
         public Input<string>? MapType { get; set; }

@@ -125,7 +125,7 @@ type SpringCloudConnection struct {
 
 	// The authentication info. An `authentication` block as defined below.
 	Authentication SpringCloudConnectionAuthenticationOutput `pulumi:"authentication"`
-	// The application client type. Possible values are `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs`, `springBoot`.
+	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
 	ClientType pulumi.StringPtrOutput `pulumi:"clientType"`
 	// Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -177,7 +177,7 @@ func GetSpringCloudConnection(ctx *pulumi.Context,
 type springCloudConnectionState struct {
 	// The authentication info. An `authentication` block as defined below.
 	Authentication *SpringCloudConnectionAuthentication `pulumi:"authentication"`
-	// The application client type. Possible values are `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs`, `springBoot`.
+	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
 	ClientType *string `pulumi:"clientType"`
 	// Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
 	Name *string `pulumi:"name"`
@@ -192,7 +192,7 @@ type springCloudConnectionState struct {
 type SpringCloudConnectionState struct {
 	// The authentication info. An `authentication` block as defined below.
 	Authentication SpringCloudConnectionAuthenticationPtrInput
-	// The application client type. Possible values are `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs`, `springBoot`.
+	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
 	ClientType pulumi.StringPtrInput
 	// Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
 	Name pulumi.StringPtrInput
@@ -211,7 +211,7 @@ func (SpringCloudConnectionState) ElementType() reflect.Type {
 type springCloudConnectionArgs struct {
 	// The authentication info. An `authentication` block as defined below.
 	Authentication SpringCloudConnectionAuthentication `pulumi:"authentication"`
-	// The application client type. Possible values are `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs`, `springBoot`.
+	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
 	ClientType *string `pulumi:"clientType"`
 	// Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
 	Name *string `pulumi:"name"`
@@ -227,7 +227,7 @@ type springCloudConnectionArgs struct {
 type SpringCloudConnectionArgs struct {
 	// The authentication info. An `authentication` block as defined below.
 	Authentication SpringCloudConnectionAuthenticationInput
-	// The application client type. Possible values are `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs`, `springBoot`.
+	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
 	ClientType pulumi.StringPtrInput
 	// Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
 	Name pulumi.StringPtrInput
@@ -331,7 +331,7 @@ func (o SpringCloudConnectionOutput) Authentication() SpringCloudConnectionAuthe
 	return o.ApplyT(func(v *SpringCloudConnection) SpringCloudConnectionAuthenticationOutput { return v.Authentication }).(SpringCloudConnectionAuthenticationOutput)
 }
 
-// The application client type. Possible values are `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs`, `springBoot`.
+// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
 func (o SpringCloudConnectionOutput) ClientType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpringCloudConnection) pulumi.StringPtrOutput { return v.ClientType }).(pulumi.StringPtrOutput)
 }

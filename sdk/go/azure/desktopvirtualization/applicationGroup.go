@@ -113,8 +113,7 @@ type ApplicationGroup struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Type of Virtual Desktop Application Group.
-	// Valid options are `RemoteApp` or `Desktop` application groups.
+	// Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -176,8 +175,7 @@ type applicationGroupState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Type of Virtual Desktop Application Group.
-	// Valid options are `RemoteApp` or `Desktop` application groups.
+	// Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
 	Type *string `pulumi:"type"`
 }
 
@@ -202,8 +200,7 @@ type ApplicationGroupState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Type of Virtual Desktop Application Group.
-	// Valid options are `RemoteApp` or `Desktop` application groups.
+	// Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
 	Type pulumi.StringPtrInput
 }
 
@@ -232,8 +229,7 @@ type applicationGroupArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Type of Virtual Desktop Application Group.
-	// Valid options are `RemoteApp` or `Desktop` application groups.
+	// Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
 	Type string `pulumi:"type"`
 }
 
@@ -259,8 +255,7 @@ type ApplicationGroupArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Type of Virtual Desktop Application Group.
-	// Valid options are `RemoteApp` or `Desktop` application groups.
+	// Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
 	Type pulumi.StringInput
 }
 
@@ -395,8 +390,7 @@ func (o ApplicationGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ApplicationGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Type of Virtual Desktop Application Group.
-// Valid options are `RemoteApp` or `Desktop` application groups.
+// Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
 func (o ApplicationGroupOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

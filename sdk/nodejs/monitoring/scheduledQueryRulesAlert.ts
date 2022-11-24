@@ -74,6 +74,9 @@ export class ScheduledQueryRulesAlert extends pulumi.CustomResource {
      * Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
      */
     public readonly frequency!: pulumi.Output<number>;
+    /**
+     * Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
+     */
     public readonly location!: pulumi.Output<string>;
     /**
      * The name of the scheduled query rule. Changing this forces a new resource to be created.
@@ -218,6 +221,9 @@ export interface ScheduledQueryRulesAlertState {
      * Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
      */
     frequency?: pulumi.Input<number>;
+    /**
+     * Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
+     */
     location?: pulumi.Input<string>;
     /**
      * The name of the scheduled query rule. Changing this forces a new resource to be created.
@@ -287,6 +293,9 @@ export interface ScheduledQueryRulesAlertArgs {
      * Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
      */
     frequency: pulumi.Input<number>;
+    /**
+     * Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
+     */
     location?: pulumi.Input<string>;
     /**
      * The name of the scheduled query rule. Changing this forces a new resource to be created.

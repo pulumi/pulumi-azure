@@ -87,8 +87,7 @@ type ServiceAccount struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts ServiceAccountStorageAccountArrayOutput `pulumi:"storageAccounts"`
-	// Specifies the storage authentication type.
-	// Possible value is  `ManagedIdentity` or `System`.
+	// Specifies the storage authentication type. Possible value is  `ManagedIdentity` or `System`.
 	StorageAuthenticationType pulumi.StringOutput `pulumi:"storageAuthenticationType"`
 	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -147,8 +146,7 @@ type serviceAccountState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts []ServiceAccountStorageAccount `pulumi:"storageAccounts"`
-	// Specifies the storage authentication type.
-	// Possible value is  `ManagedIdentity` or `System`.
+	// Specifies the storage authentication type. Possible value is  `ManagedIdentity` or `System`.
 	StorageAuthenticationType *string `pulumi:"storageAuthenticationType"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -167,8 +165,7 @@ type ServiceAccountState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts ServiceAccountStorageAccountArrayInput
-	// Specifies the storage authentication type.
-	// Possible value is  `ManagedIdentity` or `System`.
+	// Specifies the storage authentication type. Possible value is  `ManagedIdentity` or `System`.
 	StorageAuthenticationType pulumi.StringPtrInput
 	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapInput
@@ -191,8 +188,7 @@ type serviceAccountArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts []ServiceAccountStorageAccount `pulumi:"storageAccounts"`
-	// Specifies the storage authentication type.
-	// Possible value is  `ManagedIdentity` or `System`.
+	// Specifies the storage authentication type. Possible value is  `ManagedIdentity` or `System`.
 	StorageAuthenticationType *string `pulumi:"storageAuthenticationType"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -212,8 +208,7 @@ type ServiceAccountArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts ServiceAccountStorageAccountArrayInput
-	// Specifies the storage authentication type.
-	// Possible value is  `ManagedIdentity` or `System`.
+	// Specifies the storage authentication type. Possible value is  `ManagedIdentity` or `System`.
 	StorageAuthenticationType pulumi.StringPtrInput
 	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapInput
@@ -338,8 +333,7 @@ func (o ServiceAccountOutput) StorageAccounts() ServiceAccountStorageAccountArra
 	return o.ApplyT(func(v *ServiceAccount) ServiceAccountStorageAccountArrayOutput { return v.StorageAccounts }).(ServiceAccountStorageAccountArrayOutput)
 }
 
-// Specifies the storage authentication type.
-// Possible value is  `ManagedIdentity` or `System`.
+// Specifies the storage authentication type. Possible value is  `ManagedIdentity` or `System`.
 func (o ServiceAccountOutput) StorageAuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceAccount) pulumi.StringOutput { return v.StorageAuthenticationType }).(pulumi.StringOutput)
 }

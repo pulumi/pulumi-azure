@@ -18,6 +18,7 @@ __all__ = [
     'FeaturesCognitiveAccount',
     'FeaturesKeyVault',
     'FeaturesLogAnalyticsWorkspace',
+    'FeaturesManagedDisk',
     'FeaturesNetwork',
     'FeaturesResourceGroup',
     'FeaturesTemplateDeployment',
@@ -34,6 +35,7 @@ class Features(dict):
                  cognitive_account: Optional['outputs.FeaturesCognitiveAccount'] = None,
                  key_vault: Optional['outputs.FeaturesKeyVault'] = None,
                  log_analytics_workspace: Optional['outputs.FeaturesLogAnalyticsWorkspace'] = None,
+                 managed_disk: Optional['outputs.FeaturesManagedDisk'] = None,
                  network: Optional['outputs.FeaturesNetwork'] = None,
                  resource_group: Optional['outputs.FeaturesResourceGroup'] = None,
                  template_deployment: Optional['outputs.FeaturesTemplateDeployment'] = None,
@@ -51,6 +53,8 @@ class Features(dict):
             pulumi.set(__self__, "key_vault", key_vault)
         if log_analytics_workspace is not None:
             pulumi.set(__self__, "log_analytics_workspace", log_analytics_workspace)
+        if managed_disk is not None:
+            pulumi.set(__self__, "managed_disk", managed_disk)
         if network is not None:
             pulumi.set(__self__, "network", network)
         if resource_group is not None:
@@ -91,6 +95,11 @@ class Features(dict):
     @pulumi.getter(name="logAnalyticsWorkspace")
     def log_analytics_workspace(self) -> Optional['outputs.FeaturesLogAnalyticsWorkspace']:
         return pulumi.get(self, "log_analytics_workspace")
+
+    @property
+    @pulumi.getter(name="managedDisk")
+    def managed_disk(self) -> Optional['outputs.FeaturesManagedDisk']:
+        return pulumi.get(self, "managed_disk")
 
     @property
     @pulumi.getter
@@ -274,6 +283,19 @@ class FeaturesLogAnalyticsWorkspace(dict):
     @pulumi.getter(name="permanentlyDeleteOnDestroy")
     def permanently_delete_on_destroy(self) -> Optional[bool]:
         return pulumi.get(self, "permanently_delete_on_destroy")
+
+
+@pulumi.output_type
+class FeaturesManagedDisk(dict):
+    def __init__(__self__, *,
+                 expand_without_downtime: Optional[bool] = None):
+        if expand_without_downtime is not None:
+            pulumi.set(__self__, "expand_without_downtime", expand_without_downtime)
+
+    @property
+    @pulumi.getter(name="expandWithoutDowntime")
+    def expand_without_downtime(self) -> Optional[bool]:
+        return pulumi.get(self, "expand_without_downtime")
 
 
 @pulumi.output_type

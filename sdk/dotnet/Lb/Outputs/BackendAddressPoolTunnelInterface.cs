@@ -22,11 +22,11 @@ namespace Pulumi.Azure.Lb.Outputs
         /// </summary>
         public readonly int Port;
         /// <summary>
-        /// The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `Native` and `VXLAN`.
+        /// The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
         /// </summary>
         public readonly string Protocol;
         /// <summary>
-        /// The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `Internal` and `External`.
+        /// The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
         /// </summary>
         public readonly string Type;
 

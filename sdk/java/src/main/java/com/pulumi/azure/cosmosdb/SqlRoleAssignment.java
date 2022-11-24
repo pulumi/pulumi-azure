@@ -72,11 +72,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .accountName(exampleAccount.name())
  *             .type(&#34;CustomRole&#34;)
- *             .assignableScopes(Output.tuple(exampleResourceGroup.name(), exampleAccount.name()).applyValue(values -&gt; {
- *                 var exampleResourceGroupName = values.t1;
- *                 var exampleAccountName = values.t2;
- *                 return String.format(&#34;/subscriptions/%s/resourceGroups/%s/providers/Microsoft.DocumentDB/databaseAccounts/%s&#34;, current.applyValue(getClientConfigResult -&gt; getClientConfigResult.subscriptionId()),exampleResourceGroupName,exampleAccountName);
- *             }))
+ *             .assignableScopes(exampleAccount.id())
  *             .permissions(SqlRoleDefinitionPermissionArgs.builder()
  *                 .dataActions(&#34;Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read&#34;)
  *                 .build())
@@ -87,11 +83,7 @@ import javax.annotation.Nullable;
  *             .accountName(exampleAccount.name())
  *             .roleDefinitionId(exampleSqlRoleDefinition.id())
  *             .principalId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
- *             .scope(Output.tuple(exampleResourceGroup.name(), exampleAccount.name()).applyValue(values -&gt; {
- *                 var exampleResourceGroupName = values.t1;
- *                 var exampleAccountName = values.t2;
- *                 return String.format(&#34;/subscriptions/%s/resourceGroups/%s/providers/Microsoft.DocumentDB/databaseAccounts/%s&#34;, current.applyValue(getClientConfigResult -&gt; getClientConfigResult.subscriptionId()),exampleResourceGroupName,exampleAccountName);
- *             }))
+ *             .scope(exampleAccount.id())
  *             .build());
  * 
  *     }

@@ -40,10 +40,8 @@ class EventGridDataConnectionArgs:
                Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_id: Specifies the resource id of the Storage Account this data connection will use for ingestion. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] blob_storage_event_type: Specifies the blob storage event type that needs to be processed. Possible
-               Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults
-               to `Microsoft.Storage.BlobCreated`.
-        :param pulumi.Input[str] data_format: Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
+        :param pulumi.Input[str] blob_storage_event_type: Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
+        :param pulumi.Input[str] data_format: Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
         :param pulumi.Input[str] database_routing_type: Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
         :param pulumi.Input[str] eventgrid_resource_id: The resource ID of the event grid that is subscribed to the storage account events.
         :param pulumi.Input[str] location: The location where the Kusto Database should be created. Changing this forces a new resource to be created.
@@ -158,9 +156,7 @@ class EventGridDataConnectionArgs:
     @pulumi.getter(name="blobStorageEventType")
     def blob_storage_event_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the blob storage event type that needs to be processed. Possible
-        Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults
-        to `Microsoft.Storage.BlobCreated`.
+        Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
         """
         return pulumi.get(self, "blob_storage_event_type")
 
@@ -172,7 +168,7 @@ class EventGridDataConnectionArgs:
     @pulumi.getter(name="dataFormat")
     def data_format(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
+        Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
         """
         return pulumi.get(self, "data_format")
 
@@ -298,11 +294,9 @@ class _EventGridDataConnectionState:
                  table_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EventGridDataConnection resources.
-        :param pulumi.Input[str] blob_storage_event_type: Specifies the blob storage event type that needs to be processed. Possible
-               Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults
-               to `Microsoft.Storage.BlobCreated`.
+        :param pulumi.Input[str] blob_storage_event_type: Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
         :param pulumi.Input[str] cluster_name: Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] data_format: Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
+        :param pulumi.Input[str] data_format: Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
         :param pulumi.Input[str] database_name: Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_routing_type: Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
         :param pulumi.Input[str] eventgrid_resource_id: The resource ID of the event grid that is subscribed to the storage account events.
@@ -356,9 +350,7 @@ class _EventGridDataConnectionState:
     @pulumi.getter(name="blobStorageEventType")
     def blob_storage_event_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the blob storage event type that needs to be processed. Possible
-        Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults
-        to `Microsoft.Storage.BlobCreated`.
+        Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
         """
         return pulumi.get(self, "blob_storage_event_type")
 
@@ -382,7 +374,7 @@ class _EventGridDataConnectionState:
     @pulumi.getter(name="dataFormat")
     def data_format(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
+        Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
         """
         return pulumi.get(self, "data_format")
 
@@ -648,11 +640,9 @@ class EventGridDataConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] blob_storage_event_type: Specifies the blob storage event type that needs to be processed. Possible
-               Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults
-               to `Microsoft.Storage.BlobCreated`.
+        :param pulumi.Input[str] blob_storage_event_type: Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
         :param pulumi.Input[str] cluster_name: Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] data_format: Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
+        :param pulumi.Input[str] data_format: Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
         :param pulumi.Input[str] database_name: Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_routing_type: Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
         :param pulumi.Input[str] eventgrid_resource_id: The resource ID of the event grid that is subscribed to the storage account events.
@@ -851,11 +841,9 @@ class EventGridDataConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] blob_storage_event_type: Specifies the blob storage event type that needs to be processed. Possible
-               Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults
-               to `Microsoft.Storage.BlobCreated`.
+        :param pulumi.Input[str] blob_storage_event_type: Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
         :param pulumi.Input[str] cluster_name: Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] data_format: Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
+        :param pulumi.Input[str] data_format: Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
         :param pulumi.Input[str] database_name: Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_routing_type: Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
         :param pulumi.Input[str] eventgrid_resource_id: The resource ID of the event grid that is subscribed to the storage account events.
@@ -898,9 +886,7 @@ class EventGridDataConnection(pulumi.CustomResource):
     @pulumi.getter(name="blobStorageEventType")
     def blob_storage_event_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the blob storage event type that needs to be processed. Possible
-        Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults
-        to `Microsoft.Storage.BlobCreated`.
+        Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
         """
         return pulumi.get(self, "blob_storage_event_type")
 
@@ -916,7 +902,7 @@ class EventGridDataConnection(pulumi.CustomResource):
     @pulumi.getter(name="dataFormat")
     def data_format(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
+        Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
         """
         return pulumi.get(self, "data_format")
 

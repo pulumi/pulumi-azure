@@ -81,8 +81,8 @@ class BackendAddressPoolTunnelInterfaceArgs:
         """
         :param pulumi.Input[int] identifier: The unique identifier of this Gateway Lodbalancer Tunnel Interface.
         :param pulumi.Input[int] port: The port number that this Gateway Lodbalancer Tunnel Interface listens to.
-        :param pulumi.Input[str] protocol: The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `Native` and `VXLAN`.
-        :param pulumi.Input[str] type: The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `Internal` and `External`.
+        :param pulumi.Input[str] protocol: The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
+        :param pulumi.Input[str] type: The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
         """
         pulumi.set(__self__, "identifier", identifier)
         pulumi.set(__self__, "port", port)
@@ -117,7 +117,7 @@ class BackendAddressPoolTunnelInterfaceArgs:
     @pulumi.getter
     def protocol(self) -> pulumi.Input[str]:
         """
-        The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `Native` and `VXLAN`.
+        The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
         """
         return pulumi.get(self, "protocol")
 
@@ -129,7 +129,7 @@ class BackendAddressPoolTunnelInterfaceArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `Internal` and `External`.
+        The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
         """
         return pulumi.get(self, "type")
 

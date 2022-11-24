@@ -103,7 +103,7 @@ export class LinkedServer extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created.
+     * The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
      */
     public readonly serverRole!: pulumi.Output<string>;
     /**
@@ -180,7 +180,7 @@ export interface LinkedServerState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created.
+     * The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
      */
     serverRole?: pulumi.Input<string>;
     /**
@@ -206,7 +206,7 @@ export interface LinkedServerArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created.
+     * The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
      */
     serverRole: pulumi.Input<string>;
     /**

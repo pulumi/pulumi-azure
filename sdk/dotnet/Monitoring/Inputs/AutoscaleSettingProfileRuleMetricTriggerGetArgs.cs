@@ -55,7 +55,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<string> Operator { get; set; } = null!;
 
         /// <summary>
-        /// Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Min` and `Max`.
+        /// Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Max`, `Min` and `Sum`.
         /// </summary>
         [Input("statistic", required: true)]
         public Input<string> Statistic { get; set; } = null!;

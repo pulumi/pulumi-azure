@@ -14,7 +14,7 @@ namespace Pulumi.Azure.FrontDoor.Outputs
     public sealed class FrontdoorRoutingRule
     {
         /// <summary>
-        /// Protocol schemes to match for the Backend Routing Rule. Defaults to `Http`.
+        /// Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`. Defaults to `Http`.
         /// </summary>
         public readonly ImmutableArray<string> AcceptedProtocols;
         /// <summary>

@@ -3024,7 +3024,7 @@ func (o DatasetBinaryAzureBlobStorageLocationPtrOutput) Path() pulumi.StringPtrO
 type DatasetBinaryCompression struct {
 	// The level of compression. Possible values are `Fastest` and `Optimal`.
 	Level *string `pulumi:"level"`
-	// The type of compression used during transport.
+	// The type of compression used during transport. Possible values are `BZip2`, `Deflate`, `GZip`, `Tar`, `TarGZip` and `ZipDeflate`.
 	Type string `pulumi:"type"`
 }
 
@@ -3042,7 +3042,7 @@ type DatasetBinaryCompressionInput interface {
 type DatasetBinaryCompressionArgs struct {
 	// The level of compression. Possible values are `Fastest` and `Optimal`.
 	Level pulumi.StringPtrInput `pulumi:"level"`
-	// The type of compression used during transport.
+	// The type of compression used during transport. Possible values are `BZip2`, `Deflate`, `GZip`, `Tar`, `TarGZip` and `ZipDeflate`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -3128,7 +3128,7 @@ func (o DatasetBinaryCompressionOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatasetBinaryCompression) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
-// The type of compression used during transport.
+// The type of compression used during transport. Possible values are `BZip2`, `Deflate`, `GZip`, `Tar`, `TarGZip` and `ZipDeflate`.
 func (o DatasetBinaryCompressionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetBinaryCompression) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3167,7 +3167,7 @@ func (o DatasetBinaryCompressionPtrOutput) Level() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of compression used during transport.
+// The type of compression used during transport. Possible values are `BZip2`, `Deflate`, `GZip`, `Tar`, `TarGZip` and `ZipDeflate`.
 func (o DatasetBinaryCompressionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetBinaryCompression) *string {
 		if v == nil {

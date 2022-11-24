@@ -100,7 +100,7 @@ export class DatasetDelimitedText extends pulumi.CustomResource {
      */
     public readonly columnDelimiter!: pulumi.Output<string | undefined>;
     /**
-     * The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+     * The compression codec used to read/write text files. Valid values are `None`, `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy` and `lz4`. Please note these values are case sensitive.
      */
     public readonly compressionCodec!: pulumi.Output<string | undefined>;
     /**
@@ -258,7 +258,7 @@ export interface DatasetDelimitedTextState {
      */
     columnDelimiter?: pulumi.Input<string>;
     /**
-     * The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+     * The compression codec used to read/write text files. Valid values are `None`, `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy` and `lz4`. Please note these values are case sensitive.
      */
     compressionCodec?: pulumi.Input<string>;
     /**
@@ -348,7 +348,7 @@ export interface DatasetDelimitedTextArgs {
      */
     columnDelimiter?: pulumi.Input<string>;
     /**
-     * The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+     * The compression codec used to read/write text files. Valid values are `None`, `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy` and `lz4`. Please note these values are case sensitive.
      */
     compressionCodec?: pulumi.Input<string>;
     /**

@@ -45,14 +45,14 @@ public final class SqlDedicatedGatewayArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created.
+     * The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
      * 
      */
     @Import(name="instanceSize", required=true)
     private Output<String> instanceSize;
 
     /**
-     * @return The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created.
+     * @return The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
      * 
      */
     public Output<String> instanceSize() {
@@ -128,7 +128,7 @@ public final class SqlDedicatedGatewayArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param instanceSize The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created.
+         * @param instanceSize The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class SqlDedicatedGatewayArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param instanceSize The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created.
+         * @param instanceSize The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
          * 
          * @return builder
          * 

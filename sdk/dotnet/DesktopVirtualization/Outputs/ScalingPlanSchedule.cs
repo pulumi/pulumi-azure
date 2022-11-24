@@ -14,7 +14,7 @@ namespace Pulumi.Azure.DesktopVirtualization.Outputs
     public sealed class ScalingPlanSchedule
     {
         /// <summary>
-        /// A list of Days of the Week on which this schedule will be used..Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
+        /// A list of Days of the Week on which this schedule will be used. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
         /// </summary>
         public readonly ImmutableArray<string> DaysOfWeeks;
         /// <summary>

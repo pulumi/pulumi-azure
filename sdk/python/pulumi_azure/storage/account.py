@@ -44,6 +44,7 @@ class AccountArgs:
                  queue_encryption_key_type: Optional[pulumi.Input[str]] = None,
                  queue_properties: Optional[pulumi.Input['AccountQueuePropertiesArgs']] = None,
                  routing: Optional[pulumi.Input['AccountRoutingArgs']] = None,
+                 sas_policy: Optional[pulumi.Input['AccountSasPolicyArgs']] = None,
                  share_properties: Optional[pulumi.Input['AccountSharePropertiesArgs']] = None,
                  shared_access_key_enabled: Optional[pulumi.Input[bool]] = None,
                  static_website: Optional[pulumi.Input['AccountStaticWebsiteArgs']] = None,
@@ -80,6 +81,7 @@ class AccountArgs:
         :param pulumi.Input[str] queue_encryption_key_type: The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         :param pulumi.Input['AccountQueuePropertiesArgs'] queue_properties: A `queue_properties` block as defined below.
         :param pulumi.Input['AccountRoutingArgs'] routing: A `routing` block as defined below.
+        :param pulumi.Input['AccountSasPolicyArgs'] sas_policy: A `sas_policy` block as defined below.
         :param pulumi.Input['AccountSharePropertiesArgs'] share_properties: A `share_properties` block as defined below.
         :param pulumi.Input[bool] shared_access_key_enabled: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
         :param pulumi.Input['AccountStaticWebsiteArgs'] static_website: A `static_website` block as defined below.
@@ -139,6 +141,8 @@ class AccountArgs:
             pulumi.set(__self__, "queue_properties", queue_properties)
         if routing is not None:
             pulumi.set(__self__, "routing", routing)
+        if sas_policy is not None:
+            pulumi.set(__self__, "sas_policy", sas_policy)
         if share_properties is not None:
             pulumi.set(__self__, "share_properties", share_properties)
         if shared_access_key_enabled is not None:
@@ -488,6 +492,18 @@ class AccountArgs:
         pulumi.set(self, "routing", value)
 
     @property
+    @pulumi.getter(name="sasPolicy")
+    def sas_policy(self) -> Optional[pulumi.Input['AccountSasPolicyArgs']]:
+        """
+        A `sas_policy` block as defined below.
+        """
+        return pulumi.get(self, "sas_policy")
+
+    @sas_policy.setter
+    def sas_policy(self, value: Optional[pulumi.Input['AccountSasPolicyArgs']]):
+        pulumi.set(self, "sas_policy", value)
+
+    @property
     @pulumi.getter(name="shareProperties")
     def share_properties(self) -> Optional[pulumi.Input['AccountSharePropertiesArgs']]:
         """
@@ -595,6 +611,7 @@ class _AccountState:
                  queue_properties: Optional[pulumi.Input['AccountQueuePropertiesArgs']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  routing: Optional[pulumi.Input['AccountRoutingArgs']] = None,
+                 sas_policy: Optional[pulumi.Input['AccountSasPolicyArgs']] = None,
                  secondary_access_key: Optional[pulumi.Input[str]] = None,
                  secondary_blob_connection_string: Optional[pulumi.Input[str]] = None,
                  secondary_blob_endpoint: Optional[pulumi.Input[str]] = None,
@@ -663,6 +680,7 @@ class _AccountState:
         :param pulumi.Input['AccountQueuePropertiesArgs'] queue_properties: A `queue_properties` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
         :param pulumi.Input['AccountRoutingArgs'] routing: A `routing` block as defined below.
+        :param pulumi.Input['AccountSasPolicyArgs'] sas_policy: A `sas_policy` block as defined below.
         :param pulumi.Input[str] secondary_access_key: The secondary access key for the storage account.
         :param pulumi.Input[str] secondary_blob_connection_string: The connection string associated with the secondary blob location.
         :param pulumi.Input[str] secondary_blob_endpoint: The endpoint URL for blob storage in the secondary location.
@@ -773,6 +791,8 @@ class _AccountState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if routing is not None:
             pulumi.set(__self__, "routing", routing)
+        if sas_policy is not None:
+            pulumi.set(__self__, "sas_policy", sas_policy)
         if secondary_access_key is not None:
             pulumi.set(__self__, "secondary_access_key", secondary_access_key)
         if secondary_blob_connection_string is not None:
@@ -1346,6 +1366,18 @@ class _AccountState:
         pulumi.set(self, "routing", value)
 
     @property
+    @pulumi.getter(name="sasPolicy")
+    def sas_policy(self) -> Optional[pulumi.Input['AccountSasPolicyArgs']]:
+        """
+        A `sas_policy` block as defined below.
+        """
+        return pulumi.get(self, "sas_policy")
+
+    @sas_policy.setter
+    def sas_policy(self, value: Optional[pulumi.Input['AccountSasPolicyArgs']]):
+        pulumi.set(self, "sas_policy", value)
+
+    @property
     @pulumi.getter(name="secondaryAccessKey")
     def secondary_access_key(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1631,6 +1663,7 @@ class Account(pulumi.CustomResource):
                  queue_properties: Optional[pulumi.Input[pulumi.InputType['AccountQueuePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  routing: Optional[pulumi.Input[pulumi.InputType['AccountRoutingArgs']]] = None,
+                 sas_policy: Optional[pulumi.Input[pulumi.InputType['AccountSasPolicyArgs']]] = None,
                  share_properties: Optional[pulumi.Input[pulumi.InputType['AccountSharePropertiesArgs']]] = None,
                  shared_access_key_enabled: Optional[pulumi.Input[bool]] = None,
                  static_website: Optional[pulumi.Input[pulumi.InputType['AccountStaticWebsiteArgs']]] = None,
@@ -1729,6 +1762,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AccountQueuePropertiesArgs']] queue_properties: A `queue_properties` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AccountRoutingArgs']] routing: A `routing` block as defined below.
+        :param pulumi.Input[pulumi.InputType['AccountSasPolicyArgs']] sas_policy: A `sas_policy` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountSharePropertiesArgs']] share_properties: A `share_properties` block as defined below.
         :param pulumi.Input[bool] shared_access_key_enabled: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
         :param pulumi.Input[pulumi.InputType['AccountStaticWebsiteArgs']] static_website: A `static_website` block as defined below.
@@ -1845,6 +1879,7 @@ class Account(pulumi.CustomResource):
                  queue_properties: Optional[pulumi.Input[pulumi.InputType['AccountQueuePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  routing: Optional[pulumi.Input[pulumi.InputType['AccountRoutingArgs']]] = None,
+                 sas_policy: Optional[pulumi.Input[pulumi.InputType['AccountSasPolicyArgs']]] = None,
                  share_properties: Optional[pulumi.Input[pulumi.InputType['AccountSharePropertiesArgs']]] = None,
                  shared_access_key_enabled: Optional[pulumi.Input[bool]] = None,
                  static_website: Optional[pulumi.Input[pulumi.InputType['AccountStaticWebsiteArgs']]] = None,
@@ -1893,6 +1928,7 @@ class Account(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["routing"] = routing
+            __props__.__dict__["sas_policy"] = sas_policy
             __props__.__dict__["share_properties"] = share_properties
             __props__.__dict__["shared_access_key_enabled"] = shared_access_key_enabled
             __props__.__dict__["static_website"] = static_website
@@ -1984,6 +2020,7 @@ class Account(pulumi.CustomResource):
             queue_properties: Optional[pulumi.Input[pulumi.InputType['AccountQueuePropertiesArgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             routing: Optional[pulumi.Input[pulumi.InputType['AccountRoutingArgs']]] = None,
+            sas_policy: Optional[pulumi.Input[pulumi.InputType['AccountSasPolicyArgs']]] = None,
             secondary_access_key: Optional[pulumi.Input[str]] = None,
             secondary_blob_connection_string: Optional[pulumi.Input[str]] = None,
             secondary_blob_endpoint: Optional[pulumi.Input[str]] = None,
@@ -2057,6 +2094,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AccountQueuePropertiesArgs']] queue_properties: A `queue_properties` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AccountRoutingArgs']] routing: A `routing` block as defined below.
+        :param pulumi.Input[pulumi.InputType['AccountSasPolicyArgs']] sas_policy: A `sas_policy` block as defined below.
         :param pulumi.Input[str] secondary_access_key: The secondary access key for the storage account.
         :param pulumi.Input[str] secondary_blob_connection_string: The connection string associated with the secondary blob location.
         :param pulumi.Input[str] secondary_blob_endpoint: The endpoint URL for blob storage in the secondary location.
@@ -2127,6 +2165,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["queue_properties"] = queue_properties
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["routing"] = routing
+        __props__.__dict__["sas_policy"] = sas_policy
         __props__.__dict__["secondary_access_key"] = secondary_access_key
         __props__.__dict__["secondary_blob_connection_string"] = secondary_blob_connection_string
         __props__.__dict__["secondary_blob_endpoint"] = secondary_blob_endpoint
@@ -2502,6 +2541,14 @@ class Account(pulumi.CustomResource):
         A `routing` block as defined below.
         """
         return pulumi.get(self, "routing")
+
+    @property
+    @pulumi.getter(name="sasPolicy")
+    def sas_policy(self) -> pulumi.Output[Optional['outputs.AccountSasPolicy']]:
+        """
+        A `sas_policy` block as defined below.
+        """
+        return pulumi.get(self, "sas_policy")
 
     @property
     @pulumi.getter(name="secondaryAccessKey")

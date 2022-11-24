@@ -31,7 +31,8 @@ class AlertRuleNrtArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  suppression_duration: Optional[pulumi.Input[str]] = None,
                  suppression_enabled: Optional[pulumi.Input[bool]] = None,
-                 tactics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 tactics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AlertRuleNrt resource.
         :param pulumi.Input[str] display_name: The friendly name of this Sentinel NRT Alert Rule.
@@ -49,7 +50,8 @@ class AlertRuleNrtArgs:
         :param pulumi.Input[str] name: The name which should be used for this Sentinel NRT Alert Rule. Changing this forces a new Sentinel NRT Alert Rule to be created.
         :param pulumi.Input[str] suppression_duration: If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
         :param pulumi.Input[bool] suppression_enabled: Should the Sentinel NRT Alert Rulea stop running query after alert is generated? Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] tactics: A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tactics: A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation` and `PreAttack`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] techniques: A list of techniques of attacks by which to classify the rule.
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
@@ -79,6 +81,8 @@ class AlertRuleNrtArgs:
             pulumi.set(__self__, "suppression_enabled", suppression_enabled)
         if tactics is not None:
             pulumi.set(__self__, "tactics", tactics)
+        if techniques is not None:
+            pulumi.set(__self__, "techniques", techniques)
 
     @property
     @pulumi.getter(name="displayName")
@@ -264,13 +268,25 @@ class AlertRuleNrtArgs:
     @pulumi.getter
     def tactics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
+        A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation` and `PreAttack`.
         """
         return pulumi.get(self, "tactics")
 
     @tactics.setter
     def tactics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "tactics", value)
+
+    @property
+    @pulumi.getter
+    def techniques(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of techniques of attacks by which to classify the rule.
+        """
+        return pulumi.get(self, "techniques")
+
+    @techniques.setter
+    def techniques(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "techniques", value)
 
 
 @pulumi.input_type
@@ -291,7 +307,8 @@ class _AlertRuleNrtState:
                  severity: Optional[pulumi.Input[str]] = None,
                  suppression_duration: Optional[pulumi.Input[str]] = None,
                  suppression_enabled: Optional[pulumi.Input[bool]] = None,
-                 tactics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 tactics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering AlertRuleNrt resources.
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtAlertDetailsOverrideArgs']]] alert_details_overrides: An `alert_details_override` block as defined below.
@@ -309,7 +326,8 @@ class _AlertRuleNrtState:
         :param pulumi.Input[str] severity: The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
         :param pulumi.Input[str] suppression_duration: If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
         :param pulumi.Input[bool] suppression_enabled: Should the Sentinel NRT Alert Rulea stop running query after alert is generated? Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] tactics: A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tactics: A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation` and `PreAttack`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] techniques: A list of techniques of attacks by which to classify the rule.
         """
         if alert_details_overrides is not None:
             pulumi.set(__self__, "alert_details_overrides", alert_details_overrides)
@@ -343,6 +361,8 @@ class _AlertRuleNrtState:
             pulumi.set(__self__, "suppression_enabled", suppression_enabled)
         if tactics is not None:
             pulumi.set(__self__, "tactics", tactics)
+        if techniques is not None:
+            pulumi.set(__self__, "techniques", techniques)
 
     @property
     @pulumi.getter(name="alertDetailsOverrides")
@@ -528,13 +548,25 @@ class _AlertRuleNrtState:
     @pulumi.getter
     def tactics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
+        A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation` and `PreAttack`.
         """
         return pulumi.get(self, "tactics")
 
     @tactics.setter
     def tactics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "tactics", value)
+
+    @property
+    @pulumi.getter
+    def techniques(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of techniques of attacks by which to classify the rule.
+        """
+        return pulumi.get(self, "techniques")
+
+    @techniques.setter
+    def techniques(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "techniques", value)
 
 
 class AlertRuleNrt(pulumi.CustomResource):
@@ -558,6 +590,7 @@ class AlertRuleNrt(pulumi.CustomResource):
                  suppression_duration: Optional[pulumi.Input[str]] = None,
                  suppression_enabled: Optional[pulumi.Input[bool]] = None,
                  tactics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Manages a Sentinel NRT Alert Rule.
@@ -619,7 +652,8 @@ class AlertRuleNrt(pulumi.CustomResource):
         :param pulumi.Input[str] severity: The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
         :param pulumi.Input[str] suppression_duration: If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
         :param pulumi.Input[bool] suppression_enabled: Should the Sentinel NRT Alert Rulea stop running query after alert is generated? Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] tactics: A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tactics: A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation` and `PreAttack`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] techniques: A list of techniques of attacks by which to classify the rule.
         """
         ...
     @overload
@@ -701,6 +735,7 @@ class AlertRuleNrt(pulumi.CustomResource):
                  suppression_duration: Optional[pulumi.Input[str]] = None,
                  suppression_enabled: Optional[pulumi.Input[bool]] = None,
                  tactics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -734,6 +769,7 @@ class AlertRuleNrt(pulumi.CustomResource):
             __props__.__dict__["suppression_duration"] = suppression_duration
             __props__.__dict__["suppression_enabled"] = suppression_enabled
             __props__.__dict__["tactics"] = tactics
+            __props__.__dict__["techniques"] = techniques
         super(AlertRuleNrt, __self__).__init__(
             'azure:sentinel/alertRuleNrt:AlertRuleNrt',
             resource_name,
@@ -759,7 +795,8 @@ class AlertRuleNrt(pulumi.CustomResource):
             severity: Optional[pulumi.Input[str]] = None,
             suppression_duration: Optional[pulumi.Input[str]] = None,
             suppression_enabled: Optional[pulumi.Input[bool]] = None,
-            tactics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'AlertRuleNrt':
+            tactics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'AlertRuleNrt':
         """
         Get an existing AlertRuleNrt resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -782,7 +819,8 @@ class AlertRuleNrt(pulumi.CustomResource):
         :param pulumi.Input[str] severity: The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
         :param pulumi.Input[str] suppression_duration: If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
         :param pulumi.Input[bool] suppression_enabled: Should the Sentinel NRT Alert Rulea stop running query after alert is generated? Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] tactics: A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tactics: A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation` and `PreAttack`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] techniques: A list of techniques of attacks by which to classify the rule.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -804,6 +842,7 @@ class AlertRuleNrt(pulumi.CustomResource):
         __props__.__dict__["suppression_duration"] = suppression_duration
         __props__.__dict__["suppression_enabled"] = suppression_enabled
         __props__.__dict__["tactics"] = tactics
+        __props__.__dict__["techniques"] = techniques
         return AlertRuleNrt(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -930,7 +969,15 @@ class AlertRuleNrt(pulumi.CustomResource):
     @pulumi.getter
     def tactics(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
+        A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation` and `PreAttack`.
         """
         return pulumi.get(self, "tactics")
+
+    @property
+    @pulumi.getter
+    def techniques(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of techniques of attacks by which to classify the rule.
+        """
+        return pulumi.get(self, "techniques")
 

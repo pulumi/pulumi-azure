@@ -178,6 +178,20 @@ public class DiskEncryptionSet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.encryptionType);
     }
     /**
+     * Multi-tenant application client id to access key vault in a different tenant.
+     * 
+     */
+    @Export(name="federatedClientId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> federatedClientId;
+
+    /**
+     * @return Multi-tenant application client id to access key vault in a different tenant.
+     * 
+     */
+    public Output<Optional<String>> federatedClientId() {
+        return Codegen.optional(this.federatedClientId);
+    }
+    /**
      * An `identity` block as defined below.
      * 
      */

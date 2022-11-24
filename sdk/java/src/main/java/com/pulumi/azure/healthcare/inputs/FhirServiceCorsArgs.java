@@ -34,14 +34,14 @@ public final class FhirServiceCorsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The methods to be allowed via CORS.
+     * The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
      * 
      */
     @Import(name="allowedMethods", required=true)
     private Output<List<String>> allowedMethods;
 
     /**
-     * @return The methods to be allowed via CORS.
+     * @return The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
      * 
      */
     public Output<List<String>> allowedMethods() {
@@ -153,7 +153,7 @@ public final class FhirServiceCorsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param allowedMethods The methods to be allowed via CORS.
+         * @param allowedMethods The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class FhirServiceCorsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param allowedMethods The methods to be allowed via CORS.
+         * @param allowedMethods The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class FhirServiceCorsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param allowedMethods The methods to be allowed via CORS.
+         * @param allowedMethods The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
          * 
          * @return builder
          * 

@@ -34,14 +34,14 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStackArgs extends co
     }
 
     /**
-     * The version of .Net. Possible values are `3.1` and `6.0`.
+     * The version of .Net. Possible values are `3.1`, `6.0` and `7.0`.
      * 
      */
     @Import(name="dotnetVersion")
     private @Nullable Output<String> dotnetVersion;
 
     /**
-     * @return The version of .Net. Possible values are `3.1` and `6.0`.
+     * @return The version of .Net. Possible values are `3.1`, `6.0` and `7.0`.
      * 
      */
     public Optional<Output<String>> dotnetVersion() {
@@ -64,14 +64,14 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStackArgs extends co
     }
 
     /**
-     * The version of Node to use. Possible values include `12`, and `14`
+     * The version of Node to use. Possible values include `12`, `14`, `16` and `18`
      * 
      */
     @Import(name="nodeVersion")
     private @Nullable Output<String> nodeVersion;
 
     /**
-     * @return The version of Node to use. Possible values include `12`, and `14`
+     * @return The version of Node to use. Possible values include `12`, `14`, `16` and `18`
      * 
      */
     public Optional<Output<String>> nodeVersion() {
@@ -201,7 +201,7 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStackArgs extends co
         }
 
         /**
-         * @param dotnetVersion The version of .Net. Possible values are `3.1` and `6.0`.
+         * @param dotnetVersion The version of .Net. Possible values are `3.1`, `6.0` and `7.0`.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStackArgs extends co
         }
 
         /**
-         * @param dotnetVersion The version of .Net. Possible values are `3.1` and `6.0`.
+         * @param dotnetVersion The version of .Net. Possible values are `3.1`, `6.0` and `7.0`.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStackArgs extends co
         }
 
         /**
-         * @param nodeVersion The version of Node to use. Possible values include `12`, and `14`
+         * @param nodeVersion The version of Node to use. Possible values include `12`, `14`, `16` and `18`
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStackArgs extends co
         }
 
         /**
-         * @param nodeVersion The version of Node to use. Possible values include `12`, and `14`
+         * @param nodeVersion The version of Node to use. Possible values include `12`, `14`, `16` and `18`
          * 
          * @return builder
          * 

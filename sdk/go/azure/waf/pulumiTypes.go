@@ -11,7 +11,7 @@ import (
 )
 
 type PolicyCustomRule struct {
-	// Type of action.
+	// Type of action. Possible values are `Allow`, `Block` and `Log`.
 	Action string `pulumi:"action"`
 	// One or more `matchConditions` blocks as defined below.
 	MatchConditions []PolicyCustomRuleMatchCondition `pulumi:"matchConditions"`
@@ -19,7 +19,7 @@ type PolicyCustomRule struct {
 	Name *string `pulumi:"name"`
 	// Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
 	Priority int `pulumi:"priority"`
-	// Describes the type of rule.
+	// Describes the type of rule. Possible values are `MatchRule` and `Invalid`.
 	RuleType string `pulumi:"ruleType"`
 }
 
@@ -35,7 +35,7 @@ type PolicyCustomRuleInput interface {
 }
 
 type PolicyCustomRuleArgs struct {
-	// Type of action.
+	// Type of action. Possible values are `Allow`, `Block` and `Log`.
 	Action pulumi.StringInput `pulumi:"action"`
 	// One or more `matchConditions` blocks as defined below.
 	MatchConditions PolicyCustomRuleMatchConditionArrayInput `pulumi:"matchConditions"`
@@ -43,7 +43,7 @@ type PolicyCustomRuleArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// Describes the type of rule.
+	// Describes the type of rule. Possible values are `MatchRule` and `Invalid`.
 	RuleType pulumi.StringInput `pulumi:"ruleType"`
 }
 
@@ -98,7 +98,7 @@ func (o PolicyCustomRuleOutput) ToPolicyCustomRuleOutputWithContext(ctx context.
 	return o
 }
 
-// Type of action.
+// Type of action. Possible values are `Allow`, `Block` and `Log`.
 func (o PolicyCustomRuleOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyCustomRule) string { return v.Action }).(pulumi.StringOutput)
 }
@@ -118,7 +118,7 @@ func (o PolicyCustomRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v PolicyCustomRule) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// Describes the type of rule.
+// Describes the type of rule. Possible values are `MatchRule` and `Invalid`.
 func (o PolicyCustomRuleOutput) RuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyCustomRule) string { return v.RuleType }).(pulumi.StringOutput)
 }
@@ -150,9 +150,9 @@ type PolicyCustomRuleMatchCondition struct {
 	MatchVariables []PolicyCustomRuleMatchConditionMatchVariable `pulumi:"matchVariables"`
 	// Describes if this is negate condition or not
 	NegationCondition *bool `pulumi:"negationCondition"`
-	// Describes operator to be matched.
+	// Describes operator to be matched. Possible values are `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
 	Operator string `pulumi:"operator"`
-	// A list of transformations to do before the match is attempted.
+	// A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -174,9 +174,9 @@ type PolicyCustomRuleMatchConditionArgs struct {
 	MatchVariables PolicyCustomRuleMatchConditionMatchVariableArrayInput `pulumi:"matchVariables"`
 	// Describes if this is negate condition or not
 	NegationCondition pulumi.BoolPtrInput `pulumi:"negationCondition"`
-	// Describes operator to be matched.
+	// Describes operator to be matched. Possible values are `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// A list of transformations to do before the match is attempted.
+	// A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -248,12 +248,12 @@ func (o PolicyCustomRuleMatchConditionOutput) NegationCondition() pulumi.BoolPtr
 	return o.ApplyT(func(v PolicyCustomRuleMatchCondition) *bool { return v.NegationCondition }).(pulumi.BoolPtrOutput)
 }
 
-// Describes operator to be matched.
+// Describes operator to be matched. Possible values are `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
 func (o PolicyCustomRuleMatchConditionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyCustomRuleMatchCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// A list of transformations to do before the match is attempted.
+// A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
 func (o PolicyCustomRuleMatchConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyCustomRuleMatchCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -281,7 +281,7 @@ func (o PolicyCustomRuleMatchConditionArrayOutput) Index(i pulumi.IntInput) Poli
 type PolicyCustomRuleMatchConditionMatchVariable struct {
 	// Describes field of the matchVariable collection
 	Selector *string `pulumi:"selector"`
-	// The name of the Match Variable
+	// The name of the Match Variable. Possible values are `RemoteAddr`, `RequestMethod`, `QueryString`, `PostArgs`, `RequestUri`, `RequestHeaders`, `RequestBody` and `RequestCookies`.
 	VariableName string `pulumi:"variableName"`
 }
 
@@ -299,7 +299,7 @@ type PolicyCustomRuleMatchConditionMatchVariableInput interface {
 type PolicyCustomRuleMatchConditionMatchVariableArgs struct {
 	// Describes field of the matchVariable collection
 	Selector pulumi.StringPtrInput `pulumi:"selector"`
-	// The name of the Match Variable
+	// The name of the Match Variable. Possible values are `RemoteAddr`, `RequestMethod`, `QueryString`, `PostArgs`, `RequestUri`, `RequestHeaders`, `RequestBody` and `RequestCookies`.
 	VariableName pulumi.StringInput `pulumi:"variableName"`
 }
 
@@ -359,7 +359,7 @@ func (o PolicyCustomRuleMatchConditionMatchVariableOutput) Selector() pulumi.Str
 	return o.ApplyT(func(v PolicyCustomRuleMatchConditionMatchVariable) *string { return v.Selector }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Match Variable
+// The name of the Match Variable. Possible values are `RemoteAddr`, `RequestMethod`, `QueryString`, `PostArgs`, `RequestUri`, `RequestHeaders`, `RequestBody` and `RequestCookies`.
 func (o PolicyCustomRuleMatchConditionMatchVariableOutput) VariableName() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyCustomRuleMatchConditionMatchVariable) string { return v.VariableName }).(pulumi.StringOutput)
 }

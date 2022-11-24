@@ -113,14 +113,14 @@ public class SqlDedicatedGateway extends com.pulumi.resources.CustomResource {
         return this.instanceCount;
     }
     /**
-     * The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created.
+     * The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
      * 
      */
     @Export(name="instanceSize", type=String.class, parameters={})
     private Output<String> instanceSize;
 
     /**
-     * @return The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created.
+     * @return The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
      * 
      */
     public Output<String> instanceSize() {

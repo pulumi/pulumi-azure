@@ -267,16 +267,14 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The type of the Virtual Network Gateway. Valid options are
-     * `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
+     * The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of the Virtual Network Gateway. Valid options are
-     * `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
+     * @return The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> type() {
@@ -303,16 +301,14 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The routing type of the Virtual Network Gateway. Valid
-     * options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+     * The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
      * 
      */
     @Import(name="vpnType")
     private @Nullable Output<String> vpnType;
 
     /**
-     * @return The routing type of the Virtual Network Gateway. Valid
-     * options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+     * @return The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
      * 
      */
     public Optional<Output<String>> vpnType() {
@@ -697,8 +693,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type The type of the Virtual Network Gateway. Valid options are
-         * `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
+         * @param type The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -709,8 +704,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type The type of the Virtual Network Gateway. Valid options are
-         * `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
+         * @param type The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -745,8 +739,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param vpnType The routing type of the Virtual Network Gateway. Valid
-         * options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+         * @param vpnType The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
          * 
          * @return builder
          * 
@@ -757,8 +750,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param vpnType The routing type of the Virtual Network Gateway. Valid
-         * options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+         * @param vpnType The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
          * 
          * @return builder
          * 

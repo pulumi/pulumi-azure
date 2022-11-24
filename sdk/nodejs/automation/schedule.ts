@@ -114,7 +114,7 @@ export class Schedule extends pulumi.CustomResource {
      */
     public readonly timezone!: pulumi.Output<string | undefined>;
     /**
-     * List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+     * List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
      */
     public readonly weekDays!: pulumi.Output<string[] | undefined>;
 
@@ -221,7 +221,7 @@ export interface ScheduleState {
      */
     timezone?: pulumi.Input<string>;
     /**
-     * List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+     * List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
      */
     weekDays?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -275,7 +275,7 @@ export interface ScheduleArgs {
      */
     timezone?: pulumi.Input<string>;
     /**
-     * List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+     * List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
      */
     weekDays?: pulumi.Input<pulumi.Input<string>[]>;
 }

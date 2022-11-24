@@ -96,7 +96,7 @@ type PublicCertificate struct {
 	AppServiceName pulumi.StringOutput `pulumi:"appServiceName"`
 	// The base64-encoded contents of the certificate. Changing this forces a new App Service Public Certificate to be created.
 	Blob pulumi.StringOutput `pulumi:"blob"`
-	// The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`.
+	// The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created.
 	CertificateLocation pulumi.StringOutput `pulumi:"certificateLocation"`
 	// The name of the public certificate. Changing this forces a new App Service Public Certificate to be created.
 	CertificateName pulumi.StringOutput `pulumi:"certificateName"`
@@ -154,7 +154,7 @@ type publicCertificateState struct {
 	AppServiceName *string `pulumi:"appServiceName"`
 	// The base64-encoded contents of the certificate. Changing this forces a new App Service Public Certificate to be created.
 	Blob *string `pulumi:"blob"`
-	// The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`.
+	// The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created.
 	CertificateLocation *string `pulumi:"certificateLocation"`
 	// The name of the public certificate. Changing this forces a new App Service Public Certificate to be created.
 	CertificateName *string `pulumi:"certificateName"`
@@ -169,7 +169,7 @@ type PublicCertificateState struct {
 	AppServiceName pulumi.StringPtrInput
 	// The base64-encoded contents of the certificate. Changing this forces a new App Service Public Certificate to be created.
 	Blob pulumi.StringPtrInput
-	// The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`.
+	// The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created.
 	CertificateLocation pulumi.StringPtrInput
 	// The name of the public certificate. Changing this forces a new App Service Public Certificate to be created.
 	CertificateName pulumi.StringPtrInput
@@ -188,7 +188,7 @@ type publicCertificateArgs struct {
 	AppServiceName string `pulumi:"appServiceName"`
 	// The base64-encoded contents of the certificate. Changing this forces a new App Service Public Certificate to be created.
 	Blob string `pulumi:"blob"`
-	// The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`.
+	// The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created.
 	CertificateLocation string `pulumi:"certificateLocation"`
 	// The name of the public certificate. Changing this forces a new App Service Public Certificate to be created.
 	CertificateName string `pulumi:"certificateName"`
@@ -202,7 +202,7 @@ type PublicCertificateArgs struct {
 	AppServiceName pulumi.StringInput
 	// The base64-encoded contents of the certificate. Changing this forces a new App Service Public Certificate to be created.
 	Blob pulumi.StringInput
-	// The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`.
+	// The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created.
 	CertificateLocation pulumi.StringInput
 	// The name of the public certificate. Changing this forces a new App Service Public Certificate to be created.
 	CertificateName pulumi.StringInput
@@ -307,7 +307,7 @@ func (o PublicCertificateOutput) Blob() pulumi.StringOutput {
 	return o.ApplyT(func(v *PublicCertificate) pulumi.StringOutput { return v.Blob }).(pulumi.StringOutput)
 }
 
-// The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`.
+// The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created.
 func (o PublicCertificateOutput) CertificateLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v *PublicCertificate) pulumi.StringOutput { return v.CertificateLocation }).(pulumi.StringOutput)
 }

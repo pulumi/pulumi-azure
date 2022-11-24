@@ -31,10 +31,10 @@ class PolicyCustomRuleArgs:
                  rule_type: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] action: Type of action.
+        :param pulumi.Input[str] action: Type of action. Possible values are `Allow`, `Block` and `Log`.
         :param pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleMatchConditionArgs']]] match_conditions: One or more `match_conditions` blocks as defined below.
         :param pulumi.Input[int] priority: Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
-        :param pulumi.Input[str] rule_type: Describes the type of rule.
+        :param pulumi.Input[str] rule_type: Describes the type of rule. Possible values are `MatchRule` and `Invalid`.
         :param pulumi.Input[str] name: Gets name of the resource that is unique within a policy. This name can be used to access the resource.
         """
         pulumi.set(__self__, "action", action)
@@ -48,7 +48,7 @@ class PolicyCustomRuleArgs:
     @pulumi.getter
     def action(self) -> pulumi.Input[str]:
         """
-        Type of action.
+        Type of action. Possible values are `Allow`, `Block` and `Log`.
         """
         return pulumi.get(self, "action")
 
@@ -84,7 +84,7 @@ class PolicyCustomRuleArgs:
     @pulumi.getter(name="ruleType")
     def rule_type(self) -> pulumi.Input[str]:
         """
-        Describes the type of rule.
+        Describes the type of rule. Possible values are `MatchRule` and `Invalid`.
         """
         return pulumi.get(self, "rule_type")
 
@@ -116,9 +116,9 @@ class PolicyCustomRuleMatchConditionArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: A list of match values.
         :param pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleMatchConditionMatchVariableArgs']]] match_variables: One or more `match_variables` blocks as defined below.
-        :param pulumi.Input[str] operator: Describes operator to be matched.
+        :param pulumi.Input[str] operator: Describes operator to be matched. Possible values are `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
         :param pulumi.Input[bool] negation_condition: Describes if this is negate condition or not
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: A list of transformations to do before the match is attempted.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "match_variables", match_variables)
@@ -156,7 +156,7 @@ class PolicyCustomRuleMatchConditionArgs:
     @pulumi.getter
     def operator(self) -> pulumi.Input[str]:
         """
-        Describes operator to be matched.
+        Describes operator to be matched. Possible values are `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
         """
         return pulumi.get(self, "operator")
 
@@ -180,7 +180,7 @@ class PolicyCustomRuleMatchConditionArgs:
     @pulumi.getter
     def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of transformations to do before the match is attempted.
+        A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
         """
         return pulumi.get(self, "transforms")
 
@@ -195,7 +195,7 @@ class PolicyCustomRuleMatchConditionMatchVariableArgs:
                  variable_name: pulumi.Input[str],
                  selector: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] variable_name: The name of the Match Variable
+        :param pulumi.Input[str] variable_name: The name of the Match Variable. Possible values are `RemoteAddr`, `RequestMethod`, `QueryString`, `PostArgs`, `RequestUri`, `RequestHeaders`, `RequestBody` and `RequestCookies`.
         :param pulumi.Input[str] selector: Describes field of the matchVariable collection
         """
         pulumi.set(__self__, "variable_name", variable_name)
@@ -206,7 +206,7 @@ class PolicyCustomRuleMatchConditionMatchVariableArgs:
     @pulumi.getter(name="variableName")
     def variable_name(self) -> pulumi.Input[str]:
         """
-        The name of the Match Variable
+        The name of the Match Variable. Possible values are `RemoteAddr`, `RequestMethod`, `QueryString`, `PostArgs`, `RequestUri`, `RequestHeaders`, `RequestBody` and `RequestCookies`.
         """
         return pulumi.get(self, "variable_name")
 

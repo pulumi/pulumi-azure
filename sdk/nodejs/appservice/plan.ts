@@ -122,7 +122,7 @@ export class Plan extends pulumi.CustomResource {
     public readonly appServiceEnvironmentId!: pulumi.Output<string | undefined>;
     public readonly isXenon!: pulumi.Output<boolean | undefined>;
     /**
-     * The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption) and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
+     * The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption), `xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
@@ -229,7 +229,7 @@ export interface PlanState {
     appServiceEnvironmentId?: pulumi.Input<string>;
     isXenon?: pulumi.Input<boolean>;
     /**
-     * The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption) and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
+     * The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption), `xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
      */
     kind?: pulumi.Input<string | Kind>;
     /**
@@ -284,7 +284,7 @@ export interface PlanArgs {
     appServiceEnvironmentId?: pulumi.Input<string>;
     isXenon?: pulumi.Input<boolean>;
     /**
-     * The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption) and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
+     * The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption), `xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
      */
     kind?: pulumi.Input<string | Kind>;
     /**

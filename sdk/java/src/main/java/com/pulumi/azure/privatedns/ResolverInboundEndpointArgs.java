@@ -19,14 +19,14 @@ public final class ResolverInboundEndpointArgs extends com.pulumi.resources.Reso
     public static final ResolverInboundEndpointArgs Empty = new ResolverInboundEndpointArgs();
 
     /**
-     * An `ip_configurations` block as defined below.
+     * Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
      * 
      */
     @Import(name="ipConfigurations", required=true)
     private Output<List<ResolverInboundEndpointIpConfigurationArgs>> ipConfigurations;
 
     /**
-     * @return An `ip_configurations` block as defined below.
+     * @return Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
      * 
      */
     public Output<List<ResolverInboundEndpointIpConfigurationArgs>> ipConfigurations() {
@@ -122,7 +122,7 @@ public final class ResolverInboundEndpointArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ipConfigurations An `ip_configurations` block as defined below.
+         * @param ipConfigurations Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class ResolverInboundEndpointArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ipConfigurations An `ip_configurations` block as defined below.
+         * @param ipConfigurations Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class ResolverInboundEndpointArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ipConfigurations An `ip_configurations` block as defined below.
+         * @param ipConfigurations Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
          * 
          * @return builder
          * 

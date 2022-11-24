@@ -60,8 +60,8 @@ class ReplicatedVMManagedDisk(dict):
         """
         :param str disk_id: Id of disk that should be replicated.
         :param str staging_storage_account_id: Storage account that should be used for caching.
-        :param str target_disk_type: What type should the disk be when a failover is done.
-        :param str target_replica_disk_type: What type should the disk be that holds the replication data.
+        :param str target_disk_type: What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
+        :param str target_replica_disk_type: What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
         :param str target_resource_group_id: Resource group disk should belong to when a failover is done.
         :param 'ReplicatedVMManagedDiskTargetDiskEncryptionArgs' target_disk_encryption: A `target_disk_encryption` block as defined below.
         :param str target_disk_encryption_set_id: The Disk Encryption Set that the Managed Disk will be associated with.
@@ -96,7 +96,7 @@ class ReplicatedVMManagedDisk(dict):
     @pulumi.getter(name="targetDiskType")
     def target_disk_type(self) -> str:
         """
-        What type should the disk be when a failover is done.
+        What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
         """
         return pulumi.get(self, "target_disk_type")
 
@@ -104,7 +104,7 @@ class ReplicatedVMManagedDisk(dict):
     @pulumi.getter(name="targetReplicaDiskType")
     def target_replica_disk_type(self) -> str:
         """
-        What type should the disk be that holds the replication data.
+        What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
         """
         return pulumi.get(self, "target_replica_disk_type")
 

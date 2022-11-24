@@ -29,7 +29,7 @@ class PolicySetDefinitionArgs:
         The set of arguments for constructing a PolicySetDefinition resource.
         :param pulumi.Input[str] display_name: The display name of the policy set definition.
         :param pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionReferenceArgs']]] policy_definition_references: One or more `policy_definition_reference` blocks as defined below.
-        :param pulumi.Input[str] policy_type: The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] policy_type: The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of the policy set definition.
         :param pulumi.Input[str] management_group_id: The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
         :param pulumi.Input[str] metadata: The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
@@ -81,7 +81,7 @@ class PolicySetDefinitionArgs:
     @pulumi.getter(name="policyType")
     def policy_type(self) -> pulumi.Input[str]:
         """
-        The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
+        The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "policy_type")
 
@@ -184,7 +184,7 @@ class _PolicySetDefinitionState:
         :param pulumi.Input[str] parameters: Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
         :param pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionGroupArgs']]] policy_definition_groups: One or more `policy_definition_group` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionReferenceArgs']]] policy_definition_references: One or more `policy_definition_reference` blocks as defined below.
-        :param pulumi.Input[str] policy_type: The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] policy_type: The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -305,7 +305,7 @@ class _PolicySetDefinitionState:
     @pulumi.getter(name="policyType")
     def policy_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
+        The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "policy_type")
 
@@ -389,7 +389,7 @@ class PolicySetDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] parameters: Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicySetDefinitionPolicyDefinitionGroupArgs']]]] policy_definition_groups: One or more `policy_definition_group` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicySetDefinitionPolicyDefinitionReferenceArgs']]]] policy_definition_references: One or more `policy_definition_reference` blocks as defined below.
-        :param pulumi.Input[str] policy_type: The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] policy_type: The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -529,7 +529,7 @@ class PolicySetDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] parameters: Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicySetDefinitionPolicyDefinitionGroupArgs']]]] policy_definition_groups: One or more `policy_definition_group` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicySetDefinitionPolicyDefinitionReferenceArgs']]]] policy_definition_references: One or more `policy_definition_reference` blocks as defined below.
-        :param pulumi.Input[str] policy_type: The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] policy_type: The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -614,7 +614,7 @@ class PolicySetDefinition(pulumi.CustomResource):
     @pulumi.getter(name="policyType")
     def policy_type(self) -> pulumi.Output[str]:
         """
-        The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
+        The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "policy_type")
 

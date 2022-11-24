@@ -121,7 +121,7 @@ namespace Pulumi.Azure.Automation
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU of the account - only `Basic` is supported at this time.
+        /// The SKU of the account. Possible values are `Basic` and `Free`.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
@@ -227,7 +227,7 @@ namespace Pulumi.Azure.Automation
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The SKU of the account - only `Basic` is supported at this time.
+        /// The SKU of the account. Possible values are `Basic` and `Free`.
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
@@ -333,7 +333,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The SKU of the account - only `Basic` is supported at this time.
+        /// The SKU of the account. Possible values are `Basic` and `Free`.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }

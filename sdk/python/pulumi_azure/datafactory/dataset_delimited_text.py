@@ -46,7 +46,7 @@ class DatasetDelimitedTextArgs:
         :param pulumi.Input['DatasetDelimitedTextAzureBlobFsLocationArgs'] azure_blob_fs_location: An `azure_blob_fs_location` block as defined below.
         :param pulumi.Input['DatasetDelimitedTextAzureBlobStorageLocationArgs'] azure_blob_storage_location: An `azure_blob_storage_location` block as defined below.
         :param pulumi.Input[str] column_delimiter: The column delimiter. Defaults to `,`.
-        :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+        :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `None`, `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy` and `lz4`. Please note these values are case sensitive.
         :param pulumi.Input[str] compression_level: The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[str] encoding: The encoding format for the file.
@@ -190,7 +190,7 @@ class DatasetDelimitedTextArgs:
     @pulumi.getter(name="compressionCodec")
     def compression_codec(self) -> Optional[pulumi.Input[str]]:
         """
-        The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+        The compression codec used to read/write text files. Valid values are `None`, `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy` and `lz4`. Please note these values are case sensitive.
         """
         return pulumi.get(self, "compression_codec")
 
@@ -386,7 +386,7 @@ class _DatasetDelimitedTextState:
         :param pulumi.Input['DatasetDelimitedTextAzureBlobFsLocationArgs'] azure_blob_fs_location: An `azure_blob_fs_location` block as defined below.
         :param pulumi.Input['DatasetDelimitedTextAzureBlobStorageLocationArgs'] azure_blob_storage_location: An `azure_blob_storage_location` block as defined below.
         :param pulumi.Input[str] column_delimiter: The column delimiter. Defaults to `,`.
-        :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+        :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `None`, `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy` and `lz4`. Please note these values are case sensitive.
         :param pulumi.Input[str] compression_level: The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
@@ -510,7 +510,7 @@ class _DatasetDelimitedTextState:
     @pulumi.getter(name="compressionCodec")
     def compression_codec(self) -> Optional[pulumi.Input[str]]:
         """
-        The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+        The compression codec used to read/write text files. Valid values are `None`, `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy` and `lz4`. Please note these values are case sensitive.
         """
         return pulumi.get(self, "compression_codec")
 
@@ -775,7 +775,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobFsLocationArgs']] azure_blob_fs_location: An `azure_blob_fs_location` block as defined below.
         :param pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobStorageLocationArgs']] azure_blob_storage_location: An `azure_blob_storage_location` block as defined below.
         :param pulumi.Input[str] column_delimiter: The column delimiter. Defaults to `,`.
-        :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+        :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `None`, `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy` and `lz4`. Please note these values are case sensitive.
         :param pulumi.Input[str] compression_level: The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
@@ -953,7 +953,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobFsLocationArgs']] azure_blob_fs_location: An `azure_blob_fs_location` block as defined below.
         :param pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobStorageLocationArgs']] azure_blob_storage_location: An `azure_blob_storage_location` block as defined below.
         :param pulumi.Input[str] column_delimiter: The column delimiter. Defaults to `,`.
-        :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+        :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `None`, `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy` and `lz4`. Please note these values are case sensitive.
         :param pulumi.Input[str] compression_level: The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
@@ -1041,7 +1041,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
     @pulumi.getter(name="compressionCodec")
     def compression_codec(self) -> pulumi.Output[Optional[str]]:
         """
-        The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+        The compression codec used to read/write text files. Valid values are `None`, `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy` and `lz4`. Please note these values are case sensitive.
         """
         return pulumi.get(self, "compression_codec")
 

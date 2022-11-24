@@ -889,7 +889,7 @@ class SpringCloudGatewayCorsArgs:
                  max_age_seconds: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_headers: Allowed headers in cross-site requests. The special value `*` allows actual requests to send any header.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_methods: Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_methods: Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: Allowed origins to make cross-site requests. The special value `*` allows all domains.
         :param pulumi.Input[bool] credentials_allowed: is user credentials are supported on cross-site requests?
         :param pulumi.Input[Sequence[pulumi.Input[str]]] exposed_headers: HTTP response headers to expose for cross-site requests.
@@ -924,7 +924,7 @@ class SpringCloudGatewayCorsArgs:
     @pulumi.getter(name="allowedMethods")
     def allowed_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
+        Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
         """
         return pulumi.get(self, "allowed_methods")
 

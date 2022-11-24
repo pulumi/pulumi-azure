@@ -176,7 +176,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly keyVaultKeyId!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
+     * Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
@@ -460,7 +460,7 @@ export interface AccountState {
      */
     keyVaultKeyId?: pulumi.Input<string>;
     /**
-     * Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
+     * Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
      */
     kind?: pulumi.Input<string>;
     /**
@@ -618,7 +618,7 @@ export interface AccountArgs {
      */
     keyVaultKeyId?: pulumi.Input<string>;
     /**
-     * Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
+     * Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
      */
     kind?: pulumi.Input<string>;
     /**

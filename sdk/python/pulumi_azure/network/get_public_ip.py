@@ -21,10 +21,16 @@ class GetPublicIPResult:
     """
     A collection of values returned by getPublicIP.
     """
-    def __init__(__self__, allocation_method=None, domain_name_label=None, fqdn=None, id=None, idle_timeout_in_minutes=None, ip_address=None, ip_tags=None, ip_version=None, location=None, name=None, resource_group_name=None, reverse_fqdn=None, sku=None, tags=None, zones=None):
+    def __init__(__self__, allocation_method=None, ddos_protection_mode=None, ddos_protection_plan_id=None, domain_name_label=None, fqdn=None, id=None, idle_timeout_in_minutes=None, ip_address=None, ip_tags=None, ip_version=None, location=None, name=None, resource_group_name=None, reverse_fqdn=None, sku=None, tags=None, zones=None):
         if allocation_method and not isinstance(allocation_method, str):
             raise TypeError("Expected argument 'allocation_method' to be a str")
         pulumi.set(__self__, "allocation_method", allocation_method)
+        if ddos_protection_mode and not isinstance(ddos_protection_mode, str):
+            raise TypeError("Expected argument 'ddos_protection_mode' to be a str")
+        pulumi.set(__self__, "ddos_protection_mode", ddos_protection_mode)
+        if ddos_protection_plan_id and not isinstance(ddos_protection_plan_id, str):
+            raise TypeError("Expected argument 'ddos_protection_plan_id' to be a str")
+        pulumi.set(__self__, "ddos_protection_plan_id", ddos_protection_plan_id)
         if domain_name_label and not isinstance(domain_name_label, str):
             raise TypeError("Expected argument 'domain_name_label' to be a str")
         pulumi.set(__self__, "domain_name_label", domain_name_label)
@@ -72,6 +78,22 @@ class GetPublicIPResult:
     @pulumi.getter(name="allocationMethod")
     def allocation_method(self) -> str:
         return pulumi.get(self, "allocation_method")
+
+    @property
+    @pulumi.getter(name="ddosProtectionMode")
+    def ddos_protection_mode(self) -> str:
+        """
+        The DDoS protection mode of the public IP.
+        """
+        return pulumi.get(self, "ddos_protection_mode")
+
+    @property
+    @pulumi.getter(name="ddosProtectionPlanId")
+    def ddos_protection_plan_id(self) -> str:
+        """
+        The ID of DDoS protection plan associated with the public IP.
+        """
+        return pulumi.get(self, "ddos_protection_plan_id")
 
     @property
     @pulumi.getter(name="domainNameLabel")
@@ -181,6 +203,8 @@ class AwaitableGetPublicIPResult(GetPublicIPResult):
             yield self
         return GetPublicIPResult(
             allocation_method=self.allocation_method,
+            ddos_protection_mode=self.ddos_protection_mode,
+            ddos_protection_plan_id=self.ddos_protection_plan_id,
             domain_name_label=self.domain_name_label,
             fqdn=self.fqdn,
             id=self.id,
@@ -270,6 +294,8 @@ def get_public_ip(name: Optional[str] = None,
 
     return AwaitableGetPublicIPResult(
         allocation_method=__ret__.allocation_method,
+        ddos_protection_mode=__ret__.ddos_protection_mode,
+        ddos_protection_plan_id=__ret__.ddos_protection_plan_id,
         domain_name_label=__ret__.domain_name_label,
         fqdn=__ret__.fqdn,
         id=__ret__.id,

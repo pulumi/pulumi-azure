@@ -146,9 +146,17 @@ public class ResolverForwardingRule extends com.pulumi.resources.CustomResource 
     public Output<String> domainName() {
         return this.domainName;
     }
+    /**
+     * Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
+     * 
+     */
     @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
+    /**
+     * @return Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
+     * 
+     */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
@@ -181,14 +189,14 @@ public class ResolverForwardingRule extends com.pulumi.resources.CustomResource 
         return this.name;
     }
     /**
-     * A `target_dns_servers` block as defined below.
+     * Can be specified multiple times to define multiple target DNS servers. Each `target_dns_servers` block as defined below.
      * 
      */
     @Export(name="targetDnsServers", type=List.class, parameters={ResolverForwardingRuleTargetDnsServer.class})
     private Output<List<ResolverForwardingRuleTargetDnsServer>> targetDnsServers;
 
     /**
-     * @return A `target_dns_servers` block as defined below.
+     * @return Can be specified multiple times to define multiple target DNS servers. Each `target_dns_servers` block as defined below.
      * 
      */
     public Output<List<ResolverForwardingRuleTargetDnsServer>> targetDnsServers() {

@@ -162,14 +162,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * The type of this API Management Group. Possible values are `custom` and `external`. Default is `custom`.
+     * The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`.
      * 
      */
     @Export(name="type", type=String.class, parameters={})
     private Output</* @Nullable */ String> type;
 
     /**
-     * @return The type of this API Management Group. Possible values are `custom` and `external`. Default is `custom`.
+     * @return The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`.
      * 
      */
     public Output<Optional<String>> type() {

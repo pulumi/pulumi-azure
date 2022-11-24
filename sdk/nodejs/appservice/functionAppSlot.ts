@@ -139,7 +139,7 @@ export class FunctionAppSlot extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A string indicating the Operating System type for this function app.
+     * A string indicating the Operating System type for this function app. The only possible value is `linux`.
      */
     public readonly osType!: pulumi.Output<string | undefined>;
     /**
@@ -324,7 +324,7 @@ export interface FunctionAppSlotState {
      */
     name?: pulumi.Input<string>;
     /**
-     * A string indicating the Operating System type for this function app.
+     * A string indicating the Operating System type for this function app. The only possible value is `linux`.
      */
     osType?: pulumi.Input<string>;
     /**
@@ -418,7 +418,7 @@ export interface FunctionAppSlotArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A string indicating the Operating System type for this function app.
+     * A string indicating the Operating System type for this function app. The only possible value is `linux`.
      */
     osType?: pulumi.Input<string>;
     /**

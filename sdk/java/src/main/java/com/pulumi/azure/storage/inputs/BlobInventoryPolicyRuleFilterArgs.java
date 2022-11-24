@@ -48,6 +48,21 @@ public final class BlobInventoryPolicyRuleFilterArgs extends com.pulumi.resource
     }
 
     /**
+     * Includes deleted blobs in blob inventory or not? Defaults to `false`.
+     * 
+     */
+    @Import(name="includeDeleted")
+    private @Nullable Output<Boolean> includeDeleted;
+
+    /**
+     * @return Includes deleted blobs in blob inventory or not? Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> includeDeleted() {
+        return Optional.ofNullable(this.includeDeleted);
+    }
+
+    /**
      * Includes blob snapshots in blob inventory or not? Defaults to `false`.
      * 
      */
@@ -82,6 +97,7 @@ public final class BlobInventoryPolicyRuleFilterArgs extends com.pulumi.resource
     private BlobInventoryPolicyRuleFilterArgs(BlobInventoryPolicyRuleFilterArgs $) {
         this.blobTypes = $.blobTypes;
         this.includeBlobVersions = $.includeBlobVersions;
+        this.includeDeleted = $.includeDeleted;
         this.includeSnapshots = $.includeSnapshots;
         this.prefixMatches = $.prefixMatches;
     }
@@ -154,6 +170,27 @@ public final class BlobInventoryPolicyRuleFilterArgs extends com.pulumi.resource
          */
         public Builder includeBlobVersions(Boolean includeBlobVersions) {
             return includeBlobVersions(Output.of(includeBlobVersions));
+        }
+
+        /**
+         * @param includeDeleted Includes deleted blobs in blob inventory or not? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includeDeleted(@Nullable Output<Boolean> includeDeleted) {
+            $.includeDeleted = includeDeleted;
+            return this;
+        }
+
+        /**
+         * @param includeDeleted Includes deleted blobs in blob inventory or not? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includeDeleted(Boolean includeDeleted) {
+            return includeDeleted(Output.of(includeDeleted));
         }
 
         /**

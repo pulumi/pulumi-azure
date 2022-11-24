@@ -9,6 +9,7 @@ import com.pulumi.azure.config.outputs.FeaturesApplicationInsights;
 import com.pulumi.azure.config.outputs.FeaturesCognitiveAccount;
 import com.pulumi.azure.config.outputs.FeaturesKeyVault;
 import com.pulumi.azure.config.outputs.FeaturesLogAnalyticsWorkspace;
+import com.pulumi.azure.config.outputs.FeaturesManagedDisk;
 import com.pulumi.azure.config.outputs.FeaturesNetwork;
 import com.pulumi.azure.config.outputs.FeaturesResourceGroup;
 import com.pulumi.azure.config.outputs.FeaturesTemplateDeployment;
@@ -27,6 +28,7 @@ public final class Features {
     private @Nullable FeaturesCognitiveAccount cognitiveAccount;
     private @Nullable FeaturesKeyVault keyVault;
     private @Nullable FeaturesLogAnalyticsWorkspace logAnalyticsWorkspace;
+    private @Nullable FeaturesManagedDisk managedDisk;
     private @Nullable FeaturesNetwork network;
     private @Nullable FeaturesResourceGroup resourceGroup;
     private @Nullable FeaturesTemplateDeployment templateDeployment;
@@ -51,6 +53,9 @@ public final class Features {
     }
     public Optional<FeaturesLogAnalyticsWorkspace> logAnalyticsWorkspace() {
         return Optional.ofNullable(this.logAnalyticsWorkspace);
+    }
+    public Optional<FeaturesManagedDisk> managedDisk() {
+        return Optional.ofNullable(this.managedDisk);
     }
     public Optional<FeaturesNetwork> network() {
         return Optional.ofNullable(this.network);
@@ -83,6 +88,7 @@ public final class Features {
         private @Nullable FeaturesCognitiveAccount cognitiveAccount;
         private @Nullable FeaturesKeyVault keyVault;
         private @Nullable FeaturesLogAnalyticsWorkspace logAnalyticsWorkspace;
+        private @Nullable FeaturesManagedDisk managedDisk;
         private @Nullable FeaturesNetwork network;
         private @Nullable FeaturesResourceGroup resourceGroup;
         private @Nullable FeaturesTemplateDeployment templateDeployment;
@@ -97,6 +103,7 @@ public final class Features {
     	      this.cognitiveAccount = defaults.cognitiveAccount;
     	      this.keyVault = defaults.keyVault;
     	      this.logAnalyticsWorkspace = defaults.logAnalyticsWorkspace;
+    	      this.managedDisk = defaults.managedDisk;
     	      this.network = defaults.network;
     	      this.resourceGroup = defaults.resourceGroup;
     	      this.templateDeployment = defaults.templateDeployment;
@@ -135,6 +142,11 @@ public final class Features {
             return this;
         }
         @CustomType.Setter
+        public Builder managedDisk(@Nullable FeaturesManagedDisk managedDisk) {
+            this.managedDisk = managedDisk;
+            return this;
+        }
+        @CustomType.Setter
         public Builder network(@Nullable FeaturesNetwork network) {
             this.network = network;
             return this;
@@ -167,6 +179,7 @@ public final class Features {
             o.cognitiveAccount = cognitiveAccount;
             o.keyVault = keyVault;
             o.logAnalyticsWorkspace = logAnalyticsWorkspace;
+            o.managedDisk = managedDisk;
             o.network = network;
             o.resourceGroup = resourceGroup;
             o.templateDeployment = templateDeployment;

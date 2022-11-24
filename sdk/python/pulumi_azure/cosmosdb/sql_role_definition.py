@@ -289,7 +289,7 @@ class SqlRoleDefinition(pulumi.CustomResource):
             role_definition_id="84cf3a8b-4122-4448-bce2-fa423cfe0a15",
             resource_group_name=example_resource_group.name,
             account_name=example_account.name,
-            assignable_scopes=[pulumi.Output.all(example_resource_group.name, example_account.name).apply(lambda exampleResourceGroupName, exampleAccountName: f"/subscriptions/{current.subscription_id}/resourceGroups/{example_resource_group_name}/providers/Microsoft.DocumentDB/databaseAccounts/{example_account_name}/dbs/sales")],
+            assignable_scopes=[example_account.id.apply(lambda id: f"{id}/dbs/sales")],
             permissions=[azure.cosmosdb.SqlRoleDefinitionPermissionArgs(
                 data_actions=["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
             )])
@@ -346,7 +346,7 @@ class SqlRoleDefinition(pulumi.CustomResource):
             role_definition_id="84cf3a8b-4122-4448-bce2-fa423cfe0a15",
             resource_group_name=example_resource_group.name,
             account_name=example_account.name,
-            assignable_scopes=[pulumi.Output.all(example_resource_group.name, example_account.name).apply(lambda exampleResourceGroupName, exampleAccountName: f"/subscriptions/{current.subscription_id}/resourceGroups/{example_resource_group_name}/providers/Microsoft.DocumentDB/databaseAccounts/{example_account_name}/dbs/sales")],
+            assignable_scopes=[example_account.id.apply(lambda id: f"{id}/dbs/sales")],
             permissions=[azure.cosmosdb.SqlRoleDefinitionPermissionArgs(
                 data_actions=["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
             )])

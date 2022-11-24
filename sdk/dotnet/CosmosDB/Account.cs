@@ -215,7 +215,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string?> KeyVaultKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
+        /// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
@@ -507,7 +507,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? KeyVaultKeyId { get; set; }
 
         /// <summary>
-        /// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
+        /// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
@@ -749,7 +749,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? KeyVaultKeyId { get; set; }
 
         /// <summary>
-        /// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
+        /// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }

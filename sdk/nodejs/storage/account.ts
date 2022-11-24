@@ -277,6 +277,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly routing!: pulumi.Output<outputs.storage.AccountRouting>;
     /**
+     * A `sasPolicy` block as defined below.
+     */
+    public readonly sasPolicy!: pulumi.Output<outputs.storage.AccountSasPolicy | undefined>;
+    /**
      * The secondary access key for the storage account.
      */
     public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
@@ -418,6 +422,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["queueProperties"] = state ? state.queueProperties : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["routing"] = state ? state.routing : undefined;
+            resourceInputs["sasPolicy"] = state ? state.sasPolicy : undefined;
             resourceInputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
             resourceInputs["secondaryBlobConnectionString"] = state ? state.secondaryBlobConnectionString : undefined;
             resourceInputs["secondaryBlobEndpoint"] = state ? state.secondaryBlobEndpoint : undefined;
@@ -478,6 +483,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["queueProperties"] = args ? args.queueProperties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["routing"] = args ? args.routing : undefined;
+            resourceInputs["sasPolicy"] = args ? args.sasPolicy : undefined;
             resourceInputs["shareProperties"] = args ? args.shareProperties : undefined;
             resourceInputs["sharedAccessKeyEnabled"] = args ? args.sharedAccessKeyEnabled : undefined;
             resourceInputs["staticWebsite"] = args ? args.staticWebsite : undefined;
@@ -703,6 +709,10 @@ export interface AccountState {
      */
     routing?: pulumi.Input<inputs.storage.AccountRouting>;
     /**
+     * A `sasPolicy` block as defined below.
+     */
+    sasPolicy?: pulumi.Input<inputs.storage.AccountSasPolicy>;
+    /**
      * The secondary access key for the storage account.
      */
     secondaryAccessKey?: pulumi.Input<string>;
@@ -905,6 +915,10 @@ export interface AccountArgs {
      * A `routing` block as defined below.
      */
     routing?: pulumi.Input<inputs.storage.AccountRouting>;
+    /**
+     * A `sasPolicy` block as defined below.
+     */
+    sasPolicy?: pulumi.Input<inputs.storage.AccountSasPolicy>;
     /**
      * A `shareProperties` block as defined below.
      */

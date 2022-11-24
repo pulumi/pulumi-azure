@@ -8520,7 +8520,7 @@ func (o AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutput) Inde
 }
 
 type AlertProcessingRuleActionGroupScheduleRecurrenceWeekly struct {
-	// Specifies a list of dayOfWeek to recurrence.Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+	// Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
 	DaysOfWeeks []string `pulumi:"daysOfWeeks"`
 	// Specifies the recurrence end time (H:M:S).
 	EndTime *string `pulumi:"endTime"`
@@ -8540,7 +8540,7 @@ type AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyInput interface {
 }
 
 type AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs struct {
-	// Specifies a list of dayOfWeek to recurrence.Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+	// Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
 	DaysOfWeeks pulumi.StringArrayInput `pulumi:"daysOfWeeks"`
 	// Specifies the recurrence end time (H:M:S).
 	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
@@ -8599,7 +8599,7 @@ func (o AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutput) ToAlertPro
 	return o
 }
 
-// Specifies a list of dayOfWeek to recurrence.Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+// Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
 func (o AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutput) DaysOfWeeks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AlertProcessingRuleActionGroupScheduleRecurrenceWeekly) []string { return v.DaysOfWeeks }).(pulumi.StringArrayOutput)
 }
@@ -11298,7 +11298,7 @@ func (o AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutput) Inde
 }
 
 type AlertProcessingRuleSuppressionScheduleRecurrenceWeekly struct {
-	// Specifies a list of dayOfWeek to recurrence.Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+	// Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
 	DaysOfWeeks []string `pulumi:"daysOfWeeks"`
 	// Specifies the recurrence end time (H:M:S).
 	EndTime *string `pulumi:"endTime"`
@@ -11318,7 +11318,7 @@ type AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyInput interface {
 }
 
 type AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs struct {
-	// Specifies a list of dayOfWeek to recurrence.Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+	// Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
 	DaysOfWeeks pulumi.StringArrayInput `pulumi:"daysOfWeeks"`
 	// Specifies the recurrence end time (H:M:S).
 	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
@@ -11377,7 +11377,7 @@ func (o AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput) ToAlertPro
 	return o
 }
 
-// Specifies a list of dayOfWeek to recurrence.Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+// Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
 func (o AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput) DaysOfWeeks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AlertProcessingRuleSuppressionScheduleRecurrenceWeekly) []string { return v.DaysOfWeeks }).(pulumi.StringArrayOutput)
 }
@@ -12540,7 +12540,7 @@ type AutoscaleSettingProfileRuleMetricTrigger struct {
 	MetricResourceId string `pulumi:"metricResourceId"`
 	// Specifies the operator used to compare the metric data and threshold. Possible values are: `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`.
 	Operator string `pulumi:"operator"`
-	// Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Min` and `Max`.
+	// Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Max`, `Min` and `Sum`.
 	Statistic string `pulumi:"statistic"`
 	// Specifies the threshold of the metric that triggers the scale action.
 	Threshold float64 `pulumi:"threshold"`
@@ -12576,7 +12576,7 @@ type AutoscaleSettingProfileRuleMetricTriggerArgs struct {
 	MetricResourceId pulumi.StringInput `pulumi:"metricResourceId"`
 	// Specifies the operator used to compare the metric data and threshold. Possible values are: `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Min` and `Max`.
+	// Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Max`, `Min` and `Sum`.
 	Statistic pulumi.StringInput `pulumi:"statistic"`
 	// Specifies the threshold of the metric that triggers the scale action.
 	Threshold pulumi.Float64Input `pulumi:"threshold"`
@@ -12646,7 +12646,7 @@ func (o AutoscaleSettingProfileRuleMetricTriggerOutput) Operator() pulumi.String
 	return o.ApplyT(func(v AutoscaleSettingProfileRuleMetricTrigger) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Min` and `Max`.
+// Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Max`, `Min` and `Sum`.
 func (o AutoscaleSettingProfileRuleMetricTriggerOutput) Statistic() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRuleMetricTrigger) string { return v.Statistic }).(pulumi.StringOutput)
 }

@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Core.Inputs
         public Input<string> TimeFrame { get; set; } = null!;
 
         /// <summary>
-        /// The type of the query.
+        /// The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

@@ -55,13 +55,7 @@ namespace Pulumi.Azure.CosmosDB
     ///         Type = "CustomRole",
     ///         AssignableScopes = new[]
     ///         {
-    ///             Output.Tuple(current.Apply(getClientConfigResult =&gt; getClientConfigResult), exampleResourceGroup.Name, exampleAccount.Name).Apply(values =&gt;
-    ///             {
-    ///                 var current = values.Item1;
-    ///                 var exampleResourceGroupName = values.Item2;
-    ///                 var exampleAccountName = values.Item3;
-    ///                 return $"/subscriptions/{current.Apply(getClientConfigResult =&gt; getClientConfigResult.SubscriptionId)}/resourceGroups/{exampleResourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{exampleAccountName}";
-    ///             }),
+    ///             exampleAccount.Id,
     ///         },
     ///         Permissions = new[]
     ///         {
@@ -81,13 +75,7 @@ namespace Pulumi.Azure.CosmosDB
     ///         AccountName = exampleAccount.Name,
     ///         RoleDefinitionId = exampleSqlRoleDefinition.Id,
     ///         PrincipalId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
-    ///         Scope = Output.Tuple(current.Apply(getClientConfigResult =&gt; getClientConfigResult), exampleResourceGroup.Name, exampleAccount.Name).Apply(values =&gt;
-    ///         {
-    ///             var current = values.Item1;
-    ///             var exampleResourceGroupName = values.Item2;
-    ///             var exampleAccountName = values.Item3;
-    ///             return $"/subscriptions/{current.Apply(getClientConfigResult =&gt; getClientConfigResult.SubscriptionId)}/resourceGroups/{exampleResourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{exampleAccountName}";
-    ///         }),
+    ///         Scope = exampleAccount.Id,
     ///     });
     /// 
     /// });

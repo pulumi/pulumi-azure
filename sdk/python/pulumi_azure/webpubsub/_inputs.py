@@ -30,8 +30,7 @@ class HubEventHandlerArgs:
                available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request
                comes in. Example: `http://example.com/api/{hub}/{event}`.
         :param pulumi.Input['HubEventHandlerAuthArgs'] auth: An `auth` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] system_events: Specify the list of system events. Supported values are `connect`, `connected`
-               and `disconnected`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] system_events: Specify the list of system events. Supported values are `connect`, `connected` and `disconnected`.
         :param pulumi.Input[str] user_event_pattern: Specify the matching event names. There are 3 kind of patterns supported:
                * `*` matches any event name
                * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2`
@@ -75,8 +74,7 @@ class HubEventHandlerArgs:
     @pulumi.getter(name="systemEvents")
     def system_events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify the list of system events. Supported values are `connect`, `connected`
-        and `disconnected`.
+        Specify the list of system events. Supported values are `connect`, `connected` and `disconnected`.
         """
         return pulumi.get(self, "system_events")
 

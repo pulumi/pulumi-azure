@@ -109,14 +109,14 @@ public final class ServerSecurityAlertPolicyArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`.
+     * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Possible values are `Disabled`, `Enabled` and `New`.
      * 
      */
     @Import(name="state", required=true)
     private Output<String> state;
 
     /**
-     * @return Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`.
+     * @return Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Possible values are `Disabled`, `Enabled` and `New`.
      * 
      */
     public Output<String> state() {
@@ -332,7 +332,7 @@ public final class ServerSecurityAlertPolicyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param state Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`.
+         * @param state Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Possible values are `Disabled`, `Enabled` and `New`.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class ServerSecurityAlertPolicyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param state Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`.
+         * @param state Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Possible values are `Disabled`, `Enabled` and `New`.
          * 
          * @return builder
          * 

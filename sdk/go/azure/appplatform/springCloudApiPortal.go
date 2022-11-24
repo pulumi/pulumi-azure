@@ -94,7 +94,7 @@ type SpringCloudApiPortal struct {
 	HttpsOnlyEnabled pulumi.BoolPtrOutput `pulumi:"httpsOnlyEnabled"`
 	// Specifies the required instance count of the Spring Cloud API Portal. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
 	InstanceCount pulumi.IntPtrOutput `pulumi:"instanceCount"`
-	// The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created.
+	// The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `default`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Is the public network access enabled?
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
@@ -144,7 +144,7 @@ type springCloudApiPortalState struct {
 	HttpsOnlyEnabled *bool `pulumi:"httpsOnlyEnabled"`
 	// Specifies the required instance count of the Spring Cloud API Portal. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
 	InstanceCount *int `pulumi:"instanceCount"`
-	// The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created.
+	// The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `default`.
 	Name *string `pulumi:"name"`
 	// Is the public network access enabled?
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
@@ -163,7 +163,7 @@ type SpringCloudApiPortalState struct {
 	HttpsOnlyEnabled pulumi.BoolPtrInput
 	// Specifies the required instance count of the Spring Cloud API Portal. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
 	InstanceCount pulumi.IntPtrInput
-	// The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created.
+	// The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `default`.
 	Name pulumi.StringPtrInput
 	// Is the public network access enabled?
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
@@ -186,7 +186,7 @@ type springCloudApiPortalArgs struct {
 	HttpsOnlyEnabled *bool `pulumi:"httpsOnlyEnabled"`
 	// Specifies the required instance count of the Spring Cloud API Portal. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
 	InstanceCount *int `pulumi:"instanceCount"`
-	// The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created.
+	// The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `default`.
 	Name *string `pulumi:"name"`
 	// Is the public network access enabled?
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
@@ -204,7 +204,7 @@ type SpringCloudApiPortalArgs struct {
 	HttpsOnlyEnabled pulumi.BoolPtrInput
 	// Specifies the required instance count of the Spring Cloud API Portal. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
 	InstanceCount pulumi.IntPtrInput
-	// The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created.
+	// The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `default`.
 	Name pulumi.StringPtrInput
 	// Is the public network access enabled?
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
@@ -316,7 +316,7 @@ func (o SpringCloudApiPortalOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpringCloudApiPortal) pulumi.IntPtrOutput { return v.InstanceCount }).(pulumi.IntPtrOutput)
 }
 
-// The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created.
+// The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `default`.
 func (o SpringCloudApiPortalOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpringCloudApiPortal) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

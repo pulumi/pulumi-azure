@@ -19,14 +19,14 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs extends co
     public static final FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs Empty = new FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs();
 
     /**
-     * The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+     * The action to be applied when the rule matches. Possible values are `Allow`, `Log`, `Block`, `Redirect` and `AnomalyScoring`.
      * 
      */
     @Import(name="action", required=true)
     private Output<String> action;
 
     /**
-     * @return The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+     * @return The action to be applied when the rule matches. Possible values are `Allow`, `Log`, `Block`, `Redirect` and `AnomalyScoring`.
      * 
      */
     public Output<String> action() {
@@ -106,7 +106,7 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs extends co
         }
 
         /**
-         * @param action The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+         * @param action The action to be applied when the rule matches. Possible values are `Allow`, `Log`, `Block`, `Redirect` and `AnomalyScoring`.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs extends co
         }
 
         /**
-         * @param action The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+         * @param action The action to be applied when the rule matches. Possible values are `Allow`, `Log`, `Block`, `Redirect` and `AnomalyScoring`.
          * 
          * @return builder
          * 

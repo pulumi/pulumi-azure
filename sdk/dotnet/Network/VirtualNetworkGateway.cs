@@ -236,8 +236,7 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the Virtual Network Gateway. Valid options are
-        /// `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
+        /// The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -251,8 +250,7 @@ namespace Pulumi.Azure.Network
         public Output<Outputs.VirtualNetworkGatewayVpnClientConfiguration?> VpnClientConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The routing type of the Virtual Network Gateway. Valid
-        /// options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+        /// The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
         /// </summary>
         [Output("vpnType")]
         public Output<string?> VpnType { get; private set; } = null!;
@@ -418,8 +416,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// The type of the Virtual Network Gateway. Valid options are
-        /// `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
+        /// The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -433,8 +430,7 @@ namespace Pulumi.Azure.Network
         public Input<Inputs.VirtualNetworkGatewayVpnClientConfigurationArgs>? VpnClientConfiguration { get; set; }
 
         /// <summary>
-        /// The routing type of the Virtual Network Gateway. Valid
-        /// options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+        /// The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
         /// </summary>
         [Input("vpnType")]
         public Input<string>? VpnType { get; set; }
@@ -562,8 +558,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// The type of the Virtual Network Gateway. Valid options are
-        /// `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
+        /// The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -577,8 +572,7 @@ namespace Pulumi.Azure.Network
         public Input<Inputs.VirtualNetworkGatewayVpnClientConfigurationGetArgs>? VpnClientConfiguration { get; set; }
 
         /// <summary>
-        /// The routing type of the Virtual Network Gateway. Valid
-        /// options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+        /// The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
         /// </summary>
         [Input("vpnType")]
         public Input<string>? VpnType { get; set; }

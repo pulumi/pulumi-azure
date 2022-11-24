@@ -20,8 +20,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -63,11 +61,7 @@ import (
 //				AccountName:       exampleAccount.Name,
 //				Type:              pulumi.String("CustomRole"),
 //				AssignableScopes: pulumi.StringArray{
-//					pulumi.All(exampleResourceGroup.Name, exampleAccount.Name).ApplyT(func(_args []interface{}) (string, error) {
-//						exampleResourceGroupName := _args[0].(string)
-//						exampleAccountName := _args[1].(string)
-//						return fmt.Sprintf("/subscriptions/%v/resourceGroups/%v/providers/Microsoft.DocumentDB/databaseAccounts/%v", current.SubscriptionId, exampleResourceGroupName, exampleAccountName), nil
-//					}).(pulumi.StringOutput),
+//					exampleAccount.ID(),
 //				},
 //				Permissions: cosmosdb.SqlRoleDefinitionPermissionArray{
 //					&cosmosdb.SqlRoleDefinitionPermissionArgs{
@@ -85,11 +79,7 @@ import (
 //				AccountName:       exampleAccount.Name,
 //				RoleDefinitionId:  exampleSqlRoleDefinition.ID(),
 //				PrincipalId:       pulumi.String(current.ObjectId),
-//				Scope: pulumi.All(exampleResourceGroup.Name, exampleAccount.Name).ApplyT(func(_args []interface{}) (string, error) {
-//					exampleResourceGroupName := _args[0].(string)
-//					exampleAccountName := _args[1].(string)
-//					return fmt.Sprintf("/subscriptions/%v/resourceGroups/%v/providers/Microsoft.DocumentDB/databaseAccounts/%v", current.SubscriptionId, exampleResourceGroupName, exampleAccountName), nil
-//				}).(pulumi.StringOutput),
+//				Scope:             exampleAccount.ID(),
 //			})
 //			if err != nil {
 //				return err

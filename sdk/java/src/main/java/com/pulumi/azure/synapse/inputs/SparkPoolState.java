@@ -173,14 +173,14 @@ public final class SparkPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
+     * The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
      * 
      */
     @Import(name="nodeSize")
     private @Nullable Output<String> nodeSize;
 
     /**
-     * @return The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
+     * @return The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
      * 
      */
     public Optional<Output<String>> nodeSize() {
@@ -188,14 +188,14 @@ public final class SparkPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The kind of nodes that the Spark Pool provides. Possible value is `MemoryOptimized`.
+     * The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
      * 
      */
     @Import(name="nodeSizeFamily")
     private @Nullable Output<String> nodeSizeFamily;
 
     /**
-     * @return The kind of nodes that the Spark Pool provides. Possible value is `MemoryOptimized`.
+     * @return The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
      * 
      */
     public Optional<Output<String>> nodeSizeFamily() {
@@ -560,7 +560,7 @@ public final class SparkPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodeSize The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
+         * @param nodeSize The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
          * 
          * @return builder
          * 
@@ -571,7 +571,7 @@ public final class SparkPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodeSize The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
+         * @param nodeSize The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
          * 
          * @return builder
          * 
@@ -581,7 +581,7 @@ public final class SparkPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodeSizeFamily The kind of nodes that the Spark Pool provides. Possible value is `MemoryOptimized`.
+         * @param nodeSizeFamily The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
          * 
          * @return builder
          * 
@@ -592,7 +592,7 @@ public final class SparkPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodeSizeFamily The kind of nodes that the Spark Pool provides. Possible value is `MemoryOptimized`.
+         * @param nodeSizeFamily The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
          * 
          * @return builder
          * 

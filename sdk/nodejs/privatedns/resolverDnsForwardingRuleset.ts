@@ -98,13 +98,16 @@ export class ResolverDnsForwardingRuleset extends pulumi.CustomResource {
      * Specifies the name which should be used for this Private DNS Resolver Dns Forwarding Ruleset. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The list of IDs of the Private DNS Resolver Outbound Endpoint that is linked to the Private DNS Resolver Dns Forwarding Ruleset.
+     */
     public readonly privateDnsResolverOutboundEndpointIds!: pulumi.Output<string[]>;
     /**
      * Specifies the name of the Resource Group where the Private DNS Resolver Dns Forwarding Ruleset should exist. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * A mapping of tags which should be assigned to the Private DNS Resolver Dns Forwarding Ruleset.
+     * A mapping of tags to assign to the Private DNS Resolver Dns Forwarding Ruleset.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -157,13 +160,16 @@ export interface ResolverDnsForwardingRulesetState {
      * Specifies the name which should be used for this Private DNS Resolver Dns Forwarding Ruleset. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The list of IDs of the Private DNS Resolver Outbound Endpoint that is linked to the Private DNS Resolver Dns Forwarding Ruleset.
+     */
     privateDnsResolverOutboundEndpointIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the name of the Resource Group where the Private DNS Resolver Dns Forwarding Ruleset should exist. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * A mapping of tags which should be assigned to the Private DNS Resolver Dns Forwarding Ruleset.
+     * A mapping of tags to assign to the Private DNS Resolver Dns Forwarding Ruleset.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -180,13 +186,16 @@ export interface ResolverDnsForwardingRulesetArgs {
      * Specifies the name which should be used for this Private DNS Resolver Dns Forwarding Ruleset. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The list of IDs of the Private DNS Resolver Outbound Endpoint that is linked to the Private DNS Resolver Dns Forwarding Ruleset.
+     */
     privateDnsResolverOutboundEndpointIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the name of the Resource Group where the Private DNS Resolver Dns Forwarding Ruleset should exist. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * A mapping of tags which should be assigned to the Private DNS Resolver Dns Forwarding Ruleset.
+     * A mapping of tags to assign to the Private DNS Resolver Dns Forwarding Ruleset.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

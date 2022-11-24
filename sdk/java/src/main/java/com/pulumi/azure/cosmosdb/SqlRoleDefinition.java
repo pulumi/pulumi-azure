@@ -73,11 +73,7 @@ import javax.annotation.Nullable;
  *             .roleDefinitionId(&#34;84cf3a8b-4122-4448-bce2-fa423cfe0a15&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .accountName(exampleAccount.name())
- *             .assignableScopes(Output.tuple(exampleResourceGroup.name(), exampleAccount.name()).applyValue(values -&gt; {
- *                 var exampleResourceGroupName = values.t1;
- *                 var exampleAccountName = values.t2;
- *                 return String.format(&#34;/subscriptions/%s/resourceGroups/%s/providers/Microsoft.DocumentDB/databaseAccounts/%s/dbs/sales&#34;, current.applyValue(getClientConfigResult -&gt; getClientConfigResult.subscriptionId()),exampleResourceGroupName,exampleAccountName);
- *             }))
+ *             .assignableScopes(exampleAccount.id().applyValue(id -&gt; String.format(&#34;%s/dbs/sales&#34;, id)))
  *             .permissions(SqlRoleDefinitionPermissionArgs.builder()
  *                 .dataActions(&#34;Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read&#34;)
  *                 .build())

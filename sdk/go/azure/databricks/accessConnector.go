@@ -11,9 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **NOTE:** Databricks Access Connectors are in Private Preview and potentially subject to breaking change without notice. If you would like to use these features please contact your Microsoft support representative on how to opt-in to the Databricks Access Connector Private Preview feature program.
-//
-// # Manages a Databricks Access Connector
+// Manages a Databricks Access Connector
 //
 // ## Example Usage
 //

@@ -39,7 +39,7 @@ public final class AutomationRuleActionIncident {
      */
     private @Nullable String ownerId;
     /**
-     * @return The severity to add to the incident.
+     * @return The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
      * 
      */
     private @Nullable String severity;
@@ -86,7 +86,7 @@ public final class AutomationRuleActionIncident {
         return Optional.ofNullable(this.ownerId);
     }
     /**
-     * @return The severity to add to the incident.
+     * @return The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
      * 
      */
     public Optional<String> severity() {

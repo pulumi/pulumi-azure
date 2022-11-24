@@ -86,7 +86,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> Blob { get; private set; } = null!;
 
         /// <summary>
-        /// The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`.
+        /// The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created.
         /// </summary>
         [Output("certificateLocation")]
         public Output<string> CertificateLocation { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Azure.AppService
         public Input<string> Blob { get; set; } = null!;
 
         /// <summary>
-        /// The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`.
+        /// The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created.
         /// </summary>
         [Input("certificateLocation", required: true)]
         public Input<string> CertificateLocation { get; set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Blob { get; set; }
 
         /// <summary>
-        /// The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`.
+        /// The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created.
         /// </summary>
         [Input("certificateLocation")]
         public Input<string>? CertificateLocation { get; set; }

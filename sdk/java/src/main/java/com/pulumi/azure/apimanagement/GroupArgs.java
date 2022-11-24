@@ -106,14 +106,14 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of this API Management Group. Possible values are `custom` and `external`. Default is `custom`.
+     * The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of this API Management Group. Possible values are `custom` and `external`. Default is `custom`.
+     * @return The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -277,7 +277,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of this API Management Group. Possible values are `custom` and `external`. Default is `custom`.
+         * @param type The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of this API Management Group. Possible values are `custom` and `external`. Default is `custom`.
+         * @param type The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`.
          * 
          * @return builder
          * 

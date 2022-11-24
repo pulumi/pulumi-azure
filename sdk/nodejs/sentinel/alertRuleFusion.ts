@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -88,6 +90,10 @@ export class AlertRuleFusion extends pulumi.CustomResource {
      * The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * One or more `source` blocks as defined below.
+     */
+    public readonly sources!: pulumi.Output<outputs.sentinel.AlertRuleFusionSource[]>;
 
     /**
      * Create a AlertRuleFusion resource with the given unique name, arguments, and options.
@@ -106,6 +112,7 @@ export class AlertRuleFusion extends pulumi.CustomResource {
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["sources"] = state ? state.sources : undefined;
         } else {
             const args = argsOrState as AlertRuleFusionArgs | undefined;
             if ((!args || args.alertRuleTemplateGuid === undefined) && !opts.urn) {
@@ -118,6 +125,7 @@ export class AlertRuleFusion extends pulumi.CustomResource {
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["sources"] = args ? args.sources : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AlertRuleFusion.__pulumiType, name, resourceInputs, opts);
@@ -144,6 +152,10 @@ export interface AlertRuleFusionState {
      * The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * One or more `source` blocks as defined below.
+     */
+    sources?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleFusionSource>[]>;
 }
 
 /**
@@ -166,4 +178,8 @@ export interface AlertRuleFusionArgs {
      * The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * One or more `source` blocks as defined below.
+     */
+    sources?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleFusionSource>[]>;
 }

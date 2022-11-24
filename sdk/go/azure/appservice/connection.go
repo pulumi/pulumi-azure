@@ -122,7 +122,7 @@ type Connection struct {
 	AppServiceId pulumi.StringOutput `pulumi:"appServiceId"`
 	// The authentication info. An `authentication` block as defined below.
 	Authentication ConnectionAuthenticationOutput `pulumi:"authentication"`
-	// The application client type. Possible values are `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs`, `springBoot`.
+	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
 	ClientType pulumi.StringPtrOutput `pulumi:"clientType"`
 	// Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -174,7 +174,7 @@ type connectionState struct {
 	AppServiceId *string `pulumi:"appServiceId"`
 	// The authentication info. An `authentication` block as defined below.
 	Authentication *ConnectionAuthentication `pulumi:"authentication"`
-	// The application client type. Possible values are `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs`, `springBoot`.
+	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
 	ClientType *string `pulumi:"clientType"`
 	// Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
 	Name *string `pulumi:"name"`
@@ -189,7 +189,7 @@ type ConnectionState struct {
 	AppServiceId pulumi.StringPtrInput
 	// The authentication info. An `authentication` block as defined below.
 	Authentication ConnectionAuthenticationPtrInput
-	// The application client type. Possible values are `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs`, `springBoot`.
+	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
 	ClientType pulumi.StringPtrInput
 	// Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
 	Name pulumi.StringPtrInput
@@ -208,7 +208,7 @@ type connectionArgs struct {
 	AppServiceId string `pulumi:"appServiceId"`
 	// The authentication info. An `authentication` block as defined below.
 	Authentication ConnectionAuthentication `pulumi:"authentication"`
-	// The application client type. Possible values are `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs`, `springBoot`.
+	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
 	ClientType *string `pulumi:"clientType"`
 	// Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
 	Name *string `pulumi:"name"`
@@ -224,7 +224,7 @@ type ConnectionArgs struct {
 	AppServiceId pulumi.StringInput
 	// The authentication info. An `authentication` block as defined below.
 	Authentication ConnectionAuthenticationInput
-	// The application client type. Possible values are `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs`, `springBoot`.
+	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
 	ClientType pulumi.StringPtrInput
 	// Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
 	Name pulumi.StringPtrInput
@@ -331,7 +331,7 @@ func (o ConnectionOutput) Authentication() ConnectionAuthenticationOutput {
 	return o.ApplyT(func(v *Connection) ConnectionAuthenticationOutput { return v.Authentication }).(ConnectionAuthenticationOutput)
 }
 
-// The application client type. Possible values are `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs`, `springBoot`.
+// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
 func (o ConnectionOutput) ClientType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.ClientType }).(pulumi.StringPtrOutput)
 }

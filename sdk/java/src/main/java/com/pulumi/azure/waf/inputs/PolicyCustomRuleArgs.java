@@ -19,14 +19,14 @@ public final class PolicyCustomRuleArgs extends com.pulumi.resources.ResourceArg
     public static final PolicyCustomRuleArgs Empty = new PolicyCustomRuleArgs();
 
     /**
-     * Type of action.
+     * Type of action. Possible values are `Allow`, `Block` and `Log`.
      * 
      */
     @Import(name="action", required=true)
     private Output<String> action;
 
     /**
-     * @return Type of action.
+     * @return Type of action. Possible values are `Allow`, `Block` and `Log`.
      * 
      */
     public Output<String> action() {
@@ -79,14 +79,14 @@ public final class PolicyCustomRuleArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Describes the type of rule.
+     * Describes the type of rule. Possible values are `MatchRule` and `Invalid`.
      * 
      */
     @Import(name="ruleType", required=true)
     private Output<String> ruleType;
 
     /**
-     * @return Describes the type of rule.
+     * @return Describes the type of rule. Possible values are `MatchRule` and `Invalid`.
      * 
      */
     public Output<String> ruleType() {
@@ -122,7 +122,7 @@ public final class PolicyCustomRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param action Type of action.
+         * @param action Type of action. Possible values are `Allow`, `Block` and `Log`.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class PolicyCustomRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param action Type of action.
+         * @param action Type of action. Possible values are `Allow`, `Block` and `Log`.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class PolicyCustomRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param ruleType Describes the type of rule.
+         * @param ruleType Describes the type of rule. Possible values are `MatchRule` and `Invalid`.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class PolicyCustomRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param ruleType Describes the type of rule.
+         * @param ruleType Describes the type of rule. Possible values are `MatchRule` and `Invalid`.
          * 
          * @return builder
          * 

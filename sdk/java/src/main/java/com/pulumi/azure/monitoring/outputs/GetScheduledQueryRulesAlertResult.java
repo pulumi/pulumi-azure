@@ -50,6 +50,10 @@ public final class GetScheduledQueryRulesAlertResult {
      * 
      */
     private String id;
+    /**
+     * @return Specifies the Azure Region where the resource should exist.
+     * 
+     */
     private String location;
     private String name;
     /**
@@ -131,6 +135,10 @@ public final class GetScheduledQueryRulesAlertResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Specifies the Azure Region where the resource should exist.
+     * 
+     */
     public String location() {
         return this.location;
     }

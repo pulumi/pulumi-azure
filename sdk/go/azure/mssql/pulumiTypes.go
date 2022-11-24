@@ -2931,7 +2931,7 @@ func (o VirtualMachineAssessmentPtrOutput) Schedule() VirtualMachineAssessmentSc
 }
 
 type VirtualMachineAssessmentSchedule struct {
-	// What day of the week the assessment will be run. Default value is `Monday`.
+	// What day of the week the assessment will be run. Default value is `Monday`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
 	DayOfWeek string `pulumi:"dayOfWeek"`
 	// How many months between assessment runs. Valid values are between `1` and `5`.
 	MonthlyOccurrence *int `pulumi:"monthlyOccurrence"`
@@ -2953,7 +2953,7 @@ type VirtualMachineAssessmentScheduleInput interface {
 }
 
 type VirtualMachineAssessmentScheduleArgs struct {
-	// What day of the week the assessment will be run. Default value is `Monday`.
+	// What day of the week the assessment will be run. Default value is `Monday`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
 	DayOfWeek pulumi.StringInput `pulumi:"dayOfWeek"`
 	// How many months between assessment runs. Valid values are between `1` and `5`.
 	MonthlyOccurrence pulumi.IntPtrInput `pulumi:"monthlyOccurrence"`
@@ -3040,7 +3040,7 @@ func (o VirtualMachineAssessmentScheduleOutput) ToVirtualMachineAssessmentSchedu
 	}).(VirtualMachineAssessmentSchedulePtrOutput)
 }
 
-// What day of the week the assessment will be run. Default value is `Monday`.
+// What day of the week the assessment will be run. Default value is `Monday`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
 func (o VirtualMachineAssessmentScheduleOutput) DayOfWeek() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineAssessmentSchedule) string { return v.DayOfWeek }).(pulumi.StringOutput)
 }
@@ -3084,7 +3084,7 @@ func (o VirtualMachineAssessmentSchedulePtrOutput) Elem() VirtualMachineAssessme
 	}).(VirtualMachineAssessmentScheduleOutput)
 }
 
-// What day of the week the assessment will be run. Default value is `Monday`.
+// What day of the week the assessment will be run. Default value is `Monday`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
 func (o VirtualMachineAssessmentSchedulePtrOutput) DayOfWeek() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineAssessmentSchedule) *string {
 		if v == nil {
@@ -3570,7 +3570,7 @@ func (o VirtualMachineAutoBackupManualSchedulePtrOutput) LogBackupFrequencyInMin
 }
 
 type VirtualMachineAutoPatching struct {
-	// The day of week to apply the patch on.
+	// The day of week to apply the patch on. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
 	DayOfWeek string `pulumi:"dayOfWeek"`
 	// The size of the Maintenance Window in minutes.
 	MaintenanceWindowDurationInMinutes int `pulumi:"maintenanceWindowDurationInMinutes"`
@@ -3590,7 +3590,7 @@ type VirtualMachineAutoPatchingInput interface {
 }
 
 type VirtualMachineAutoPatchingArgs struct {
-	// The day of week to apply the patch on.
+	// The day of week to apply the patch on. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
 	DayOfWeek pulumi.StringInput `pulumi:"dayOfWeek"`
 	// The size of the Maintenance Window in minutes.
 	MaintenanceWindowDurationInMinutes pulumi.IntInput `pulumi:"maintenanceWindowDurationInMinutes"`
@@ -3675,7 +3675,7 @@ func (o VirtualMachineAutoPatchingOutput) ToVirtualMachineAutoPatchingPtrOutputW
 	}).(VirtualMachineAutoPatchingPtrOutput)
 }
 
-// The day of week to apply the patch on.
+// The day of week to apply the patch on. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
 func (o VirtualMachineAutoPatchingOutput) DayOfWeek() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineAutoPatching) string { return v.DayOfWeek }).(pulumi.StringOutput)
 }
@@ -3714,7 +3714,7 @@ func (o VirtualMachineAutoPatchingPtrOutput) Elem() VirtualMachineAutoPatchingOu
 	}).(VirtualMachineAutoPatchingOutput)
 }
 
-// The day of week to apply the patch on.
+// The day of week to apply the patch on. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
 func (o VirtualMachineAutoPatchingPtrOutput) DayOfWeek() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineAutoPatching) *string {
 		if v == nil {
@@ -3936,6 +3936,257 @@ func (o VirtualMachineKeyVaultCredentialPtrOutput) ServicePrincipalSecret() pulu
 		}
 		return &v.ServicePrincipalSecret
 	}).(pulumi.StringPtrOutput)
+}
+
+type VirtualMachineSqlInstance struct {
+	// Specifies if the SQL Server is optimized for adhoc workloads. Possible values are `true` and `false`. Defaults to `false`.
+	AdhocWorkloadsOptimizationEnabled *bool `pulumi:"adhocWorkloadsOptimizationEnabled"`
+	// Collation of the SQL Server. Defaults to `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
+	Collation *string `pulumi:"collation"`
+	// Specifies if Instant File Initialization is enabled for the SQL Server. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
+	InstantFileInitializationEnabled *bool `pulumi:"instantFileInitializationEnabled"`
+	// Specifies if Lock Pages in Memory is enabled for the SQL Server. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
+	LockPagesInMemoryEnabled *bool `pulumi:"lockPagesInMemoryEnabled"`
+	// Maximum Degree of Parallelism of the SQL Server. Possible values are between `0` and `32767`. Defaults to `0`.
+	MaxDop *int `pulumi:"maxDop"`
+	// Maximum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `128` and `2147483647` Defaults to `2147483647`.
+	MaxServerMemoryMb *int `pulumi:"maxServerMemoryMb"`
+	// Minimum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `0` and `2147483647` Defaults to `0`.
+	MinServerMemoryMb *int `pulumi:"minServerMemoryMb"`
+}
+
+// VirtualMachineSqlInstanceInput is an input type that accepts VirtualMachineSqlInstanceArgs and VirtualMachineSqlInstanceOutput values.
+// You can construct a concrete instance of `VirtualMachineSqlInstanceInput` via:
+//
+//	VirtualMachineSqlInstanceArgs{...}
+type VirtualMachineSqlInstanceInput interface {
+	pulumi.Input
+
+	ToVirtualMachineSqlInstanceOutput() VirtualMachineSqlInstanceOutput
+	ToVirtualMachineSqlInstanceOutputWithContext(context.Context) VirtualMachineSqlInstanceOutput
+}
+
+type VirtualMachineSqlInstanceArgs struct {
+	// Specifies if the SQL Server is optimized for adhoc workloads. Possible values are `true` and `false`. Defaults to `false`.
+	AdhocWorkloadsOptimizationEnabled pulumi.BoolPtrInput `pulumi:"adhocWorkloadsOptimizationEnabled"`
+	// Collation of the SQL Server. Defaults to `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
+	Collation pulumi.StringPtrInput `pulumi:"collation"`
+	// Specifies if Instant File Initialization is enabled for the SQL Server. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
+	InstantFileInitializationEnabled pulumi.BoolPtrInput `pulumi:"instantFileInitializationEnabled"`
+	// Specifies if Lock Pages in Memory is enabled for the SQL Server. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
+	LockPagesInMemoryEnabled pulumi.BoolPtrInput `pulumi:"lockPagesInMemoryEnabled"`
+	// Maximum Degree of Parallelism of the SQL Server. Possible values are between `0` and `32767`. Defaults to `0`.
+	MaxDop pulumi.IntPtrInput `pulumi:"maxDop"`
+	// Maximum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `128` and `2147483647` Defaults to `2147483647`.
+	MaxServerMemoryMb pulumi.IntPtrInput `pulumi:"maxServerMemoryMb"`
+	// Minimum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `0` and `2147483647` Defaults to `0`.
+	MinServerMemoryMb pulumi.IntPtrInput `pulumi:"minServerMemoryMb"`
+}
+
+func (VirtualMachineSqlInstanceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineSqlInstance)(nil)).Elem()
+}
+
+func (i VirtualMachineSqlInstanceArgs) ToVirtualMachineSqlInstanceOutput() VirtualMachineSqlInstanceOutput {
+	return i.ToVirtualMachineSqlInstanceOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineSqlInstanceArgs) ToVirtualMachineSqlInstanceOutputWithContext(ctx context.Context) VirtualMachineSqlInstanceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineSqlInstanceOutput)
+}
+
+func (i VirtualMachineSqlInstanceArgs) ToVirtualMachineSqlInstancePtrOutput() VirtualMachineSqlInstancePtrOutput {
+	return i.ToVirtualMachineSqlInstancePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineSqlInstanceArgs) ToVirtualMachineSqlInstancePtrOutputWithContext(ctx context.Context) VirtualMachineSqlInstancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineSqlInstanceOutput).ToVirtualMachineSqlInstancePtrOutputWithContext(ctx)
+}
+
+// VirtualMachineSqlInstancePtrInput is an input type that accepts VirtualMachineSqlInstanceArgs, VirtualMachineSqlInstancePtr and VirtualMachineSqlInstancePtrOutput values.
+// You can construct a concrete instance of `VirtualMachineSqlInstancePtrInput` via:
+//
+//	        VirtualMachineSqlInstanceArgs{...}
+//
+//	or:
+//
+//	        nil
+type VirtualMachineSqlInstancePtrInput interface {
+	pulumi.Input
+
+	ToVirtualMachineSqlInstancePtrOutput() VirtualMachineSqlInstancePtrOutput
+	ToVirtualMachineSqlInstancePtrOutputWithContext(context.Context) VirtualMachineSqlInstancePtrOutput
+}
+
+type virtualMachineSqlInstancePtrType VirtualMachineSqlInstanceArgs
+
+func VirtualMachineSqlInstancePtr(v *VirtualMachineSqlInstanceArgs) VirtualMachineSqlInstancePtrInput {
+	return (*virtualMachineSqlInstancePtrType)(v)
+}
+
+func (*virtualMachineSqlInstancePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineSqlInstance)(nil)).Elem()
+}
+
+func (i *virtualMachineSqlInstancePtrType) ToVirtualMachineSqlInstancePtrOutput() VirtualMachineSqlInstancePtrOutput {
+	return i.ToVirtualMachineSqlInstancePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualMachineSqlInstancePtrType) ToVirtualMachineSqlInstancePtrOutputWithContext(ctx context.Context) VirtualMachineSqlInstancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineSqlInstancePtrOutput)
+}
+
+type VirtualMachineSqlInstanceOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineSqlInstanceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineSqlInstance)(nil)).Elem()
+}
+
+func (o VirtualMachineSqlInstanceOutput) ToVirtualMachineSqlInstanceOutput() VirtualMachineSqlInstanceOutput {
+	return o
+}
+
+func (o VirtualMachineSqlInstanceOutput) ToVirtualMachineSqlInstanceOutputWithContext(ctx context.Context) VirtualMachineSqlInstanceOutput {
+	return o
+}
+
+func (o VirtualMachineSqlInstanceOutput) ToVirtualMachineSqlInstancePtrOutput() VirtualMachineSqlInstancePtrOutput {
+	return o.ToVirtualMachineSqlInstancePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualMachineSqlInstanceOutput) ToVirtualMachineSqlInstancePtrOutputWithContext(ctx context.Context) VirtualMachineSqlInstancePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineSqlInstance) *VirtualMachineSqlInstance {
+		return &v
+	}).(VirtualMachineSqlInstancePtrOutput)
+}
+
+// Specifies if the SQL Server is optimized for adhoc workloads. Possible values are `true` and `false`. Defaults to `false`.
+func (o VirtualMachineSqlInstanceOutput) AdhocWorkloadsOptimizationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualMachineSqlInstance) *bool { return v.AdhocWorkloadsOptimizationEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Collation of the SQL Server. Defaults to `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
+func (o VirtualMachineSqlInstanceOutput) Collation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineSqlInstance) *string { return v.Collation }).(pulumi.StringPtrOutput)
+}
+
+// Specifies if Instant File Initialization is enabled for the SQL Server. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
+func (o VirtualMachineSqlInstanceOutput) InstantFileInitializationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualMachineSqlInstance) *bool { return v.InstantFileInitializationEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies if Lock Pages in Memory is enabled for the SQL Server. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
+func (o VirtualMachineSqlInstanceOutput) LockPagesInMemoryEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualMachineSqlInstance) *bool { return v.LockPagesInMemoryEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Maximum Degree of Parallelism of the SQL Server. Possible values are between `0` and `32767`. Defaults to `0`.
+func (o VirtualMachineSqlInstanceOutput) MaxDop() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VirtualMachineSqlInstance) *int { return v.MaxDop }).(pulumi.IntPtrOutput)
+}
+
+// Maximum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `128` and `2147483647` Defaults to `2147483647`.
+func (o VirtualMachineSqlInstanceOutput) MaxServerMemoryMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VirtualMachineSqlInstance) *int { return v.MaxServerMemoryMb }).(pulumi.IntPtrOutput)
+}
+
+// Minimum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `0` and `2147483647` Defaults to `0`.
+func (o VirtualMachineSqlInstanceOutput) MinServerMemoryMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VirtualMachineSqlInstance) *int { return v.MinServerMemoryMb }).(pulumi.IntPtrOutput)
+}
+
+type VirtualMachineSqlInstancePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineSqlInstancePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineSqlInstance)(nil)).Elem()
+}
+
+func (o VirtualMachineSqlInstancePtrOutput) ToVirtualMachineSqlInstancePtrOutput() VirtualMachineSqlInstancePtrOutput {
+	return o
+}
+
+func (o VirtualMachineSqlInstancePtrOutput) ToVirtualMachineSqlInstancePtrOutputWithContext(ctx context.Context) VirtualMachineSqlInstancePtrOutput {
+	return o
+}
+
+func (o VirtualMachineSqlInstancePtrOutput) Elem() VirtualMachineSqlInstanceOutput {
+	return o.ApplyT(func(v *VirtualMachineSqlInstance) VirtualMachineSqlInstance {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineSqlInstance
+		return ret
+	}).(VirtualMachineSqlInstanceOutput)
+}
+
+// Specifies if the SQL Server is optimized for adhoc workloads. Possible values are `true` and `false`. Defaults to `false`.
+func (o VirtualMachineSqlInstancePtrOutput) AdhocWorkloadsOptimizationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineSqlInstance) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AdhocWorkloadsOptimizationEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Collation of the SQL Server. Defaults to `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
+func (o VirtualMachineSqlInstancePtrOutput) Collation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineSqlInstance) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Collation
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies if Instant File Initialization is enabled for the SQL Server. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
+func (o VirtualMachineSqlInstancePtrOutput) InstantFileInitializationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineSqlInstance) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.InstantFileInitializationEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies if Lock Pages in Memory is enabled for the SQL Server. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
+func (o VirtualMachineSqlInstancePtrOutput) LockPagesInMemoryEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineSqlInstance) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.LockPagesInMemoryEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Maximum Degree of Parallelism of the SQL Server. Possible values are between `0` and `32767`. Defaults to `0`.
+func (o VirtualMachineSqlInstancePtrOutput) MaxDop() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineSqlInstance) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxDop
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `128` and `2147483647` Defaults to `2147483647`.
+func (o VirtualMachineSqlInstancePtrOutput) MaxServerMemoryMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineSqlInstance) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxServerMemoryMb
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `0` and `2147483647` Defaults to `0`.
+func (o VirtualMachineSqlInstancePtrOutput) MinServerMemoryMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineSqlInstance) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinServerMemoryMb
+	}).(pulumi.IntPtrOutput)
 }
 
 type VirtualMachineStorageConfiguration struct {
@@ -5147,6 +5398,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineAutoPatchingPtrInput)(nil)).Elem(), VirtualMachineAutoPatchingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineKeyVaultCredentialInput)(nil)).Elem(), VirtualMachineKeyVaultCredentialArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineKeyVaultCredentialPtrInput)(nil)).Elem(), VirtualMachineKeyVaultCredentialArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineSqlInstanceInput)(nil)).Elem(), VirtualMachineSqlInstanceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineSqlInstancePtrInput)(nil)).Elem(), VirtualMachineSqlInstanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineStorageConfigurationInput)(nil)).Elem(), VirtualMachineStorageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineStorageConfigurationPtrInput)(nil)).Elem(), VirtualMachineStorageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineStorageConfigurationDataSettingsInput)(nil)).Elem(), VirtualMachineStorageConfigurationDataSettingsArgs{})
@@ -5205,6 +5458,8 @@ func init() {
 	pulumi.RegisterOutputType(VirtualMachineAutoPatchingPtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineKeyVaultCredentialOutput{})
 	pulumi.RegisterOutputType(VirtualMachineKeyVaultCredentialPtrOutput{})
+	pulumi.RegisterOutputType(VirtualMachineSqlInstanceOutput{})
+	pulumi.RegisterOutputType(VirtualMachineSqlInstancePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineStorageConfigurationOutput{})
 	pulumi.RegisterOutputType(VirtualMachineStorageConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineStorageConfigurationDataSettingsOutput{})

@@ -99,8 +99,7 @@ namespace Pulumi.Azure.Media
         public Output<ImmutableArray<Outputs.ServiceAccountStorageAccount>> StorageAccounts { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the storage authentication type.
-        /// Possible value is  `ManagedIdentity` or `System`.
+        /// Specifies the storage authentication type. Possible value is  `ManagedIdentity` or `System`.
         /// </summary>
         [Output("storageAuthenticationType")]
         public Output<string> StorageAuthenticationType { get; private set; } = null!;
@@ -204,8 +203,7 @@ namespace Pulumi.Azure.Media
         }
 
         /// <summary>
-        /// Specifies the storage authentication type.
-        /// Possible value is  `ManagedIdentity` or `System`.
+        /// Specifies the storage authentication type. Possible value is  `ManagedIdentity` or `System`.
         /// </summary>
         [Input("storageAuthenticationType")]
         public Input<string>? StorageAuthenticationType { get; set; }
@@ -273,8 +271,7 @@ namespace Pulumi.Azure.Media
         }
 
         /// <summary>
-        /// Specifies the storage authentication type.
-        /// Possible value is  `ManagedIdentity` or `System`.
+        /// Specifies the storage authentication type. Possible value is  `ManagedIdentity` or `System`.
         /// </summary>
         [Input("storageAuthenticationType")]
         public Input<string>? StorageAuthenticationType { get; set; }

@@ -24,7 +24,7 @@ class SqlPoolSecurityAlertPolicyArgs:
                  storage_endpoint: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SqlPoolSecurityAlertPolicy resource.
-        :param pulumi.Input[str] policy_state: Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Allowed values are: `Disabled`, `Enabled`.
+        :param pulumi.Input[str] policy_state: Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Possible values are `Disabled`, `Enabled` and `New`.
         :param pulumi.Input[str] sql_pool_id: Specifies the ID of the Synapse SQL Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disabled_alerts: Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
         :param pulumi.Input[bool] email_account_admins_enabled: Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
@@ -52,7 +52,7 @@ class SqlPoolSecurityAlertPolicyArgs:
     @pulumi.getter(name="policyState")
     def policy_state(self) -> pulumi.Input[str]:
         """
-        Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Allowed values are: `Disabled`, `Enabled`.
+        Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Possible values are `Disabled`, `Enabled` and `New`.
         """
         return pulumi.get(self, "policy_state")
 
@@ -161,7 +161,7 @@ class _SqlPoolSecurityAlertPolicyState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disabled_alerts: Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
         :param pulumi.Input[bool] email_account_admins_enabled: Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] email_addresses: Specifies an array of email addresses to which the alert is sent.
-        :param pulumi.Input[str] policy_state: Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Allowed values are: `Disabled`, `Enabled`.
+        :param pulumi.Input[str] policy_state: Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Possible values are `Disabled`, `Enabled` and `New`.
         :param pulumi.Input[int] retention_days: Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
         :param pulumi.Input[str] sql_pool_id: Specifies the ID of the Synapse SQL Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account.
@@ -224,7 +224,7 @@ class _SqlPoolSecurityAlertPolicyState:
     @pulumi.getter(name="policyState")
     def policy_state(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Allowed values are: `Disabled`, `Enabled`.
+        Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Possible values are `Disabled`, `Enabled` and `New`.
         """
         return pulumi.get(self, "policy_state")
 
@@ -364,7 +364,7 @@ class SqlPoolSecurityAlertPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disabled_alerts: Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
         :param pulumi.Input[bool] email_account_admins_enabled: Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] email_addresses: Specifies an array of email addresses to which the alert is sent.
-        :param pulumi.Input[str] policy_state: Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Allowed values are: `Disabled`, `Enabled`.
+        :param pulumi.Input[str] policy_state: Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Possible values are `Disabled`, `Enabled` and `New`.
         :param pulumi.Input[int] retention_days: Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
         :param pulumi.Input[str] sql_pool_id: Specifies the ID of the Synapse SQL Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account.
@@ -512,7 +512,7 @@ class SqlPoolSecurityAlertPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disabled_alerts: Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
         :param pulumi.Input[bool] email_account_admins_enabled: Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] email_addresses: Specifies an array of email addresses to which the alert is sent.
-        :param pulumi.Input[str] policy_state: Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Allowed values are: `Disabled`, `Enabled`.
+        :param pulumi.Input[str] policy_state: Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Possible values are `Disabled`, `Enabled` and `New`.
         :param pulumi.Input[int] retention_days: Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
         :param pulumi.Input[str] sql_pool_id: Specifies the ID of the Synapse SQL Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account.
@@ -560,7 +560,7 @@ class SqlPoolSecurityAlertPolicy(pulumi.CustomResource):
     @pulumi.getter(name="policyState")
     def policy_state(self) -> pulumi.Output[str]:
         """
-        Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Allowed values are: `Disabled`, `Enabled`.
+        Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Possible values are `Disabled`, `Enabled` and `New`.
         """
         return pulumi.get(self, "policy_state")
 

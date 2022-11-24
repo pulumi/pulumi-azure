@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Orbital.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Polarization of the link. Possible values are `RHCP`, `LHCP`, `linearVertical` and `linearHorizonal`.
+        /// Polarization of the link. Possible values are `LHCP`, `RHCP`, `linearVertical` and `linearHorizontal`.
         /// </summary>
         public readonly string Polarization;
 

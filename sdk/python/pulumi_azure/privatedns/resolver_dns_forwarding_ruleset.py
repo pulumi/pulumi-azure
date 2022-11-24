@@ -21,10 +21,11 @@ class ResolverDnsForwardingRulesetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ResolverDnsForwardingRuleset resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] private_dns_resolver_outbound_endpoint_ids: The list of IDs of the Private DNS Resolver Outbound Endpoint that is linked to the Private DNS Resolver Dns Forwarding Ruleset.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Private DNS Resolver Dns Forwarding Ruleset should exist. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Private DNS Resolver Dns Forwarding Ruleset should exist. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Private DNS Resolver Dns Forwarding Ruleset. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Private DNS Resolver Dns Forwarding Ruleset.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Private DNS Resolver Dns Forwarding Ruleset.
         """
         pulumi.set(__self__, "private_dns_resolver_outbound_endpoint_ids", private_dns_resolver_outbound_endpoint_ids)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -38,6 +39,9 @@ class ResolverDnsForwardingRulesetArgs:
     @property
     @pulumi.getter(name="privateDnsResolverOutboundEndpointIds")
     def private_dns_resolver_outbound_endpoint_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The list of IDs of the Private DNS Resolver Outbound Endpoint that is linked to the Private DNS Resolver Dns Forwarding Ruleset.
+        """
         return pulumi.get(self, "private_dns_resolver_outbound_endpoint_ids")
 
     @private_dns_resolver_outbound_endpoint_ids.setter
@@ -84,7 +88,7 @@ class ResolverDnsForwardingRulesetArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags which should be assigned to the Private DNS Resolver Dns Forwarding Ruleset.
+        A mapping of tags to assign to the Private DNS Resolver Dns Forwarding Ruleset.
         """
         return pulumi.get(self, "tags")
 
@@ -105,8 +109,9 @@ class _ResolverDnsForwardingRulesetState:
         Input properties used for looking up and filtering ResolverDnsForwardingRuleset resources.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Private DNS Resolver Dns Forwarding Ruleset should exist. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Private DNS Resolver Dns Forwarding Ruleset. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] private_dns_resolver_outbound_endpoint_ids: The list of IDs of the Private DNS Resolver Outbound Endpoint that is linked to the Private DNS Resolver Dns Forwarding Ruleset.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Private DNS Resolver Dns Forwarding Ruleset should exist. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Private DNS Resolver Dns Forwarding Ruleset.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Private DNS Resolver Dns Forwarding Ruleset.
         """
         if location is not None:
             pulumi.set(__self__, "location", location)
@@ -146,6 +151,9 @@ class _ResolverDnsForwardingRulesetState:
     @property
     @pulumi.getter(name="privateDnsResolverOutboundEndpointIds")
     def private_dns_resolver_outbound_endpoint_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of IDs of the Private DNS Resolver Outbound Endpoint that is linked to the Private DNS Resolver Dns Forwarding Ruleset.
+        """
         return pulumi.get(self, "private_dns_resolver_outbound_endpoint_ids")
 
     @private_dns_resolver_outbound_endpoint_ids.setter
@@ -168,7 +176,7 @@ class _ResolverDnsForwardingRulesetState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags which should be assigned to the Private DNS Resolver Dns Forwarding Ruleset.
+        A mapping of tags to assign to the Private DNS Resolver Dns Forwarding Ruleset.
         """
         return pulumi.get(self, "tags")
 
@@ -245,8 +253,9 @@ class ResolverDnsForwardingRuleset(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Private DNS Resolver Dns Forwarding Ruleset should exist. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Private DNS Resolver Dns Forwarding Ruleset. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] private_dns_resolver_outbound_endpoint_ids: The list of IDs of the Private DNS Resolver Outbound Endpoint that is linked to the Private DNS Resolver Dns Forwarding Ruleset.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Private DNS Resolver Dns Forwarding Ruleset should exist. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Private DNS Resolver Dns Forwarding Ruleset.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Private DNS Resolver Dns Forwarding Ruleset.
         """
         ...
     @overload
@@ -369,8 +378,9 @@ class ResolverDnsForwardingRuleset(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Private DNS Resolver Dns Forwarding Ruleset should exist. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Private DNS Resolver Dns Forwarding Ruleset. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] private_dns_resolver_outbound_endpoint_ids: The list of IDs of the Private DNS Resolver Outbound Endpoint that is linked to the Private DNS Resolver Dns Forwarding Ruleset.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Private DNS Resolver Dns Forwarding Ruleset should exist. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Private DNS Resolver Dns Forwarding Ruleset.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Private DNS Resolver Dns Forwarding Ruleset.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -402,6 +412,9 @@ class ResolverDnsForwardingRuleset(pulumi.CustomResource):
     @property
     @pulumi.getter(name="privateDnsResolverOutboundEndpointIds")
     def private_dns_resolver_outbound_endpoint_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The list of IDs of the Private DNS Resolver Outbound Endpoint that is linked to the Private DNS Resolver Dns Forwarding Ruleset.
+        """
         return pulumi.get(self, "private_dns_resolver_outbound_endpoint_ids")
 
     @property
@@ -416,7 +429,7 @@ class ResolverDnsForwardingRuleset(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A mapping of tags which should be assigned to the Private DNS Resolver Dns Forwarding Ruleset.
+        A mapping of tags to assign to the Private DNS Resolver Dns Forwarding Ruleset.
         """
         return pulumi.get(self, "tags")
 

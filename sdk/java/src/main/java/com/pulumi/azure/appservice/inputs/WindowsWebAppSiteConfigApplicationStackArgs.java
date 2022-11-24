@@ -76,14 +76,14 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
     }
 
     /**
-     * The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`,`core3.1`, `v4.0`, `v5.0`, and `v6.0`.
+     * The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`,`core3.1`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
      * 
      */
     @Import(name="dotnetVersion")
     private @Nullable Output<String> dotnetVersion;
 
     /**
-     * @return The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`,`core3.1`, `v4.0`, `v5.0`, and `v6.0`.
+     * @return The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`,`core3.1`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
      * 
      */
     public Optional<Output<String>> dotnetVersion() {
@@ -121,14 +121,14 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
     }
 
     /**
-     * The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8` and `11`. Required with `java_container` and `java_container_version`.
+     * The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
      * 
      */
     @Import(name="javaVersion")
     private @Nullable Output<String> javaVersion;
 
     /**
-     * @return The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8` and `11`. Required with `java_container` and `java_container_version`.
+     * @return The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
      * 
      */
     public Optional<Output<String>> javaVersion() {
@@ -299,7 +299,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         }
 
         /**
-         * @param dotnetVersion The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`,`core3.1`, `v4.0`, `v5.0`, and `v6.0`.
+         * @param dotnetVersion The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`,`core3.1`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
          * 
          * @return builder
          * 
@@ -310,7 +310,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         }
 
         /**
-         * @param dotnetVersion The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`,`core3.1`, `v4.0`, `v5.0`, and `v6.0`.
+         * @param dotnetVersion The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`,`core3.1`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
          * 
          * @return builder
          * 
@@ -362,7 +362,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         }
 
         /**
-         * @param javaVersion The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8` and `11`. Required with `java_container` and `java_container_version`.
+         * @param javaVersion The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         }
 
         /**
-         * @param javaVersion The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8` and `11`. Required with `java_container` and `java_container_version`.
+         * @param javaVersion The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
          * 
          * @return builder
          * 

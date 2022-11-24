@@ -111,7 +111,7 @@ namespace Pulumi.Azure.Redis
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created.
+        /// The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
         /// </summary>
         [Output("serverRole")]
         public Output<string> ServerRole { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Azure.Redis
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created.
+        /// The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
         /// </summary>
         [Input("serverRole", required: true)]
         public Input<string> ServerRole { get; set; } = null!;
@@ -231,7 +231,7 @@ namespace Pulumi.Azure.Redis
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created.
+        /// The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
         /// </summary>
         [Input("serverRole")]
         public Input<string>? ServerRole { get; set; }

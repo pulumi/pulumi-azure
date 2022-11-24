@@ -2071,7 +2071,7 @@ func (o SpringCloudGatewayApiMetadataPtrOutput) Version() pulumi.StringPtrOutput
 type SpringCloudGatewayCors struct {
 	// Allowed headers in cross-site requests. The special value `*` allows actual requests to send any header.
 	AllowedHeaders []string `pulumi:"allowedHeaders"`
-	// Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
+	// Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
 	AllowedMethods []string `pulumi:"allowedMethods"`
 	// Allowed origins to make cross-site requests. The special value `*` allows all domains.
 	AllowedOrigins []string `pulumi:"allowedOrigins"`
@@ -2097,7 +2097,7 @@ type SpringCloudGatewayCorsInput interface {
 type SpringCloudGatewayCorsArgs struct {
 	// Allowed headers in cross-site requests. The special value `*` allows actual requests to send any header.
 	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
-	// Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
+	// Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
 	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
 	// Allowed origins to make cross-site requests. The special value `*` allows all domains.
 	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
@@ -2191,7 +2191,7 @@ func (o SpringCloudGatewayCorsOutput) AllowedHeaders() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v SpringCloudGatewayCors) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
 }
 
-// Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
+// Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
 func (o SpringCloudGatewayCorsOutput) AllowedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SpringCloudGatewayCors) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
 }
@@ -2250,7 +2250,7 @@ func (o SpringCloudGatewayCorsPtrOutput) AllowedHeaders() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
-// Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
+// Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
 func (o SpringCloudGatewayCorsPtrOutput) AllowedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SpringCloudGatewayCors) []string {
 		if v == nil {

@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TokenPasswordPassword2 {
     /**
-     * @return The expiration date of the password in RFC3339 format.
+     * @return The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String expiry;
@@ -24,7 +24,7 @@ public final class TokenPasswordPassword2 {
 
     private TokenPasswordPassword2() {}
     /**
-     * @return The expiration date of the password in RFC3339 format.
+     * @return The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> expiry() {

@@ -326,8 +326,6 @@ class InterationServiceEnvironment(pulumi.CustomResource):
                  virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Manages private and isolated Logic App instances within an Azure virtual network.
-
         ## Example Usage
 
         ```python
@@ -402,8 +400,6 @@ class InterationServiceEnvironment(pulumi.CustomResource):
                  args: InterationServiceEnvironmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages private and isolated Logic App instances within an Azure virtual network.
-
         ## Example Usage
 
         ```python

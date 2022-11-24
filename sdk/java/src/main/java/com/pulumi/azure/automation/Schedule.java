@@ -237,14 +237,14 @@ public class Schedule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.timezone);
     }
     /**
-     * List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+     * List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
      * 
      */
     @Export(name="weekDays", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> weekDays;
 
     /**
-     * @return List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+     * @return List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
      * 
      */
     public Output<Optional<List<String>>> weekDays() {

@@ -374,16 +374,14 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * The type of the Virtual Network Gateway. Valid options are
-     * `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
+     * The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
      * 
      */
     @Export(name="type", type=String.class, parameters={})
     private Output<String> type;
 
     /**
-     * @return The type of the Virtual Network Gateway. Valid options are
-     * `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
+     * @return The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
      * 
      */
     public Output<String> type() {
@@ -408,16 +406,14 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.vpnClientConfiguration);
     }
     /**
-     * The routing type of the Virtual Network Gateway. Valid
-     * options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+     * The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
      * 
      */
     @Export(name="vpnType", type=String.class, parameters={})
     private Output</* @Nullable */ String> vpnType;
 
     /**
-     * @return The routing type of the Virtual Network Gateway. Valid
-     * options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+     * @return The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
      * 
      */
     public Output<Optional<String>> vpnType() {

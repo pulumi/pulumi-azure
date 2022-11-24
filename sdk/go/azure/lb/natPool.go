@@ -107,7 +107,7 @@ type NatPool struct {
 	LoadbalancerId pulumi.StringOutput `pulumi:"loadbalancerId"`
 	// Specifies the name of the NAT pool.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+	// The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
 	// The name of the resource group in which to create the resource.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -182,7 +182,7 @@ type natPoolState struct {
 	LoadbalancerId *string `pulumi:"loadbalancerId"`
 	// Specifies the name of the NAT pool.
 	Name *string `pulumi:"name"`
-	// The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+	// The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
 	Protocol *string `pulumi:"protocol"`
 	// The name of the resource group in which to create the resource.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -208,7 +208,7 @@ type NatPoolState struct {
 	LoadbalancerId pulumi.StringPtrInput
 	// Specifies the name of the NAT pool.
 	Name pulumi.StringPtrInput
-	// The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+	// The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
 	Protocol pulumi.StringPtrInput
 	// The name of the resource group in which to create the resource.
 	ResourceGroupName pulumi.StringPtrInput
@@ -237,7 +237,7 @@ type natPoolArgs struct {
 	LoadbalancerId string `pulumi:"loadbalancerId"`
 	// Specifies the name of the NAT pool.
 	Name *string `pulumi:"name"`
-	// The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+	// The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
 	Protocol string `pulumi:"protocol"`
 	// The name of the resource group in which to create the resource.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -263,7 +263,7 @@ type NatPoolArgs struct {
 	LoadbalancerId pulumi.StringInput
 	// Specifies the name of the NAT pool.
 	Name pulumi.StringPtrInput
-	// The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+	// The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
 	Protocol pulumi.StringInput
 	// The name of the resource group in which to create the resource.
 	ResourceGroupName pulumi.StringInput
@@ -402,7 +402,7 @@ func (o NatPoolOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NatPool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+// The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
 func (o NatPoolOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v *NatPool) pulumi.StringOutput { return v.Protocol }).(pulumi.StringOutput)
 }

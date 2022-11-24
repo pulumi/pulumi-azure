@@ -77,14 +77,14 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * What type should the disk be when a failover is done.
+     * What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
      * 
      */
     @Import(name="targetDiskType", required=true)
     private Output<String> targetDiskType;
 
     /**
-     * @return What type should the disk be when a failover is done.
+     * @return What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
      * 
      */
     public Output<String> targetDiskType() {
@@ -92,14 +92,14 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * What type should the disk be that holds the replication data.
+     * What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
      * 
      */
     @Import(name="targetReplicaDiskType", required=true)
     private Output<String> targetReplicaDiskType;
 
     /**
-     * @return What type should the disk be that holds the replication data.
+     * @return What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
      * 
      */
     public Output<String> targetReplicaDiskType() {
@@ -236,7 +236,7 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param targetDiskType What type should the disk be when a failover is done.
+         * @param targetDiskType What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param targetDiskType What type should the disk be when a failover is done.
+         * @param targetDiskType What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param targetReplicaDiskType What type should the disk be that holds the replication data.
+         * @param targetReplicaDiskType What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param targetReplicaDiskType What type should the disk be that holds the replication data.
+         * @param targetReplicaDiskType What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
          * 
          * @return builder
          * 

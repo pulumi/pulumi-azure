@@ -23,7 +23,7 @@ class PublicCertificateArgs:
         The set of arguments for constructing a PublicCertificate resource.
         :param pulumi.Input[str] app_service_name: The name of the App Service. Changing this forces a new App Service Public Certificate to be created.
         :param pulumi.Input[str] blob: The base64-encoded contents of the certificate. Changing this forces a new App Service Public Certificate to be created.
-        :param pulumi.Input[str] certificate_location: The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`.
+        :param pulumi.Input[str] certificate_location: The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created.
         :param pulumi.Input[str] certificate_name: The name of the public certificate. Changing this forces a new App Service Public Certificate to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the App Service Public Certificate should exist. Changing this forces a new App Service Public Certificate to be created.
         """
@@ -61,7 +61,7 @@ class PublicCertificateArgs:
     @pulumi.getter(name="certificateLocation")
     def certificate_location(self) -> pulumi.Input[str]:
         """
-        The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`.
+        The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created.
         """
         return pulumi.get(self, "certificate_location")
 
@@ -107,7 +107,7 @@ class _PublicCertificateState:
         Input properties used for looking up and filtering PublicCertificate resources.
         :param pulumi.Input[str] app_service_name: The name of the App Service. Changing this forces a new App Service Public Certificate to be created.
         :param pulumi.Input[str] blob: The base64-encoded contents of the certificate. Changing this forces a new App Service Public Certificate to be created.
-        :param pulumi.Input[str] certificate_location: The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`.
+        :param pulumi.Input[str] certificate_location: The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created.
         :param pulumi.Input[str] certificate_name: The name of the public certificate. Changing this forces a new App Service Public Certificate to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the App Service Public Certificate should exist. Changing this forces a new App Service Public Certificate to be created.
         :param pulumi.Input[str] thumbprint: The thumbprint of the public certificate.
@@ -153,7 +153,7 @@ class _PublicCertificateState:
     @pulumi.getter(name="certificateLocation")
     def certificate_location(self) -> Optional[pulumi.Input[str]]:
         """
-        The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`.
+        The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created.
         """
         return pulumi.get(self, "certificate_location")
 
@@ -251,7 +251,7 @@ class PublicCertificate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_name: The name of the App Service. Changing this forces a new App Service Public Certificate to be created.
         :param pulumi.Input[str] blob: The base64-encoded contents of the certificate. Changing this forces a new App Service Public Certificate to be created.
-        :param pulumi.Input[str] certificate_location: The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`.
+        :param pulumi.Input[str] certificate_location: The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created.
         :param pulumi.Input[str] certificate_name: The name of the public certificate. Changing this forces a new App Service Public Certificate to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the App Service Public Certificate should exist. Changing this forces a new App Service Public Certificate to be created.
         """
@@ -369,7 +369,7 @@ class PublicCertificate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_name: The name of the App Service. Changing this forces a new App Service Public Certificate to be created.
         :param pulumi.Input[str] blob: The base64-encoded contents of the certificate. Changing this forces a new App Service Public Certificate to be created.
-        :param pulumi.Input[str] certificate_location: The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`.
+        :param pulumi.Input[str] certificate_location: The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created.
         :param pulumi.Input[str] certificate_name: The name of the public certificate. Changing this forces a new App Service Public Certificate to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the App Service Public Certificate should exist. Changing this forces a new App Service Public Certificate to be created.
         :param pulumi.Input[str] thumbprint: The thumbprint of the public certificate.
@@ -406,7 +406,7 @@ class PublicCertificate(pulumi.CustomResource):
     @pulumi.getter(name="certificateLocation")
     def certificate_location(self) -> pulumi.Output[str]:
         """
-        The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`.
+        The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created.
         """
         return pulumi.get(self, "certificate_location")
 

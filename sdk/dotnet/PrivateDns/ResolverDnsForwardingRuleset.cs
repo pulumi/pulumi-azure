@@ -119,6 +119,9 @@ namespace Pulumi.Azure.PrivateDns
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The list of IDs of the Private DNS Resolver Outbound Endpoint that is linked to the Private DNS Resolver Dns Forwarding Ruleset.
+        /// </summary>
         [Output("privateDnsResolverOutboundEndpointIds")]
         public Output<ImmutableArray<string>> PrivateDnsResolverOutboundEndpointIds { get; private set; } = null!;
 
@@ -129,7 +132,7 @@ namespace Pulumi.Azure.PrivateDns
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Private DNS Resolver Dns Forwarding Ruleset.
+        /// A mapping of tags to assign to the Private DNS Resolver Dns Forwarding Ruleset.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -194,6 +197,10 @@ namespace Pulumi.Azure.PrivateDns
 
         [Input("privateDnsResolverOutboundEndpointIds", required: true)]
         private InputList<string>? _privateDnsResolverOutboundEndpointIds;
+
+        /// <summary>
+        /// The list of IDs of the Private DNS Resolver Outbound Endpoint that is linked to the Private DNS Resolver Dns Forwarding Ruleset.
+        /// </summary>
         public InputList<string> PrivateDnsResolverOutboundEndpointIds
         {
             get => _privateDnsResolverOutboundEndpointIds ?? (_privateDnsResolverOutboundEndpointIds = new InputList<string>());
@@ -210,7 +217,7 @@ namespace Pulumi.Azure.PrivateDns
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Private DNS Resolver Dns Forwarding Ruleset.
+        /// A mapping of tags to assign to the Private DNS Resolver Dns Forwarding Ruleset.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -240,6 +247,10 @@ namespace Pulumi.Azure.PrivateDns
 
         [Input("privateDnsResolverOutboundEndpointIds")]
         private InputList<string>? _privateDnsResolverOutboundEndpointIds;
+
+        /// <summary>
+        /// The list of IDs of the Private DNS Resolver Outbound Endpoint that is linked to the Private DNS Resolver Dns Forwarding Ruleset.
+        /// </summary>
         public InputList<string> PrivateDnsResolverOutboundEndpointIds
         {
             get => _privateDnsResolverOutboundEndpointIds ?? (_privateDnsResolverOutboundEndpointIds = new InputList<string>());
@@ -256,7 +267,7 @@ namespace Pulumi.Azure.PrivateDns
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Private DNS Resolver Dns Forwarding Ruleset.
+        /// A mapping of tags to assign to the Private DNS Resolver Dns Forwarding Ruleset.
         /// </summary>
         public InputMap<string> Tags
         {

@@ -114,7 +114,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<int?> InstanceCount { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the language framework of the container image.
+        /// Specifies the language framework of the container image. The only possible value is `springboot`.
         /// </summary>
         [Output("languageFramework")]
         public Output<string?> LanguageFramework { get; private set; } = null!;
@@ -244,7 +244,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<int>? InstanceCount { get; set; }
 
         /// <summary>
-        /// Specifies the language framework of the container image.
+        /// Specifies the language framework of the container image. The only possible value is `springboot`.
         /// </summary>
         [Input("languageFramework")]
         public Input<string>? LanguageFramework { get; set; }
@@ -336,7 +336,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<int>? InstanceCount { get; set; }
 
         /// <summary>
-        /// Specifies the language framework of the container image.
+        /// Specifies the language framework of the container image. The only possible value is `springboot`.
         /// </summary>
         [Input("languageFramework")]
         public Input<string>? LanguageFramework { get; set; }

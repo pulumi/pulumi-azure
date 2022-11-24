@@ -30,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			_, err := core.GetClientConfig(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -63,10 +63,8 @@ import (
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				AccountName:       exampleAccount.Name,
 //				AssignableScopes: pulumi.StringArray{
-//					pulumi.All(exampleResourceGroup.Name, exampleAccount.Name).ApplyT(func(_args []interface{}) (string, error) {
-//						exampleResourceGroupName := _args[0].(string)
-//						exampleAccountName := _args[1].(string)
-//						return fmt.Sprintf("/subscriptions/%v/resourceGroups/%v/providers/Microsoft.DocumentDB/databaseAccounts/%v/dbs/sales", current.SubscriptionId, exampleResourceGroupName, exampleAccountName), nil
+//					exampleAccount.ID().ApplyT(func(id string) (string, error) {
+//						return fmt.Sprintf("%v/dbs/sales", id), nil
 //					}).(pulumi.StringOutput),
 //				},
 //				Permissions: cosmosdb.SqlRoleDefinitionPermissionArray{

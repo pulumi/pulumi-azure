@@ -10,6 +10,8 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'AlertRuleFusionSourceArgs',
+    'AlertRuleFusionSourceSubTypeArgs',
     'AlertRuleNrtAlertDetailsOverrideArgs',
     'AlertRuleNrtEntityMappingArgs',
     'AlertRuleNrtEntityMappingFieldMappingArgs',
@@ -28,6 +30,113 @@ __all__ = [
     'AutomationRuleActionPlaybookArgs',
     'AutomationRuleConditionArgs',
 ]
+
+@pulumi.input_type
+class AlertRuleFusionSourceArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 sub_types: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceSubTypeArgs']]]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the Fusion source signal. Refer to Fusion alert rule template for supported values.
+        :param pulumi.Input[bool] enabled: Whether this source signal is enabled or disabled in Fusion detection? Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceSubTypeArgs']]] sub_types: One or more `sub_type` blocks as defined below.
+        """
+        pulumi.set(__self__, "name", name)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if sub_types is not None:
+            pulumi.set(__self__, "sub_types", sub_types)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the Fusion source signal. Refer to Fusion alert rule template for supported values.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether this source signal is enabled or disabled in Fusion detection? Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="subTypes")
+    def sub_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceSubTypeArgs']]]]:
+        """
+        One or more `sub_type` blocks as defined below.
+        """
+        return pulumi.get(self, "sub_types")
+
+    @sub_types.setter
+    def sub_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceSubTypeArgs']]]]):
+        pulumi.set(self, "sub_types", value)
+
+
+@pulumi.input_type
+class AlertRuleFusionSourceSubTypeArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 severities_alloweds: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] name: The Name of the source subtype under a given source signal in Fusion detection. Refer to Fusion alert rule template for supported values.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] severities_alloweds: A list of severities that are enabled for this source subtype consumed in Fusion detection. Possible values for each element are `High`, `Medium`, `Low`, `Informational`.
+        :param pulumi.Input[bool] enabled: Whether this source subtype under source signal is enabled or disabled in Fusion detection. Defaults to `true`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "severities_alloweds", severities_alloweds)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The Name of the source subtype under a given source signal in Fusion detection. Refer to Fusion alert rule template for supported values.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="severitiesAlloweds")
+    def severities_alloweds(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of severities that are enabled for this source subtype consumed in Fusion detection. Possible values for each element are `High`, `Medium`, `Low`, `Informational`.
+        """
+        return pulumi.get(self, "severities_alloweds")
+
+    @severities_alloweds.setter
+    def severities_alloweds(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "severities_alloweds", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether this source subtype under source signal is enabled or disabled in Fusion detection. Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
 
 @pulumi.input_type
 class AlertRuleNrtAlertDetailsOverrideArgs:
@@ -222,7 +331,7 @@ class AlertRuleNrtIncidentGroupingArgs:
                  lookback_duration: Optional[pulumi.Input[str]] = None,
                  reopen_closed_incidents: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] by_alert_details: A list of alert details to group by, only when the `entity_matching_method` is `Selected`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] by_alert_details: A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] by_custom_details: A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] by_entities: A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
         :param pulumi.Input[bool] enabled: Enable grouping incidents created from alerts triggered by this Sentinel NRT Alert Rule. Defaults to `true`.
@@ -249,7 +358,7 @@ class AlertRuleNrtIncidentGroupingArgs:
     @pulumi.getter(name="byAlertDetails")
     def by_alert_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of alert details to group by, only when the `entity_matching_method` is `Selected`.
+        A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
         """
         return pulumi.get(self, "by_alert_details")
 
@@ -480,7 +589,7 @@ class AlertRuleScheduledEventGroupingArgs:
     def __init__(__self__, *,
                  aggregation_method: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] aggregation_method: The aggregation type of grouping the events.
+        :param pulumi.Input[str] aggregation_method: The aggregation type of grouping the events. Possible values are `AlertPerResult` and `SingleAlert`.
         """
         pulumi.set(__self__, "aggregation_method", aggregation_method)
 
@@ -488,7 +597,7 @@ class AlertRuleScheduledEventGroupingArgs:
     @pulumi.getter(name="aggregationMethod")
     def aggregation_method(self) -> pulumi.Input[str]:
         """
-        The aggregation type of grouping the events.
+        The aggregation type of grouping the events. Possible values are `AlertPerResult` and `SingleAlert`.
         """
         return pulumi.get(self, "aggregation_method")
 
@@ -661,7 +770,7 @@ class AuthomationRuleActionIncidentArgs:
         :param pulumi.Input[str] classification_comment: The comment why the incident is to be closed.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: Specifies a list of labels to add to the incident.
         :param pulumi.Input[str] owner_id: The object ID of the entity this incident is assigned to.
-        :param pulumi.Input[str] severity: The severity to add to the incident.
+        :param pulumi.Input[str] severity: The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
         :param pulumi.Input[str] status: The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
         """
         pulumi.set(__self__, "order", order)
@@ -742,7 +851,7 @@ class AuthomationRuleActionIncidentArgs:
     @pulumi.getter
     def severity(self) -> Optional[pulumi.Input[str]]:
         """
-        The severity to add to the incident.
+        The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
         """
         return pulumi.get(self, "severity")
 
@@ -884,7 +993,7 @@ class AutomationRuleActionIncidentArgs:
         :param pulumi.Input[str] classification_comment: The comment why the incident is to be closed.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: Specifies a list of labels to add to the incident.
         :param pulumi.Input[str] owner_id: The object ID of the entity this incident is assigned to.
-        :param pulumi.Input[str] severity: The severity to add to the incident.
+        :param pulumi.Input[str] severity: The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
         :param pulumi.Input[str] status: The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
         """
         pulumi.set(__self__, "order", order)
@@ -965,7 +1074,7 @@ class AutomationRuleActionIncidentArgs:
     @pulumi.getter
     def severity(self) -> Optional[pulumi.Input[str]]:
         """
-        The severity to add to the incident.
+        The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
         """
         return pulumi.get(self, "severity")
 

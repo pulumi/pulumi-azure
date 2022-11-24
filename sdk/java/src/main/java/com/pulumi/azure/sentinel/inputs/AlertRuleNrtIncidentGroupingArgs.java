@@ -18,14 +18,14 @@ public final class AlertRuleNrtIncidentGroupingArgs extends com.pulumi.resources
     public static final AlertRuleNrtIncidentGroupingArgs Empty = new AlertRuleNrtIncidentGroupingArgs();
 
     /**
-     * A list of alert details to group by, only when the `entity_matching_method` is `Selected`.
+     * A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
      * 
      */
     @Import(name="byAlertDetails")
     private @Nullable Output<List<String>> byAlertDetails;
 
     /**
-     * @return A list of alert details to group by, only when the `entity_matching_method` is `Selected`.
+     * @return A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
      * 
      */
     public Optional<Output<List<String>>> byAlertDetails() {
@@ -153,7 +153,7 @@ public final class AlertRuleNrtIncidentGroupingArgs extends com.pulumi.resources
         }
 
         /**
-         * @param byAlertDetails A list of alert details to group by, only when the `entity_matching_method` is `Selected`.
+         * @param byAlertDetails A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class AlertRuleNrtIncidentGroupingArgs extends com.pulumi.resources
         }
 
         /**
-         * @param byAlertDetails A list of alert details to group by, only when the `entity_matching_method` is `Selected`.
+         * @param byAlertDetails A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class AlertRuleNrtIncidentGroupingArgs extends com.pulumi.resources
         }
 
         /**
-         * @param byAlertDetails A list of alert details to group by, only when the `entity_matching_method` is `Selected`.
+         * @param byAlertDetails A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
          * 
          * @return builder
          * 

@@ -80,7 +80,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<int> InstanceCount { get; private set; } = null!;
 
         /// <summary>
-        /// The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created.
+        /// The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
         /// </summary>
         [Output("instanceSize")]
         public Output<string> InstanceSize { get; private set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<int> InstanceCount { get; set; } = null!;
 
         /// <summary>
-        /// The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created.
+        /// The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
         /// </summary>
         [Input("instanceSize", required: true)]
         public Input<string> InstanceSize { get; set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<int>? InstanceCount { get; set; }
 
         /// <summary>
-        /// The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created.
+        /// The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
         /// </summary>
         [Input("instanceSize")]
         public Input<string>? InstanceSize { get; set; }

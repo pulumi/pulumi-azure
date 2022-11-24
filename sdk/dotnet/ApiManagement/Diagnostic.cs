@@ -168,7 +168,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> HttpCorrelationProtocol { get; private set; } = null!;
 
         /// <summary>
-        /// The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
+        /// The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("identifier")]
         public Output<string> Identifier { get; private set; } = null!;
@@ -298,7 +298,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? HttpCorrelationProtocol { get; set; }
 
         /// <summary>
-        /// The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
+        /// The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("identifier", required: true)]
         public Input<string> Identifier { get; set; } = null!;
@@ -390,7 +390,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? HttpCorrelationProtocol { get; set; }
 
         /// <summary>
-        /// The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
+        /// The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("identifier")]
         public Input<string>? Identifier { get; set; }

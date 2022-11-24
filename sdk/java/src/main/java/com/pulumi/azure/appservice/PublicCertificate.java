@@ -116,14 +116,14 @@ public class PublicCertificate extends com.pulumi.resources.CustomResource {
         return this.blob;
     }
     /**
-     * The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`.
+     * The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created.
      * 
      */
     @Export(name="certificateLocation", type=String.class, parameters={})
     private Output<String> certificateLocation;
 
     /**
-     * @return The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`.
+     * @return The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created.
      * 
      */
     public Output<String> certificateLocation() {

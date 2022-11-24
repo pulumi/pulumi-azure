@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  * DNS Zones can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:dns/zone:Zone zone1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnszones/zone1
+ *  $ pulumi import azure:dns/zone:Zone zone1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnsZones/zone1
  * ```
  * 
  */

@@ -136,7 +136,7 @@ type Job struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more `outputAsset` blocks as defined below. Changing this forces a new Media Job to be created.
 	OutputAssets JobOutputAssetArrayOutput `pulumi:"outputAssets"`
-	// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created.
+	// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created. Possible values are `High`, `Normal` and `Low`.
 	Priority pulumi.StringPtrOutput `pulumi:"priority"`
 	// The name of the Resource Group where the Media Job should exist. Changing this forces a new Media Job to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -198,7 +198,7 @@ type jobState struct {
 	Name *string `pulumi:"name"`
 	// One or more `outputAsset` blocks as defined below. Changing this forces a new Media Job to be created.
 	OutputAssets []JobOutputAsset `pulumi:"outputAssets"`
-	// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created.
+	// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created. Possible values are `High`, `Normal` and `Low`.
 	Priority *string `pulumi:"priority"`
 	// The name of the Resource Group where the Media Job should exist. Changing this forces a new Media Job to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -217,7 +217,7 @@ type JobState struct {
 	Name pulumi.StringPtrInput
 	// One or more `outputAsset` blocks as defined below. Changing this forces a new Media Job to be created.
 	OutputAssets JobOutputAssetArrayInput
-	// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created.
+	// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created. Possible values are `High`, `Normal` and `Low`.
 	Priority pulumi.StringPtrInput
 	// The name of the Resource Group where the Media Job should exist. Changing this forces a new Media Job to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -240,7 +240,7 @@ type jobArgs struct {
 	Name *string `pulumi:"name"`
 	// One or more `outputAsset` blocks as defined below. Changing this forces a new Media Job to be created.
 	OutputAssets []JobOutputAsset `pulumi:"outputAssets"`
-	// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created.
+	// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created. Possible values are `High`, `Normal` and `Low`.
 	Priority *string `pulumi:"priority"`
 	// The name of the Resource Group where the Media Job should exist. Changing this forces a new Media Job to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -260,7 +260,7 @@ type JobArgs struct {
 	Name pulumi.StringPtrInput
 	// One or more `outputAsset` blocks as defined below. Changing this forces a new Media Job to be created.
 	OutputAssets JobOutputAssetArrayInput
-	// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created.
+	// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created. Possible values are `High`, `Normal` and `Low`.
 	Priority pulumi.StringPtrInput
 	// The name of the Resource Group where the Media Job should exist. Changing this forces a new Media Job to be created.
 	ResourceGroupName pulumi.StringInput
@@ -380,7 +380,7 @@ func (o JobOutput) OutputAssets() JobOutputAssetArrayOutput {
 	return o.ApplyT(func(v *Job) JobOutputAssetArrayOutput { return v.OutputAssets }).(JobOutputAssetArrayOutput)
 }
 
-// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created.
+// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created. Possible values are `High`, `Normal` and `Low`.
 func (o JobOutput) Priority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Job) pulumi.StringPtrOutput { return v.Priority }).(pulumi.StringPtrOutput)
 }

@@ -47,9 +47,17 @@ public final class ResolverDnsForwardingRulesetState extends com.pulumi.resource
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The list of IDs of the Private DNS Resolver Outbound Endpoint that is linked to the Private DNS Resolver Dns Forwarding Ruleset.
+     * 
+     */
     @Import(name="privateDnsResolverOutboundEndpointIds")
     private @Nullable Output<List<String>> privateDnsResolverOutboundEndpointIds;
 
+    /**
+     * @return The list of IDs of the Private DNS Resolver Outbound Endpoint that is linked to the Private DNS Resolver Dns Forwarding Ruleset.
+     * 
+     */
     public Optional<Output<List<String>>> privateDnsResolverOutboundEndpointIds() {
         return Optional.ofNullable(this.privateDnsResolverOutboundEndpointIds);
     }
@@ -70,14 +78,14 @@ public final class ResolverDnsForwardingRulesetState extends com.pulumi.resource
     }
 
     /**
-     * A mapping of tags which should be assigned to the Private DNS Resolver Dns Forwarding Ruleset.
+     * A mapping of tags to assign to the Private DNS Resolver Dns Forwarding Ruleset.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags which should be assigned to the Private DNS Resolver Dns Forwarding Ruleset.
+     * @return A mapping of tags to assign to the Private DNS Resolver Dns Forwarding Ruleset.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -154,15 +162,33 @@ public final class ResolverDnsForwardingRulesetState extends com.pulumi.resource
             return name(Output.of(name));
         }
 
+        /**
+         * @param privateDnsResolverOutboundEndpointIds The list of IDs of the Private DNS Resolver Outbound Endpoint that is linked to the Private DNS Resolver Dns Forwarding Ruleset.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privateDnsResolverOutboundEndpointIds(@Nullable Output<List<String>> privateDnsResolverOutboundEndpointIds) {
             $.privateDnsResolverOutboundEndpointIds = privateDnsResolverOutboundEndpointIds;
             return this;
         }
 
+        /**
+         * @param privateDnsResolverOutboundEndpointIds The list of IDs of the Private DNS Resolver Outbound Endpoint that is linked to the Private DNS Resolver Dns Forwarding Ruleset.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privateDnsResolverOutboundEndpointIds(List<String> privateDnsResolverOutboundEndpointIds) {
             return privateDnsResolverOutboundEndpointIds(Output.of(privateDnsResolverOutboundEndpointIds));
         }
 
+        /**
+         * @param privateDnsResolverOutboundEndpointIds The list of IDs of the Private DNS Resolver Outbound Endpoint that is linked to the Private DNS Resolver Dns Forwarding Ruleset.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privateDnsResolverOutboundEndpointIds(String... privateDnsResolverOutboundEndpointIds) {
             return privateDnsResolverOutboundEndpointIds(List.of(privateDnsResolverOutboundEndpointIds));
         }
@@ -189,7 +215,7 @@ public final class ResolverDnsForwardingRulesetState extends com.pulumi.resource
         }
 
         /**
-         * @param tags A mapping of tags which should be assigned to the Private DNS Resolver Dns Forwarding Ruleset.
+         * @param tags A mapping of tags to assign to the Private DNS Resolver Dns Forwarding Ruleset.
          * 
          * @return builder
          * 
@@ -200,7 +226,7 @@ public final class ResolverDnsForwardingRulesetState extends com.pulumi.resource
         }
 
         /**
-         * @param tags A mapping of tags which should be assigned to the Private DNS Resolver Dns Forwarding Ruleset.
+         * @param tags A mapping of tags to assign to the Private DNS Resolver Dns Forwarding Ruleset.
          * 
          * @return builder
          * 

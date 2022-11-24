@@ -18,7 +18,7 @@ namespace Pulumi.Azure.AppPlatform.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AllowedHeaders;
         /// <summary>
-        /// Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
+        /// Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
         /// </summary>
         public readonly ImmutableArray<string> AllowedMethods;
         /// <summary>

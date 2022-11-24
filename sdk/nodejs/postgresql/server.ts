@@ -154,7 +154,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly threatDetectionPolicy!: pulumi.Output<outputs.postgresql.ServerThreatDetectionPolicy | undefined>;
     /**
-     * Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `11`. Changing this forces a new resource to be created.
+     * Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, `10.2` and `11`. Changing this forces a new resource to be created.
      */
     public readonly version!: pulumi.Output<string>;
 
@@ -324,7 +324,7 @@ export interface ServerState {
      */
     threatDetectionPolicy?: pulumi.Input<inputs.postgresql.ServerThreatDetectionPolicy>;
     /**
-     * Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `11`. Changing this forces a new resource to be created.
+     * Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, `10.2` and `11`. Changing this forces a new resource to be created.
      */
     version?: pulumi.Input<string>;
 }
@@ -414,7 +414,7 @@ export interface ServerArgs {
      */
     threatDetectionPolicy?: pulumi.Input<inputs.postgresql.ServerThreatDetectionPolicy>;
     /**
-     * Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `11`. Changing this forces a new resource to be created.
+     * Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, `10.2` and `11`. Changing this forces a new resource to be created.
      */
     version: pulumi.Input<string>;
 }

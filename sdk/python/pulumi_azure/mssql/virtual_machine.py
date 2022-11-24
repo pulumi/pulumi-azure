@@ -27,6 +27,7 @@ class VirtualMachineArgs:
                  sql_connectivity_type: Optional[pulumi.Input[str]] = None,
                  sql_connectivity_update_password: Optional[pulumi.Input[str]] = None,
                  sql_connectivity_update_username: Optional[pulumi.Input[str]] = None,
+                 sql_instance: Optional[pulumi.Input['VirtualMachineSqlInstanceArgs']] = None,
                  storage_configuration: Optional[pulumi.Input['VirtualMachineStorageConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -39,9 +40,10 @@ class VirtualMachineArgs:
         :param pulumi.Input['VirtualMachineKeyVaultCredentialArgs'] key_vault_credential: (Optional) An `key_vault_credential` block as defined below.
         :param pulumi.Input[bool] r_services_enabled: Should R Services be enabled?
         :param pulumi.Input[int] sql_connectivity_port: The SQL Server port. Defaults to `1433`.
-        :param pulumi.Input[str] sql_connectivity_type: The connectivity type used for this SQL Server. Defaults to `PRIVATE`.
+        :param pulumi.Input[str] sql_connectivity_type: The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`.
         :param pulumi.Input[str] sql_connectivity_update_password: The SQL Server sysadmin login password.
         :param pulumi.Input[str] sql_connectivity_update_username: The SQL Server sysadmin login to create.
+        :param pulumi.Input['VirtualMachineSqlInstanceArgs'] sql_instance: A `sql_instance` block as defined below.
         :param pulumi.Input['VirtualMachineStorageConfigurationArgs'] storage_configuration: An `storage_configuration` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -65,6 +67,8 @@ class VirtualMachineArgs:
             pulumi.set(__self__, "sql_connectivity_update_password", sql_connectivity_update_password)
         if sql_connectivity_update_username is not None:
             pulumi.set(__self__, "sql_connectivity_update_username", sql_connectivity_update_username)
+        if sql_instance is not None:
+            pulumi.set(__self__, "sql_instance", sql_instance)
         if storage_configuration is not None:
             pulumi.set(__self__, "storage_configuration", storage_configuration)
         if tags is not None:
@@ -170,7 +174,7 @@ class VirtualMachineArgs:
     @pulumi.getter(name="sqlConnectivityType")
     def sql_connectivity_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The connectivity type used for this SQL Server. Defaults to `PRIVATE`.
+        The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`.
         """
         return pulumi.get(self, "sql_connectivity_type")
 
@@ -201,6 +205,18 @@ class VirtualMachineArgs:
     @sql_connectivity_update_username.setter
     def sql_connectivity_update_username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sql_connectivity_update_username", value)
+
+    @property
+    @pulumi.getter(name="sqlInstance")
+    def sql_instance(self) -> Optional[pulumi.Input['VirtualMachineSqlInstanceArgs']]:
+        """
+        A `sql_instance` block as defined below.
+        """
+        return pulumi.get(self, "sql_instance")
+
+    @sql_instance.setter
+    def sql_instance(self, value: Optional[pulumi.Input['VirtualMachineSqlInstanceArgs']]):
+        pulumi.set(self, "sql_instance", value)
 
     @property
     @pulumi.getter(name="storageConfiguration")
@@ -239,6 +255,7 @@ class _VirtualMachineState:
                  sql_connectivity_type: Optional[pulumi.Input[str]] = None,
                  sql_connectivity_update_password: Optional[pulumi.Input[str]] = None,
                  sql_connectivity_update_username: Optional[pulumi.Input[str]] = None,
+                 sql_instance: Optional[pulumi.Input['VirtualMachineSqlInstanceArgs']] = None,
                  sql_license_type: Optional[pulumi.Input[str]] = None,
                  storage_configuration: Optional[pulumi.Input['VirtualMachineStorageConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -251,9 +268,10 @@ class _VirtualMachineState:
         :param pulumi.Input['VirtualMachineKeyVaultCredentialArgs'] key_vault_credential: (Optional) An `key_vault_credential` block as defined below.
         :param pulumi.Input[bool] r_services_enabled: Should R Services be enabled?
         :param pulumi.Input[int] sql_connectivity_port: The SQL Server port. Defaults to `1433`.
-        :param pulumi.Input[str] sql_connectivity_type: The connectivity type used for this SQL Server. Defaults to `PRIVATE`.
+        :param pulumi.Input[str] sql_connectivity_type: The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`.
         :param pulumi.Input[str] sql_connectivity_update_password: The SQL Server sysadmin login password.
         :param pulumi.Input[str] sql_connectivity_update_username: The SQL Server sysadmin login to create.
+        :param pulumi.Input['VirtualMachineSqlInstanceArgs'] sql_instance: A `sql_instance` block as defined below.
         :param pulumi.Input[str] sql_license_type: The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
         :param pulumi.Input['VirtualMachineStorageConfigurationArgs'] storage_configuration: An `storage_configuration` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -277,6 +295,8 @@ class _VirtualMachineState:
             pulumi.set(__self__, "sql_connectivity_update_password", sql_connectivity_update_password)
         if sql_connectivity_update_username is not None:
             pulumi.set(__self__, "sql_connectivity_update_username", sql_connectivity_update_username)
+        if sql_instance is not None:
+            pulumi.set(__self__, "sql_instance", sql_instance)
         if sql_license_type is not None:
             pulumi.set(__self__, "sql_license_type", sql_license_type)
         if storage_configuration is not None:
@@ -362,7 +382,7 @@ class _VirtualMachineState:
     @pulumi.getter(name="sqlConnectivityType")
     def sql_connectivity_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The connectivity type used for this SQL Server. Defaults to `PRIVATE`.
+        The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`.
         """
         return pulumi.get(self, "sql_connectivity_type")
 
@@ -393,6 +413,18 @@ class _VirtualMachineState:
     @sql_connectivity_update_username.setter
     def sql_connectivity_update_username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sql_connectivity_update_username", value)
+
+    @property
+    @pulumi.getter(name="sqlInstance")
+    def sql_instance(self) -> Optional[pulumi.Input['VirtualMachineSqlInstanceArgs']]:
+        """
+        A `sql_instance` block as defined below.
+        """
+        return pulumi.get(self, "sql_instance")
+
+    @sql_instance.setter
+    def sql_instance(self, value: Optional[pulumi.Input['VirtualMachineSqlInstanceArgs']]):
+        pulumi.set(self, "sql_instance", value)
 
     @property
     @pulumi.getter(name="sqlLicenseType")
@@ -457,6 +489,7 @@ class VirtualMachine(pulumi.CustomResource):
                  sql_connectivity_type: Optional[pulumi.Input[str]] = None,
                  sql_connectivity_update_password: Optional[pulumi.Input[str]] = None,
                  sql_connectivity_update_username: Optional[pulumi.Input[str]] = None,
+                 sql_instance: Optional[pulumi.Input[pulumi.InputType['VirtualMachineSqlInstanceArgs']]] = None,
                  sql_license_type: Optional[pulumi.Input[str]] = None,
                  storage_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualMachineStorageConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -506,9 +539,10 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['VirtualMachineKeyVaultCredentialArgs']] key_vault_credential: (Optional) An `key_vault_credential` block as defined below.
         :param pulumi.Input[bool] r_services_enabled: Should R Services be enabled?
         :param pulumi.Input[int] sql_connectivity_port: The SQL Server port. Defaults to `1433`.
-        :param pulumi.Input[str] sql_connectivity_type: The connectivity type used for this SQL Server. Defaults to `PRIVATE`.
+        :param pulumi.Input[str] sql_connectivity_type: The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`.
         :param pulumi.Input[str] sql_connectivity_update_password: The SQL Server sysadmin login password.
         :param pulumi.Input[str] sql_connectivity_update_username: The SQL Server sysadmin login to create.
+        :param pulumi.Input[pulumi.InputType['VirtualMachineSqlInstanceArgs']] sql_instance: A `sql_instance` block as defined below.
         :param pulumi.Input[str] sql_license_type: The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['VirtualMachineStorageConfigurationArgs']] storage_configuration: An `storage_configuration` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -580,6 +614,7 @@ class VirtualMachine(pulumi.CustomResource):
                  sql_connectivity_type: Optional[pulumi.Input[str]] = None,
                  sql_connectivity_update_password: Optional[pulumi.Input[str]] = None,
                  sql_connectivity_update_username: Optional[pulumi.Input[str]] = None,
+                 sql_instance: Optional[pulumi.Input[pulumi.InputType['VirtualMachineSqlInstanceArgs']]] = None,
                  sql_license_type: Optional[pulumi.Input[str]] = None,
                  storage_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualMachineStorageConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -602,6 +637,7 @@ class VirtualMachine(pulumi.CustomResource):
             __props__.__dict__["sql_connectivity_type"] = sql_connectivity_type
             __props__.__dict__["sql_connectivity_update_password"] = sql_connectivity_update_password
             __props__.__dict__["sql_connectivity_update_username"] = sql_connectivity_update_username
+            __props__.__dict__["sql_instance"] = sql_instance
             if sql_license_type is None and not opts.urn:
                 raise TypeError("Missing required property 'sql_license_type'")
             __props__.__dict__["sql_license_type"] = sql_license_type
@@ -629,6 +665,7 @@ class VirtualMachine(pulumi.CustomResource):
             sql_connectivity_type: Optional[pulumi.Input[str]] = None,
             sql_connectivity_update_password: Optional[pulumi.Input[str]] = None,
             sql_connectivity_update_username: Optional[pulumi.Input[str]] = None,
+            sql_instance: Optional[pulumi.Input[pulumi.InputType['VirtualMachineSqlInstanceArgs']]] = None,
             sql_license_type: Optional[pulumi.Input[str]] = None,
             storage_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualMachineStorageConfigurationArgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -646,9 +683,10 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['VirtualMachineKeyVaultCredentialArgs']] key_vault_credential: (Optional) An `key_vault_credential` block as defined below.
         :param pulumi.Input[bool] r_services_enabled: Should R Services be enabled?
         :param pulumi.Input[int] sql_connectivity_port: The SQL Server port. Defaults to `1433`.
-        :param pulumi.Input[str] sql_connectivity_type: The connectivity type used for this SQL Server. Defaults to `PRIVATE`.
+        :param pulumi.Input[str] sql_connectivity_type: The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`.
         :param pulumi.Input[str] sql_connectivity_update_password: The SQL Server sysadmin login password.
         :param pulumi.Input[str] sql_connectivity_update_username: The SQL Server sysadmin login to create.
+        :param pulumi.Input[pulumi.InputType['VirtualMachineSqlInstanceArgs']] sql_instance: A `sql_instance` block as defined below.
         :param pulumi.Input[str] sql_license_type: The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['VirtualMachineStorageConfigurationArgs']] storage_configuration: An `storage_configuration` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -667,6 +705,7 @@ class VirtualMachine(pulumi.CustomResource):
         __props__.__dict__["sql_connectivity_type"] = sql_connectivity_type
         __props__.__dict__["sql_connectivity_update_password"] = sql_connectivity_update_password
         __props__.__dict__["sql_connectivity_update_username"] = sql_connectivity_update_username
+        __props__.__dict__["sql_instance"] = sql_instance
         __props__.__dict__["sql_license_type"] = sql_license_type
         __props__.__dict__["storage_configuration"] = storage_configuration
         __props__.__dict__["tags"] = tags
@@ -725,7 +764,7 @@ class VirtualMachine(pulumi.CustomResource):
     @pulumi.getter(name="sqlConnectivityType")
     def sql_connectivity_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The connectivity type used for this SQL Server. Defaults to `PRIVATE`.
+        The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`.
         """
         return pulumi.get(self, "sql_connectivity_type")
 
@@ -744,6 +783,14 @@ class VirtualMachine(pulumi.CustomResource):
         The SQL Server sysadmin login to create.
         """
         return pulumi.get(self, "sql_connectivity_update_username")
+
+    @property
+    @pulumi.getter(name="sqlInstance")
+    def sql_instance(self) -> pulumi.Output[Optional['outputs.VirtualMachineSqlInstance']]:
+        """
+        A `sql_instance` block as defined below.
+        """
+        return pulumi.get(self, "sql_instance")
 
     @property
     @pulumi.getter(name="sqlLicenseType")

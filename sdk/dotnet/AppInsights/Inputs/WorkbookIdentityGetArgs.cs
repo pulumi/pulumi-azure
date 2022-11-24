@@ -37,7 +37,7 @@ namespace Pulumi.Azure.AppInsights.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// The type of Managed Service Identity that is configured on this Workbook.
+        /// The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

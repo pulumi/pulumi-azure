@@ -1060,7 +1060,7 @@ class DatasetBinaryCompression(dict):
                  type: str,
                  level: Optional[str] = None):
         """
-        :param str type: The type of compression used during transport.
+        :param str type: The type of compression used during transport. Possible values are `BZip2`, `Deflate`, `GZip`, `Tar`, `TarGZip` and `ZipDeflate`.
         :param str level: The level of compression. Possible values are `Fastest` and `Optimal`.
         """
         pulumi.set(__self__, "type", type)
@@ -1071,7 +1071,7 @@ class DatasetBinaryCompression(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of compression used during transport.
+        The type of compression used during transport. Possible values are `BZip2`, `Deflate`, `GZip`, `Tar`, `TarGZip` and `ZipDeflate`.
         """
         return pulumi.get(self, "type")
 

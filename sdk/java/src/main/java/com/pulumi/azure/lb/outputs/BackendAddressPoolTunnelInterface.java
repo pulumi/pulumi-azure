@@ -21,12 +21,12 @@ public final class BackendAddressPoolTunnelInterface {
      */
     private Integer port;
     /**
-     * @return The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `Native` and `VXLAN`.
+     * @return The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
      * 
      */
     private String protocol;
     /**
-     * @return The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `Internal` and `External`.
+     * @return The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
      * 
      */
     private String type;
@@ -47,14 +47,14 @@ public final class BackendAddressPoolTunnelInterface {
         return this.port;
     }
     /**
-     * @return The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `Native` and `VXLAN`.
+     * @return The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
      * 
      */
     public String protocol() {
         return this.protocol;
     }
     /**
-     * @return The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `Internal` and `External`.
+     * @return The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
      * 
      */
     public String type() {

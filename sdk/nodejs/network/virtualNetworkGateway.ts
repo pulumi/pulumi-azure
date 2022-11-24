@@ -192,8 +192,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the Virtual Network Gateway. Valid options are
-     * `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
+     * The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -203,8 +202,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     public readonly vpnClientConfiguration!: pulumi.Output<outputs.network.VirtualNetworkGatewayVpnClientConfiguration | undefined>;
     /**
-     * The routing type of the Virtual Network Gateway. Valid
-     * options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+     * The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
      */
     public readonly vpnType!: pulumi.Output<string | undefined>;
 
@@ -354,8 +352,7 @@ export interface VirtualNetworkGatewayState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of the Virtual Network Gateway. Valid options are
-     * `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
+     * The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
      */
     type?: pulumi.Input<string>;
     /**
@@ -365,8 +362,7 @@ export interface VirtualNetworkGatewayState {
      */
     vpnClientConfiguration?: pulumi.Input<inputs.network.VirtualNetworkGatewayVpnClientConfiguration>;
     /**
-     * The routing type of the Virtual Network Gateway. Valid
-     * options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+     * The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
      */
     vpnType?: pulumi.Input<string>;
 }
@@ -450,8 +446,7 @@ export interface VirtualNetworkGatewayArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of the Virtual Network Gateway. Valid options are
-     * `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
+     * The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
      */
     type: pulumi.Input<string>;
     /**
@@ -461,8 +456,7 @@ export interface VirtualNetworkGatewayArgs {
      */
     vpnClientConfiguration?: pulumi.Input<inputs.network.VirtualNetworkGatewayVpnClientConfiguration>;
     /**
-     * The routing type of the Virtual Network Gateway. Valid
-     * options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+     * The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
      */
     vpnType?: pulumi.Input<string>;
 }

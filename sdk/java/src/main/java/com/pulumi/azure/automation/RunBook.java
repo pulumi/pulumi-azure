@@ -166,16 +166,14 @@ public class RunBook extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
-     * Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+     * Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
      * 
      */
     @Export(name="logActivityTraceLevel", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> logActivityTraceLevel;
 
     /**
-     * @return Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
-     * Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+     * @return Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
      * 
      */
     public Output<Optional<Integer>> logActivityTraceLevel() {

@@ -14,6 +14,16 @@ import java.util.Objects;
 public final class GetPublicIPResult {
     private String allocationMethod;
     /**
+     * @return The DDoS protection mode of the public IP.
+     * 
+     */
+    private String ddosProtectionMode;
+    /**
+     * @return The ID of DDoS protection plan associated with the public IP.
+     * 
+     */
+    private String ddosProtectionPlanId;
+    /**
      * @return The label for the Domain Name.
      * 
      */
@@ -71,6 +81,20 @@ public final class GetPublicIPResult {
     private GetPublicIPResult() {}
     public String allocationMethod() {
         return this.allocationMethod;
+    }
+    /**
+     * @return The DDoS protection mode of the public IP.
+     * 
+     */
+    public String ddosProtectionMode() {
+        return this.ddosProtectionMode;
+    }
+    /**
+     * @return The ID of DDoS protection plan associated with the public IP.
+     * 
+     */
+    public String ddosProtectionPlanId() {
+        return this.ddosProtectionPlanId;
     }
     /**
      * @return The label for the Domain Name.
@@ -165,6 +189,8 @@ public final class GetPublicIPResult {
     @CustomType.Builder
     public static final class Builder {
         private String allocationMethod;
+        private String ddosProtectionMode;
+        private String ddosProtectionPlanId;
         private String domainNameLabel;
         private String fqdn;
         private String id;
@@ -183,6 +209,8 @@ public final class GetPublicIPResult {
         public Builder(GetPublicIPResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allocationMethod = defaults.allocationMethod;
+    	      this.ddosProtectionMode = defaults.ddosProtectionMode;
+    	      this.ddosProtectionPlanId = defaults.ddosProtectionPlanId;
     	      this.domainNameLabel = defaults.domainNameLabel;
     	      this.fqdn = defaults.fqdn;
     	      this.id = defaults.id;
@@ -202,6 +230,16 @@ public final class GetPublicIPResult {
         @CustomType.Setter
         public Builder allocationMethod(String allocationMethod) {
             this.allocationMethod = Objects.requireNonNull(allocationMethod);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder ddosProtectionMode(String ddosProtectionMode) {
+            this.ddosProtectionMode = Objects.requireNonNull(ddosProtectionMode);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder ddosProtectionPlanId(String ddosProtectionPlanId) {
+            this.ddosProtectionPlanId = Objects.requireNonNull(ddosProtectionPlanId);
             return this;
         }
         @CustomType.Setter
@@ -280,6 +318,8 @@ public final class GetPublicIPResult {
         public GetPublicIPResult build() {
             final var o = new GetPublicIPResult();
             o.allocationMethod = allocationMethod;
+            o.ddosProtectionMode = ddosProtectionMode;
+            o.ddosProtectionPlanId = ddosProtectionPlanId;
             o.domainNameLabel = domainNameLabel;
             o.fqdn = fqdn;
             o.id = id;

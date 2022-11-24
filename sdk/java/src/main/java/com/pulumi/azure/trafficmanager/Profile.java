@@ -209,14 +209,14 @@ public class Profile extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * Specifies the algorithm used to route traffic, possible values are:
+     * Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
      * 
      */
     @Export(name="trafficRoutingMethod", type=String.class, parameters={})
     private Output<String> trafficRoutingMethod;
 
     /**
-     * @return Specifies the algorithm used to route traffic, possible values are:
+     * @return Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
      * 
      */
     public Output<String> trafficRoutingMethod() {

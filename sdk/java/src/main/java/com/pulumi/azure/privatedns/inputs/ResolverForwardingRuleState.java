@@ -49,9 +49,17 @@ public final class ResolverForwardingRuleState extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.domainName);
     }
 
+    /**
+     * Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
+     * 
+     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
+    /**
+     * @return Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
+     * 
+     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -87,14 +95,14 @@ public final class ResolverForwardingRuleState extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `target_dns_servers` block as defined below.
+     * Can be specified multiple times to define multiple target DNS servers. Each `target_dns_servers` block as defined below.
      * 
      */
     @Import(name="targetDnsServers")
     private @Nullable Output<List<ResolverForwardingRuleTargetDnsServerArgs>> targetDnsServers;
 
     /**
-     * @return A `target_dns_servers` block as defined below.
+     * @return Can be specified multiple times to define multiple target DNS servers. Each `target_dns_servers` block as defined below.
      * 
      */
     public Optional<Output<List<ResolverForwardingRuleTargetDnsServerArgs>>> targetDnsServers() {
@@ -172,11 +180,23 @@ public final class ResolverForwardingRuleState extends com.pulumi.resources.Reso
             return domainName(Output.of(domainName));
         }
 
+        /**
+         * @param enabled Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
+        /**
+         * @param enabled Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
@@ -224,7 +244,7 @@ public final class ResolverForwardingRuleState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param targetDnsServers A `target_dns_servers` block as defined below.
+         * @param targetDnsServers Can be specified multiple times to define multiple target DNS servers. Each `target_dns_servers` block as defined below.
          * 
          * @return builder
          * 
@@ -235,7 +255,7 @@ public final class ResolverForwardingRuleState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param targetDnsServers A `target_dns_servers` block as defined below.
+         * @param targetDnsServers Can be specified multiple times to define multiple target DNS servers. Each `target_dns_servers` block as defined below.
          * 
          * @return builder
          * 
@@ -245,7 +265,7 @@ public final class ResolverForwardingRuleState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param targetDnsServers A `target_dns_servers` block as defined below.
+         * @param targetDnsServers Can be specified multiple times to define multiple target DNS servers. Each `target_dns_servers` block as defined below.
          * 
          * @return builder
          * 

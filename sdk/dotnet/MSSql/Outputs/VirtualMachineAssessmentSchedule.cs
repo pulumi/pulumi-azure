@@ -14,7 +14,7 @@ namespace Pulumi.Azure.MSSql.Outputs
     public sealed class VirtualMachineAssessmentSchedule
     {
         /// <summary>
-        /// What day of the week the assessment will be run. Default value is `Monday`.
+        /// What day of the week the assessment will be run. Default value is `Monday`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
         /// </summary>
         public readonly string DayOfWeek;
         /// <summary>

@@ -30,8 +30,7 @@ class ApplicationGroupArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the Virtual Desktop Application Group. Changing the resource group name forces
                a new resource to be created.
-        :param pulumi.Input[str] type: Type of Virtual Desktop Application Group.
-               Valid options are `RemoteApp` or `Desktop` application groups.
+        :param pulumi.Input[str] type: Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
         :param pulumi.Input[str] default_desktop_display_name: Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
         :param pulumi.Input[str] description: Option to set a description for the Virtual Desktop Application Group.
         :param pulumi.Input[str] friendly_name: Option to set a friendly name for the Virtual Desktop Application Group.
@@ -87,8 +86,7 @@ class ApplicationGroupArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of Virtual Desktop Application Group.
-        Valid options are `RemoteApp` or `Desktop` application groups.
+        Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
         """
         return pulumi.get(self, "type")
 
@@ -196,8 +194,7 @@ class _ApplicationGroupState:
                create the Virtual Desktop Application Group. Changing the resource group name forces
                a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] type: Type of Virtual Desktop Application Group.
-               Valid options are `RemoteApp` or `Desktop` application groups.
+        :param pulumi.Input[str] type: Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
         """
         if default_desktop_display_name is not None:
             pulumi.set(__self__, "default_desktop_display_name", default_desktop_display_name)
@@ -322,8 +319,7 @@ class _ApplicationGroupState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of Virtual Desktop Application Group.
-        Valid options are `RemoteApp` or `Desktop` application groups.
+        Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
         """
         return pulumi.get(self, "type")
 
@@ -406,8 +402,7 @@ class ApplicationGroup(pulumi.CustomResource):
                create the Virtual Desktop Application Group. Changing the resource group name forces
                a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] type: Type of Virtual Desktop Application Group.
-               Valid options are `RemoteApp` or `Desktop` application groups.
+        :param pulumi.Input[str] type: Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
         """
         ...
     @overload
@@ -546,8 +541,7 @@ class ApplicationGroup(pulumi.CustomResource):
                create the Virtual Desktop Application Group. Changing the resource group name forces
                a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] type: Type of Virtual Desktop Application Group.
-               Valid options are `RemoteApp` or `Desktop` application groups.
+        :param pulumi.Input[str] type: Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -636,8 +630,7 @@ class ApplicationGroup(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Type of Virtual Desktop Application Group.
-        Valid options are `RemoteApp` or `Desktop` application groups.
+        Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
         """
         return pulumi.get(self, "type")
 

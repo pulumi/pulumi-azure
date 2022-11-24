@@ -33,7 +33,7 @@ class JobArgs:
         :param pulumi.Input[str] transform_name: The Transform name. Changing this forces a new Media Job to be created.
         :param pulumi.Input[str] description: Optional customer supplied description of the Job.
         :param pulumi.Input[str] name: The name which should be used for this Media Job. Changing this forces a new Media Job to be created.
-        :param pulumi.Input[str] priority: Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created.
+        :param pulumi.Input[str] priority: Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created. Possible values are `High`, `Normal` and `Low`.
         """
         pulumi.set(__self__, "input_asset", input_asset)
         pulumi.set(__self__, "media_services_account_name", media_services_account_name)
@@ -135,7 +135,7 @@ class JobArgs:
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[str]]:
         """
-        Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created.
+        Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created. Possible values are `High`, `Normal` and `Low`.
         """
         return pulumi.get(self, "priority")
 
@@ -162,7 +162,7 @@ class _JobState:
         :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Transform to be created.
         :param pulumi.Input[str] name: The name which should be used for this Media Job. Changing this forces a new Media Job to be created.
         :param pulumi.Input[Sequence[pulumi.Input['JobOutputAssetArgs']]] output_assets: One or more `output_asset` blocks as defined below. Changing this forces a new Media Job to be created.
-        :param pulumi.Input[str] priority: Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created.
+        :param pulumi.Input[str] priority: Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created. Possible values are `High`, `Normal` and `Low`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Media Job should exist. Changing this forces a new Media Job to be created.
         :param pulumi.Input[str] transform_name: The Transform name. Changing this forces a new Media Job to be created.
         """
@@ -247,7 +247,7 @@ class _JobState:
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[str]]:
         """
-        Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created.
+        Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created. Possible values are `High`, `Normal` and `Low`.
         """
         return pulumi.get(self, "priority")
 
@@ -364,7 +364,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Transform to be created.
         :param pulumi.Input[str] name: The name which should be used for this Media Job. Changing this forces a new Media Job to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobOutputAssetArgs']]]] output_assets: One or more `output_asset` blocks as defined below. Changing this forces a new Media Job to be created.
-        :param pulumi.Input[str] priority: Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created.
+        :param pulumi.Input[str] priority: Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created. Possible values are `High`, `Normal` and `Low`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Media Job should exist. Changing this forces a new Media Job to be created.
         :param pulumi.Input[str] transform_name: The Transform name. Changing this forces a new Media Job to be created.
         """
@@ -517,7 +517,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Transform to be created.
         :param pulumi.Input[str] name: The name which should be used for this Media Job. Changing this forces a new Media Job to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobOutputAssetArgs']]]] output_assets: One or more `output_asset` blocks as defined below. Changing this forces a new Media Job to be created.
-        :param pulumi.Input[str] priority: Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created.
+        :param pulumi.Input[str] priority: Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created. Possible values are `High`, `Normal` and `Low`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Media Job should exist. Changing this forces a new Media Job to be created.
         :param pulumi.Input[str] transform_name: The Transform name. Changing this forces a new Media Job to be created.
         """
@@ -579,7 +579,7 @@ class Job(pulumi.CustomResource):
     @pulumi.getter
     def priority(self) -> pulumi.Output[Optional[str]]:
         """
-        Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created.
+        Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created. Possible values are `High`, `Normal` and `Low`.
         """
         return pulumi.get(self, "priority")
 

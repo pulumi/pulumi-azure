@@ -3095,7 +3095,7 @@ class AlertProcessingRuleActionGroupScheduleRecurrenceWeekly(dict):
                  end_time: Optional[str] = None,
                  start_time: Optional[str] = None):
         """
-        :param Sequence[str] days_of_weeks: Specifies a list of dayOfWeek to recurrence.Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+        :param Sequence[str] days_of_weeks: Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
         :param str end_time: Specifies the recurrence end time (H:M:S).
         :param str start_time: Specifies the recurrence start time (H:M:S).
         """
@@ -3109,7 +3109,7 @@ class AlertProcessingRuleActionGroupScheduleRecurrenceWeekly(dict):
     @pulumi.getter(name="daysOfWeeks")
     def days_of_weeks(self) -> Sequence[str]:
         """
-        Specifies a list of dayOfWeek to recurrence.Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+        Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
         """
         return pulumi.get(self, "days_of_weeks")
 
@@ -3879,7 +3879,7 @@ class AlertProcessingRuleSuppressionScheduleRecurrenceWeekly(dict):
                  end_time: Optional[str] = None,
                  start_time: Optional[str] = None):
         """
-        :param Sequence[str] days_of_weeks: Specifies a list of dayOfWeek to recurrence.Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+        :param Sequence[str] days_of_weeks: Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
         :param str end_time: Specifies the recurrence end time (H:M:S).
         :param str start_time: Specifies the recurrence start time (H:M:S).
         """
@@ -3893,7 +3893,7 @@ class AlertProcessingRuleSuppressionScheduleRecurrenceWeekly(dict):
     @pulumi.getter(name="daysOfWeeks")
     def days_of_weeks(self) -> Sequence[str]:
         """
-        Specifies a list of dayOfWeek to recurrence.Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+        Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
         """
         return pulumi.get(self, "days_of_weeks")
 
@@ -4366,7 +4366,7 @@ class AutoscaleSettingProfileRuleMetricTrigger(dict):
         :param str metric_name: The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
         :param str metric_resource_id: The ID of the Resource which the Rule monitors.
         :param str operator: Specifies the operator used to compare the metric data and threshold. Possible values are: `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`.
-        :param str statistic: Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Min` and `Max`.
+        :param str statistic: Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Max`, `Min` and `Sum`.
         :param float threshold: Specifies the threshold of the metric that triggers the scale action.
         :param str time_aggregation: Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`. Defaults to `Average`.
         :param str time_grain: Specifies the granularity of metrics that the rule monitors, which must be one of the pre-defined values returned from the metric definitions for the metric. This value must be between 1 minute and 12 hours an be formatted as an ISO 8601 string.
@@ -4418,7 +4418,7 @@ class AutoscaleSettingProfileRuleMetricTrigger(dict):
     @pulumi.getter
     def statistic(self) -> str:
         """
-        Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Min` and `Max`.
+        Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Max`, `Min` and `Sum`.
         """
         return pulumi.get(self, "statistic")
 

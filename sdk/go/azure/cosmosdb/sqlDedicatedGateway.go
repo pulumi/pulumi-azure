@@ -82,7 +82,7 @@ type SqlDedicatedGateway struct {
 	CosmosdbAccountId pulumi.StringOutput `pulumi:"cosmosdbAccountId"`
 	// The instance count for the CosmosDB SQL Dedicated Gateway. Possible value is between `1` and `5`.
 	InstanceCount pulumi.IntOutput `pulumi:"instanceCount"`
-	// The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created.
+	// The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
 	InstanceSize pulumi.StringOutput `pulumi:"instanceSize"`
 }
 
@@ -128,7 +128,7 @@ type sqlDedicatedGatewayState struct {
 	CosmosdbAccountId *string `pulumi:"cosmosdbAccountId"`
 	// The instance count for the CosmosDB SQL Dedicated Gateway. Possible value is between `1` and `5`.
 	InstanceCount *int `pulumi:"instanceCount"`
-	// The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created.
+	// The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
 	InstanceSize *string `pulumi:"instanceSize"`
 }
 
@@ -137,7 +137,7 @@ type SqlDedicatedGatewayState struct {
 	CosmosdbAccountId pulumi.StringPtrInput
 	// The instance count for the CosmosDB SQL Dedicated Gateway. Possible value is between `1` and `5`.
 	InstanceCount pulumi.IntPtrInput
-	// The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created.
+	// The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
 	InstanceSize pulumi.StringPtrInput
 }
 
@@ -150,7 +150,7 @@ type sqlDedicatedGatewayArgs struct {
 	CosmosdbAccountId string `pulumi:"cosmosdbAccountId"`
 	// The instance count for the CosmosDB SQL Dedicated Gateway. Possible value is between `1` and `5`.
 	InstanceCount int `pulumi:"instanceCount"`
-	// The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created.
+	// The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
 	InstanceSize string `pulumi:"instanceSize"`
 }
 
@@ -160,7 +160,7 @@ type SqlDedicatedGatewayArgs struct {
 	CosmosdbAccountId pulumi.StringInput
 	// The instance count for the CosmosDB SQL Dedicated Gateway. Possible value is between `1` and `5`.
 	InstanceCount pulumi.IntInput
-	// The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created.
+	// The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
 	InstanceSize pulumi.StringInput
 }
 
@@ -261,7 +261,7 @@ func (o SqlDedicatedGatewayOutput) InstanceCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *SqlDedicatedGateway) pulumi.IntOutput { return v.InstanceCount }).(pulumi.IntOutput)
 }
 
-// The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created.
+// The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
 func (o SqlDedicatedGatewayOutput) InstanceSize() pulumi.StringOutput {
 	return o.ApplyT(func(v *SqlDedicatedGateway) pulumi.StringOutput { return v.InstanceSize }).(pulumi.StringOutput)
 }

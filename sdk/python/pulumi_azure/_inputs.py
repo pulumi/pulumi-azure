@@ -17,6 +17,7 @@ __all__ = [
     'ProviderFeaturesCognitiveAccountArgs',
     'ProviderFeaturesKeyVaultArgs',
     'ProviderFeaturesLogAnalyticsWorkspaceArgs',
+    'ProviderFeaturesManagedDiskArgs',
     'ProviderFeaturesNetworkArgs',
     'ProviderFeaturesResourceGroupArgs',
     'ProviderFeaturesTemplateDeploymentArgs',
@@ -33,6 +34,7 @@ class ProviderFeaturesArgs:
                  cognitive_account: Optional[pulumi.Input['ProviderFeaturesCognitiveAccountArgs']] = None,
                  key_vault: Optional[pulumi.Input['ProviderFeaturesKeyVaultArgs']] = None,
                  log_analytics_workspace: Optional[pulumi.Input['ProviderFeaturesLogAnalyticsWorkspaceArgs']] = None,
+                 managed_disk: Optional[pulumi.Input['ProviderFeaturesManagedDiskArgs']] = None,
                  network: Optional[pulumi.Input['ProviderFeaturesNetworkArgs']] = None,
                  resource_group: Optional[pulumi.Input['ProviderFeaturesResourceGroupArgs']] = None,
                  template_deployment: Optional[pulumi.Input['ProviderFeaturesTemplateDeploymentArgs']] = None,
@@ -50,6 +52,8 @@ class ProviderFeaturesArgs:
             pulumi.set(__self__, "key_vault", key_vault)
         if log_analytics_workspace is not None:
             pulumi.set(__self__, "log_analytics_workspace", log_analytics_workspace)
+        if managed_disk is not None:
+            pulumi.set(__self__, "managed_disk", managed_disk)
         if network is not None:
             pulumi.set(__self__, "network", network)
         if resource_group is not None:
@@ -114,6 +118,15 @@ class ProviderFeaturesArgs:
     @log_analytics_workspace.setter
     def log_analytics_workspace(self, value: Optional[pulumi.Input['ProviderFeaturesLogAnalyticsWorkspaceArgs']]):
         pulumi.set(self, "log_analytics_workspace", value)
+
+    @property
+    @pulumi.getter(name="managedDisk")
+    def managed_disk(self) -> Optional[pulumi.Input['ProviderFeaturesManagedDiskArgs']]:
+        return pulumi.get(self, "managed_disk")
+
+    @managed_disk.setter
+    def managed_disk(self, value: Optional[pulumi.Input['ProviderFeaturesManagedDiskArgs']]):
+        pulumi.set(self, "managed_disk", value)
 
     @property
     @pulumi.getter
@@ -381,6 +394,23 @@ class ProviderFeaturesLogAnalyticsWorkspaceArgs:
     @permanently_delete_on_destroy.setter
     def permanently_delete_on_destroy(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "permanently_delete_on_destroy", value)
+
+
+@pulumi.input_type
+class ProviderFeaturesManagedDiskArgs:
+    def __init__(__self__, *,
+                 expand_without_downtime: Optional[pulumi.Input[bool]] = None):
+        if expand_without_downtime is not None:
+            pulumi.set(__self__, "expand_without_downtime", expand_without_downtime)
+
+    @property
+    @pulumi.getter(name="expandWithoutDowntime")
+    def expand_without_downtime(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "expand_without_downtime")
+
+    @expand_without_downtime.setter
+    def expand_without_downtime(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "expand_without_downtime", value)
 
 
 @pulumi.input_type

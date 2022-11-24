@@ -1698,7 +1698,7 @@ class EndpointDeliveryRuleUrlRedirectActionArgs:
         :param pulumi.Input[str] fragment: Specifies the fragment part of the URL. This value must not start with a `#`.
         :param pulumi.Input[str] hostname: Specifies the hostname part of the URL.
         :param pulumi.Input[str] path: Specifies the path part of the URL. This value must begin with a `/`.
-        :param pulumi.Input[str] protocol: Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+        :param pulumi.Input[str] protocol: Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
         :param pulumi.Input[str] query_string: Specifies the query string part of the URL. This value must not start with a `?` or `&` and must be in `<key>=<value>` format separated by `&`.
         """
         pulumi.set(__self__, "redirect_type", redirect_type)
@@ -1765,7 +1765,7 @@ class EndpointDeliveryRuleUrlRedirectActionArgs:
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+        Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
         """
         return pulumi.get(self, "protocol")
 
@@ -2190,7 +2190,7 @@ class EndpointGlobalDeliveryRuleUrlRedirectActionArgs:
         :param pulumi.Input[str] fragment: Specifies the fragment part of the URL. This value must not start with a `#`.
         :param pulumi.Input[str] hostname: Specifies the hostname part of the URL.
         :param pulumi.Input[str] path: Specifies the path part of the URL. This value must begin with a `/`.
-        :param pulumi.Input[str] protocol: Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+        :param pulumi.Input[str] protocol: Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
         :param pulumi.Input[str] query_string: Specifies the query string part of the URL. This value must not start with a `?` or `&` and must be in `<key>=<value>` format separated by `&`.
         """
         pulumi.set(__self__, "redirect_type", redirect_type)
@@ -2257,7 +2257,7 @@ class EndpointGlobalDeliveryRuleUrlRedirectActionArgs:
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+        Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
         """
         return pulumi.get(self, "protocol")
 
@@ -2937,7 +2937,7 @@ class FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs']]]] = None):
         """
-        :param pulumi.Input[str] action: The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+        :param pulumi.Input[str] action: The action to be applied when the rule matches. Possible values are `Allow`, `Log`, `Block`, `Redirect` and `AnomalyScoring`.
         :param pulumi.Input[str] rule_id: Identifier for the managed rule.
         :param pulumi.Input[bool] enabled: Is the managed rule override enabled or disabled. Defaults to `false`
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs']]] exclusions: One or more `exclusion` blocks as defined below.
@@ -2953,7 +2953,7 @@ class FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs:
     @pulumi.getter
     def action(self) -> pulumi.Input[str]:
         """
-        The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+        The action to be applied when the rule matches. Possible values are `Allow`, `Log`, `Block`, `Redirect` and `AnomalyScoring`.
         """
         return pulumi.get(self, "action")
 
@@ -3636,11 +3636,11 @@ class FrontdoorRuleActionsUrlRedirectActionArgs:
                  query_string: Optional[pulumi.Input[str]] = None,
                  redirect_protocol: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] destination_hostname: The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host. Defaults to an empty string.
+        :param pulumi.Input[str] destination_hostname: The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host.
         :param pulumi.Input[str] redirect_type: The response type to return to the requestor. Possible values include `Moved`, `Found` , `TemporaryRedirect` or `PermanentRedirect`.
         :param pulumi.Input[str] destination_fragment: The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string.
         :param pulumi.Input[str] destination_path: The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string.
-        :param pulumi.Input[str] query_string: The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Defaults to an empty string.
+        :param pulumi.Input[str] query_string: The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string.
         :param pulumi.Input[str] redirect_protocol: The protocol the request will be redirected as. Possible values include `MatchRequest`, `Http` or `Https`. Defaults to `MatchRequest`.
         """
         pulumi.set(__self__, "destination_hostname", destination_hostname)
@@ -3658,7 +3658,7 @@ class FrontdoorRuleActionsUrlRedirectActionArgs:
     @pulumi.getter(name="destinationHostname")
     def destination_hostname(self) -> pulumi.Input[str]:
         """
-        The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host. Defaults to an empty string.
+        The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host.
         """
         return pulumi.get(self, "destination_hostname")
 
@@ -3706,7 +3706,7 @@ class FrontdoorRuleActionsUrlRedirectActionArgs:
     @pulumi.getter(name="queryString")
     def query_string(self) -> Optional[pulumi.Input[str]]:
         """
-        The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Defaults to an empty string.
+        The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string.
         """
         return pulumi.get(self, "query_string")
 

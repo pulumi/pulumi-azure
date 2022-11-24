@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages private and isolated Logic App instances within an Azure virtual network.
-//
 // ## Example Usage
 //
 // ```go

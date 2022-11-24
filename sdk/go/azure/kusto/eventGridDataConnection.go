@@ -143,13 +143,11 @@ import (
 type EventGridDataConnection struct {
 	pulumi.CustomResourceState
 
-	// Specifies the blob storage event type that needs to be processed. Possible
-	// Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults
-	// to `Microsoft.Storage.BlobCreated`.
+	// Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
 	BlobStorageEventType pulumi.StringPtrOutput `pulumi:"blobStorageEventType"`
 	// Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
-	// Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
+	// Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
 	DataFormat pulumi.StringPtrOutput `pulumi:"dataFormat"`
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
@@ -228,13 +226,11 @@ func GetEventGridDataConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventGridDataConnection resources.
 type eventGridDataConnectionState struct {
-	// Specifies the blob storage event type that needs to be processed. Possible
-	// Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults
-	// to `Microsoft.Storage.BlobCreated`.
+	// Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
 	BlobStorageEventType *string `pulumi:"blobStorageEventType"`
 	// Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
 	ClusterName *string `pulumi:"clusterName"`
-	// Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
+	// Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
 	DataFormat *string `pulumi:"dataFormat"`
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName *string `pulumi:"databaseName"`
@@ -267,13 +263,11 @@ type eventGridDataConnectionState struct {
 }
 
 type EventGridDataConnectionState struct {
-	// Specifies the blob storage event type that needs to be processed. Possible
-	// Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults
-	// to `Microsoft.Storage.BlobCreated`.
+	// Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
 	BlobStorageEventType pulumi.StringPtrInput
 	// Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
 	ClusterName pulumi.StringPtrInput
-	// Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
+	// Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
 	DataFormat pulumi.StringPtrInput
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringPtrInput
@@ -310,13 +304,11 @@ func (EventGridDataConnectionState) ElementType() reflect.Type {
 }
 
 type eventGridDataConnectionArgs struct {
-	// Specifies the blob storage event type that needs to be processed. Possible
-	// Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults
-	// to `Microsoft.Storage.BlobCreated`.
+	// Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
 	BlobStorageEventType *string `pulumi:"blobStorageEventType"`
 	// Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
 	ClusterName string `pulumi:"clusterName"`
-	// Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
+	// Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
 	DataFormat *string `pulumi:"dataFormat"`
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
@@ -350,13 +342,11 @@ type eventGridDataConnectionArgs struct {
 
 // The set of arguments for constructing a EventGridDataConnection resource.
 type EventGridDataConnectionArgs struct {
-	// Specifies the blob storage event type that needs to be processed. Possible
-	// Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults
-	// to `Microsoft.Storage.BlobCreated`.
+	// Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
 	BlobStorageEventType pulumi.StringPtrInput
 	// Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
 	ClusterName pulumi.StringInput
-	// Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
+	// Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
 	DataFormat pulumi.StringPtrInput
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput
@@ -475,9 +465,7 @@ func (o EventGridDataConnectionOutput) ToEventGridDataConnectionOutputWithContex
 	return o
 }
 
-// Specifies the blob storage event type that needs to be processed. Possible
-// Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults
-// to `Microsoft.Storage.BlobCreated`.
+// Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
 func (o EventGridDataConnectionOutput) BlobStorageEventType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventGridDataConnection) pulumi.StringPtrOutput { return v.BlobStorageEventType }).(pulumi.StringPtrOutput)
 }
@@ -487,7 +475,7 @@ func (o EventGridDataConnectionOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventGridDataConnection) pulumi.StringOutput { return v.ClusterName }).(pulumi.StringOutput)
 }
 
-// Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`.
+// Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
 func (o EventGridDataConnectionOutput) DataFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventGridDataConnection) pulumi.StringPtrOutput { return v.DataFormat }).(pulumi.StringPtrOutput)
 }

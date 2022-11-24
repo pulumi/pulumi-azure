@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Sentinel.Outputs
         /// </summary>
         public readonly string? OwnerId;
         /// <summary>
-        /// The severity to add to the incident.
+        /// The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
         /// </summary>
         public readonly string? Severity;
         /// <summary>

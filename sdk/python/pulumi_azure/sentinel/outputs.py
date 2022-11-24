@@ -11,6 +11,8 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'AlertRuleFusionSource',
+    'AlertRuleFusionSourceSubType',
     'AlertRuleNrtAlertDetailsOverride',
     'AlertRuleNrtEntityMapping',
     'AlertRuleNrtEntityMappingFieldMapping',
@@ -32,6 +34,123 @@ __all__ = [
     'GetAlertRuleTemplateScheduledTemplateResult',
     'GetAlertRuleTemplateSecurityIncidentTemplateResult',
 ]
+
+@pulumi.output_type
+class AlertRuleFusionSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subTypes":
+            suggest = "sub_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertRuleFusionSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertRuleFusionSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertRuleFusionSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 enabled: Optional[bool] = None,
+                 sub_types: Optional[Sequence['outputs.AlertRuleFusionSourceSubType']] = None):
+        """
+        :param str name: The name of the Fusion source signal. Refer to Fusion alert rule template for supported values.
+        :param bool enabled: Whether this source signal is enabled or disabled in Fusion detection? Defaults to `true`.
+        :param Sequence['AlertRuleFusionSourceSubTypeArgs'] sub_types: One or more `sub_type` blocks as defined below.
+        """
+        pulumi.set(__self__, "name", name)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if sub_types is not None:
+            pulumi.set(__self__, "sub_types", sub_types)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Fusion source signal. Refer to Fusion alert rule template for supported values.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Whether this source signal is enabled or disabled in Fusion detection? Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="subTypes")
+    def sub_types(self) -> Optional[Sequence['outputs.AlertRuleFusionSourceSubType']]:
+        """
+        One or more `sub_type` blocks as defined below.
+        """
+        return pulumi.get(self, "sub_types")
+
+
+@pulumi.output_type
+class AlertRuleFusionSourceSubType(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "severitiesAlloweds":
+            suggest = "severities_alloweds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertRuleFusionSourceSubType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertRuleFusionSourceSubType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertRuleFusionSourceSubType.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 severities_alloweds: Sequence[str],
+                 enabled: Optional[bool] = None):
+        """
+        :param str name: The Name of the source subtype under a given source signal in Fusion detection. Refer to Fusion alert rule template for supported values.
+        :param Sequence[str] severities_alloweds: A list of severities that are enabled for this source subtype consumed in Fusion detection. Possible values for each element are `High`, `Medium`, `Low`, `Informational`.
+        :param bool enabled: Whether this source subtype under source signal is enabled or disabled in Fusion detection. Defaults to `true`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "severities_alloweds", severities_alloweds)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The Name of the source subtype under a given source signal in Fusion detection. Refer to Fusion alert rule template for supported values.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="severitiesAlloweds")
+    def severities_alloweds(self) -> Sequence[str]:
+        """
+        A list of severities that are enabled for this source subtype consumed in Fusion detection. Possible values for each element are `High`, `Medium`, `Low`, `Informational`.
+        """
+        return pulumi.get(self, "severities_alloweds")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Whether this source subtype under source signal is enabled or disabled in Fusion detection. Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
 
 @pulumi.output_type
 class AlertRuleNrtAlertDetailsOverride(dict):
@@ -289,7 +408,7 @@ class AlertRuleNrtIncidentGrouping(dict):
                  lookback_duration: Optional[str] = None,
                  reopen_closed_incidents: Optional[bool] = None):
         """
-        :param Sequence[str] by_alert_details: A list of alert details to group by, only when the `entity_matching_method` is `Selected`.
+        :param Sequence[str] by_alert_details: A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
         :param Sequence[str] by_custom_details: A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
         :param Sequence[str] by_entities: A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
         :param bool enabled: Enable grouping incidents created from alerts triggered by this Sentinel NRT Alert Rule. Defaults to `true`.
@@ -316,7 +435,7 @@ class AlertRuleNrtIncidentGrouping(dict):
     @pulumi.getter(name="byAlertDetails")
     def by_alert_details(self) -> Optional[Sequence[str]]:
         """
-        A list of alert details to group by, only when the `entity_matching_method` is `Selected`.
+        A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
         """
         return pulumi.get(self, "by_alert_details")
 
@@ -563,7 +682,7 @@ class AlertRuleScheduledEventGrouping(dict):
     def __init__(__self__, *,
                  aggregation_method: str):
         """
-        :param str aggregation_method: The aggregation type of grouping the events.
+        :param str aggregation_method: The aggregation type of grouping the events. Possible values are `AlertPerResult` and `SingleAlert`.
         """
         pulumi.set(__self__, "aggregation_method", aggregation_method)
 
@@ -571,7 +690,7 @@ class AlertRuleScheduledEventGrouping(dict):
     @pulumi.getter(name="aggregationMethod")
     def aggregation_method(self) -> str:
         """
-        The aggregation type of grouping the events.
+        The aggregation type of grouping the events. Possible values are `AlertPerResult` and `SingleAlert`.
         """
         return pulumi.get(self, "aggregation_method")
 
@@ -767,7 +886,7 @@ class AuthomationRuleActionIncident(dict):
         :param str classification_comment: The comment why the incident is to be closed.
         :param Sequence[str] labels: Specifies a list of labels to add to the incident.
         :param str owner_id: The object ID of the entity this incident is assigned to.
-        :param str severity: The severity to add to the incident.
+        :param str severity: The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
         :param str status: The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
         """
         pulumi.set(__self__, "order", order)
@@ -828,7 +947,7 @@ class AuthomationRuleActionIncident(dict):
     @pulumi.getter
     def severity(self) -> Optional[str]:
         """
-        The severity to add to the incident.
+        The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
         """
         return pulumi.get(self, "severity")
 
@@ -976,7 +1095,7 @@ class AutomationRuleActionIncident(dict):
         :param str classification_comment: The comment why the incident is to be closed.
         :param Sequence[str] labels: Specifies a list of labels to add to the incident.
         :param str owner_id: The object ID of the entity this incident is assigned to.
-        :param str severity: The severity to add to the incident.
+        :param str severity: The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
         :param str status: The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
         """
         pulumi.set(__self__, "order", order)
@@ -1037,7 +1156,7 @@ class AutomationRuleActionIncident(dict):
     @pulumi.getter
     def severity(self) -> Optional[str]:
         """
-        The severity to add to the incident.
+        The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
         """
         return pulumi.get(self, "severity")
 

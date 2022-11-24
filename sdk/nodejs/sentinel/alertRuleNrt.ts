@@ -141,9 +141,13 @@ export class AlertRuleNrt extends pulumi.CustomResource {
      */
     public readonly suppressionEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
+     * A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation` and `PreAttack`.
      */
     public readonly tactics!: pulumi.Output<string[] | undefined>;
+    /**
+     * A list of techniques of attacks by which to classify the rule.
+     */
+    public readonly techniques!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a AlertRuleNrt resource with the given unique name, arguments, and options.
@@ -174,6 +178,7 @@ export class AlertRuleNrt extends pulumi.CustomResource {
             resourceInputs["suppressionDuration"] = state ? state.suppressionDuration : undefined;
             resourceInputs["suppressionEnabled"] = state ? state.suppressionEnabled : undefined;
             resourceInputs["tactics"] = state ? state.tactics : undefined;
+            resourceInputs["techniques"] = state ? state.techniques : undefined;
         } else {
             const args = argsOrState as AlertRuleNrtArgs | undefined;
             if ((!args || args.displayName === undefined) && !opts.urn) {
@@ -204,6 +209,7 @@ export class AlertRuleNrt extends pulumi.CustomResource {
             resourceInputs["suppressionDuration"] = args ? args.suppressionDuration : undefined;
             resourceInputs["suppressionEnabled"] = args ? args.suppressionEnabled : undefined;
             resourceInputs["tactics"] = args ? args.tactics : undefined;
+            resourceInputs["techniques"] = args ? args.techniques : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AlertRuleNrt.__pulumiType, name, resourceInputs, opts);
@@ -275,9 +281,13 @@ export interface AlertRuleNrtState {
      */
     suppressionEnabled?: pulumi.Input<boolean>;
     /**
-     * A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
+     * A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation` and `PreAttack`.
      */
     tactics?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of techniques of attacks by which to classify the rule.
+     */
+    techniques?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -345,7 +355,11 @@ export interface AlertRuleNrtArgs {
      */
     suppressionEnabled?: pulumi.Input<boolean>;
     /**
-     * A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
+     * A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation` and `PreAttack`.
      */
     tactics?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of techniques of attacks by which to classify the rule.
+     */
+    techniques?: pulumi.Input<pulumi.Input<string>[]>;
 }

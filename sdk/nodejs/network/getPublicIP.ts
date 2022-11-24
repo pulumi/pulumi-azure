@@ -103,6 +103,14 @@ export interface GetPublicIPArgs {
 export interface GetPublicIPResult {
     readonly allocationMethod: string;
     /**
+     * The DDoS protection mode of the public IP.
+     */
+    readonly ddosProtectionMode: string;
+    /**
+     * The ID of DDoS protection plan associated with the public IP.
+     */
+    readonly ddosProtectionPlanId: string;
+    /**
      * The label for the Domain Name.
      */
     readonly domainNameLabel: string;

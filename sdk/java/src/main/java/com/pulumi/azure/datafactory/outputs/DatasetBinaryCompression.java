@@ -17,7 +17,7 @@ public final class DatasetBinaryCompression {
      */
     private @Nullable String level;
     /**
-     * @return The type of compression used during transport.
+     * @return The type of compression used during transport. Possible values are `BZip2`, `Deflate`, `GZip`, `Tar`, `TarGZip` and `ZipDeflate`.
      * 
      */
     private String type;
@@ -31,7 +31,7 @@ public final class DatasetBinaryCompression {
         return Optional.ofNullable(this.level);
     }
     /**
-     * @return The type of compression used during transport.
+     * @return The type of compression used during transport. Possible values are `BZip2`, `Deflate`, `GZip`, `Tar`, `TarGZip` and `ZipDeflate`.
      * 
      */
     public String type() {

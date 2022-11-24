@@ -94,7 +94,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The type of this API Management Group. Possible values are `custom` and `external`. Default is `custom`.
+        /// The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`.
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The type of this API Management Group. Possible values are `custom` and `external`. Default is `custom`.
+        /// The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -232,7 +232,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The type of this API Management Group. Possible values are `custom` and `external`. Default is `custom`.
+        /// The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

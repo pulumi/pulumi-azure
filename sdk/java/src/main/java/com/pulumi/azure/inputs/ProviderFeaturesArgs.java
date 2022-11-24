@@ -9,6 +9,7 @@ import com.pulumi.azure.inputs.ProviderFeaturesApplicationInsightsArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesCognitiveAccountArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesKeyVaultArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesLogAnalyticsWorkspaceArgs;
+import com.pulumi.azure.inputs.ProviderFeaturesManagedDiskArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesNetworkArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesResourceGroupArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesTemplateDeploymentArgs;
@@ -67,6 +68,13 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.logAnalyticsWorkspace);
     }
 
+    @Import(name="managedDisk")
+    private @Nullable Output<ProviderFeaturesManagedDiskArgs> managedDisk;
+
+    public Optional<Output<ProviderFeaturesManagedDiskArgs>> managedDisk() {
+        return Optional.ofNullable(this.managedDisk);
+    }
+
     @Import(name="network")
     private @Nullable Output<ProviderFeaturesNetworkArgs> network;
 
@@ -111,6 +119,7 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
         this.cognitiveAccount = $.cognitiveAccount;
         this.keyVault = $.keyVault;
         this.logAnalyticsWorkspace = $.logAnalyticsWorkspace;
+        this.managedDisk = $.managedDisk;
         this.network = $.network;
         this.resourceGroup = $.resourceGroup;
         this.templateDeployment = $.templateDeployment;
@@ -188,6 +197,15 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
 
         public Builder logAnalyticsWorkspace(ProviderFeaturesLogAnalyticsWorkspaceArgs logAnalyticsWorkspace) {
             return logAnalyticsWorkspace(Output.of(logAnalyticsWorkspace));
+        }
+
+        public Builder managedDisk(@Nullable Output<ProviderFeaturesManagedDiskArgs> managedDisk) {
+            $.managedDisk = managedDisk;
+            return this;
+        }
+
+        public Builder managedDisk(ProviderFeaturesManagedDiskArgs managedDisk) {
+            return managedDisk(Output.of(managedDisk));
         }
 
         public Builder network(@Nullable Output<ProviderFeaturesNetworkArgs> network) {

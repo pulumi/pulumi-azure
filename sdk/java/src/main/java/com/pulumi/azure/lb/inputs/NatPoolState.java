@@ -145,14 +145,14 @@ public final class NatPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+     * The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
      * 
      */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
     /**
-     * @return The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+     * @return The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
      * 
      */
     public Optional<Output<String>> protocol() {
@@ -402,7 +402,7 @@ public final class NatPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocol The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+         * @param protocol The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
          * 
          * @return builder
          * 
@@ -413,7 +413,7 @@ public final class NatPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocol The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+         * @param protocol The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
          * 
          * @return builder
          * 

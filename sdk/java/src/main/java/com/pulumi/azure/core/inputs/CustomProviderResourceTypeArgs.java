@@ -46,14 +46,14 @@ public final class CustomProviderResourceTypeArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The routing type that is supported for the resource request. Valid values are `ResourceTypeRoutingProxy` or `ResourceTypeRoutingProxyCache`. This value defaults to `ResourceTypeRoutingProxy`.
+     * The routing type that is supported for the resource request. Valid values are `Proxy` and `Proxy,Cache`. This value defaults to `ResourceTypeRoutingProxy`.
      * 
      */
     @Import(name="routingType")
     private @Nullable Output<String> routingType;
 
     /**
-     * @return The routing type that is supported for the resource request. Valid values are `ResourceTypeRoutingProxy` or `ResourceTypeRoutingProxyCache`. This value defaults to `ResourceTypeRoutingProxy`.
+     * @return The routing type that is supported for the resource request. Valid values are `Proxy` and `Proxy,Cache`. This value defaults to `ResourceTypeRoutingProxy`.
      * 
      */
     public Optional<Output<String>> routingType() {
@@ -129,7 +129,7 @@ public final class CustomProviderResourceTypeArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param routingType The routing type that is supported for the resource request. Valid values are `ResourceTypeRoutingProxy` or `ResourceTypeRoutingProxyCache`. This value defaults to `ResourceTypeRoutingProxy`.
+         * @param routingType The routing type that is supported for the resource request. Valid values are `Proxy` and `Proxy,Cache`. This value defaults to `ResourceTypeRoutingProxy`.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class CustomProviderResourceTypeArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param routingType The routing type that is supported for the resource request. Valid values are `ResourceTypeRoutingProxy` or `ResourceTypeRoutingProxyCache`. This value defaults to `ResourceTypeRoutingProxy`.
+         * @param routingType The routing type that is supported for the resource request. Valid values are `Proxy` and `Proxy,Cache`. This value defaults to `ResourceTypeRoutingProxy`.
          * 
          * @return builder
          * 

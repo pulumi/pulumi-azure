@@ -72,7 +72,7 @@ class CustomProviderResourceTypeArgs:
         """
         :param pulumi.Input[str] endpoint: Specifies the endpoint of the route definition.
         :param pulumi.Input[str] name: Specifies the name of the route definition.
-        :param pulumi.Input[str] routing_type: The routing type that is supported for the resource request. Valid values are `ResourceTypeRoutingProxy` or `ResourceTypeRoutingProxyCache`. This value defaults to `ResourceTypeRoutingProxy`.
+        :param pulumi.Input[str] routing_type: The routing type that is supported for the resource request. Valid values are `Proxy` and `Proxy,Cache`. This value defaults to `ResourceTypeRoutingProxy`.
         """
         pulumi.set(__self__, "endpoint", endpoint)
         pulumi.set(__self__, "name", name)
@@ -107,7 +107,7 @@ class CustomProviderResourceTypeArgs:
     @pulumi.getter(name="routingType")
     def routing_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The routing type that is supported for the resource request. Valid values are `ResourceTypeRoutingProxy` or `ResourceTypeRoutingProxyCache`. This value defaults to `ResourceTypeRoutingProxy`.
+        The routing type that is supported for the resource request. Valid values are `Proxy` and `Proxy,Cache`. This value defaults to `ResourceTypeRoutingProxy`.
         """
         return pulumi.get(self, "routing_type")
 
@@ -145,7 +145,7 @@ class ResourceGroupCostManagementExportExportDataOptionsArgs:
                  type: pulumi.Input[str]):
         """
         :param pulumi.Input[str] time_frame: The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
-        :param pulumi.Input[str] type: The type of the query.
+        :param pulumi.Input[str] type: The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
         """
         pulumi.set(__self__, "time_frame", time_frame)
         pulumi.set(__self__, "type", type)
@@ -166,7 +166,7 @@ class ResourceGroupCostManagementExportExportDataOptionsArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of the query.
+        The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
         """
         return pulumi.get(self, "type")
 
@@ -472,7 +472,7 @@ class SubscriptionCostManagementExportExportDataOptionsArgs:
                  type: pulumi.Input[str]):
         """
         :param pulumi.Input[str] time_frame: The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
-        :param pulumi.Input[str] type: The type of the query.
+        :param pulumi.Input[str] type: The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
         """
         pulumi.set(__self__, "time_frame", time_frame)
         pulumi.set(__self__, "type", type)
@@ -493,7 +493,7 @@ class SubscriptionCostManagementExportExportDataOptionsArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of the query.
+        The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
         """
         return pulumi.get(self, "type")
 

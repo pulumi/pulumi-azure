@@ -114,7 +114,7 @@ type SpringCloudGateway struct {
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
 	// Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
 	InstanceCount pulumi.IntPtrOutput `pulumi:"instanceCount"`
-	// The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created.
+	// The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Indicates whether the Spring Cloud Gateway exposes endpoint.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
@@ -168,7 +168,7 @@ type springCloudGatewayState struct {
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
 	InstanceCount *int `pulumi:"instanceCount"`
-	// The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created.
+	// The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
 	Name *string `pulumi:"name"`
 	// Indicates whether the Spring Cloud Gateway exposes endpoint.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
@@ -191,7 +191,7 @@ type SpringCloudGatewayState struct {
 	HttpsOnly pulumi.BoolPtrInput
 	// Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
 	InstanceCount pulumi.IntPtrInput
-	// The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created.
+	// The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
 	Name pulumi.StringPtrInput
 	// Indicates whether the Spring Cloud Gateway exposes endpoint.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
@@ -218,7 +218,7 @@ type springCloudGatewayArgs struct {
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
 	InstanceCount *int `pulumi:"instanceCount"`
-	// The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created.
+	// The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
 	Name *string `pulumi:"name"`
 	// Indicates whether the Spring Cloud Gateway exposes endpoint.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
@@ -240,7 +240,7 @@ type SpringCloudGatewayArgs struct {
 	HttpsOnly pulumi.BoolPtrInput
 	// Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
 	InstanceCount pulumi.IntPtrInput
-	// The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created.
+	// The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
 	Name pulumi.StringPtrInput
 	// Indicates whether the Spring Cloud Gateway exposes endpoint.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
@@ -359,7 +359,7 @@ func (o SpringCloudGatewayOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpringCloudGateway) pulumi.IntPtrOutput { return v.InstanceCount }).(pulumi.IntPtrOutput)
 }
 
-// The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created.
+// The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
 func (o SpringCloudGatewayOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpringCloudGateway) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
