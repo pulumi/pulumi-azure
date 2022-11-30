@@ -23,7 +23,6 @@ func getGoBaseOptions(t *testing.T) integration.ProgramTestOptions {
 }
 
 func TestAccNetworkGo(t *testing.T) {
-	t.Skipf("Waiting for next major upgrade release")
 	test := getGoBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "network-go"),
