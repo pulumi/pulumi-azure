@@ -20,6 +20,7 @@ from .frontdoor_rule import *
 from .frontdoor_rule_set import *
 from .frontdoor_secret import *
 from .frontdoor_security_policy import *
+from .get_frontdoor_custom_domain import *
 from .get_frontdoor_endpoint import *
 from .get_frontdoor_firewall_policy import *
 from .get_frontdoor_origin_group import *

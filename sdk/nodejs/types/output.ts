@@ -17054,6 +17054,21 @@ export namespace cdn {
         cdnFrontdoorDomainId: string;
     }
 
+    export interface GetFrontdoorCustomDomainTl {
+        /**
+         * The Resource ID of the Front Door Secret.
+         */
+        cdnFrontdoorSecretId: string;
+        /**
+         * The SSL certificate type.
+         */
+        certificateType: string;
+        /**
+         * The TLS protocol version that will be used for Https connections.
+         */
+        minimumTlsVersion: string;
+    }
+
     export interface GetFrontdoorOriginGroupHealthProbe {
         /**
          * Specifies the number of seconds between health probes.

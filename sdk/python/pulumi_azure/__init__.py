@@ -5187,6 +5187,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "mssql/managedInstanceTransparentDataEncryption",
+  "fqn": "pulumi_azure.mssql",
+  "classes": {
+   "azure:mssql/managedInstanceTransparentDataEncryption:ManagedInstanceTransparentDataEncryption": "ManagedInstanceTransparentDataEncryption"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "mssql/managedInstanceVulnerabilityAssessment",
   "fqn": "pulumi_azure.mssql",
   "classes": {
@@ -6135,6 +6143,14 @@ _utilities.register(
   "fqn": "pulumi_azure.postgresql",
   "classes": {
    "azure:postgresql/flexibleServer:FlexibleServer": "FlexibleServer"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "postgresql/flexibleServerActiveDirectoryAdministrator",
+  "fqn": "pulumi_azure.postgresql",
+  "classes": {
+   "azure:postgresql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator": "FlexibleServerActiveDirectoryAdministrator"
   }
  },
  {

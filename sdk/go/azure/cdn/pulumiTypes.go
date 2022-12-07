@@ -11654,6 +11654,121 @@ func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOut
 	}).(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainOutput)
 }
 
+type GetFrontdoorCustomDomainTl struct {
+	// The Resource ID of the Front Door Secret.
+	CdnFrontdoorSecretId string `pulumi:"cdnFrontdoorSecretId"`
+	// The SSL certificate type.
+	CertificateType string `pulumi:"certificateType"`
+	// The TLS protocol version that will be used for Https connections.
+	MinimumTlsVersion string `pulumi:"minimumTlsVersion"`
+}
+
+// GetFrontdoorCustomDomainTlInput is an input type that accepts GetFrontdoorCustomDomainTlArgs and GetFrontdoorCustomDomainTlOutput values.
+// You can construct a concrete instance of `GetFrontdoorCustomDomainTlInput` via:
+//
+//	GetFrontdoorCustomDomainTlArgs{...}
+type GetFrontdoorCustomDomainTlInput interface {
+	pulumi.Input
+
+	ToGetFrontdoorCustomDomainTlOutput() GetFrontdoorCustomDomainTlOutput
+	ToGetFrontdoorCustomDomainTlOutputWithContext(context.Context) GetFrontdoorCustomDomainTlOutput
+}
+
+type GetFrontdoorCustomDomainTlArgs struct {
+	// The Resource ID of the Front Door Secret.
+	CdnFrontdoorSecretId pulumi.StringInput `pulumi:"cdnFrontdoorSecretId"`
+	// The SSL certificate type.
+	CertificateType pulumi.StringInput `pulumi:"certificateType"`
+	// The TLS protocol version that will be used for Https connections.
+	MinimumTlsVersion pulumi.StringInput `pulumi:"minimumTlsVersion"`
+}
+
+func (GetFrontdoorCustomDomainTlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFrontdoorCustomDomainTl)(nil)).Elem()
+}
+
+func (i GetFrontdoorCustomDomainTlArgs) ToGetFrontdoorCustomDomainTlOutput() GetFrontdoorCustomDomainTlOutput {
+	return i.ToGetFrontdoorCustomDomainTlOutputWithContext(context.Background())
+}
+
+func (i GetFrontdoorCustomDomainTlArgs) ToGetFrontdoorCustomDomainTlOutputWithContext(ctx context.Context) GetFrontdoorCustomDomainTlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFrontdoorCustomDomainTlOutput)
+}
+
+// GetFrontdoorCustomDomainTlArrayInput is an input type that accepts GetFrontdoorCustomDomainTlArray and GetFrontdoorCustomDomainTlArrayOutput values.
+// You can construct a concrete instance of `GetFrontdoorCustomDomainTlArrayInput` via:
+//
+//	GetFrontdoorCustomDomainTlArray{ GetFrontdoorCustomDomainTlArgs{...} }
+type GetFrontdoorCustomDomainTlArrayInput interface {
+	pulumi.Input
+
+	ToGetFrontdoorCustomDomainTlArrayOutput() GetFrontdoorCustomDomainTlArrayOutput
+	ToGetFrontdoorCustomDomainTlArrayOutputWithContext(context.Context) GetFrontdoorCustomDomainTlArrayOutput
+}
+
+type GetFrontdoorCustomDomainTlArray []GetFrontdoorCustomDomainTlInput
+
+func (GetFrontdoorCustomDomainTlArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFrontdoorCustomDomainTl)(nil)).Elem()
+}
+
+func (i GetFrontdoorCustomDomainTlArray) ToGetFrontdoorCustomDomainTlArrayOutput() GetFrontdoorCustomDomainTlArrayOutput {
+	return i.ToGetFrontdoorCustomDomainTlArrayOutputWithContext(context.Background())
+}
+
+func (i GetFrontdoorCustomDomainTlArray) ToGetFrontdoorCustomDomainTlArrayOutputWithContext(ctx context.Context) GetFrontdoorCustomDomainTlArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFrontdoorCustomDomainTlArrayOutput)
+}
+
+type GetFrontdoorCustomDomainTlOutput struct{ *pulumi.OutputState }
+
+func (GetFrontdoorCustomDomainTlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFrontdoorCustomDomainTl)(nil)).Elem()
+}
+
+func (o GetFrontdoorCustomDomainTlOutput) ToGetFrontdoorCustomDomainTlOutput() GetFrontdoorCustomDomainTlOutput {
+	return o
+}
+
+func (o GetFrontdoorCustomDomainTlOutput) ToGetFrontdoorCustomDomainTlOutputWithContext(ctx context.Context) GetFrontdoorCustomDomainTlOutput {
+	return o
+}
+
+// The Resource ID of the Front Door Secret.
+func (o GetFrontdoorCustomDomainTlOutput) CdnFrontdoorSecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFrontdoorCustomDomainTl) string { return v.CdnFrontdoorSecretId }).(pulumi.StringOutput)
+}
+
+// The SSL certificate type.
+func (o GetFrontdoorCustomDomainTlOutput) CertificateType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFrontdoorCustomDomainTl) string { return v.CertificateType }).(pulumi.StringOutput)
+}
+
+// The TLS protocol version that will be used for Https connections.
+func (o GetFrontdoorCustomDomainTlOutput) MinimumTlsVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFrontdoorCustomDomainTl) string { return v.MinimumTlsVersion }).(pulumi.StringOutput)
+}
+
+type GetFrontdoorCustomDomainTlArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFrontdoorCustomDomainTlArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFrontdoorCustomDomainTl)(nil)).Elem()
+}
+
+func (o GetFrontdoorCustomDomainTlArrayOutput) ToGetFrontdoorCustomDomainTlArrayOutput() GetFrontdoorCustomDomainTlArrayOutput {
+	return o
+}
+
+func (o GetFrontdoorCustomDomainTlArrayOutput) ToGetFrontdoorCustomDomainTlArrayOutputWithContext(ctx context.Context) GetFrontdoorCustomDomainTlArrayOutput {
+	return o
+}
+
+func (o GetFrontdoorCustomDomainTlArrayOutput) Index(i pulumi.IntInput) GetFrontdoorCustomDomainTlOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFrontdoorCustomDomainTl {
+		return vs[0].([]GetFrontdoorCustomDomainTl)[vs[1].(int)]
+	}).(GetFrontdoorCustomDomainTlOutput)
+}
+
 type GetFrontdoorOriginGroupHealthProbe struct {
 	// Specifies the number of seconds between health probes.
 	IntervalInSeconds int `pulumi:"intervalInSeconds"`
@@ -12253,6 +12368,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrInput)(nil)).Elem(), FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainInput)(nil)).Elem(), FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayInput)(nil)).Elem(), FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorCustomDomainTlInput)(nil)).Elem(), GetFrontdoorCustomDomainTlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorCustomDomainTlArrayInput)(nil)).Elem(), GetFrontdoorCustomDomainTlArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorOriginGroupHealthProbeInput)(nil)).Elem(), GetFrontdoorOriginGroupHealthProbeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorOriginGroupHealthProbeArrayInput)(nil)).Elem(), GetFrontdoorOriginGroupHealthProbeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorOriginGroupLoadBalancingInput)(nil)).Elem(), GetFrontdoorOriginGroupLoadBalancingArgs{})
@@ -12415,6 +12532,8 @@ func init() {
 	pulumi.RegisterOutputType(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput{})
 	pulumi.RegisterOutputType(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainOutput{})
 	pulumi.RegisterOutputType(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutput{})
+	pulumi.RegisterOutputType(GetFrontdoorCustomDomainTlOutput{})
+	pulumi.RegisterOutputType(GetFrontdoorCustomDomainTlArrayOutput{})
 	pulumi.RegisterOutputType(GetFrontdoorOriginGroupHealthProbeOutput{})
 	pulumi.RegisterOutputType(GetFrontdoorOriginGroupHealthProbeArrayOutput{})
 	pulumi.RegisterOutputType(GetFrontdoorOriginGroupLoadBalancingOutput{})

@@ -80,6 +80,11 @@ export type FrontdoorSecurityPolicy = import("./frontdoorSecurityPolicy").Frontd
 export const FrontdoorSecurityPolicy: typeof import("./frontdoorSecurityPolicy").FrontdoorSecurityPolicy = null as any;
 utilities.lazyLoad(exports, ["FrontdoorSecurityPolicy"], () => require("./frontdoorSecurityPolicy"));
 
+export { GetFrontdoorCustomDomainArgs, GetFrontdoorCustomDomainResult, GetFrontdoorCustomDomainOutputArgs } from "./getFrontdoorCustomDomain";
+export const getFrontdoorCustomDomain: typeof import("./getFrontdoorCustomDomain").getFrontdoorCustomDomain = null as any;
+export const getFrontdoorCustomDomainOutput: typeof import("./getFrontdoorCustomDomain").getFrontdoorCustomDomainOutput = null as any;
+utilities.lazyLoad(exports, ["getFrontdoorCustomDomain","getFrontdoorCustomDomainOutput"], () => require("./getFrontdoorCustomDomain"));
+
 export { GetFrontdoorEndpointArgs, GetFrontdoorEndpointResult, GetFrontdoorEndpointOutputArgs } from "./getFrontdoorEndpoint";
 export const getFrontdoorEndpoint: typeof import("./getFrontdoorEndpoint").getFrontdoorEndpoint = null as any;
 export const getFrontdoorEndpointOutput: typeof import("./getFrontdoorEndpoint").getFrontdoorEndpointOutput = null as any;
