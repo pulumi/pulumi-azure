@@ -79,7 +79,7 @@ type KubernetesCluster struct {
 
 	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux KubernetesClusterAciConnectorLinuxPtrOutput `pulumi:"aciConnectorLinux"`
-	// The IP ranges to allow for incoming traffic to the server nodes.
+	// Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
 	ApiServerAuthorizedIpRanges pulumi.StringArrayOutput `pulumi:"apiServerAuthorizedIpRanges"`
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile KubernetesClusterAutoScalerProfileOutput `pulumi:"autoScalerProfile"`
@@ -220,7 +220,7 @@ func GetKubernetesCluster(ctx *pulumi.Context,
 type kubernetesClusterState struct {
 	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux *KubernetesClusterAciConnectorLinux `pulumi:"aciConnectorLinux"`
-	// The IP ranges to allow for incoming traffic to the server nodes.
+	// Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
 	ApiServerAuthorizedIpRanges []string `pulumi:"apiServerAuthorizedIpRanges"`
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile *KubernetesClusterAutoScalerProfile `pulumi:"autoScalerProfile"`
@@ -327,7 +327,7 @@ type kubernetesClusterState struct {
 type KubernetesClusterState struct {
 	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux KubernetesClusterAciConnectorLinuxPtrInput
-	// The IP ranges to allow for incoming traffic to the server nodes.
+	// Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
 	ApiServerAuthorizedIpRanges pulumi.StringArrayInput
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile KubernetesClusterAutoScalerProfilePtrInput
@@ -438,7 +438,7 @@ func (KubernetesClusterState) ElementType() reflect.Type {
 type kubernetesClusterArgs struct {
 	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux *KubernetesClusterAciConnectorLinux `pulumi:"aciConnectorLinux"`
-	// The IP ranges to allow for incoming traffic to the server nodes.
+	// Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
 	ApiServerAuthorizedIpRanges []string `pulumi:"apiServerAuthorizedIpRanges"`
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile *KubernetesClusterAutoScalerProfile `pulumi:"autoScalerProfile"`
@@ -528,7 +528,7 @@ type kubernetesClusterArgs struct {
 type KubernetesClusterArgs struct {
 	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux KubernetesClusterAciConnectorLinuxPtrInput
-	// The IP ranges to allow for incoming traffic to the server nodes.
+	// Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
 	ApiServerAuthorizedIpRanges pulumi.StringArrayInput
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile KubernetesClusterAutoScalerProfilePtrInput
@@ -706,7 +706,7 @@ func (o KubernetesClusterOutput) AciConnectorLinux() KubernetesClusterAciConnect
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterAciConnectorLinuxPtrOutput { return v.AciConnectorLinux }).(KubernetesClusterAciConnectorLinuxPtrOutput)
 }
 
-// The IP ranges to allow for incoming traffic to the server nodes.
+// Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
 func (o KubernetesClusterOutput) ApiServerAuthorizedIpRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringArrayOutput { return v.ApiServerAuthorizedIpRanges }).(pulumi.StringArrayOutput)
 }

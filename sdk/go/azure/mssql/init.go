@@ -47,6 +47,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ManagedInstanceFailoverGroup{}
 	case "azure:mssql/managedInstanceSecurityAlertPolicy:ManagedInstanceSecurityAlertPolicy":
 		r = &ManagedInstanceSecurityAlertPolicy{}
+	case "azure:mssql/managedInstanceTransparentDataEncryption:ManagedInstanceTransparentDataEncryption":
+		r = &ManagedInstanceTransparentDataEncryption{}
 	case "azure:mssql/managedInstanceVulnerabilityAssessment:ManagedInstanceVulnerabilityAssessment":
 		r = &ManagedInstanceVulnerabilityAssessment{}
 	case "azure:mssql/outboundFirewallRule:OutboundFirewallRule":
@@ -145,6 +147,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"mssql/managedInstanceSecurityAlertPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"mssql/managedInstanceTransparentDataEncryption",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

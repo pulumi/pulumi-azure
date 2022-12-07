@@ -6,8 +6,6 @@ package com.pulumi.azure.media.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class TransformOutputBuiltinPreset {
@@ -15,15 +13,15 @@ public final class TransformOutputBuiltinPreset {
      * @return The built-in preset to be used for encoding videos. The allowed values are `AACGoodQualityAudio`, `AdaptiveStreaming`,`ContentAwareEncoding`, `ContentAwareEncodingExperimental`,`CopyAllBitrateNonInterleaved`, `H264MultipleBitrate1080p`,`H264MultipleBitrate720p`, `H264MultipleBitrateSD`,`H264SingleBitrate1080p`, `H264SingleBitrate720p` and `H264SingleBitrateSD`.
      * 
      */
-    private @Nullable String presetName;
+    private String presetName;
 
     private TransformOutputBuiltinPreset() {}
     /**
      * @return The built-in preset to be used for encoding videos. The allowed values are `AACGoodQualityAudio`, `AdaptiveStreaming`,`ContentAwareEncoding`, `ContentAwareEncodingExperimental`,`CopyAllBitrateNonInterleaved`, `H264MultipleBitrate1080p`,`H264MultipleBitrate720p`, `H264MultipleBitrateSD`,`H264SingleBitrate1080p`, `H264SingleBitrate720p` and `H264SingleBitrateSD`.
      * 
      */
-    public Optional<String> presetName() {
-        return Optional.ofNullable(this.presetName);
+    public String presetName() {
+        return this.presetName;
     }
 
     public static Builder builder() {
@@ -35,7 +33,7 @@ public final class TransformOutputBuiltinPreset {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String presetName;
+        private String presetName;
         public Builder() {}
         public Builder(TransformOutputBuiltinPreset defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,8 +41,8 @@ public final class TransformOutputBuiltinPreset {
         }
 
         @CustomType.Setter
-        public Builder presetName(@Nullable String presetName) {
-            this.presetName = presetName;
+        public Builder presetName(String presetName) {
+            this.presetName = Objects.requireNonNull(presetName);
             return this;
         }
         public TransformOutputBuiltinPreset build() {

@@ -145,14 +145,14 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
+     * The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="privateStaticIpAddress")
     private @Nullable Output<String> privateStaticIpAddress;
 
     /**
-     * @return The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
+     * @return The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> privateStaticIpAddress() {
@@ -566,7 +566,7 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateStaticIpAddress The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
+         * @param privateStaticIpAddress The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -577,7 +577,7 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateStaticIpAddress The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
+         * @param privateStaticIpAddress The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -136,7 +136,7 @@ export class FhirService extends pulumi.CustomResource {
     public readonly resourceGroupName!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Specifies the name of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
+     * Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
      */
     public readonly workspaceId!: pulumi.Output<string>;
 
@@ -249,7 +249,7 @@ export interface FhirServiceState {
     resourceGroupName?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Specifies the name of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
+     * Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
      */
     workspaceId?: pulumi.Input<string>;
 }
@@ -301,7 +301,7 @@ export interface FhirServiceArgs {
     resourceGroupName: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Specifies the name of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
+     * Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
      */
     workspaceId: pulumi.Input<string>;
 }

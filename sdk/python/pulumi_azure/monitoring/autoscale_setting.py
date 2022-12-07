@@ -523,7 +523,7 @@ class AutoscaleSetting(pulumi.CustomResource):
         AutoScale Setting can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:monitoring/autoscaleSetting:AutoscaleSetting example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/autoscaleSettings/setting1
+         $ pulumi import azure:monitoring/autoscaleSetting:AutoscaleSetting example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/autoScaleSettings/setting1
         ```
 
         :param str resource_name: The name of the resource.
@@ -770,7 +770,7 @@ class AutoscaleSetting(pulumi.CustomResource):
         AutoScale Setting can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:monitoring/autoscaleSetting:AutoscaleSetting example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/autoscaleSettings/setting1
+         $ pulumi import azure:monitoring/autoscaleSetting:AutoscaleSetting example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/autoScaleSettings/setting1
         ```
 
         :param str resource_name: The name of the resource.

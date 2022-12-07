@@ -484,6 +484,9 @@ namespace Pulumi.Azure.Storage
         [Output("secondaryWebHost")]
         public Output<string> SecondaryWebHost { get; private set; } = null!;
 
+        [Output("sftpEnabled")]
+        public Output<bool?> SftpEnabled { get; private set; } = null!;
+
         /// <summary>
         /// A `share_properties` block as defined below.
         /// </summary>
@@ -734,6 +737,9 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("sasPolicy")]
         public Input<Inputs.AccountSasPolicyArgs>? SasPolicy { get; set; }
+
+        [Input("sftpEnabled")]
+        public Input<bool>? SftpEnabled { get; set; }
 
         /// <summary>
         /// A `share_properties` block as defined below.
@@ -1145,6 +1151,9 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("secondaryWebHost")]
         public Input<string>? SecondaryWebHost { get; set; }
+
+        [Input("sftpEnabled")]
+        public Input<bool>? SftpEnabled { get; set; }
 
         /// <summary>
         /// A `share_properties` block as defined below.

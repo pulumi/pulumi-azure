@@ -10,6 +10,181 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type FlexibleServerAuthentication struct {
+	// Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server.
+	ActiveDirectoryAuthEnabled *bool `pulumi:"activeDirectoryAuthEnabled"`
+	// Whether or not password authentication is allowed to access the PostgreSQL Flexible Server.
+	PasswordAuthEnabled *bool `pulumi:"passwordAuthEnabled"`
+	// The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `activeDirectoryAuthEnabled` must be set to `true`.
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// FlexibleServerAuthenticationInput is an input type that accepts FlexibleServerAuthenticationArgs and FlexibleServerAuthenticationOutput values.
+// You can construct a concrete instance of `FlexibleServerAuthenticationInput` via:
+//
+//	FlexibleServerAuthenticationArgs{...}
+type FlexibleServerAuthenticationInput interface {
+	pulumi.Input
+
+	ToFlexibleServerAuthenticationOutput() FlexibleServerAuthenticationOutput
+	ToFlexibleServerAuthenticationOutputWithContext(context.Context) FlexibleServerAuthenticationOutput
+}
+
+type FlexibleServerAuthenticationArgs struct {
+	// Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server.
+	ActiveDirectoryAuthEnabled pulumi.BoolPtrInput `pulumi:"activeDirectoryAuthEnabled"`
+	// Whether or not password authentication is allowed to access the PostgreSQL Flexible Server.
+	PasswordAuthEnabled pulumi.BoolPtrInput `pulumi:"passwordAuthEnabled"`
+	// The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `activeDirectoryAuthEnabled` must be set to `true`.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (FlexibleServerAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlexibleServerAuthentication)(nil)).Elem()
+}
+
+func (i FlexibleServerAuthenticationArgs) ToFlexibleServerAuthenticationOutput() FlexibleServerAuthenticationOutput {
+	return i.ToFlexibleServerAuthenticationOutputWithContext(context.Background())
+}
+
+func (i FlexibleServerAuthenticationArgs) ToFlexibleServerAuthenticationOutputWithContext(ctx context.Context) FlexibleServerAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerAuthenticationOutput)
+}
+
+func (i FlexibleServerAuthenticationArgs) ToFlexibleServerAuthenticationPtrOutput() FlexibleServerAuthenticationPtrOutput {
+	return i.ToFlexibleServerAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i FlexibleServerAuthenticationArgs) ToFlexibleServerAuthenticationPtrOutputWithContext(ctx context.Context) FlexibleServerAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerAuthenticationOutput).ToFlexibleServerAuthenticationPtrOutputWithContext(ctx)
+}
+
+// FlexibleServerAuthenticationPtrInput is an input type that accepts FlexibleServerAuthenticationArgs, FlexibleServerAuthenticationPtr and FlexibleServerAuthenticationPtrOutput values.
+// You can construct a concrete instance of `FlexibleServerAuthenticationPtrInput` via:
+//
+//	        FlexibleServerAuthenticationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlexibleServerAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToFlexibleServerAuthenticationPtrOutput() FlexibleServerAuthenticationPtrOutput
+	ToFlexibleServerAuthenticationPtrOutputWithContext(context.Context) FlexibleServerAuthenticationPtrOutput
+}
+
+type flexibleServerAuthenticationPtrType FlexibleServerAuthenticationArgs
+
+func FlexibleServerAuthenticationPtr(v *FlexibleServerAuthenticationArgs) FlexibleServerAuthenticationPtrInput {
+	return (*flexibleServerAuthenticationPtrType)(v)
+}
+
+func (*flexibleServerAuthenticationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlexibleServerAuthentication)(nil)).Elem()
+}
+
+func (i *flexibleServerAuthenticationPtrType) ToFlexibleServerAuthenticationPtrOutput() FlexibleServerAuthenticationPtrOutput {
+	return i.ToFlexibleServerAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i *flexibleServerAuthenticationPtrType) ToFlexibleServerAuthenticationPtrOutputWithContext(ctx context.Context) FlexibleServerAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerAuthenticationPtrOutput)
+}
+
+type FlexibleServerAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (FlexibleServerAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlexibleServerAuthentication)(nil)).Elem()
+}
+
+func (o FlexibleServerAuthenticationOutput) ToFlexibleServerAuthenticationOutput() FlexibleServerAuthenticationOutput {
+	return o
+}
+
+func (o FlexibleServerAuthenticationOutput) ToFlexibleServerAuthenticationOutputWithContext(ctx context.Context) FlexibleServerAuthenticationOutput {
+	return o
+}
+
+func (o FlexibleServerAuthenticationOutput) ToFlexibleServerAuthenticationPtrOutput() FlexibleServerAuthenticationPtrOutput {
+	return o.ToFlexibleServerAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o FlexibleServerAuthenticationOutput) ToFlexibleServerAuthenticationPtrOutputWithContext(ctx context.Context) FlexibleServerAuthenticationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlexibleServerAuthentication) *FlexibleServerAuthentication {
+		return &v
+	}).(FlexibleServerAuthenticationPtrOutput)
+}
+
+// Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server.
+func (o FlexibleServerAuthenticationOutput) ActiveDirectoryAuthEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FlexibleServerAuthentication) *bool { return v.ActiveDirectoryAuthEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether or not password authentication is allowed to access the PostgreSQL Flexible Server.
+func (o FlexibleServerAuthenticationOutput) PasswordAuthEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FlexibleServerAuthentication) *bool { return v.PasswordAuthEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `activeDirectoryAuthEnabled` must be set to `true`.
+func (o FlexibleServerAuthenticationOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlexibleServerAuthentication) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type FlexibleServerAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlexibleServerAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlexibleServerAuthentication)(nil)).Elem()
+}
+
+func (o FlexibleServerAuthenticationPtrOutput) ToFlexibleServerAuthenticationPtrOutput() FlexibleServerAuthenticationPtrOutput {
+	return o
+}
+
+func (o FlexibleServerAuthenticationPtrOutput) ToFlexibleServerAuthenticationPtrOutputWithContext(ctx context.Context) FlexibleServerAuthenticationPtrOutput {
+	return o
+}
+
+func (o FlexibleServerAuthenticationPtrOutput) Elem() FlexibleServerAuthenticationOutput {
+	return o.ApplyT(func(v *FlexibleServerAuthentication) FlexibleServerAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret FlexibleServerAuthentication
+		return ret
+	}).(FlexibleServerAuthenticationOutput)
+}
+
+// Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server.
+func (o FlexibleServerAuthenticationPtrOutput) ActiveDirectoryAuthEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FlexibleServerAuthentication) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ActiveDirectoryAuthEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether or not password authentication is allowed to access the PostgreSQL Flexible Server.
+func (o FlexibleServerAuthenticationPtrOutput) PasswordAuthEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FlexibleServerAuthentication) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PasswordAuthEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `activeDirectoryAuthEnabled` must be set to `true`.
+func (o FlexibleServerAuthenticationPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlexibleServerAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
 type FlexibleServerHighAvailability struct {
 	// The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
 	Mode string `pulumi:"mode"`
@@ -883,6 +1058,8 @@ func (o GetServerIdentityArrayOutput) Index(i pulumi.IntInput) GetServerIdentity
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerAuthenticationInput)(nil)).Elem(), FlexibleServerAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerAuthenticationPtrInput)(nil)).Elem(), FlexibleServerAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerHighAvailabilityInput)(nil)).Elem(), FlexibleServerHighAvailabilityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerHighAvailabilityPtrInput)(nil)).Elem(), FlexibleServerHighAvailabilityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerMaintenanceWindowInput)(nil)).Elem(), FlexibleServerMaintenanceWindowArgs{})
@@ -893,6 +1070,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerThreatDetectionPolicyPtrInput)(nil)).Elem(), ServerThreatDetectionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerIdentityInput)(nil)).Elem(), GetServerIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerIdentityArrayInput)(nil)).Elem(), GetServerIdentityArray{})
+	pulumi.RegisterOutputType(FlexibleServerAuthenticationOutput{})
+	pulumi.RegisterOutputType(FlexibleServerAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(FlexibleServerHighAvailabilityOutput{})
 	pulumi.RegisterOutputType(FlexibleServerHighAvailabilityPtrOutput{})
 	pulumi.RegisterOutputType(FlexibleServerMaintenanceWindowOutput{})

@@ -109,10 +109,10 @@ type OutputEventHub struct {
 	Serialization OutputEventHubSerializationOutput `pulumi:"serialization"`
 	// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
 	ServicebusNamespace pulumi.StringOutput `pulumi:"servicebusNamespace"`
-	// The shared access policy key for the specified shared access policy.
-	SharedAccessPolicyKey pulumi.StringOutput `pulumi:"sharedAccessPolicyKey"`
-	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
-	SharedAccessPolicyName pulumi.StringOutput `pulumi:"sharedAccessPolicyName"`
+	// The shared access policy key for the specified shared access policy. Required when `authenticationMode` is set to `ConnectionString`.
+	SharedAccessPolicyKey pulumi.StringPtrOutput `pulumi:"sharedAccessPolicyKey"`
+	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required when `authenticationMode` is set to `ConnectionString`.
+	SharedAccessPolicyName pulumi.StringPtrOutput `pulumi:"sharedAccessPolicyName"`
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobName pulumi.StringOutput `pulumi:"streamAnalyticsJobName"`
 }
@@ -135,12 +135,6 @@ func NewOutputEventHub(ctx *pulumi.Context,
 	}
 	if args.ServicebusNamespace == nil {
 		return nil, errors.New("invalid value for required argument 'ServicebusNamespace'")
-	}
-	if args.SharedAccessPolicyKey == nil {
-		return nil, errors.New("invalid value for required argument 'SharedAccessPolicyKey'")
-	}
-	if args.SharedAccessPolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'SharedAccessPolicyName'")
 	}
 	if args.StreamAnalyticsJobName == nil {
 		return nil, errors.New("invalid value for required argument 'StreamAnalyticsJobName'")
@@ -183,9 +177,9 @@ type outputEventHubState struct {
 	Serialization *OutputEventHubSerialization `pulumi:"serialization"`
 	// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
 	ServicebusNamespace *string `pulumi:"servicebusNamespace"`
-	// The shared access policy key for the specified shared access policy.
+	// The shared access policy key for the specified shared access policy. Required when `authenticationMode` is set to `ConnectionString`.
 	SharedAccessPolicyKey *string `pulumi:"sharedAccessPolicyKey"`
-	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
+	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required when `authenticationMode` is set to `ConnectionString`.
 	SharedAccessPolicyName *string `pulumi:"sharedAccessPolicyName"`
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobName *string `pulumi:"streamAnalyticsJobName"`
@@ -208,9 +202,9 @@ type OutputEventHubState struct {
 	Serialization OutputEventHubSerializationPtrInput
 	// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
 	ServicebusNamespace pulumi.StringPtrInput
-	// The shared access policy key for the specified shared access policy.
+	// The shared access policy key for the specified shared access policy. Required when `authenticationMode` is set to `ConnectionString`.
 	SharedAccessPolicyKey pulumi.StringPtrInput
-	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
+	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required when `authenticationMode` is set to `ConnectionString`.
 	SharedAccessPolicyName pulumi.StringPtrInput
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobName pulumi.StringPtrInput
@@ -237,10 +231,10 @@ type outputEventHubArgs struct {
 	Serialization OutputEventHubSerialization `pulumi:"serialization"`
 	// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
 	ServicebusNamespace string `pulumi:"servicebusNamespace"`
-	// The shared access policy key for the specified shared access policy.
-	SharedAccessPolicyKey string `pulumi:"sharedAccessPolicyKey"`
-	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
-	SharedAccessPolicyName string `pulumi:"sharedAccessPolicyName"`
+	// The shared access policy key for the specified shared access policy. Required when `authenticationMode` is set to `ConnectionString`.
+	SharedAccessPolicyKey *string `pulumi:"sharedAccessPolicyKey"`
+	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required when `authenticationMode` is set to `ConnectionString`.
+	SharedAccessPolicyName *string `pulumi:"sharedAccessPolicyName"`
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobName string `pulumi:"streamAnalyticsJobName"`
 }
@@ -263,10 +257,10 @@ type OutputEventHubArgs struct {
 	Serialization OutputEventHubSerializationInput
 	// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
 	ServicebusNamespace pulumi.StringInput
-	// The shared access policy key for the specified shared access policy.
-	SharedAccessPolicyKey pulumi.StringInput
-	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
-	SharedAccessPolicyName pulumi.StringInput
+	// The shared access policy key for the specified shared access policy. Required when `authenticationMode` is set to `ConnectionString`.
+	SharedAccessPolicyKey pulumi.StringPtrInput
+	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required when `authenticationMode` is set to `ConnectionString`.
+	SharedAccessPolicyName pulumi.StringPtrInput
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobName pulumi.StringInput
 }
@@ -398,14 +392,14 @@ func (o OutputEventHubOutput) ServicebusNamespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *OutputEventHub) pulumi.StringOutput { return v.ServicebusNamespace }).(pulumi.StringOutput)
 }
 
-// The shared access policy key for the specified shared access policy.
-func (o OutputEventHubOutput) SharedAccessPolicyKey() pulumi.StringOutput {
-	return o.ApplyT(func(v *OutputEventHub) pulumi.StringOutput { return v.SharedAccessPolicyKey }).(pulumi.StringOutput)
+// The shared access policy key for the specified shared access policy. Required when `authenticationMode` is set to `ConnectionString`.
+func (o OutputEventHubOutput) SharedAccessPolicyKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OutputEventHub) pulumi.StringPtrOutput { return v.SharedAccessPolicyKey }).(pulumi.StringPtrOutput)
 }
 
-// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
-func (o OutputEventHubOutput) SharedAccessPolicyName() pulumi.StringOutput {
-	return o.ApplyT(func(v *OutputEventHub) pulumi.StringOutput { return v.SharedAccessPolicyName }).(pulumi.StringOutput)
+// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required when `authenticationMode` is set to `ConnectionString`.
+func (o OutputEventHubOutput) SharedAccessPolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OutputEventHub) pulumi.StringPtrOutput { return v.SharedAccessPolicyName }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Stream Analytics Job. Changing this forces a new resource to be created.

@@ -181,6 +181,8 @@ type ManagedDisk struct {
 	Tier pulumi.StringOutput `pulumi:"tier"`
 	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
 	TrustedLaunchEnabled pulumi.BoolPtrOutput `pulumi:"trustedLaunchEnabled"`
+	// Specifies the size of the managed disk to create in bytes. Required when `createOption` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
+	UploadSizeBytes pulumi.IntPtrOutput `pulumi:"uploadSizeBytes"`
 	// Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
 	Zone pulumi.StringPtrOutput `pulumi:"zone"`
 }
@@ -285,6 +287,8 @@ type managedDiskState struct {
 	Tier *string `pulumi:"tier"`
 	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
 	TrustedLaunchEnabled *bool `pulumi:"trustedLaunchEnabled"`
+	// Specifies the size of the managed disk to create in bytes. Required when `createOption` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
+	UploadSizeBytes *int `pulumi:"uploadSizeBytes"`
 	// Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
 	Zone *string `pulumi:"zone"`
 }
@@ -352,6 +356,8 @@ type ManagedDiskState struct {
 	Tier pulumi.StringPtrInput
 	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
 	TrustedLaunchEnabled pulumi.BoolPtrInput
+	// Specifies the size of the managed disk to create in bytes. Required when `createOption` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
+	UploadSizeBytes pulumi.IntPtrInput
 	// Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
 	Zone pulumi.StringPtrInput
 }
@@ -423,6 +429,8 @@ type managedDiskArgs struct {
 	Tier *string `pulumi:"tier"`
 	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
 	TrustedLaunchEnabled *bool `pulumi:"trustedLaunchEnabled"`
+	// Specifies the size of the managed disk to create in bytes. Required when `createOption` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
+	UploadSizeBytes *int `pulumi:"uploadSizeBytes"`
 	// Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
 	Zone *string `pulumi:"zone"`
 }
@@ -491,6 +499,8 @@ type ManagedDiskArgs struct {
 	Tier pulumi.StringPtrInput
 	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
 	TrustedLaunchEnabled pulumi.BoolPtrInput
+	// Specifies the size of the managed disk to create in bytes. Required when `createOption` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
+	UploadSizeBytes pulumi.IntPtrInput
 	// Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
 	Zone pulumi.StringPtrInput
 }
@@ -735,6 +745,11 @@ func (o ManagedDiskOutput) Tier() pulumi.StringOutput {
 // Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
 func (o ManagedDiskOutput) TrustedLaunchEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.BoolPtrOutput { return v.TrustedLaunchEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the size of the managed disk to create in bytes. Required when `createOption` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
+func (o ManagedDiskOutput) UploadSizeBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagedDisk) pulumi.IntPtrOutput { return v.UploadSizeBytes }).(pulumi.IntPtrOutput)
 }
 
 // Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.

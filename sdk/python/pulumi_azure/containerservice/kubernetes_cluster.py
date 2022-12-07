@@ -65,7 +65,7 @@ class KubernetesClusterArgs:
         :param pulumi.Input['KubernetesClusterDefaultNodePoolArgs'] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterAciConnectorLinuxArgs'] aci_connector_linux: A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to allow for incoming traffic to the server nodes.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
         :param pulumi.Input['KubernetesClusterAutoScalerProfileArgs'] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
         :param pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs'] azure_active_directory_role_based_access_control: - A `azure_active_directory_role_based_access_control` block as defined below.
@@ -232,7 +232,7 @@ class KubernetesClusterArgs:
     @pulumi.getter(name="apiServerAuthorizedIpRanges")
     def api_server_authorized_ip_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The IP ranges to allow for incoming traffic to the server nodes.
+        Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
         """
         return pulumi.get(self, "api_server_authorized_ip_ranges")
 
@@ -774,7 +774,7 @@ class _KubernetesClusterState:
         """
         Input properties used for looking up and filtering KubernetesCluster resources.
         :param pulumi.Input['KubernetesClusterAciConnectorLinuxArgs'] aci_connector_linux: A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to allow for incoming traffic to the server nodes.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
         :param pulumi.Input['KubernetesClusterAutoScalerProfileArgs'] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
         :param pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs'] azure_active_directory_role_based_access_control: - A `azure_active_directory_role_based_access_control` block as defined below.
@@ -948,7 +948,7 @@ class _KubernetesClusterState:
     @pulumi.getter(name="apiServerAuthorizedIpRanges")
     def api_server_authorized_ip_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The IP ranges to allow for incoming traffic to the server nodes.
+        Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
         """
         return pulumi.get(self, "api_server_authorized_ip_ranges")
 
@@ -1655,7 +1655,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAciConnectorLinuxArgs']] aci_connector_linux: A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to allow for incoming traffic to the server nodes.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArgs']] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']] azure_active_directory_role_based_access_control: - A `azure_active_directory_role_based_access_control` block as defined below.
@@ -1938,7 +1938,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAciConnectorLinuxArgs']] aci_connector_linux: A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to allow for incoming traffic to the server nodes.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArgs']] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']] azure_active_directory_role_based_access_control: - A `azure_active_directory_role_based_access_control` block as defined below.
@@ -2060,7 +2060,7 @@ class KubernetesCluster(pulumi.CustomResource):
     @pulumi.getter(name="apiServerAuthorizedIpRanges")
     def api_server_authorized_ip_ranges(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The IP ranges to allow for incoming traffic to the server nodes.
+        Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
         """
         return pulumi.get(self, "api_server_authorized_ip_ranges")
 

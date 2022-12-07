@@ -47,6 +47,7 @@ class ManagedDiskArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
                  trusted_launch_enabled: Optional[pulumi.Input[bool]] = None,
+                 upload_size_bytes: Optional[pulumi.Input[int]] = None,
                  zone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ManagedDisk resource.
@@ -81,6 +82,7 @@ class ManagedDiskArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] tier: The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
         :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+        :param pulumi.Input[int] upload_size_bytes: Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
         :param pulumi.Input[str] zone: Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
         """
         pulumi.set(__self__, "create_option", create_option)
@@ -142,6 +144,8 @@ class ManagedDiskArgs:
             pulumi.set(__self__, "tier", tier)
         if trusted_launch_enabled is not None:
             pulumi.set(__self__, "trusted_launch_enabled", trusted_launch_enabled)
+        if upload_size_bytes is not None:
+            pulumi.set(__self__, "upload_size_bytes", upload_size_bytes)
         if zone is not None:
             pulumi.set(__self__, "zone", zone)
 
@@ -518,6 +522,18 @@ class ManagedDiskArgs:
         pulumi.set(self, "trusted_launch_enabled", value)
 
     @property
+    @pulumi.getter(name="uploadSizeBytes")
+    def upload_size_bytes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "upload_size_bytes")
+
+    @upload_size_bytes.setter
+    def upload_size_bytes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "upload_size_bytes", value)
+
+    @property
     @pulumi.getter
     def zone(self) -> Optional[pulumi.Input[str]]:
         """
@@ -564,6 +580,7 @@ class _ManagedDiskState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
                  trusted_launch_enabled: Optional[pulumi.Input[bool]] = None,
+                 upload_size_bytes: Optional[pulumi.Input[int]] = None,
                  zone: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ManagedDisk resources.
@@ -598,6 +615,7 @@ class _ManagedDiskState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] tier: The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
         :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+        :param pulumi.Input[int] upload_size_bytes: Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
         :param pulumi.Input[str] zone: Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
         """
         if create_option is not None:
@@ -662,6 +680,8 @@ class _ManagedDiskState:
             pulumi.set(__self__, "tier", tier)
         if trusted_launch_enabled is not None:
             pulumi.set(__self__, "trusted_launch_enabled", trusted_launch_enabled)
+        if upload_size_bytes is not None:
+            pulumi.set(__self__, "upload_size_bytes", upload_size_bytes)
         if zone is not None:
             pulumi.set(__self__, "zone", zone)
 
@@ -1038,6 +1058,18 @@ class _ManagedDiskState:
         pulumi.set(self, "trusted_launch_enabled", value)
 
     @property
+    @pulumi.getter(name="uploadSizeBytes")
+    def upload_size_bytes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "upload_size_bytes")
+
+    @upload_size_bytes.setter
+    def upload_size_bytes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "upload_size_bytes", value)
+
+    @property
     @pulumi.getter
     def zone(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1086,6 +1118,7 @@ class ManagedDisk(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
                  trusted_launch_enabled: Optional[pulumi.Input[bool]] = None,
+                 upload_size_bytes: Optional[pulumi.Input[int]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -1178,6 +1211,7 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] tier: The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
         :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+        :param pulumi.Input[int] upload_size_bytes: Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
         :param pulumi.Input[str] zone: Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
         """
         ...
@@ -1289,6 +1323,7 @@ class ManagedDisk(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
                  trusted_launch_enabled: Optional[pulumi.Input[bool]] = None,
+                 upload_size_bytes: Optional[pulumi.Input[int]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1336,6 +1371,7 @@ class ManagedDisk(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tier"] = tier
             __props__.__dict__["trusted_launch_enabled"] = trusted_launch_enabled
+            __props__.__dict__["upload_size_bytes"] = upload_size_bytes
             __props__.__dict__["zone"] = zone
         super(ManagedDisk, __self__).__init__(
             'azure:compute/managedDisk:ManagedDisk',
@@ -1378,6 +1414,7 @@ class ManagedDisk(pulumi.CustomResource):
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tier: Optional[pulumi.Input[str]] = None,
             trusted_launch_enabled: Optional[pulumi.Input[bool]] = None,
+            upload_size_bytes: Optional[pulumi.Input[int]] = None,
             zone: Optional[pulumi.Input[str]] = None) -> 'ManagedDisk':
         """
         Get an existing ManagedDisk resource's state with the given name, id, and optional extra
@@ -1417,6 +1454,7 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] tier: The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
         :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+        :param pulumi.Input[int] upload_size_bytes: Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
         :param pulumi.Input[str] zone: Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1454,6 +1492,7 @@ class ManagedDisk(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tier"] = tier
         __props__.__dict__["trusted_launch_enabled"] = trusted_launch_enabled
+        __props__.__dict__["upload_size_bytes"] = upload_size_bytes
         __props__.__dict__["zone"] = zone
         return ManagedDisk(resource_name, opts=opts, __props__=__props__)
 
@@ -1704,6 +1743,14 @@ class ManagedDisk(pulumi.CustomResource):
         Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
         """
         return pulumi.get(self, "trusted_launch_enabled")
+
+    @property
+    @pulumi.getter(name="uploadSizeBytes")
+    def upload_size_bytes(self) -> pulumi.Output[Optional[int]]:
+        """
+        Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "upload_size_bytes")
 
     @property
     @pulumi.getter

@@ -88,6 +88,7 @@ __all__ = [
     'FrontdoorSecurityPolicySecurityPoliciesFirewall',
     'FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation',
     'FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain',
+    'GetFrontdoorCustomDomainTlResult',
     'GetFrontdoorOriginGroupHealthProbeResult',
     'GetFrontdoorOriginGroupLoadBalancingResult',
     'GetFrontdoorSecretSecretResult',
@@ -5651,6 +5652,46 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain(dict):
         Is the Front Door Custom Domain/Endpoint activated?
         """
         return pulumi.get(self, "active")
+
+
+@pulumi.output_type
+class GetFrontdoorCustomDomainTlResult(dict):
+    def __init__(__self__, *,
+                 cdn_frontdoor_secret_id: str,
+                 certificate_type: str,
+                 minimum_tls_version: str):
+        """
+        :param str cdn_frontdoor_secret_id: The Resource ID of the Front Door Secret.
+        :param str certificate_type: The SSL certificate type.
+        :param str minimum_tls_version: The TLS protocol version that will be used for Https connections.
+        """
+        pulumi.set(__self__, "cdn_frontdoor_secret_id", cdn_frontdoor_secret_id)
+        pulumi.set(__self__, "certificate_type", certificate_type)
+        pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
+
+    @property
+    @pulumi.getter(name="cdnFrontdoorSecretId")
+    def cdn_frontdoor_secret_id(self) -> str:
+        """
+        The Resource ID of the Front Door Secret.
+        """
+        return pulumi.get(self, "cdn_frontdoor_secret_id")
+
+    @property
+    @pulumi.getter(name="certificateType")
+    def certificate_type(self) -> str:
+        """
+        The SSL certificate type.
+        """
+        return pulumi.get(self, "certificate_type")
+
+    @property
+    @pulumi.getter(name="minimumTlsVersion")
+    def minimum_tls_version(self) -> str:
+        """
+        The TLS protocol version that will be used for Https connections.
+        """
+        return pulumi.get(self, "minimum_tls_version")
 
 
 @pulumi.output_type

@@ -126,7 +126,7 @@ type FhirService struct {
 	PublicNetworkAccessEnabled pulumi.BoolOutput      `pulumi:"publicNetworkAccessEnabled"`
 	ResourceGroupName          pulumi.StringOutput    `pulumi:"resourceGroupName"`
 	Tags                       pulumi.StringMapOutput `pulumi:"tags"`
-	// Specifies the name of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
+	// Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
 }
 
@@ -192,7 +192,7 @@ type fhirServiceState struct {
 	PublicNetworkAccessEnabled *bool             `pulumi:"publicNetworkAccessEnabled"`
 	ResourceGroupName          *string           `pulumi:"resourceGroupName"`
 	Tags                       map[string]string `pulumi:"tags"`
-	// Specifies the name of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
+	// Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
@@ -221,7 +221,7 @@ type FhirServiceState struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	ResourceGroupName          pulumi.StringPtrInput
 	Tags                       pulumi.StringMapInput
-	// Specifies the name of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
+	// Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
 	WorkspaceId pulumi.StringPtrInput
 }
 
@@ -252,7 +252,7 @@ type fhirServiceArgs struct {
 	OciArtifacts      []FhirServiceOciArtifact `pulumi:"ociArtifacts"`
 	ResourceGroupName string                   `pulumi:"resourceGroupName"`
 	Tags              map[string]string        `pulumi:"tags"`
-	// Specifies the name of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
+	// Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
 	WorkspaceId string `pulumi:"workspaceId"`
 }
 
@@ -280,7 +280,7 @@ type FhirServiceArgs struct {
 	OciArtifacts      FhirServiceOciArtifactArrayInput
 	ResourceGroupName pulumi.StringInput
 	Tags              pulumi.StringMapInput
-	// Specifies the name of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
+	// Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
 	WorkspaceId pulumi.StringInput
 }
 
@@ -434,7 +434,7 @@ func (o FhirServiceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FhirService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Specifies the name of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
+// Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
 func (o FhirServiceOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FhirService) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
 }

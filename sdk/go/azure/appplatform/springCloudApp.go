@@ -79,6 +79,8 @@ type SpringCloudApp struct {
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
 	Identity SpringCloudAppIdentityPtrOutput `pulumi:"identity"`
+	// An `ingressSettings` block as defined below.
+	IngressSettings SpringCloudAppIngressSettingsOutput `pulumi:"ingressSettings"`
 	// Does the Spring Cloud Application have public endpoint? Defaults to `false`.
 	IsPublic pulumi.BoolPtrOutput `pulumi:"isPublic"`
 	// Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
@@ -142,6 +144,8 @@ type springCloudAppState struct {
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
 	Identity *SpringCloudAppIdentity `pulumi:"identity"`
+	// An `ingressSettings` block as defined below.
+	IngressSettings *SpringCloudAppIngressSettings `pulumi:"ingressSettings"`
 	// Does the Spring Cloud Application have public endpoint? Defaults to `false`.
 	IsPublic *bool `pulumi:"isPublic"`
 	// Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
@@ -171,6 +175,8 @@ type SpringCloudAppState struct {
 	HttpsOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity SpringCloudAppIdentityPtrInput
+	// An `ingressSettings` block as defined below.
+	IngressSettings SpringCloudAppIngressSettingsPtrInput
 	// Does the Spring Cloud Application have public endpoint? Defaults to `false`.
 	IsPublic pulumi.BoolPtrInput
 	// Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
@@ -202,6 +208,8 @@ type springCloudAppArgs struct {
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
 	Identity *SpringCloudAppIdentity `pulumi:"identity"`
+	// An `ingressSettings` block as defined below.
+	IngressSettings *SpringCloudAppIngressSettings `pulumi:"ingressSettings"`
 	// Does the Spring Cloud Application have public endpoint? Defaults to `false`.
 	IsPublic *bool `pulumi:"isPublic"`
 	// Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
@@ -228,6 +236,8 @@ type SpringCloudAppArgs struct {
 	HttpsOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity SpringCloudAppIdentityPtrInput
+	// An `ingressSettings` block as defined below.
+	IngressSettings SpringCloudAppIngressSettingsPtrInput
 	// Does the Spring Cloud Application have public endpoint? Defaults to `false`.
 	IsPublic pulumi.BoolPtrInput
 	// Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
@@ -354,6 +364,11 @@ func (o SpringCloudAppOutput) HttpsOnly() pulumi.BoolPtrOutput {
 // An `identity` block as defined below.
 func (o SpringCloudAppOutput) Identity() SpringCloudAppIdentityPtrOutput {
 	return o.ApplyT(func(v *SpringCloudApp) SpringCloudAppIdentityPtrOutput { return v.Identity }).(SpringCloudAppIdentityPtrOutput)
+}
+
+// An `ingressSettings` block as defined below.
+func (o SpringCloudAppOutput) IngressSettings() SpringCloudAppIngressSettingsOutput {
+	return o.ApplyT(func(v *SpringCloudApp) SpringCloudAppIngressSettingsOutput { return v.IngressSettings }).(SpringCloudAppIngressSettingsOutput)
 }
 
 // Does the Spring Cloud Application have public endpoint? Defaults to `false`.

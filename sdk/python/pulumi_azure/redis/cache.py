@@ -51,7 +51,7 @@ class CacheArgs:
         :param pulumi.Input[str] name: The name of the Redis instance. Changing this forces a
                new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArgs']]] patch_schedules: A list of `patch_schedule` blocks as defined below.
-        :param pulumi.Input[str] private_static_ip_address: The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] private_static_ip_address: The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
         :param pulumi.Input['CacheRedisConfigurationArgs'] redis_configuration: A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
         :param pulumi.Input[str] redis_version: Redis version. Only major version needed. Valid values: `4`, `6`.
@@ -228,7 +228,7 @@ class CacheArgs:
     @pulumi.getter(name="privateStaticIpAddress")
     def private_static_ip_address(self) -> Optional[pulumi.Input[str]]:
         """
-        The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
+        The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_static_ip_address")
 
@@ -403,7 +403,7 @@ class _CacheState:
         :param pulumi.Input[int] port: The non-SSL Port of the Redis Instance
         :param pulumi.Input[str] primary_access_key: The Primary Access Key for the Redis Instance
         :param pulumi.Input[str] primary_connection_string: The primary connection string of the Redis Instance.
-        :param pulumi.Input[str] private_static_ip_address: The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] private_static_ip_address: The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
         :param pulumi.Input['CacheRedisConfigurationArgs'] redis_configuration: A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
         :param pulumi.Input[str] redis_version: Redis version. Only major version needed. Valid values: `4`, `6`.
@@ -627,7 +627,7 @@ class _CacheState:
     @pulumi.getter(name="privateStaticIpAddress")
     def private_static_ip_address(self) -> Optional[pulumi.Input[str]]:
         """
-        The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
+        The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_static_ip_address")
 
@@ -915,7 +915,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Redis instance. Changing this forces a
                new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CachePatchScheduleArgs']]]] patch_schedules: A list of `patch_schedule` blocks as defined below.
-        :param pulumi.Input[str] private_static_ip_address: The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] private_static_ip_address: The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['CacheRedisConfigurationArgs']] redis_configuration: A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
         :param pulumi.Input[str] redis_version: Redis version. Only major version needed. Valid values: `4`, `6`.
@@ -1135,7 +1135,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[int] port: The non-SSL Port of the Redis Instance
         :param pulumi.Input[str] primary_access_key: The Primary Access Key for the Redis Instance
         :param pulumi.Input[str] primary_connection_string: The primary connection string of the Redis Instance.
-        :param pulumi.Input[str] private_static_ip_address: The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] private_static_ip_address: The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['CacheRedisConfigurationArgs']] redis_configuration: A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
         :param pulumi.Input[str] redis_version: Redis version. Only major version needed. Valid values: `4`, `6`.
@@ -1288,7 +1288,7 @@ class Cache(pulumi.CustomResource):
     @pulumi.getter(name="privateStaticIpAddress")
     def private_static_ip_address(self) -> pulumi.Output[str]:
         """
-        The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
+        The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_static_ip_address")
 

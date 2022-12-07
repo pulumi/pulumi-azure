@@ -21,25 +21,77 @@ namespace Pulumi.Azure.Nginx
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Nginx.Deployment("example", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         ResourceGroupName = azurerm_resource_group.Test.Name,
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AllocationMethod = "Static",
+    ///         Sku = "Standard",
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///         Delegations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             {
+    ///                 Name = "delegation",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 {
+    ///                     Name = "NGINX.NGINXPLUS/nginxDeployments",
+    ///                     Actions = new[]
+    ///                     {
+    ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDeployment = new Azure.Nginx.Deployment("exampleDeployment", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Sku = "publicpreview_Monthly_gmz7xq9ge3py",
-    ///         Location = azurerm_resource_group.Test.Location,
+    ///         Location = exampleResourceGroup.Location,
     ///         ManagedResourceGroup = "example",
     ///         DiagnoseSupportEnabled = true,
     ///         FrontendPublic = new Azure.Nginx.Inputs.DeploymentFrontendPublicArgs
     ///         {
     ///             IpAddresses = new[]
     ///             {
-    ///                 azurerm_public_ip.Test.Id,
+    ///                 examplePublicIp.Id,
     ///             },
     ///         },
     ///         NetworkInterfaces = new[]
     ///         {
     ///             new Azure.Nginx.Inputs.DeploymentNetworkInterfaceArgs
     ///             {
-    ///                 SubnetId = azurerm_subnet.Test.Id,
+    ///                 SubnetId = exampleSubnet.Id,
     ///             },
     ///         },
     ///         Tags = 

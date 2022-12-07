@@ -87,6 +87,12 @@ namespace Pulumi.Azure.AppPlatform
         public Output<Outputs.SpringCloudAppIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
+        /// An `ingress_settings` block as defined below.
+        /// </summary>
+        [Output("ingressSettings")]
+        public Output<Outputs.SpringCloudAppIngressSettings> IngressSettings { get; private set; } = null!;
+
+        /// <summary>
         /// Does the Spring Cloud Application have public endpoint? Defaults to `false`.
         /// </summary>
         [Output("isPublic")]
@@ -211,6 +217,12 @@ namespace Pulumi.Azure.AppPlatform
         public Input<Inputs.SpringCloudAppIdentityArgs>? Identity { get; set; }
 
         /// <summary>
+        /// An `ingress_settings` block as defined below.
+        /// </summary>
+        [Input("ingressSettings")]
+        public Input<Inputs.SpringCloudAppIngressSettingsArgs>? IngressSettings { get; set; }
+
+        /// <summary>
         /// Does the Spring Cloud Application have public endpoint? Defaults to `false`.
         /// </summary>
         [Input("isPublic")]
@@ -295,6 +307,12 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Input("identity")]
         public Input<Inputs.SpringCloudAppIdentityGetArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// An `ingress_settings` block as defined below.
+        /// </summary>
+        [Input("ingressSettings")]
+        public Input<Inputs.SpringCloudAppIngressSettingsGetArgs>? IngressSettings { get; set; }
 
         /// <summary>
         /// Does the Spring Cloud Application have public endpoint? Defaults to `false`.

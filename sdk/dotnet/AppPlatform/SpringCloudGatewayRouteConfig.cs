@@ -50,6 +50,7 @@ namespace Pulumi.Azure.AppPlatform
     ///     {
     ///         SpringCloudGatewayId = exampleSpringCloudGateway.Id,
     ///         SpringCloudAppId = exampleSpringCloudApp.Id,
+    ///         Protocol = "HTTPS",
     ///         Routes = new[]
     ///         {
     ///             new Azure.AppPlatform.Inputs.SpringCloudGatewayRouteConfigRouteArgs
@@ -103,6 +104,12 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Output("openApi")]
         public Output<Outputs.SpringCloudGatewayRouteConfigOpenApi?> OpenApi { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+        /// </summary>
+        [Output("protocol")]
+        public Output<string?> Protocol { get; private set; } = null!;
 
         /// <summary>
         /// One or more `route` blocks as defined below.
@@ -180,6 +187,12 @@ namespace Pulumi.Azure.AppPlatform
         [Input("openApi")]
         public Input<Inputs.SpringCloudGatewayRouteConfigOpenApiArgs>? OpenApi { get; set; }
 
+        /// <summary>
+        /// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+        /// </summary>
+        [Input("protocol")]
+        public Input<string>? Protocol { get; set; }
+
         [Input("routes")]
         private InputList<Inputs.SpringCloudGatewayRouteConfigRouteArgs>? _routes;
 
@@ -223,6 +236,12 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Input("openApi")]
         public Input<Inputs.SpringCloudGatewayRouteConfigOpenApiGetArgs>? OpenApi { get; set; }
+
+        /// <summary>
+        /// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+        /// </summary>
+        [Input("protocol")]
+        public Input<string>? Protocol { get; set; }
 
         [Input("routes")]
         private InputList<Inputs.SpringCloudGatewayRouteConfigRouteGetArgs>? _routes;

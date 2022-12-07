@@ -122,9 +122,17 @@ public class DatabasePrincipalAssignment extends com.pulumi.resources.CustomReso
     public Output<String> databaseName() {
         return this.databaseName;
     }
+    /**
+     * The name of the kusto principal assignment. Changing this forces a new resource to be created.
+     * 
+     */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
+    /**
+     * @return The name of the kusto principal assignment. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }

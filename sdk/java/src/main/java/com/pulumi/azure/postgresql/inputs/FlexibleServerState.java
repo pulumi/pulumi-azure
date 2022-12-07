@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.postgresql.inputs;
 
+import com.pulumi.azure.postgresql.inputs.FlexibleServerAuthenticationArgs;
 import com.pulumi.azure.postgresql.inputs.FlexibleServerHighAvailabilityArgs;
 import com.pulumi.azure.postgresql.inputs.FlexibleServerMaintenanceWindowArgs;
 import com.pulumi.core.Output;
@@ -48,6 +49,21 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
      */
     public Optional<Output<String>> administratorPassword() {
         return Optional.ofNullable(this.administratorPassword);
+    }
+
+    /**
+     * An `authentication` block as defined below.
+     * 
+     */
+    @Import(name="authentication")
+    private @Nullable Output<FlexibleServerAuthenticationArgs> authentication;
+
+    /**
+     * @return An `authentication` block as defined below.
+     * 
+     */
+    public Optional<Output<FlexibleServerAuthenticationArgs>> authentication() {
+        return Optional.ofNullable(this.authentication);
     }
 
     /**
@@ -340,6 +356,7 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
     private FlexibleServerState(FlexibleServerState $) {
         this.administratorLogin = $.administratorLogin;
         this.administratorPassword = $.administratorPassword;
+        this.authentication = $.authentication;
         this.backupRetentionDays = $.backupRetentionDays;
         this.createMode = $.createMode;
         this.delegatedSubnetId = $.delegatedSubnetId;
@@ -419,6 +436,27 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
          */
         public Builder administratorPassword(String administratorPassword) {
             return administratorPassword(Output.of(administratorPassword));
+        }
+
+        /**
+         * @param authentication An `authentication` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authentication(@Nullable Output<FlexibleServerAuthenticationArgs> authentication) {
+            $.authentication = authentication;
+            return this;
+        }
+
+        /**
+         * @param authentication An `authentication` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authentication(FlexibleServerAuthenticationArgs authentication) {
+            return authentication(Output.of(authentication));
         }
 
         /**

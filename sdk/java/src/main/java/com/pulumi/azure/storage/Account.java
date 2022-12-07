@@ -1002,6 +1002,12 @@ public class Account extends com.pulumi.resources.CustomResource {
     public Output<String> secondaryWebHost() {
         return this.secondaryWebHost;
     }
+    @Export(name="sftpEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> sftpEnabled;
+
+    public Output<Optional<Boolean>> sftpEnabled() {
+        return Codegen.optional(this.sftpEnabled);
+    }
     /**
      * A `share_properties` block as defined below.
      * 

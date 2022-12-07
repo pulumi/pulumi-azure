@@ -145,7 +145,7 @@ export class Cache extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryConnectionString!: pulumi.Output<string>;
     /**
-     * The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
+     * The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnetId`. Changing this forces a new resource to be created.
      */
     public readonly privateStaticIpAddress!: pulumi.Output<string>;
     /**
@@ -353,7 +353,7 @@ export interface CacheState {
      */
     primaryConnectionString?: pulumi.Input<string>;
     /**
-     * The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
+     * The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnetId`. Changing this forces a new resource to be created.
      */
     privateStaticIpAddress?: pulumi.Input<string>;
     /**
@@ -457,7 +457,7 @@ export interface CacheArgs {
      */
     patchSchedules?: pulumi.Input<pulumi.Input<inputs.redis.CachePatchSchedule>[]>;
     /**
-     * The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
+     * The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnetId`. Changing this forces a new resource to be created.
      */
     privateStaticIpAddress?: pulumi.Input<string>;
     /**

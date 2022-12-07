@@ -29,14 +29,14 @@ public final class GetDicomServiceArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The name of the Healthcare Workspace in which the Healthcare DICOM Service exists.
+     * The id of the Healthcare Workspace in which the Healthcare DICOM Service exists.
      * 
      */
     @Import(name="workspaceId", required=true)
     private Output<String> workspaceId;
 
     /**
-     * @return The name of the Healthcare Workspace in which the Healthcare DICOM Service exists.
+     * @return The id of the Healthcare Workspace in which the Healthcare DICOM Service exists.
      * 
      */
     public Output<String> workspaceId() {
@@ -90,7 +90,7 @@ public final class GetDicomServiceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param workspaceId The name of the Healthcare Workspace in which the Healthcare DICOM Service exists.
+         * @param workspaceId The id of the Healthcare Workspace in which the Healthcare DICOM Service exists.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class GetDicomServiceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param workspaceId The name of the Healthcare Workspace in which the Healthcare DICOM Service exists.
+         * @param workspaceId The id of the Healthcare Workspace in which the Healthcare DICOM Service exists.
          * 
          * @return builder
          * 

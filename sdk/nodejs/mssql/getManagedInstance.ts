@@ -59,6 +59,7 @@ export interface GetManagedInstanceResult {
      * Specifies how the SQL Managed Instance will be collated.
      */
     readonly collation: string;
+    readonly customerManagedKeyId: string;
     /**
      * The ID of the SQL Managed Instance which shares the DNS zone.
      */

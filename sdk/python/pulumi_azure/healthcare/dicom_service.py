@@ -24,7 +24,7 @@ class DicomServiceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DicomService resource.
-        :param pulumi.Input[str] workspace_id: Specifies the name of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+        :param pulumi.Input[str] workspace_id: Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
         :param pulumi.Input['DicomServiceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Healthcare DICOM Service should be created. Changing this forces a new Healthcare DICOM Service to be created.
         :param pulumi.Input[str] name: Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
@@ -46,7 +46,7 @@ class DicomServiceArgs:
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Input[str]:
         """
-        Specifies the name of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+        Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
         """
         return pulumi.get(self, "workspace_id")
 
@@ -132,7 +132,7 @@ class _DicomServiceState:
         :param pulumi.Input[str] name: Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled.
         :param pulumi.Input[str] service_url: The url of the Healthcare DICOM Services.
-        :param pulumi.Input[str] workspace_id: Specifies the name of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+        :param pulumi.Input[str] workspace_id: Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
         """
         if authentications is not None:
             pulumi.set(__self__, "authentications", authentications)
@@ -247,7 +247,7 @@ class _DicomServiceState:
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+        Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
         """
         return pulumi.get(self, "workspace_id")
 
@@ -305,7 +305,7 @@ class DicomService(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the Azure Region where the Healthcare DICOM Service should be created. Changing this forces a new Healthcare DICOM Service to be created.
         :param pulumi.Input[str] name: Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled.
-        :param pulumi.Input[str] workspace_id: Specifies the name of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+        :param pulumi.Input[str] workspace_id: Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
         """
         ...
     @overload
@@ -417,7 +417,7 @@ class DicomService(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled.
         :param pulumi.Input[str] service_url: The url of the Healthcare DICOM Services.
-        :param pulumi.Input[str] workspace_id: Specifies the name of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+        :param pulumi.Input[str] workspace_id: Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -496,7 +496,7 @@ class DicomService(pulumi.CustomResource):
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+        Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
         """
         return pulumi.get(self, "workspace_id")
 

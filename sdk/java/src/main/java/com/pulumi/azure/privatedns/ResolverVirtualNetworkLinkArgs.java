@@ -16,9 +16,17 @@ public final class ResolverVirtualNetworkLinkArgs extends com.pulumi.resources.R
 
     public static final ResolverVirtualNetworkLinkArgs Empty = new ResolverVirtualNetworkLinkArgs();
 
+    /**
+     * Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
+     * 
+     */
     @Import(name="dnsForwardingRulesetId", required=true)
     private Output<String> dnsForwardingRulesetId;
 
+    /**
+     * @return Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
+     * 
+     */
     public Output<String> dnsForwardingRulesetId() {
         return this.dnsForwardingRulesetId;
     }
@@ -95,11 +103,23 @@ public final class ResolverVirtualNetworkLinkArgs extends com.pulumi.resources.R
             $ = new ResolverVirtualNetworkLinkArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dnsForwardingRulesetId Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsForwardingRulesetId(Output<String> dnsForwardingRulesetId) {
             $.dnsForwardingRulesetId = dnsForwardingRulesetId;
             return this;
         }
 
+        /**
+         * @param dnsForwardingRulesetId Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsForwardingRulesetId(String dnsForwardingRulesetId) {
             return dnsForwardingRulesetId(Output.of(dnsForwardingRulesetId));
         }

@@ -692,7 +692,9 @@ class ManagedInstanceIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "principalId":
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
             suggest = "principal_id"
         elif key == "tenantId":
             suggest = "tenant_id"
@@ -710,14 +712,18 @@ class ManagedInstanceIdentity(dict):
 
     def __init__(__self__, *,
                  type: str,
+                 identity_ids: Optional[Sequence[str]] = None,
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: The identity type of the SQL Managed Instance. The only possible value is `SystemAssigned`.
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`.
+        :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
         :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
         """
         pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
@@ -727,9 +733,17 @@ class ManagedInstanceIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The identity type of the SQL Managed Instance. The only possible value is `SystemAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
+        """
+        return pulumi.get(self, "identity_ids")
 
     @property
     @pulumi.getter(name="principalId")
@@ -1963,23 +1977,34 @@ class GetElasticPoolSkusResult(dict):
 @pulumi.output_type
 class GetManagedInstanceIdentityResult(dict):
     def __init__(__self__, *,
+                 identity_ids: Sequence[str],
                  principal_id: str,
                  tenant_id: str,
                  type: str):
         """
-        :param str principal_id: The Principal ID associated with this Managed Service Identity.
-        :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
-        :param str type: The identity type of this Managed Service Identity.
+        :param Sequence[str] identity_ids: A list of User Assigned Managed Identity IDs assigned with the Identity of this SQL Managed Instance.
+        :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+        :param str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+        :param str type: The identity type of the SQL Managed Instance.
         """
+        pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[str]:
+        """
+        A list of User Assigned Managed Identity IDs assigned with the Identity of this SQL Managed Instance.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> str:
         """
-        The Principal ID associated with this Managed Service Identity.
+        The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
         """
         return pulumi.get(self, "principal_id")
 
@@ -1987,7 +2012,7 @@ class GetManagedInstanceIdentityResult(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> str:
         """
-        The Tenant ID associated with this Managed Service Identity.
+        The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -1995,7 +2020,7 @@ class GetManagedInstanceIdentityResult(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The identity type of this Managed Service Identity.
+        The identity type of the SQL Managed Instance.
         """
         return pulumi.get(self, "type")
 

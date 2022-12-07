@@ -186,14 +186,14 @@ public final class FhirServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the name of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
+     * Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
      * 
      */
     @Import(name="workspaceId", required=true)
     private Output<String> workspaceId;
 
     /**
-     * @return Specifies the name of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
+     * @return Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
      * 
      */
     public Output<String> workspaceId() {
@@ -495,7 +495,7 @@ public final class FhirServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workspaceId Specifies the name of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
+         * @param workspaceId Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
          * 
          * @return builder
          * 
@@ -506,7 +506,7 @@ public final class FhirServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workspaceId Specifies the name of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
+         * @param workspaceId Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
          * 
          * @return builder
          * 

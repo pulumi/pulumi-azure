@@ -15,17 +15,44 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.nginx.Deployment("example", {
- *     resourceGroupName: azurerm_resource_group.test.name,
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     allocationMethod: "Static",
+ *     sku: "Standard",
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
+ *     delegations: [{
+ *         name: "delegation",
+ *         serviceDelegation: {
+ *             name: "NGINX.NGINXPLUS/nginxDeployments",
+ *             actions: ["Microsoft.Network/virtualNetworks/subnets/join/action"],
+ *         },
+ *     }],
+ * });
+ * const exampleDeployment = new azure.nginx.Deployment("exampleDeployment", {
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "publicpreview_Monthly_gmz7xq9ge3py",
- *     location: azurerm_resource_group.test.location,
+ *     location: exampleResourceGroup.location,
  *     managedResourceGroup: "example",
  *     diagnoseSupportEnabled: true,
  *     frontendPublic: {
- *         ipAddresses: [azurerm_public_ip.test.id],
+ *         ipAddresses: [examplePublicIp.id],
  *     },
  *     networkInterfaces: [{
- *         subnetId: azurerm_subnet.test.id,
+ *         subnetId: exampleSubnet.id,
  *     }],
  *     tags: {
  *         foo: "bar",

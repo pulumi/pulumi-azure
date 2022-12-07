@@ -30,14 +30,14 @@ public final class GetPublicIPsPlainArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`). To allow for both, use `All`.
+     * Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`).
      * 
      */
     @Import(name="attachmentStatus")
     private @Nullable String attachmentStatus;
 
     /**
-     * @return Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`). To allow for both, use `All`.
+     * @return Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`).
      * 
      */
     public Optional<String> attachmentStatus() {
@@ -113,7 +113,7 @@ public final class GetPublicIPsPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param attachmentStatus Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`). To allow for both, use `All`.
+         * @param attachmentStatus Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`).
          * 
          * @return builder
          * 

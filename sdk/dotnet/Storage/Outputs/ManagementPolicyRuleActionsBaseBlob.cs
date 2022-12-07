@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class ManagementPolicyRuleActionsBaseBlob
     {
         /// <summary>
+        /// The age in days after creation to delete the blob. Must be between `0` and `99999`.
+        /// </summary>
+        public readonly int? DeleteAfterDaysSinceCreationGreaterThan;
+        /// <summary>
         /// The age in days after last access time to delete the blob. Must be between `0` and `99999`.
         /// </summary>
         public readonly int? DeleteAfterDaysSinceLastAccessTimeGreaterThan;
@@ -22,7 +26,11 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly int? DeleteAfterDaysSinceModificationGreaterThan;
         /// <summary>
-        /// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0 and`99999`.
+        /// The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`.
+        /// </summary>
+        public readonly int? TierToArchiveAfterDaysSinceCreationGreaterThan;
+        /// <summary>
+        /// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`.
         /// </summary>
         public readonly int? TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan;
         /// <summary>
@@ -34,6 +42,10 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly int? TierToArchiveAfterDaysSinceModificationGreaterThan;
         /// <summary>
+        /// The age in days after creation to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`.
+        /// </summary>
+        public readonly int? TierToCoolAfterDaysSinceCreationGreaterThan;
+        /// <summary>
         /// The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`.
         /// </summary>
         public readonly int? TierToCoolAfterDaysSinceLastAccessTimeGreaterThan;
@@ -44,9 +56,13 @@ namespace Pulumi.Azure.Storage.Outputs
 
         [OutputConstructor]
         private ManagementPolicyRuleActionsBaseBlob(
+            int? deleteAfterDaysSinceCreationGreaterThan,
+
             int? deleteAfterDaysSinceLastAccessTimeGreaterThan,
 
             int? deleteAfterDaysSinceModificationGreaterThan,
+
+            int? tierToArchiveAfterDaysSinceCreationGreaterThan,
 
             int? tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan,
 
@@ -54,15 +70,20 @@ namespace Pulumi.Azure.Storage.Outputs
 
             int? tierToArchiveAfterDaysSinceModificationGreaterThan,
 
+            int? tierToCoolAfterDaysSinceCreationGreaterThan,
+
             int? tierToCoolAfterDaysSinceLastAccessTimeGreaterThan,
 
             int? tierToCoolAfterDaysSinceModificationGreaterThan)
         {
+            DeleteAfterDaysSinceCreationGreaterThan = deleteAfterDaysSinceCreationGreaterThan;
             DeleteAfterDaysSinceLastAccessTimeGreaterThan = deleteAfterDaysSinceLastAccessTimeGreaterThan;
             DeleteAfterDaysSinceModificationGreaterThan = deleteAfterDaysSinceModificationGreaterThan;
+            TierToArchiveAfterDaysSinceCreationGreaterThan = tierToArchiveAfterDaysSinceCreationGreaterThan;
             TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan = tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan;
             TierToArchiveAfterDaysSinceLastTierChangeGreaterThan = tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
             TierToArchiveAfterDaysSinceModificationGreaterThan = tierToArchiveAfterDaysSinceModificationGreaterThan;
+            TierToCoolAfterDaysSinceCreationGreaterThan = tierToCoolAfterDaysSinceCreationGreaterThan;
             TierToCoolAfterDaysSinceLastAccessTimeGreaterThan = tierToCoolAfterDaysSinceLastAccessTimeGreaterThan;
             TierToCoolAfterDaysSinceModificationGreaterThan = tierToCoolAfterDaysSinceModificationGreaterThan;
         }

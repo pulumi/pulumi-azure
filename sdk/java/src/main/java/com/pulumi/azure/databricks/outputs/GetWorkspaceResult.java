@@ -3,8 +3,10 @@
 
 package com.pulumi.azure.databricks.outputs;
 
+import com.pulumi.azure.databricks.outputs.GetWorkspaceStorageAccountIdentity;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import javax.annotation.Nullable;
@@ -28,6 +30,11 @@ public final class GetWorkspaceResult {
      * 
      */
     private String sku;
+    /**
+     * @return A `storage_account_identity` block as documented below.
+     * 
+     */
+    private List<GetWorkspaceStorageAccountIdentity> storageAccountIdentities;
     /**
      * @return A mapping of tags to assign to the Databricks Workspace.
      * 
@@ -73,6 +80,13 @@ public final class GetWorkspaceResult {
         return this.sku;
     }
     /**
+     * @return A `storage_account_identity` block as documented below.
+     * 
+     */
+    public List<GetWorkspaceStorageAccountIdentity> storageAccountIdentities() {
+        return this.storageAccountIdentities;
+    }
+    /**
      * @return A mapping of tags to assign to the Databricks Workspace.
      * 
      */
@@ -108,6 +122,7 @@ public final class GetWorkspaceResult {
         private String name;
         private String resourceGroupName;
         private String sku;
+        private List<GetWorkspaceStorageAccountIdentity> storageAccountIdentities;
         private @Nullable Map<String,String> tags;
         private String workspaceId;
         private String workspaceUrl;
@@ -119,6 +134,7 @@ public final class GetWorkspaceResult {
     	      this.name = defaults.name;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.sku = defaults.sku;
+    	      this.storageAccountIdentities = defaults.storageAccountIdentities;
     	      this.tags = defaults.tags;
     	      this.workspaceId = defaults.workspaceId;
     	      this.workspaceUrl = defaults.workspaceUrl;
@@ -150,6 +166,14 @@ public final class GetWorkspaceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder storageAccountIdentities(List<GetWorkspaceStorageAccountIdentity> storageAccountIdentities) {
+            this.storageAccountIdentities = Objects.requireNonNull(storageAccountIdentities);
+            return this;
+        }
+        public Builder storageAccountIdentities(GetWorkspaceStorageAccountIdentity... storageAccountIdentities) {
+            return storageAccountIdentities(List.of(storageAccountIdentities));
+        }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
@@ -171,6 +195,7 @@ public final class GetWorkspaceResult {
             o.name = name;
             o.resourceGroupName = resourceGroupName;
             o.sku = sku;
+            o.storageAccountIdentities = storageAccountIdentities;
             o.tags = tags;
             o.workspaceId = workspaceId;
             o.workspaceUrl = workspaceUrl;

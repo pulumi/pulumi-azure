@@ -375,7 +375,7 @@ class LinkedService(pulumi.CustomResource):
         Synapse Linked Services can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:synapse/linkedService:LinkedService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Synapse/workspaces/workspace1/linkedservices/linkedservice1
+         $ pulumi import azure:synapse/linkedService:LinkedService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Synapse/workspaces/workspace1/linkedServices/linkedservice1
         ```
 
         :param str resource_name: The name of the resource.
@@ -442,7 +442,7 @@ class LinkedService(pulumi.CustomResource):
         Synapse Linked Services can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:synapse/linkedService:LinkedService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Synapse/workspaces/workspace1/linkedservices/linkedservice1
+         $ pulumi import azure:synapse/linkedService:LinkedService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Synapse/workspaces/workspace1/linkedServices/linkedservice1
         ```
 
         :param str resource_name: The name of the resource.

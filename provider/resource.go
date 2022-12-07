@@ -1573,6 +1573,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mssql_managed_instance_active_directory_administrator": {Tok: azureResource(azureMSSQL, "ManagedInstanceActiveDirectoryAdministrator")},
 			"azurerm_mssql_managed_instance_failover_group":                 {Tok: azureResource(azureMSSQL, "ManagedInstanceFailoverGroup")},
 			"azurerm_mssql_managed_instance_security_alert_policy":          {Tok: azureResource(azureMSSQL, "ManagedInstanceSecurityAlertPolicy")},
+			"azurerm_mssql_managed_instance_transparent_data_encryption":    {Tok: azureResource(azureMSSQL, "ManagedInstanceTransparentDataEncryption")},
 			"azurerm_mssql_managed_instance_vulnerability_assessment":       {Tok: azureResource(azureMSSQL, "ManagedInstanceVulnerabilityAssessment")},
 			"azurerm_mssql_server_dns_alias":                                {Tok: azureResource(azureMSSQL, "ServerDnsAlias")},
 			"azurerm_mssql_server_microsoft_support_auditing_policy":        {Tok: azureResource(azureMSSQL, "ServerMicrosoftSupportAuditingPolicy")},
@@ -1621,6 +1622,9 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_postgresql_flexible_server_database": {
 				Tok: azureResource(azurePostgresql, "FlexibleServerDatabase"),
+			},
+			"azurerm_postgresql_flexible_server_active_directory_administrator": {
+				Tok: azureResource(azurePostgresql, "FlexibleServerActiveDirectoryAdministrator"),
 			},
 
 			// Policy
@@ -2558,6 +2562,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_cdn_frontdoor_rule_set":        {Tok: azureDataSource(azureCDN, "getFrontdoorRuleSet")},
 			"azurerm_cdn_frontdoor_origin_group":    {Tok: azureDataSource(azureCDN, "getFrontdoorOriginGroup")},
 			"azurerm_cdn_frontdoor_secret":          {Tok: azureDataSource(azureCDN, "getFrontdoorSecret")},
+			"azurerm_cdn_frontdoor_custom_domain":   {Tok: azureDataSource(azureCDN, "getFrontdoorCustomDomain")},
 
 			"azurerm_client_config":                         {Tok: azureDataSource(azureCore, "getClientConfig")},
 			"azurerm_container_registry":                    {Tok: azureDataSource(azureContainerService, "getRegistry")},

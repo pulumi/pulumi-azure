@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetWorkspaceResult',
@@ -21,7 +22,7 @@ class GetWorkspaceResult:
     """
     A collection of values returned by getWorkspace.
     """
-    def __init__(__self__, id=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, workspace_id=None, workspace_url=None):
+    def __init__(__self__, id=None, location=None, name=None, resource_group_name=None, sku=None, storage_account_identities=None, tags=None, workspace_id=None, workspace_url=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -37,6 +38,9 @@ class GetWorkspaceResult:
         if sku and not isinstance(sku, str):
             raise TypeError("Expected argument 'sku' to be a str")
         pulumi.set(__self__, "sku", sku)
+        if storage_account_identities and not isinstance(storage_account_identities, list):
+            raise TypeError("Expected argument 'storage_account_identities' to be a list")
+        pulumi.set(__self__, "storage_account_identities", storage_account_identities)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -82,6 +86,14 @@ class GetWorkspaceResult:
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="storageAccountIdentities")
+    def storage_account_identities(self) -> Sequence['outputs.GetWorkspaceStorageAccountIdentityResult']:
+        """
+        A `storage_account_identity` block as documented below.
+        """
+        return pulumi.get(self, "storage_account_identities")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -117,6 +129,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             name=self.name,
             resource_group_name=self.resource_group_name,
             sku=self.sku,
+            storage_account_identities=self.storage_account_identities,
             tags=self.tags,
             workspace_id=self.workspace_id,
             workspace_url=self.workspace_url)
@@ -158,6 +171,7 @@ def get_workspace(name: Optional[str] = None,
         name=__ret__.name,
         resource_group_name=__ret__.resource_group_name,
         sku=__ret__.sku,
+        storage_account_identities=__ret__.storage_account_identities,
         tags=__ret__.tags,
         workspace_id=__ret__.workspace_id,
         workspace_url=__ret__.workspace_url)

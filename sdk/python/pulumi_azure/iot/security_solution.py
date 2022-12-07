@@ -556,7 +556,7 @@ class SecuritySolution(pulumi.CustomResource):
         Iot Security Solution can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:iot/securitySolution:SecuritySolution example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Security/IoTSecuritySolutions/solution1
+         $ pulumi import azure:iot/securitySolution:SecuritySolution example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Security/iotSecuritySolutions/solution1
         ```
 
         :param str resource_name: The name of the resource.
@@ -612,7 +612,7 @@ class SecuritySolution(pulumi.CustomResource):
         Iot Security Solution can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:iot/securitySolution:SecuritySolution example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Security/IoTSecuritySolutions/solution1
+         $ pulumi import azure:iot/securitySolution:SecuritySolution example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Security/iotSecuritySolutions/solution1
         ```
 
         :param str resource_name: The name of the resource.

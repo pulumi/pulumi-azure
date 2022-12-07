@@ -4,6 +4,8 @@
 package com.pulumi.azure.cdn;
 
 import com.pulumi.azure.Utilities;
+import com.pulumi.azure.cdn.inputs.GetFrontdoorCustomDomainArgs;
+import com.pulumi.azure.cdn.inputs.GetFrontdoorCustomDomainPlainArgs;
 import com.pulumi.azure.cdn.inputs.GetFrontdoorEndpointArgs;
 import com.pulumi.azure.cdn.inputs.GetFrontdoorEndpointPlainArgs;
 import com.pulumi.azure.cdn.inputs.GetFrontdoorFirewallPolicyArgs;
@@ -18,6 +20,7 @@ import com.pulumi.azure.cdn.inputs.GetFrontdoorSecretArgs;
 import com.pulumi.azure.cdn.inputs.GetFrontdoorSecretPlainArgs;
 import com.pulumi.azure.cdn.inputs.GetProfileArgs;
 import com.pulumi.azure.cdn.inputs.GetProfilePlainArgs;
+import com.pulumi.azure.cdn.outputs.GetFrontdoorCustomDomainResult;
 import com.pulumi.azure.cdn.outputs.GetFrontdoorEndpointResult;
 import com.pulumi.azure.cdn.outputs.GetFrontdoorFirewallPolicyResult;
 import com.pulumi.azure.cdn.outputs.GetFrontdoorOriginGroupResult;
@@ -32,6 +35,162 @@ import com.pulumi.deployment.InvokeOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class CdnFunctions {
+    /**
+     * Use this data source to access information about an existing Front Door (standard/premium) Custom Domain.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetFrontdoorCustomDomainArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CdnFunctions.getFrontdoorCustomDomain(GetFrontdoorCustomDomainArgs.builder()
+     *             .name(azurerm_cdn_frontdoor_custom_domain.example().name())
+     *             .profileName(azurerm_cdn_frontdoor_profile.example().name())
+     *             .resourceGroupName(azurerm_cdn_frontdoor_profile.example().resource_group_name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetFrontdoorCustomDomainResult> getFrontdoorCustomDomain(GetFrontdoorCustomDomainArgs args) {
+        return getFrontdoorCustomDomain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Front Door (standard/premium) Custom Domain.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetFrontdoorCustomDomainArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CdnFunctions.getFrontdoorCustomDomain(GetFrontdoorCustomDomainArgs.builder()
+     *             .name(azurerm_cdn_frontdoor_custom_domain.example().name())
+     *             .profileName(azurerm_cdn_frontdoor_profile.example().name())
+     *             .resourceGroupName(azurerm_cdn_frontdoor_profile.example().resource_group_name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetFrontdoorCustomDomainResult> getFrontdoorCustomDomainPlain(GetFrontdoorCustomDomainPlainArgs args) {
+        return getFrontdoorCustomDomainPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Front Door (standard/premium) Custom Domain.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetFrontdoorCustomDomainArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CdnFunctions.getFrontdoorCustomDomain(GetFrontdoorCustomDomainArgs.builder()
+     *             .name(azurerm_cdn_frontdoor_custom_domain.example().name())
+     *             .profileName(azurerm_cdn_frontdoor_profile.example().name())
+     *             .resourceGroupName(azurerm_cdn_frontdoor_profile.example().resource_group_name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetFrontdoorCustomDomainResult> getFrontdoorCustomDomain(GetFrontdoorCustomDomainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:cdn/getFrontdoorCustomDomain:getFrontdoorCustomDomain", TypeShape.of(GetFrontdoorCustomDomainResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Front Door (standard/premium) Custom Domain.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetFrontdoorCustomDomainArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CdnFunctions.getFrontdoorCustomDomain(GetFrontdoorCustomDomainArgs.builder()
+     *             .name(azurerm_cdn_frontdoor_custom_domain.example().name())
+     *             .profileName(azurerm_cdn_frontdoor_profile.example().name())
+     *             .resourceGroupName(azurerm_cdn_frontdoor_profile.example().resource_group_name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetFrontdoorCustomDomainResult> getFrontdoorCustomDomainPlain(GetFrontdoorCustomDomainPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:cdn/getFrontdoorCustomDomain:getFrontdoorCustomDomain", TypeShape.of(GetFrontdoorCustomDomainResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Use this data source to access information about an existing Front Door (standard/premium) Endpoint.
      * 

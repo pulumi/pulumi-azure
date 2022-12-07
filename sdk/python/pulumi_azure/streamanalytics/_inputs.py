@@ -206,15 +206,16 @@ class JobJobStorageAccountArgs:
     def __init__(__self__, *,
                  account_key: pulumi.Input[str],
                  account_name: pulumi.Input[str],
-                 authentication_mode: pulumi.Input[str]):
+                 authentication_mode: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] account_key: The account key for the Azure storage account.
         :param pulumi.Input[str] account_name: The name of the Azure storage account.
-        :param pulumi.Input[str] authentication_mode: The authentication mode of the storage account. Possible values are `ConnectionString`, `Msi` and `UserToken`.
+        :param pulumi.Input[str] authentication_mode: The authentication mode of the storage account. The only supported value is `ConnectionString`. Defaults to `ConnectionString`.
         """
         pulumi.set(__self__, "account_key", account_key)
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "authentication_mode", authentication_mode)
+        if authentication_mode is not None:
+            pulumi.set(__self__, "authentication_mode", authentication_mode)
 
     @property
     @pulumi.getter(name="accountKey")
@@ -242,14 +243,14 @@ class JobJobStorageAccountArgs:
 
     @property
     @pulumi.getter(name="authenticationMode")
-    def authentication_mode(self) -> pulumi.Input[str]:
+    def authentication_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The authentication mode of the storage account. Possible values are `ConnectionString`, `Msi` and `UserToken`.
+        The authentication mode of the storage account. The only supported value is `ConnectionString`. Defaults to `ConnectionString`.
         """
         return pulumi.get(self, "authentication_mode")
 
     @authentication_mode.setter
-    def authentication_mode(self, value: pulumi.Input[str]):
+    def authentication_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "authentication_mode", value)
 
 

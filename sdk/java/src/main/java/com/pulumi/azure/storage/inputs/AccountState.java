@@ -946,6 +946,13 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.secondaryWebHost);
     }
 
+    @Import(name="sftpEnabled")
+    private @Nullable Output<Boolean> sftpEnabled;
+
+    public Optional<Output<Boolean>> sftpEnabled() {
+        return Optional.ofNullable(this.sftpEnabled);
+    }
+
     /**
      * A `share_properties` block as defined below.
      * 
@@ -1085,6 +1092,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.secondaryTableHost = $.secondaryTableHost;
         this.secondaryWebEndpoint = $.secondaryWebEndpoint;
         this.secondaryWebHost = $.secondaryWebHost;
+        this.sftpEnabled = $.sftpEnabled;
         this.shareProperties = $.shareProperties;
         this.sharedAccessKeyEnabled = $.sharedAccessKeyEnabled;
         this.staticWebsite = $.staticWebsite;
@@ -2391,6 +2399,15 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder secondaryWebHost(String secondaryWebHost) {
             return secondaryWebHost(Output.of(secondaryWebHost));
+        }
+
+        public Builder sftpEnabled(@Nullable Output<Boolean> sftpEnabled) {
+            $.sftpEnabled = sftpEnabled;
+            return this;
+        }
+
+        public Builder sftpEnabled(Boolean sftpEnabled) {
+            return sftpEnabled(Output.of(sftpEnabled));
         }
 
         /**

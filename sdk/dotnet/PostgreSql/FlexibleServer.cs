@@ -124,6 +124,12 @@ namespace Pulumi.Azure.PostgreSql
         public Output<string?> AdministratorPassword { get; private set; } = null!;
 
         /// <summary>
+        /// An `authentication` block as defined below.
+        /// </summary>
+        [Output("authentication")]
+        public Output<Outputs.FlexibleServerAuthentication> Authentication { get; private set; } = null!;
+
+        /// <summary>
         /// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
         /// </summary>
         [Output("backupRetentionDays")]
@@ -296,6 +302,12 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? AdministratorPassword { get; set; }
 
         /// <summary>
+        /// An `authentication` block as defined below.
+        /// </summary>
+        [Input("authentication")]
+        public Input<Inputs.FlexibleServerAuthenticationArgs>? Authentication { get; set; }
+
+        /// <summary>
         /// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
         /// </summary>
         [Input("backupRetentionDays")]
@@ -422,6 +434,12 @@ namespace Pulumi.Azure.PostgreSql
         /// </summary>
         [Input("administratorPassword")]
         public Input<string>? AdministratorPassword { get; set; }
+
+        /// <summary>
+        /// An `authentication` block as defined below.
+        /// </summary>
+        [Input("authentication")]
+        public Input<Inputs.FlexibleServerAuthenticationGetArgs>? Authentication { get; set; }
 
         /// <summary>
         /// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.

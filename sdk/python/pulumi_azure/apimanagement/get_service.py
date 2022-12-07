@@ -22,7 +22,7 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, additional_locations=None, developer_portal_url=None, gateway_regional_url=None, gateway_url=None, hostname_configurations=None, id=None, identities=None, location=None, management_api_url=None, name=None, notification_sender_email=None, portal_url=None, private_ip_addresses=None, public_ip_address_id=None, public_ip_addresses=None, publisher_email=None, publisher_name=None, resource_group_name=None, scm_url=None, sku_name=None, tags=None):
+    def __init__(__self__, additional_locations=None, developer_portal_url=None, gateway_regional_url=None, gateway_url=None, hostname_configurations=None, id=None, identities=None, location=None, management_api_url=None, name=None, notification_sender_email=None, portal_url=None, private_ip_addresses=None, public_ip_address_id=None, public_ip_addresses=None, publisher_email=None, publisher_name=None, resource_group_name=None, scm_url=None, sku_name=None, tags=None, tenant_accesses=None):
         if additional_locations and not isinstance(additional_locations, list):
             raise TypeError("Expected argument 'additional_locations' to be a list")
         pulumi.set(__self__, "additional_locations", additional_locations)
@@ -86,6 +86,9 @@ class GetServiceResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if tenant_accesses and not isinstance(tenant_accesses, list):
+            raise TypeError("Expected argument 'tenant_accesses' to be a list")
+        pulumi.set(__self__, "tenant_accesses", tenant_accesses)
 
     @property
     @pulumi.getter(name="additionalLocations")
@@ -249,6 +252,14 @@ class GetServiceResult:
         """
         return pulumi.get(self, "tags")
 
+    @property
+    @pulumi.getter(name="tenantAccesses")
+    def tenant_accesses(self) -> Sequence['outputs.GetServiceTenantAccessResult']:
+        """
+        A `tenant_access` block as defined below.
+        """
+        return pulumi.get(self, "tenant_accesses")
+
 
 class AwaitableGetServiceResult(GetServiceResult):
     # pylint: disable=using-constant-test
@@ -276,7 +287,8 @@ class AwaitableGetServiceResult(GetServiceResult):
             resource_group_name=self.resource_group_name,
             scm_url=self.scm_url,
             sku_name=self.sku_name,
-            tags=self.tags)
+            tags=self.tags,
+            tenant_accesses=self.tenant_accesses)
 
 
 def get_service(name: Optional[str] = None,
@@ -327,7 +339,8 @@ def get_service(name: Optional[str] = None,
         resource_group_name=__ret__.resource_group_name,
         scm_url=__ret__.scm_url,
         sku_name=__ret__.sku_name,
-        tags=__ret__.tags)
+        tags=__ret__.tags,
+        tenant_accesses=__ret__.tenant_accesses)
 
 
 @_utilities.lift_output_func(get_service)

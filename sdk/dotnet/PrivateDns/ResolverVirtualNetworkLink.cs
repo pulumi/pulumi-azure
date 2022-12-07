@@ -117,6 +117,9 @@ namespace Pulumi.Azure.PrivateDns
     [AzureResourceType("azure:privatedns/resolverVirtualNetworkLink:ResolverVirtualNetworkLink")]
     public partial class ResolverVirtualNetworkLink : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
+        /// </summary>
         [Output("dnsForwardingRulesetId")]
         public Output<string> DnsForwardingRulesetId { get; private set; } = null!;
 
@@ -184,6 +187,9 @@ namespace Pulumi.Azure.PrivateDns
 
     public sealed class ResolverVirtualNetworkLinkArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
+        /// </summary>
         [Input("dnsForwardingRulesetId", required: true)]
         public Input<string> DnsForwardingRulesetId { get; set; } = null!;
 
@@ -219,6 +225,9 @@ namespace Pulumi.Azure.PrivateDns
 
     public sealed class ResolverVirtualNetworkLinkState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
+        /// </summary>
         [Input("dnsForwardingRulesetId")]
         public Input<string>? DnsForwardingRulesetId { get; set; }
 

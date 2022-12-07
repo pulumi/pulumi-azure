@@ -51,7 +51,7 @@ func GetPublicIPs(ctx *pulumi.Context, args *GetPublicIPsArgs, opts ...pulumi.In
 type GetPublicIPsArgs struct {
 	// The Allocation Type for the Public IP Address. Possible values include `Static` or `Dynamic`.
 	AllocationType *string `pulumi:"allocationType"`
-	// Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`). To allow for both, use `All`.
+	// Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`).
 	AttachmentStatus *string `pulumi:"attachmentStatus"`
 	// A prefix match used for the IP Addresses `name` field, case sensitive.
 	NamePrefix *string `pulumi:"namePrefix"`
@@ -88,7 +88,7 @@ func GetPublicIPsOutput(ctx *pulumi.Context, args GetPublicIPsOutputArgs, opts .
 type GetPublicIPsOutputArgs struct {
 	// The Allocation Type for the Public IP Address. Possible values include `Static` or `Dynamic`.
 	AllocationType pulumi.StringPtrInput `pulumi:"allocationType"`
-	// Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`). To allow for both, use `All`.
+	// Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`).
 	AttachmentStatus pulumi.StringPtrInput `pulumi:"attachmentStatus"`
 	// A prefix match used for the IP Addresses `name` field, case sensitive.
 	NamePrefix pulumi.StringPtrInput `pulumi:"namePrefix"`

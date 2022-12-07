@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *
  * const example = azure.healthcare.getDicomService({
  *     name: "example-healthcare_dicom_service",
- *     workspaceId: "example_healthcare_workspace",
+ *     workspaceId: data.azurerm_healthcare_workspace.example.id,
  * });
  * export const azurermHealthcareDicomService = example.then(example => example.id);
  * ```
@@ -43,7 +43,7 @@ export interface GetDicomServiceArgs {
      */
     name: string;
     /**
-     * The name of the Healthcare Workspace in which the Healthcare DICOM Service exists.
+     * The id of the Healthcare Workspace in which the Healthcare DICOM Service exists.
      */
     workspaceId: string;
 }
@@ -91,7 +91,7 @@ export interface GetDicomServiceOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * The name of the Healthcare Workspace in which the Healthcare DICOM Service exists.
+     * The id of the Healthcare Workspace in which the Healthcare DICOM Service exists.
      */
     workspaceId: pulumi.Input<string>;
 }

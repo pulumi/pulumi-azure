@@ -83,6 +83,21 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
+     * 
+     */
+    @Import(name="dynamicThrottlingEnabled")
+    private @Nullable Output<Boolean> dynamicThrottlingEnabled;
+
+    /**
+     * @return Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> dynamicThrottlingEnabled() {
+        return Optional.ofNullable(this.dynamicThrottlingEnabled);
+    }
+
+    /**
      * List of FQDNs allowed for the Cognitive Account.
      * 
      */
@@ -359,6 +374,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         this.customQuestionAnsweringSearchServiceKey = $.customQuestionAnsweringSearchServiceKey;
         this.customSubdomainName = $.customSubdomainName;
         this.customerManagedKey = $.customerManagedKey;
+        this.dynamicThrottlingEnabled = $.dynamicThrottlingEnabled;
         this.fqdns = $.fqdns;
         this.identity = $.identity;
         this.kind = $.kind;
@@ -479,6 +495,27 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder customerManagedKey(AccountCustomerManagedKeyArgs customerManagedKey) {
             return customerManagedKey(Output.of(customerManagedKey));
+        }
+
+        /**
+         * @param dynamicThrottlingEnabled Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dynamicThrottlingEnabled(@Nullable Output<Boolean> dynamicThrottlingEnabled) {
+            $.dynamicThrottlingEnabled = dynamicThrottlingEnabled;
+            return this;
+        }
+
+        /**
+         * @param dynamicThrottlingEnabled Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dynamicThrottlingEnabled(Boolean dynamicThrottlingEnabled) {
+            return dynamicThrottlingEnabled(Output.of(dynamicThrottlingEnabled));
         }
 
         /**

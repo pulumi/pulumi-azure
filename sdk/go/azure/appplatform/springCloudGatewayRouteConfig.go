@@ -60,6 +60,7 @@ import (
 //			_, err = appplatform.NewSpringCloudGatewayRouteConfig(ctx, "exampleSpringCloudGatewayRouteConfig", &appplatform.SpringCloudGatewayRouteConfigArgs{
 //				SpringCloudGatewayId: exampleSpringCloudGateway.ID(),
 //				SpringCloudAppId:     exampleSpringCloudApp.ID(),
+//				Protocol:             pulumi.String("HTTPS"),
 //				Routes: appplatform.SpringCloudGatewayRouteConfigRouteArray{
 //					&appplatform.SpringCloudGatewayRouteConfigRouteArgs{
 //						Description: pulumi.String("example description"),
@@ -107,6 +108,8 @@ type SpringCloudGatewayRouteConfig struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more `openApi` blocks as defined below.
 	OpenApi SpringCloudGatewayRouteConfigOpenApiPtrOutput `pulumi:"openApi"`
+	// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+	Protocol pulumi.StringPtrOutput `pulumi:"protocol"`
 	// One or more `route` blocks as defined below.
 	Routes SpringCloudGatewayRouteConfigRouteArrayOutput `pulumi:"routes"`
 	// The ID of the Spring Cloud App.
@@ -151,6 +154,8 @@ type springCloudGatewayRouteConfigState struct {
 	Name *string `pulumi:"name"`
 	// One or more `openApi` blocks as defined below.
 	OpenApi *SpringCloudGatewayRouteConfigOpenApi `pulumi:"openApi"`
+	// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+	Protocol *string `pulumi:"protocol"`
 	// One or more `route` blocks as defined below.
 	Routes []SpringCloudGatewayRouteConfigRoute `pulumi:"routes"`
 	// The ID of the Spring Cloud App.
@@ -164,6 +169,8 @@ type SpringCloudGatewayRouteConfigState struct {
 	Name pulumi.StringPtrInput
 	// One or more `openApi` blocks as defined below.
 	OpenApi SpringCloudGatewayRouteConfigOpenApiPtrInput
+	// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+	Protocol pulumi.StringPtrInput
 	// One or more `route` blocks as defined below.
 	Routes SpringCloudGatewayRouteConfigRouteArrayInput
 	// The ID of the Spring Cloud App.
@@ -181,6 +188,8 @@ type springCloudGatewayRouteConfigArgs struct {
 	Name *string `pulumi:"name"`
 	// One or more `openApi` blocks as defined below.
 	OpenApi *SpringCloudGatewayRouteConfigOpenApi `pulumi:"openApi"`
+	// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+	Protocol *string `pulumi:"protocol"`
 	// One or more `route` blocks as defined below.
 	Routes []SpringCloudGatewayRouteConfigRoute `pulumi:"routes"`
 	// The ID of the Spring Cloud App.
@@ -195,6 +204,8 @@ type SpringCloudGatewayRouteConfigArgs struct {
 	Name pulumi.StringPtrInput
 	// One or more `openApi` blocks as defined below.
 	OpenApi SpringCloudGatewayRouteConfigOpenApiPtrInput
+	// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+	Protocol pulumi.StringPtrInput
 	// One or more `route` blocks as defined below.
 	Routes SpringCloudGatewayRouteConfigRouteArrayInput
 	// The ID of the Spring Cloud App.
@@ -298,6 +309,11 @@ func (o SpringCloudGatewayRouteConfigOutput) Name() pulumi.StringOutput {
 // One or more `openApi` blocks as defined below.
 func (o SpringCloudGatewayRouteConfigOutput) OpenApi() SpringCloudGatewayRouteConfigOpenApiPtrOutput {
 	return o.ApplyT(func(v *SpringCloudGatewayRouteConfig) SpringCloudGatewayRouteConfigOpenApiPtrOutput { return v.OpenApi }).(SpringCloudGatewayRouteConfigOpenApiPtrOutput)
+}
+
+// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+func (o SpringCloudGatewayRouteConfigOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudGatewayRouteConfig) pulumi.StringPtrOutput { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
 // One or more `route` blocks as defined below.

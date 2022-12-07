@@ -7,6 +7,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class JobJobStorageAccountArgs extends com.pulumi.resources.ResourceArgs {
@@ -44,18 +46,18 @@ public final class JobJobStorageAccountArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The authentication mode of the storage account. Possible values are `ConnectionString`, `Msi` and `UserToken`.
+     * The authentication mode of the storage account. The only supported value is `ConnectionString`. Defaults to `ConnectionString`.
      * 
      */
-    @Import(name="authenticationMode", required=true)
-    private Output<String> authenticationMode;
+    @Import(name="authenticationMode")
+    private @Nullable Output<String> authenticationMode;
 
     /**
-     * @return The authentication mode of the storage account. Possible values are `ConnectionString`, `Msi` and `UserToken`.
+     * @return The authentication mode of the storage account. The only supported value is `ConnectionString`. Defaults to `ConnectionString`.
      * 
      */
-    public Output<String> authenticationMode() {
-        return this.authenticationMode;
+    public Optional<Output<String>> authenticationMode() {
+        return Optional.ofNullable(this.authenticationMode);
     }
 
     private JobJobStorageAccountArgs() {}
@@ -127,18 +129,18 @@ public final class JobJobStorageAccountArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param authenticationMode The authentication mode of the storage account. Possible values are `ConnectionString`, `Msi` and `UserToken`.
+         * @param authenticationMode The authentication mode of the storage account. The only supported value is `ConnectionString`. Defaults to `ConnectionString`.
          * 
          * @return builder
          * 
          */
-        public Builder authenticationMode(Output<String> authenticationMode) {
+        public Builder authenticationMode(@Nullable Output<String> authenticationMode) {
             $.authenticationMode = authenticationMode;
             return this;
         }
 
         /**
-         * @param authenticationMode The authentication mode of the storage account. Possible values are `ConnectionString`, `Msi` and `UserToken`.
+         * @param authenticationMode The authentication mode of the storage account. The only supported value is `ConnectionString`. Defaults to `ConnectionString`.
          * 
          * @return builder
          * 
@@ -150,7 +152,6 @@ public final class JobJobStorageAccountArgs extends com.pulumi.resources.Resourc
         public JobJobStorageAccountArgs build() {
             $.accountKey = Objects.requireNonNull($.accountKey, "expected parameter 'accountKey' to be non-null");
             $.accountName = Objects.requireNonNull($.accountName, "expected parameter 'accountName' to be non-null");
-            $.authenticationMode = Objects.requireNonNull($.authenticationMode, "expected parameter 'authenticationMode' to be non-null");
             return $;
         }
     }

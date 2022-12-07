@@ -14,6 +14,7 @@ __all__ = [
     'WorkspaceCustomParameters',
     'WorkspaceStorageAccountIdentity',
     'GetWorkspacePrivateEndpointConnectionConnectionResult',
+    'GetWorkspaceStorageAccountIdentityResult',
 ]
 
 @pulumi.output_type
@@ -375,5 +376,45 @@ class GetWorkspacePrivateEndpointConnectionConnectionResult(dict):
         The Databricks Workspace resource ID for the private link endpoint.
         """
         return pulumi.get(self, "workspace_private_endpoint_id")
+
+
+@pulumi.output_type
+class GetWorkspaceStorageAccountIdentityResult(dict):
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str):
+        """
+        :param str principal_id: The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
+        :param str tenant_id: The UUID of the tenant where the internal databricks storage account was created.
+        :param str type: The type of the internal databricks storage account.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The UUID of the tenant where the internal databricks storage account was created.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the internal databricks storage account.
+        """
+        return pulumi.get(self, "type")
 
 

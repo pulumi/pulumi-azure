@@ -2738,16 +2738,15 @@ class TransformOutputBuiltinPreset(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 preset_name: Optional[str] = None):
+                 preset_name: str):
         """
         :param str preset_name: The built-in preset to be used for encoding videos. The allowed values are `AACGoodQualityAudio`, `AdaptiveStreaming`,`ContentAwareEncoding`, `ContentAwareEncodingExperimental`,`CopyAllBitrateNonInterleaved`, `H264MultipleBitrate1080p`,`H264MultipleBitrate720p`, `H264MultipleBitrateSD`,`H264SingleBitrate1080p`, `H264SingleBitrate720p` and `H264SingleBitrateSD`.
         """
-        if preset_name is not None:
-            pulumi.set(__self__, "preset_name", preset_name)
+        pulumi.set(__self__, "preset_name", preset_name)
 
     @property
     @pulumi.getter(name="presetName")
-    def preset_name(self) -> Optional[str]:
+    def preset_name(self) -> str:
         """
         The built-in preset to be used for encoding videos. The allowed values are `AACGoodQualityAudio`, `AdaptiveStreaming`,`ContentAwareEncoding`, `ContentAwareEncodingExperimental`,`CopyAllBitrateNonInterleaved`, `H264MultipleBitrate1080p`,`H264MultipleBitrate720p`, `H264MultipleBitrateSD`,`H264SingleBitrate1080p`, `H264SingleBitrate720p` and `H264SingleBitrateSD`.
         """

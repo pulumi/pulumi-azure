@@ -22,13 +22,16 @@ class GetManagedInstanceResult:
     """
     A collection of values returned by getManagedInstance.
     """
-    def __init__(__self__, administrator_login=None, collation=None, dns_zone_partner_id=None, fqdn=None, id=None, identities=None, license_type=None, location=None, minimum_tls_version=None, name=None, proxy_override=None, public_data_endpoint_enabled=None, resource_group_name=None, sku_name=None, storage_account_type=None, storage_size_in_gb=None, subnet_id=None, tags=None, timezone_id=None, vcores=None):
+    def __init__(__self__, administrator_login=None, collation=None, customer_managed_key_id=None, dns_zone_partner_id=None, fqdn=None, id=None, identities=None, license_type=None, location=None, minimum_tls_version=None, name=None, proxy_override=None, public_data_endpoint_enabled=None, resource_group_name=None, sku_name=None, storage_account_type=None, storage_size_in_gb=None, subnet_id=None, tags=None, timezone_id=None, vcores=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
         if collation and not isinstance(collation, str):
             raise TypeError("Expected argument 'collation' to be a str")
         pulumi.set(__self__, "collation", collation)
+        if customer_managed_key_id and not isinstance(customer_managed_key_id, str):
+            raise TypeError("Expected argument 'customer_managed_key_id' to be a str")
+        pulumi.set(__self__, "customer_managed_key_id", customer_managed_key_id)
         if dns_zone_partner_id and not isinstance(dns_zone_partner_id, str):
             raise TypeError("Expected argument 'dns_zone_partner_id' to be a str")
         pulumi.set(__self__, "dns_zone_partner_id", dns_zone_partner_id)
@@ -99,6 +102,11 @@ class GetManagedInstanceResult:
         Specifies how the SQL Managed Instance will be collated.
         """
         return pulumi.get(self, "collation")
+
+    @property
+    @pulumi.getter(name="customerManagedKeyId")
+    def customer_managed_key_id(self) -> str:
+        return pulumi.get(self, "customer_managed_key_id")
 
     @property
     @pulumi.getter(name="dnsZonePartnerId")
@@ -247,6 +255,7 @@ class AwaitableGetManagedInstanceResult(GetManagedInstanceResult):
         return GetManagedInstanceResult(
             administrator_login=self.administrator_login,
             collation=self.collation,
+            customer_managed_key_id=self.customer_managed_key_id,
             dns_zone_partner_id=self.dns_zone_partner_id,
             fqdn=self.fqdn,
             id=self.id,
@@ -296,6 +305,7 @@ def get_managed_instance(name: Optional[str] = None,
     return AwaitableGetManagedInstanceResult(
         administrator_login=__ret__.administrator_login,
         collation=__ret__.collation,
+        customer_managed_key_id=__ret__.customer_managed_key_id,
         dns_zone_partner_id=__ret__.dns_zone_partner_id,
         fqdn=__ret__.fqdn,
         id=__ret__.id,

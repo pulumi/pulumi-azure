@@ -6427,7 +6427,7 @@ func (o TransformOutputAudioAnalyzerPresetPtrOutput) AudioLanguage() pulumi.Stri
 
 type TransformOutputBuiltinPreset struct {
 	// The built-in preset to be used for encoding videos. The allowed values are `AACGoodQualityAudio`, `AdaptiveStreaming`,`ContentAwareEncoding`, `ContentAwareEncodingExperimental`,`CopyAllBitrateNonInterleaved`, `H264MultipleBitrate1080p`,`H264MultipleBitrate720p`, `H264MultipleBitrateSD`,`H264SingleBitrate1080p`, `H264SingleBitrate720p` and `H264SingleBitrateSD`.
-	PresetName *string `pulumi:"presetName"`
+	PresetName string `pulumi:"presetName"`
 }
 
 // TransformOutputBuiltinPresetInput is an input type that accepts TransformOutputBuiltinPresetArgs and TransformOutputBuiltinPresetOutput values.
@@ -6443,7 +6443,7 @@ type TransformOutputBuiltinPresetInput interface {
 
 type TransformOutputBuiltinPresetArgs struct {
 	// The built-in preset to be used for encoding videos. The allowed values are `AACGoodQualityAudio`, `AdaptiveStreaming`,`ContentAwareEncoding`, `ContentAwareEncodingExperimental`,`CopyAllBitrateNonInterleaved`, `H264MultipleBitrate1080p`,`H264MultipleBitrate720p`, `H264MultipleBitrateSD`,`H264SingleBitrate1080p`, `H264SingleBitrate720p` and `H264SingleBitrateSD`.
-	PresetName pulumi.StringPtrInput `pulumi:"presetName"`
+	PresetName pulumi.StringInput `pulumi:"presetName"`
 }
 
 func (TransformOutputBuiltinPresetArgs) ElementType() reflect.Type {
@@ -6524,8 +6524,8 @@ func (o TransformOutputBuiltinPresetOutput) ToTransformOutputBuiltinPresetPtrOut
 }
 
 // The built-in preset to be used for encoding videos. The allowed values are `AACGoodQualityAudio`, `AdaptiveStreaming`,`ContentAwareEncoding`, `ContentAwareEncodingExperimental`,`CopyAllBitrateNonInterleaved`, `H264MultipleBitrate1080p`,`H264MultipleBitrate720p`, `H264MultipleBitrateSD`,`H264SingleBitrate1080p`, `H264SingleBitrate720p` and `H264SingleBitrateSD`.
-func (o TransformOutputBuiltinPresetOutput) PresetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TransformOutputBuiltinPreset) *string { return v.PresetName }).(pulumi.StringPtrOutput)
+func (o TransformOutputBuiltinPresetOutput) PresetName() pulumi.StringOutput {
+	return o.ApplyT(func(v TransformOutputBuiltinPreset) string { return v.PresetName }).(pulumi.StringOutput)
 }
 
 type TransformOutputBuiltinPresetPtrOutput struct{ *pulumi.OutputState }
@@ -6558,7 +6558,7 @@ func (o TransformOutputBuiltinPresetPtrOutput) PresetName() pulumi.StringPtrOutp
 		if v == nil {
 			return nil
 		}
-		return v.PresetName
+		return &v.PresetName
 	}).(pulumi.StringPtrOutput)
 }
 

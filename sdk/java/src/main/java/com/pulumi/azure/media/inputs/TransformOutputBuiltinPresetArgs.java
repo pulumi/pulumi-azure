@@ -7,8 +7,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class TransformOutputBuiltinPresetArgs extends com.pulumi.resources.ResourceArgs {
@@ -19,15 +17,15 @@ public final class TransformOutputBuiltinPresetArgs extends com.pulumi.resources
      * The built-in preset to be used for encoding videos. The allowed values are `AACGoodQualityAudio`, `AdaptiveStreaming`,`ContentAwareEncoding`, `ContentAwareEncodingExperimental`,`CopyAllBitrateNonInterleaved`, `H264MultipleBitrate1080p`,`H264MultipleBitrate720p`, `H264MultipleBitrateSD`,`H264SingleBitrate1080p`, `H264SingleBitrate720p` and `H264SingleBitrateSD`.
      * 
      */
-    @Import(name="presetName")
-    private @Nullable Output<String> presetName;
+    @Import(name="presetName", required=true)
+    private Output<String> presetName;
 
     /**
      * @return The built-in preset to be used for encoding videos. The allowed values are `AACGoodQualityAudio`, `AdaptiveStreaming`,`ContentAwareEncoding`, `ContentAwareEncodingExperimental`,`CopyAllBitrateNonInterleaved`, `H264MultipleBitrate1080p`,`H264MultipleBitrate720p`, `H264MultipleBitrateSD`,`H264SingleBitrate1080p`, `H264SingleBitrate720p` and `H264SingleBitrateSD`.
      * 
      */
-    public Optional<Output<String>> presetName() {
-        return Optional.ofNullable(this.presetName);
+    public Output<String> presetName() {
+        return this.presetName;
     }
 
     private TransformOutputBuiltinPresetArgs() {}
@@ -60,7 +58,7 @@ public final class TransformOutputBuiltinPresetArgs extends com.pulumi.resources
          * @return builder
          * 
          */
-        public Builder presetName(@Nullable Output<String> presetName) {
+        public Builder presetName(Output<String> presetName) {
             $.presetName = presetName;
             return this;
         }
@@ -76,6 +74,7 @@ public final class TransformOutputBuiltinPresetArgs extends com.pulumi.resources
         }
 
         public TransformOutputBuiltinPresetArgs build() {
+            $.presetName = Objects.requireNonNull($.presetName, "expected parameter 'presetName' to be non-null");
             return $;
         }
     }

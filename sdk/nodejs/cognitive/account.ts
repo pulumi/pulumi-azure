@@ -78,6 +78,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly customerManagedKey!: pulumi.Output<outputs.cognitive.AccountCustomerManagedKey | undefined>;
     /**
+     * Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
+     */
+    public readonly dynamicThrottlingEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The endpoint used to connect to the Cognitive Service Account.
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
@@ -179,6 +183,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["customQuestionAnsweringSearchServiceKey"] = state ? state.customQuestionAnsweringSearchServiceKey : undefined;
             resourceInputs["customSubdomainName"] = state ? state.customSubdomainName : undefined;
             resourceInputs["customerManagedKey"] = state ? state.customerManagedKey : undefined;
+            resourceInputs["dynamicThrottlingEnabled"] = state ? state.dynamicThrottlingEnabled : undefined;
             resourceInputs["endpoint"] = state ? state.endpoint : undefined;
             resourceInputs["fqdns"] = state ? state.fqdns : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
@@ -215,6 +220,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["customQuestionAnsweringSearchServiceKey"] = args ? args.customQuestionAnsweringSearchServiceKey : undefined;
             resourceInputs["customSubdomainName"] = args ? args.customSubdomainName : undefined;
             resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
+            resourceInputs["dynamicThrottlingEnabled"] = args ? args.dynamicThrottlingEnabled : undefined;
             resourceInputs["fqdns"] = args ? args.fqdns : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
@@ -262,6 +268,10 @@ export interface AccountState {
      * A `customerManagedKey` block as documented below.
      */
     customerManagedKey?: pulumi.Input<inputs.cognitive.AccountCustomerManagedKey>;
+    /**
+     * Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
+     */
+    dynamicThrottlingEnabled?: pulumi.Input<boolean>;
     /**
      * The endpoint used to connect to the Cognitive Service Account.
      */
@@ -368,6 +378,10 @@ export interface AccountArgs {
      * A `customerManagedKey` block as documented below.
      */
     customerManagedKey?: pulumi.Input<inputs.cognitive.AccountCustomerManagedKey>;
+    /**
+     * Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
+     */
+    dynamicThrottlingEnabled?: pulumi.Input<boolean>;
     /**
      * List of FQDNs allowed for the Cognitive Account.
      */

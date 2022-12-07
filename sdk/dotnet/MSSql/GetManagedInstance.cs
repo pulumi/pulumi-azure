@@ -121,6 +121,7 @@ namespace Pulumi.Azure.MSSql
         /// Specifies how the SQL Managed Instance will be collated.
         /// </summary>
         public readonly string Collation;
+        public readonly string CustomerManagedKeyId;
         /// <summary>
         /// The ID of the SQL Managed Instance which shares the DNS zone.
         /// </summary>
@@ -194,6 +195,8 @@ namespace Pulumi.Azure.MSSql
 
             string collation,
 
+            string customerManagedKeyId,
+
             string dnsZonePartnerId,
 
             string fqdn,
@@ -232,6 +235,7 @@ namespace Pulumi.Azure.MSSql
         {
             AdministratorLogin = administratorLogin;
             Collation = collation;
+            CustomerManagedKeyId = customerManagedKeyId;
             DnsZonePartnerId = dnsZonePartnerId;
             Fqdn = fqdn;
             Id = id;

@@ -21,7 +21,7 @@ public final class GetServiceIdentity {
      */
     private String principalId;
     /**
-     * @return The Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+     * @return The ID of the Tenant which has access to this API Management instance.
      * 
      */
     private String tenantId;
@@ -47,7 +47,7 @@ public final class GetServiceIdentity {
         return this.principalId;
     }
     /**
-     * @return The Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+     * @return The ID of the Tenant which has access to this API Management instance.
      * 
      */
     public String tenantId() {

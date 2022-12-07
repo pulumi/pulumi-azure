@@ -64,6 +64,10 @@ import (
 //				AppServicePlanId:        examplePlan.ID(),
 //				StorageAccountName:      exampleAccount.Name,
 //				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
+//				AppSettings: pulumi.StringMap{
+//					"FUNCTIONS_WORKER_RUNTIME":     pulumi.String("node"),
+//					"WEBSITE_NODE_DEFAULT_VERSION": pulumi.String("~18"),
+//				},
 //			})
 //			if err != nil {
 //				return err

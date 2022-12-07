@@ -5,43 +5,56 @@ package com.pulumi.azure.mssql.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetManagedInstanceIdentity {
     /**
-     * @return The Principal ID associated with this Managed Service Identity.
+     * @return A list of User Assigned Managed Identity IDs assigned with the Identity of this SQL Managed Instance.
+     * 
+     */
+    private List<String> identityIds;
+    /**
+     * @return The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
      * 
      */
     private String principalId;
     /**
-     * @return The Tenant ID associated with this Managed Service Identity.
+     * @return The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
      * 
      */
     private String tenantId;
     /**
-     * @return The identity type of this Managed Service Identity.
+     * @return The identity type of the SQL Managed Instance.
      * 
      */
     private String type;
 
     private GetManagedInstanceIdentity() {}
     /**
-     * @return The Principal ID associated with this Managed Service Identity.
+     * @return A list of User Assigned Managed Identity IDs assigned with the Identity of this SQL Managed Instance.
+     * 
+     */
+    public List<String> identityIds() {
+        return this.identityIds;
+    }
+    /**
+     * @return The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
      * 
      */
     public String principalId() {
         return this.principalId;
     }
     /**
-     * @return The Tenant ID associated with this Managed Service Identity.
+     * @return The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
      * 
      */
     public String tenantId() {
         return this.tenantId;
     }
     /**
-     * @return The identity type of this Managed Service Identity.
+     * @return The identity type of the SQL Managed Instance.
      * 
      */
     public String type() {
@@ -57,17 +70,27 @@ public final class GetManagedInstanceIdentity {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<String> identityIds;
         private String principalId;
         private String tenantId;
         private String type;
         public Builder() {}
         public Builder(GetManagedInstanceIdentity defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.identityIds = defaults.identityIds;
     	      this.principalId = defaults.principalId;
     	      this.tenantId = defaults.tenantId;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
+        public Builder identityIds(List<String> identityIds) {
+            this.identityIds = Objects.requireNonNull(identityIds);
+            return this;
+        }
+        public Builder identityIds(String... identityIds) {
+            return identityIds(List.of(identityIds));
+        }
         @CustomType.Setter
         public Builder principalId(String principalId) {
             this.principalId = Objects.requireNonNull(principalId);
@@ -85,6 +108,7 @@ public final class GetManagedInstanceIdentity {
         }
         public GetManagedInstanceIdentity build() {
             final var o = new GetManagedInstanceIdentity();
+            o.identityIds = identityIds;
             o.principalId = principalId;
             o.tenantId = tenantId;
             o.type = type;

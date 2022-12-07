@@ -8,6 +8,7 @@ import com.pulumi.azure.appplatform.SpringCloudAppArgs;
 import com.pulumi.azure.appplatform.inputs.SpringCloudAppState;
 import com.pulumi.azure.appplatform.outputs.SpringCloudAppCustomPersistentDisk;
 import com.pulumi.azure.appplatform.outputs.SpringCloudAppIdentity;
+import com.pulumi.azure.appplatform.outputs.SpringCloudAppIngressSettings;
 import com.pulumi.azure.appplatform.outputs.SpringCloudAppPersistentDisk;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -150,6 +151,20 @@ public class SpringCloudApp extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<SpringCloudAppIdentity>> identity() {
         return Codegen.optional(this.identity);
+    }
+    /**
+     * An `ingress_settings` block as defined below.
+     * 
+     */
+    @Export(name="ingressSettings", type=SpringCloudAppIngressSettings.class, parameters={})
+    private Output<SpringCloudAppIngressSettings> ingressSettings;
+
+    /**
+     * @return An `ingress_settings` block as defined below.
+     * 
+     */
+    public Output<SpringCloudAppIngressSettings> ingressSettings() {
+        return this.ingressSettings;
     }
     /**
      * Does the Spring Cloud Application have public endpoint? Defaults to `false`.

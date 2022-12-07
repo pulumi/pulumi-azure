@@ -54,6 +54,11 @@ namespace Pulumi.Azure.LogicApps
     ///         AppServicePlanId = examplePlan.Id,
     ///         StorageAccountName = exampleAccount.Name,
     ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
+    ///         AppSettings = 
+    ///         {
+    ///             { "FUNCTIONS_WORKER_RUNTIME", "node" },
+    ///             { "WEBSITE_NODE_DEFAULT_VERSION", "~18" },
+    ///         },
     ///     });
     /// 
     /// });

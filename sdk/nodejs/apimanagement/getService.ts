@@ -130,6 +130,10 @@ export interface GetServiceResult {
      * A mapping of tags assigned to the resource.
      */
     readonly tags: {[key: string]: string};
+    /**
+     * A `tenantAccess` block as defined below.
+     */
+    readonly tenantAccesses: outputs.apimanagement.GetServiceTenantAccess[];
 }
 
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {

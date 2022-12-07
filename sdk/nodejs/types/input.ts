@@ -2020,6 +2020,29 @@ export namespace appplatform {
         type: pulumi.Input<string>;
     }
 
+    export interface SpringCloudAppIngressSettings {
+        /**
+         * Specifies how ingress should communicate with this app backend service. Allowed values are `GRPC` and `Default`. Defaults to `Default`.
+         */
+        backendProtocol?: pulumi.Input<string>;
+        /**
+         * Specifies the ingress read time out in seconds. Defaults to 300.
+         */
+        readTimeoutInSeconds?: pulumi.Input<number>;
+        /**
+         * Specifies the ingress send time out in seconds. Defaults to 60.
+         */
+        sendTimeoutInSeconds?: pulumi.Input<number>;
+        /**
+         * Specifies the type of the affinity, set this to `Cookie` to enable session affinity. Allowed values are `Cookie` and `None`. Defaults to `None`.
+         */
+        sessionAffinity?: pulumi.Input<string>;
+        /**
+         * Specifies the time in seconds until the cookie expires.
+         */
+        sessionCookieMaxAge?: pulumi.Input<number>;
+    }
+
     export interface SpringCloudAppPersistentDisk {
         /**
          * Specifies the mount path of the persistent disk. Defaults to `/persistent`.
@@ -28597,7 +28620,7 @@ export namespace media {
         /**
          * The built-in preset to be used for encoding videos. The allowed values are `AACGoodQualityAudio`, `AdaptiveStreaming`,`ContentAwareEncoding`, `ContentAwareEncodingExperimental`,`CopyAllBitrateNonInterleaved`, `H264MultipleBitrate1080p`,`H264MultipleBitrate720p`, `H264MultipleBitrateSD`,`H264SingleBitrate1080p`, `H264SingleBitrate720p` and `H264SingleBitrateSD`.
          */
-        presetName?: pulumi.Input<string>;
+        presetName: pulumi.Input<string>;
     }
 
     export interface TransformOutputFaceDetectorPreset {
@@ -30744,6 +30767,10 @@ export namespace mssql {
 
     export interface ManagedInstanceIdentity {
         /**
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
          */
         principalId?: pulumi.Input<string>;
@@ -30752,7 +30779,7 @@ export namespace mssql {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The identity type of the SQL Managed Instance. The only possible value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -34631,6 +34658,21 @@ export namespace policy {
 }
 
 export namespace postgresql {
+    export interface FlexibleServerAuthentication {
+        /**
+         * Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server.
+         */
+        activeDirectoryAuthEnabled?: pulumi.Input<boolean>;
+        /**
+         * Whether or not password authentication is allowed to access the PostgreSQL Flexible Server.
+         */
+        passwordAuthEnabled?: pulumi.Input<boolean>;
+        /**
+         * The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `activeDirectoryAuthEnabled` must be set to `true`.
+         */
+        tenantId?: pulumi.Input<string>;
+    }
+
     export interface FlexibleServerHighAvailability {
         /**
          * The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
@@ -37290,6 +37332,10 @@ export namespace storage {
 
     export interface ManagementPolicyRuleActionsBaseBlob {
         /**
+         * The age in days after creation to delete the blob. Must be between `0` and `99999`.
+         */
+        deleteAfterDaysSinceCreationGreaterThan?: pulumi.Input<number>;
+        /**
          * The age in days after last access time to delete the blob. Must be between `0` and `99999`.
          */
         deleteAfterDaysSinceLastAccessTimeGreaterThan?: pulumi.Input<number>;
@@ -37298,7 +37344,11 @@ export namespace storage {
          */
         deleteAfterDaysSinceModificationGreaterThan?: pulumi.Input<number>;
         /**
-         * The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0 and`99999`.
+         * The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`.
+         */
+        tierToArchiveAfterDaysSinceCreationGreaterThan?: pulumi.Input<number>;
+        /**
+         * The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`.
          */
         tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan?: pulumi.Input<number>;
         /**
@@ -37309,6 +37359,10 @@ export namespace storage {
          * The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
          */
         tierToArchiveAfterDaysSinceModificationGreaterThan?: pulumi.Input<number>;
+        /**
+         * The age in days after creation to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`.
+         */
+        tierToCoolAfterDaysSinceCreationGreaterThan?: pulumi.Input<number>;
         /**
          * The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`.
          */
@@ -37522,9 +37576,9 @@ export namespace streamanalytics {
          */
         accountName: pulumi.Input<string>;
         /**
-         * The authentication mode of the storage account. Possible values are `ConnectionString`, `Msi` and `UserToken`.
+         * The authentication mode of the storage account. The only supported value is `ConnectionString`. Defaults to `ConnectionString`.
          */
-        authenticationMode: pulumi.Input<string>;
+        authenticationMode?: pulumi.Input<string>;
     }
 
     export interface OutputBlobSerialization {

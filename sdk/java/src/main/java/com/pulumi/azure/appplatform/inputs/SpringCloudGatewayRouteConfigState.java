@@ -49,6 +49,21 @@ public final class SpringCloudGatewayRouteConfigState extends com.pulumi.resourc
     }
 
     /**
+     * Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+     * 
+     */
+    @Import(name="protocol")
+    private @Nullable Output<String> protocol;
+
+    /**
+     * @return Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+     * 
+     */
+    public Optional<Output<String>> protocol() {
+        return Optional.ofNullable(this.protocol);
+    }
+
+    /**
      * One or more `route` blocks as defined below.
      * 
      */
@@ -98,6 +113,7 @@ public final class SpringCloudGatewayRouteConfigState extends com.pulumi.resourc
     private SpringCloudGatewayRouteConfigState(SpringCloudGatewayRouteConfigState $) {
         this.name = $.name;
         this.openApi = $.openApi;
+        this.protocol = $.protocol;
         this.routes = $.routes;
         this.springCloudAppId = $.springCloudAppId;
         this.springCloudGatewayId = $.springCloudGatewayId;
@@ -161,6 +177,27 @@ public final class SpringCloudGatewayRouteConfigState extends com.pulumi.resourc
          */
         public Builder openApi(SpringCloudGatewayRouteConfigOpenApiArgs openApi) {
             return openApi(Output.of(openApi));
+        }
+
+        /**
+         * @param protocol Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder protocol(@Nullable Output<String> protocol) {
+            $.protocol = protocol;
+            return this;
+        }
+
+        /**
+         * @param protocol Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder protocol(String protocol) {
+            return protocol(Output.of(protocol));
         }
 
         /**

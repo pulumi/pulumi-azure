@@ -90,6 +90,11 @@ export type ManagedInstanceSecurityAlertPolicy = import("./managedInstanceSecuri
 export const ManagedInstanceSecurityAlertPolicy: typeof import("./managedInstanceSecurityAlertPolicy").ManagedInstanceSecurityAlertPolicy = null as any;
 utilities.lazyLoad(exports, ["ManagedInstanceSecurityAlertPolicy"], () => require("./managedInstanceSecurityAlertPolicy"));
 
+export { ManagedInstanceTransparentDataEncryptionArgs, ManagedInstanceTransparentDataEncryptionState } from "./managedInstanceTransparentDataEncryption";
+export type ManagedInstanceTransparentDataEncryption = import("./managedInstanceTransparentDataEncryption").ManagedInstanceTransparentDataEncryption;
+export const ManagedInstanceTransparentDataEncryption: typeof import("./managedInstanceTransparentDataEncryption").ManagedInstanceTransparentDataEncryption = null as any;
+utilities.lazyLoad(exports, ["ManagedInstanceTransparentDataEncryption"], () => require("./managedInstanceTransparentDataEncryption"));
+
 export { ManagedInstanceVulnerabilityAssessmentArgs, ManagedInstanceVulnerabilityAssessmentState } from "./managedInstanceVulnerabilityAssessment";
 export type ManagedInstanceVulnerabilityAssessment = import("./managedInstanceVulnerabilityAssessment").ManagedInstanceVulnerabilityAssessment;
 export const ManagedInstanceVulnerabilityAssessment: typeof import("./managedInstanceVulnerabilityAssessment").ManagedInstanceVulnerabilityAssessment = null as any;
@@ -176,6 +181,8 @@ const _module = {
                 return new ManagedInstanceFailoverGroup(name, <any>undefined, { urn })
             case "azure:mssql/managedInstanceSecurityAlertPolicy:ManagedInstanceSecurityAlertPolicy":
                 return new ManagedInstanceSecurityAlertPolicy(name, <any>undefined, { urn })
+            case "azure:mssql/managedInstanceTransparentDataEncryption:ManagedInstanceTransparentDataEncryption":
+                return new ManagedInstanceTransparentDataEncryption(name, <any>undefined, { urn })
             case "azure:mssql/managedInstanceVulnerabilityAssessment:ManagedInstanceVulnerabilityAssessment":
                 return new ManagedInstanceVulnerabilityAssessment(name, <any>undefined, { urn })
             case "azure:mssql/outboundFirewallRule:OutboundFirewallRule":
@@ -216,6 +223,7 @@ pulumi.runtime.registerResourceModule("azure", "mssql/managedInstance", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/managedInstanceActiveDirectoryAdministrator", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/managedInstanceFailoverGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/managedInstanceSecurityAlertPolicy", _module)
+pulumi.runtime.registerResourceModule("azure", "mssql/managedInstanceTransparentDataEncryption", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/managedInstanceVulnerabilityAssessment", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/outboundFirewallRule", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/server", _module)

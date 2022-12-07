@@ -46,14 +46,14 @@ public final class GetFhirServicePlainArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * The name of the Healthcare Workspace in which the Healthcare FHIR Service exists.
+     * The id of the Healthcare Workspace in which the Healthcare FHIR Service exists.
      * 
      */
     @Import(name="workspaceId", required=true)
     private String workspaceId;
 
     /**
-     * @return The name of the Healthcare Workspace in which the Healthcare FHIR Service exists.
+     * @return The id of the Healthcare Workspace in which the Healthcare FHIR Service exists.
      * 
      */
     public String workspaceId() {
@@ -109,7 +109,7 @@ public final class GetFhirServicePlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param workspaceId The name of the Healthcare Workspace in which the Healthcare FHIR Service exists.
+         * @param workspaceId The id of the Healthcare Workspace in which the Healthcare FHIR Service exists.
          * 
          * @return builder
          * 

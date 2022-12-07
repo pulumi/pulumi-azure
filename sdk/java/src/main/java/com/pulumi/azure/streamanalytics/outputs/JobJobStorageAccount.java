@@ -6,6 +6,8 @@ package com.pulumi.azure.streamanalytics.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class JobJobStorageAccount {
@@ -20,10 +22,10 @@ public final class JobJobStorageAccount {
      */
     private String accountName;
     /**
-     * @return The authentication mode of the storage account. Possible values are `ConnectionString`, `Msi` and `UserToken`.
+     * @return The authentication mode of the storage account. The only supported value is `ConnectionString`. Defaults to `ConnectionString`.
      * 
      */
-    private String authenticationMode;
+    private @Nullable String authenticationMode;
 
     private JobJobStorageAccount() {}
     /**
@@ -41,11 +43,11 @@ public final class JobJobStorageAccount {
         return this.accountName;
     }
     /**
-     * @return The authentication mode of the storage account. Possible values are `ConnectionString`, `Msi` and `UserToken`.
+     * @return The authentication mode of the storage account. The only supported value is `ConnectionString`. Defaults to `ConnectionString`.
      * 
      */
-    public String authenticationMode() {
-        return this.authenticationMode;
+    public Optional<String> authenticationMode() {
+        return Optional.ofNullable(this.authenticationMode);
     }
 
     public static Builder builder() {
@@ -59,7 +61,7 @@ public final class JobJobStorageAccount {
     public static final class Builder {
         private String accountKey;
         private String accountName;
-        private String authenticationMode;
+        private @Nullable String authenticationMode;
         public Builder() {}
         public Builder(JobJobStorageAccount defaults) {
     	      Objects.requireNonNull(defaults);
@@ -79,8 +81,8 @@ public final class JobJobStorageAccount {
             return this;
         }
         @CustomType.Setter
-        public Builder authenticationMode(String authenticationMode) {
-            this.authenticationMode = Objects.requireNonNull(authenticationMode);
+        public Builder authenticationMode(@Nullable String authenticationMode) {
+            this.authenticationMode = authenticationMode;
             return this;
         }
         public JobJobStorageAccount build() {

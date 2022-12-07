@@ -118,9 +118,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:privatedns/resolverVirtualNetworkLink:ResolverVirtualNetworkLink")
 public class ResolverVirtualNetworkLink extends com.pulumi.resources.CustomResource {
+    /**
+     * Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
+     * 
+     */
     @Export(name="dnsForwardingRulesetId", type=String.class, parameters={})
     private Output<String> dnsForwardingRulesetId;
 
+    /**
+     * @return Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
+     * 
+     */
     public Output<String> dnsForwardingRulesetId() {
         return this.dnsForwardingRulesetId;
     }

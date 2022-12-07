@@ -22,6 +22,7 @@ class SpringCloudAppArgs:
                  custom_persistent_disks: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudAppCustomPersistentDiskArgs']]]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['SpringCloudAppIdentityArgs']] = None,
+                 ingress_settings: Optional[pulumi.Input['SpringCloudAppIngressSettingsArgs']] = None,
                  is_public: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  persistent_disk: Optional[pulumi.Input['SpringCloudAppPersistentDiskArgs']] = None,
@@ -35,6 +36,7 @@ class SpringCloudAppArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SpringCloudAppCustomPersistentDiskArgs']]] custom_persistent_disks: A `custom_persistent_disk` block as defined below.
         :param pulumi.Input[bool] https_only: Is only HTTPS allowed? Defaults to `false`.
         :param pulumi.Input['SpringCloudAppIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['SpringCloudAppIngressSettingsArgs'] ingress_settings: An `ingress_settings` block as defined below.
         :param pulumi.Input[bool] is_public: Does the Spring Cloud Application have public endpoint? Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
         :param pulumi.Input['SpringCloudAppPersistentDiskArgs'] persistent_disk: An `persistent_disk` block as defined below.
@@ -51,6 +53,8 @@ class SpringCloudAppArgs:
             pulumi.set(__self__, "https_only", https_only)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if ingress_settings is not None:
+            pulumi.set(__self__, "ingress_settings", ingress_settings)
         if is_public is not None:
             pulumi.set(__self__, "is_public", is_public)
         if name is not None:
@@ -135,6 +139,18 @@ class SpringCloudAppArgs:
         pulumi.set(self, "identity", value)
 
     @property
+    @pulumi.getter(name="ingressSettings")
+    def ingress_settings(self) -> Optional[pulumi.Input['SpringCloudAppIngressSettingsArgs']]:
+        """
+        An `ingress_settings` block as defined below.
+        """
+        return pulumi.get(self, "ingress_settings")
+
+    @ingress_settings.setter
+    def ingress_settings(self, value: Optional[pulumi.Input['SpringCloudAppIngressSettingsArgs']]):
+        pulumi.set(self, "ingress_settings", value)
+
+    @property
     @pulumi.getter(name="isPublic")
     def is_public(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -203,6 +219,7 @@ class _SpringCloudAppState:
                  fqdn: Optional[pulumi.Input[str]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['SpringCloudAppIdentityArgs']] = None,
+                 ingress_settings: Optional[pulumi.Input['SpringCloudAppIngressSettingsArgs']] = None,
                  is_public: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  persistent_disk: Optional[pulumi.Input['SpringCloudAppPersistentDiskArgs']] = None,
@@ -218,6 +235,7 @@ class _SpringCloudAppState:
         :param pulumi.Input[str] fqdn: The Fully Qualified DNS Name of the Spring Application in the service.
         :param pulumi.Input[bool] https_only: Is only HTTPS allowed? Defaults to `false`.
         :param pulumi.Input['SpringCloudAppIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['SpringCloudAppIngressSettingsArgs'] ingress_settings: An `ingress_settings` block as defined below.
         :param pulumi.Input[bool] is_public: Does the Spring Cloud Application have public endpoint? Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
         :param pulumi.Input['SpringCloudAppPersistentDiskArgs'] persistent_disk: An `persistent_disk` block as defined below.
@@ -237,6 +255,8 @@ class _SpringCloudAppState:
             pulumi.set(__self__, "https_only", https_only)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if ingress_settings is not None:
+            pulumi.set(__self__, "ingress_settings", ingress_settings)
         if is_public is not None:
             pulumi.set(__self__, "is_public", is_public)
         if name is not None:
@@ -313,6 +333,18 @@ class _SpringCloudAppState:
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['SpringCloudAppIdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="ingressSettings")
+    def ingress_settings(self) -> Optional[pulumi.Input['SpringCloudAppIngressSettingsArgs']]:
+        """
+        An `ingress_settings` block as defined below.
+        """
+        return pulumi.get(self, "ingress_settings")
+
+    @ingress_settings.setter
+    def ingress_settings(self, value: Optional[pulumi.Input['SpringCloudAppIngressSettingsArgs']]):
+        pulumi.set(self, "ingress_settings", value)
 
     @property
     @pulumi.getter(name="isPublic")
@@ -420,6 +452,7 @@ class SpringCloudApp(pulumi.CustomResource):
                  custom_persistent_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudAppCustomPersistentDiskArgs']]]]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppIdentityArgs']]] = None,
+                 ingress_settings: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppIngressSettingsArgs']]] = None,
                  is_public: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  persistent_disk: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppPersistentDiskArgs']]] = None,
@@ -463,6 +496,7 @@ class SpringCloudApp(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudAppCustomPersistentDiskArgs']]]] custom_persistent_disks: A `custom_persistent_disk` block as defined below.
         :param pulumi.Input[bool] https_only: Is only HTTPS allowed? Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['SpringCloudAppIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SpringCloudAppIngressSettingsArgs']] ingress_settings: An `ingress_settings` block as defined below.
         :param pulumi.Input[bool] is_public: Does the Spring Cloud Application have public endpoint? Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SpringCloudAppPersistentDiskArgs']] persistent_disk: An `persistent_disk` block as defined below.
@@ -525,6 +559,7 @@ class SpringCloudApp(pulumi.CustomResource):
                  custom_persistent_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudAppCustomPersistentDiskArgs']]]]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppIdentityArgs']]] = None,
+                 ingress_settings: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppIngressSettingsArgs']]] = None,
                  is_public: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  persistent_disk: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppPersistentDiskArgs']]] = None,
@@ -545,6 +580,7 @@ class SpringCloudApp(pulumi.CustomResource):
             __props__.__dict__["custom_persistent_disks"] = custom_persistent_disks
             __props__.__dict__["https_only"] = https_only
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["ingress_settings"] = ingress_settings
             __props__.__dict__["is_public"] = is_public
             __props__.__dict__["name"] = name
             __props__.__dict__["persistent_disk"] = persistent_disk
@@ -573,6 +609,7 @@ class SpringCloudApp(pulumi.CustomResource):
             fqdn: Optional[pulumi.Input[str]] = None,
             https_only: Optional[pulumi.Input[bool]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppIdentityArgs']]] = None,
+            ingress_settings: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppIngressSettingsArgs']]] = None,
             is_public: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             persistent_disk: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppPersistentDiskArgs']]] = None,
@@ -593,6 +630,7 @@ class SpringCloudApp(pulumi.CustomResource):
         :param pulumi.Input[str] fqdn: The Fully Qualified DNS Name of the Spring Application in the service.
         :param pulumi.Input[bool] https_only: Is only HTTPS allowed? Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['SpringCloudAppIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SpringCloudAppIngressSettingsArgs']] ingress_settings: An `ingress_settings` block as defined below.
         :param pulumi.Input[bool] is_public: Does the Spring Cloud Application have public endpoint? Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SpringCloudAppPersistentDiskArgs']] persistent_disk: An `persistent_disk` block as defined below.
@@ -611,6 +649,7 @@ class SpringCloudApp(pulumi.CustomResource):
         __props__.__dict__["fqdn"] = fqdn
         __props__.__dict__["https_only"] = https_only
         __props__.__dict__["identity"] = identity
+        __props__.__dict__["ingress_settings"] = ingress_settings
         __props__.__dict__["is_public"] = is_public
         __props__.__dict__["name"] = name
         __props__.__dict__["persistent_disk"] = persistent_disk
@@ -660,6 +699,14 @@ class SpringCloudApp(pulumi.CustomResource):
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="ingressSettings")
+    def ingress_settings(self) -> pulumi.Output['outputs.SpringCloudAppIngressSettings']:
+        """
+        An `ingress_settings` block as defined below.
+        """
+        return pulumi.get(self, "ingress_settings")
 
     @property
     @pulumi.getter(name="isPublic")

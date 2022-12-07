@@ -31,6 +31,7 @@ class DatabasePrincipalAssignmentArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] role: The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewer`, `User` and `Viewer`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tenant_id: The tenant id in which the principal resides. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the kusto principal assignment. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "database_name", database_name)
@@ -129,6 +130,9 @@ class DatabasePrincipalAssignmentArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the kusto principal assignment. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -153,6 +157,7 @@ class _DatabasePrincipalAssignmentState:
         Input properties used for looking up and filtering DatabasePrincipalAssignment resources.
         :param pulumi.Input[str] cluster_name: The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_name: The name of the database in which to create the resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the kusto principal assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] principal_id: The object id of the principal. Changing this forces a new resource to be created.
         :param pulumi.Input[str] principal_name: The name of the principal.
         :param pulumi.Input[str] principal_type: The type of the principal. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created.
@@ -209,6 +214,9 @@ class _DatabasePrincipalAssignmentState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the kusto principal assignment. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -360,6 +368,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_name: The name of the database in which to create the resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the kusto principal assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] principal_id: The object id of the principal. Changing this forces a new resource to be created.
         :param pulumi.Input[str] principal_type: The type of the principal. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
@@ -499,6 +508,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_name: The name of the database in which to create the resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the kusto principal assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] principal_id: The object id of the principal. Changing this forces a new resource to be created.
         :param pulumi.Input[str] principal_name: The name of the principal.
         :param pulumi.Input[str] principal_type: The type of the principal. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created.
@@ -542,6 +552,9 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the kusto principal assignment. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "name")
 
     @property

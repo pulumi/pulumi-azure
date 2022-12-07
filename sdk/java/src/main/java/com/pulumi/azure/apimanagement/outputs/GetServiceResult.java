@@ -6,6 +6,7 @@ package com.pulumi.azure.apimanagement.outputs;
 import com.pulumi.azure.apimanagement.outputs.GetServiceAdditionalLocation;
 import com.pulumi.azure.apimanagement.outputs.GetServiceHostnameConfiguration;
 import com.pulumi.azure.apimanagement.outputs.GetServiceIdentity;
+import com.pulumi.azure.apimanagement.outputs.GetServiceTenantAccess;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
@@ -111,6 +112,11 @@ public final class GetServiceResult {
      * 
      */
     private Map<String,String> tags;
+    /**
+     * @return A `tenant_access` block as defined below.
+     * 
+     */
+    private List<GetServiceTenantAccess> tenantAccesses;
 
     private GetServiceResult() {}
     /**
@@ -252,6 +258,13 @@ public final class GetServiceResult {
     public Map<String,String> tags() {
         return this.tags;
     }
+    /**
+     * @return A `tenant_access` block as defined below.
+     * 
+     */
+    public List<GetServiceTenantAccess> tenantAccesses() {
+        return this.tenantAccesses;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -283,6 +296,7 @@ public final class GetServiceResult {
         private String scmUrl;
         private String skuName;
         private Map<String,String> tags;
+        private List<GetServiceTenantAccess> tenantAccesses;
         public Builder() {}
         public Builder(GetServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -307,6 +321,7 @@ public final class GetServiceResult {
     	      this.scmUrl = defaults.scmUrl;
     	      this.skuName = defaults.skuName;
     	      this.tags = defaults.tags;
+    	      this.tenantAccesses = defaults.tenantAccesses;
         }
 
         @CustomType.Setter
@@ -429,6 +444,14 @@ public final class GetServiceResult {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
+        public Builder tenantAccesses(List<GetServiceTenantAccess> tenantAccesses) {
+            this.tenantAccesses = Objects.requireNonNull(tenantAccesses);
+            return this;
+        }
+        public Builder tenantAccesses(GetServiceTenantAccess... tenantAccesses) {
+            return tenantAccesses(List.of(tenantAccesses));
+        }
         public GetServiceResult build() {
             final var o = new GetServiceResult();
             o.additionalLocations = additionalLocations;
@@ -452,6 +475,7 @@ public final class GetServiceResult {
             o.scmUrl = scmUrl;
             o.skuName = skuName;
             o.tags = tags;
+            o.tenantAccesses = tenantAccesses;
             return o;
         }
     }

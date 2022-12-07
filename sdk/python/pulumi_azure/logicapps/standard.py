@@ -816,7 +816,11 @@ class Standard(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             app_service_plan_id=example_plan.id,
             storage_account_name=example_account.name,
-            storage_account_access_key=example_account.primary_access_key)
+            storage_account_access_key=example_account.primary_access_key,
+            app_settings={
+                "FUNCTIONS_WORKER_RUNTIME": "node",
+                "WEBSITE_NODE_DEFAULT_VERSION": "~18",
+            })
         ```
         ### For Container Mode)
 
@@ -923,7 +927,11 @@ class Standard(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             app_service_plan_id=example_plan.id,
             storage_account_name=example_account.name,
-            storage_account_access_key=example_account.primary_access_key)
+            storage_account_access_key=example_account.primary_access_key,
+            app_settings={
+                "FUNCTIONS_WORKER_RUNTIME": "node",
+                "WEBSITE_NODE_DEFAULT_VERSION": "~18",
+            })
         ```
         ### For Container Mode)
 

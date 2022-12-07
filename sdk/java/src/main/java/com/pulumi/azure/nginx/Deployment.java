@@ -32,6 +32,16 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.PublicIp;
+ * import com.pulumi.azure.network.PublicIpArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
+ * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
  * import com.pulumi.azure.nginx.Deployment;
  * import com.pulumi.azure.nginx.DeploymentArgs;
  * import com.pulumi.azure.nginx.inputs.DeploymentFrontendPublicArgs;
@@ -49,17 +59,48 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Deployment(&#34;example&#34;, DeploymentArgs.builder()        
- *             .resourceGroupName(azurerm_resource_group.test().name())
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .allocationMethod(&#34;Static&#34;)
+ *             .sku(&#34;Standard&#34;)
+ *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+ *             .delegations(SubnetDelegationArgs.builder()
+ *                 .name(&#34;delegation&#34;)
+ *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
+ *                     .name(&#34;NGINX.NGINXPLUS/nginxDeployments&#34;)
+ *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
  *             .sku(&#34;publicpreview_Monthly_gmz7xq9ge3py&#34;)
- *             .location(azurerm_resource_group.test().location())
+ *             .location(exampleResourceGroup.location())
  *             .managedResourceGroup(&#34;example&#34;)
  *             .diagnoseSupportEnabled(true)
  *             .frontendPublic(DeploymentFrontendPublicArgs.builder()
- *                 .ipAddresses(azurerm_public_ip.test().id())
+ *                 .ipAddresses(examplePublicIp.id())
  *                 .build())
  *             .networkInterfaces(DeploymentNetworkInterfaceArgs.builder()
- *                 .subnetId(azurerm_subnet.test().id())
+ *                 .subnetId(exampleSubnet.id())
  *                 .build())
  *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
  *             .build());

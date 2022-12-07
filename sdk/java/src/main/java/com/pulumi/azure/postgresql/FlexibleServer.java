@@ -6,6 +6,7 @@ package com.pulumi.azure.postgresql;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.postgresql.FlexibleServerArgs;
 import com.pulumi.azure.postgresql.inputs.FlexibleServerState;
+import com.pulumi.azure.postgresql.outputs.FlexibleServerAuthentication;
 import com.pulumi.azure.postgresql.outputs.FlexibleServerHighAvailability;
 import com.pulumi.azure.postgresql.outputs.FlexibleServerMaintenanceWindow;
 import com.pulumi.core.Output;
@@ -148,6 +149,20 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> administratorPassword() {
         return Codegen.optional(this.administratorPassword);
+    }
+    /**
+     * An `authentication` block as defined below.
+     * 
+     */
+    @Export(name="authentication", type=FlexibleServerAuthentication.class, parameters={})
+    private Output<FlexibleServerAuthentication> authentication;
+
+    /**
+     * @return An `authentication` block as defined below.
+     * 
+     */
+    public Output<FlexibleServerAuthentication> authentication() {
+        return this.authentication;
     }
     /**
      * The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.

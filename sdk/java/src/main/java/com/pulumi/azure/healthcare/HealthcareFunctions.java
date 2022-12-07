@@ -53,7 +53,7 @@ public final class HealthcareFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = HealthcareFunctions.getDicomService(GetDicomServiceArgs.builder()
      *             .name(&#34;example-healthcare_dicom_service&#34;)
-     *             .workspaceId(&#34;example_healthcare_workspace&#34;)
+     *             .workspaceId(data.azurerm_healthcare_workspace().example().id())
      *             .build());
      * 
      *         ctx.export(&#34;azurermHealthcareDicomService&#34;, example.applyValue(getDicomServiceResult -&gt; getDicomServiceResult.id()));
@@ -92,7 +92,7 @@ public final class HealthcareFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = HealthcareFunctions.getDicomService(GetDicomServiceArgs.builder()
      *             .name(&#34;example-healthcare_dicom_service&#34;)
-     *             .workspaceId(&#34;example_healthcare_workspace&#34;)
+     *             .workspaceId(data.azurerm_healthcare_workspace().example().id())
      *             .build());
      * 
      *         ctx.export(&#34;azurermHealthcareDicomService&#34;, example.applyValue(getDicomServiceResult -&gt; getDicomServiceResult.id()));
@@ -131,7 +131,7 @@ public final class HealthcareFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = HealthcareFunctions.getDicomService(GetDicomServiceArgs.builder()
      *             .name(&#34;example-healthcare_dicom_service&#34;)
-     *             .workspaceId(&#34;example_healthcare_workspace&#34;)
+     *             .workspaceId(data.azurerm_healthcare_workspace().example().id())
      *             .build());
      * 
      *         ctx.export(&#34;azurermHealthcareDicomService&#34;, example.applyValue(getDicomServiceResult -&gt; getDicomServiceResult.id()));
@@ -170,7 +170,7 @@ public final class HealthcareFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = HealthcareFunctions.getDicomService(GetDicomServiceArgs.builder()
      *             .name(&#34;example-healthcare_dicom_service&#34;)
-     *             .workspaceId(&#34;example_healthcare_workspace&#34;)
+     *             .workspaceId(data.azurerm_healthcare_workspace().example().id())
      *             .build());
      * 
      *         ctx.export(&#34;azurermHealthcareDicomService&#34;, example.applyValue(getDicomServiceResult -&gt; getDicomServiceResult.id()));

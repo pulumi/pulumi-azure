@@ -160,6 +160,10 @@ namespace Pulumi.Azure.DataBricks
         /// </summary>
         public readonly string Sku;
         /// <summary>
+        /// A `storage_account_identity` block as documented below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetWorkspaceStorageAccountIdentityResult> StorageAccountIdentities;
+        /// <summary>
         /// A mapping of tags to assign to the Databricks Workspace.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -184,6 +188,8 @@ namespace Pulumi.Azure.DataBricks
 
             string sku,
 
+            ImmutableArray<Outputs.GetWorkspaceStorageAccountIdentityResult> storageAccountIdentities,
+
             ImmutableDictionary<string, string>? tags,
 
             string workspaceId,
@@ -195,6 +201,7 @@ namespace Pulumi.Azure.DataBricks
             Name = name;
             ResourceGroupName = resourceGroupName;
             Sku = sku;
+            StorageAccountIdentities = storageAccountIdentities;
             Tags = tags;
             WorkspaceId = workspaceId;
             WorkspaceUrl = workspaceUrl;
