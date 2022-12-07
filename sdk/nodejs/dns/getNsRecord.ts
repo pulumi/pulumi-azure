@@ -19,11 +19,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getNsRecord(args: GetNsRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetNsRecordResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:dns/getNsRecord:getNsRecord", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -77,9 +74,22 @@ export interface GetNsRecordResult {
     readonly ttl: number;
     readonly zoneName: string;
 }
-
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.dns.NsRecord("example", {
+ *     zoneName: "test-zone",
+ *     resourceGroupName: "test-rg",
+ * });
+ * export const dnsNsRecordId = example.id;
+ * ```
+ */
 export function getNsRecordOutput(args: GetNsRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNsRecordResult> {
-    return pulumi.output(args).apply(a => getNsRecord(a, opts))
+    return pulumi.output(args).apply((a: any) => getNsRecord(a, opts))
 }
 
 /**

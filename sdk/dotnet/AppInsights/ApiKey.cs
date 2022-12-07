@@ -157,6 +157,10 @@ namespace Pulumi.Azure.AppInsights
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "apiKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -225,11 +229,21 @@ namespace Pulumi.Azure.AppInsights
 
     public sealed class ApiKeyState : global::Pulumi.ResourceArgs
     {
+        [Input("apiKey")]
+        private Input<string>? _apiKey;
+
         /// <summary>
         /// The API Key secret (Sensitive).
         /// </summary>
-        [Input("apiKey")]
-        public Input<string>? Key { get; set; }
+        public Input<string>? Key
+        {
+            get => _apiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _apiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.

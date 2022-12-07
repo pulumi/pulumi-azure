@@ -168,6 +168,10 @@ namespace Pulumi.Azure.StreamAnalytics
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "sharedAccessPolicyKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -233,11 +237,21 @@ namespace Pulumi.Azure.StreamAnalytics
         [Input("servicebusNamespace", required: true)]
         public Input<string> ServicebusNamespace { get; set; } = null!;
 
+        [Input("sharedAccessPolicyKey", required: true)]
+        private Input<string>? _sharedAccessPolicyKey;
+
         /// <summary>
         /// The shared access policy key for the specified shared access policy.
         /// </summary>
-        [Input("sharedAccessPolicyKey", required: true)]
-        public Input<string> SharedAccessPolicyKey { get; set; } = null!;
+        public Input<string>? SharedAccessPolicyKey
+        {
+            get => _sharedAccessPolicyKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sharedAccessPolicyKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
@@ -319,11 +333,21 @@ namespace Pulumi.Azure.StreamAnalytics
         [Input("servicebusNamespace")]
         public Input<string>? ServicebusNamespace { get; set; }
 
+        [Input("sharedAccessPolicyKey")]
+        private Input<string>? _sharedAccessPolicyKey;
+
         /// <summary>
         /// The shared access policy key for the specified shared access policy.
         /// </summary>
-        [Input("sharedAccessPolicyKey")]
-        public Input<string>? SharedAccessPolicyKey { get; set; }
+        public Input<string>? SharedAccessPolicyKey
+        {
+            get => _sharedAccessPolicyKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sharedAccessPolicyKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.

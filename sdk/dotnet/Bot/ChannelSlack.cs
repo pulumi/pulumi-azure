@@ -133,6 +133,12 @@ namespace Pulumi.Azure.Bot
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "clientSecret",
+                    "signingSecret",
+                    "verificationToken",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -168,11 +174,21 @@ namespace Pulumi.Azure.Bot
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
+        [Input("clientSecret", required: true)]
+        private Input<string>? _clientSecret;
+
         /// <summary>
         /// The Client Secret that will be used to authenticate with Slack.
         /// </summary>
-        [Input("clientSecret", required: true)]
-        public Input<string> ClientSecret { get; set; } = null!;
+        public Input<string>? ClientSecret
+        {
+            get => _clientSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Slack Landing Page URL.
@@ -192,17 +208,37 @@ namespace Pulumi.Azure.Bot
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        [Input("signingSecret")]
+        private Input<string>? _signingSecret;
+
         /// <summary>
         /// The Signing Secret that will be used to sign the requests.
         /// </summary>
-        [Input("signingSecret")]
-        public Input<string>? SigningSecret { get; set; }
+        public Input<string>? SigningSecret
+        {
+            get => _signingSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _signingSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("verificationToken", required: true)]
+        private Input<string>? _verificationToken;
 
         /// <summary>
         /// The Verification Token that will be used to authenticate with Slack.
         /// </summary>
-        [Input("verificationToken", required: true)]
-        public Input<string> VerificationToken { get; set; } = null!;
+        public Input<string>? VerificationToken
+        {
+            get => _verificationToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _verificationToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public ChannelSlackArgs()
         {
@@ -224,11 +260,21 @@ namespace Pulumi.Azure.Bot
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
+        [Input("clientSecret")]
+        private Input<string>? _clientSecret;
+
         /// <summary>
         /// The Client Secret that will be used to authenticate with Slack.
         /// </summary>
-        [Input("clientSecret")]
-        public Input<string>? ClientSecret { get; set; }
+        public Input<string>? ClientSecret
+        {
+            get => _clientSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Slack Landing Page URL.
@@ -248,17 +294,37 @@ namespace Pulumi.Azure.Bot
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        [Input("signingSecret")]
+        private Input<string>? _signingSecret;
+
         /// <summary>
         /// The Signing Secret that will be used to sign the requests.
         /// </summary>
-        [Input("signingSecret")]
-        public Input<string>? SigningSecret { get; set; }
+        public Input<string>? SigningSecret
+        {
+            get => _signingSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _signingSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("verificationToken")]
+        private Input<string>? _verificationToken;
 
         /// <summary>
         /// The Verification Token that will be used to authenticate with Slack.
         /// </summary>
-        [Input("verificationToken")]
-        public Input<string>? VerificationToken { get; set; }
+        public Input<string>? VerificationToken
+        {
+            get => _verificationToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _verificationToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public ChannelSlackState()
         {

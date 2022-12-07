@@ -20,11 +20,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getFunctionApp(args: GetFunctionAppArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionAppResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:appservice/getFunctionApp:getFunctionApp", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -116,9 +113,21 @@ export interface GetFunctionAppResult {
     readonly sourceControls: outputs.appservice.GetFunctionAppSourceControl[];
     readonly tags?: {[key: string]: string};
 }
-
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.appservice.getFunctionApp({
+ *     name: "test-azure-functions",
+ *     resourceGroupName: azurerm_resource_group.example.name,
+ * });
+ * ```
+ */
 export function getFunctionAppOutput(args: GetFunctionAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionAppResult> {
-    return pulumi.output(args).apply(a => getFunctionApp(a, opts))
+    return pulumi.output(args).apply((a: any) => getFunctionApp(a, opts))
 }
 
 /**

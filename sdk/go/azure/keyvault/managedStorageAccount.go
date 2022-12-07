@@ -114,7 +114,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			test, err := azuread.LookupServicePrincipal(ctx, &GetServicePrincipalArgs{
+//			test, err := azuread.LookupServicePrincipal(ctx, &azuread.LookupServicePrincipalArgs{
 //				ApplicationId: pulumi.StringRef("cfa8b339-82a2-471a-a3c9-0fc0be7a4093"),
 //			}, nil)
 //			if err != nil {

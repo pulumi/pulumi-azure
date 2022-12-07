@@ -114,6 +114,13 @@ func NewChannelSms(ctx *pulumi.Context,
 	if args.SmsChannelAuthToken == nil {
 		return nil, errors.New("invalid value for required argument 'SmsChannelAuthToken'")
 	}
+	if args.SmsChannelAuthToken != nil {
+		args.SmsChannelAuthToken = pulumi.ToSecret(args.SmsChannelAuthToken).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"smsChannelAuthToken",
+	})
+	opts = append(opts, secrets)
 	var resource ChannelSms
 	err := ctx.RegisterResource("azure:bot/channelSms:ChannelSms", name, args, &resource, opts...)
 	if err != nil {

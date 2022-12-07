@@ -149,14 +149,14 @@ export class WebApp extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["developerAppInsightsApiKey"] = args ? args.developerAppInsightsApiKey : undefined;
+            resourceInputs["developerAppInsightsApiKey"] = args?.developerAppInsightsApiKey ? pulumi.secret(args.developerAppInsightsApiKey) : undefined;
             resourceInputs["developerAppInsightsApplicationId"] = args ? args.developerAppInsightsApplicationId : undefined;
             resourceInputs["developerAppInsightsKey"] = args ? args.developerAppInsightsKey : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["endpoint"] = args ? args.endpoint : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["luisAppIds"] = args ? args.luisAppIds : undefined;
-            resourceInputs["luisKey"] = args ? args.luisKey : undefined;
+            resourceInputs["luisKey"] = args?.luisKey ? pulumi.secret(args.luisKey) : undefined;
             resourceInputs["microsoftAppId"] = args ? args.microsoftAppId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -164,6 +164,8 @@ export class WebApp extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["developerAppInsightsApiKey", "luisKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(WebApp.__pulumiType, name, resourceInputs, opts);
     }
 }

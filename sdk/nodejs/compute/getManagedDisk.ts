@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getManagedDisk(args: GetManagedDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedDiskResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:compute/getManagedDisk:getManagedDisk", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -120,9 +117,24 @@ export interface GetManagedDiskResult {
      */
     readonly zones: string[];
 }
-
+/**
+ * Use this data source to access information about an existing Managed Disk.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const existing = azure.compute.getManagedDisk({
+ *     name: "example-datadisk",
+ *     resourceGroupName: "example-resources",
+ * });
+ * export const id = existing.then(existing => existing.id);
+ * ```
+ */
 export function getManagedDiskOutput(args: GetManagedDiskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedDiskResult> {
-    return pulumi.output(args).apply(a => getManagedDisk(a, opts))
+    return pulumi.output(args).apply((a: any) => getManagedDisk(a, opts))
 }
 
 /**

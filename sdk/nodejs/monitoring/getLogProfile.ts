@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLogProfile(args: GetLogProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetLogProfileResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:monitoring/getLogProfile:getLogProfile", {
         "name": args.name,
     }, opts);
@@ -69,9 +66,23 @@ export interface GetLogProfileResult {
      */
     readonly storageAccountId: string;
 }
-
+/**
+ * Use this data source to access the properties of a Log Profile.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.monitoring.getLogProfile({
+ *     name: "test-logprofile",
+ * });
+ * export const logProfileStorageAccountId = example.then(example => example.storageAccountId);
+ * ```
+ */
 export function getLogProfileOutput(args: GetLogProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogProfileResult> {
-    return pulumi.output(args).apply(a => getLogProfile(a, opts))
+    return pulumi.output(args).apply((a: any) => getLogProfile(a, opts))
 }
 
 /**

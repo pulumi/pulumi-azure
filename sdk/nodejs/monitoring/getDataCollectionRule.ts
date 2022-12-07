@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDataCollectionRule(args: GetDataCollectionRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCollectionRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:monitoring/getDataCollectionRule:getDataCollectionRule", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -90,9 +87,24 @@ export interface GetDataCollectionRuleResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Use this data source to access information about an existing Data Collection Rule.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.monitoring.getDataCollectionRule({
+ *     name: "example-rule",
+ *     resourceGroupName: azurerm_resource_group.example.name,
+ * });
+ * export const ruleId = example.then(example => example.id);
+ * ```
+ */
 export function getDataCollectionRuleOutput(args: GetDataCollectionRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCollectionRuleResult> {
-    return pulumi.output(args).apply(a => getDataCollectionRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getDataCollectionRule(a, opts))
 }
 
 /**

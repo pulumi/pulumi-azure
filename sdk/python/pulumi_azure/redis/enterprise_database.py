@@ -552,6 +552,8 @@ class EnterpriseDatabase(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["primary_access_key"] = None
             __props__.__dict__["secondary_access_key"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["primaryAccessKey", "secondaryAccessKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(EnterpriseDatabase, __self__).__init__(
             'azure:redis/enterpriseDatabase:EnterpriseDatabase',
             resource_name,

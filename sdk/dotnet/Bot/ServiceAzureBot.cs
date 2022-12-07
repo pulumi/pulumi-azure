@@ -202,6 +202,11 @@ namespace Pulumi.Azure.Bot
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "developerAppInsightsApiKey",
+                    "luisKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -225,11 +230,21 @@ namespace Pulumi.Azure.Bot
 
     public sealed class ServiceAzureBotArgs : global::Pulumi.ResourceArgs
     {
+        [Input("developerAppInsightsApiKey")]
+        private Input<string>? _developerAppInsightsApiKey;
+
         /// <summary>
         /// The Application Insights API Key to associate with this Azure Bot Service.
         /// </summary>
-        [Input("developerAppInsightsApiKey")]
-        public Input<string>? DeveloperAppInsightsApiKey { get; set; }
+        public Input<string>? DeveloperAppInsightsApiKey
+        {
+            get => _developerAppInsightsApiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _developerAppInsightsApiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The resource ID of the Application Insights instance to associate with this Azure Bot Service.
@@ -273,11 +288,21 @@ namespace Pulumi.Azure.Bot
             set => _luisAppIds = value;
         }
 
+        [Input("luisKey")]
+        private Input<string>? _luisKey;
+
         /// <summary>
         /// The LUIS key to associate with this Azure Bot Service.
         /// </summary>
-        [Input("luisKey")]
-        public Input<string>? LuisKey { get; set; }
+        public Input<string>? LuisKey
+        {
+            get => _luisKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _luisKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Microsoft Application ID for the Azure Bot Service. Changing this forces a new resource to be created.
@@ -347,11 +372,21 @@ namespace Pulumi.Azure.Bot
 
     public sealed class ServiceAzureBotState : global::Pulumi.ResourceArgs
     {
+        [Input("developerAppInsightsApiKey")]
+        private Input<string>? _developerAppInsightsApiKey;
+
         /// <summary>
         /// The Application Insights API Key to associate with this Azure Bot Service.
         /// </summary>
-        [Input("developerAppInsightsApiKey")]
-        public Input<string>? DeveloperAppInsightsApiKey { get; set; }
+        public Input<string>? DeveloperAppInsightsApiKey
+        {
+            get => _developerAppInsightsApiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _developerAppInsightsApiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The resource ID of the Application Insights instance to associate with this Azure Bot Service.
@@ -395,11 +430,21 @@ namespace Pulumi.Azure.Bot
             set => _luisAppIds = value;
         }
 
+        [Input("luisKey")]
+        private Input<string>? _luisKey;
+
         /// <summary>
         /// The LUIS key to associate with this Azure Bot Service.
         /// </summary>
-        [Input("luisKey")]
-        public Input<string>? LuisKey { get; set; }
+        public Input<string>? LuisKey
+        {
+            get => _luisKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _luisKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Microsoft Application ID for the Azure Bot Service. Changing this forces a new resource to be created.

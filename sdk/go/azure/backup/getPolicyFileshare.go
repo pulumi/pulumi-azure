@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := backup.GetPolicyFileshare(ctx, &backup.GetPolicyFileshareArgs{
+//			_, err = backup.GetPolicyFileshare(ctx, &backup.GetPolicyFileshareArgs{
 //				Name:              "policy",
 //				RecoveryVaultName: "recovery_vault",
 //				ResourceGroupName: "resource_group",

@@ -1867,6 +1867,8 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["oidc_issuer_url"] = None
             __props__.__dict__["portal_fqdn"] = None
             __props__.__dict__["private_fqdn"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["kubeAdminConfigRaw", "kubeAdminConfigs", "kubeConfigRaw", "kubeConfigs"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(KubernetesCluster, __self__).__init__(
             'azure:containerservice/kubernetesCluster:KubernetesCluster',
             resource_name,

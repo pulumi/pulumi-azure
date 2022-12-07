@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Use this data source to access information about an existing Virtual Wan.
  */
 export function getVirtualWan(args: GetVirtualWanArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualWanResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:network/getVirtualWan:getVirtualWan", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -76,9 +73,11 @@ export interface GetVirtualWanResult {
      */
     readonly vpnSiteIds: string[];
 }
-
+/**
+ * Use this data source to access information about an existing Virtual Wan.
+ */
 export function getVirtualWanOutput(args: GetVirtualWanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualWanResult> {
-    return pulumi.output(args).apply(a => getVirtualWan(a, opts))
+    return pulumi.output(args).apply((a: any) => getVirtualWan(a, opts))
 }
 
 /**

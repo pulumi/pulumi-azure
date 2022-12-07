@@ -102,6 +102,10 @@ func NewManagedDiskSasToken(ctx *pulumi.Context,
 	if args.ManagedDiskId == nil {
 		return nil, errors.New("invalid value for required argument 'ManagedDiskId'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"sasUrl",
+	})
+	opts = append(opts, secrets)
 	var resource ManagedDiskSasToken
 	err := ctx.RegisterResource("azure:compute/managedDiskSasToken:ManagedDiskSasToken", name, args, &resource, opts...)
 	if err != nil {

@@ -100,6 +100,13 @@ func NewIdentityProviderTwitter(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.ApiSecretKey != nil {
+		args.ApiSecretKey = pulumi.ToSecret(args.ApiSecretKey).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"apiSecretKey",
+	})
+	opts = append(opts, secrets)
 	var resource IdentityProviderTwitter
 	err := ctx.RegisterResource("azure:apimanagement/identityProviderTwitter:IdentityProviderTwitter", name, args, &resource, opts...)
 	if err != nil {

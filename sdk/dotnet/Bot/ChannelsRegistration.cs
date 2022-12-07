@@ -175,6 +175,10 @@ namespace Pulumi.Azure.Bot
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "developerAppInsightsApiKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -210,11 +214,21 @@ namespace Pulumi.Azure.Bot
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("developerAppInsightsApiKey")]
+        private Input<string>? _developerAppInsightsApiKey;
+
         /// <summary>
         /// The Application Insights API Key to associate with the Bot Channels Registration.
         /// </summary>
-        [Input("developerAppInsightsApiKey")]
-        public Input<string>? DeveloperAppInsightsApiKey { get; set; }
+        public Input<string>? DeveloperAppInsightsApiKey
+        {
+            get => _developerAppInsightsApiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _developerAppInsightsApiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Application Insights Application ID to associate with the Bot Channels Registration.
@@ -326,11 +340,21 @@ namespace Pulumi.Azure.Bot
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("developerAppInsightsApiKey")]
+        private Input<string>? _developerAppInsightsApiKey;
+
         /// <summary>
         /// The Application Insights API Key to associate with the Bot Channels Registration.
         /// </summary>
-        [Input("developerAppInsightsApiKey")]
-        public Input<string>? DeveloperAppInsightsApiKey { get; set; }
+        public Input<string>? DeveloperAppInsightsApiKey
+        {
+            get => _developerAppInsightsApiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _developerAppInsightsApiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Application Insights Application ID to associate with the Bot Channels Registration.

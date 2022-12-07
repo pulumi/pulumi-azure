@@ -505,6 +505,8 @@ class AuthorizationRule(pulumi.CustomResource):
             __props__.__dict__["secondary_key"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:eventhub/eventHubAuthorizationRule:EventHubAuthorizationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["primaryConnectionString", "primaryConnectionStringAlias", "primaryKey", "secondaryConnectionString", "secondaryConnectionStringAlias", "secondaryKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(AuthorizationRule, __self__).__init__(
             'azure:eventhub/authorizationRule:AuthorizationRule',
             resource_name,

@@ -18,11 +18,21 @@ namespace Pulumi.Azure.MSSql.Inputs
         [Input("encryptionEnabled")]
         public Input<bool>? EncryptionEnabled { get; set; }
 
+        [Input("encryptionPassword")]
+        private Input<string>? _encryptionPassword;
+
         /// <summary>
         /// Encryption password to use. Must be specified when encryption is enabled.
         /// </summary>
-        [Input("encryptionPassword")]
-        public Input<string>? EncryptionPassword { get; set; }
+        public Input<string>? EncryptionPassword
+        {
+            get => _encryptionPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _encryptionPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// A `manual_schedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.

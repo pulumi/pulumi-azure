@@ -13,18 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = pulumi.output(azure.signalr.getService({
+ * const example = azure.signalr.getService({
  *     name: "test-signalr",
  *     resourceGroupName: "signalr-resource-group",
- * }));
+ * });
  * ```
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:signalr/getService:getService", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -93,9 +90,23 @@ export interface GetServiceResult {
     readonly serverPort: number;
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Use this data source to access information about an existing Azure SignalR service.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.signalr.getService({
+ *     name: "test-signalr",
+ *     resourceGroupName: "signalr-resource-group",
+ * });
+ * ```
+ */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
-    return pulumi.output(args).apply(a => getService(a, opts))
+    return pulumi.output(args).apply((a: any) => getService(a, opts))
 }
 
 /**

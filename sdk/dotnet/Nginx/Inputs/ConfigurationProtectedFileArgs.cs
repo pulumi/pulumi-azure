@@ -12,11 +12,21 @@ namespace Pulumi.Azure.Nginx.Inputs
 
     public sealed class ConfigurationProtectedFileArgs : global::Pulumi.ResourceArgs
     {
+        [Input("content", required: true)]
+        private Input<string>? _content;
+
         /// <summary>
         /// Specifies the base-64 encoded contents of this config file.
         /// </summary>
-        [Input("content", required: true)]
-        public Input<string> Content { get; set; } = null!;
+        public Input<string>? Content
+        {
+            get => _content;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _content = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specify the path of this config file.

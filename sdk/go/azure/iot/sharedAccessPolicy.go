@@ -109,6 +109,13 @@ func NewSharedAccessPolicy(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"primaryConnectionString",
+		"primaryKey",
+		"secondaryConnectionString",
+		"secondaryKey",
+	})
+	opts = append(opts, secrets)
 	var resource SharedAccessPolicy
 	err := ctx.RegisterResource("azure:iot/sharedAccessPolicy:SharedAccessPolicy", name, args, &resource, opts...)
 	if err != nil {

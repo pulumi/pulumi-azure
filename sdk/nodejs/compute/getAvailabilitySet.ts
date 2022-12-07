@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAvailabilitySet(args: GetAvailabilitySetArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilitySetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:compute/getAvailabilitySet:getAvailabilitySet", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -77,9 +74,24 @@ export interface GetAvailabilitySetResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Use this data source to access information about an existing Availability Set.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.compute.getAvailabilitySet({
+ *     name: "tf-appsecuritygroup",
+ *     resourceGroupName: "my-resource-group",
+ * });
+ * export const availabilitySetId = example.then(example => example.id);
+ * ```
+ */
 export function getAvailabilitySetOutput(args: GetAvailabilitySetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAvailabilitySetResult> {
-    return pulumi.output(args).apply(a => getAvailabilitySet(a, opts))
+    return pulumi.output(args).apply((a: any) => getAvailabilitySet(a, opts))
 }
 
 /**

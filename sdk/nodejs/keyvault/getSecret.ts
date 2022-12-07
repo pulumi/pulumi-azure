@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:keyvault/getSecret:getSecret", {
         "keyVaultId": args.keyVaultId,
         "name": args.name,
@@ -82,9 +79,24 @@ export interface GetSecretResult {
     readonly version: string;
     readonly versionlessId: string;
 }
-
+/**
+ * Use this data source to access information about an existing Key Vault Secret.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.keyvault.getSecret({
+ *     name: "secret-sauce",
+ *     keyVaultId: data.azurerm_key_vault.existing.id,
+ * });
+ * export const secretValue = example.then(example => example.value);
+ * ```
+ */
 export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {
-    return pulumi.output(args).apply(a => getSecret(a, opts))
+    return pulumi.output(args).apply((a: any) => getSecret(a, opts))
 }
 
 /**

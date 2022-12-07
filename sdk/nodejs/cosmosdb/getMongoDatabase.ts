@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getMongoDatabase(args: GetMongoDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetMongoDatabaseResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:cosmosdb/getMongoDatabase:getMongoDatabase", {
         "accountName": args.accountName,
         "name": args.name,
@@ -68,9 +65,25 @@ export interface GetMongoDatabaseResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Use this data source to access information about an existing Cosmos DB Mongo Database.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.cosmosdb.getMongoDatabase({
+ *     name: "test-cosmosdb-mongo-db",
+ *     resourceGroupName: "test-cosmosdb-account-rg",
+ *     accountName: "test-cosmosdb-account",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ */
 export function getMongoDatabaseOutput(args: GetMongoDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMongoDatabaseResult> {
-    return pulumi.output(args).apply(a => getMongoDatabase(a, opts))
+    return pulumi.output(args).apply((a: any) => getMongoDatabase(a, opts))
 }
 
 /**

@@ -1043,7 +1043,7 @@ class Standard(pulumi.CustomResource):
             __props__.__dict__["site_config"] = site_config
             if storage_account_access_key is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_access_key'")
-            __props__.__dict__["storage_account_access_key"] = storage_account_access_key
+            __props__.__dict__["storage_account_access_key"] = None if storage_account_access_key is None else pulumi.Output.secret(storage_account_access_key)
             if storage_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_name'")
             __props__.__dict__["storage_account_name"] = storage_account_name
@@ -1058,6 +1058,8 @@ class Standard(pulumi.CustomResource):
             __props__.__dict__["outbound_ip_addresses"] = None
             __props__.__dict__["possible_outbound_ip_addresses"] = None
             __props__.__dict__["site_credentials"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["storageAccountAccessKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Standard, __self__).__init__(
             'azure:logicapps/standard:Standard',
             resource_name,

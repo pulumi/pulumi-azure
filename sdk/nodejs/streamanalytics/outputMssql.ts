@@ -178,7 +178,7 @@ export class OutputMssql extends pulumi.CustomResource {
             resourceInputs["maxBatchCount"] = args ? args.maxBatchCount : undefined;
             resourceInputs["maxWriterCount"] = args ? args.maxWriterCount : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["server"] = args ? args.server : undefined;
             resourceInputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
@@ -186,6 +186,8 @@ export class OutputMssql extends pulumi.CustomResource {
             resourceInputs["user"] = args ? args.user : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["password"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(OutputMssql.__pulumiType, name, resourceInputs, opts);
     }
 }

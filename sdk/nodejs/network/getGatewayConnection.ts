@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getGatewayConnection(args: GetGatewayConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayConnectionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:network/getGatewayConnection:getGatewayConnection", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -137,9 +134,24 @@ export interface GetGatewayConnectionResult {
      */
     readonly virtualNetworkGatewayId: string;
 }
-
+/**
+ * Use this data source to access information about an existing Virtual Network Gateway Connection.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.network.getGatewayConnection({
+ *     name: "production",
+ *     resourceGroupName: "networking",
+ * });
+ * export const virtualNetworkGatewayConnectionId = example.then(example => example.id);
+ * ```
+ */
 export function getGatewayConnectionOutput(args: GetGatewayConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayConnectionResult> {
-    return pulumi.output(args).apply(a => getGatewayConnection(a, opts))
+    return pulumi.output(args).apply((a: any) => getGatewayConnection(a, opts))
 }
 
 /**

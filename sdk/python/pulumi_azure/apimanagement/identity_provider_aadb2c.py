@@ -540,7 +540,7 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
             __props__.__dict__["client_id"] = client_id
             if client_secret is None and not opts.urn:
                 raise TypeError("Missing required property 'client_secret'")
-            __props__.__dict__["client_secret"] = client_secret
+            __props__.__dict__["client_secret"] = None if client_secret is None else pulumi.Output.secret(client_secret)
             __props__.__dict__["password_reset_policy"] = password_reset_policy
             __props__.__dict__["profile_editing_policy"] = profile_editing_policy
             if resource_group_name is None and not opts.urn:
@@ -555,6 +555,8 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
             if signup_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'signup_policy'")
             __props__.__dict__["signup_policy"] = signup_policy
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["clientSecret"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(IdentityProviderAadb2c, __self__).__init__(
             'azure:apimanagement/identityProviderAadb2c:IdentityProviderAadb2c',
             resource_name,

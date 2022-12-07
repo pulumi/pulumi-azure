@@ -13,18 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = pulumi.output(azure.compute.getSharedImageGallery({
+ * const example = azure.compute.getSharedImageGallery({
  *     name: "my-image-gallery",
  *     resourceGroupName: "example-resources",
- * }));
+ * });
  * ```
  */
 export function getSharedImageGallery(args: GetSharedImageGalleryArgs, opts?: pulumi.InvokeOptions): Promise<GetSharedImageGalleryResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:compute/getSharedImageGallery:getSharedImageGallery", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -69,9 +66,23 @@ export interface GetSharedImageGalleryResult {
      */
     readonly uniqueName: string;
 }
-
+/**
+ * Use this data source to access information about an existing Shared Image Gallery.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.compute.getSharedImageGallery({
+ *     name: "my-image-gallery",
+ *     resourceGroupName: "example-resources",
+ * });
+ * ```
+ */
 export function getSharedImageGalleryOutput(args: GetSharedImageGalleryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharedImageGalleryResult> {
-    return pulumi.output(args).apply(a => getSharedImageGallery(a, opts))
+    return pulumi.output(args).apply((a: any) => getSharedImageGallery(a, opts))
 }
 
 /**

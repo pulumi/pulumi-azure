@@ -215,6 +215,8 @@ class GetHostPoolRegistrationInfo(pulumi.CustomResource):
                 raise TypeError("Missing required property 'hostpool_id'")
             __props__.__dict__["hostpool_id"] = hostpool_id
             __props__.__dict__["token"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["token"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(GetHostPoolRegistrationInfo, __self__).__init__(
             'azure:desktopvirtualization/getHostPoolRegistrationInfo:getHostPoolRegistrationInfo',
             resource_name,

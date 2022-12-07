@@ -12,11 +12,21 @@ namespace Pulumi.Azure.ApiManagement.Inputs
 
     public sealed class LoggerEventhubArgs : global::Pulumi.ResourceArgs
     {
+        [Input("connectionString", required: true)]
+        private Input<string>? _connectionString;
+
         /// <summary>
         /// The connection string of an EventHub Namespace.
         /// </summary>
-        [Input("connectionString", required: true)]
-        public Input<string> ConnectionString { get; set; } = null!;
+        public Input<string>? ConnectionString
+        {
+            get => _connectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _connectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name of an EventHub.

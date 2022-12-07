@@ -370,6 +370,10 @@ namespace Pulumi.Azure.Synapse
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "sqlAdministratorLoginPassword",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -501,11 +505,21 @@ namespace Pulumi.Azure.Synapse
         [Input("sqlAdministratorLogin")]
         public Input<string>? SqlAdministratorLogin { get; set; }
 
+        [Input("sqlAdministratorLoginPassword")]
+        private Input<string>? _sqlAdministratorLoginPassword;
+
         /// <summary>
         /// The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
         /// </summary>
-        [Input("sqlAdministratorLoginPassword")]
-        public Input<string>? SqlAdministratorLoginPassword { get; set; }
+        public Input<string>? SqlAdministratorLoginPassword
+        {
+            get => _sqlAdministratorLoginPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sqlAdministratorLoginPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
@@ -659,11 +673,21 @@ namespace Pulumi.Azure.Synapse
         [Input("sqlAdministratorLogin")]
         public Input<string>? SqlAdministratorLogin { get; set; }
 
+        [Input("sqlAdministratorLoginPassword")]
+        private Input<string>? _sqlAdministratorLoginPassword;
+
         /// <summary>
         /// The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
         /// </summary>
-        [Input("sqlAdministratorLoginPassword")]
-        public Input<string>? SqlAdministratorLoginPassword { get; set; }
+        public Input<string>? SqlAdministratorLoginPassword
+        {
+            get => _sqlAdministratorLoginPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sqlAdministratorLoginPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?

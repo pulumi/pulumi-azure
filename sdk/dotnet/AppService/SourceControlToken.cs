@@ -77,6 +77,11 @@ namespace Pulumi.Azure.AppService
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "token",
+                    "tokenSecret",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -100,14 +105,33 @@ namespace Pulumi.Azure.AppService
 
     public sealed class SourceControlTokenArgs : global::Pulumi.ResourceArgs
     {
+        [Input("token", required: true)]
+        private Input<string>? _token;
+
         /// <summary>
         /// The Access Token.
         /// </summary>
-        [Input("token", required: true)]
-        public Input<string> Token { get; set; } = null!;
+        public Input<string>? Token
+        {
+            get => _token;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _token = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("tokenSecret")]
-        public Input<string>? TokenSecret { get; set; }
+        private Input<string>? _tokenSecret;
+        public Input<string>? TokenSecret
+        {
+            get => _tokenSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _tokenSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.
@@ -123,14 +147,33 @@ namespace Pulumi.Azure.AppService
 
     public sealed class SourceControlTokenState : global::Pulumi.ResourceArgs
     {
+        [Input("token")]
+        private Input<string>? _token;
+
         /// <summary>
         /// The Access Token.
         /// </summary>
-        [Input("token")]
-        public Input<string>? Token { get; set; }
+        public Input<string>? Token
+        {
+            get => _token;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _token = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("tokenSecret")]
-        public Input<string>? TokenSecret { get; set; }
+        private Input<string>? _tokenSecret;
+        public Input<string>? TokenSecret
+        {
+            get => _tokenSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _tokenSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.

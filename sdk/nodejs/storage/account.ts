@@ -526,6 +526,8 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["secondaryWebHost"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["primaryAccessKey", "primaryBlobConnectionString", "primaryConnectionString", "secondaryAccessKey", "secondaryBlobConnectionString", "secondaryConnectionString"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Account.__pulumiType, name, resourceInputs, opts);
     }
 }

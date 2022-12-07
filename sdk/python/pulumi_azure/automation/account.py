@@ -529,6 +529,8 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["dsc_server_endpoint"] = None
             __props__.__dict__["hybrid_service_url"] = None
             __props__.__dict__["private_endpoint_connections"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["dscPrimaryAccessKey", "dscSecondaryAccessKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Account, __self__).__init__(
             'azure:automation/account:Account',
             resource_name,

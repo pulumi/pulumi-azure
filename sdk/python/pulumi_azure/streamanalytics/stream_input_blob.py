@@ -510,7 +510,7 @@ class StreamInputBlob(pulumi.CustomResource):
             __props__.__dict__["serialization"] = serialization
             if storage_account_key is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_key'")
-            __props__.__dict__["storage_account_key"] = storage_account_key
+            __props__.__dict__["storage_account_key"] = None if storage_account_key is None else pulumi.Output.secret(storage_account_key)
             if storage_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_name'")
             __props__.__dict__["storage_account_name"] = storage_account_name
@@ -523,6 +523,8 @@ class StreamInputBlob(pulumi.CustomResource):
             if time_format is None and not opts.urn:
                 raise TypeError("Missing required property 'time_format'")
             __props__.__dict__["time_format"] = time_format
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["storageAccountKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(StreamInputBlob, __self__).__init__(
             'azure:streamanalytics/streamInputBlob:StreamInputBlob',
             resource_name,

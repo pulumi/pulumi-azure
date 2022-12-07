@@ -1321,7 +1321,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VirtualNetworkGatewayConnectionArgs.__new__(VirtualNetworkGatewayConnectionArgs)
 
-            __props__.__dict__["authorization_key"] = authorization_key
+            __props__.__dict__["authorization_key"] = None if authorization_key is None else pulumi.Output.secret(authorization_key)
             __props__.__dict__["connection_mode"] = connection_mode
             __props__.__dict__["connection_protocol"] = connection_protocol
             __props__.__dict__["custom_bgp_addresses"] = custom_bgp_addresses
@@ -1341,7 +1341,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["routing_weight"] = routing_weight
-            __props__.__dict__["shared_key"] = shared_key
+            __props__.__dict__["shared_key"] = None if shared_key is None else pulumi.Output.secret(shared_key)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["traffic_selector_policy"] = traffic_selector_policy
             if type is None and not opts.urn:
@@ -1351,6 +1351,8 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             if virtual_network_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network_gateway_id'")
             __props__.__dict__["virtual_network_gateway_id"] = virtual_network_gateway_id
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["authorizationKey", "sharedKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(VirtualNetworkGatewayConnection, __self__).__init__(
             'azure:network/virtualNetworkGatewayConnection:VirtualNetworkGatewayConnection',
             resource_name,

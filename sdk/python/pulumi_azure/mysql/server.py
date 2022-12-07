@@ -886,7 +886,7 @@ class Server(pulumi.CustomResource):
             __props__ = ServerArgs.__new__(ServerArgs)
 
             __props__.__dict__["administrator_login"] = administrator_login
-            __props__.__dict__["administrator_login_password"] = administrator_login_password
+            __props__.__dict__["administrator_login_password"] = None if administrator_login_password is None else pulumi.Output.secret(administrator_login_password)
             __props__.__dict__["auto_grow_enabled"] = auto_grow_enabled
             __props__.__dict__["backup_retention_days"] = backup_retention_days
             __props__.__dict__["create_mode"] = create_mode
@@ -915,6 +915,8 @@ class Server(pulumi.CustomResource):
                 raise TypeError("Missing required property 'version'")
             __props__.__dict__["version"] = version
             __props__.__dict__["fqdn"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["administratorLoginPassword"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Server, __self__).__init__(
             'azure:mysql/server:Server',
             resource_name,

@@ -108,6 +108,13 @@ func NewChannelEmail(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.EmailPassword != nil {
+		args.EmailPassword = pulumi.ToSecret(args.EmailPassword).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"emailPassword",
+	})
+	opts = append(opts, secrets)
 	var resource ChannelEmail
 	err := ctx.RegisterResource("azure:bot/channelEmail:ChannelEmail", name, args, &resource, opts...)
 	if err != nil {

@@ -119,6 +119,21 @@ func NewEndpointServicebus(ctx *pulumi.Context,
 	if args.ServicebusSecondaryConnectionString == nil {
 		return nil, errors.New("invalid value for required argument 'ServicebusSecondaryConnectionString'")
 	}
+	if args.DeadLetterStorageSecret != nil {
+		args.DeadLetterStorageSecret = pulumi.ToSecret(args.DeadLetterStorageSecret).(pulumi.StringPtrOutput)
+	}
+	if args.ServicebusPrimaryConnectionString != nil {
+		args.ServicebusPrimaryConnectionString = pulumi.ToSecret(args.ServicebusPrimaryConnectionString).(pulumi.StringOutput)
+	}
+	if args.ServicebusSecondaryConnectionString != nil {
+		args.ServicebusSecondaryConnectionString = pulumi.ToSecret(args.ServicebusSecondaryConnectionString).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"deadLetterStorageSecret",
+		"servicebusPrimaryConnectionString",
+		"servicebusSecondaryConnectionString",
+	})
+	opts = append(opts, secrets)
 	var resource EndpointServicebus
 	err := ctx.RegisterResource("azure:digitaltwins/endpointServicebus:EndpointServicebus", name, args, &resource, opts...)
 	if err != nil {

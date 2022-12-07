@@ -24,11 +24,21 @@ namespace Pulumi.Azure.Iot.Inputs
         [Input("applyAllocationPolicy")]
         public Input<bool>? ApplyAllocationPolicy { get; set; }
 
+        [Input("connectionString", required: true)]
+        private Input<string>? _connectionString;
+
         /// <summary>
         /// The connection string to connect to the IoT Hub.
         /// </summary>
-        [Input("connectionString", required: true)]
-        public Input<string> ConnectionString { get; set; } = null!;
+        public Input<string>? ConnectionString
+        {
+            get => _connectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _connectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The IoT Hub hostname.

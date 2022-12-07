@@ -216,6 +216,13 @@ func NewExtension(ctx *pulumi.Context,
 	if args.VirtualMachineId == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualMachineId'")
 	}
+	if args.ProtectedSettings != nil {
+		args.ProtectedSettings = pulumi.ToSecret(args.ProtectedSettings).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"protectedSettings",
+	})
+	opts = append(opts, secrets)
 	var resource Extension
 	err := ctx.RegisterResource("azure:compute/extension:Extension", name, args, &resource, opts...)
 	if err != nil {

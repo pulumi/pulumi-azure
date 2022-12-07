@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getTemplateSpecVersion(args: GetTemplateSpecVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplateSpecVersionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:core/getTemplateSpecVersion:getTemplateSpecVersion", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -72,9 +69,25 @@ export interface GetTemplateSpecVersionResult {
     readonly templateBody: string;
     readonly version: string;
 }
-
+/**
+ * Use this data source to access information about an existing Template Spec Version.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.core.getTemplateSpecVersion({
+ *     name: "exampleTemplateSpec",
+ *     resourceGroupName: "MyResourceGroup",
+ *     version: "v1.0.4",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ */
 export function getTemplateSpecVersionOutput(args: GetTemplateSpecVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplateSpecVersionResult> {
-    return pulumi.output(args).apply(a => getTemplateSpecVersion(a, opts))
+    return pulumi.output(args).apply((a: any) => getTemplateSpecVersion(a, opts))
 }
 
 /**

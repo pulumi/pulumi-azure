@@ -116,6 +116,13 @@ func NewStorageInsights(ctx *pulumi.Context,
 	if args.WorkspaceId == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceId'")
 	}
+	if args.StorageAccountKey != nil {
+		args.StorageAccountKey = pulumi.ToSecret(args.StorageAccountKey).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"storageAccountKey",
+	})
+	opts = append(opts, secrets)
 	var resource StorageInsights
 	err := ctx.RegisterResource("azure:loganalytics/storageInsights:StorageInsights", name, args, &resource, opts...)
 	if err != nil {

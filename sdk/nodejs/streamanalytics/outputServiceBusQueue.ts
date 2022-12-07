@@ -178,12 +178,14 @@ export class OutputServiceBusQueue extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serialization"] = args ? args.serialization : undefined;
             resourceInputs["servicebusNamespace"] = args ? args.servicebusNamespace : undefined;
-            resourceInputs["sharedAccessPolicyKey"] = args ? args.sharedAccessPolicyKey : undefined;
+            resourceInputs["sharedAccessPolicyKey"] = args?.sharedAccessPolicyKey ? pulumi.secret(args.sharedAccessPolicyKey) : undefined;
             resourceInputs["sharedAccessPolicyName"] = args ? args.sharedAccessPolicyName : undefined;
             resourceInputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
             resourceInputs["systemPropertyColumns"] = args ? args.systemPropertyColumns : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["sharedAccessPolicyKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(OutputServiceBusQueue.__pulumiType, name, resourceInputs, opts);
     }
 }

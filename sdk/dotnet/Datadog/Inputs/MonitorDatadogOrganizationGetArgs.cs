@@ -12,17 +12,37 @@ namespace Pulumi.Azure.Datadog.Inputs
 
     public sealed class MonitorDatadogOrganizationGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("apiKey", required: true)]
+        private Input<string>? _apiKey;
+
         /// <summary>
         /// Api key associated to the Datadog organization. Changing this forces a new Datadog Monitor to be created.
         /// </summary>
-        [Input("apiKey", required: true)]
-        public Input<string> ApiKey { get; set; } = null!;
+        public Input<string>? ApiKey
+        {
+            get => _apiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _apiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("applicationKey", required: true)]
+        private Input<string>? _applicationKey;
 
         /// <summary>
         /// Application key associated to the Datadog organization. Changing this forces a new Datadog Monitor to be created.
         /// </summary>
-        [Input("applicationKey", required: true)]
-        public Input<string> ApplicationKey { get; set; } = null!;
+        public Input<string>? ApplicationKey
+        {
+            get => _applicationKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _applicationKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The ID of the enterprise_app.
@@ -36,17 +56,37 @@ namespace Pulumi.Azure.Datadog.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        [Input("linkingAuthCode")]
+        private Input<string>? _linkingAuthCode;
+
         /// <summary>
         /// The auth code used to linking to an existing Datadog organization. Changing this forces a new Datadog Monitor to be created.
         /// </summary>
-        [Input("linkingAuthCode")]
-        public Input<string>? LinkingAuthCode { get; set; }
+        public Input<string>? LinkingAuthCode
+        {
+            get => _linkingAuthCode;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _linkingAuthCode = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("linkingClientId")]
+        private Input<string>? _linkingClientId;
 
         /// <summary>
         /// The ID of the linking_client. Changing this forces a new Datadog Monitor to be created.
         /// </summary>
-        [Input("linkingClientId")]
-        public Input<string>? LinkingClientId { get; set; }
+        public Input<string>? LinkingClientId
+        {
+            get => _linkingClientId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _linkingClientId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name of the user that will be associated with the Datadog Monitor. Changing this forces a new Datadog Monitor to be created.

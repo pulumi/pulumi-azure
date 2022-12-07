@@ -496,7 +496,7 @@ class Server(pulumi.CustomResource):
             __props__ = ServerArgs.__new__(ServerArgs)
 
             __props__.__dict__["admin_users"] = admin_users
-            __props__.__dict__["backup_blob_container_uri"] = backup_blob_container_uri
+            __props__.__dict__["backup_blob_container_uri"] = None if backup_blob_container_uri is None else pulumi.Output.secret(backup_blob_container_uri)
             __props__.__dict__["enable_power_bi_service"] = enable_power_bi_service
             __props__.__dict__["ipv4_firewall_rules"] = ipv4_firewall_rules
             __props__.__dict__["location"] = location
@@ -510,6 +510,8 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["server_full_name"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["backupBlobContainerUri"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Server, __self__).__init__(
             'azure:analysisservices/server:Server',
             resource_name,

@@ -296,6 +296,13 @@ func NewWorkspace(ctx *pulumi.Context,
 	if args.StorageDataLakeGen2FilesystemId == nil {
 		return nil, errors.New("invalid value for required argument 'StorageDataLakeGen2FilesystemId'")
 	}
+	if args.SqlAdministratorLoginPassword != nil {
+		args.SqlAdministratorLoginPassword = pulumi.ToSecret(args.SqlAdministratorLoginPassword).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"sqlAdministratorLoginPassword",
+	})
+	opts = append(opts, secrets)
 	var resource Workspace
 	err := ctx.RegisterResource("azure:synapse/workspace:Workspace", name, args, &resource, opts...)
 	if err != nil {

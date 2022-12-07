@@ -387,11 +387,13 @@ class StorageInsights(pulumi.CustomResource):
             __props__.__dict__["storage_account_id"] = storage_account_id
             if storage_account_key is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_key'")
-            __props__.__dict__["storage_account_key"] = storage_account_key
+            __props__.__dict__["storage_account_key"] = None if storage_account_key is None else pulumi.Output.secret(storage_account_key)
             __props__.__dict__["table_names"] = table_names
             if workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_id'")
             __props__.__dict__["workspace_id"] = workspace_id
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["storageAccountKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(StorageInsights, __self__).__init__(
             'azure:loganalytics/storageInsights:StorageInsights',
             resource_name,

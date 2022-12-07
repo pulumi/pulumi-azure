@@ -120,6 +120,13 @@ func NewChannelDirectLineSpeech(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.CognitiveServiceAccessKey != nil {
+		args.CognitiveServiceAccessKey = pulumi.ToSecret(args.CognitiveServiceAccessKey).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"cognitiveServiceAccessKey",
+	})
+	opts = append(opts, secrets)
 	var resource ChannelDirectLineSpeech
 	err := ctx.RegisterResource("azure:bot/channelDirectLineSpeech:ChannelDirectLineSpeech", name, args, &resource, opts...)
 	if err != nil {

@@ -241,6 +241,11 @@ namespace Pulumi.Azure.ApiManagement
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "data",
+                    "password",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -270,11 +275,21 @@ namespace Pulumi.Azure.ApiManagement
         [Input("apiManagementName", required: true)]
         public Input<string> ApiManagementName { get; set; } = null!;
 
+        [Input("data")]
+        private Input<string>? _data;
+
         /// <summary>
         /// The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("data")]
-        public Input<string>? Data { get; set; }
+        public Input<string>? Data
+        {
+            get => _data;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _data = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
@@ -294,11 +309,21 @@ namespace Pulumi.Azure.ApiManagement
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("password")]
+        private Input<string>? _password;
+
         /// <summary>
         /// The password used for this certificate. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
@@ -320,11 +345,21 @@ namespace Pulumi.Azure.ApiManagement
         [Input("apiManagementName")]
         public Input<string>? ApiManagementName { get; set; }
 
+        [Input("data")]
+        private Input<string>? _data;
+
         /// <summary>
         /// The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("data")]
-        public Input<string>? Data { get; set; }
+        public Input<string>? Data
+        {
+            get => _data;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _data = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Expiration Date of this Certificate, formatted as an RFC3339 string.
@@ -350,11 +385,21 @@ namespace Pulumi.Azure.ApiManagement
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("password")]
+        private Input<string>? _password;
+
         /// <summary>
         /// The password used for this certificate. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.

@@ -13,19 +13,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const fabric = pulumi.output(azure.siterecovery.getFabric({
+ * const fabric = azure.siterecovery.getFabric({
  *     name: "primary-fabric",
  *     recoveryVaultName: "tfex-recovery_vault",
  *     resourceGroupName: "tfex-resource_group",
- * }));
+ * });
  * ```
  */
 export function getFabric(args: GetFabricArgs, opts?: pulumi.InvokeOptions): Promise<GetFabricResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:siterecovery/getFabric:getFabric", {
         "name": args.name,
         "recoveryVaultName": args.recoveryVaultName,
@@ -67,9 +64,24 @@ export interface GetFabricResult {
     readonly recoveryVaultName: string;
     readonly resourceGroupName: string;
 }
-
+/**
+ * Use this data source to access information about an existing Site Recovery Replication Fabric.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const fabric = azure.siterecovery.getFabric({
+ *     name: "primary-fabric",
+ *     recoveryVaultName: "tfex-recovery_vault",
+ *     resourceGroupName: "tfex-resource_group",
+ * });
+ * ```
+ */
 export function getFabricOutput(args: GetFabricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFabricResult> {
-    return pulumi.output(args).apply(a => getFabric(a, opts))
+    return pulumi.output(args).apply((a: any) => getFabric(a, opts))
 }
 
 /**

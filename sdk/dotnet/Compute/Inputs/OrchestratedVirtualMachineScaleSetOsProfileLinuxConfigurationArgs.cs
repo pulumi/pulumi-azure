@@ -13,7 +13,16 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("adminPassword")]
-        public Input<string>? AdminPassword { get; set; }
+        private Input<string>? _adminPassword;
+        public Input<string>? AdminPassword
+        {
+            get => _adminPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _adminPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("adminSshKeys")]
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs>? _adminSshKeys;

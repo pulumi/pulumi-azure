@@ -76,7 +76,7 @@ import (
 //	$ pulumi import azure:logicapps/integrationAccountMap:IntegrationAccountMap example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/maps/map1
 //
 // ```
-type IntegrationAccountMap struct {
+type IntegrationAccountMapResource struct {
 	pulumi.CustomResourceState
 
 	// The content of the Logic App Integration Account Map.
@@ -93,9 +93,9 @@ type IntegrationAccountMap struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
-// NewIntegrationAccountMap registers a new resource with the given unique name, arguments, and options.
-func NewIntegrationAccountMap(ctx *pulumi.Context,
-	name string, args *IntegrationAccountMapArgs, opts ...pulumi.ResourceOption) (*IntegrationAccountMap, error) {
+// NewIntegrationAccountMapResource registers a new resource with the given unique name, arguments, and options.
+func NewIntegrationAccountMapResource(ctx *pulumi.Context,
+	name string, args *IntegrationAccountMapResourceArgs, opts ...pulumi.ResourceOption) (*IntegrationAccountMapResource, error) {
 	if args == nil {
 		return nil, errors.New("missing one or more required arguments")
 	}
@@ -112,7 +112,7 @@ func NewIntegrationAccountMap(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	var resource IntegrationAccountMap
+	var resource IntegrationAccountMapResource
 	err := ctx.RegisterResource("azure:logicapps/integrationAccountMap:IntegrationAccountMap", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
@@ -120,11 +120,11 @@ func NewIntegrationAccountMap(ctx *pulumi.Context,
 	return &resource, nil
 }
 
-// GetIntegrationAccountMap gets an existing IntegrationAccountMap resource's state with the given name, ID, and optional
+// GetIntegrationAccountMapResource gets an existing IntegrationAccountMapResource resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetIntegrationAccountMap(ctx *pulumi.Context,
-	name string, id pulumi.IDInput, state *IntegrationAccountMapState, opts ...pulumi.ResourceOption) (*IntegrationAccountMap, error) {
-	var resource IntegrationAccountMap
+func GetIntegrationAccountMapResource(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *IntegrationAccountMapResourceState, opts ...pulumi.ResourceOption) (*IntegrationAccountMapResource, error) {
+	var resource IntegrationAccountMapResource
 	err := ctx.ReadResource("azure:logicapps/integrationAccountMap:IntegrationAccountMap", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
@@ -132,8 +132,8 @@ func GetIntegrationAccountMap(ctx *pulumi.Context,
 	return &resource, nil
 }
 
-// Input properties used for looking up and filtering IntegrationAccountMap resources.
-type integrationAccountMapState struct {
+// Input properties used for looking up and filtering IntegrationAccountMapResource resources.
+type integrationAccountMapResourceState struct {
 	// The content of the Logic App Integration Account Map.
 	Content *string `pulumi:"content"`
 	// The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Map to be created.
@@ -148,7 +148,7 @@ type integrationAccountMapState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
-type IntegrationAccountMapState struct {
+type IntegrationAccountMapResourceState struct {
 	// The content of the Logic App Integration Account Map.
 	Content pulumi.StringPtrInput
 	// The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Map to be created.
@@ -163,11 +163,11 @@ type IntegrationAccountMapState struct {
 	ResourceGroupName pulumi.StringPtrInput
 }
 
-func (IntegrationAccountMapState) ElementType() reflect.Type {
-	return reflect.TypeOf((*integrationAccountMapState)(nil)).Elem()
+func (IntegrationAccountMapResourceState) ElementType() reflect.Type {
+	return reflect.TypeOf((*integrationAccountMapResourceState)(nil)).Elem()
 }
 
-type integrationAccountMapArgs struct {
+type integrationAccountMapResourceArgs struct {
 	// The content of the Logic App Integration Account Map.
 	Content string `pulumi:"content"`
 	// The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Map to be created.
@@ -182,8 +182,8 @@ type integrationAccountMapArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-// The set of arguments for constructing a IntegrationAccountMap resource.
-type IntegrationAccountMapArgs struct {
+// The set of arguments for constructing a IntegrationAccountMapResource resource.
+type IntegrationAccountMapResourceArgs struct {
 	// The content of the Logic App Integration Account Map.
 	Content pulumi.StringInput
 	// The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Map to be created.
@@ -198,168 +198,168 @@ type IntegrationAccountMapArgs struct {
 	ResourceGroupName pulumi.StringInput
 }
 
-func (IntegrationAccountMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*integrationAccountMapArgs)(nil)).Elem()
+func (IntegrationAccountMapResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*integrationAccountMapResourceArgs)(nil)).Elem()
 }
 
-type IntegrationAccountMapInput interface {
+type IntegrationAccountMapResourceInput interface {
 	pulumi.Input
 
-	ToIntegrationAccountMapOutput() IntegrationAccountMapOutput
-	ToIntegrationAccountMapOutputWithContext(ctx context.Context) IntegrationAccountMapOutput
+	ToIntegrationAccountMapResourceOutput() IntegrationAccountMapResourceOutput
+	ToIntegrationAccountMapResourceOutputWithContext(ctx context.Context) IntegrationAccountMapResourceOutput
 }
 
-func (*IntegrationAccountMap) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationAccountMap)(nil)).Elem()
+func (*IntegrationAccountMapResource) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountMapResource)(nil)).Elem()
 }
 
-func (i *IntegrationAccountMap) ToIntegrationAccountMapOutput() IntegrationAccountMapOutput {
-	return i.ToIntegrationAccountMapOutputWithContext(context.Background())
+func (i *IntegrationAccountMapResource) ToIntegrationAccountMapResourceOutput() IntegrationAccountMapResourceOutput {
+	return i.ToIntegrationAccountMapResourceOutputWithContext(context.Background())
 }
 
-func (i *IntegrationAccountMap) ToIntegrationAccountMapOutputWithContext(ctx context.Context) IntegrationAccountMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapOutput)
+func (i *IntegrationAccountMapResource) ToIntegrationAccountMapResourceOutputWithContext(ctx context.Context) IntegrationAccountMapResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapResourceOutput)
 }
 
-// IntegrationAccountMapArrayInput is an input type that accepts IntegrationAccountMapArray and IntegrationAccountMapArrayOutput values.
-// You can construct a concrete instance of `IntegrationAccountMapArrayInput` via:
+// IntegrationAccountMapResourceArrayInput is an input type that accepts IntegrationAccountMapResourceArray and IntegrationAccountMapResourceArrayOutput values.
+// You can construct a concrete instance of `IntegrationAccountMapResourceArrayInput` via:
 //
-//	IntegrationAccountMapArray{ IntegrationAccountMapArgs{...} }
-type IntegrationAccountMapArrayInput interface {
+//	IntegrationAccountMapResourceArray{ IntegrationAccountMapResourceArgs{...} }
+type IntegrationAccountMapResourceArrayInput interface {
 	pulumi.Input
 
-	ToIntegrationAccountMapArrayOutput() IntegrationAccountMapArrayOutput
-	ToIntegrationAccountMapArrayOutputWithContext(context.Context) IntegrationAccountMapArrayOutput
+	ToIntegrationAccountMapResourceArrayOutput() IntegrationAccountMapResourceArrayOutput
+	ToIntegrationAccountMapResourceArrayOutputWithContext(context.Context) IntegrationAccountMapResourceArrayOutput
 }
 
-type IntegrationAccountMapArray []IntegrationAccountMapInput
+type IntegrationAccountMapResourceArray []IntegrationAccountMapResourceInput
 
-func (IntegrationAccountMapArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]*IntegrationAccountMap)(nil)).Elem()
+func (IntegrationAccountMapResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]*IntegrationAccountMapResource)(nil)).Elem()
 }
 
-func (i IntegrationAccountMapArray) ToIntegrationAccountMapArrayOutput() IntegrationAccountMapArrayOutput {
-	return i.ToIntegrationAccountMapArrayOutputWithContext(context.Background())
+func (i IntegrationAccountMapResourceArray) ToIntegrationAccountMapResourceArrayOutput() IntegrationAccountMapResourceArrayOutput {
+	return i.ToIntegrationAccountMapResourceArrayOutputWithContext(context.Background())
 }
 
-func (i IntegrationAccountMapArray) ToIntegrationAccountMapArrayOutputWithContext(ctx context.Context) IntegrationAccountMapArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapArrayOutput)
+func (i IntegrationAccountMapResourceArray) ToIntegrationAccountMapResourceArrayOutputWithContext(ctx context.Context) IntegrationAccountMapResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapResourceArrayOutput)
 }
 
-// IntegrationAccountMapMapInput is an input type that accepts IntegrationAccountMapMap and IntegrationAccountMapMapOutput values.
-// You can construct a concrete instance of `IntegrationAccountMapMapInput` via:
+// IntegrationAccountMapResourceMapInput is an input type that accepts IntegrationAccountMapResourceMap and IntegrationAccountMapResourceMapOutput values.
+// You can construct a concrete instance of `IntegrationAccountMapResourceMapInput` via:
 //
-//	IntegrationAccountMapMap{ "key": IntegrationAccountMapArgs{...} }
-type IntegrationAccountMapMapInput interface {
+//	IntegrationAccountMapResourceMap{ "key": IntegrationAccountMapResourceArgs{...} }
+type IntegrationAccountMapResourceMapInput interface {
 	pulumi.Input
 
-	ToIntegrationAccountMapMapOutput() IntegrationAccountMapMapOutput
-	ToIntegrationAccountMapMapOutputWithContext(context.Context) IntegrationAccountMapMapOutput
+	ToIntegrationAccountMapResourceMapOutput() IntegrationAccountMapResourceMapOutput
+	ToIntegrationAccountMapResourceMapOutputWithContext(context.Context) IntegrationAccountMapResourceMapOutput
 }
 
-type IntegrationAccountMapMap map[string]IntegrationAccountMapInput
+type IntegrationAccountMapResourceMap map[string]IntegrationAccountMapResourceInput
 
-func (IntegrationAccountMapMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]*IntegrationAccountMap)(nil)).Elem()
+func (IntegrationAccountMapResourceMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]*IntegrationAccountMapResource)(nil)).Elem()
 }
 
-func (i IntegrationAccountMapMap) ToIntegrationAccountMapMapOutput() IntegrationAccountMapMapOutput {
-	return i.ToIntegrationAccountMapMapOutputWithContext(context.Background())
+func (i IntegrationAccountMapResourceMap) ToIntegrationAccountMapResourceMapOutput() IntegrationAccountMapResourceMapOutput {
+	return i.ToIntegrationAccountMapResourceMapOutputWithContext(context.Background())
 }
 
-func (i IntegrationAccountMapMap) ToIntegrationAccountMapMapOutputWithContext(ctx context.Context) IntegrationAccountMapMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapMapOutput)
+func (i IntegrationAccountMapResourceMap) ToIntegrationAccountMapResourceMapOutputWithContext(ctx context.Context) IntegrationAccountMapResourceMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapResourceMapOutput)
 }
 
-type IntegrationAccountMapOutput struct{ *pulumi.OutputState }
+type IntegrationAccountMapResourceOutput struct{ *pulumi.OutputState }
 
-func (IntegrationAccountMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationAccountMap)(nil)).Elem()
+func (IntegrationAccountMapResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountMapResource)(nil)).Elem()
 }
 
-func (o IntegrationAccountMapOutput) ToIntegrationAccountMapOutput() IntegrationAccountMapOutput {
+func (o IntegrationAccountMapResourceOutput) ToIntegrationAccountMapResourceOutput() IntegrationAccountMapResourceOutput {
 	return o
 }
 
-func (o IntegrationAccountMapOutput) ToIntegrationAccountMapOutputWithContext(ctx context.Context) IntegrationAccountMapOutput {
+func (o IntegrationAccountMapResourceOutput) ToIntegrationAccountMapResourceOutputWithContext(ctx context.Context) IntegrationAccountMapResourceOutput {
 	return o
 }
 
 // The content of the Logic App Integration Account Map.
-func (o IntegrationAccountMapOutput) Content() pulumi.StringOutput {
-	return o.ApplyT(func(v *IntegrationAccountMap) pulumi.StringOutput { return v.Content }).(pulumi.StringOutput)
+func (o IntegrationAccountMapResourceOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationAccountMapResource) pulumi.StringOutput { return v.Content }).(pulumi.StringOutput)
 }
 
 // The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Map to be created.
-func (o IntegrationAccountMapOutput) IntegrationAccountName() pulumi.StringOutput {
-	return o.ApplyT(func(v *IntegrationAccountMap) pulumi.StringOutput { return v.IntegrationAccountName }).(pulumi.StringOutput)
+func (o IntegrationAccountMapResourceOutput) IntegrationAccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationAccountMapResource) pulumi.StringOutput { return v.IntegrationAccountName }).(pulumi.StringOutput)
 }
 
 // The type of the Logic App Integration Account Map. Possible values are `Xslt`, `Xslt20`, `Xslt30` and `Liquid`.
-func (o IntegrationAccountMapOutput) MapType() pulumi.StringOutput {
-	return o.ApplyT(func(v *IntegrationAccountMap) pulumi.StringOutput { return v.MapType }).(pulumi.StringOutput)
+func (o IntegrationAccountMapResourceOutput) MapType() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationAccountMapResource) pulumi.StringOutput { return v.MapType }).(pulumi.StringOutput)
 }
 
 // The metadata of the Logic App Integration Account Map.
-func (o IntegrationAccountMapOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *IntegrationAccountMap) pulumi.StringMapOutput { return v.Metadata }).(pulumi.StringMapOutput)
+func (o IntegrationAccountMapResourceOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *IntegrationAccountMapResource) pulumi.StringMapOutput { return v.Metadata }).(pulumi.StringMapOutput)
 }
 
 // The name which should be used for this Logic App Integration Account Map. Changing this forces a new Logic App Integration Account Map to be created.
-func (o IntegrationAccountMapOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v *IntegrationAccountMap) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+func (o IntegrationAccountMapResourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationAccountMapResource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 // The name of the Resource Group where the Logic App Integration Account Map should exist. Changing this forces a new Logic App Integration Account Map to be created.
-func (o IntegrationAccountMapOutput) ResourceGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v *IntegrationAccountMap) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
+func (o IntegrationAccountMapResourceOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationAccountMapResource) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-type IntegrationAccountMapArrayOutput struct{ *pulumi.OutputState }
+type IntegrationAccountMapResourceArrayOutput struct{ *pulumi.OutputState }
 
-func (IntegrationAccountMapArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]*IntegrationAccountMap)(nil)).Elem()
+func (IntegrationAccountMapResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]*IntegrationAccountMapResource)(nil)).Elem()
 }
 
-func (o IntegrationAccountMapArrayOutput) ToIntegrationAccountMapArrayOutput() IntegrationAccountMapArrayOutput {
+func (o IntegrationAccountMapResourceArrayOutput) ToIntegrationAccountMapResourceArrayOutput() IntegrationAccountMapResourceArrayOutput {
 	return o
 }
 
-func (o IntegrationAccountMapArrayOutput) ToIntegrationAccountMapArrayOutputWithContext(ctx context.Context) IntegrationAccountMapArrayOutput {
+func (o IntegrationAccountMapResourceArrayOutput) ToIntegrationAccountMapResourceArrayOutputWithContext(ctx context.Context) IntegrationAccountMapResourceArrayOutput {
 	return o
 }
 
-func (o IntegrationAccountMapArrayOutput) Index(i pulumi.IntInput) IntegrationAccountMapOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationAccountMap {
-		return vs[0].([]*IntegrationAccountMap)[vs[1].(int)]
-	}).(IntegrationAccountMapOutput)
+func (o IntegrationAccountMapResourceArrayOutput) Index(i pulumi.IntInput) IntegrationAccountMapResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationAccountMapResource {
+		return vs[0].([]*IntegrationAccountMapResource)[vs[1].(int)]
+	}).(IntegrationAccountMapResourceOutput)
 }
 
-type IntegrationAccountMapMapOutput struct{ *pulumi.OutputState }
+type IntegrationAccountMapResourceMapOutput struct{ *pulumi.OutputState }
 
-func (IntegrationAccountMapMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]*IntegrationAccountMap)(nil)).Elem()
+func (IntegrationAccountMapResourceMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]*IntegrationAccountMapResource)(nil)).Elem()
 }
 
-func (o IntegrationAccountMapMapOutput) ToIntegrationAccountMapMapOutput() IntegrationAccountMapMapOutput {
+func (o IntegrationAccountMapResourceMapOutput) ToIntegrationAccountMapResourceMapOutput() IntegrationAccountMapResourceMapOutput {
 	return o
 }
 
-func (o IntegrationAccountMapMapOutput) ToIntegrationAccountMapMapOutputWithContext(ctx context.Context) IntegrationAccountMapMapOutput {
+func (o IntegrationAccountMapResourceMapOutput) ToIntegrationAccountMapResourceMapOutputWithContext(ctx context.Context) IntegrationAccountMapResourceMapOutput {
 	return o
 }
 
-func (o IntegrationAccountMapMapOutput) MapIndex(k pulumi.StringInput) IntegrationAccountMapOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *IntegrationAccountMap {
-		return vs[0].(map[string]*IntegrationAccountMap)[vs[1].(string)]
-	}).(IntegrationAccountMapOutput)
+func (o IntegrationAccountMapResourceMapOutput) MapIndex(k pulumi.StringInput) IntegrationAccountMapResourceOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *IntegrationAccountMapResource {
+		return vs[0].(map[string]*IntegrationAccountMapResource)[vs[1].(string)]
+	}).(IntegrationAccountMapResourceOutput)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMapInput)(nil)).Elem(), &IntegrationAccountMap{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMapArrayInput)(nil)).Elem(), IntegrationAccountMapArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMapMapInput)(nil)).Elem(), IntegrationAccountMapMap{})
-	pulumi.RegisterOutputType(IntegrationAccountMapOutput{})
-	pulumi.RegisterOutputType(IntegrationAccountMapArrayOutput{})
-	pulumi.RegisterOutputType(IntegrationAccountMapMapOutput{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMapResourceInput)(nil)).Elem(), &IntegrationAccountMapResource{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMapResourceArrayInput)(nil)).Elem(), IntegrationAccountMapResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMapResourceMapInput)(nil)).Elem(), IntegrationAccountMapResourceMap{})
+	pulumi.RegisterOutputType(IntegrationAccountMapResourceOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountMapResourceArrayOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountMapResourceMapOutput{})
 }

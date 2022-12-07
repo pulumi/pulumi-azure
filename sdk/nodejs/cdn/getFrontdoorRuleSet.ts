@@ -13,19 +13,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = pulumi.output(azure.cdn.getFrontdoorRuleSet({
+ * const example = azure.cdn.getFrontdoorRuleSet({
  *     name: "existing-rule-set",
  *     profileName: "existing-profile",
  *     resourceGroupName: "existing-resources",
- * }));
+ * });
  * ```
  */
 export function getFrontdoorRuleSet(args: GetFrontdoorRuleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontdoorRuleSetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:cdn/getFrontdoorRuleSet:getFrontdoorRuleSet", {
         "name": args.name,
         "profileName": args.profileName,
@@ -67,9 +64,24 @@ export interface GetFrontdoorRuleSetResult {
     readonly profileName: string;
     readonly resourceGroupName: string;
 }
-
+/**
+ * Use this data source to access information about an existing Front Door (standard/premium) Rule Set.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.cdn.getFrontdoorRuleSet({
+ *     name: "existing-rule-set",
+ *     profileName: "existing-profile",
+ *     resourceGroupName: "existing-resources",
+ * });
+ * ```
+ */
 export function getFrontdoorRuleSetOutput(args: GetFrontdoorRuleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontdoorRuleSetResult> {
-    return pulumi.output(args).apply(a => getFrontdoorRuleSet(a, opts))
+    return pulumi.output(args).apply((a: any) => getFrontdoorRuleSet(a, opts))
 }
 
 /**

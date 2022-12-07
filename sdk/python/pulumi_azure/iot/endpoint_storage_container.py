@@ -577,7 +577,7 @@ class EndpointStorageContainer(pulumi.CustomResource):
 
             __props__.__dict__["authentication_type"] = authentication_type
             __props__.__dict__["batch_frequency_in_seconds"] = batch_frequency_in_seconds
-            __props__.__dict__["connection_string"] = connection_string
+            __props__.__dict__["connection_string"] = None if connection_string is None else pulumi.Output.secret(connection_string)
             if container_name is None and not opts.urn:
                 raise TypeError("Missing required property 'container_name'")
             __props__.__dict__["container_name"] = container_name
@@ -593,6 +593,8 @@ class EndpointStorageContainer(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["connectionString"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(EndpointStorageContainer, __self__).__init__(
             'azure:iot/endpointStorageContainer:EndpointStorageContainer',
             resource_name,

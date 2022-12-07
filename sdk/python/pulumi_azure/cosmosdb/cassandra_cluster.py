@@ -651,7 +651,7 @@ class CassandraCluster(pulumi.CustomResource):
             __props__.__dict__["client_certificate_pems"] = client_certificate_pems
             if default_admin_password is None and not opts.urn:
                 raise TypeError("Missing required property 'default_admin_password'")
-            __props__.__dict__["default_admin_password"] = default_admin_password
+            __props__.__dict__["default_admin_password"] = None if default_admin_password is None else pulumi.Output.secret(default_admin_password)
             if delegated_management_subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'delegated_management_subnet_id'")
             __props__.__dict__["delegated_management_subnet_id"] = delegated_management_subnet_id
@@ -667,6 +667,8 @@ class CassandraCluster(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version"] = version
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["defaultAdminPassword"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(CassandraCluster, __self__).__init__(
             'azure:cosmosdb/cassandraCluster:CassandraCluster',
             resource_name,

@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := netapp.LookupSnapshot(ctx, &netapp.LookupSnapshotArgs{
+//			_, err = netapp.LookupSnapshot(ctx, &netapp.LookupSnapshotArgs{
 //				ResourceGroupName: "acctestRG",
 //				Name:              "acctestnetappsnapshot",
 //				AccountName:       "acctestnetappaccount",

@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := core.GetExtendedLocations(ctx, &core.GetExtendedLocationsArgs{
+//			_, err = core.GetExtendedLocations(ctx, &core.GetExtendedLocationsArgs{
 //				Location: "West Europe",
 //			}, nil)
 //			if err != nil {

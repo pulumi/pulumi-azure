@@ -145,6 +145,17 @@ func NewServiceAzureBot(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
+	if args.DeveloperAppInsightsApiKey != nil {
+		args.DeveloperAppInsightsApiKey = pulumi.ToSecret(args.DeveloperAppInsightsApiKey).(pulumi.StringPtrOutput)
+	}
+	if args.LuisKey != nil {
+		args.LuisKey = pulumi.ToSecret(args.LuisKey).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"developerAppInsightsApiKey",
+		"luisKey",
+	})
+	opts = append(opts, secrets)
 	var resource ServiceAzureBot
 	err := ctx.RegisterResource("azure:bot/serviceAzureBot:ServiceAzureBot", name, args, &resource, opts...)
 	if err != nil {

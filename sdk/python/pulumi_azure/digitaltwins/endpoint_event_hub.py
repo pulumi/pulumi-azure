@@ -324,17 +324,19 @@ class EndpointEventHub(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EndpointEventHubArgs.__new__(EndpointEventHubArgs)
 
-            __props__.__dict__["dead_letter_storage_secret"] = dead_letter_storage_secret
+            __props__.__dict__["dead_letter_storage_secret"] = None if dead_letter_storage_secret is None else pulumi.Output.secret(dead_letter_storage_secret)
             if digital_twins_id is None and not opts.urn:
                 raise TypeError("Missing required property 'digital_twins_id'")
             __props__.__dict__["digital_twins_id"] = digital_twins_id
             if eventhub_primary_connection_string is None and not opts.urn:
                 raise TypeError("Missing required property 'eventhub_primary_connection_string'")
-            __props__.__dict__["eventhub_primary_connection_string"] = eventhub_primary_connection_string
+            __props__.__dict__["eventhub_primary_connection_string"] = None if eventhub_primary_connection_string is None else pulumi.Output.secret(eventhub_primary_connection_string)
             if eventhub_secondary_connection_string is None and not opts.urn:
                 raise TypeError("Missing required property 'eventhub_secondary_connection_string'")
-            __props__.__dict__["eventhub_secondary_connection_string"] = eventhub_secondary_connection_string
+            __props__.__dict__["eventhub_secondary_connection_string"] = None if eventhub_secondary_connection_string is None else pulumi.Output.secret(eventhub_secondary_connection_string)
             __props__.__dict__["name"] = name
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["deadLetterStorageSecret", "eventhubPrimaryConnectionString", "eventhubSecondaryConnectionString"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(EndpointEventHub, __self__).__init__(
             'azure:digitaltwins/endpointEventHub:EndpointEventHub',
             resource_name,

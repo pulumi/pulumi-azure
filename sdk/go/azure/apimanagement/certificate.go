@@ -231,6 +231,17 @@ func NewCertificate(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.Data != nil {
+		args.Data = pulumi.ToSecret(args.Data).(pulumi.StringPtrOutput)
+	}
+	if args.Password != nil {
+		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"data",
+		"password",
+	})
+	opts = append(opts, secrets)
 	var resource Certificate
 	err := ctx.RegisterResource("azure:apimanagement/certificate:Certificate", name, args, &resource, opts...)
 	if err != nil {

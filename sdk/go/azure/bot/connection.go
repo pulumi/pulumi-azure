@@ -122,6 +122,13 @@ func NewConnection(ctx *pulumi.Context,
 	if args.ServiceProviderName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceProviderName'")
 	}
+	if args.ClientSecret != nil {
+		args.ClientSecret = pulumi.ToSecret(args.ClientSecret).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"clientSecret",
+	})
+	opts = append(opts, secrets)
 	var resource Connection
 	err := ctx.RegisterResource("azure:bot/connection:Connection", name, args, &resource, opts...)
 	if err != nil {

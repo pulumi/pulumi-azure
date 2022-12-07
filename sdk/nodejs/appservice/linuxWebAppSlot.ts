@@ -268,6 +268,8 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
             resourceInputs["siteCredentials"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["customDomainVerificationId"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(LinuxWebAppSlot.__pulumiType, name, resourceInputs, opts);
     }
 }

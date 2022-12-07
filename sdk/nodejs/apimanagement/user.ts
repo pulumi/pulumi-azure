@@ -158,12 +158,14 @@ export class User extends pulumi.CustomResource {
             resourceInputs["firstName"] = args ? args.firstName : undefined;
             resourceInputs["lastName"] = args ? args.lastName : undefined;
             resourceInputs["note"] = args ? args.note : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["userId"] = args ? args.userId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["password"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(User.__pulumiType, name, resourceInputs, opts);
     }
 }

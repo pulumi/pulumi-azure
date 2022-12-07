@@ -639,9 +639,11 @@ class LinkedServiceKusto(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["service_principal_id"] = service_principal_id
-            __props__.__dict__["service_principal_key"] = service_principal_key
+            __props__.__dict__["service_principal_key"] = None if service_principal_key is None else pulumi.Output.secret(service_principal_key)
             __props__.__dict__["tenant"] = tenant
             __props__.__dict__["use_managed_identity"] = use_managed_identity
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["servicePrincipalKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(LinkedServiceKusto, __self__).__init__(
             'azure:datafactory/linkedServiceKusto:LinkedServiceKusto',
             resource_name,

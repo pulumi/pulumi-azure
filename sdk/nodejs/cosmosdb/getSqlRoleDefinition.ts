@@ -15,19 +15,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = pulumi.output(azure.cosmosdb.getSqlRoleDefinition({
+ * const example = azure.cosmosdb.getSqlRoleDefinition({
  *     accountName: "tfex-cosmosdb-sql-role-definition-account-name",
  *     resourceGroupName: "tfex-cosmosdb-sql-role-definition-rg",
  *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
- * }));
+ * });
  * ```
  */
 export function getSqlRoleDefinition(args: GetSqlRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlRoleDefinitionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:cosmosdb/getSqlRoleDefinition:getSqlRoleDefinition", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
@@ -81,9 +78,24 @@ export interface GetSqlRoleDefinitionResult {
      */
     readonly type: string;
 }
-
+/**
+ * Use this data source to access information about an existing Cosmos DB SQL Role Definition.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.cosmosdb.getSqlRoleDefinition({
+ *     accountName: "tfex-cosmosdb-sql-role-definition-account-name",
+ *     resourceGroupName: "tfex-cosmosdb-sql-role-definition-rg",
+ *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
+ * });
+ * ```
+ */
 export function getSqlRoleDefinitionOutput(args: GetSqlRoleDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlRoleDefinitionResult> {
-    return pulumi.output(args).apply(a => getSqlRoleDefinition(a, opts))
+    return pulumi.output(args).apply((a: any) => getSqlRoleDefinition(a, opts))
 }
 
 /**

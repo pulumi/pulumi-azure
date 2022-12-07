@@ -157,6 +157,10 @@ namespace Pulumi.Azure.StreamAnalytics
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "cosmosdbAccountKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -186,11 +190,21 @@ namespace Pulumi.Azure.StreamAnalytics
         [Input("containerName", required: true)]
         public Input<string> ContainerName { get; set; } = null!;
 
+        [Input("cosmosdbAccountKey", required: true)]
+        private Input<string>? _cosmosdbAccountKey;
+
         /// <summary>
         /// The account key for the CosmosDB database.
         /// </summary>
-        [Input("cosmosdbAccountKey", required: true)]
-        public Input<string> CosmosdbAccountKey { get; set; } = null!;
+        public Input<string>? CosmosdbAccountKey
+        {
+            get => _cosmosdbAccountKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _cosmosdbAccountKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The ID of the CosmosDB database.
@@ -236,11 +250,21 @@ namespace Pulumi.Azure.StreamAnalytics
         [Input("containerName")]
         public Input<string>? ContainerName { get; set; }
 
+        [Input("cosmosdbAccountKey")]
+        private Input<string>? _cosmosdbAccountKey;
+
         /// <summary>
         /// The account key for the CosmosDB database.
         /// </summary>
-        [Input("cosmosdbAccountKey")]
-        public Input<string>? CosmosdbAccountKey { get; set; }
+        public Input<string>? CosmosdbAccountKey
+        {
+            get => _cosmosdbAccountKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _cosmosdbAccountKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The ID of the CosmosDB database.

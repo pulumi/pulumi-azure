@@ -18,17 +18,37 @@ namespace Pulumi.Azure.Redis.Inputs
         [Input("aofBackupEnabled")]
         public Input<bool>? AofBackupEnabled { get; set; }
 
+        [Input("aofStorageConnectionString0")]
+        private Input<string>? _aofStorageConnectionString0;
+
         /// <summary>
         /// First Storage Account connection string for AOF persistence.
         /// </summary>
-        [Input("aofStorageConnectionString0")]
-        public Input<string>? AofStorageConnectionString0 { get; set; }
+        public Input<string>? AofStorageConnectionString0
+        {
+            get => _aofStorageConnectionString0;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _aofStorageConnectionString0 = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("aofStorageConnectionString1")]
+        private Input<string>? _aofStorageConnectionString1;
 
         /// <summary>
         /// Second Storage Account connection string for AOF persistence.
         /// </summary>
-        [Input("aofStorageConnectionString1")]
-        public Input<string>? AofStorageConnectionString1 { get; set; }
+        public Input<string>? AofStorageConnectionString1
+        {
+            get => _aofStorageConnectionString1;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _aofStorageConnectionString1 = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
@@ -90,11 +110,21 @@ namespace Pulumi.Azure.Redis.Inputs
         [Input("rdbBackupMaxSnapshotCount")]
         public Input<int>? RdbBackupMaxSnapshotCount { get; set; }
 
+        [Input("rdbStorageConnectionString")]
+        private Input<string>? _rdbStorageConnectionString;
+
         /// <summary>
         /// The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
         /// </summary>
-        [Input("rdbStorageConnectionString")]
-        public Input<string>? RdbStorageConnectionString { get; set; }
+        public Input<string>? RdbStorageConnectionString
+        {
+            get => _rdbStorageConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _rdbStorageConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public CacheRedisConfigurationArgs()
         {

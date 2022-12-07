@@ -175,6 +175,13 @@ func NewFlexibleServer(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.AdministratorPassword != nil {
+		args.AdministratorPassword = pulumi.ToSecret(args.AdministratorPassword).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"administratorPassword",
+	})
+	opts = append(opts, secrets)
 	var resource FlexibleServer
 	err := ctx.RegisterResource("azure:postgresql/flexibleServer:FlexibleServer", name, args, &resource, opts...)
 	if err != nil {

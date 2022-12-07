@@ -155,6 +155,11 @@ namespace Pulumi.Azure.OperationalInsights
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "primarySharedKey",
+                    "secondarySharedKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -294,11 +299,21 @@ namespace Pulumi.Azure.OperationalInsights
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("primarySharedKey")]
+        private Input<string>? _primarySharedKey;
+
         /// <summary>
         /// The Primary shared key for the Log Analytics Workspace.
         /// </summary>
-        [Input("primarySharedKey")]
-        public Input<string>? PrimarySharedKey { get; set; }
+        public Input<string>? PrimarySharedKey
+        {
+            get => _primarySharedKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _primarySharedKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
@@ -318,11 +333,21 @@ namespace Pulumi.Azure.OperationalInsights
         [Input("retentionInDays")]
         public Input<int>? RetentionInDays { get; set; }
 
+        [Input("secondarySharedKey")]
+        private Input<string>? _secondarySharedKey;
+
         /// <summary>
         /// The Secondary shared key for the Log Analytics Workspace.
         /// </summary>
-        [Input("secondarySharedKey")]
-        public Input<string>? SecondarySharedKey { get; set; }
+        public Input<string>? SecondarySharedKey
+        {
+            get => _secondarySharedKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secondarySharedKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies the SKU of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`.

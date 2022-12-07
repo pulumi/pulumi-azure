@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
 /** @deprecated azure.dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal.getDashboard */
 export function azurerm_portal_dashboard(args: Azurerm_portal_dashboardArgs, opts?: pulumi.InvokeOptions): Promise<Azurerm_portal_dashboardResult> {
     pulumi.log.warn("azurerm_portal_dashboard is deprecated: azure.dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal.getDashboard")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:dashboard/azurerm_portal_dashboard:azurerm_portal_dashboard", {
         "dashboardProperties": args.dashboardProperties,
         "displayName": args.displayName,
@@ -82,9 +79,25 @@ export interface Azurerm_portal_dashboardResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azure.portal.Dashboard` resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.portal.getDashboard({
+ *     name: "existing-dashboard",
+ *     resourceGroupName: "dashboard-rg",
+ * });
+ * export const id = data.azurerm_dashboard.example.id;
+ * ```
+ */
+/** @deprecated azure.dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal.getDashboard */
 export function azurerm_portal_dashboardOutput(args: Azurerm_portal_dashboardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<Azurerm_portal_dashboardResult> {
-    return pulumi.output(args).apply(a => azurerm_portal_dashboard(a, opts))
+    return pulumi.output(args).apply((a: any) => azurerm_portal_dashboard(a, opts))
 }
 
 /**

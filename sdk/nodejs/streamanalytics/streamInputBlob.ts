@@ -180,13 +180,15 @@ export class StreamInputBlob extends pulumi.CustomResource {
             resourceInputs["pathPattern"] = args ? args.pathPattern : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serialization"] = args ? args.serialization : undefined;
-            resourceInputs["storageAccountKey"] = args ? args.storageAccountKey : undefined;
+            resourceInputs["storageAccountKey"] = args?.storageAccountKey ? pulumi.secret(args.storageAccountKey) : undefined;
             resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
             resourceInputs["storageContainerName"] = args ? args.storageContainerName : undefined;
             resourceInputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
             resourceInputs["timeFormat"] = args ? args.timeFormat : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["storageAccountKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(StreamInputBlob.__pulumiType, name, resourceInputs, opts);
     }
 }

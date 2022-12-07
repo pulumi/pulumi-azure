@@ -43,7 +43,16 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string> Name { get; set; } = null!;
 
         [Input("protectedSettings")]
-        public Input<string>? ProtectedSettings { get; set; }
+        private Input<string>? _protectedSettings;
+        public Input<string>? ProtectedSettings
+        {
+            get => _protectedSettings;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _protectedSettings = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// A `protected_settings_from_key_vault` block as defined below.

@@ -57,7 +57,11 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public InputMap<string> SecureEnvironmentVariables
         {
             get => _secureEnvironmentVariables ?? (_secureEnvironmentVariables = new InputMap<string>());
-            set => _secureEnvironmentVariables = value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
+                _secureEnvironmentVariables = Output.All(value, emptySecret).Apply(v => v[0]);
+            }
         }
 
         [Input("volumes")]

@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getFirewallPolicy(args: GetFirewallPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallPolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:waf/getFirewallPolicy:getFirewallPolicy", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -61,9 +58,24 @@ export interface GetFirewallPolicyResult {
     readonly resourceGroupName: string;
     readonly tags?: {[key: string]: string};
 }
-
+/**
+ * Use this data source to access information about an existing Web Application Firewall Policy.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.waf.getFirewallPolicy({
+ *     resourceGroupName: "existing",
+ *     name: "existing",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ */
 export function getFirewallPolicyOutput(args: GetFirewallPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallPolicyResult> {
-    return pulumi.output(args).apply(a => getFirewallPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getFirewallPolicy(a, opts))
 }
 
 /**

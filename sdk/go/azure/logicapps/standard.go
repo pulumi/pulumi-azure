@@ -233,6 +233,13 @@ func NewStandard(ctx *pulumi.Context,
 	if args.StorageAccountName == nil {
 		return nil, errors.New("invalid value for required argument 'StorageAccountName'")
 	}
+	if args.StorageAccountAccessKey != nil {
+		args.StorageAccountAccessKey = pulumi.ToSecret(args.StorageAccountAccessKey).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"storageAccountAccessKey",
+	})
+	opts = append(opts, secrets)
 	var resource Standard
 	err := ctx.RegisterResource("azure:logicapps/standard:Standard", name, args, &resource, opts...)
 	if err != nil {

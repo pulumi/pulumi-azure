@@ -15,19 +15,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = pulumi.output(azure.cdn.getFrontdoorOriginGroup({
+ * const example = azure.cdn.getFrontdoorOriginGroup({
  *     name: "example-origin-group",
  *     profileName: "example-profile",
  *     resourceGroupName: "example-resources",
- * }));
+ * });
  * ```
  */
 export function getFrontdoorOriginGroup(args: GetFrontdoorOriginGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontdoorOriginGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:cdn/getFrontdoorOriginGroup:getFrontdoorOriginGroup", {
         "name": args.name,
         "profileName": args.profileName,
@@ -82,9 +79,24 @@ export interface GetFrontdoorOriginGroupResult {
      */
     readonly sessionAffinityEnabled: boolean;
 }
-
+/**
+ * Use this data source to access information about an existing Front Door (standard/premium) Origin Group.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.cdn.getFrontdoorOriginGroup({
+ *     name: "example-origin-group",
+ *     profileName: "example-profile",
+ *     resourceGroupName: "example-resources",
+ * });
+ * ```
+ */
 export function getFrontdoorOriginGroupOutput(args: GetFrontdoorOriginGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontdoorOriginGroupResult> {
-    return pulumi.output(args).apply(a => getFrontdoorOriginGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getFrontdoorOriginGroup(a, opts))
 }
 
 /**

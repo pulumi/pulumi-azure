@@ -123,11 +123,13 @@ export class ChannelEmail extends pulumi.CustomResource {
             }
             resourceInputs["botName"] = args ? args.botName : undefined;
             resourceInputs["emailAddress"] = args ? args.emailAddress : undefined;
-            resourceInputs["emailPassword"] = args ? args.emailPassword : undefined;
+            resourceInputs["emailPassword"] = args?.emailPassword ? pulumi.secret(args.emailPassword) : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["emailPassword"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ChannelEmail.__pulumiType, name, resourceInputs, opts);
     }
 }

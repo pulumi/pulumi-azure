@@ -265,6 +265,11 @@ namespace Pulumi.Azure.MSSql
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "storageAccountAccessKey",
+                    "storageAccountSubscriptionId",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -312,11 +317,21 @@ namespace Pulumi.Azure.MSSql
         [Input("serverId", required: true)]
         public Input<string> ServerId { get; set; } = null!;
 
+        [Input("storageAccountAccessKey")]
+        private Input<string>? _storageAccountAccessKey;
+
         /// <summary>
         /// The access key to use for the auditing storage account.
         /// </summary>
-        [Input("storageAccountAccessKey")]
-        public Input<string>? StorageAccountAccessKey { get; set; }
+        public Input<string>? StorageAccountAccessKey
+        {
+            get => _storageAccountAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _storageAccountAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Is `storage_account_access_key` value the storage's secondary key?
@@ -324,11 +339,21 @@ namespace Pulumi.Azure.MSSql
         [Input("storageAccountAccessKeyIsSecondary")]
         public Input<bool>? StorageAccountAccessKeyIsSecondary { get; set; }
 
+        [Input("storageAccountSubscriptionId")]
+        private Input<string>? _storageAccountSubscriptionId;
+
         /// <summary>
         /// The ID of the Subscription containing the Storage Account.
         /// </summary>
-        [Input("storageAccountSubscriptionId")]
-        public Input<string>? StorageAccountSubscriptionId { get; set; }
+        public Input<string>? StorageAccountSubscriptionId
+        {
+            get => _storageAccountSubscriptionId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _storageAccountSubscriptionId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
@@ -368,11 +393,21 @@ namespace Pulumi.Azure.MSSql
         [Input("serverId")]
         public Input<string>? ServerId { get; set; }
 
+        [Input("storageAccountAccessKey")]
+        private Input<string>? _storageAccountAccessKey;
+
         /// <summary>
         /// The access key to use for the auditing storage account.
         /// </summary>
-        [Input("storageAccountAccessKey")]
-        public Input<string>? StorageAccountAccessKey { get; set; }
+        public Input<string>? StorageAccountAccessKey
+        {
+            get => _storageAccountAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _storageAccountAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Is `storage_account_access_key` value the storage's secondary key?
@@ -380,11 +415,21 @@ namespace Pulumi.Azure.MSSql
         [Input("storageAccountAccessKeyIsSecondary")]
         public Input<bool>? StorageAccountAccessKeyIsSecondary { get; set; }
 
+        [Input("storageAccountSubscriptionId")]
+        private Input<string>? _storageAccountSubscriptionId;
+
         /// <summary>
         /// The ID of the Subscription containing the Storage Account.
         /// </summary>
-        [Input("storageAccountSubscriptionId")]
-        public Input<string>? StorageAccountSubscriptionId { get; set; }
+        public Input<string>? StorageAccountSubscriptionId
+        {
+            get => _storageAccountSubscriptionId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _storageAccountSubscriptionId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.

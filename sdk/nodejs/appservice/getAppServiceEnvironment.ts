@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAppServiceEnvironment(args: GetAppServiceEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceEnvironmentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:appservice/getAppServiceEnvironment:getAppServiceEnvironment", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -94,9 +91,24 @@ export interface GetAppServiceEnvironmentResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Use this data source to access information about an existing App Service Environment.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.appservice.getAppServiceEnvironment({
+ *     name: "existing-ase",
+ *     resourceGroupName: "existing-rg",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ */
 export function getAppServiceEnvironmentOutput(args: GetAppServiceEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceEnvironmentResult> {
-    return pulumi.output(args).apply(a => getAppServiceEnvironment(a, opts))
+    return pulumi.output(args).apply((a: any) => getAppServiceEnvironment(a, opts))
 }
 
 /**

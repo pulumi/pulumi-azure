@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getNamespaceAuthorizationRule(args: GetNamespaceAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceAuthorizationRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:servicebus/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", {
         "name": args.name,
         "namespaceId": args.namespaceId,
@@ -91,9 +88,25 @@ export interface GetNamespaceAuthorizationRuleResult {
      */
     readonly secondaryKey: string;
 }
-
+/**
+ * Use this data source to access information about an existing ServiceBus Namespace Authorization Rule.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.servicebus.getNamespaceAuthorizationRule({
+ *     name: "examplerule",
+ *     namespaceName: "examplenamespace",
+ *     resourceGroupName: "example-resources",
+ * });
+ * export const ruleId = example.then(example => example.id);
+ * ```
+ */
 export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {
-    return pulumi.output(args).apply(a => getNamespaceAuthorizationRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getNamespaceAuthorizationRule(a, opts))
 }
 
 /**

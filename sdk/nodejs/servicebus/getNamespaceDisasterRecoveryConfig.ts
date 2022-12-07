@@ -5,11 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 export function getNamespaceDisasterRecoveryConfig(args: GetNamespaceDisasterRecoveryConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceDisasterRecoveryConfigResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig", {
         "aliasAuthorizationRuleId": args.aliasAuthorizationRuleId,
         "name": args.name,
@@ -49,9 +46,8 @@ export interface GetNamespaceDisasterRecoveryConfigResult {
     readonly resourceGroupName?: string;
     readonly secondaryConnectionStringAlias: string;
 }
-
 export function getNamespaceDisasterRecoveryConfigOutput(args: GetNamespaceDisasterRecoveryConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceDisasterRecoveryConfigResult> {
-    return pulumi.output(args).apply(a => getNamespaceDisasterRecoveryConfig(a, opts))
+    return pulumi.output(args).apply((a: any) => getNamespaceDisasterRecoveryConfig(a, opts))
 }
 
 /**

@@ -12,11 +12,21 @@ namespace Pulumi.Azure.SecurityCenter.Inputs
 
     public sealed class AutomationActionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("connectionString")]
+        private Input<string>? _connectionString;
+
         /// <summary>
         /// A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
         /// </summary>
-        [Input("connectionString")]
-        public Input<string>? ConnectionString { get; set; }
+        public Input<string>? ConnectionString
+        {
+            get => _connectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _connectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The resource id of the target Logic App, Event Hub namespace or Log Analytics workspace.
@@ -24,11 +34,21 @@ namespace Pulumi.Azure.SecurityCenter.Inputs
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
 
+        [Input("triggerUrl")]
+        private Input<string>? _triggerUrl;
+
         /// <summary>
         /// The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under "See trigger history"
         /// </summary>
-        [Input("triggerUrl")]
-        public Input<string>? TriggerUrl { get; set; }
+        public Input<string>? TriggerUrl
+        {
+            get => _triggerUrl;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _triggerUrl = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Type of Azure resource to send data to. Must be set to one of: `LogicApp`, `EventHub` or `LogAnalytics`.

@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getNetworkDdosProtectionPlan(args: GetNetworkDdosProtectionPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkDdosProtectionPlanResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -74,9 +71,24 @@ export interface GetNetworkDdosProtectionPlanResult {
      */
     readonly virtualNetworkIds: string[];
 }
-
+/**
+ * Use this data source to access information about an existing Azure Network DDoS Protection Plan.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.network.getNetworkDdosProtectionPlan({
+ *     name: azurerm_network_ddos_protection_plan.example.name,
+ *     resourceGroupName: azurerm_network_ddos_protection_plan.example.resource_group_name,
+ * });
+ * export const ddosProtectionPlanId = example.then(example => example.id);
+ * ```
+ */
 export function getNetworkDdosProtectionPlanOutput(args: GetNetworkDdosProtectionPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkDdosProtectionPlanResult> {
-    return pulumi.output(args).apply(a => getNetworkDdosProtectionPlan(a, opts))
+    return pulumi.output(args).apply((a: any) => getNetworkDdosProtectionPlan(a, opts))
 }
 
 /**

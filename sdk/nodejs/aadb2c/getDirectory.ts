@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDirectory(args: GetDirectoryArgs, opts?: pulumi.InvokeOptions): Promise<GetDirectoryResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:aadb2c/getDirectory:getDirectory", {
         "domainName": args.domainName,
         "resourceGroupName": args.resourceGroupName,
@@ -81,9 +78,24 @@ export interface GetDirectoryResult {
      */
     readonly tenantId: string;
 }
-
+/**
+ * Use this data source to access information about an existing AAD B2C Directory.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.aadb2c.getDirectory({
+ *     resourceGroupName: "example-rg",
+ *     domainName: "exampleb2ctenant.onmicrosoft.com",
+ * });
+ * export const tenantId = example.then(example => example.tenantId);
+ * ```
+ */
 export function getDirectoryOutput(args: GetDirectoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDirectoryResult> {
-    return pulumi.output(args).apply(a => getDirectory(a, opts))
+    return pulumi.output(args).apply((a: any) => getDirectory(a, opts))
 }
 
 /**

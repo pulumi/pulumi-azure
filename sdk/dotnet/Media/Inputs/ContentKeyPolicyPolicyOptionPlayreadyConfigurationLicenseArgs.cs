@@ -48,11 +48,21 @@ namespace Pulumi.Azure.Media.Inputs
         [Input("expirationDate")]
         public Input<string>? ExpirationDate { get; set; }
 
+        [Input("gracePeriod")]
+        private Input<string>? _gracePeriod;
+
         /// <summary>
         /// The grace period of license.
         /// </summary>
-        [Input("gracePeriod")]
-        public Input<string>? GracePeriod { get; set; }
+        public Input<string>? GracePeriod
+        {
+            get => _gracePeriod;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _gracePeriod = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The license type. Supported values are `NonPersistent` or `Persistent`.

@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSqlManagedInstance(args: GetSqlManagedInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlManagedInstanceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:sql/getSqlManagedInstance:getSqlManagedInstance", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -130,9 +127,22 @@ export interface GetSqlManagedInstanceResult {
      */
     readonly vcores: number;
 }
-
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.sql.getSqlManagedInstance({
+ *     name: "example_mi",
+ *     resourceGroupName: "example-resources",
+ * });
+ * export const sqlInstanceId = example.then(example => example.id);
+ * ```
+ */
 export function getSqlManagedInstanceOutput(args: GetSqlManagedInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlManagedInstanceResult> {
-    return pulumi.output(args).apply(a => getSqlManagedInstance(a, opts))
+    return pulumi.output(args).apply((a: any) => getSqlManagedInstance(a, opts))
 }
 
 /**

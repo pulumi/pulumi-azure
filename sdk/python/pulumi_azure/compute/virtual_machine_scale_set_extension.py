@@ -618,7 +618,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
             __props__.__dict__["failure_suppression_enabled"] = failure_suppression_enabled
             __props__.__dict__["force_update_tag"] = force_update_tag
             __props__.__dict__["name"] = name
-            __props__.__dict__["protected_settings"] = protected_settings
+            __props__.__dict__["protected_settings"] = None if protected_settings is None else pulumi.Output.secret(protected_settings)
             __props__.__dict__["protected_settings_from_key_vault"] = protected_settings_from_key_vault
             __props__.__dict__["provision_after_extensions"] = provision_after_extensions
             if publisher is None and not opts.urn:
@@ -634,6 +634,8 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
             if virtual_machine_scale_set_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_machine_scale_set_id'")
             __props__.__dict__["virtual_machine_scale_set_id"] = virtual_machine_scale_set_id
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["protectedSettings"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(VirtualMachineScaleSetExtension, __self__).__init__(
             'azure:compute/virtualMachineScaleSetExtension:VirtualMachineScaleSetExtension',
             resource_name,

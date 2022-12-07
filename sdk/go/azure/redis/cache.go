@@ -174,6 +174,13 @@ func NewCache(ctx *pulumi.Context,
 	if args.SkuName == nil {
 		return nil, errors.New("invalid value for required argument 'SkuName'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"primaryAccessKey",
+		"primaryConnectionString",
+		"secondaryAccessKey",
+		"secondaryConnectionString",
+	})
+	opts = append(opts, secrets)
 	var resource Cache
 	err := ctx.RegisterResource("azure:redis/cache:Cache", name, args, &resource, opts...)
 	if err != nil {

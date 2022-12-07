@@ -24,11 +24,21 @@ namespace Pulumi.Azure.Iot.Inputs
         [Input("batchFrequencyInSeconds")]
         public Input<int>? BatchFrequencyInSeconds { get; set; }
 
+        [Input("connectionString")]
+        private Input<string>? _connectionString;
+
         /// <summary>
         /// The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.
         /// </summary>
-        [Input("connectionString")]
-        public Input<string>? ConnectionString { get; set; }
+        public Input<string>? ConnectionString
+        {
+            get => _connectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _connectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.

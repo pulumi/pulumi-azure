@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getBoolVariable(args: GetBoolVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetBoolVariableResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:automation/getBoolVariable:getBoolVariable", {
         "automationAccountName": args.automationAccountName,
         "name": args.name,
@@ -76,9 +73,25 @@ export interface GetBoolVariableResult {
      */
     readonly value: boolean;
 }
-
+/**
+ * Use this data source to access information about an existing Automation Bool Variable.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.automation.getBoolVariable({
+ *     name: "tfex-example-var",
+ *     resourceGroupName: "tfex-example-rg",
+ *     automationAccountName: "tfex-example-account",
+ * });
+ * export const variableId = example.then(example => example.id);
+ * ```
+ */
 export function getBoolVariableOutput(args: GetBoolVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBoolVariableResult> {
-    return pulumi.output(args).apply(a => getBoolVariable(a, opts))
+    return pulumi.output(args).apply((a: any) => getBoolVariable(a, opts))
 }
 
 /**

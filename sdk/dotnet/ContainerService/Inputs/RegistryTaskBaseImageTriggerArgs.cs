@@ -30,11 +30,21 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        [Input("updateTriggerEndpoint")]
+        private Input<string>? _updateTriggerEndpoint;
+
         /// <summary>
         /// The endpoint URL for receiving the trigger.
         /// </summary>
-        [Input("updateTriggerEndpoint")]
-        public Input<string>? UpdateTriggerEndpoint { get; set; }
+        public Input<string>? UpdateTriggerEndpoint
+        {
+            get => _updateTriggerEndpoint;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _updateTriggerEndpoint = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Type of payload body for the trigger. Possible values are `Default` and `Token`.

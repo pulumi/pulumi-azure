@@ -18,11 +18,21 @@ namespace Pulumi.Azure.MSSql.Inputs
         [Input("administratorLogin", required: true)]
         public Input<string> AdministratorLogin { get; set; } = null!;
 
+        [Input("administratorLoginPassword", required: true)]
+        private Input<string>? _administratorLoginPassword;
+
         /// <summary>
         /// Specifies the password of the SQL administrator.
         /// </summary>
-        [Input("administratorLoginPassword", required: true)]
-        public Input<string> AdministratorLoginPassword { get; set; } = null!;
+        public Input<string>? AdministratorLoginPassword
+        {
+            get => _administratorLoginPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _administratorLoginPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies the type of authentication used to access the server. Valid values are `SQL` or `ADPassword`.
@@ -36,11 +46,21 @@ namespace Pulumi.Azure.MSSql.Inputs
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
 
+        [Input("storageKey", required: true)]
+        private Input<string>? _storageKey;
+
         /// <summary>
         /// Specifies the access key for the storage account.
         /// </summary>
-        [Input("storageKey", required: true)]
-        public Input<string> StorageKey { get; set; } = null!;
+        public Input<string>? StorageKey
+        {
+            get => _storageKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _storageKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies the type of access key for the storage account. Valid values are `StorageAccessKey` or `SharedAccessKey`.

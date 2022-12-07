@@ -393,6 +393,10 @@ namespace Pulumi.Azure.Sql
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "administratorLoginPassword",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -422,11 +426,21 @@ namespace Pulumi.Azure.Sql
         [Input("administratorLogin", required: true)]
         public Input<string> AdministratorLogin { get; set; } = null!;
 
+        [Input("administratorLoginPassword", required: true)]
+        private Input<string>? _administratorLoginPassword;
+
         /// <summary>
         /// The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
         /// </summary>
-        [Input("administratorLoginPassword", required: true)]
-        public Input<string> AdministratorLoginPassword { get; set; } = null!;
+        public Input<string>? AdministratorLoginPassword
+        {
+            get => _administratorLoginPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _administratorLoginPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
@@ -550,11 +564,21 @@ namespace Pulumi.Azure.Sql
         [Input("administratorLogin")]
         public Input<string>? AdministratorLogin { get; set; }
 
+        [Input("administratorLoginPassword")]
+        private Input<string>? _administratorLoginPassword;
+
         /// <summary>
         /// The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
         /// </summary>
-        [Input("administratorLoginPassword")]
-        public Input<string>? AdministratorLoginPassword { get; set; }
+        public Input<string>? AdministratorLoginPassword
+        {
+            get => _administratorLoginPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _administratorLoginPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.

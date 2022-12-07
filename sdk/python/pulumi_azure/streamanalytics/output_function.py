@@ -455,7 +455,7 @@ class OutputFunction(pulumi.CustomResource):
 
             if api_key is None and not opts.urn:
                 raise TypeError("Missing required property 'api_key'")
-            __props__.__dict__["api_key"] = api_key
+            __props__.__dict__["api_key"] = None if api_key is None else pulumi.Output.secret(api_key)
             __props__.__dict__["batch_max_count"] = batch_max_count
             __props__.__dict__["batch_max_in_bytes"] = batch_max_in_bytes
             if function_app is None and not opts.urn:
@@ -471,6 +471,8 @@ class OutputFunction(pulumi.CustomResource):
             if stream_analytics_job_name is None and not opts.urn:
                 raise TypeError("Missing required property 'stream_analytics_job_name'")
             __props__.__dict__["stream_analytics_job_name"] = stream_analytics_job_name
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["apiKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(OutputFunction, __self__).__init__(
             'azure:streamanalytics/outputFunction:OutputFunction',
             resource_name,

@@ -18,11 +18,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSourceControlToken(args: GetSourceControlTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetSourceControlTokenResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:appservice/getSourceControlToken:getSourceControlToken", {
         "type": args.type,
     }, opts);
@@ -53,9 +50,21 @@ export interface GetSourceControlTokenResult {
     readonly tokenSecret: string;
     readonly type: string;
 }
-
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.appservice.getSourceControlToken({
+ *     type: "GitHub",
+ * });
+ * export const id = data.azurerm_app_service_github_token.example.id;
+ * ```
+ */
 export function getSourceControlTokenOutput(args: GetSourceControlTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSourceControlTokenResult> {
-    return pulumi.output(args).apply(a => getSourceControlToken(a, opts))
+    return pulumi.output(args).apply((a: any) => getSourceControlToken(a, opts))
 }
 
 /**

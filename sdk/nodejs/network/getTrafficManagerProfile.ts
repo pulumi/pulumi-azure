@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getTrafficManagerProfile(args: GetTrafficManagerProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficManagerProfileResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:network/getTrafficManagerProfile:getTrafficManagerProfile", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -100,9 +97,24 @@ export interface GetTrafficManagerProfileResult {
      */
     readonly trafficViewEnabled?: boolean;
 }
-
+/**
+ * Use this data source to access information about an existing Traffic Manager Profile.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.network.getTrafficManagerProfile({
+ *     name: "test",
+ *     resourceGroupName: "test",
+ * });
+ * export const trafficRoutingMethod = example.then(example => example.trafficRoutingMethod);
+ * ```
+ */
 export function getTrafficManagerProfileOutput(args: GetTrafficManagerProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrafficManagerProfileResult> {
-    return pulumi.output(args).apply(a => getTrafficManagerProfile(a, opts))
+    return pulumi.output(args).apply((a: any) => getTrafficManagerProfile(a, opts))
 }
 
 /**

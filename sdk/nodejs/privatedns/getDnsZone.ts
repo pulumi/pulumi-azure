@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDnsZone(args: GetDnsZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetDnsZoneResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:privatedns/getDnsZone:getDnsZone", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -84,9 +81,24 @@ export interface GetDnsZoneResult {
      */
     readonly tags?: {[key: string]: string};
 }
-
+/**
+ * Use this data source to access information about an existing Private DNS Zone.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.privatedns.getDnsZone({
+ *     name: "contoso.internal",
+ *     resourceGroupName: "contoso-dns",
+ * });
+ * export const privateDnsZoneId = example.then(example => example.id);
+ * ```
+ */
 export function getDnsZoneOutput(args: GetDnsZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsZoneResult> {
-    return pulumi.output(args).apply(a => getDnsZone(a, opts))
+    return pulumi.output(args).apply((a: any) => getDnsZone(a, opts))
 }
 
 /**

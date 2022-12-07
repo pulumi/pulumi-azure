@@ -341,6 +341,8 @@ class ApiKey(pulumi.CustomResource):
             __props__.__dict__["read_permissions"] = read_permissions
             __props__.__dict__["write_permissions"] = write_permissions
             __props__.__dict__["api_key"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["apiKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ApiKey, __self__).__init__(
             'azure:appinsights/apiKey:ApiKey',
             resource_name,

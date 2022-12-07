@@ -13,7 +13,16 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class OrchestratedVirtualMachineScaleSetOsProfileArgs : global::Pulumi.ResourceArgs
     {
         [Input("customData")]
-        public Input<string>? CustomData { get; set; }
+        private Input<string>? _customData;
+        public Input<string>? CustomData
+        {
+            get => _customData;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _customData = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("linuxConfiguration")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs>? LinuxConfiguration { get; set; }

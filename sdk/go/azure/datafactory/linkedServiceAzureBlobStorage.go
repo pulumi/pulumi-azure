@@ -197,6 +197,21 @@ func NewLinkedServiceAzureBlobStorage(ctx *pulumi.Context,
 	if args.DataFactoryId == nil {
 		return nil, errors.New("invalid value for required argument 'DataFactoryId'")
 	}
+	if args.ConnectionString != nil {
+		args.ConnectionString = pulumi.ToSecret(args.ConnectionString).(pulumi.StringPtrOutput)
+	}
+	if args.SasUri != nil {
+		args.SasUri = pulumi.ToSecret(args.SasUri).(pulumi.StringPtrOutput)
+	}
+	if args.ServiceEndpoint != nil {
+		args.ServiceEndpoint = pulumi.ToSecret(args.ServiceEndpoint).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"connectionString",
+		"sasUri",
+		"serviceEndpoint",
+	})
+	opts = append(opts, secrets)
 	var resource LinkedServiceAzureBlobStorage
 	err := ctx.RegisterResource("azure:datafactory/linkedServiceAzureBlobStorage:LinkedServiceAzureBlobStorage", name, args, &resource, opts...)
 	if err != nil {

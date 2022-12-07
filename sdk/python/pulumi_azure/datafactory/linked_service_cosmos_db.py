@@ -516,10 +516,10 @@ class LinkedServiceCosmosDb(pulumi.CustomResource):
             __props__ = LinkedServiceCosmosDbArgs.__new__(LinkedServiceCosmosDbArgs)
 
             __props__.__dict__["account_endpoint"] = account_endpoint
-            __props__.__dict__["account_key"] = account_key
+            __props__.__dict__["account_key"] = None if account_key is None else pulumi.Output.secret(account_key)
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations
-            __props__.__dict__["connection_string"] = connection_string
+            __props__.__dict__["connection_string"] = None if connection_string is None else pulumi.Output.secret(connection_string)
             if data_factory_id is None and not opts.urn:
                 raise TypeError("Missing required property 'data_factory_id'")
             __props__.__dict__["data_factory_id"] = data_factory_id
@@ -528,6 +528,8 @@ class LinkedServiceCosmosDb(pulumi.CustomResource):
             __props__.__dict__["integration_runtime_name"] = integration_runtime_name
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["accountKey", "connectionString"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(LinkedServiceCosmosDb, __self__).__init__(
             'azure:datafactory/linkedServiceCosmosDb:LinkedServiceCosmosDb',
             resource_name,

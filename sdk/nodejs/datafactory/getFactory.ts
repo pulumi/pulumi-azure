@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getFactory(args: GetFactoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFactoryResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:datafactory/getFactory:getFactory", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -79,9 +76,24 @@ export interface GetFactoryResult {
      */
     readonly vstsConfigurations: outputs.datafactory.GetFactoryVstsConfiguration[];
 }
-
+/**
+ * Use this data source to access information about an existing Azure Data Factory (Version 2).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.datafactory.getFactory({
+ *     name: "existing-adf",
+ *     resourceGroupName: "existing-rg",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ */
 export function getFactoryOutput(args: GetFactoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFactoryResult> {
-    return pulumi.output(args).apply(a => getFactory(a, opts))
+    return pulumi.output(args).apply((a: any) => getFactory(a, opts))
 }
 
 /**

@@ -245,6 +245,12 @@ namespace Pulumi.Azure.DataFactory
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "connectionString",
+                    "sasUri",
+                    "serviceEndpoint",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -292,11 +298,21 @@ namespace Pulumi.Azure.DataFactory
             set => _annotations = value;
         }
 
+        [Input("connectionString")]
+        private Input<string>? _connectionString;
+
         /// <summary>
         /// The connection string. Conflicts with `sas_uri` and `service_endpoint`.
         /// </summary>
-        [Input("connectionString")]
-        public Input<string>? ConnectionString { get; set; }
+        public Input<string>? ConnectionString
+        {
+            get => _connectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _connectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
@@ -340,17 +356,37 @@ namespace Pulumi.Azure.DataFactory
             set => _parameters = value;
         }
 
+        [Input("sasUri")]
+        private Input<string>? _sasUri;
+
         /// <summary>
         /// The SAS URI. Conflicts with `connection_string` and `service_endpoint`.
         /// </summary>
-        [Input("sasUri")]
-        public Input<string>? SasUri { get; set; }
+        public Input<string>? SasUri
+        {
+            get => _sasUri;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sasUri = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("serviceEndpoint")]
+        private Input<string>? _serviceEndpoint;
 
         /// <summary>
         /// The Service Endpoint. Conflicts with `connection_string` and `sas_uri`.
         /// </summary>
-        [Input("serviceEndpoint")]
-        public Input<string>? ServiceEndpoint { get; set; }
+        public Input<string>? ServiceEndpoint
+        {
+            get => _serviceEndpoint;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _serviceEndpoint = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The service principal id in which to authenticate against the Azure Blob Storage account.
@@ -420,11 +456,21 @@ namespace Pulumi.Azure.DataFactory
             set => _annotations = value;
         }
 
+        [Input("connectionString")]
+        private Input<string>? _connectionString;
+
         /// <summary>
         /// The connection string. Conflicts with `sas_uri` and `service_endpoint`.
         /// </summary>
-        [Input("connectionString")]
-        public Input<string>? ConnectionString { get; set; }
+        public Input<string>? ConnectionString
+        {
+            get => _connectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _connectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
@@ -468,17 +514,37 @@ namespace Pulumi.Azure.DataFactory
             set => _parameters = value;
         }
 
+        [Input("sasUri")]
+        private Input<string>? _sasUri;
+
         /// <summary>
         /// The SAS URI. Conflicts with `connection_string` and `service_endpoint`.
         /// </summary>
-        [Input("sasUri")]
-        public Input<string>? SasUri { get; set; }
+        public Input<string>? SasUri
+        {
+            get => _sasUri;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sasUri = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("serviceEndpoint")]
+        private Input<string>? _serviceEndpoint;
 
         /// <summary>
         /// The Service Endpoint. Conflicts with `connection_string` and `sas_uri`.
         /// </summary>
-        [Input("serviceEndpoint")]
-        public Input<string>? ServiceEndpoint { get; set; }
+        public Input<string>? ServiceEndpoint
+        {
+            get => _serviceEndpoint;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _serviceEndpoint = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The service principal id in which to authenticate against the Azure Blob Storage account.

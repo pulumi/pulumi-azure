@@ -180,7 +180,7 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
             resourceInputs["failureSuppressionEnabled"] = args ? args.failureSuppressionEnabled : undefined;
             resourceInputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["protectedSettings"] = args ? args.protectedSettings : undefined;
+            resourceInputs["protectedSettings"] = args?.protectedSettings ? pulumi.secret(args.protectedSettings) : undefined;
             resourceInputs["protectedSettingsFromKeyVault"] = args ? args.protectedSettingsFromKeyVault : undefined;
             resourceInputs["provisionAfterExtensions"] = args ? args.provisionAfterExtensions : undefined;
             resourceInputs["publisher"] = args ? args.publisher : undefined;
@@ -190,6 +190,8 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
             resourceInputs["virtualMachineScaleSetId"] = args ? args.virtualMachineScaleSetId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["protectedSettings"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(VirtualMachineScaleSetExtension.__pulumiType, name, resourceInputs, opts);
     }
 }

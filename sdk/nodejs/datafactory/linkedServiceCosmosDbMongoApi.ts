@@ -135,7 +135,7 @@ export class LinkedServiceCosmosDbMongoApi extends pulumi.CustomResource {
             }
             resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
             resourceInputs["annotations"] = args ? args.annotations : undefined;
-            resourceInputs["connectionString"] = args ? args.connectionString : undefined;
+            resourceInputs["connectionString"] = args?.connectionString ? pulumi.secret(args.connectionString) : undefined;
             resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
             resourceInputs["database"] = args ? args.database : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
@@ -145,6 +145,8 @@ export class LinkedServiceCosmosDbMongoApi extends pulumi.CustomResource {
             resourceInputs["serverVersionIs32OrHigher"] = args ? args.serverVersionIs32OrHigher : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["connectionString"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(LinkedServiceCosmosDbMongoApi.__pulumiType, name, resourceInputs, opts);
     }
 }

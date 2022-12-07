@@ -196,6 +196,13 @@ func NewKubernetesCluster(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"kubeAdminConfigRaw",
+		"kubeAdminConfigs",
+		"kubeConfigRaw",
+		"kubeConfigs",
+	})
+	opts = append(opts, secrets)
 	var resource KubernetesCluster
 	err := ctx.RegisterResource("azure:containerservice/kubernetesCluster:KubernetesCluster", name, args, &resource, opts...)
 	if err != nil {

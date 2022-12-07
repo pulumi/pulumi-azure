@@ -410,6 +410,8 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["privateFqdn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["kubeAdminConfigRaw", "kubeAdminConfigs", "kubeConfigRaw", "kubeConfigs"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(KubernetesCluster.__pulumiType, name, resourceInputs, opts);
     }
 }

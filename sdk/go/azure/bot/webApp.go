@@ -109,6 +109,17 @@ func NewWebApp(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
+	if args.DeveloperAppInsightsApiKey != nil {
+		args.DeveloperAppInsightsApiKey = pulumi.ToSecret(args.DeveloperAppInsightsApiKey).(pulumi.StringPtrOutput)
+	}
+	if args.LuisKey != nil {
+		args.LuisKey = pulumi.ToSecret(args.LuisKey).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"developerAppInsightsApiKey",
+		"luisKey",
+	})
+	opts = append(opts, secrets)
 	var resource WebApp
 	err := ctx.RegisterResource("azure:bot/webApp:WebApp", name, args, &resource, opts...)
 	if err != nil {

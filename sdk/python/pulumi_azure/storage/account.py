@@ -1993,6 +1993,8 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["secondary_table_host"] = None
             __props__.__dict__["secondary_web_endpoint"] = None
             __props__.__dict__["secondary_web_host"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["primaryAccessKey", "primaryBlobConnectionString", "primaryConnectionString", "secondaryAccessKey", "secondaryBlobConnectionString", "secondaryConnectionString"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Account, __self__).__init__(
             'azure:storage/account:Account',
             resource_name,

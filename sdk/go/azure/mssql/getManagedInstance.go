@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := mssql.LookupManagedInstance(ctx, &mssql.LookupManagedInstanceArgs{
+//			_, err = mssql.LookupManagedInstance(ctx, &mssql.LookupManagedInstanceArgs{
 //				Name:              "managedsqlinstance",
 //				ResourceGroupName: azurerm_resource_group.Example.Name,
 //			}, nil)

@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPublicIpPrefix(args: GetPublicIpPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIpPrefixResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:network/getPublicIpPrefix:getPublicIpPrefix", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -85,9 +82,25 @@ export interface GetPublicIpPrefixResult {
      */
     readonly zones: string[];
 }
-
+/**
+ * Use this data source to access information about an existing Public IP Prefix.
+ *
+ * ## Example Usage
+ * ### Reference An Existing)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.network.getPublicIpPrefix({
+ *     name: "name_of_public_ip",
+ *     resourceGroupName: "name_of_resource_group",
+ * });
+ * export const publicIpPrefix = example.then(example => example.ipPrefix);
+ * ```
+ */
 export function getPublicIpPrefixOutput(args: GetPublicIpPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIpPrefixResult> {
-    return pulumi.output(args).apply(a => getPublicIpPrefix(a, opts))
+    return pulumi.output(args).apply((a: any) => getPublicIpPrefix(a, opts))
 }
 
 /**

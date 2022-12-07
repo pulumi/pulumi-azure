@@ -123,13 +123,15 @@ export class EndpointServicebus extends pulumi.CustomResource {
             if ((!args || args.servicebusSecondaryConnectionString === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'servicebusSecondaryConnectionString'");
             }
-            resourceInputs["deadLetterStorageSecret"] = args ? args.deadLetterStorageSecret : undefined;
+            resourceInputs["deadLetterStorageSecret"] = args?.deadLetterStorageSecret ? pulumi.secret(args.deadLetterStorageSecret) : undefined;
             resourceInputs["digitalTwinsId"] = args ? args.digitalTwinsId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["servicebusPrimaryConnectionString"] = args ? args.servicebusPrimaryConnectionString : undefined;
-            resourceInputs["servicebusSecondaryConnectionString"] = args ? args.servicebusSecondaryConnectionString : undefined;
+            resourceInputs["servicebusPrimaryConnectionString"] = args?.servicebusPrimaryConnectionString ? pulumi.secret(args.servicebusPrimaryConnectionString) : undefined;
+            resourceInputs["servicebusSecondaryConnectionString"] = args?.servicebusSecondaryConnectionString ? pulumi.secret(args.servicebusSecondaryConnectionString) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["deadLetterStorageSecret", "servicebusPrimaryConnectionString", "servicebusSecondaryConnectionString"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(EndpointServicebus.__pulumiType, name, resourceInputs, opts);
     }
 }

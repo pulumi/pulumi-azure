@@ -112,6 +112,13 @@ func NewServer(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
+	if args.BackupBlobContainerUri != nil {
+		args.BackupBlobContainerUri = pulumi.ToSecret(args.BackupBlobContainerUri).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"backupBlobContainerUri",
+	})
+	opts = append(opts, secrets)
 	var resource Server
 	err := ctx.RegisterResource("azure:analysisservices/server:Server", name, args, &resource, opts...)
 	if err != nil {

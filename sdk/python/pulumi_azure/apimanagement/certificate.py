@@ -532,17 +532,19 @@ class Certificate(pulumi.CustomResource):
             if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")
             __props__.__dict__["api_management_name"] = api_management_name
-            __props__.__dict__["data"] = data
+            __props__.__dict__["data"] = None if data is None else pulumi.Output.secret(data)
             __props__.__dict__["key_vault_identity_client_id"] = key_vault_identity_client_id
             __props__.__dict__["key_vault_secret_id"] = key_vault_secret_id
             __props__.__dict__["name"] = name
-            __props__.__dict__["password"] = password
+            __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["expiration"] = None
             __props__.__dict__["subject"] = None
             __props__.__dict__["thumbprint"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["data", "password"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Certificate, __self__).__init__(
             'azure:apimanagement/certificate:Certificate',
             resource_name,

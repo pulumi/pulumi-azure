@@ -299,7 +299,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			test, err := azuread.LookupServicePrincipal(ctx, &GetServicePrincipalArgs{
+//			test, err := azuread.LookupServicePrincipal(ctx, &azuread.LookupServicePrincipalArgs{
 //				DisplayName: pulumi.StringRef("Azure Cosmos DB"),
 //			}, nil)
 //			if err != nil {

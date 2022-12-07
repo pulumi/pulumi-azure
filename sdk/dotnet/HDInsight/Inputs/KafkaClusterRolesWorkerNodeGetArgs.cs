@@ -18,11 +18,21 @@ namespace Pulumi.Azure.HDInsight.Inputs
         [Input("numberOfDisksPerNode", required: true)]
         public Input<int> NumberOfDisksPerNode { get; set; } = null!;
 
+        [Input("password")]
+        private Input<string>? _password;
+
         /// <summary>
         /// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("scriptActions")]
         private InputList<Inputs.KafkaClusterRolesWorkerNodeScriptActionGetArgs>? _scriptActions;

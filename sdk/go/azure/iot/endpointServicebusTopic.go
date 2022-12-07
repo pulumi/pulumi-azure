@@ -131,6 +131,13 @@ func NewEndpointServicebusTopic(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.ConnectionString != nil {
+		args.ConnectionString = pulumi.ToSecret(args.ConnectionString).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"connectionString",
+	})
+	opts = append(opts, secrets)
 	var resource EndpointServicebusTopic
 	err := ctx.RegisterResource("azure:iot/endpointServicebusTopic:EndpointServicebusTopic", name, args, &resource, opts...)
 	if err != nil {

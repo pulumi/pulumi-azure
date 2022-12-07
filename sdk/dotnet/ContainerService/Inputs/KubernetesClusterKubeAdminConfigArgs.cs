@@ -12,41 +12,101 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
     public sealed class KubernetesClusterKubeAdminConfigArgs : global::Pulumi.ResourceArgs
     {
+        [Input("clientCertificate")]
+        private Input<string>? _clientCertificate;
+
         /// <summary>
         /// Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
         /// </summary>
-        [Input("clientCertificate")]
-        public Input<string>? ClientCertificate { get; set; }
+        public Input<string>? ClientCertificate
+        {
+            get => _clientCertificate;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientCertificate = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("clientKey")]
+        private Input<string>? _clientKey;
 
         /// <summary>
         /// Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
         /// </summary>
-        [Input("clientKey")]
-        public Input<string>? ClientKey { get; set; }
+        public Input<string>? ClientKey
+        {
+            get => _clientKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("clusterCaCertificate")]
+        private Input<string>? _clusterCaCertificate;
 
         /// <summary>
         /// Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
         /// </summary>
-        [Input("clusterCaCertificate")]
-        public Input<string>? ClusterCaCertificate { get; set; }
+        public Input<string>? ClusterCaCertificate
+        {
+            get => _clusterCaCertificate;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clusterCaCertificate = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("host")]
+        private Input<string>? _host;
 
         /// <summary>
         /// The Kubernetes cluster server host.
         /// </summary>
-        [Input("host")]
-        public Input<string>? Host { get; set; }
+        public Input<string>? Host
+        {
+            get => _host;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _host = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("password")]
+        private Input<string>? _password;
 
         /// <summary>
         /// A password or token used to authenticate to the Kubernetes cluster.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("username")]
+        private Input<string>? _username;
 
         /// <summary>
         /// A username used to authenticate to the Kubernetes cluster.
         /// </summary>
-        [Input("username")]
-        public Input<string>? Username { get; set; }
+        public Input<string>? Username
+        {
+            get => _username;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _username = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public KubernetesClusterKubeAdminConfigArgs()
         {

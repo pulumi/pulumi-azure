@@ -111,6 +111,17 @@ func NewLinkedServiceCosmosDb(ctx *pulumi.Context,
 	if args.DataFactoryId == nil {
 		return nil, errors.New("invalid value for required argument 'DataFactoryId'")
 	}
+	if args.AccountKey != nil {
+		args.AccountKey = pulumi.ToSecret(args.AccountKey).(pulumi.StringPtrOutput)
+	}
+	if args.ConnectionString != nil {
+		args.ConnectionString = pulumi.ToSecret(args.ConnectionString).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"accountKey",
+		"connectionString",
+	})
+	opts = append(opts, secrets)
 	var resource LinkedServiceCosmosDb
 	err := ctx.RegisterResource("azure:datafactory/linkedServiceCosmosDb:LinkedServiceCosmosDb", name, args, &resource, opts...)
 	if err != nil {

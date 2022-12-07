@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getBudgetResourceGroup(args: GetBudgetResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetBudgetResourceGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:consumption/getBudgetResourceGroup:getBudgetResourceGroup", {
         "name": args.name,
         "resourceGroupId": args.resourceGroupId,
@@ -82,9 +79,24 @@ export interface GetBudgetResourceGroupResult {
      */
     readonly timePeriods: outputs.consumption.GetBudgetResourceGroupTimePeriod[];
 }
-
+/**
+ * Use this data source to access information about an existing Consumption Budget for a specific resource group.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.consumption.getBudgetResourceGroup({
+ *     name: "existing",
+ *     resourceGroupId: azurerm_resource_group.example.id,
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ */
 export function getBudgetResourceGroupOutput(args: GetBudgetResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBudgetResourceGroupResult> {
-    return pulumi.output(args).apply(a => getBudgetResourceGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getBudgetResourceGroup(a, opts))
 }
 
 /**

@@ -36,11 +36,21 @@ namespace Pulumi.Azure.HDInsight.Inputs
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
+        [Input("domainUserPassword", required: true)]
+        private Input<string>? _domainUserPassword;
+
         /// <summary>
         /// The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("domainUserPassword", required: true)]
-        public Input<string> DomainUserPassword { get; set; } = null!;
+        public Input<string>? DomainUserPassword
+        {
+            get => _domainUserPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _domainUserPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.

@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPlatformImage(args: GetPlatformImageArgs, opts?: pulumi.InvokeOptions): Promise<GetPlatformImageResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:compute/getPlatformImage:getPlatformImage", {
         "location": args.location,
         "offer": args.offer,
@@ -77,9 +74,26 @@ export interface GetPlatformImageResult {
     readonly sku: string;
     readonly version: string;
 }
-
+/**
+ * Use this data source to access information about a Platform Image.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.compute.getPlatformImage({
+ *     location: "West Europe",
+ *     publisher: "Canonical",
+ *     offer: "UbuntuServer",
+ *     sku: "16.04-LTS",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ */
 export function getPlatformImageOutput(args: GetPlatformImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlatformImageResult> {
-    return pulumi.output(args).apply(a => getPlatformImage(a, opts))
+    return pulumi.output(args).apply((a: any) => getPlatformImage(a, opts))
 }
 
 /**

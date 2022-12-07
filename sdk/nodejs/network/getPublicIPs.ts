@@ -15,18 +15,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = pulumi.output(azure.network.getPublicIPs({
+ * const example = azure.network.getPublicIPs({
  *     attachmentStatus: "Attached",
  *     resourceGroupName: "pip-test",
- * }));
+ * });
  * ```
  */
 export function getPublicIPs(args: GetPublicIPsArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:network/getPublicIPs:getPublicIPs", {
         "allocationType": args.allocationType,
         "attachmentStatus": args.attachmentStatus,
@@ -74,9 +71,23 @@ export interface GetPublicIPsResult {
     readonly publicIps: outputs.network.GetPublicIPsPublicIp[];
     readonly resourceGroupName: string;
 }
-
+/**
+ * Use this data source to access information about a set of existing Public IP Addresses.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.network.getPublicIPs({
+ *     attachmentStatus: "Attached",
+ *     resourceGroupName: "pip-test",
+ * });
+ * ```
+ */
 export function getPublicIPsOutput(args: GetPublicIPsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIPsResult> {
-    return pulumi.output(args).apply(a => getPublicIPs(a, opts))
+    return pulumi.output(args).apply((a: any) => getPublicIPs(a, opts))
 }
 
 /**

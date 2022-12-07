@@ -91,6 +91,11 @@ func NewAccount(ctx *pulumi.Context,
 	if args.SkuName == nil {
 		return nil, errors.New("invalid value for required argument 'SkuName'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"primaryAccessKey",
+		"secondaryAccessKey",
+	})
+	opts = append(opts, secrets)
 	var resource Account
 	err := ctx.RegisterResource("azure:maps/account:Account", name, args, &resource, opts...)
 	if err != nil {

@@ -179,6 +179,10 @@ namespace Pulumi.Azure.StreamAnalytics
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "storageAccountKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -250,11 +254,21 @@ namespace Pulumi.Azure.StreamAnalytics
         [Input("serialization", required: true)]
         public Input<Inputs.OutputBlobSerializationArgs> Serialization { get; set; } = null!;
 
+        [Input("storageAccountKey")]
+        private Input<string>? _storageAccountKey;
+
         /// <summary>
         /// The Access Key which should be used to connect to this Storage Account.
         /// </summary>
-        [Input("storageAccountKey")]
-        public Input<string>? StorageAccountKey { get; set; }
+        public Input<string>? StorageAccountKey
+        {
+            get => _storageAccountKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _storageAccountKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name of the Storage Account.
@@ -336,11 +350,21 @@ namespace Pulumi.Azure.StreamAnalytics
         [Input("serialization")]
         public Input<Inputs.OutputBlobSerializationGetArgs>? Serialization { get; set; }
 
+        [Input("storageAccountKey")]
+        private Input<string>? _storageAccountKey;
+
         /// <summary>
         /// The Access Key which should be used to connect to this Storage Account.
         /// </summary>
-        [Input("storageAccountKey")]
-        public Input<string>? StorageAccountKey { get; set; }
+        public Input<string>? StorageAccountKey
+        {
+            get => _storageAccountKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _storageAccountKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name of the Storage Account.

@@ -107,6 +107,10 @@ namespace Pulumi.Azure.Avs
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "expressRouteAuthorizationKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -156,11 +160,21 @@ namespace Pulumi.Azure.Avs
         [Input("expressRouteAuthorizationId")]
         public Input<string>? ExpressRouteAuthorizationId { get; set; }
 
+        [Input("expressRouteAuthorizationKey")]
+        private Input<string>? _expressRouteAuthorizationKey;
+
         /// <summary>
         /// The key of the Express Route Circuit Authorization.
         /// </summary>
-        [Input("expressRouteAuthorizationKey")]
-        public Input<string>? ExpressRouteAuthorizationKey { get; set; }
+        public Input<string>? ExpressRouteAuthorizationKey
+        {
+            get => _expressRouteAuthorizationKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _expressRouteAuthorizationKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name which should be used for this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.

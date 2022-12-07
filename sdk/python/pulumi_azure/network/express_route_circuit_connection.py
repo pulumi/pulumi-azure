@@ -423,7 +423,7 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'address_prefix_ipv4'")
             __props__.__dict__["address_prefix_ipv4"] = address_prefix_ipv4
             __props__.__dict__["address_prefix_ipv6"] = address_prefix_ipv6
-            __props__.__dict__["authorization_key"] = authorization_key
+            __props__.__dict__["authorization_key"] = None if authorization_key is None else pulumi.Output.secret(authorization_key)
             __props__.__dict__["name"] = name
             if peer_peering_id is None and not opts.urn:
                 raise TypeError("Missing required property 'peer_peering_id'")
@@ -431,6 +431,8 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
             if peering_id is None and not opts.urn:
                 raise TypeError("Missing required property 'peering_id'")
             __props__.__dict__["peering_id"] = peering_id
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["authorizationKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ExpressRouteCircuitConnection, __self__).__init__(
             'azure:network/expressRouteCircuitConnection:ExpressRouteCircuitConnection',
             resource_name,

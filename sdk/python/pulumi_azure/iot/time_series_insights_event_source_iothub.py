@@ -532,12 +532,14 @@ class TimeSeriesInsightsEventSourceIothub(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             if shared_access_key is None and not opts.urn:
                 raise TypeError("Missing required property 'shared_access_key'")
-            __props__.__dict__["shared_access_key"] = shared_access_key
+            __props__.__dict__["shared_access_key"] = None if shared_access_key is None else pulumi.Output.secret(shared_access_key)
             if shared_access_key_name is None and not opts.urn:
                 raise TypeError("Missing required property 'shared_access_key_name'")
             __props__.__dict__["shared_access_key_name"] = shared_access_key_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timestamp_property_name"] = timestamp_property_name
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["sharedAccessKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(TimeSeriesInsightsEventSourceIothub, __self__).__init__(
             'azure:iot/timeSeriesInsightsEventSourceIothub:TimeSeriesInsightsEventSourceIothub',
             resource_name,

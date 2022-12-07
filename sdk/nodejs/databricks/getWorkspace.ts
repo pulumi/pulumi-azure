@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:databricks/getWorkspace:getWorkspace", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -88,9 +85,24 @@ export interface GetWorkspaceResult {
      */
     readonly workspaceUrl: string;
 }
-
+/**
+ * Use this data source to access information about an existing Databricks workspace.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.databricks.getWorkspace({
+ *     name: "example-workspace",
+ *     resourceGroupName: "example-rg",
+ * });
+ * export const databricksWorkspaceId = example.then(example => example.workspaceId);
+ * ```
+ */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
-    return pulumi.output(args).apply(a => getWorkspace(a, opts))
+    return pulumi.output(args).apply((a: any) => getWorkspace(a, opts))
 }
 
 /**

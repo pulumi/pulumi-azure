@@ -188,11 +188,13 @@ export class LinkedServiceKusto extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["servicePrincipalId"] = args ? args.servicePrincipalId : undefined;
-            resourceInputs["servicePrincipalKey"] = args ? args.servicePrincipalKey : undefined;
+            resourceInputs["servicePrincipalKey"] = args?.servicePrincipalKey ? pulumi.secret(args.servicePrincipalKey) : undefined;
             resourceInputs["tenant"] = args ? args.tenant : undefined;
             resourceInputs["useManagedIdentity"] = args ? args.useManagedIdentity : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["servicePrincipalKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(LinkedServiceKusto.__pulumiType, name, resourceInputs, opts);
     }
 }

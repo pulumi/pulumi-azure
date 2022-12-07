@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getApiVersionSet(args: GetApiVersionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetApiVersionSetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:apimanagement/getApiVersionSet:getApiVersionSet", {
         "apiManagementName": args.apiManagementName,
         "name": args.name,
@@ -81,9 +78,25 @@ export interface GetApiVersionSetResult {
     readonly versionQueryName: string;
     readonly versioningScheme: string;
 }
-
+/**
+ * Uses this data source to access information about an API Version Set within an API Management Service.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.apimanagement.getApiVersionSet({
+ *     resourceGroupName: "example-resources",
+ *     apiManagementName: "example-api",
+ *     name: "example-api-version-set",
+ * });
+ * export const apiManagementApiVersionSetId = example.then(example => example.id);
+ * ```
+ */
 export function getApiVersionSetOutput(args: GetApiVersionSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiVersionSetResult> {
-    return pulumi.output(args).apply(a => getApiVersionSet(a, opts))
+    return pulumi.output(args).apply((a: any) => getApiVersionSet(a, opts))
 }
 
 /**

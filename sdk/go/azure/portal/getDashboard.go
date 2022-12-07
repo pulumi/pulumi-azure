@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := portal.LookupDashboard(ctx, &portal.LookupDashboardArgs{
+//			_, err = portal.LookupDashboard(ctx, &portal.LookupDashboardArgs{
 //				Name:              pulumi.StringRef("existing-dashboard"),
 //				ResourceGroupName: "dashboard-rg",
 //			}, nil)

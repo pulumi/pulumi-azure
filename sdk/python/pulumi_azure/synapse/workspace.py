@@ -1084,13 +1084,15 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sql_aad_admin"] = sql_aad_admin
             __props__.__dict__["sql_administrator_login"] = sql_administrator_login
-            __props__.__dict__["sql_administrator_login_password"] = sql_administrator_login_password
+            __props__.__dict__["sql_administrator_login_password"] = None if sql_administrator_login_password is None else pulumi.Output.secret(sql_administrator_login_password)
             __props__.__dict__["sql_identity_control_enabled"] = sql_identity_control_enabled
             if storage_data_lake_gen2_filesystem_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_data_lake_gen2_filesystem_id'")
             __props__.__dict__["storage_data_lake_gen2_filesystem_id"] = storage_data_lake_gen2_filesystem_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["connectivity_endpoints"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["sqlAdministratorLoginPassword"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Workspace, __self__).__init__(
             'azure:synapse/workspace:Workspace',
             resource_name,

@@ -118,6 +118,21 @@ func NewChannelSlack(ctx *pulumi.Context,
 	if args.VerificationToken == nil {
 		return nil, errors.New("invalid value for required argument 'VerificationToken'")
 	}
+	if args.ClientSecret != nil {
+		args.ClientSecret = pulumi.ToSecret(args.ClientSecret).(pulumi.StringOutput)
+	}
+	if args.SigningSecret != nil {
+		args.SigningSecret = pulumi.ToSecret(args.SigningSecret).(pulumi.StringPtrOutput)
+	}
+	if args.VerificationToken != nil {
+		args.VerificationToken = pulumi.ToSecret(args.VerificationToken).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"clientSecret",
+		"signingSecret",
+		"verificationToken",
+	})
+	opts = append(opts, secrets)
 	var resource ChannelSlack
 	err := ctx.RegisterResource("azure:bot/channelSlack:ChannelSlack", name, args, &resource, opts...)
 	if err != nil {

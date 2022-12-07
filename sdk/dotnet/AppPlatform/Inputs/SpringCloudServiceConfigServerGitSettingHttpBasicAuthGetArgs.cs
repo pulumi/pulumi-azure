@@ -12,11 +12,21 @@ namespace Pulumi.Azure.AppPlatform.Inputs
 
     public sealed class SpringCloudServiceConfigServerGitSettingHttpBasicAuthGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("password", required: true)]
+        private Input<string>? _password;
+
         /// <summary>
         /// The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
         /// </summary>
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.

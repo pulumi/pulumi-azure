@@ -137,12 +137,14 @@ export class ChannelFacebook extends pulumi.CustomResource {
             }
             resourceInputs["botName"] = args ? args.botName : undefined;
             resourceInputs["facebookApplicationId"] = args ? args.facebookApplicationId : undefined;
-            resourceInputs["facebookApplicationSecret"] = args ? args.facebookApplicationSecret : undefined;
+            resourceInputs["facebookApplicationSecret"] = args?.facebookApplicationSecret ? pulumi.secret(args.facebookApplicationSecret) : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["pages"] = args ? args.pages : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["facebookApplicationSecret"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ChannelFacebook.__pulumiType, name, resourceInputs, opts);
     }
 }

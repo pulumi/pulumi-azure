@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
 export function getManagementGroup(args?: GetManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupResult> {
     pulumi.log.warn("getManagementGroup is deprecated: azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup")
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:managementgroups/getManagementGroup:getManagementGroup", {
         "displayName": args.displayName,
         "name": args.name,
@@ -79,9 +76,24 @@ export interface GetManagementGroupResult {
      */
     readonly subscriptionIds: string[];
 }
-
+/**
+ * Use this data source to access information about an existing Management Group.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.management.getGroup({
+ *     name: "00000000-0000-0000-0000-000000000000",
+ * });
+ * export const displayName = example.then(example => example.displayName);
+ * ```
+ */
+/** @deprecated azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup */
 export function getManagementGroupOutput(args?: GetManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementGroupResult> {
-    return pulumi.output(args).apply(a => getManagementGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getManagementGroup(a, opts))
 }
 
 /**

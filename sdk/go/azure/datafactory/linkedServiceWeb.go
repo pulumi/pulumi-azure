@@ -106,6 +106,13 @@ func NewLinkedServiceWeb(ctx *pulumi.Context,
 	if args.Url == nil {
 		return nil, errors.New("invalid value for required argument 'Url'")
 	}
+	if args.Password != nil {
+		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"password",
+	})
+	opts = append(opts, secrets)
 	var resource LinkedServiceWeb
 	err := ctx.RegisterResource("azure:datafactory/linkedServiceWeb:LinkedServiceWeb", name, args, &resource, opts...)
 	if err != nil {

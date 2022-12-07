@@ -12,11 +12,21 @@ namespace Pulumi.Azure.Media.Inputs
 
     public sealed class ContentKeyPolicyPolicyOptionFairplayConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("ask")]
+        private Input<string>? _ask;
+
         /// <summary>
         /// The key that must be used as FairPlay Application Secret key.
         /// </summary>
-        [Input("ask")]
-        public Input<string>? Ask { get; set; }
+        public Input<string>? Ask
+        {
+            get => _ask;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _ask = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// A `offline_rental_configuration` block as defined below.
@@ -24,17 +34,37 @@ namespace Pulumi.Azure.Media.Inputs
         [Input("offlineRentalConfiguration")]
         public Input<Inputs.ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgs>? OfflineRentalConfiguration { get; set; }
 
+        [Input("pfx")]
+        private Input<string>? _pfx;
+
         /// <summary>
         /// The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key).
         /// </summary>
-        [Input("pfx")]
-        public Input<string>? Pfx { get; set; }
+        public Input<string>? Pfx
+        {
+            get => _pfx;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _pfx = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("pfxPassword")]
+        private Input<string>? _pfxPassword;
 
         /// <summary>
         /// The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
         /// </summary>
-        [Input("pfxPassword")]
-        public Input<string>? PfxPassword { get; set; }
+        public Input<string>? PfxPassword
+        {
+            get => _pfxPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _pfxPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The rental and lease key type. Supported values are `DualExpiry`, `PersistentLimited`, `PersistentUnlimited` or `Undefined`.

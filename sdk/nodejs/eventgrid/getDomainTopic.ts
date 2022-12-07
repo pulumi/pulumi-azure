@@ -13,18 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = pulumi.output(azure.eventgrid.getDomainTopic({
+ * const example = azure.eventgrid.getDomainTopic({
  *     name: "my-eventgrid-domain-topic",
  *     resourceGroupName: "example-resources",
- * }));
+ * });
  * ```
  */
 export function getDomainTopic(args: GetDomainTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainTopicResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:eventgrid/getDomainTopic:getDomainTopic", {
         "domainName": args.domainName,
         "name": args.name,
@@ -65,9 +62,23 @@ export interface GetDomainTopicResult {
     readonly name: string;
     readonly resourceGroupName: string;
 }
-
+/**
+ * Use this data source to access information about an existing EventGrid Domain Topic
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.eventgrid.getDomainTopic({
+ *     name: "my-eventgrid-domain-topic",
+ *     resourceGroupName: "example-resources",
+ * });
+ * ```
+ */
 export function getDomainTopicOutput(args: GetDomainTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainTopicResult> {
-    return pulumi.output(args).apply(a => getDomainTopic(a, opts))
+    return pulumi.output(args).apply((a: any) => getDomainTopic(a, opts))
 }
 
 /**

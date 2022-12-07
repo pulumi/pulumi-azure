@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getEnrollmentAccountScope(args: GetEnrollmentAccountScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetEnrollmentAccountScopeResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:billing/getEnrollmentAccountScope:getEnrollmentAccountScope", {
         "billingAccountName": args.billingAccountName,
         "enrollmentAccountName": args.enrollmentAccountName,
@@ -57,9 +54,24 @@ export interface GetEnrollmentAccountScopeResult {
      */
     readonly id: string;
 }
-
+/**
+ * Use this data source to access information about an existing Enrollment Account Billing Scope.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.billing.getEnrollmentAccountScope({
+ *     billingAccountName: "existing",
+ *     enrollmentAccountName: "existing",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ */
 export function getEnrollmentAccountScopeOutput(args: GetEnrollmentAccountScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnrollmentAccountScopeResult> {
-    return pulumi.output(args).apply(a => getEnrollmentAccountScope(a, opts))
+    return pulumi.output(args).apply((a: any) => getEnrollmentAccountScope(a, opts))
 }
 
 /**

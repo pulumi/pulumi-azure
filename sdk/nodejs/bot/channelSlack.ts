@@ -142,14 +142,16 @@ export class ChannelSlack extends pulumi.CustomResource {
             }
             resourceInputs["botName"] = args ? args.botName : undefined;
             resourceInputs["clientId"] = args ? args.clientId : undefined;
-            resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
+            resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
             resourceInputs["landingPageUrl"] = args ? args.landingPageUrl : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["signingSecret"] = args ? args.signingSecret : undefined;
-            resourceInputs["verificationToken"] = args ? args.verificationToken : undefined;
+            resourceInputs["signingSecret"] = args?.signingSecret ? pulumi.secret(args.signingSecret) : undefined;
+            resourceInputs["verificationToken"] = args?.verificationToken ? pulumi.secret(args.verificationToken) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["clientSecret", "signingSecret", "verificationToken"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ChannelSlack.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -272,10 +272,12 @@ class IdentityProviderTwitter(pulumi.CustomResource):
             __props__.__dict__["api_management_name"] = api_management_name
             if api_secret_key is None and not opts.urn:
                 raise TypeError("Missing required property 'api_secret_key'")
-            __props__.__dict__["api_secret_key"] = api_secret_key
+            __props__.__dict__["api_secret_key"] = None if api_secret_key is None else pulumi.Output.secret(api_secret_key)
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["apiSecretKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(IdentityProviderTwitter, __self__).__init__(
             'azure:apimanagement/identityProviderTwitter:IdentityProviderTwitter',
             resource_name,

@@ -152,6 +152,13 @@ func NewLinkedServiceKusto(ctx *pulumi.Context,
 	if args.KustoEndpoint == nil {
 		return nil, errors.New("invalid value for required argument 'KustoEndpoint'")
 	}
+	if args.ServicePrincipalKey != nil {
+		args.ServicePrincipalKey = pulumi.ToSecret(args.ServicePrincipalKey).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"servicePrincipalKey",
+	})
+	opts = append(opts, secrets)
 	var resource LinkedServiceKusto
 	err := ctx.RegisterResource("azure:datafactory/linkedServiceKusto:LinkedServiceKusto", name, args, &resource, opts...)
 	if err != nil {

@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCAARecord(args: GetCAARecordArgs, opts?: pulumi.InvokeOptions): Promise<GetCAARecordResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:dns/getCAARecord:getCAARecord", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -79,9 +76,22 @@ export interface GetCAARecordResult {
     readonly ttl: number;
     readonly zoneName: string;
 }
-
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.dns.CaaRecord("example", {
+ *     zoneName: "test-zone",
+ *     resourceGroupName: "test-rg",
+ * });
+ * export const dnsCaaRecordId = example.id;
+ * ```
+ */
 export function getCAARecordOutput(args: GetCAARecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCAARecordResult> {
-    return pulumi.output(args).apply(a => getCAARecord(a, opts))
+    return pulumi.output(args).apply((a: any) => getCAARecord(a, opts))
 }
 
 /**

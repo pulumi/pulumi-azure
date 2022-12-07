@@ -18,11 +18,21 @@ namespace Pulumi.Azure.DataFactory.Inputs
         [Input("administratorLogin")]
         public Input<string>? AdministratorLogin { get; set; }
 
+        [Input("administratorPassword")]
+        private Input<string>? _administratorPassword;
+
         /// <summary>
         /// Administrator login password for the SQL Server.
         /// </summary>
-        [Input("administratorPassword")]
-        public Input<string>? AdministratorPassword { get; set; }
+        public Input<string>? AdministratorPassword
+        {
+            get => _administratorPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _administratorPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The dual standby Azure-SSIS Integration Runtime pair with SSISDB failover.

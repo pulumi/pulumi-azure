@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAnalyticsWorkspace(args: GetAnalyticsWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetAnalyticsWorkspaceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -86,9 +83,24 @@ export interface GetAnalyticsWorkspaceResult {
      */
     readonly workspaceId: string;
 }
-
+/**
+ * Use this data source to access information about an existing Log Analytics (formally Operational Insights) Workspace.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.operationalinsights.getAnalyticsWorkspace({
+ *     name: "acctest-01",
+ *     resourceGroupName: "acctest",
+ * });
+ * export const logAnalyticsWorkspaceId = example.then(example => example.workspaceId);
+ * ```
+ */
 export function getAnalyticsWorkspaceOutput(args: GetAnalyticsWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnalyticsWorkspaceResult> {
-    return pulumi.output(args).apply(a => getAnalyticsWorkspace(a, opts))
+    return pulumi.output(args).apply((a: any) => getAnalyticsWorkspace(a, opts))
 }
 
 /**

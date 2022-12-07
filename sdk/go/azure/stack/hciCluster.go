@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleApplication, err := azuread.LookupApplication(ctx, &GetApplicationArgs{
+//			exampleApplication, err := azuread.LookupApplication(ctx, &azuread.LookupApplicationArgs{
 //				DisplayName: pulumi.StringRef("Allowed resource types"),
 //			}, nil)
 //			if err != nil {

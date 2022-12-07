@@ -172,6 +172,14 @@ func NewLinuxFunctionApp(ctx *pulumi.Context,
 	if args.SiteConfig == nil {
 		return nil, errors.New("invalid value for required argument 'SiteConfig'")
 	}
+	if args.StorageAccountAccessKey != nil {
+		args.StorageAccountAccessKey = pulumi.ToSecret(args.StorageAccountAccessKey).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"customDomainVerificationId",
+		"storageAccountAccessKey",
+	})
+	opts = append(opts, secrets)
 	var resource LinuxFunctionApp
 	err := ctx.RegisterResource("azure:appservice/linuxFunctionApp:LinuxFunctionApp", name, args, &resource, opts...)
 	if err != nil {

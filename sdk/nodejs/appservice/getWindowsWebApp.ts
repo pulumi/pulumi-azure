@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getWindowsWebApp(args: GetWindowsWebAppArgs, opts?: pulumi.InvokeOptions): Promise<GetWindowsWebAppResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:appservice/getWindowsWebApp:getWindowsWebApp", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -170,9 +167,24 @@ export interface GetWindowsWebAppResult {
      */
     readonly virtualNetworkSubnetId: string;
 }
-
+/**
+ * Use this data source to access information about an existing Windows Web App.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.appservice.getWindowsWebApp({
+ *     name: "existing",
+ *     resourceGroupName: "existing",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ */
 export function getWindowsWebAppOutput(args: GetWindowsWebAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWindowsWebAppResult> {
-    return pulumi.output(args).apply(a => getWindowsWebApp(a, opts))
+    return pulumi.output(args).apply((a: any) => getWindowsWebApp(a, opts))
 }
 
 /**

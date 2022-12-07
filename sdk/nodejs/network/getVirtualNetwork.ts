@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getVirtualNetwork(args: GetVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:network/getVirtualNetwork:getVirtualNetwork", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -89,9 +86,24 @@ export interface GetVirtualNetworkResult {
      */
     readonly vnetPeeringsAddresses: string[];
 }
-
+/**
+ * Use this data source to access information about an existing Virtual Network.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.network.getVirtualNetwork({
+ *     name: "production",
+ *     resourceGroupName: "networking",
+ * });
+ * export const virtualNetworkId = example.then(example => example.id);
+ * ```
+ */
 export function getVirtualNetworkOutput(args: GetVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkResult> {
-    return pulumi.output(args).apply(a => getVirtualNetwork(a, opts))
+    return pulumi.output(args).apply((a: any) => getVirtualNetwork(a, opts))
 }
 
 /**

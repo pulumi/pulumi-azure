@@ -382,9 +382,11 @@ class SqlPoolExtendedAuditingPolicy(pulumi.CustomResource):
             if sql_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'sql_pool_id'")
             __props__.__dict__["sql_pool_id"] = sql_pool_id
-            __props__.__dict__["storage_account_access_key"] = storage_account_access_key
+            __props__.__dict__["storage_account_access_key"] = None if storage_account_access_key is None else pulumi.Output.secret(storage_account_access_key)
             __props__.__dict__["storage_account_access_key_is_secondary"] = storage_account_access_key_is_secondary
             __props__.__dict__["storage_endpoint"] = storage_endpoint
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["storageAccountAccessKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(SqlPoolExtendedAuditingPolicy, __self__).__init__(
             'azure:synapse/sqlPoolExtendedAuditingPolicy:SqlPoolExtendedAuditingPolicy',
             resource_name,

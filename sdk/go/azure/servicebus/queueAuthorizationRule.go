@@ -119,6 +119,15 @@ func NewQueueAuthorizationRule(ctx *pulumi.Context,
 		},
 	})
 	opts = append(opts, aliases)
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"primaryConnectionString",
+		"primaryConnectionStringAlias",
+		"primaryKey",
+		"secondaryConnectionString",
+		"secondaryConnectionStringAlias",
+		"secondaryKey",
+	})
+	opts = append(opts, secrets)
 	var resource QueueAuthorizationRule
 	err := ctx.RegisterResource("azure:servicebus/queueAuthorizationRule:QueueAuthorizationRule", name, args, &resource, opts...)
 	if err != nil {

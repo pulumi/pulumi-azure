@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDatasetDataLakeGen2(args: GetDatasetDataLakeGen2Args, opts?: pulumi.InvokeOptions): Promise<GetDatasetDataLakeGen2Result> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:datashare/getDatasetDataLakeGen2:getDatasetDataLakeGen2", {
         "name": args.name,
         "shareId": args.shareId,
@@ -77,9 +74,24 @@ export interface GetDatasetDataLakeGen2Result {
      */
     readonly storageAccountId: string;
 }
-
+/**
+ * Use this data source to access information about an existing Data Share Data Lake Gen2 Dataset.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.datashare.getDatasetDataLakeGen2({
+ *     name: "example-dsdlg2ds",
+ *     shareId: "example-share-id",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ */
 export function getDatasetDataLakeGen2Output(args: GetDatasetDataLakeGen2OutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetDataLakeGen2Result> {
-    return pulumi.output(args).apply(a => getDatasetDataLakeGen2(a, opts))
+    return pulumi.output(args).apply((a: any) => getDatasetDataLakeGen2(a, opts))
 }
 
 /**

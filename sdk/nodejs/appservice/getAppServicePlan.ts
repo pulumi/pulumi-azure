@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAppServicePlan(args: GetAppServicePlanArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServicePlanResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:appservice/getAppServicePlan:getAppServicePlan", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -101,9 +98,22 @@ export interface GetAppServicePlanResult {
      */
     readonly zoneRedundant: boolean;
 }
-
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.appservice.getAppServicePlan({
+ *     name: "search-app-service-plan",
+ *     resourceGroupName: "search-service",
+ * });
+ * export const appServicePlanId = example.then(example => example.id);
+ * ```
+ */
 export function getAppServicePlanOutput(args: GetAppServicePlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServicePlanResult> {
-    return pulumi.output(args).apply(a => getAppServicePlan(a, opts))
+    return pulumi.output(args).apply((a: any) => getAppServicePlan(a, opts))
 }
 
 /**

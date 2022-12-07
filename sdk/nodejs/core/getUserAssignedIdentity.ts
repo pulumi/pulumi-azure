@@ -26,11 +26,8 @@ import * as utilities from "../utilities";
 /** @deprecated azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity */
 export function getUserAssignedIdentity(args: GetUserAssignedIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetUserAssignedIdentityResult> {
     pulumi.log.warn("getUserAssignedIdentity is deprecated: azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:core/getUserAssignedIdentity:getUserAssignedIdentity", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -82,9 +79,28 @@ export interface GetUserAssignedIdentityResult {
      */
     readonly tenantId: string;
 }
-
+/**
+ * Use this data source to access information about an existing User Assigned Identity.
+ *
+ * ## Example Usage
+ * ### Reference An Existing)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.authorization.getUserAssignedIdentity({
+ *     name: "name_of_user_assigned_identity",
+ *     resourceGroupName: "name_of_resource_group",
+ * });
+ * export const uaiClientId = example.then(example => example.clientId);
+ * export const uaiPrincipalId = example.then(example => example.principalId);
+ * export const uaiTenantId = example.then(example => example.tenantId);
+ * ```
+ */
+/** @deprecated azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity */
 export function getUserAssignedIdentityOutput(args: GetUserAssignedIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserAssignedIdentityResult> {
-    return pulumi.output(args).apply(a => getUserAssignedIdentity(a, opts))
+    return pulumi.output(args).apply((a: any) => getUserAssignedIdentity(a, opts))
 }
 
 /**

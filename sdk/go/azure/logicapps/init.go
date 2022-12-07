@@ -36,7 +36,7 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	case "azure:logicapps/integrationAccountCertificate:IntegrationAccountCertificate":
 		r = &IntegrationAccountCertificate{}
 	case "azure:logicapps/integrationAccountMap:IntegrationAccountMap":
-		r = &IntegrationAccountMap{}
+		r = &IntegrationAccountMapResource{}
 	case "azure:logicapps/integrationAccountPartner:IntegrationAccountPartner":
 		r = &IntegrationAccountPartner{}
 	case "azure:logicapps/integrationAccountSchema:IntegrationAccountSchema":

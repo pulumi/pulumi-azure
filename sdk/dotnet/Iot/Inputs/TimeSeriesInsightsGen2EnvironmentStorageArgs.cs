@@ -12,11 +12,21 @@ namespace Pulumi.Azure.Iot.Inputs
 
     public sealed class TimeSeriesInsightsGen2EnvironmentStorageArgs : global::Pulumi.ResourceArgs
     {
+        [Input("key", required: true)]
+        private Input<string>? _key;
+
         /// <summary>
         /// Access key of storage account for Azure IoT Time Series Insights Gen2 Environment
         /// </summary>
-        [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
+        public Input<string>? Key
+        {
+            get => _key;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _key = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Name of storage account for Azure IoT Time Series Insights Gen2 Environment

@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getMariaDbServer(args: GetMariaDbServerArgs, opts?: pulumi.InvokeOptions): Promise<GetMariaDbServerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:mariadb/getMariaDbServer:getMariaDbServer", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -91,9 +88,24 @@ export interface GetMariaDbServerResult {
      */
     readonly version: string;
 }
-
+/**
+ * Use this data source to access information about an existing MariaDB Server.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const dbServer = azure.mariadb.getMariaDbServer({
+ *     name: "mariadb-server",
+ *     resourceGroupName: azurerm_mariadb_server.example.resource_group_name,
+ * });
+ * export const mariadbServerId = data.azurerm_mariadb_server.example.id;
+ * ```
+ */
 export function getMariaDbServerOutput(args: GetMariaDbServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMariaDbServerResult> {
-    return pulumi.output(args).apply(a => getMariaDbServer(a, opts))
+    return pulumi.output(args).apply((a: any) => getMariaDbServer(a, opts))
 }
 
 /**

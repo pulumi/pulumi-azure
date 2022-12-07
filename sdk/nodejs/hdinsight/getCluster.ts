@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:hdinsight/getCluster:getCluster", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -107,9 +104,24 @@ export interface GetClusterResult {
      */
     readonly tlsMinVersion: string;
 }
-
+/**
+ * Use this data source to access information about an existing HDInsight Cluster.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.hdinsight.getCluster({
+ *     name: "example",
+ *     resourceGroupName: "example-resources",
+ * });
+ * export const httpsEndpoint = example.then(example => example.httpsEndpoint);
+ * ```
+ */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
-    return pulumi.output(args).apply(a => getCluster(a, opts))
+    return pulumi.output(args).apply((a: any) => getCluster(a, opts))
 }
 
 /**

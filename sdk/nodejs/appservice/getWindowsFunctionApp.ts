@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getWindowsFunctionApp(args: GetWindowsFunctionAppArgs, opts?: pulumi.InvokeOptions): Promise<GetWindowsFunctionAppResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:appservice/getWindowsFunctionApp:getWindowsFunctionApp", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -190,9 +187,24 @@ export interface GetWindowsFunctionAppResult {
      */
     readonly virtualNetworkSubnetId: string;
 }
-
+/**
+ * Use this data source to access information about an existing Windows Function App.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.appservice.getWindowsFunctionApp({
+ *     name: "existing",
+ *     resourceGroupName: "existing",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ */
 export function getWindowsFunctionAppOutput(args: GetWindowsFunctionAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWindowsFunctionAppResult> {
-    return pulumi.output(args).apply(a => getWindowsFunctionApp(a, opts))
+    return pulumi.output(args).apply((a: any) => getWindowsFunctionApp(a, opts))
 }
 
 /**

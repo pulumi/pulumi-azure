@@ -150,6 +150,13 @@ func NewStreamInputBlob(ctx *pulumi.Context,
 	if args.TimeFormat == nil {
 		return nil, errors.New("invalid value for required argument 'TimeFormat'")
 	}
+	if args.StorageAccountKey != nil {
+		args.StorageAccountKey = pulumi.ToSecret(args.StorageAccountKey).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"storageAccountKey",
+	})
+	opts = append(opts, secrets)
 	var resource StreamInputBlob
 	err := ctx.RegisterResource("azure:streamanalytics/streamInputBlob:StreamInputBlob", name, args, &resource, opts...)
 	if err != nil {

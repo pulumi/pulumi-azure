@@ -261,6 +261,10 @@ namespace Pulumi.Azure.Network
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "sharedKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -344,11 +348,21 @@ namespace Pulumi.Azure.Network
         [Input("secondaryPeerAddressPrefix")]
         public Input<string>? SecondaryPeerAddressPrefix { get; set; }
 
+        [Input("sharedKey")]
+        private Input<string>? _sharedKey;
+
         /// <summary>
         /// The shared key. Can be a maximum of 25 characters.
         /// </summary>
-        [Input("sharedKey")]
-        public Input<string>? SharedKey { get; set; }
+        public Input<string>? SharedKey
+        {
+            get => _sharedKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sharedKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// A valid VLAN ID to establish this peering on.
@@ -445,11 +459,21 @@ namespace Pulumi.Azure.Network
         [Input("secondaryPeerAddressPrefix")]
         public Input<string>? SecondaryPeerAddressPrefix { get; set; }
 
+        [Input("sharedKey")]
+        private Input<string>? _sharedKey;
+
         /// <summary>
         /// The shared key. Can be a maximum of 25 characters.
         /// </summary>
-        [Input("sharedKey")]
-        public Input<string>? SharedKey { get; set; }
+        public Input<string>? SharedKey
+        {
+            get => _sharedKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sharedKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// A valid VLAN ID to establish this peering on.

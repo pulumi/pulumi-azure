@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  */
 export function getPolicySetDefinition(args?: GetPolicySetDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicySetDefinitionResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:policy/getPolicySetDefinition:getPolicySetDefinition", {
         "displayName": args.displayName,
         "managementGroupName": args.managementGroupName,
@@ -99,9 +96,23 @@ export interface GetPolicySetDefinitionResult {
      */
     readonly policyType: string;
 }
-
+/**
+ * Use this data source to access information about an existing Policy Set Definition.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.policy.getPolicySetDefinition({
+ *     displayName: "Policy Set Definition Example",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ */
 export function getPolicySetDefinitionOutput(args?: GetPolicySetDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicySetDefinitionResult> {
-    return pulumi.output(args).apply(a => getPolicySetDefinition(a, opts))
+    return pulumi.output(args).apply((a: any) => getPolicySetDefinition(a, opts))
 }
 
 /**

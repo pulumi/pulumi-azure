@@ -150,6 +150,11 @@ namespace Pulumi.Azure.DataFactory
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "accountKey",
+                    "connectionString",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -179,11 +184,21 @@ namespace Pulumi.Azure.DataFactory
         [Input("accountEndpoint")]
         public Input<string>? AccountEndpoint { get; set; }
 
+        [Input("accountKey")]
+        private Input<string>? _accountKey;
+
         /// <summary>
         /// The account key of the Azure Cosmos DB account. Required if `connection_string` is unspecified.
         /// </summary>
-        [Input("accountKey")]
-        public Input<string>? AccountKey { get; set; }
+        public Input<string>? AccountKey
+        {
+            get => _accountKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _accountKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -209,11 +224,21 @@ namespace Pulumi.Azure.DataFactory
             set => _annotations = value;
         }
 
+        [Input("connectionString")]
+        private Input<string>? _connectionString;
+
         /// <summary>
         /// The connection string. Required if `account_endpoint`, `account_key`, and `database` are unspecified.
         /// </summary>
-        [Input("connectionString")]
-        public Input<string>? ConnectionString { get; set; }
+        public Input<string>? ConnectionString
+        {
+            get => _connectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _connectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
@@ -272,11 +297,21 @@ namespace Pulumi.Azure.DataFactory
         [Input("accountEndpoint")]
         public Input<string>? AccountEndpoint { get; set; }
 
+        [Input("accountKey")]
+        private Input<string>? _accountKey;
+
         /// <summary>
         /// The account key of the Azure Cosmos DB account. Required if `connection_string` is unspecified.
         /// </summary>
-        [Input("accountKey")]
-        public Input<string>? AccountKey { get; set; }
+        public Input<string>? AccountKey
+        {
+            get => _accountKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _accountKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -302,11 +337,21 @@ namespace Pulumi.Azure.DataFactory
             set => _annotations = value;
         }
 
+        [Input("connectionString")]
+        private Input<string>? _connectionString;
+
         /// <summary>
         /// The connection string. Required if `account_endpoint`, `account_key`, and `database` are unspecified.
         /// </summary>
-        [Input("connectionString")]
-        public Input<string>? ConnectionString { get; set; }
+        public Input<string>? ConnectionString
+        {
+            get => _connectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _connectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
