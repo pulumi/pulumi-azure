@@ -1396,13 +1396,32 @@ export namespace apimanagement {
          */
         principalId: string;
         /**
-         * The Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+         * The ID of the Tenant which has access to this API Management instance.
          */
         tenantId: string;
         /**
          * The type of Managed Service Identity that is configured on this API Management Service.
          */
         type: string;
+    }
+
+    export interface GetServiceTenantAccess {
+        /**
+         * Is access to the Management API enabled (presumably "for this Tenant")?
+         */
+        enabled: boolean;
+        /**
+         * Primary access key for the tenant access information contract.
+         */
+        primaryKey: string;
+        /**
+         * Secondary access key for the tenant access information contract.
+         */
+        secondaryKey: string;
+        /**
+         * The ID of the Tenant which has access to this API Management instance.
+         */
+        tenantId: string;
     }
 
     export interface LoggerApplicationInsights {
@@ -2442,6 +2461,29 @@ export namespace appplatform {
          * Specifies the type of Managed Service Identity that should be configured on this Spring Cloud Application. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
+    }
+
+    export interface SpringCloudAppIngressSettings {
+        /**
+         * Specifies how ingress should communicate with this app backend service. Allowed values are `GRPC` and `Default`. Defaults to `Default`.
+         */
+        backendProtocol?: string;
+        /**
+         * Specifies the ingress read time out in seconds. Defaults to 300.
+         */
+        readTimeoutInSeconds?: number;
+        /**
+         * Specifies the ingress send time out in seconds. Defaults to 60.
+         */
+        sendTimeoutInSeconds?: number;
+        /**
+         * Specifies the type of the affinity, set this to `Cookie` to enable session affinity. Allowed values are `Cookie` and `None`. Defaults to `None`.
+         */
+        sessionAffinity?: string;
+        /**
+         * Specifies the time in seconds until the cookie expires.
+         */
+        sessionCookieMaxAge?: number;
     }
 
     export interface SpringCloudAppPersistentDisk {
@@ -24104,6 +24146,21 @@ export namespace databricks {
         workspacePrivateEndpointId: string;
     }
 
+    export interface GetWorkspaceStorageAccountIdentity {
+        /**
+         * The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
+         */
+        principalId: string;
+        /**
+         * The UUID of the tenant where the internal databricks storage account was created.
+         */
+        tenantId: string;
+        /**
+         * The type of the internal databricks storage account.
+         */
+        type: string;
+    }
+
     export interface WorkspaceCustomParameters {
         /**
          * The ID of a Azure Machine Learning workspace to link with Databricks workspace. Changing this forces a new resource to be created.
@@ -34977,7 +35034,7 @@ export namespace media {
         /**
          * The built-in preset to be used for encoding videos. The allowed values are `AACGoodQualityAudio`, `AdaptiveStreaming`,`ContentAwareEncoding`, `ContentAwareEncodingExperimental`,`CopyAllBitrateNonInterleaved`, `H264MultipleBitrate1080p`,`H264MultipleBitrate720p`, `H264MultipleBitrateSD`,`H264SingleBitrate1080p`, `H264SingleBitrate720p` and `H264SingleBitrateSD`.
          */
-        presetName?: string;
+        presetName: string;
     }
 
     export interface TransformOutputFaceDetectorPreset {
@@ -37561,15 +37618,19 @@ export namespace mssql {
 
     export interface GetManagedInstanceIdentity {
         /**
-         * The Principal ID associated with this Managed Service Identity.
+         * A list of User Assigned Managed Identity IDs assigned with the Identity of this SQL Managed Instance.
+         */
+        identityIds: string[];
+        /**
+         * The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
          */
         principalId: string;
         /**
-         * The Tenant ID associated with this Managed Service Identity.
+         * The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
          */
         tenantId: string;
         /**
-         * The identity type of this Managed Service Identity.
+         * The identity type of the SQL Managed Instance.
          */
         type: string;
     }
@@ -37617,6 +37678,10 @@ export namespace mssql {
 
     export interface ManagedInstanceIdentity {
         /**
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
+         */
+        identityIds?: string[];
+        /**
          * The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
          */
         principalId: string;
@@ -37625,7 +37690,7 @@ export namespace mssql {
          */
         tenantId: string;
         /**
-         * The identity type of the SQL Managed Instance. The only possible value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`.
          */
         type: string;
     }
@@ -42430,6 +42495,21 @@ export namespace policy {
 }
 
 export namespace postgresql {
+    export interface FlexibleServerAuthentication {
+        /**
+         * Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server.
+         */
+        activeDirectoryAuthEnabled?: boolean;
+        /**
+         * Whether or not password authentication is allowed to access the PostgreSQL Flexible Server.
+         */
+        passwordAuthEnabled?: boolean;
+        /**
+         * The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `activeDirectoryAuthEnabled` must be set to `true`.
+         */
+        tenantId?: string;
+    }
+
     export interface FlexibleServerHighAvailability {
         /**
          * The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
@@ -45498,6 +45578,10 @@ export namespace storage {
 
     export interface ManagementPolicyRuleActionsBaseBlob {
         /**
+         * The age in days after creation to delete the blob. Must be between `0` and `99999`.
+         */
+        deleteAfterDaysSinceCreationGreaterThan?: number;
+        /**
          * The age in days after last access time to delete the blob. Must be between `0` and `99999`.
          */
         deleteAfterDaysSinceLastAccessTimeGreaterThan?: number;
@@ -45506,7 +45590,11 @@ export namespace storage {
          */
         deleteAfterDaysSinceModificationGreaterThan?: number;
         /**
-         * The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0 and`99999`.
+         * The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`.
+         */
+        tierToArchiveAfterDaysSinceCreationGreaterThan?: number;
+        /**
+         * The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`.
          */
         tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan?: number;
         /**
@@ -45517,6 +45605,10 @@ export namespace storage {
          * The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
          */
         tierToArchiveAfterDaysSinceModificationGreaterThan?: number;
+        /**
+         * The age in days after creation to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`.
+         */
+        tierToCoolAfterDaysSinceCreationGreaterThan?: number;
         /**
          * The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`.
          */
@@ -45746,9 +45838,9 @@ export namespace streamanalytics {
          */
         accountName: string;
         /**
-         * The authentication mode of the storage account. Possible values are `ConnectionString`, `Msi` and `UserToken`.
+         * The authentication mode of the storage account. The only supported value is `ConnectionString`. Defaults to `ConnectionString`.
          */
-        authenticationMode: string;
+        authenticationMode?: string;
     }
 
     export interface OutputBlobSerialization {

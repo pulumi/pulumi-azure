@@ -28,7 +28,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := healthcare.LookupDicomService(ctx, &healthcare.LookupDicomServiceArgs{
 //				Name:        "example-healthcare_dicom_service",
-//				WorkspaceId: "example_healthcare_workspace",
+//				WorkspaceId: data.Azurerm_healthcare_workspace.Example.Id,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -52,7 +52,7 @@ func LookupDicomService(ctx *pulumi.Context, args *LookupDicomServiceArgs, opts 
 type LookupDicomServiceArgs struct {
 	// The name of the Healthcare DICOM Service
 	Name string `pulumi:"name"`
-	// The name of the Healthcare Workspace in which the Healthcare DICOM Service exists.
+	// The id of the Healthcare Workspace in which the Healthcare DICOM Service exists.
 	WorkspaceId string `pulumi:"workspaceId"`
 }
 
@@ -91,7 +91,7 @@ func LookupDicomServiceOutput(ctx *pulumi.Context, args LookupDicomServiceOutput
 type LookupDicomServiceOutputArgs struct {
 	// The name of the Healthcare DICOM Service
 	Name pulumi.StringInput `pulumi:"name"`
-	// The name of the Healthcare Workspace in which the Healthcare DICOM Service exists.
+	// The id of the Healthcare Workspace in which the Healthcare DICOM Service exists.
 	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
 }
 

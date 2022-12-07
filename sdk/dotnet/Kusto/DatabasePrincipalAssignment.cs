@@ -85,6 +85,9 @@ namespace Pulumi.Azure.Kusto
         [Output("databaseName")]
         public Output<string> DatabaseName { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the kusto principal assignment. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -188,6 +191,9 @@ namespace Pulumi.Azure.Kusto
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the kusto principal assignment. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -241,6 +247,9 @@ namespace Pulumi.Azure.Kusto
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
 
+        /// <summary>
+        /// The name of the kusto principal assignment. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

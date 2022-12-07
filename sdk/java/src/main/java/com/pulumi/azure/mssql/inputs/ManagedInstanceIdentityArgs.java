@@ -6,6 +6,7 @@ package com.pulumi.azure.mssql.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class ManagedInstanceIdentityArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ManagedInstanceIdentityArgs Empty = new ManagedInstanceIdentityArgs();
+
+    /**
+     * Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
+     * 
+     */
+    @Import(name="identityIds")
+    private @Nullable Output<List<String>> identityIds;
+
+    /**
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
+     * 
+     */
+    public Optional<Output<List<String>>> identityIds() {
+        return Optional.ofNullable(this.identityIds);
+    }
 
     /**
      * The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
@@ -46,14 +62,14 @@ public final class ManagedInstanceIdentityArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The identity type of the SQL Managed Instance. The only possible value is `SystemAssigned`.
+     * Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The identity type of the SQL Managed Instance. The only possible value is `SystemAssigned`.
+     * @return Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`.
      * 
      */
     public Output<String> type() {
@@ -63,6 +79,7 @@ public final class ManagedInstanceIdentityArgs extends com.pulumi.resources.Reso
     private ManagedInstanceIdentityArgs() {}
 
     private ManagedInstanceIdentityArgs(ManagedInstanceIdentityArgs $) {
+        this.identityIds = $.identityIds;
         this.principalId = $.principalId;
         this.tenantId = $.tenantId;
         this.type = $.type;
@@ -84,6 +101,37 @@ public final class ManagedInstanceIdentityArgs extends com.pulumi.resources.Reso
 
         public Builder(ManagedInstanceIdentityArgs defaults) {
             $ = new ManagedInstanceIdentityArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityIds(@Nullable Output<List<String>> identityIds) {
+            $.identityIds = identityIds;
+            return this;
+        }
+
+        /**
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityIds(List<String> identityIds) {
+            return identityIds(Output.of(identityIds));
+        }
+
+        /**
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityIds(String... identityIds) {
+            return identityIds(List.of(identityIds));
         }
 
         /**
@@ -129,7 +177,7 @@ public final class ManagedInstanceIdentityArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param type The identity type of the SQL Managed Instance. The only possible value is `SystemAssigned`.
+         * @param type Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`.
          * 
          * @return builder
          * 
@@ -140,7 +188,7 @@ public final class ManagedInstanceIdentityArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param type The identity type of the SQL Managed Instance. The only possible value is `SystemAssigned`.
+         * @param type Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`.
          * 
          * @return builder
          * 

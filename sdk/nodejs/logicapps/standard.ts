@@ -38,6 +38,10 @@ import * as utilities from "../utilities";
  *     appServicePlanId: examplePlan.id,
  *     storageAccountName: exampleAccount.name,
  *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
+ *     appSettings: {
+ *         FUNCTIONS_WORKER_RUNTIME: "node",
+ *         WEBSITE_NODE_DEFAULT_VERSION: "~18",
+ *     },
  * });
  * ```
  * ### For Container Mode)

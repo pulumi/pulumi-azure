@@ -119,14 +119,14 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.aciConnectorLinux);
     }
     /**
-     * The IP ranges to allow for incoming traffic to the server nodes.
+     * Set of authorized IP ranges to allow access to API server, e.g. [&#34;198.51.100.0/24&#34;].
      * 
      */
     @Export(name="apiServerAuthorizedIpRanges", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> apiServerAuthorizedIpRanges;
 
     /**
-     * @return The IP ranges to allow for incoming traffic to the server nodes.
+     * @return Set of authorized IP ranges to allow access to API server, e.g. [&#34;198.51.100.0/24&#34;].
      * 
      */
     public Output<Optional<List<String>>> apiServerAuthorizedIpRanges() {

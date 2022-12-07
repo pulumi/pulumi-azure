@@ -52,14 +52,14 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The IP ranges to allow for incoming traffic to the server nodes.
+     * Set of authorized IP ranges to allow access to API server, e.g. [&#34;198.51.100.0/24&#34;].
      * 
      */
     @Import(name="apiServerAuthorizedIpRanges")
     private @Nullable Output<List<String>> apiServerAuthorizedIpRanges;
 
     /**
-     * @return The IP ranges to allow for incoming traffic to the server nodes.
+     * @return Set of authorized IP ranges to allow access to API server, e.g. [&#34;198.51.100.0/24&#34;].
      * 
      */
     public Optional<Output<List<String>>> apiServerAuthorizedIpRanges() {
@@ -769,7 +769,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param apiServerAuthorizedIpRanges The IP ranges to allow for incoming traffic to the server nodes.
+         * @param apiServerAuthorizedIpRanges Set of authorized IP ranges to allow access to API server, e.g. [&#34;198.51.100.0/24&#34;].
          * 
          * @return builder
          * 
@@ -780,7 +780,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param apiServerAuthorizedIpRanges The IP ranges to allow for incoming traffic to the server nodes.
+         * @param apiServerAuthorizedIpRanges Set of authorized IP ranges to allow access to API server, e.g. [&#34;198.51.100.0/24&#34;].
          * 
          * @return builder
          * 
@@ -790,7 +790,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param apiServerAuthorizedIpRanges The IP ranges to allow for incoming traffic to the server nodes.
+         * @param apiServerAuthorizedIpRanges Set of authorized IP ranges to allow access to API server, e.g. [&#34;198.51.100.0/24&#34;].
          * 
          * @return builder
          * 

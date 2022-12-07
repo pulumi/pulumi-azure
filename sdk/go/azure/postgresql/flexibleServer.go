@@ -123,6 +123,8 @@ type FlexibleServer struct {
 	AdministratorLogin pulumi.StringOutput `pulumi:"administratorLogin"`
 	// The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server. Required when `createMode` is `Default`.
 	AdministratorPassword pulumi.StringPtrOutput `pulumi:"administratorPassword"`
+	// An `authentication` block as defined below.
+	Authentication FlexibleServerAuthenticationOutput `pulumi:"authentication"`
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays pulumi.IntOutput `pulumi:"backupRetentionDays"`
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -199,6 +201,8 @@ type flexibleServerState struct {
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server. Required when `createMode` is `Default`.
 	AdministratorPassword *string `pulumi:"administratorPassword"`
+	// An `authentication` block as defined below.
+	Authentication *FlexibleServerAuthentication `pulumi:"authentication"`
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -244,6 +248,8 @@ type FlexibleServerState struct {
 	AdministratorLogin pulumi.StringPtrInput
 	// The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server. Required when `createMode` is `Default`.
 	AdministratorPassword pulumi.StringPtrInput
+	// An `authentication` block as defined below.
+	Authentication FlexibleServerAuthenticationPtrInput
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays pulumi.IntPtrInput
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -293,6 +299,8 @@ type flexibleServerArgs struct {
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server. Required when `createMode` is `Default`.
 	AdministratorPassword *string `pulumi:"administratorPassword"`
+	// An `authentication` block as defined below.
+	Authentication *FlexibleServerAuthentication `pulumi:"authentication"`
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -335,6 +343,8 @@ type FlexibleServerArgs struct {
 	AdministratorLogin pulumi.StringPtrInput
 	// The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server. Required when `createMode` is `Default`.
 	AdministratorPassword pulumi.StringPtrInput
+	// An `authentication` block as defined below.
+	Authentication FlexibleServerAuthenticationPtrInput
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays pulumi.IntPtrInput
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -466,6 +476,11 @@ func (o FlexibleServerOutput) AdministratorLogin() pulumi.StringOutput {
 // The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server. Required when `createMode` is `Default`.
 func (o FlexibleServerOutput) AdministratorPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringPtrOutput { return v.AdministratorPassword }).(pulumi.StringPtrOutput)
+}
+
+// An `authentication` block as defined below.
+func (o FlexibleServerOutput) Authentication() FlexibleServerAuthenticationOutput {
+	return o.ApplyT(func(v *FlexibleServer) FlexibleServerAuthenticationOutput { return v.Authentication }).(FlexibleServerAuthenticationOutput)
 }
 
 // The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.

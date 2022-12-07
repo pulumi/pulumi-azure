@@ -79,7 +79,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly aciConnectorLinux!: pulumi.Output<outputs.containerservice.KubernetesClusterAciConnectorLinux | undefined>;
     /**
-     * The IP ranges to allow for incoming traffic to the server nodes.
+     * Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
      */
     public readonly apiServerAuthorizedIpRanges!: pulumi.Output<string[] | undefined>;
     /**
@@ -423,7 +423,7 @@ export interface KubernetesClusterState {
      */
     aciConnectorLinux?: pulumi.Input<inputs.containerservice.KubernetesClusterAciConnectorLinux>;
     /**
-     * The IP ranges to allow for incoming traffic to the server nodes.
+     * Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
      */
     apiServerAuthorizedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -635,7 +635,7 @@ export interface KubernetesClusterArgs {
      */
     aciConnectorLinux?: pulumi.Input<inputs.containerservice.KubernetesClusterAciConnectorLinux>;
     /**
-     * The IP ranges to allow for incoming traffic to the server nodes.
+     * Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
      */
     apiServerAuthorizedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
     /**

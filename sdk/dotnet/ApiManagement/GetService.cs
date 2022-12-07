@@ -199,6 +199,10 @@ namespace Pulumi.Azure.ApiManagement
         /// A mapping of tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// A `tenant_access` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetServiceTenantAccessResult> TenantAccesses;
 
         [OutputConstructor]
         private GetServiceResult(
@@ -242,7 +246,9 @@ namespace Pulumi.Azure.ApiManagement
 
             string skuName,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string> tags,
+
+            ImmutableArray<Outputs.GetServiceTenantAccessResult> tenantAccesses)
         {
             AdditionalLocations = additionalLocations;
             DeveloperPortalUrl = developerPortalUrl;
@@ -265,6 +271,7 @@ namespace Pulumi.Azure.ApiManagement
             ScmUrl = scmUrl;
             SkuName = skuName;
             Tags = tags;
+            TenantAccesses = tenantAccesses;
         }
     }
 }

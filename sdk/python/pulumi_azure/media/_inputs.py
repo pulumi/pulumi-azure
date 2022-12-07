@@ -2620,23 +2620,22 @@ class TransformOutputAudioAnalyzerPresetArgs:
 @pulumi.input_type
 class TransformOutputBuiltinPresetArgs:
     def __init__(__self__, *,
-                 preset_name: Optional[pulumi.Input[str]] = None):
+                 preset_name: pulumi.Input[str]):
         """
         :param pulumi.Input[str] preset_name: The built-in preset to be used for encoding videos. The allowed values are `AACGoodQualityAudio`, `AdaptiveStreaming`,`ContentAwareEncoding`, `ContentAwareEncodingExperimental`,`CopyAllBitrateNonInterleaved`, `H264MultipleBitrate1080p`,`H264MultipleBitrate720p`, `H264MultipleBitrateSD`,`H264SingleBitrate1080p`, `H264SingleBitrate720p` and `H264SingleBitrateSD`.
         """
-        if preset_name is not None:
-            pulumi.set(__self__, "preset_name", preset_name)
+        pulumi.set(__self__, "preset_name", preset_name)
 
     @property
     @pulumi.getter(name="presetName")
-    def preset_name(self) -> Optional[pulumi.Input[str]]:
+    def preset_name(self) -> pulumi.Input[str]:
         """
         The built-in preset to be used for encoding videos. The allowed values are `AACGoodQualityAudio`, `AdaptiveStreaming`,`ContentAwareEncoding`, `ContentAwareEncodingExperimental`,`CopyAllBitrateNonInterleaved`, `H264MultipleBitrate1080p`,`H264MultipleBitrate720p`, `H264MultipleBitrateSD`,`H264SingleBitrate1080p`, `H264SingleBitrate720p` and `H264SingleBitrateSD`.
         """
         return pulumi.get(self, "preset_name")
 
     @preset_name.setter
-    def preset_name(self, value: Optional[pulumi.Input[str]]):
+    def preset_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "preset_name", value)
 
 

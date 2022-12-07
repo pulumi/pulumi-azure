@@ -31,6 +31,7 @@ import * as utilities from "../utilities";
  * const exampleSpringCloudGatewayRouteConfig = new azure.appplatform.SpringCloudGatewayRouteConfig("exampleSpringCloudGatewayRouteConfig", {
  *     springCloudGatewayId: exampleSpringCloudGateway.id,
  *     springCloudAppId: exampleSpringCloudApp.id,
+ *     protocol: "HTTPS",
  *     routes: [{
  *         description: "example description",
  *         filters: [
@@ -96,6 +97,10 @@ export class SpringCloudGatewayRouteConfig extends pulumi.CustomResource {
      */
     public readonly openApi!: pulumi.Output<outputs.appplatform.SpringCloudGatewayRouteConfigOpenApi | undefined>;
     /**
+     * Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+     */
+    public readonly protocol!: pulumi.Output<string | undefined>;
+    /**
      * One or more `route` blocks as defined below.
      */
     public readonly routes!: pulumi.Output<outputs.appplatform.SpringCloudGatewayRouteConfigRoute[] | undefined>;
@@ -123,6 +128,7 @@ export class SpringCloudGatewayRouteConfig extends pulumi.CustomResource {
             const state = argsOrState as SpringCloudGatewayRouteConfigState | undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["openApi"] = state ? state.openApi : undefined;
+            resourceInputs["protocol"] = state ? state.protocol : undefined;
             resourceInputs["routes"] = state ? state.routes : undefined;
             resourceInputs["springCloudAppId"] = state ? state.springCloudAppId : undefined;
             resourceInputs["springCloudGatewayId"] = state ? state.springCloudGatewayId : undefined;
@@ -133,6 +139,7 @@ export class SpringCloudGatewayRouteConfig extends pulumi.CustomResource {
             }
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["openApi"] = args ? args.openApi : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
             resourceInputs["routes"] = args ? args.routes : undefined;
             resourceInputs["springCloudAppId"] = args ? args.springCloudAppId : undefined;
             resourceInputs["springCloudGatewayId"] = args ? args.springCloudGatewayId : undefined;
@@ -154,6 +161,10 @@ export interface SpringCloudGatewayRouteConfigState {
      * One or more `openApi` blocks as defined below.
      */
     openApi?: pulumi.Input<inputs.appplatform.SpringCloudGatewayRouteConfigOpenApi>;
+    /**
+     * Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+     */
+    protocol?: pulumi.Input<string>;
     /**
      * One or more `route` blocks as defined below.
      */
@@ -180,6 +191,10 @@ export interface SpringCloudGatewayRouteConfigArgs {
      * One or more `openApi` blocks as defined below.
      */
     openApi?: pulumi.Input<inputs.appplatform.SpringCloudGatewayRouteConfigOpenApi>;
+    /**
+     * Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+     */
+    protocol?: pulumi.Input<string>;
     /**
      * One or more `route` blocks as defined below.
      */

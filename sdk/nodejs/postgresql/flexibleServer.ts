@@ -101,6 +101,10 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public readonly administratorPassword!: pulumi.Output<string | undefined>;
     /**
+     * An `authentication` block as defined below.
+     */
+    public readonly authentication!: pulumi.Output<outputs.postgresql.FlexibleServerAuthentication>;
+    /**
      * The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
      */
     public readonly backupRetentionDays!: pulumi.Output<number>;
@@ -192,6 +196,7 @@ export class FlexibleServer extends pulumi.CustomResource {
             const state = argsOrState as FlexibleServerState | undefined;
             resourceInputs["administratorLogin"] = state ? state.administratorLogin : undefined;
             resourceInputs["administratorPassword"] = state ? state.administratorPassword : undefined;
+            resourceInputs["authentication"] = state ? state.authentication : undefined;
             resourceInputs["backupRetentionDays"] = state ? state.backupRetentionDays : undefined;
             resourceInputs["createMode"] = state ? state.createMode : undefined;
             resourceInputs["delegatedSubnetId"] = state ? state.delegatedSubnetId : undefined;
@@ -218,6 +223,7 @@ export class FlexibleServer extends pulumi.CustomResource {
             }
             resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
             resourceInputs["administratorPassword"] = args ? args.administratorPassword : undefined;
+            resourceInputs["authentication"] = args ? args.authentication : undefined;
             resourceInputs["backupRetentionDays"] = args ? args.backupRetentionDays : undefined;
             resourceInputs["createMode"] = args ? args.createMode : undefined;
             resourceInputs["delegatedSubnetId"] = args ? args.delegatedSubnetId : undefined;
@@ -255,6 +261,10 @@ export interface FlexibleServerState {
      * The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server. Required when `createMode` is `Default`.
      */
     administratorPassword?: pulumi.Input<string>;
+    /**
+     * An `authentication` block as defined below.
+     */
+    authentication?: pulumi.Input<inputs.postgresql.FlexibleServerAuthentication>;
     /**
      * The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
      */
@@ -345,6 +355,10 @@ export interface FlexibleServerArgs {
      * The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server. Required when `createMode` is `Default`.
      */
     administratorPassword?: pulumi.Input<string>;
+    /**
+     * An `authentication` block as defined below.
+     */
+    authentication?: pulumi.Input<inputs.postgresql.FlexibleServerAuthentication>;
     /**
      * The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
      */

@@ -126,6 +126,7 @@ import (
 type ResolverVirtualNetworkLink struct {
 	pulumi.CustomResourceState
 
+	// Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
 	DnsForwardingRulesetId pulumi.StringOutput `pulumi:"dnsForwardingRulesetId"`
 	// Metadata attached to the Private DNS Resolver Virtual Network Link.
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
@@ -170,6 +171,7 @@ func GetResolverVirtualNetworkLink(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResolverVirtualNetworkLink resources.
 type resolverVirtualNetworkLinkState struct {
+	// Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
 	DnsForwardingRulesetId *string `pulumi:"dnsForwardingRulesetId"`
 	// Metadata attached to the Private DNS Resolver Virtual Network Link.
 	Metadata map[string]string `pulumi:"metadata"`
@@ -180,6 +182,7 @@ type resolverVirtualNetworkLinkState struct {
 }
 
 type ResolverVirtualNetworkLinkState struct {
+	// Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
 	DnsForwardingRulesetId pulumi.StringPtrInput
 	// Metadata attached to the Private DNS Resolver Virtual Network Link.
 	Metadata pulumi.StringMapInput
@@ -194,6 +197,7 @@ func (ResolverVirtualNetworkLinkState) ElementType() reflect.Type {
 }
 
 type resolverVirtualNetworkLinkArgs struct {
+	// Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
 	DnsForwardingRulesetId string `pulumi:"dnsForwardingRulesetId"`
 	// Metadata attached to the Private DNS Resolver Virtual Network Link.
 	Metadata map[string]string `pulumi:"metadata"`
@@ -205,6 +209,7 @@ type resolverVirtualNetworkLinkArgs struct {
 
 // The set of arguments for constructing a ResolverVirtualNetworkLink resource.
 type ResolverVirtualNetworkLinkArgs struct {
+	// Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
 	DnsForwardingRulesetId pulumi.StringInput
 	// Metadata attached to the Private DNS Resolver Virtual Network Link.
 	Metadata pulumi.StringMapInput
@@ -301,6 +306,7 @@ func (o ResolverVirtualNetworkLinkOutput) ToResolverVirtualNetworkLinkOutputWith
 	return o
 }
 
+// Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
 func (o ResolverVirtualNetworkLinkOutput) DnsForwardingRulesetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverVirtualNetworkLink) pulumi.StringOutput { return v.DnsForwardingRulesetId }).(pulumi.StringOutput)
 }

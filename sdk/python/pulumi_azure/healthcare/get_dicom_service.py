@@ -142,13 +142,13 @@ def get_dicom_service(name: Optional[str] = None,
     import pulumi_azure as azure
 
     example = azure.healthcare.get_dicom_service(name="example-healthcare_dicom_service",
-        workspace_id="example_healthcare_workspace")
+        workspace_id=data["azurerm_healthcare_workspace"]["example"]["id"])
     pulumi.export("azurermHealthcareDicomService", example.id)
     ```
 
 
     :param str name: The name of the Healthcare DICOM Service
-    :param str workspace_id: The name of the Healthcare Workspace in which the Healthcare DICOM Service exists.
+    :param str workspace_id: The id of the Healthcare Workspace in which the Healthcare DICOM Service exists.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -182,12 +182,12 @@ def get_dicom_service_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi_azure as azure
 
     example = azure.healthcare.get_dicom_service(name="example-healthcare_dicom_service",
-        workspace_id="example_healthcare_workspace")
+        workspace_id=data["azurerm_healthcare_workspace"]["example"]["id"])
     pulumi.export("azurermHealthcareDicomService", example.id)
     ```
 
 
     :param str name: The name of the Healthcare DICOM Service
-    :param str workspace_id: The name of the Healthcare Workspace in which the Healthcare DICOM Service exists.
+    :param str workspace_id: The id of the Healthcare Workspace in which the Healthcare DICOM Service exists.
     """
     ...

@@ -14,6 +14,7 @@ __all__ = [
     'SpringCloudApiPortalSso',
     'SpringCloudAppCustomPersistentDisk',
     'SpringCloudAppIdentity',
+    'SpringCloudAppIngressSettings',
     'SpringCloudAppPersistentDisk',
     'SpringCloudBuildDeploymentQuota',
     'SpringCloudBuildPackBindingLaunch',
@@ -287,6 +288,98 @@ class SpringCloudAppIdentity(dict):
         The Tenant ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
         """
         return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class SpringCloudAppIngressSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backendProtocol":
+            suggest = "backend_protocol"
+        elif key == "readTimeoutInSeconds":
+            suggest = "read_timeout_in_seconds"
+        elif key == "sendTimeoutInSeconds":
+            suggest = "send_timeout_in_seconds"
+        elif key == "sessionAffinity":
+            suggest = "session_affinity"
+        elif key == "sessionCookieMaxAge":
+            suggest = "session_cookie_max_age"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpringCloudAppIngressSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpringCloudAppIngressSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpringCloudAppIngressSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 backend_protocol: Optional[str] = None,
+                 read_timeout_in_seconds: Optional[int] = None,
+                 send_timeout_in_seconds: Optional[int] = None,
+                 session_affinity: Optional[str] = None,
+                 session_cookie_max_age: Optional[int] = None):
+        """
+        :param str backend_protocol: Specifies how ingress should communicate with this app backend service. Allowed values are `GRPC` and `Default`. Defaults to `Default`.
+        :param int read_timeout_in_seconds: Specifies the ingress read time out in seconds. Defaults to 300.
+        :param int send_timeout_in_seconds: Specifies the ingress send time out in seconds. Defaults to 60.
+        :param str session_affinity: Specifies the type of the affinity, set this to `Cookie` to enable session affinity. Allowed values are `Cookie` and `None`. Defaults to `None`.
+        :param int session_cookie_max_age: Specifies the time in seconds until the cookie expires.
+        """
+        if backend_protocol is not None:
+            pulumi.set(__self__, "backend_protocol", backend_protocol)
+        if read_timeout_in_seconds is not None:
+            pulumi.set(__self__, "read_timeout_in_seconds", read_timeout_in_seconds)
+        if send_timeout_in_seconds is not None:
+            pulumi.set(__self__, "send_timeout_in_seconds", send_timeout_in_seconds)
+        if session_affinity is not None:
+            pulumi.set(__self__, "session_affinity", session_affinity)
+        if session_cookie_max_age is not None:
+            pulumi.set(__self__, "session_cookie_max_age", session_cookie_max_age)
+
+    @property
+    @pulumi.getter(name="backendProtocol")
+    def backend_protocol(self) -> Optional[str]:
+        """
+        Specifies how ingress should communicate with this app backend service. Allowed values are `GRPC` and `Default`. Defaults to `Default`.
+        """
+        return pulumi.get(self, "backend_protocol")
+
+    @property
+    @pulumi.getter(name="readTimeoutInSeconds")
+    def read_timeout_in_seconds(self) -> Optional[int]:
+        """
+        Specifies the ingress read time out in seconds. Defaults to 300.
+        """
+        return pulumi.get(self, "read_timeout_in_seconds")
+
+    @property
+    @pulumi.getter(name="sendTimeoutInSeconds")
+    def send_timeout_in_seconds(self) -> Optional[int]:
+        """
+        Specifies the ingress send time out in seconds. Defaults to 60.
+        """
+        return pulumi.get(self, "send_timeout_in_seconds")
+
+    @property
+    @pulumi.getter(name="sessionAffinity")
+    def session_affinity(self) -> Optional[str]:
+        """
+        Specifies the type of the affinity, set this to `Cookie` to enable session affinity. Allowed values are `Cookie` and `None`. Defaults to `None`.
+        """
+        return pulumi.get(self, "session_affinity")
+
+    @property
+    @pulumi.getter(name="sessionCookieMaxAge")
+    def session_cookie_max_age(self) -> Optional[int]:
+        """
+        Specifies the time in seconds until the cookie expires.
+        """
+        return pulumi.get(self, "session_cookie_max_age")
 
 
 @pulumi.output_type

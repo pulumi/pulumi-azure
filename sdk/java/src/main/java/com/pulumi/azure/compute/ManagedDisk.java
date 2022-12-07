@@ -559,6 +559,20 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.trustedLaunchEnabled);
     }
     /**
+     * Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="uploadSizeBytes", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> uploadSizeBytes;
+
+    /**
+     * @return Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<Integer>> uploadSizeBytes() {
+        return Codegen.optional(this.uploadSizeBytes);
+    }
+    /**
      * Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
      * 
      */

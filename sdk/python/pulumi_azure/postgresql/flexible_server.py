@@ -19,6 +19,7 @@ class FlexibleServerArgs:
                  resource_group_name: pulumi.Input[str],
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_password: Optional[pulumi.Input[str]] = None,
+                 authentication: Optional[pulumi.Input['FlexibleServerAuthenticationArgs']] = None,
                  backup_retention_days: Optional[pulumi.Input[int]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
                  delegated_subnet_id: Optional[pulumi.Input[str]] = None,
@@ -40,6 +41,7 @@ class FlexibleServerArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] administrator_login: The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default`.
+        :param pulumi.Input['FlexibleServerAuthenticationArgs'] authentication: An `authentication` block as defined below.
         :param pulumi.Input[int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
         :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] delegated_subnet_id: The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -62,6 +64,8 @@ class FlexibleServerArgs:
             pulumi.set(__self__, "administrator_login", administrator_login)
         if administrator_password is not None:
             pulumi.set(__self__, "administrator_password", administrator_password)
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
         if backup_retention_days is not None:
             pulumi.set(__self__, "backup_retention_days", backup_retention_days)
         if create_mode is not None:
@@ -130,6 +134,18 @@ class FlexibleServerArgs:
     @administrator_password.setter
     def administrator_password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "administrator_password", value)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> Optional[pulumi.Input['FlexibleServerAuthenticationArgs']]:
+        """
+        An `authentication` block as defined below.
+        """
+        return pulumi.get(self, "authentication")
+
+    @authentication.setter
+    def authentication(self, value: Optional[pulumi.Input['FlexibleServerAuthenticationArgs']]):
+        pulumi.set(self, "authentication", value)
 
     @property
     @pulumi.getter(name="backupRetentionDays")
@@ -329,6 +345,7 @@ class _FlexibleServerState:
     def __init__(__self__, *,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_password: Optional[pulumi.Input[str]] = None,
+                 authentication: Optional[pulumi.Input['FlexibleServerAuthenticationArgs']] = None,
                  backup_retention_days: Optional[pulumi.Input[int]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
                  delegated_subnet_id: Optional[pulumi.Input[str]] = None,
@@ -352,6 +369,7 @@ class _FlexibleServerState:
         Input properties used for looking up and filtering FlexibleServer resources.
         :param pulumi.Input[str] administrator_login: The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default`.
+        :param pulumi.Input['FlexibleServerAuthenticationArgs'] authentication: An `authentication` block as defined below.
         :param pulumi.Input[int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
         :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] delegated_subnet_id: The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -376,6 +394,8 @@ class _FlexibleServerState:
             pulumi.set(__self__, "administrator_login", administrator_login)
         if administrator_password is not None:
             pulumi.set(__self__, "administrator_password", administrator_password)
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
         if backup_retention_days is not None:
             pulumi.set(__self__, "backup_retention_days", backup_retention_days)
         if create_mode is not None:
@@ -438,6 +458,18 @@ class _FlexibleServerState:
     @administrator_password.setter
     def administrator_password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "administrator_password", value)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> Optional[pulumi.Input['FlexibleServerAuthenticationArgs']]:
+        """
+        An `authentication` block as defined below.
+        """
+        return pulumi.get(self, "authentication")
+
+    @authentication.setter
+    def authentication(self, value: Optional[pulumi.Input['FlexibleServerAuthenticationArgs']]):
+        pulumi.set(self, "authentication", value)
 
     @property
     @pulumi.getter(name="backupRetentionDays")
@@ -675,6 +707,7 @@ class FlexibleServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_password: Optional[pulumi.Input[str]] = None,
+                 authentication: Optional[pulumi.Input[pulumi.InputType['FlexibleServerAuthenticationArgs']]] = None,
                  backup_retention_days: Optional[pulumi.Input[int]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
                  delegated_subnet_id: Optional[pulumi.Input[str]] = None,
@@ -750,6 +783,7 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default`.
+        :param pulumi.Input[pulumi.InputType['FlexibleServerAuthenticationArgs']] authentication: An `authentication` block as defined below.
         :param pulumi.Input[int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
         :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] delegated_subnet_id: The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -844,6 +878,7 @@ class FlexibleServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_password: Optional[pulumi.Input[str]] = None,
+                 authentication: Optional[pulumi.Input[pulumi.InputType['FlexibleServerAuthenticationArgs']]] = None,
                  backup_retention_days: Optional[pulumi.Input[int]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
                  delegated_subnet_id: Optional[pulumi.Input[str]] = None,
@@ -872,6 +907,7 @@ class FlexibleServer(pulumi.CustomResource):
 
             __props__.__dict__["administrator_login"] = administrator_login
             __props__.__dict__["administrator_password"] = administrator_password
+            __props__.__dict__["authentication"] = authentication
             __props__.__dict__["backup_retention_days"] = backup_retention_days
             __props__.__dict__["create_mode"] = create_mode
             __props__.__dict__["delegated_subnet_id"] = delegated_subnet_id
@@ -905,6 +941,7 @@ class FlexibleServer(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             administrator_login: Optional[pulumi.Input[str]] = None,
             administrator_password: Optional[pulumi.Input[str]] = None,
+            authentication: Optional[pulumi.Input[pulumi.InputType['FlexibleServerAuthenticationArgs']]] = None,
             backup_retention_days: Optional[pulumi.Input[int]] = None,
             create_mode: Optional[pulumi.Input[str]] = None,
             delegated_subnet_id: Optional[pulumi.Input[str]] = None,
@@ -933,6 +970,7 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default`.
+        :param pulumi.Input[pulumi.InputType['FlexibleServerAuthenticationArgs']] authentication: An `authentication` block as defined below.
         :param pulumi.Input[int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
         :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] delegated_subnet_id: The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -959,6 +997,7 @@ class FlexibleServer(pulumi.CustomResource):
 
         __props__.__dict__["administrator_login"] = administrator_login
         __props__.__dict__["administrator_password"] = administrator_password
+        __props__.__dict__["authentication"] = authentication
         __props__.__dict__["backup_retention_days"] = backup_retention_days
         __props__.__dict__["create_mode"] = create_mode
         __props__.__dict__["delegated_subnet_id"] = delegated_subnet_id
@@ -995,6 +1034,14 @@ class FlexibleServer(pulumi.CustomResource):
         The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default`.
         """
         return pulumi.get(self, "administrator_password")
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> pulumi.Output['outputs.FlexibleServerAuthentication']:
+        """
+        An `authentication` block as defined below.
+        """
+        return pulumi.get(self, "authentication")
 
     @property
     @pulumi.getter(name="backupRetentionDays")

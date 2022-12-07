@@ -767,6 +767,121 @@ func (o GetWorkspacePrivateEndpointConnectionConnectionArrayOutput) Index(i pulu
 	}).(GetWorkspacePrivateEndpointConnectionConnectionOutput)
 }
 
+type GetWorkspaceStorageAccountIdentity struct {
+	// The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
+	PrincipalId string `pulumi:"principalId"`
+	// The UUID of the tenant where the internal databricks storage account was created.
+	TenantId string `pulumi:"tenantId"`
+	// The type of the internal databricks storage account.
+	Type string `pulumi:"type"`
+}
+
+// GetWorkspaceStorageAccountIdentityInput is an input type that accepts GetWorkspaceStorageAccountIdentityArgs and GetWorkspaceStorageAccountIdentityOutput values.
+// You can construct a concrete instance of `GetWorkspaceStorageAccountIdentityInput` via:
+//
+//	GetWorkspaceStorageAccountIdentityArgs{...}
+type GetWorkspaceStorageAccountIdentityInput interface {
+	pulumi.Input
+
+	ToGetWorkspaceStorageAccountIdentityOutput() GetWorkspaceStorageAccountIdentityOutput
+	ToGetWorkspaceStorageAccountIdentityOutputWithContext(context.Context) GetWorkspaceStorageAccountIdentityOutput
+}
+
+type GetWorkspaceStorageAccountIdentityArgs struct {
+	// The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The UUID of the tenant where the internal databricks storage account was created.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of the internal databricks storage account.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetWorkspaceStorageAccountIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWorkspaceStorageAccountIdentity)(nil)).Elem()
+}
+
+func (i GetWorkspaceStorageAccountIdentityArgs) ToGetWorkspaceStorageAccountIdentityOutput() GetWorkspaceStorageAccountIdentityOutput {
+	return i.ToGetWorkspaceStorageAccountIdentityOutputWithContext(context.Background())
+}
+
+func (i GetWorkspaceStorageAccountIdentityArgs) ToGetWorkspaceStorageAccountIdentityOutputWithContext(ctx context.Context) GetWorkspaceStorageAccountIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWorkspaceStorageAccountIdentityOutput)
+}
+
+// GetWorkspaceStorageAccountIdentityArrayInput is an input type that accepts GetWorkspaceStorageAccountIdentityArray and GetWorkspaceStorageAccountIdentityArrayOutput values.
+// You can construct a concrete instance of `GetWorkspaceStorageAccountIdentityArrayInput` via:
+//
+//	GetWorkspaceStorageAccountIdentityArray{ GetWorkspaceStorageAccountIdentityArgs{...} }
+type GetWorkspaceStorageAccountIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetWorkspaceStorageAccountIdentityArrayOutput() GetWorkspaceStorageAccountIdentityArrayOutput
+	ToGetWorkspaceStorageAccountIdentityArrayOutputWithContext(context.Context) GetWorkspaceStorageAccountIdentityArrayOutput
+}
+
+type GetWorkspaceStorageAccountIdentityArray []GetWorkspaceStorageAccountIdentityInput
+
+func (GetWorkspaceStorageAccountIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWorkspaceStorageAccountIdentity)(nil)).Elem()
+}
+
+func (i GetWorkspaceStorageAccountIdentityArray) ToGetWorkspaceStorageAccountIdentityArrayOutput() GetWorkspaceStorageAccountIdentityArrayOutput {
+	return i.ToGetWorkspaceStorageAccountIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetWorkspaceStorageAccountIdentityArray) ToGetWorkspaceStorageAccountIdentityArrayOutputWithContext(ctx context.Context) GetWorkspaceStorageAccountIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWorkspaceStorageAccountIdentityArrayOutput)
+}
+
+type GetWorkspaceStorageAccountIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetWorkspaceStorageAccountIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWorkspaceStorageAccountIdentity)(nil)).Elem()
+}
+
+func (o GetWorkspaceStorageAccountIdentityOutput) ToGetWorkspaceStorageAccountIdentityOutput() GetWorkspaceStorageAccountIdentityOutput {
+	return o
+}
+
+func (o GetWorkspaceStorageAccountIdentityOutput) ToGetWorkspaceStorageAccountIdentityOutputWithContext(ctx context.Context) GetWorkspaceStorageAccountIdentityOutput {
+	return o
+}
+
+// The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
+func (o GetWorkspaceStorageAccountIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkspaceStorageAccountIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The UUID of the tenant where the internal databricks storage account was created.
+func (o GetWorkspaceStorageAccountIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkspaceStorageAccountIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of the internal databricks storage account.
+func (o GetWorkspaceStorageAccountIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkspaceStorageAccountIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetWorkspaceStorageAccountIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWorkspaceStorageAccountIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWorkspaceStorageAccountIdentity)(nil)).Elem()
+}
+
+func (o GetWorkspaceStorageAccountIdentityArrayOutput) ToGetWorkspaceStorageAccountIdentityArrayOutput() GetWorkspaceStorageAccountIdentityArrayOutput {
+	return o
+}
+
+func (o GetWorkspaceStorageAccountIdentityArrayOutput) ToGetWorkspaceStorageAccountIdentityArrayOutputWithContext(ctx context.Context) GetWorkspaceStorageAccountIdentityArrayOutput {
+	return o
+}
+
+func (o GetWorkspaceStorageAccountIdentityArrayOutput) Index(i pulumi.IntInput) GetWorkspaceStorageAccountIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWorkspaceStorageAccountIdentity {
+		return vs[0].([]GetWorkspaceStorageAccountIdentity)[vs[1].(int)]
+	}).(GetWorkspaceStorageAccountIdentityOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessConnectorIdentityInput)(nil)).Elem(), AccessConnectorIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessConnectorIdentityPtrInput)(nil)).Elem(), AccessConnectorIdentityArgs{})
@@ -776,6 +891,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceStorageAccountIdentityArrayInput)(nil)).Elem(), WorkspaceStorageAccountIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspacePrivateEndpointConnectionConnectionInput)(nil)).Elem(), GetWorkspacePrivateEndpointConnectionConnectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspacePrivateEndpointConnectionConnectionArrayInput)(nil)).Elem(), GetWorkspacePrivateEndpointConnectionConnectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspaceStorageAccountIdentityInput)(nil)).Elem(), GetWorkspaceStorageAccountIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspaceStorageAccountIdentityArrayInput)(nil)).Elem(), GetWorkspaceStorageAccountIdentityArray{})
 	pulumi.RegisterOutputType(AccessConnectorIdentityOutput{})
 	pulumi.RegisterOutputType(AccessConnectorIdentityPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomParametersOutput{})
@@ -784,4 +901,6 @@ func init() {
 	pulumi.RegisterOutputType(WorkspaceStorageAccountIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetWorkspacePrivateEndpointConnectionConnectionOutput{})
 	pulumi.RegisterOutputType(GetWorkspacePrivateEndpointConnectionConnectionArrayOutput{})
+	pulumi.RegisterOutputType(GetWorkspaceStorageAccountIdentityOutput{})
+	pulumi.RegisterOutputType(GetWorkspaceStorageAccountIdentityArrayOutput{})
 }

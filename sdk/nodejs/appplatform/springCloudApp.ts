@@ -86,6 +86,10 @@ export class SpringCloudApp extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.appplatform.SpringCloudAppIdentity | undefined>;
     /**
+     * An `ingressSettings` block as defined below.
+     */
+    public readonly ingressSettings!: pulumi.Output<outputs.appplatform.SpringCloudAppIngressSettings>;
+    /**
      * Does the Spring Cloud Application have public endpoint? Defaults to `false`.
      */
     public readonly isPublic!: pulumi.Output<boolean | undefined>;
@@ -136,6 +140,7 @@ export class SpringCloudApp extends pulumi.CustomResource {
             resourceInputs["fqdn"] = state ? state.fqdn : undefined;
             resourceInputs["httpsOnly"] = state ? state.httpsOnly : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["ingressSettings"] = state ? state.ingressSettings : undefined;
             resourceInputs["isPublic"] = state ? state.isPublic : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["persistentDisk"] = state ? state.persistentDisk : undefined;
@@ -156,6 +161,7 @@ export class SpringCloudApp extends pulumi.CustomResource {
             resourceInputs["customPersistentDisks"] = args ? args.customPersistentDisks : undefined;
             resourceInputs["httpsOnly"] = args ? args.httpsOnly : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["ingressSettings"] = args ? args.ingressSettings : undefined;
             resourceInputs["isPublic"] = args ? args.isPublic : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["persistentDisk"] = args ? args.persistentDisk : undefined;
@@ -195,6 +201,10 @@ export interface SpringCloudAppState {
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.appplatform.SpringCloudAppIdentity>;
+    /**
+     * An `ingressSettings` block as defined below.
+     */
+    ingressSettings?: pulumi.Input<inputs.appplatform.SpringCloudAppIngressSettings>;
     /**
      * Does the Spring Cloud Application have public endpoint? Defaults to `false`.
      */
@@ -249,6 +259,10 @@ export interface SpringCloudAppArgs {
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.appplatform.SpringCloudAppIdentity>;
+    /**
+     * An `ingressSettings` block as defined below.
+     */
+    ingressSettings?: pulumi.Input<inputs.appplatform.SpringCloudAppIngressSettings>;
     /**
      * Does the Spring Cloud Application have public endpoint? Defaults to `false`.
      */

@@ -23,6 +23,7 @@ class AccountArgs:
                  custom_question_answering_search_service_key: Optional[pulumi.Input[str]] = None,
                  custom_subdomain_name: Optional[pulumi.Input[str]] = None,
                  customer_managed_key: Optional[pulumi.Input['AccountCustomerManagedKeyArgs']] = None,
+                 dynamic_throttling_enabled: Optional[pulumi.Input[bool]] = None,
                  fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
                  local_auth_enabled: Optional[pulumi.Input[bool]] = None,
@@ -47,6 +48,7 @@ class AccountArgs:
         :param pulumi.Input[str] custom_question_answering_search_service_key: If `kind` is `TextAnalytics` this specifies the key of the Search service.
         :param pulumi.Input[str] custom_subdomain_name: The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
         :param pulumi.Input['AccountCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as documented below.
+        :param pulumi.Input[bool] dynamic_throttling_enabled: Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: List of FQDNs allowed for the Cognitive Account.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`.
@@ -74,6 +76,8 @@ class AccountArgs:
             pulumi.set(__self__, "custom_subdomain_name", custom_subdomain_name)
         if customer_managed_key is not None:
             pulumi.set(__self__, "customer_managed_key", customer_managed_key)
+        if dynamic_throttling_enabled is not None:
+            pulumi.set(__self__, "dynamic_throttling_enabled", dynamic_throttling_enabled)
         if fqdns is not None:
             pulumi.set(__self__, "fqdns", fqdns)
         if identity is not None:
@@ -188,6 +192,18 @@ class AccountArgs:
     @customer_managed_key.setter
     def customer_managed_key(self, value: Optional[pulumi.Input['AccountCustomerManagedKeyArgs']]):
         pulumi.set(self, "customer_managed_key", value)
+
+    @property
+    @pulumi.getter(name="dynamicThrottlingEnabled")
+    def dynamic_throttling_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_throttling_enabled")
+
+    @dynamic_throttling_enabled.setter
+    def dynamic_throttling_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_throttling_enabled", value)
 
     @property
     @pulumi.getter
@@ -377,6 +393,7 @@ class _AccountState:
                  custom_question_answering_search_service_key: Optional[pulumi.Input[str]] = None,
                  custom_subdomain_name: Optional[pulumi.Input[str]] = None,
                  customer_managed_key: Optional[pulumi.Input['AccountCustomerManagedKeyArgs']] = None,
+                 dynamic_throttling_enabled: Optional[pulumi.Input[bool]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
                  fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
@@ -404,6 +421,7 @@ class _AccountState:
         :param pulumi.Input[str] custom_question_answering_search_service_key: If `kind` is `TextAnalytics` this specifies the key of the Search service.
         :param pulumi.Input[str] custom_subdomain_name: The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
         :param pulumi.Input['AccountCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as documented below.
+        :param pulumi.Input[bool] dynamic_throttling_enabled: Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
         :param pulumi.Input[str] endpoint: The endpoint used to connect to the Cognitive Service Account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: List of FQDNs allowed for the Cognitive Account.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
@@ -434,6 +452,8 @@ class _AccountState:
             pulumi.set(__self__, "custom_subdomain_name", custom_subdomain_name)
         if customer_managed_key is not None:
             pulumi.set(__self__, "customer_managed_key", customer_managed_key)
+        if dynamic_throttling_enabled is not None:
+            pulumi.set(__self__, "dynamic_throttling_enabled", dynamic_throttling_enabled)
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
         if fqdns is not None:
@@ -524,6 +544,18 @@ class _AccountState:
     @customer_managed_key.setter
     def customer_managed_key(self, value: Optional[pulumi.Input['AccountCustomerManagedKeyArgs']]):
         pulumi.set(self, "customer_managed_key", value)
+
+    @property
+    @pulumi.getter(name="dynamicThrottlingEnabled")
+    def dynamic_throttling_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_throttling_enabled")
+
+    @dynamic_throttling_enabled.setter
+    def dynamic_throttling_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_throttling_enabled", value)
 
     @property
     @pulumi.getter
@@ -787,6 +819,7 @@ class Account(pulumi.CustomResource):
                  custom_question_answering_search_service_key: Optional[pulumi.Input[str]] = None,
                  custom_subdomain_name: Optional[pulumi.Input[str]] = None,
                  customer_managed_key: Optional[pulumi.Input[pulumi.InputType['AccountCustomerManagedKeyArgs']]] = None,
+                 dynamic_throttling_enabled: Optional[pulumi.Input[bool]] = None,
                  fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -838,6 +871,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] custom_question_answering_search_service_key: If `kind` is `TextAnalytics` this specifies the key of the Search service.
         :param pulumi.Input[str] custom_subdomain_name: The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AccountCustomerManagedKeyArgs']] customer_managed_key: A `customer_managed_key` block as documented below.
+        :param pulumi.Input[bool] dynamic_throttling_enabled: Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: List of FQDNs allowed for the Cognitive Account.
         :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] kind: Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`, `FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `OpenAI`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
@@ -908,6 +942,7 @@ class Account(pulumi.CustomResource):
                  custom_question_answering_search_service_key: Optional[pulumi.Input[str]] = None,
                  custom_subdomain_name: Optional[pulumi.Input[str]] = None,
                  customer_managed_key: Optional[pulumi.Input[pulumi.InputType['AccountCustomerManagedKeyArgs']]] = None,
+                 dynamic_throttling_enabled: Optional[pulumi.Input[bool]] = None,
                  fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -939,6 +974,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["custom_question_answering_search_service_key"] = custom_question_answering_search_service_key
             __props__.__dict__["custom_subdomain_name"] = custom_subdomain_name
             __props__.__dict__["customer_managed_key"] = customer_managed_key
+            __props__.__dict__["dynamic_throttling_enabled"] = dynamic_throttling_enabled
             __props__.__dict__["fqdns"] = fqdns
             __props__.__dict__["identity"] = identity
             if kind is None and not opts.urn:
@@ -980,6 +1016,7 @@ class Account(pulumi.CustomResource):
             custom_question_answering_search_service_key: Optional[pulumi.Input[str]] = None,
             custom_subdomain_name: Optional[pulumi.Input[str]] = None,
             customer_managed_key: Optional[pulumi.Input[pulumi.InputType['AccountCustomerManagedKeyArgs']]] = None,
+            dynamic_throttling_enabled: Optional[pulumi.Input[bool]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
             fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
@@ -1012,6 +1049,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] custom_question_answering_search_service_key: If `kind` is `TextAnalytics` this specifies the key of the Search service.
         :param pulumi.Input[str] custom_subdomain_name: The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AccountCustomerManagedKeyArgs']] customer_managed_key: A `customer_managed_key` block as documented below.
+        :param pulumi.Input[bool] dynamic_throttling_enabled: Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
         :param pulumi.Input[str] endpoint: The endpoint used to connect to the Cognitive Service Account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: List of FQDNs allowed for the Cognitive Account.
         :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
@@ -1042,6 +1080,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["custom_question_answering_search_service_key"] = custom_question_answering_search_service_key
         __props__.__dict__["custom_subdomain_name"] = custom_subdomain_name
         __props__.__dict__["customer_managed_key"] = customer_managed_key
+        __props__.__dict__["dynamic_throttling_enabled"] = dynamic_throttling_enabled
         __props__.__dict__["endpoint"] = endpoint
         __props__.__dict__["fqdns"] = fqdns
         __props__.__dict__["identity"] = identity
@@ -1096,6 +1135,14 @@ class Account(pulumi.CustomResource):
         A `customer_managed_key` block as documented below.
         """
         return pulumi.get(self, "customer_managed_key")
+
+    @property
+    @pulumi.getter(name="dynamicThrottlingEnabled")
+    def dynamic_throttling_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_throttling_enabled")
 
     @property
     @pulumi.getter

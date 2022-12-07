@@ -112,6 +112,7 @@ __all__ = [
     'GetServiceHostnameConfigurationProxyResult',
     'GetServiceHostnameConfigurationScmResult',
     'GetServiceIdentityResult',
+    'GetServiceTenantAccessResult',
 ]
 
 @pulumi.output_type
@@ -6980,7 +6981,7 @@ class GetServiceIdentityResult(dict):
         """
         :param Sequence[str] identity_ids: The list of User Assigned Managed Identity IDs assigned to this API Management Service.
         :param str principal_id: The Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
-        :param str tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+        :param str tenant_id: The ID of the Tenant which has access to this API Management instance.
         :param str type: The type of Managed Service Identity that is configured on this API Management Service.
         """
         pulumi.set(__self__, "identity_ids", identity_ids)
@@ -7008,7 +7009,7 @@ class GetServiceIdentityResult(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> str:
         """
-        The Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+        The ID of the Tenant which has access to this API Management instance.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -7019,5 +7020,56 @@ class GetServiceIdentityResult(dict):
         The type of Managed Service Identity that is configured on this API Management Service.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetServiceTenantAccessResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 primary_key: str,
+                 secondary_key: str,
+                 tenant_id: str):
+        """
+        :param bool enabled: Is access to the Management API enabled (presumably "for this Tenant")?
+        :param str primary_key: Primary access key for the tenant access information contract.
+        :param str secondary_key: Secondary access key for the tenant access information contract.
+        :param str tenant_id: The ID of the Tenant which has access to this API Management instance.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "primary_key", primary_key)
+        pulumi.set(__self__, "secondary_key", secondary_key)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Is access to the Management API enabled (presumably "for this Tenant")?
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> str:
+        """
+        Primary access key for the tenant access information contract.
+        """
+        return pulumi.get(self, "primary_key")
+
+    @property
+    @pulumi.getter(name="secondaryKey")
+    def secondary_key(self) -> str:
+        """
+        Secondary access key for the tenant access information contract.
+        """
+        return pulumi.get(self, "secondary_key")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The ID of the Tenant which has access to this API Management instance.
+        """
+        return pulumi.get(self, "tenant_id")
 
 

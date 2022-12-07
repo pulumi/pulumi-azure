@@ -181,7 +181,7 @@ def get_fhir_service(name: Optional[str] = None,
 
     :param str name: The name of the Healthcare FHIR Service.
     :param Mapping[str, str] tags: The map of tags assigned to the Healthcare FHIR Service.
-    :param str workspace_id: The name of the Healthcare Workspace in which the Healthcare FHIR Service exists.
+    :param str workspace_id: The id of the Healthcare Workspace in which the Healthcare FHIR Service exists.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -216,6 +216,6 @@ def get_fhir_service_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: The name of the Healthcare FHIR Service.
     :param Mapping[str, str] tags: The map of tags assigned to the Healthcare FHIR Service.
-    :param str workspace_id: The name of the Healthcare Workspace in which the Healthcare FHIR Service exists.
+    :param str workspace_id: The id of the Healthcare Workspace in which the Healthcare FHIR Service exists.
     """
     ...

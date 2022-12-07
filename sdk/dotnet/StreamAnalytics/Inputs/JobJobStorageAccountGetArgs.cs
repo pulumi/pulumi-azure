@@ -25,10 +25,10 @@ namespace Pulumi.Azure.StreamAnalytics.Inputs
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The authentication mode of the storage account. Possible values are `ConnectionString`, `Msi` and `UserToken`.
+        /// The authentication mode of the storage account. The only supported value is `ConnectionString`. Defaults to `ConnectionString`.
         /// </summary>
-        [Input("authenticationMode", required: true)]
-        public Input<string> AuthenticationMode { get; set; } = null!;
+        [Input("authenticationMode")]
+        public Input<string>? AuthenticationMode { get; set; }
 
         public JobJobStorageAccountGetArgs()
         {

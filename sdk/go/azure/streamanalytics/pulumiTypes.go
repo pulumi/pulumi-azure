@@ -676,8 +676,8 @@ type JobJobStorageAccount struct {
 	AccountKey string `pulumi:"accountKey"`
 	// The name of the Azure storage account.
 	AccountName string `pulumi:"accountName"`
-	// The authentication mode of the storage account. Possible values are `ConnectionString`, `Msi` and `UserToken`.
-	AuthenticationMode string `pulumi:"authenticationMode"`
+	// The authentication mode of the storage account. The only supported value is `ConnectionString`. Defaults to `ConnectionString`.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
 }
 
 // JobJobStorageAccountInput is an input type that accepts JobJobStorageAccountArgs and JobJobStorageAccountOutput values.
@@ -696,8 +696,8 @@ type JobJobStorageAccountArgs struct {
 	AccountKey pulumi.StringInput `pulumi:"accountKey"`
 	// The name of the Azure storage account.
 	AccountName pulumi.StringInput `pulumi:"accountName"`
-	// The authentication mode of the storage account. Possible values are `ConnectionString`, `Msi` and `UserToken`.
-	AuthenticationMode pulumi.StringInput `pulumi:"authenticationMode"`
+	// The authentication mode of the storage account. The only supported value is `ConnectionString`. Defaults to `ConnectionString`.
+	AuthenticationMode pulumi.StringPtrInput `pulumi:"authenticationMode"`
 }
 
 func (JobJobStorageAccountArgs) ElementType() reflect.Type {
@@ -761,9 +761,9 @@ func (o JobJobStorageAccountOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v JobJobStorageAccount) string { return v.AccountName }).(pulumi.StringOutput)
 }
 
-// The authentication mode of the storage account. Possible values are `ConnectionString`, `Msi` and `UserToken`.
-func (o JobJobStorageAccountOutput) AuthenticationMode() pulumi.StringOutput {
-	return o.ApplyT(func(v JobJobStorageAccount) string { return v.AuthenticationMode }).(pulumi.StringOutput)
+// The authentication mode of the storage account. The only supported value is `ConnectionString`. Defaults to `ConnectionString`.
+func (o JobJobStorageAccountOutput) AuthenticationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobJobStorageAccount) *string { return v.AuthenticationMode }).(pulumi.StringPtrOutput)
 }
 
 type JobJobStorageAccountArrayOutput struct{ *pulumi.OutputState }

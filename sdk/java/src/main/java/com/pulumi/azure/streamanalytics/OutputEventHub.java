@@ -213,32 +213,32 @@ public class OutputEventHub extends com.pulumi.resources.CustomResource {
         return this.servicebusNamespace;
     }
     /**
-     * The shared access policy key for the specified shared access policy.
+     * The shared access policy key for the specified shared access policy. Required when `authentication_mode` is set to `ConnectionString`.
      * 
      */
     @Export(name="sharedAccessPolicyKey", type=String.class, parameters={})
-    private Output<String> sharedAccessPolicyKey;
+    private Output</* @Nullable */ String> sharedAccessPolicyKey;
 
     /**
-     * @return The shared access policy key for the specified shared access policy.
+     * @return The shared access policy key for the specified shared access policy. Required when `authentication_mode` is set to `ConnectionString`.
      * 
      */
-    public Output<String> sharedAccessPolicyKey() {
-        return this.sharedAccessPolicyKey;
+    public Output<Optional<String>> sharedAccessPolicyKey() {
+        return Codegen.optional(this.sharedAccessPolicyKey);
     }
     /**
-     * The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
+     * The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required when `authentication_mode` is set to `ConnectionString`.
      * 
      */
     @Export(name="sharedAccessPolicyName", type=String.class, parameters={})
-    private Output<String> sharedAccessPolicyName;
+    private Output</* @Nullable */ String> sharedAccessPolicyName;
 
     /**
-     * @return The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
+     * @return The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required when `authentication_mode` is set to `ConnectionString`.
      * 
      */
-    public Output<String> sharedAccessPolicyName() {
-        return this.sharedAccessPolicyName;
+    public Output<Optional<String>> sharedAccessPolicyName() {
+        return Codegen.optional(this.sharedAccessPolicyName);
     }
     /**
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.

@@ -68,6 +68,8 @@ type LookupWorkspaceResult struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// SKU of this Databricks Workspace.
 	Sku string `pulumi:"sku"`
+	// A `storageAccountIdentity` block as documented below.
+	StorageAccountIdentities []GetWorkspaceStorageAccountIdentity `pulumi:"storageAccountIdentities"`
 	// A mapping of tags to assign to the Databricks Workspace.
 	Tags map[string]string `pulumi:"tags"`
 	// Unique ID of this Databricks Workspace in Databricks management plane.
@@ -139,6 +141,11 @@ func (o LookupWorkspaceResultOutput) ResourceGroupName() pulumi.StringOutput {
 // SKU of this Databricks Workspace.
 func (o LookupWorkspaceResultOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Sku }).(pulumi.StringOutput)
+}
+
+// A `storageAccountIdentity` block as documented below.
+func (o LookupWorkspaceResultOutput) StorageAccountIdentities() GetWorkspaceStorageAccountIdentityArrayOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) []GetWorkspaceStorageAccountIdentity { return v.StorageAccountIdentities }).(GetWorkspaceStorageAccountIdentityArrayOutput)
 }
 
 // A mapping of tags to assign to the Databricks Workspace.

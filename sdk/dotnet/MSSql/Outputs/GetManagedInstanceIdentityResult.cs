@@ -14,26 +14,33 @@ namespace Pulumi.Azure.MSSql.Outputs
     public sealed class GetManagedInstanceIdentityResult
     {
         /// <summary>
-        /// The Principal ID associated with this Managed Service Identity.
+        /// A list of User Assigned Managed Identity IDs assigned with the Identity of this SQL Managed Instance.
+        /// </summary>
+        public readonly ImmutableArray<string> IdentityIds;
+        /// <summary>
+        /// The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
         /// </summary>
         public readonly string PrincipalId;
         /// <summary>
-        /// The Tenant ID associated with this Managed Service Identity.
+        /// The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// The identity type of this Managed Service Identity.
+        /// The identity type of the SQL Managed Instance.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetManagedInstanceIdentityResult(
+            ImmutableArray<string> identityIds,
+
             string principalId,
 
             string tenantId,
 
             string type)
         {
+            IdentityIds = identityIds;
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;

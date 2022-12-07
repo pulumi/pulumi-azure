@@ -130,6 +130,20 @@ public class Account extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.customerManagedKey);
     }
     /**
+     * Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
+     * 
+     */
+    @Export(name="dynamicThrottlingEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> dynamicThrottlingEnabled;
+
+    /**
+     * @return Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> dynamicThrottlingEnabled() {
+        return Codegen.optional(this.dynamicThrottlingEnabled);
+    }
+    /**
      * The endpoint used to connect to the Cognitive Service Account.
      * 
      */

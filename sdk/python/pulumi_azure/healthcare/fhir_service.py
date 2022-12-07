@@ -32,7 +32,7 @@ class FhirServiceArgs:
         """
         The set of arguments for constructing a FhirService resource.
         :param pulumi.Input['FhirServiceAuthenticationArgs'] authentication: An `authentication` block as defined below.
-        :param pulumi.Input[str] workspace_id: Specifies the name of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
+        :param pulumi.Input[str] workspace_id: Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] access_policy_object_ids: A list of the access policies of the service instance.
         :param pulumi.Input[str] configuration_export_storage_account_name: Specifies the name of the storage account which the operation configuration information is exported to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] container_registry_login_server_urls: A list of azure container registry settings used for convert data operation of the service instance.
@@ -92,7 +92,7 @@ class FhirServiceArgs:
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Input[str]:
         """
-        Specifies the name of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
+        Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
         """
         return pulumi.get(self, "workspace_id")
 
@@ -248,7 +248,7 @@ class _FhirServiceState:
         :param pulumi.Input[str] name: Specifies the name of the Healthcare FHIR Service. Changing this forces a new Healthcare FHIR Service to be created.
         :param pulumi.Input[Sequence[pulumi.Input['FhirServiceOciArtifactArgs']]] oci_artifacts: [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public networks access is enabled.
-        :param pulumi.Input[str] workspace_id: Specifies the name of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
+        :param pulumi.Input[str] workspace_id: Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
         """
         if access_policy_object_ids is not None:
             pulumi.set(__self__, "access_policy_object_ids", access_policy_object_ids)
@@ -433,7 +433,7 @@ class _FhirServiceState:
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
+        Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
         """
         return pulumi.get(self, "workspace_id")
 
@@ -526,7 +526,7 @@ class FhirService(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the Azure Region where the Healthcare FHIR Service should be created. Changing this forces a new Healthcare FHIR Service to be created.
         :param pulumi.Input[str] name: Specifies the name of the Healthcare FHIR Service. Changing this forces a new Healthcare FHIR Service to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FhirServiceOciArtifactArgs']]]] oci_artifacts: [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
-        :param pulumi.Input[str] workspace_id: Specifies the name of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
+        :param pulumi.Input[str] workspace_id: Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
         """
         ...
     @overload
@@ -686,7 +686,7 @@ class FhirService(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Healthcare FHIR Service. Changing this forces a new Healthcare FHIR Service to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FhirServiceOciArtifactArgs']]]] oci_artifacts: [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public networks access is enabled.
-        :param pulumi.Input[str] workspace_id: Specifies the name of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
+        :param pulumi.Input[str] workspace_id: Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -810,7 +810,7 @@ class FhirService(pulumi.CustomResource):
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
+        Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
         """
         return pulumi.get(self, "workspace_id")
 

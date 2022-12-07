@@ -70,6 +70,8 @@ type Account struct {
 	CustomSubdomainName pulumi.StringPtrOutput `pulumi:"customSubdomainName"`
 	// A `customerManagedKey` block as documented below.
 	CustomerManagedKey AccountCustomerManagedKeyTypePtrOutput `pulumi:"customerManagedKey"`
+	// Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
+	DynamicThrottlingEnabled pulumi.BoolPtrOutput `pulumi:"dynamicThrottlingEnabled"`
 	// The endpoint used to connect to the Cognitive Service Account.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// List of FQDNs allowed for the Cognitive Account.
@@ -160,6 +162,8 @@ type accountState struct {
 	CustomSubdomainName *string `pulumi:"customSubdomainName"`
 	// A `customerManagedKey` block as documented below.
 	CustomerManagedKey *AccountCustomerManagedKeyType `pulumi:"customerManagedKey"`
+	// Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
+	DynamicThrottlingEnabled *bool `pulumi:"dynamicThrottlingEnabled"`
 	// The endpoint used to connect to the Cognitive Service Account.
 	Endpoint *string `pulumi:"endpoint"`
 	// List of FQDNs allowed for the Cognitive Account.
@@ -213,6 +217,8 @@ type AccountState struct {
 	CustomSubdomainName pulumi.StringPtrInput
 	// A `customerManagedKey` block as documented below.
 	CustomerManagedKey AccountCustomerManagedKeyTypePtrInput
+	// Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
+	DynamicThrottlingEnabled pulumi.BoolPtrInput
 	// The endpoint used to connect to the Cognitive Service Account.
 	Endpoint pulumi.StringPtrInput
 	// List of FQDNs allowed for the Cognitive Account.
@@ -270,6 +276,8 @@ type accountArgs struct {
 	CustomSubdomainName *string `pulumi:"customSubdomainName"`
 	// A `customerManagedKey` block as documented below.
 	CustomerManagedKey *AccountCustomerManagedKeyType `pulumi:"customerManagedKey"`
+	// Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
+	DynamicThrottlingEnabled *bool `pulumi:"dynamicThrottlingEnabled"`
 	// List of FQDNs allowed for the Cognitive Account.
 	Fqdns []string `pulumi:"fqdns"`
 	// An `identity` block as defined below.
@@ -318,6 +326,8 @@ type AccountArgs struct {
 	CustomSubdomainName pulumi.StringPtrInput
 	// A `customerManagedKey` block as documented below.
 	CustomerManagedKey AccountCustomerManagedKeyTypePtrInput
+	// Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
+	DynamicThrottlingEnabled pulumi.BoolPtrInput
 	// List of FQDNs allowed for the Cognitive Account.
 	Fqdns pulumi.StringArrayInput
 	// An `identity` block as defined below.
@@ -461,6 +471,11 @@ func (o AccountOutput) CustomSubdomainName() pulumi.StringPtrOutput {
 // A `customerManagedKey` block as documented below.
 func (o AccountOutput) CustomerManagedKey() AccountCustomerManagedKeyTypePtrOutput {
 	return o.ApplyT(func(v *Account) AccountCustomerManagedKeyTypePtrOutput { return v.CustomerManagedKey }).(AccountCustomerManagedKeyTypePtrOutput)
+}
+
+// Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
+func (o AccountOutput) DynamicThrottlingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.DynamicThrottlingEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The endpoint used to connect to the Cognitive Service Account.

@@ -75,7 +75,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterAciConnectorLinux?> AciConnectorLinux { get; private set; } = null!;
 
         /// <summary>
-        /// The IP ranges to allow for incoming traffic to the server nodes.
+        /// Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
         /// </summary>
         [Output("apiServerAuthorizedIpRanges")]
         public Output<ImmutableArray<string>> ApiServerAuthorizedIpRanges { get; private set; } = null!;
@@ -436,7 +436,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<string>? _apiServerAuthorizedIpRanges;
 
         /// <summary>
-        /// The IP ranges to allow for incoming traffic to the server nodes.
+        /// Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
         /// </summary>
         public InputList<string> ApiServerAuthorizedIpRanges
         {
@@ -714,7 +714,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<string>? _apiServerAuthorizedIpRanges;
 
         /// <summary>
-        /// The IP ranges to allow for incoming traffic to the server nodes.
+        /// Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
         /// </summary>
         public InputList<string> ApiServerAuthorizedIpRanges
         {

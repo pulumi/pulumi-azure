@@ -45,6 +45,7 @@ class AccountArgs:
                  queue_properties: Optional[pulumi.Input['AccountQueuePropertiesArgs']] = None,
                  routing: Optional[pulumi.Input['AccountRoutingArgs']] = None,
                  sas_policy: Optional[pulumi.Input['AccountSasPolicyArgs']] = None,
+                 sftp_enabled: Optional[pulumi.Input[bool]] = None,
                  share_properties: Optional[pulumi.Input['AccountSharePropertiesArgs']] = None,
                  shared_access_key_enabled: Optional[pulumi.Input[bool]] = None,
                  static_website: Optional[pulumi.Input['AccountStaticWebsiteArgs']] = None,
@@ -143,6 +144,8 @@ class AccountArgs:
             pulumi.set(__self__, "routing", routing)
         if sas_policy is not None:
             pulumi.set(__self__, "sas_policy", sas_policy)
+        if sftp_enabled is not None:
+            pulumi.set(__self__, "sftp_enabled", sftp_enabled)
         if share_properties is not None:
             pulumi.set(__self__, "share_properties", share_properties)
         if shared_access_key_enabled is not None:
@@ -504,6 +507,15 @@ class AccountArgs:
         pulumi.set(self, "sas_policy", value)
 
     @property
+    @pulumi.getter(name="sftpEnabled")
+    def sftp_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "sftp_enabled")
+
+    @sftp_enabled.setter
+    def sftp_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "sftp_enabled", value)
+
+    @property
     @pulumi.getter(name="shareProperties")
     def share_properties(self) -> Optional[pulumi.Input['AccountSharePropertiesArgs']]:
         """
@@ -628,6 +640,7 @@ class _AccountState:
                  secondary_table_host: Optional[pulumi.Input[str]] = None,
                  secondary_web_endpoint: Optional[pulumi.Input[str]] = None,
                  secondary_web_host: Optional[pulumi.Input[str]] = None,
+                 sftp_enabled: Optional[pulumi.Input[bool]] = None,
                  share_properties: Optional[pulumi.Input['AccountSharePropertiesArgs']] = None,
                  shared_access_key_enabled: Optional[pulumi.Input[bool]] = None,
                  static_website: Optional[pulumi.Input['AccountStaticWebsiteArgs']] = None,
@@ -825,6 +838,8 @@ class _AccountState:
             pulumi.set(__self__, "secondary_web_endpoint", secondary_web_endpoint)
         if secondary_web_host is not None:
             pulumi.set(__self__, "secondary_web_host", secondary_web_host)
+        if sftp_enabled is not None:
+            pulumi.set(__self__, "sftp_enabled", sftp_enabled)
         if share_properties is not None:
             pulumi.set(__self__, "share_properties", share_properties)
         if shared_access_key_enabled is not None:
@@ -1570,6 +1585,15 @@ class _AccountState:
         pulumi.set(self, "secondary_web_host", value)
 
     @property
+    @pulumi.getter(name="sftpEnabled")
+    def sftp_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "sftp_enabled")
+
+    @sftp_enabled.setter
+    def sftp_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "sftp_enabled", value)
+
+    @property
     @pulumi.getter(name="shareProperties")
     def share_properties(self) -> Optional[pulumi.Input['AccountSharePropertiesArgs']]:
         """
@@ -1664,6 +1688,7 @@ class Account(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  routing: Optional[pulumi.Input[pulumi.InputType['AccountRoutingArgs']]] = None,
                  sas_policy: Optional[pulumi.Input[pulumi.InputType['AccountSasPolicyArgs']]] = None,
+                 sftp_enabled: Optional[pulumi.Input[bool]] = None,
                  share_properties: Optional[pulumi.Input[pulumi.InputType['AccountSharePropertiesArgs']]] = None,
                  shared_access_key_enabled: Optional[pulumi.Input[bool]] = None,
                  static_website: Optional[pulumi.Input[pulumi.InputType['AccountStaticWebsiteArgs']]] = None,
@@ -1880,6 +1905,7 @@ class Account(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  routing: Optional[pulumi.Input[pulumi.InputType['AccountRoutingArgs']]] = None,
                  sas_policy: Optional[pulumi.Input[pulumi.InputType['AccountSasPolicyArgs']]] = None,
+                 sftp_enabled: Optional[pulumi.Input[bool]] = None,
                  share_properties: Optional[pulumi.Input[pulumi.InputType['AccountSharePropertiesArgs']]] = None,
                  shared_access_key_enabled: Optional[pulumi.Input[bool]] = None,
                  static_website: Optional[pulumi.Input[pulumi.InputType['AccountStaticWebsiteArgs']]] = None,
@@ -1929,6 +1955,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["routing"] = routing
             __props__.__dict__["sas_policy"] = sas_policy
+            __props__.__dict__["sftp_enabled"] = sftp_enabled
             __props__.__dict__["share_properties"] = share_properties
             __props__.__dict__["shared_access_key_enabled"] = shared_access_key_enabled
             __props__.__dict__["static_website"] = static_website
@@ -2037,6 +2064,7 @@ class Account(pulumi.CustomResource):
             secondary_table_host: Optional[pulumi.Input[str]] = None,
             secondary_web_endpoint: Optional[pulumi.Input[str]] = None,
             secondary_web_host: Optional[pulumi.Input[str]] = None,
+            sftp_enabled: Optional[pulumi.Input[bool]] = None,
             share_properties: Optional[pulumi.Input[pulumi.InputType['AccountSharePropertiesArgs']]] = None,
             shared_access_key_enabled: Optional[pulumi.Input[bool]] = None,
             static_website: Optional[pulumi.Input[pulumi.InputType['AccountStaticWebsiteArgs']]] = None,
@@ -2182,6 +2210,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["secondary_table_host"] = secondary_table_host
         __props__.__dict__["secondary_web_endpoint"] = secondary_web_endpoint
         __props__.__dict__["secondary_web_host"] = secondary_web_host
+        __props__.__dict__["sftp_enabled"] = sftp_enabled
         __props__.__dict__["share_properties"] = share_properties
         __props__.__dict__["shared_access_key_enabled"] = shared_access_key_enabled
         __props__.__dict__["static_website"] = static_website
@@ -2677,6 +2706,11 @@ class Account(pulumi.CustomResource):
         The hostname with port if applicable for web storage in the secondary location.
         """
         return pulumi.get(self, "secondary_web_host")
+
+    @property
+    @pulumi.getter(name="sftpEnabled")
+    def sftp_enabled(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "sftp_enabled")
 
     @property
     @pulumi.getter(name="shareProperties")

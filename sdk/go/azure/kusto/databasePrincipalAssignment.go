@@ -93,7 +93,8 @@ type DatabasePrincipalAssignment struct {
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
 	// The name of the database in which to create the resource. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
-	Name         pulumi.StringOutput `pulumi:"name"`
+	// The name of the kusto principal assignment. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
 	// The object id of the principal. Changing this forces a new resource to be created.
 	PrincipalId pulumi.StringOutput `pulumi:"principalId"`
 	// The name of the principal.
@@ -164,7 +165,8 @@ type databasePrincipalAssignmentState struct {
 	ClusterName *string `pulumi:"clusterName"`
 	// The name of the database in which to create the resource. Changing this forces a new resource to be created.
 	DatabaseName *string `pulumi:"databaseName"`
-	Name         *string `pulumi:"name"`
+	// The name of the kusto principal assignment. Changing this forces a new resource to be created.
+	Name *string `pulumi:"name"`
 	// The object id of the principal. Changing this forces a new resource to be created.
 	PrincipalId *string `pulumi:"principalId"`
 	// The name of the principal.
@@ -186,7 +188,8 @@ type DatabasePrincipalAssignmentState struct {
 	ClusterName pulumi.StringPtrInput
 	// The name of the database in which to create the resource. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringPtrInput
-	Name         pulumi.StringPtrInput
+	// The name of the kusto principal assignment. Changing this forces a new resource to be created.
+	Name pulumi.StringPtrInput
 	// The object id of the principal. Changing this forces a new resource to be created.
 	PrincipalId pulumi.StringPtrInput
 	// The name of the principal.
@@ -211,8 +214,9 @@ type databasePrincipalAssignmentArgs struct {
 	// The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
 	ClusterName string `pulumi:"clusterName"`
 	// The name of the database in which to create the resource. Changing this forces a new resource to be created.
-	DatabaseName string  `pulumi:"databaseName"`
-	Name         *string `pulumi:"name"`
+	DatabaseName string `pulumi:"databaseName"`
+	// The name of the kusto principal assignment. Changing this forces a new resource to be created.
+	Name *string `pulumi:"name"`
 	// The object id of the principal. Changing this forces a new resource to be created.
 	PrincipalId string `pulumi:"principalId"`
 	// The type of the principal. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created.
@@ -231,7 +235,8 @@ type DatabasePrincipalAssignmentArgs struct {
 	ClusterName pulumi.StringInput
 	// The name of the database in which to create the resource. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput
-	Name         pulumi.StringPtrInput
+	// The name of the kusto principal assignment. Changing this forces a new resource to be created.
+	Name pulumi.StringPtrInput
 	// The object id of the principal. Changing this forces a new resource to be created.
 	PrincipalId pulumi.StringInput
 	// The type of the principal. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created.
@@ -341,6 +346,7 @@ func (o DatabasePrincipalAssignmentOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DatabasePrincipalAssignment) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
+// The name of the kusto principal assignment. Changing this forces a new resource to be created.
 func (o DatabasePrincipalAssignmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DatabasePrincipalAssignment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

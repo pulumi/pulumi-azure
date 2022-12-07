@@ -85,6 +85,9 @@ export class DatabasePrincipalAssignment extends pulumi.CustomResource {
      * The name of the database in which to create the resource. Changing this forces a new resource to be created.
      */
     public readonly databaseName!: pulumi.Output<string>;
+    /**
+     * The name of the kusto principal assignment. Changing this forces a new resource to be created.
+     */
     public readonly name!: pulumi.Output<string>;
     /**
      * The object id of the principal. Changing this forces a new resource to be created.
@@ -189,6 +192,9 @@ export interface DatabasePrincipalAssignmentState {
      * The name of the database in which to create the resource. Changing this forces a new resource to be created.
      */
     databaseName?: pulumi.Input<string>;
+    /**
+     * The name of the kusto principal assignment. Changing this forces a new resource to be created.
+     */
     name?: pulumi.Input<string>;
     /**
      * The object id of the principal. Changing this forces a new resource to be created.
@@ -232,6 +238,9 @@ export interface DatabasePrincipalAssignmentArgs {
      * The name of the database in which to create the resource. Changing this forces a new resource to be created.
      */
     databaseName: pulumi.Input<string>;
+    /**
+     * The name of the kusto principal assignment. Changing this forces a new resource to be created.
+     */
     name?: pulumi.Input<string>;
     /**
      * The object id of the principal. Changing this forces a new resource to be created.

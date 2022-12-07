@@ -10,12 +10,77 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'FlexibleServerAuthentication',
     'FlexibleServerHighAvailability',
     'FlexibleServerMaintenanceWindow',
     'ServerIdentity',
     'ServerThreatDetectionPolicy',
     'GetServerIdentityResult',
 ]
+
+@pulumi.output_type
+class FlexibleServerAuthentication(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activeDirectoryAuthEnabled":
+            suggest = "active_directory_auth_enabled"
+        elif key == "passwordAuthEnabled":
+            suggest = "password_auth_enabled"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlexibleServerAuthentication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlexibleServerAuthentication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlexibleServerAuthentication.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 active_directory_auth_enabled: Optional[bool] = None,
+                 password_auth_enabled: Optional[bool] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        :param bool active_directory_auth_enabled: Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server.
+        :param bool password_auth_enabled: Whether or not password authentication is allowed to access the PostgreSQL Flexible Server.
+        :param str tenant_id: The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `active_directory_auth_enabled` must be set to `true`.
+        """
+        if active_directory_auth_enabled is not None:
+            pulumi.set(__self__, "active_directory_auth_enabled", active_directory_auth_enabled)
+        if password_auth_enabled is not None:
+            pulumi.set(__self__, "password_auth_enabled", password_auth_enabled)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="activeDirectoryAuthEnabled")
+    def active_directory_auth_enabled(self) -> Optional[bool]:
+        """
+        Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server.
+        """
+        return pulumi.get(self, "active_directory_auth_enabled")
+
+    @property
+    @pulumi.getter(name="passwordAuthEnabled")
+    def password_auth_enabled(self) -> Optional[bool]:
+        """
+        Whether or not password authentication is allowed to access the PostgreSQL Flexible Server.
+        """
+        return pulumi.get(self, "password_auth_enabled")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `active_directory_auth_enabled` must be set to `true`.
+        """
+        return pulumi.get(self, "tenant_id")
+
 
 @pulumi.output_type
 class FlexibleServerHighAvailability(dict):

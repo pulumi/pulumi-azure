@@ -26,7 +26,7 @@ type LookupFhirServiceArgs struct {
 	Name string `pulumi:"name"`
 	// The map of tags assigned to the Healthcare FHIR Service.
 	Tags map[string]string `pulumi:"tags"`
-	// The name of the Healthcare Workspace in which the Healthcare FHIR Service exists.
+	// The id of the Healthcare Workspace in which the Healthcare FHIR Service exists.
 	WorkspaceId string `pulumi:"workspaceId"`
 }
 
@@ -75,7 +75,7 @@ type LookupFhirServiceOutputArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The map of tags assigned to the Healthcare FHIR Service.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The name of the Healthcare Workspace in which the Healthcare FHIR Service exists.
+	// The id of the Healthcare Workspace in which the Healthcare FHIR Service exists.
 	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
 }
 

@@ -1843,11 +1843,13 @@ func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) Mo
 }
 
 type ManagedInstanceIdentity struct {
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
+	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
 	TenantId *string `pulumi:"tenantId"`
-	// The identity type of the SQL Managed Instance. The only possible value is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -1863,11 +1865,13 @@ type ManagedInstanceIdentityInput interface {
 }
 
 type ManagedInstanceIdentityArgs struct {
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The identity type of the SQL Managed Instance. The only possible value is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1948,6 +1952,11 @@ func (o ManagedInstanceIdentityOutput) ToManagedInstanceIdentityPtrOutputWithCon
 	}).(ManagedInstanceIdentityPtrOutput)
 }
 
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
+func (o ManagedInstanceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedInstanceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
 // The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
 func (o ManagedInstanceIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedInstanceIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
@@ -1958,7 +1967,7 @@ func (o ManagedInstanceIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedInstanceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The identity type of the SQL Managed Instance. The only possible value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`.
 func (o ManagedInstanceIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedInstanceIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1987,6 +1996,16 @@ func (o ManagedInstanceIdentityPtrOutput) Elem() ManagedInstanceIdentityOutput {
 	}).(ManagedInstanceIdentityOutput)
 }
 
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
+func (o ManagedInstanceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ManagedInstanceIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
 // The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
 func (o ManagedInstanceIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedInstanceIdentity) *string {
@@ -2007,7 +2026,7 @@ func (o ManagedInstanceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity type of the SQL Managed Instance. The only possible value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`.
 func (o ManagedInstanceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedInstanceIdentity) *string {
 		if v == nil {
@@ -5115,11 +5134,13 @@ func (o GetElasticPoolSkusArrayOutput) Index(i pulumi.IntInput) GetElasticPoolSk
 }
 
 type GetManagedInstanceIdentity struct {
-	// The Principal ID associated with this Managed Service Identity.
+	// A list of User Assigned Managed Identity IDs assigned with the Identity of this SQL Managed Instance.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
 	PrincipalId string `pulumi:"principalId"`
-	// The Tenant ID associated with this Managed Service Identity.
+	// The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
 	TenantId string `pulumi:"tenantId"`
-	// The identity type of this Managed Service Identity.
+	// The identity type of the SQL Managed Instance.
 	Type string `pulumi:"type"`
 }
 
@@ -5135,11 +5156,13 @@ type GetManagedInstanceIdentityInput interface {
 }
 
 type GetManagedInstanceIdentityArgs struct {
-	// The Principal ID associated with this Managed Service Identity.
+	// A list of User Assigned Managed Identity IDs assigned with the Identity of this SQL Managed Instance.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The Tenant ID associated with this Managed Service Identity.
+	// The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The identity type of this Managed Service Identity.
+	// The identity type of the SQL Managed Instance.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -5194,17 +5217,22 @@ func (o GetManagedInstanceIdentityOutput) ToGetManagedInstanceIdentityOutputWith
 	return o
 }
 
-// The Principal ID associated with this Managed Service Identity.
+// A list of User Assigned Managed Identity IDs assigned with the Identity of this SQL Managed Instance.
+func (o GetManagedInstanceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetManagedInstanceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
 func (o GetManagedInstanceIdentityOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetManagedInstanceIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The Tenant ID associated with this Managed Service Identity.
+// The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
 func (o GetManagedInstanceIdentityOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetManagedInstanceIdentity) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The identity type of this Managed Service Identity.
+// The identity type of the SQL Managed Instance.
 func (o GetManagedInstanceIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetManagedInstanceIdentity) string { return v.Type }).(pulumi.StringOutput)
 }

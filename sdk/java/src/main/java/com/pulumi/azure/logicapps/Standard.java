@@ -81,6 +81,10 @@ import javax.annotation.Nullable;
  *             .appServicePlanId(examplePlan.id())
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
+ *             .appSettings(Map.ofEntries(
+ *                 Map.entry(&#34;FUNCTIONS_WORKER_RUNTIME&#34;, &#34;node&#34;),
+ *                 Map.entry(&#34;WEBSITE_NODE_DEFAULT_VERSION&#34;, &#34;~18&#34;)
+ *             ))
  *             .build());
  * 
  *     }

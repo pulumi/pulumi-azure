@@ -113,7 +113,7 @@ def get_public_i_ps(allocation_type: Optional[str] = None,
 
 
     :param str allocation_type: The Allocation Type for the Public IP Address. Possible values include `Static` or `Dynamic`.
-    :param str attachment_status: Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`). To allow for both, use `All`.
+    :param str attachment_status: Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`).
     :param str name_prefix: A prefix match used for the IP Addresses `name` field, case sensitive.
     :param str resource_group_name: Specifies the name of the resource group.
     """
@@ -155,7 +155,7 @@ def get_public_i_ps_output(allocation_type: Optional[pulumi.Input[Optional[str]]
 
 
     :param str allocation_type: The Allocation Type for the Public IP Address. Possible values include `Static` or `Dynamic`.
-    :param str attachment_status: Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`). To allow for both, use `All`.
+    :param str attachment_status: Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`).
     :param str name_prefix: A prefix match used for the IP Addresses `name` field, case sensitive.
     :param str resource_group_name: Specifies the name of the resource group.
     """

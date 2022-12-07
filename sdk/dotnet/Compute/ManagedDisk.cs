@@ -284,6 +284,12 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> TrustedLaunchEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("uploadSizeBytes")]
+        public Output<int?> UploadSizeBytes { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
         /// </summary>
         [Output("zone")]
@@ -528,6 +534,12 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? TrustedLaunchEnabled { get; set; }
 
         /// <summary>
+        /// Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("uploadSizeBytes")]
+        public Input<int>? UploadSizeBytes { get; set; }
+
+        /// <summary>
         /// Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
         /// </summary>
         [Input("zone")]
@@ -732,6 +744,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("trustedLaunchEnabled")]
         public Input<bool>? TrustedLaunchEnabled { get; set; }
+
+        /// <summary>
+        /// Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("uploadSizeBytes")]
+        public Input<int>? UploadSizeBytes { get; set; }
 
         /// <summary>
         /// Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.

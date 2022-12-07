@@ -120,7 +120,7 @@ type Cache struct {
 	PrimaryAccessKey pulumi.StringOutput `pulumi:"primaryAccessKey"`
 	// The primary connection string of the Redis Instance.
 	PrimaryConnectionString pulumi.StringOutput `pulumi:"primaryConnectionString"`
-	// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
+	// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnetId`. Changing this forces a new resource to be created.
 	PrivateStaticIpAddress pulumi.StringOutput `pulumi:"privateStaticIpAddress"`
 	// Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
@@ -221,7 +221,7 @@ type cacheState struct {
 	PrimaryAccessKey *string `pulumi:"primaryAccessKey"`
 	// The primary connection string of the Redis Instance.
 	PrimaryConnectionString *string `pulumi:"primaryConnectionString"`
-	// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
+	// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnetId`. Changing this forces a new resource to be created.
 	PrivateStaticIpAddress *string `pulumi:"privateStaticIpAddress"`
 	// Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
@@ -282,7 +282,7 @@ type CacheState struct {
 	PrimaryAccessKey pulumi.StringPtrInput
 	// The primary connection string of the Redis Instance.
 	PrimaryConnectionString pulumi.StringPtrInput
-	// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
+	// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnetId`. Changing this forces a new resource to be created.
 	PrivateStaticIpAddress pulumi.StringPtrInput
 	// Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
@@ -339,7 +339,7 @@ type cacheArgs struct {
 	Name *string `pulumi:"name"`
 	// A list of `patchSchedule` blocks as defined below.
 	PatchSchedules []CachePatchSchedule `pulumi:"patchSchedules"`
-	// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
+	// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnetId`. Changing this forces a new resource to be created.
 	PrivateStaticIpAddress *string `pulumi:"privateStaticIpAddress"`
 	// Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
@@ -387,7 +387,7 @@ type CacheArgs struct {
 	Name pulumi.StringPtrInput
 	// A list of `patchSchedule` blocks as defined below.
 	PatchSchedules CachePatchScheduleArrayInput
-	// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
+	// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnetId`. Changing this forces a new resource to be created.
 	PrivateStaticIpAddress pulumi.StringPtrInput
 	// Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
@@ -564,7 +564,7 @@ func (o CacheOutput) PrimaryConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cache) pulumi.StringOutput { return v.PrimaryConnectionString }).(pulumi.StringOutput)
 }
 
-// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
+// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnetId`. Changing this forces a new resource to be created.
 func (o CacheOutput) PrivateStaticIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cache) pulumi.StringOutput { return v.PrivateStaticIpAddress }).(pulumi.StringOutput)
 }

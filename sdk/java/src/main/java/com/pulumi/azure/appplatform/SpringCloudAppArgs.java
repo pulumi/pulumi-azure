@@ -5,6 +5,7 @@ package com.pulumi.azure.appplatform;
 
 import com.pulumi.azure.appplatform.inputs.SpringCloudAppCustomPersistentDiskArgs;
 import com.pulumi.azure.appplatform.inputs.SpringCloudAppIdentityArgs;
+import com.pulumi.azure.appplatform.inputs.SpringCloudAppIngressSettingsArgs;
 import com.pulumi.azure.appplatform.inputs.SpringCloudAppPersistentDiskArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -78,6 +79,21 @@ public final class SpringCloudAppArgs extends com.pulumi.resources.ResourceArgs 
      */
     public Optional<Output<SpringCloudAppIdentityArgs>> identity() {
         return Optional.ofNullable(this.identity);
+    }
+
+    /**
+     * An `ingress_settings` block as defined below.
+     * 
+     */
+    @Import(name="ingressSettings")
+    private @Nullable Output<SpringCloudAppIngressSettingsArgs> ingressSettings;
+
+    /**
+     * @return An `ingress_settings` block as defined below.
+     * 
+     */
+    public Optional<Output<SpringCloudAppIngressSettingsArgs>> ingressSettings() {
+        return Optional.ofNullable(this.ingressSettings);
     }
 
     /**
@@ -192,6 +208,7 @@ public final class SpringCloudAppArgs extends com.pulumi.resources.ResourceArgs 
         this.customPersistentDisks = $.customPersistentDisks;
         this.httpsOnly = $.httpsOnly;
         this.identity = $.identity;
+        this.ingressSettings = $.ingressSettings;
         this.isPublic = $.isPublic;
         this.name = $.name;
         this.persistentDisk = $.persistentDisk;
@@ -311,6 +328,27 @@ public final class SpringCloudAppArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder identity(SpringCloudAppIdentityArgs identity) {
             return identity(Output.of(identity));
+        }
+
+        /**
+         * @param ingressSettings An `ingress_settings` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ingressSettings(@Nullable Output<SpringCloudAppIngressSettingsArgs> ingressSettings) {
+            $.ingressSettings = ingressSettings;
+            return this;
+        }
+
+        /**
+         * @param ingressSettings An `ingress_settings` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ingressSettings(SpringCloudAppIngressSettingsArgs ingressSettings) {
+            return ingressSettings(Output.of(ingressSettings));
         }
 
         /**

@@ -35,7 +35,7 @@ export interface GetFhirServiceArgs {
      */
     tags?: {[key: string]: string};
     /**
-     * The name of the Healthcare Workspace in which the Healthcare FHIR Service exists.
+     * The id of the Healthcare Workspace in which the Healthcare FHIR Service exists.
      */
     workspaceId: string;
 }
@@ -105,7 +105,7 @@ export interface GetFhirServiceOutputArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The name of the Healthcare Workspace in which the Healthcare FHIR Service exists.
+     * The id of the Healthcare Workspace in which the Healthcare FHIR Service exists.
      */
     workspaceId: pulumi.Input<string>;
 }

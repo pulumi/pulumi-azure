@@ -531,6 +531,219 @@ func (o SpringCloudAppIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type SpringCloudAppIngressSettings struct {
+	// Specifies how ingress should communicate with this app backend service. Allowed values are `GRPC` and `Default`. Defaults to `Default`.
+	BackendProtocol *string `pulumi:"backendProtocol"`
+	// Specifies the ingress read time out in seconds. Defaults to 300.
+	ReadTimeoutInSeconds *int `pulumi:"readTimeoutInSeconds"`
+	// Specifies the ingress send time out in seconds. Defaults to 60.
+	SendTimeoutInSeconds *int `pulumi:"sendTimeoutInSeconds"`
+	// Specifies the type of the affinity, set this to `Cookie` to enable session affinity. Allowed values are `Cookie` and `None`. Defaults to `None`.
+	SessionAffinity *string `pulumi:"sessionAffinity"`
+	// Specifies the time in seconds until the cookie expires.
+	SessionCookieMaxAge *int `pulumi:"sessionCookieMaxAge"`
+}
+
+// SpringCloudAppIngressSettingsInput is an input type that accepts SpringCloudAppIngressSettingsArgs and SpringCloudAppIngressSettingsOutput values.
+// You can construct a concrete instance of `SpringCloudAppIngressSettingsInput` via:
+//
+//	SpringCloudAppIngressSettingsArgs{...}
+type SpringCloudAppIngressSettingsInput interface {
+	pulumi.Input
+
+	ToSpringCloudAppIngressSettingsOutput() SpringCloudAppIngressSettingsOutput
+	ToSpringCloudAppIngressSettingsOutputWithContext(context.Context) SpringCloudAppIngressSettingsOutput
+}
+
+type SpringCloudAppIngressSettingsArgs struct {
+	// Specifies how ingress should communicate with this app backend service. Allowed values are `GRPC` and `Default`. Defaults to `Default`.
+	BackendProtocol pulumi.StringPtrInput `pulumi:"backendProtocol"`
+	// Specifies the ingress read time out in seconds. Defaults to 300.
+	ReadTimeoutInSeconds pulumi.IntPtrInput `pulumi:"readTimeoutInSeconds"`
+	// Specifies the ingress send time out in seconds. Defaults to 60.
+	SendTimeoutInSeconds pulumi.IntPtrInput `pulumi:"sendTimeoutInSeconds"`
+	// Specifies the type of the affinity, set this to `Cookie` to enable session affinity. Allowed values are `Cookie` and `None`. Defaults to `None`.
+	SessionAffinity pulumi.StringPtrInput `pulumi:"sessionAffinity"`
+	// Specifies the time in seconds until the cookie expires.
+	SessionCookieMaxAge pulumi.IntPtrInput `pulumi:"sessionCookieMaxAge"`
+}
+
+func (SpringCloudAppIngressSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudAppIngressSettings)(nil)).Elem()
+}
+
+func (i SpringCloudAppIngressSettingsArgs) ToSpringCloudAppIngressSettingsOutput() SpringCloudAppIngressSettingsOutput {
+	return i.ToSpringCloudAppIngressSettingsOutputWithContext(context.Background())
+}
+
+func (i SpringCloudAppIngressSettingsArgs) ToSpringCloudAppIngressSettingsOutputWithContext(ctx context.Context) SpringCloudAppIngressSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppIngressSettingsOutput)
+}
+
+func (i SpringCloudAppIngressSettingsArgs) ToSpringCloudAppIngressSettingsPtrOutput() SpringCloudAppIngressSettingsPtrOutput {
+	return i.ToSpringCloudAppIngressSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i SpringCloudAppIngressSettingsArgs) ToSpringCloudAppIngressSettingsPtrOutputWithContext(ctx context.Context) SpringCloudAppIngressSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppIngressSettingsOutput).ToSpringCloudAppIngressSettingsPtrOutputWithContext(ctx)
+}
+
+// SpringCloudAppIngressSettingsPtrInput is an input type that accepts SpringCloudAppIngressSettingsArgs, SpringCloudAppIngressSettingsPtr and SpringCloudAppIngressSettingsPtrOutput values.
+// You can construct a concrete instance of `SpringCloudAppIngressSettingsPtrInput` via:
+//
+//	        SpringCloudAppIngressSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpringCloudAppIngressSettingsPtrInput interface {
+	pulumi.Input
+
+	ToSpringCloudAppIngressSettingsPtrOutput() SpringCloudAppIngressSettingsPtrOutput
+	ToSpringCloudAppIngressSettingsPtrOutputWithContext(context.Context) SpringCloudAppIngressSettingsPtrOutput
+}
+
+type springCloudAppIngressSettingsPtrType SpringCloudAppIngressSettingsArgs
+
+func SpringCloudAppIngressSettingsPtr(v *SpringCloudAppIngressSettingsArgs) SpringCloudAppIngressSettingsPtrInput {
+	return (*springCloudAppIngressSettingsPtrType)(v)
+}
+
+func (*springCloudAppIngressSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudAppIngressSettings)(nil)).Elem()
+}
+
+func (i *springCloudAppIngressSettingsPtrType) ToSpringCloudAppIngressSettingsPtrOutput() SpringCloudAppIngressSettingsPtrOutput {
+	return i.ToSpringCloudAppIngressSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *springCloudAppIngressSettingsPtrType) ToSpringCloudAppIngressSettingsPtrOutputWithContext(ctx context.Context) SpringCloudAppIngressSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppIngressSettingsPtrOutput)
+}
+
+type SpringCloudAppIngressSettingsOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudAppIngressSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudAppIngressSettings)(nil)).Elem()
+}
+
+func (o SpringCloudAppIngressSettingsOutput) ToSpringCloudAppIngressSettingsOutput() SpringCloudAppIngressSettingsOutput {
+	return o
+}
+
+func (o SpringCloudAppIngressSettingsOutput) ToSpringCloudAppIngressSettingsOutputWithContext(ctx context.Context) SpringCloudAppIngressSettingsOutput {
+	return o
+}
+
+func (o SpringCloudAppIngressSettingsOutput) ToSpringCloudAppIngressSettingsPtrOutput() SpringCloudAppIngressSettingsPtrOutput {
+	return o.ToSpringCloudAppIngressSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o SpringCloudAppIngressSettingsOutput) ToSpringCloudAppIngressSettingsPtrOutputWithContext(ctx context.Context) SpringCloudAppIngressSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudAppIngressSettings) *SpringCloudAppIngressSettings {
+		return &v
+	}).(SpringCloudAppIngressSettingsPtrOutput)
+}
+
+// Specifies how ingress should communicate with this app backend service. Allowed values are `GRPC` and `Default`. Defaults to `Default`.
+func (o SpringCloudAppIngressSettingsOutput) BackendProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudAppIngressSettings) *string { return v.BackendProtocol }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the ingress read time out in seconds. Defaults to 300.
+func (o SpringCloudAppIngressSettingsOutput) ReadTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpringCloudAppIngressSettings) *int { return v.ReadTimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the ingress send time out in seconds. Defaults to 60.
+func (o SpringCloudAppIngressSettingsOutput) SendTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpringCloudAppIngressSettings) *int { return v.SendTimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the type of the affinity, set this to `Cookie` to enable session affinity. Allowed values are `Cookie` and `None`. Defaults to `None`.
+func (o SpringCloudAppIngressSettingsOutput) SessionAffinity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudAppIngressSettings) *string { return v.SessionAffinity }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the time in seconds until the cookie expires.
+func (o SpringCloudAppIngressSettingsOutput) SessionCookieMaxAge() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpringCloudAppIngressSettings) *int { return v.SessionCookieMaxAge }).(pulumi.IntPtrOutput)
+}
+
+type SpringCloudAppIngressSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudAppIngressSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudAppIngressSettings)(nil)).Elem()
+}
+
+func (o SpringCloudAppIngressSettingsPtrOutput) ToSpringCloudAppIngressSettingsPtrOutput() SpringCloudAppIngressSettingsPtrOutput {
+	return o
+}
+
+func (o SpringCloudAppIngressSettingsPtrOutput) ToSpringCloudAppIngressSettingsPtrOutputWithContext(ctx context.Context) SpringCloudAppIngressSettingsPtrOutput {
+	return o
+}
+
+func (o SpringCloudAppIngressSettingsPtrOutput) Elem() SpringCloudAppIngressSettingsOutput {
+	return o.ApplyT(func(v *SpringCloudAppIngressSettings) SpringCloudAppIngressSettings {
+		if v != nil {
+			return *v
+		}
+		var ret SpringCloudAppIngressSettings
+		return ret
+	}).(SpringCloudAppIngressSettingsOutput)
+}
+
+// Specifies how ingress should communicate with this app backend service. Allowed values are `GRPC` and `Default`. Defaults to `Default`.
+func (o SpringCloudAppIngressSettingsPtrOutput) BackendProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudAppIngressSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BackendProtocol
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the ingress read time out in seconds. Defaults to 300.
+func (o SpringCloudAppIngressSettingsPtrOutput) ReadTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpringCloudAppIngressSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ReadTimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the ingress send time out in seconds. Defaults to 60.
+func (o SpringCloudAppIngressSettingsPtrOutput) SendTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpringCloudAppIngressSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SendTimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the type of the affinity, set this to `Cookie` to enable session affinity. Allowed values are `Cookie` and `None`. Defaults to `None`.
+func (o SpringCloudAppIngressSettingsPtrOutput) SessionAffinity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudAppIngressSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SessionAffinity
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the time in seconds until the cookie expires.
+func (o SpringCloudAppIngressSettingsPtrOutput) SessionCookieMaxAge() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpringCloudAppIngressSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SessionCookieMaxAge
+	}).(pulumi.IntPtrOutput)
+}
+
 type SpringCloudAppPersistentDisk struct {
 	// Specifies the mount path of the persistent disk. Defaults to `/persistent`.
 	MountPath *string `pulumi:"mountPath"`
@@ -5857,6 +6070,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppCustomPersistentDiskArrayInput)(nil)).Elem(), SpringCloudAppCustomPersistentDiskArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppIdentityInput)(nil)).Elem(), SpringCloudAppIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppIdentityPtrInput)(nil)).Elem(), SpringCloudAppIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppIngressSettingsInput)(nil)).Elem(), SpringCloudAppIngressSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppIngressSettingsPtrInput)(nil)).Elem(), SpringCloudAppIngressSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppPersistentDiskInput)(nil)).Elem(), SpringCloudAppPersistentDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppPersistentDiskPtrInput)(nil)).Elem(), SpringCloudAppPersistentDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudBuildDeploymentQuotaInput)(nil)).Elem(), SpringCloudBuildDeploymentQuotaArgs{})
@@ -5929,6 +6144,8 @@ func init() {
 	pulumi.RegisterOutputType(SpringCloudAppCustomPersistentDiskArrayOutput{})
 	pulumi.RegisterOutputType(SpringCloudAppIdentityOutput{})
 	pulumi.RegisterOutputType(SpringCloudAppIdentityPtrOutput{})
+	pulumi.RegisterOutputType(SpringCloudAppIngressSettingsOutput{})
+	pulumi.RegisterOutputType(SpringCloudAppIngressSettingsPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudAppPersistentDiskOutput{})
 	pulumi.RegisterOutputType(SpringCloudAppPersistentDiskPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudBuildDeploymentQuotaOutput{})

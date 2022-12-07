@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Network
         public string? AllocationType { get; set; }
 
         /// <summary>
-        /// Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`). To allow for both, use `All`.
+        /// Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`).
         /// </summary>
         [Input("attachmentStatus")]
         public string? AttachmentStatus { get; set; }
@@ -110,7 +110,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? AllocationType { get; set; }
 
         /// <summary>
-        /// Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`). To allow for both, use `All`.
+        /// Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`).
         /// </summary>
         [Input("attachmentStatus")]
         public Input<string>? AttachmentStatus { get; set; }

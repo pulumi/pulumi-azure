@@ -157,7 +157,7 @@ namespace Pulumi.Azure.Redis
         public Output<string> PrimaryConnectionString { get; private set; } = null!;
 
         /// <summary>
-        /// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
+        /// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("privateStaticIpAddress")]
         public Output<string> PrivateStaticIpAddress { get; private set; } = null!;
@@ -355,7 +355,7 @@ namespace Pulumi.Azure.Redis
         }
 
         /// <summary>
-        /// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
+        /// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("privateStaticIpAddress")]
         public Input<string>? PrivateStaticIpAddress { get; set; }
@@ -539,7 +539,7 @@ namespace Pulumi.Azure.Redis
         public Input<string>? PrimaryConnectionString { get; set; }
 
         /// <summary>
-        /// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
+        /// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("privateStaticIpAddress")]
         public Input<string>? PrivateStaticIpAddress { get; set; }

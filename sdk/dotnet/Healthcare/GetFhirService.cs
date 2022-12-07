@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Healthcare
         }
 
         /// <summary>
-        /// The name of the Healthcare Workspace in which the Healthcare FHIR Service exists.
+        /// The id of the Healthcare Workspace in which the Healthcare FHIR Service exists.
         /// </summary>
         [Input("workspaceId", required: true)]
         public string WorkspaceId { get; set; } = null!;
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Healthcare
         }
 
         /// <summary>
-        /// The name of the Healthcare Workspace in which the Healthcare FHIR Service exists.
+        /// The id of the Healthcare Workspace in which the Healthcare FHIR Service exists.
         /// </summary>
         [Input("workspaceId", required: true)]
         public Input<string> WorkspaceId { get; set; } = null!;

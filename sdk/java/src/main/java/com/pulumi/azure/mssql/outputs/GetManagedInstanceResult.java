@@ -24,6 +24,7 @@ public final class GetManagedInstanceResult {
      * 
      */
     private String collation;
+    private String customerManagedKeyId;
     /**
      * @return The ID of the SQL Managed Instance which shares the DNS zone.
      * 
@@ -121,6 +122,9 @@ public final class GetManagedInstanceResult {
      */
     public String collation() {
         return this.collation;
+    }
+    public String customerManagedKeyId() {
+        return this.customerManagedKeyId;
     }
     /**
      * @return The ID of the SQL Managed Instance which shares the DNS zone.
@@ -252,6 +256,7 @@ public final class GetManagedInstanceResult {
     public static final class Builder {
         private String administratorLogin;
         private String collation;
+        private String customerManagedKeyId;
         private String dnsZonePartnerId;
         private String fqdn;
         private String id;
@@ -275,6 +280,7 @@ public final class GetManagedInstanceResult {
     	      Objects.requireNonNull(defaults);
     	      this.administratorLogin = defaults.administratorLogin;
     	      this.collation = defaults.collation;
+    	      this.customerManagedKeyId = defaults.customerManagedKeyId;
     	      this.dnsZonePartnerId = defaults.dnsZonePartnerId;
     	      this.fqdn = defaults.fqdn;
     	      this.id = defaults.id;
@@ -303,6 +309,11 @@ public final class GetManagedInstanceResult {
         @CustomType.Setter
         public Builder collation(String collation) {
             this.collation = Objects.requireNonNull(collation);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder customerManagedKeyId(String customerManagedKeyId) {
+            this.customerManagedKeyId = Objects.requireNonNull(customerManagedKeyId);
             return this;
         }
         @CustomType.Setter
@@ -402,6 +413,7 @@ public final class GetManagedInstanceResult {
             final var o = new GetManagedInstanceResult();
             o.administratorLogin = administratorLogin;
             o.collation = collation;
+            o.customerManagedKeyId = customerManagedKeyId;
             o.dnsZonePartnerId = dnsZonePartnerId;
             o.fqdn = fqdn;
             o.id = id;

@@ -344,6 +344,7 @@ export class Account extends pulumi.CustomResource {
      * The hostname with port if applicable for web storage in the secondary location.
      */
     public /*out*/ readonly secondaryWebHost!: pulumi.Output<string>;
+    public readonly sftpEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * A `shareProperties` block as defined below.
      */
@@ -439,6 +440,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["secondaryTableHost"] = state ? state.secondaryTableHost : undefined;
             resourceInputs["secondaryWebEndpoint"] = state ? state.secondaryWebEndpoint : undefined;
             resourceInputs["secondaryWebHost"] = state ? state.secondaryWebHost : undefined;
+            resourceInputs["sftpEnabled"] = state ? state.sftpEnabled : undefined;
             resourceInputs["shareProperties"] = state ? state.shareProperties : undefined;
             resourceInputs["sharedAccessKeyEnabled"] = state ? state.sharedAccessKeyEnabled : undefined;
             resourceInputs["staticWebsite"] = state ? state.staticWebsite : undefined;
@@ -484,6 +486,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["routing"] = args ? args.routing : undefined;
             resourceInputs["sasPolicy"] = args ? args.sasPolicy : undefined;
+            resourceInputs["sftpEnabled"] = args ? args.sftpEnabled : undefined;
             resourceInputs["shareProperties"] = args ? args.shareProperties : undefined;
             resourceInputs["sharedAccessKeyEnabled"] = args ? args.sharedAccessKeyEnabled : undefined;
             resourceInputs["staticWebsite"] = args ? args.staticWebsite : undefined;
@@ -776,6 +779,7 @@ export interface AccountState {
      * The hostname with port if applicable for web storage in the secondary location.
      */
     secondaryWebHost?: pulumi.Input<string>;
+    sftpEnabled?: pulumi.Input<boolean>;
     /**
      * A `shareProperties` block as defined below.
      */
@@ -919,6 +923,7 @@ export interface AccountArgs {
      * A `sasPolicy` block as defined below.
      */
     sasPolicy?: pulumi.Input<inputs.storage.AccountSasPolicy>;
+    sftpEnabled?: pulumi.Input<boolean>;
     /**
      * A `shareProperties` block as defined below.
      */

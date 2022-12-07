@@ -97,6 +97,9 @@ export class ResolverVirtualNetworkLink extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResolverVirtualNetworkLink.__pulumiType;
     }
 
+    /**
+     * Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
+     */
     public readonly dnsForwardingRulesetId!: pulumi.Output<string>;
     /**
      * Metadata attached to the Private DNS Resolver Virtual Network Link.
@@ -150,6 +153,9 @@ export class ResolverVirtualNetworkLink extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ResolverVirtualNetworkLink resources.
  */
 export interface ResolverVirtualNetworkLinkState {
+    /**
+     * Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
+     */
     dnsForwardingRulesetId?: pulumi.Input<string>;
     /**
      * Metadata attached to the Private DNS Resolver Virtual Network Link.
@@ -169,6 +175,9 @@ export interface ResolverVirtualNetworkLinkState {
  * The set of arguments for constructing a ResolverVirtualNetworkLink resource.
  */
 export interface ResolverVirtualNetworkLinkArgs {
+    /**
+     * Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
+     */
     dnsForwardingRulesetId: pulumi.Input<string>;
     /**
      * Metadata attached to the Private DNS Resolver Virtual Network Link.

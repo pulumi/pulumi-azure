@@ -485,6 +485,21 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="uploadSizeBytes")
+    private @Nullable Output<Integer> uploadSizeBytes;
+
+    /**
+     * @return Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<Integer>> uploadSizeBytes() {
+        return Optional.ofNullable(this.uploadSizeBytes);
+    }
+
+    /**
      * Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
      * 
      */
@@ -533,6 +548,7 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
         this.tags = $.tags;
         this.tier = $.tier;
         this.trustedLaunchEnabled = $.trustedLaunchEnabled;
+        this.uploadSizeBytes = $.uploadSizeBytes;
         this.zone = $.zone;
     }
 
@@ -1203,6 +1219,27 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder trustedLaunchEnabled(Boolean trustedLaunchEnabled) {
             return trustedLaunchEnabled(Output.of(trustedLaunchEnabled));
+        }
+
+        /**
+         * @param uploadSizeBytes Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder uploadSizeBytes(@Nullable Output<Integer> uploadSizeBytes) {
+            $.uploadSizeBytes = uploadSizeBytes;
+            return this;
+        }
+
+        /**
+         * @param uploadSizeBytes Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder uploadSizeBytes(Integer uploadSizeBytes) {
+            return uploadSizeBytes(Output.of(uploadSizeBytes));
         }
 
         /**

@@ -75,6 +75,7 @@ import javax.annotation.Nullable;
  *         var exampleSpringCloudGatewayRouteConfig = new SpringCloudGatewayRouteConfig(&#34;exampleSpringCloudGatewayRouteConfig&#34;, SpringCloudGatewayRouteConfigArgs.builder()        
  *             .springCloudGatewayId(exampleSpringCloudGateway.id())
  *             .springCloudAppId(exampleSpringCloudApp.id())
+ *             .protocol(&#34;HTTPS&#34;)
  *             .routes(SpringCloudGatewayRouteConfigRouteArgs.builder()
  *                 .description(&#34;example description&#34;)
  *                 .filters(                
@@ -134,6 +135,20 @@ public class SpringCloudGatewayRouteConfig extends com.pulumi.resources.CustomRe
      */
     public Output<Optional<SpringCloudGatewayRouteConfigOpenApi>> openApi() {
         return Codegen.optional(this.openApi);
+    }
+    /**
+     * Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+     * 
+     */
+    @Export(name="protocol", type=String.class, parameters={})
+    private Output</* @Nullable */ String> protocol;
+
+    /**
+     * @return Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+     * 
+     */
+    public Output<Optional<String>> protocol() {
+        return Codegen.optional(this.protocol);
     }
     /**
      * One or more `route` blocks as defined below.

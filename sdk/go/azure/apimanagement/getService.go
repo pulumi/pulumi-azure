@@ -98,6 +98,8 @@ type LookupServiceResult struct {
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// A `tenantAccess` block as defined below.
+	TenantAccesses []GetServiceTenantAccess `pulumi:"tenantAccesses"`
 }
 
 func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts ...pulumi.InvokeOption) LookupServiceResultOutput {
@@ -241,6 +243,11 @@ func (o LookupServiceResultOutput) SkuName() pulumi.StringOutput {
 // A mapping of tags assigned to the resource.
 func (o LookupServiceResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupServiceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A `tenantAccess` block as defined below.
+func (o LookupServiceResultOutput) TenantAccesses() GetServiceTenantAccessArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []GetServiceTenantAccess { return v.TenantAccesses }).(GetServiceTenantAccessArrayOutput)
 }
 
 func init() {

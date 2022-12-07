@@ -16,10 +16,10 @@ namespace Pulumi.Azure.Media.Outputs
         /// <summary>
         /// The built-in preset to be used for encoding videos. The allowed values are `AACGoodQualityAudio`, `AdaptiveStreaming`,`ContentAwareEncoding`, `ContentAwareEncodingExperimental`,`CopyAllBitrateNonInterleaved`, `H264MultipleBitrate1080p`,`H264MultipleBitrate720p`, `H264MultipleBitrateSD`,`H264SingleBitrate1080p`, `H264SingleBitrate720p` and `H264SingleBitrateSD`.
         /// </summary>
-        public readonly string? PresetName;
+        public readonly string PresetName;
 
         [OutputConstructor]
-        private TransformOutputBuiltinPreset(string? presetName)
+        private TransformOutputBuiltinPreset(string presetName)
         {
             PresetName = presetName;
         }

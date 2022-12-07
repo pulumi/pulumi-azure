@@ -20,6 +20,8 @@ import (
 //
 // import (
 //
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/nginx"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -27,20 +29,69 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := nginx.NewDeployment(ctx, "example", &nginx.DeploymentArgs{
-//				ResourceGroupName:      pulumi.Any(azurerm_resource_group.Test.Name),
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				AllocationMethod:  pulumi.String("Static"),
+//				Sku:               pulumi.String("Standard"),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//				Delegations: network.SubnetDelegationArray{
+//					&network.SubnetDelegationArgs{
+//						Name: pulumi.String("delegation"),
+//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+//							Name: pulumi.String("NGINX.NGINXPLUS/nginxDeployments"),
+//							Actions: pulumi.StringArray{
+//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = nginx.NewDeployment(ctx, "exampleDeployment", &nginx.DeploymentArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
 //				Sku:                    pulumi.String("publicpreview_Monthly_gmz7xq9ge3py"),
-//				Location:               pulumi.Any(azurerm_resource_group.Test.Location),
+//				Location:               exampleResourceGroup.Location,
 //				ManagedResourceGroup:   pulumi.String("example"),
 //				DiagnoseSupportEnabled: pulumi.Bool(true),
 //				FrontendPublic: &nginx.DeploymentFrontendPublicArgs{
 //					IpAddresses: pulumi.StringArray{
-//						pulumi.Any(azurerm_public_ip.Test.Id),
+//						examplePublicIp.ID(),
 //					},
 //				},
 //				NetworkInterfaces: nginx.DeploymentNetworkInterfaceArray{
 //					&nginx.DeploymentNetworkInterfaceArgs{
-//						SubnetId: pulumi.Any(azurerm_subnet.Test.Id),
+//						SubnetId: exampleSubnet.ID(),
 //					},
 //				},
 //				Tags: pulumi.StringMap{

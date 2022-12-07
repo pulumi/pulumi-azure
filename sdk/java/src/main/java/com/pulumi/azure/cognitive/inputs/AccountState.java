@@ -83,6 +83,21 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
+     * 
+     */
+    @Import(name="dynamicThrottlingEnabled")
+    private @Nullable Output<Boolean> dynamicThrottlingEnabled;
+
+    /**
+     * @return Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> dynamicThrottlingEnabled() {
+        return Optional.ofNullable(this.dynamicThrottlingEnabled);
+    }
+
+    /**
      * The endpoint used to connect to the Cognitive Service Account.
      * 
      */
@@ -404,6 +419,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.customQuestionAnsweringSearchServiceKey = $.customQuestionAnsweringSearchServiceKey;
         this.customSubdomainName = $.customSubdomainName;
         this.customerManagedKey = $.customerManagedKey;
+        this.dynamicThrottlingEnabled = $.dynamicThrottlingEnabled;
         this.endpoint = $.endpoint;
         this.fqdns = $.fqdns;
         this.identity = $.identity;
@@ -527,6 +543,27 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder customerManagedKey(AccountCustomerManagedKeyArgs customerManagedKey) {
             return customerManagedKey(Output.of(customerManagedKey));
+        }
+
+        /**
+         * @param dynamicThrottlingEnabled Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dynamicThrottlingEnabled(@Nullable Output<Boolean> dynamicThrottlingEnabled) {
+            $.dynamicThrottlingEnabled = dynamicThrottlingEnabled;
+            return this;
+        }
+
+        /**
+         * @param dynamicThrottlingEnabled Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dynamicThrottlingEnabled(Boolean dynamicThrottlingEnabled) {
+            return dynamicThrottlingEnabled(Output.of(dynamicThrottlingEnabled));
         }
 
         /**

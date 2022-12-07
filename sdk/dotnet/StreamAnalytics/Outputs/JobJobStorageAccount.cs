@@ -22,9 +22,9 @@ namespace Pulumi.Azure.StreamAnalytics.Outputs
         /// </summary>
         public readonly string AccountName;
         /// <summary>
-        /// The authentication mode of the storage account. Possible values are `ConnectionString`, `Msi` and `UserToken`.
+        /// The authentication mode of the storage account. The only supported value is `ConnectionString`. Defaults to `ConnectionString`.
         /// </summary>
-        public readonly string AuthenticationMode;
+        public readonly string? AuthenticationMode;
 
         [OutputConstructor]
         private JobJobStorageAccount(
@@ -32,7 +32,7 @@ namespace Pulumi.Azure.StreamAnalytics.Outputs
 
             string accountName,
 
-            string authenticationMode)
+            string? authenticationMode)
         {
             AccountKey = accountKey;
             AccountName = accountName;

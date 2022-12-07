@@ -12,6 +12,18 @@ namespace Pulumi.Azure.MSSql.Inputs
 
     public sealed class ManagedInstanceIdentityArgs : global::Pulumi.ResourceArgs
     {
+        [Input("identityIds")]
+        private InputList<string>? _identityIds;
+
+        /// <summary>
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
+        /// </summary>
+        public InputList<string> IdentityIds
+        {
+            get => _identityIds ?? (_identityIds = new InputList<string>());
+            set => _identityIds = value;
+        }
+
         /// <summary>
         /// The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
         /// </summary>
@@ -25,7 +37,7 @@ namespace Pulumi.Azure.MSSql.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// The identity type of the SQL Managed Instance. The only possible value is `SystemAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

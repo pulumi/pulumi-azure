@@ -44,7 +44,7 @@ export interface GetPublicIPsArgs {
      */
     allocationType?: string;
     /**
-     * Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`). To allow for both, use `All`.
+     * Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`).
      */
     attachmentStatus?: string;
     /**
@@ -88,7 +88,7 @@ export interface GetPublicIPsOutputArgs {
      */
     allocationType?: pulumi.Input<string>;
     /**
-     * Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`). To allow for both, use `All`.
+     * Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`).
      */
     attachmentStatus?: pulumi.Input<string>;
     /**

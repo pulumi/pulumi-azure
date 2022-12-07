@@ -79,7 +79,7 @@ type DicomService struct {
 	// The url of the Healthcare DICOM Services.
 	ServiceUrl pulumi.StringOutput    `pulumi:"serviceUrl"`
 	Tags       pulumi.StringMapOutput `pulumi:"tags"`
-	// Specifies the name of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+	// Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
 }
 
@@ -129,7 +129,7 @@ type dicomServiceState struct {
 	// The url of the Healthcare DICOM Services.
 	ServiceUrl *string           `pulumi:"serviceUrl"`
 	Tags       map[string]string `pulumi:"tags"`
-	// Specifies the name of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+	// Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
@@ -148,7 +148,7 @@ type DicomServiceState struct {
 	// The url of the Healthcare DICOM Services.
 	ServiceUrl pulumi.StringPtrInput
 	Tags       pulumi.StringMapInput
-	// Specifies the name of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+	// Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
 	WorkspaceId pulumi.StringPtrInput
 }
 
@@ -166,7 +166,7 @@ type dicomServiceArgs struct {
 	// Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled.
 	PublicNetworkAccessEnabled *bool             `pulumi:"publicNetworkAccessEnabled"`
 	Tags                       map[string]string `pulumi:"tags"`
-	// Specifies the name of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+	// Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
 	WorkspaceId string `pulumi:"workspaceId"`
 }
 
@@ -181,7 +181,7 @@ type DicomServiceArgs struct {
 	// Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	Tags                       pulumi.StringMapInput
-	// Specifies the name of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+	// Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
 	WorkspaceId pulumi.StringInput
 }
 
@@ -310,7 +310,7 @@ func (o DicomServiceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DicomService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Specifies the name of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+// Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
 func (o DicomServiceOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DicomService) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
 }
