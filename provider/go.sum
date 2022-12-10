@@ -501,8 +501,8 @@ github.com/hashicorp/errwrap v1.1.0/go.mod h1:YH+1FKiLXxHSkmPseP+kNlulaMuP3n2brv
 github.com/hashicorp/go-azure-helpers v0.12.0/go.mod h1:Zc3v4DNeX6PDdy7NljlYpnrdac1++qNW0I4U+ofGwpg=
 github.com/hashicorp/go-azure-helpers v0.47.0 h1:E90ZN2hqMtzI+tfGWCnNtyLZYG4csoKSs+hWZZ8ywSM=
 github.com/hashicorp/go-azure-helpers v0.47.0/go.mod h1:WiJNl0fD6PoM/MYuGTZ8yuzIaXQR3m2H2g6+EJ8nSwc=
-github.com/hashicorp/go-azure-sdk v0.20221129.1175354 h1:UvpHyCG2n9CVUebV78LOKDRYnsGyGG/tVhzDLfy632A=
-github.com/hashicorp/go-azure-sdk v0.20221129.1175354/go.mod h1:BEjoURzcFwd+K3MqkbOt9jArIIrsqpBQ2Gz6DdemFIs=
+github.com/hashicorp/go-azure-sdk v0.20221207.1121859 h1:FVhKaMCtpeNfa+aoiuFt62rywpvY5pBEKtxgN35OnAo=
+github.com/hashicorp/go-azure-sdk v0.20221207.1121859/go.mod h1:BEjoURzcFwd+K3MqkbOt9jArIIrsqpBQ2Gz6DdemFIs=
 github.com/hashicorp/go-checkpoint v0.5.0 h1:MFYpPZCnQqQTE18jFwSII6eUQrD/oxMFp3mlgcqk5mU=
 github.com/hashicorp/go-checkpoint v0.5.0/go.mod h1:7nfLNL10NsxqO4iWuW6tWW0HjZuDrwkBuEQsVcpCOgg=
 github.com/hashicorp/go-cleanhttp v0.5.0/go.mod h1:JpRdi6/HCYpAwUzNwuwqhbovhLtngrth3wmdIIUrZ80=
@@ -823,8 +823,8 @@ github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e h1:Di
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e/go.mod h1:sZ9FUzGO+yM41hsQHs/yIcj/Y993qMdBxBU5mpDmAfQ=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220824175045-450992f2f5b9 h1:JMw+t5I+6E8Lna7JF+ghAoOLOl23UIbshJyRNP+K1HU=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220824175045-450992f2f5b9/go.mod h1:mYPs/uchNcBq7AclQv9QUtSf9iNcfp1Ag21jqTlDf2M=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20221207184824-532ae7bb76da h1:BjFT1dWFoAjH8SIfWYdZA7H+gZ7NLcAFNOu7olDIgo4=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20221207184824-532ae7bb76da/go.mod h1:L28nOrQUM76YSkcg/fYOt48rDVnkLky0nLJt/l3UYzE=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20221210195015-5fc8f8c607aa h1:nFGXGeKD+q8w8qrC2u2aToGo+LL1wxmXpoICyFRG4es=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20221210195015-5fc8f8c607aa/go.mod h1:yA8ydDe3hw0hkUZYlQE0XzK7YPkI8FO65d1VXsLvTkk=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9 h1:czJCcoUR3FMpHnRQow2E84H/0CPrX1fMAGn9HugzyI4=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9/go.mod h1:L8WrssTzvgYw34/Ppa0JpJfI7KKXZ2cVGI6Djt0brUU=
 github.com/rickb777/plural v1.2.0 h1:5tvEc7UBCZ7l8h/2UeybSkt/uu1DQsZFOFdNevmUhlE=
