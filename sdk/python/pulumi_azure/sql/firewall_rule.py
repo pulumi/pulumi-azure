@@ -22,11 +22,10 @@ class FirewallRuleArgs:
         """
         The set of arguments for constructing a FirewallRule resource.
         :param pulumi.Input[str] end_ip_address: The ending IP address to allow through the firewall for this rule.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the SQL Server.
-        :param pulumi.Input[str] server_name: The name of the SQL Server on which to create the Firewall Rule.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the SQL Server. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] server_name: The name of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] start_ip_address: The starting IP address to allow through the firewall for this rule.
-        :param pulumi.Input[str] name: The name of the firewall rule.
+        :param pulumi.Input[str] name: The name of the firewall rule. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "end_ip_address", end_ip_address)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -51,8 +50,7 @@ class FirewallRuleArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to
-        create the SQL Server.
+        The name of the resource group in which to create the SQL Server. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -64,7 +62,7 @@ class FirewallRuleArgs:
     @pulumi.getter(name="serverName")
     def server_name(self) -> pulumi.Input[str]:
         """
-        The name of the SQL Server on which to create the Firewall Rule.
+        The name of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server_name")
 
@@ -88,7 +86,7 @@ class FirewallRuleArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the firewall rule.
+        The name of the firewall rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -108,10 +106,9 @@ class _FirewallRuleState:
         """
         Input properties used for looking up and filtering FirewallRule resources.
         :param pulumi.Input[str] end_ip_address: The ending IP address to allow through the firewall for this rule.
-        :param pulumi.Input[str] name: The name of the firewall rule.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the SQL Server.
-        :param pulumi.Input[str] server_name: The name of the SQL Server on which to create the Firewall Rule.
+        :param pulumi.Input[str] name: The name of the firewall rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the SQL Server. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] server_name: The name of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] start_ip_address: The starting IP address to allow through the firewall for this rule.
         """
         if end_ip_address is not None:
@@ -141,7 +138,7 @@ class _FirewallRuleState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the firewall rule.
+        The name of the firewall rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -153,8 +150,7 @@ class _FirewallRuleState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to
-        create the SQL Server.
+        The name of the resource group in which to create the SQL Server. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -166,7 +162,7 @@ class _FirewallRuleState:
     @pulumi.getter(name="serverName")
     def server_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the SQL Server on which to create the Firewall Rule.
+        The name of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server_name")
 
@@ -230,10 +226,9 @@ class FirewallRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] end_ip_address: The ending IP address to allow through the firewall for this rule.
-        :param pulumi.Input[str] name: The name of the firewall rule.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the SQL Server.
-        :param pulumi.Input[str] server_name: The name of the SQL Server on which to create the Firewall Rule.
+        :param pulumi.Input[str] name: The name of the firewall rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the SQL Server. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] server_name: The name of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] start_ip_address: The starting IP address to allow through the firewall for this rule.
         """
         ...
@@ -336,10 +331,9 @@ class FirewallRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] end_ip_address: The ending IP address to allow through the firewall for this rule.
-        :param pulumi.Input[str] name: The name of the firewall rule.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the SQL Server.
-        :param pulumi.Input[str] server_name: The name of the SQL Server on which to create the Firewall Rule.
+        :param pulumi.Input[str] name: The name of the firewall rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the SQL Server. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] server_name: The name of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] start_ip_address: The starting IP address to allow through the firewall for this rule.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -365,7 +359,7 @@ class FirewallRule(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the firewall rule.
+        The name of the firewall rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -373,8 +367,7 @@ class FirewallRule(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to
-        create the SQL Server.
+        The name of the resource group in which to create the SQL Server. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -382,7 +375,7 @@ class FirewallRule(pulumi.CustomResource):
     @pulumi.getter(name="serverName")
     def server_name(self) -> pulumi.Output[str]:
         """
-        The name of the SQL Server on which to create the Firewall Rule.
+        The name of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server_name")
 

@@ -44,7 +44,7 @@ export class ManagedInstanceFailoverGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The Azure Region where the SQL Instance Failover Group exists.
+     * The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -56,7 +56,7 @@ export class ManagedInstanceFailoverGroup extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * ID of the SQL Managed Instance which will be replicated to.
+     * ID of the SQL Managed Instance which will be replicated to. Changing this forces a new resource to be created.
      */
     public readonly partnerManagedInstanceId!: pulumi.Output<string>;
     /**
@@ -136,7 +136,7 @@ export class ManagedInstanceFailoverGroup extends pulumi.CustomResource {
  */
 export interface ManagedInstanceFailoverGroupState {
     /**
-     * The Azure Region where the SQL Instance Failover Group exists.
+     * The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -148,7 +148,7 @@ export interface ManagedInstanceFailoverGroupState {
      */
     name?: pulumi.Input<string>;
     /**
-     * ID of the SQL Managed Instance which will be replicated to.
+     * ID of the SQL Managed Instance which will be replicated to. Changing this forces a new resource to be created.
      */
     partnerManagedInstanceId?: pulumi.Input<string>;
     /**
@@ -178,7 +178,7 @@ export interface ManagedInstanceFailoverGroupState {
  */
 export interface ManagedInstanceFailoverGroupArgs {
     /**
-     * The Azure Region where the SQL Instance Failover Group exists.
+     * The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -190,7 +190,7 @@ export interface ManagedInstanceFailoverGroupArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * ID of the SQL Managed Instance which will be replicated to.
+     * ID of the SQL Managed Instance which will be replicated to. Changing this forces a new resource to be created.
      */
     partnerManagedInstanceId: pulumi.Input<string>;
     /**

@@ -127,7 +127,7 @@ type AppService struct {
 	PossibleOutboundIpAddressLists pulumi.StringArrayOutput `pulumi:"possibleOutboundIpAddressLists"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses pulumi.StringOutput `pulumi:"possibleOutboundIpAddresses"`
-	// The name of the resource group in which to create the App Service.
+	// The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `siteConfig` block as defined below.
 	SiteConfig AppServiceSiteConfigOutput `pulumi:"siteConfig"`
@@ -218,7 +218,7 @@ type appServiceState struct {
 	PossibleOutboundIpAddressLists []string `pulumi:"possibleOutboundIpAddressLists"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses *string `pulumi:"possibleOutboundIpAddresses"`
-	// The name of the resource group in which to create the App Service.
+	// The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `siteConfig` block as defined below.
 	SiteConfig *AppServiceSiteConfig `pulumi:"siteConfig"`
@@ -275,7 +275,7 @@ type AppServiceState struct {
 	PossibleOutboundIpAddressLists pulumi.StringArrayInput
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses pulumi.StringPtrInput
-	// The name of the resource group in which to create the App Service.
+	// The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `siteConfig` block as defined below.
 	SiteConfig AppServiceSiteConfigPtrInput
@@ -324,7 +324,7 @@ type appServiceArgs struct {
 	Logs *AppServiceLogs `pulumi:"logs"`
 	// Specifies the name of the App Service. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the App Service.
+	// The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `siteConfig` block as defined below.
 	SiteConfig *AppServiceSiteConfig `pulumi:"siteConfig"`
@@ -368,7 +368,7 @@ type AppServiceArgs struct {
 	Logs AppServiceLogsPtrInput
 	// Specifies the name of the App Service. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the App Service.
+	// The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `siteConfig` block as defined below.
 	SiteConfig AppServiceSiteConfigPtrInput
@@ -572,7 +572,7 @@ func (o AppServiceOutput) PossibleOutboundIpAddresses() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppService) pulumi.StringOutput { return v.PossibleOutboundIpAddresses }).(pulumi.StringOutput)
 }
 
-// The name of the resource group in which to create the App Service.
+// The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
 func (o AppServiceOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppService) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

@@ -17,7 +17,7 @@ public final class VolumeDataProtectionReplication {
      */
     private @Nullable String endpointType;
     /**
-     * @return Location of the primary volume.
+     * @return Location of the primary volume. Changing this forces a new resource to be created.
      * 
      */
     private String remoteVolumeLocation;
@@ -41,7 +41,7 @@ public final class VolumeDataProtectionReplication {
         return Optional.ofNullable(this.endpointType);
     }
     /**
-     * @return Location of the primary volume.
+     * @return Location of the primary volume. Changing this forces a new resource to be created.
      * 
      */
     public String remoteVolumeLocation() {

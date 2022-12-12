@@ -96,8 +96,7 @@ import (
 type Application struct {
 	pulumi.CustomResourceState
 
-	// Resource ID for a Virtual Desktop Application Group to associate with the
-	// Virtual Desktop Application. Changing the ID forces a new resource to be created.
+	// Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
 	ApplicationGroupId pulumi.StringOutput `pulumi:"applicationGroupId"`
 	// Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all. Possible values include: `DoNotAllow`, `Allow`, `Require`.
 	CommandLineArgumentPolicy pulumi.StringOutput `pulumi:"commandLineArgumentPolicy"`
@@ -157,8 +156,7 @@ func GetApplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Application resources.
 type applicationState struct {
-	// Resource ID for a Virtual Desktop Application Group to associate with the
-	// Virtual Desktop Application. Changing the ID forces a new resource to be created.
+	// Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
 	ApplicationGroupId *string `pulumi:"applicationGroupId"`
 	// Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all. Possible values include: `DoNotAllow`, `Allow`, `Require`.
 	CommandLineArgumentPolicy *string `pulumi:"commandLineArgumentPolicy"`
@@ -181,8 +179,7 @@ type applicationState struct {
 }
 
 type ApplicationState struct {
-	// Resource ID for a Virtual Desktop Application Group to associate with the
-	// Virtual Desktop Application. Changing the ID forces a new resource to be created.
+	// Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
 	ApplicationGroupId pulumi.StringPtrInput
 	// Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all. Possible values include: `DoNotAllow`, `Allow`, `Require`.
 	CommandLineArgumentPolicy pulumi.StringPtrInput
@@ -209,8 +206,7 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
-	// Resource ID for a Virtual Desktop Application Group to associate with the
-	// Virtual Desktop Application. Changing the ID forces a new resource to be created.
+	// Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
 	ApplicationGroupId string `pulumi:"applicationGroupId"`
 	// Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all. Possible values include: `DoNotAllow`, `Allow`, `Require`.
 	CommandLineArgumentPolicy string `pulumi:"commandLineArgumentPolicy"`
@@ -234,8 +230,7 @@ type applicationArgs struct {
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
-	// Resource ID for a Virtual Desktop Application Group to associate with the
-	// Virtual Desktop Application. Changing the ID forces a new resource to be created.
+	// Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
 	ApplicationGroupId pulumi.StringInput
 	// Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all. Possible values include: `DoNotAllow`, `Allow`, `Require`.
 	CommandLineArgumentPolicy pulumi.StringInput
@@ -344,8 +339,7 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
-// Resource ID for a Virtual Desktop Application Group to associate with the
-// Virtual Desktop Application. Changing the ID forces a new resource to be created.
+// Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
 func (o ApplicationOutput) ApplicationGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationGroupId }).(pulumi.StringOutput)
 }

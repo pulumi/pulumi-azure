@@ -20,10 +20,10 @@ class FabricArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Fabric resource.
-        :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
-        :param pulumi.Input[str] location: In what region should the fabric be located.
-        :param pulumi.Input[str] name: The name of the network mapping.
+        :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: In what region should the fabric be located. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the network mapping. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -36,7 +36,7 @@ class FabricArgs:
     @pulumi.getter(name="recoveryVaultName")
     def recovery_vault_name(self) -> pulumi.Input[str]:
         """
-        The name of the vault that should be updated.
+        The name of the vault that should be updated. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_vault_name")
 
@@ -48,7 +48,7 @@ class FabricArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        Name of the resource group where the vault that should be updated is located.
+        Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -60,7 +60,7 @@ class FabricArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        In what region should the fabric be located.
+        In what region should the fabric be located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -72,7 +72,7 @@ class FabricArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the network mapping.
+        The name of the network mapping. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -90,10 +90,10 @@ class _FabricState:
                  resource_group_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Fabric resources.
-        :param pulumi.Input[str] location: In what region should the fabric be located.
-        :param pulumi.Input[str] name: The name of the network mapping.
-        :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
+        :param pulumi.Input[str] location: In what region should the fabric be located. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the network mapping. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         """
         if location is not None:
             pulumi.set(__self__, "location", location)
@@ -108,7 +108,7 @@ class _FabricState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        In what region should the fabric be located.
+        In what region should the fabric be located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -120,7 +120,7 @@ class _FabricState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the network mapping.
+        The name of the network mapping. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -132,7 +132,7 @@ class _FabricState:
     @pulumi.getter(name="recoveryVaultName")
     def recovery_vault_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the vault that should be updated.
+        The name of the vault that should be updated. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_vault_name")
 
@@ -144,7 +144,7 @@ class _FabricState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the resource group where the vault that should be updated is located.
+        Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -194,10 +194,10 @@ class Fabric(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: In what region should the fabric be located.
-        :param pulumi.Input[str] name: The name of the network mapping.
-        :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
+        :param pulumi.Input[str] location: In what region should the fabric be located. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the network mapping. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -291,10 +291,10 @@ class Fabric(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: In what region should the fabric be located.
-        :param pulumi.Input[str] name: The name of the network mapping.
-        :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
+        :param pulumi.Input[str] location: In what region should the fabric be located. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the network mapping. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -310,7 +310,7 @@ class Fabric(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        In what region should the fabric be located.
+        In what region should the fabric be located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -318,7 +318,7 @@ class Fabric(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the network mapping.
+        The name of the network mapping. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -326,7 +326,7 @@ class Fabric(pulumi.CustomResource):
     @pulumi.getter(name="recoveryVaultName")
     def recovery_vault_name(self) -> pulumi.Output[str]:
         """
-        The name of the vault that should be updated.
+        The name of the vault that should be updated. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_vault_name")
 
@@ -334,7 +334,7 @@ class Fabric(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        Name of the resource group where the vault that should be updated is located.
+        Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 

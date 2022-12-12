@@ -271,7 +271,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Output<ImmutableArray<Outputs.ReplicatedVMManagedDisk>> ManagedDisks { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the replication for the replicated VM.
+        /// The name of the replication for the replicated VM. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -286,31 +286,31 @@ namespace Pulumi.Azure.SiteRecovery
         public Output<string> RecoveryReplicationPolicyId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the vault that should be updated.
+        /// The name of the vault that should be updated. Changing this forces a new resource to be created.
         /// </summary>
         [Output("recoveryVaultName")]
         public Output<string> RecoveryVaultName { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the resource group where the vault that should be updated is located.
+        /// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Name of fabric that should contains this replication.
+        /// Name of fabric that should contains this replication. Changing this forces a new resource to be created.
         /// </summary>
         [Output("sourceRecoveryFabricName")]
         public Output<string> SourceRecoveryFabricName { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the protection container to use.
+        /// Name of the protection container to use. Changing this forces a new resource to be created.
         /// </summary>
         [Output("sourceRecoveryProtectionContainerName")]
         public Output<string> SourceRecoveryProtectionContainerName { get; private set; } = null!;
 
         /// <summary>
-        /// Id of the VM to replicate
+        /// Id of the VM to replicate Changing this forces a new resource to be created.
         /// </summary>
         [Output("sourceVmId")]
         public Output<string> SourceVmId { get; private set; } = null!;
@@ -328,25 +328,25 @@ namespace Pulumi.Azure.SiteRecovery
         public Output<string> TargetNetworkId { get; private set; } = null!;
 
         /// <summary>
-        /// Id of fabric where the VM replication should be handled when a failover is done.
+        /// Id of fabric where the VM replication should be handled when a failover is done. Changing this forces a new resource to be created.
         /// </summary>
         [Output("targetRecoveryFabricId")]
         public Output<string> TargetRecoveryFabricId { get; private set; } = null!;
 
         /// <summary>
-        /// Id of protection container where the VM replication should be created when a failover is done.
+        /// Id of protection container where the VM replication should be created when a failover is done. Changing this forces a new resource to be created.
         /// </summary>
         [Output("targetRecoveryProtectionContainerId")]
         public Output<string> TargetRecoveryProtectionContainerId { get; private set; } = null!;
 
         /// <summary>
-        /// Id of resource group where the VM should be created when a failover is done.
+        /// Id of resource group where the VM should be created when a failover is done. Changing this forces a new resource to be created.
         /// </summary>
         [Output("targetResourceGroupId")]
         public Output<string> TargetResourceGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Availability Zone where the Failover VM should exist.
+        /// Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("targetZone")]
         public Output<string?> TargetZone { get; private set; } = null!;
@@ -410,7 +410,7 @@ namespace Pulumi.Azure.SiteRecovery
         }
 
         /// <summary>
-        /// The name of the replication for the replicated VM.
+        /// The name of the replication for the replicated VM. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -431,31 +431,31 @@ namespace Pulumi.Azure.SiteRecovery
         public Input<string> RecoveryReplicationPolicyId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the vault that should be updated.
+        /// The name of the vault that should be updated. Changing this forces a new resource to be created.
         /// </summary>
         [Input("recoveryVaultName", required: true)]
         public Input<string> RecoveryVaultName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the resource group where the vault that should be updated is located.
+        /// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of fabric that should contains this replication.
+        /// Name of fabric that should contains this replication. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sourceRecoveryFabricName", required: true)]
         public Input<string> SourceRecoveryFabricName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the protection container to use.
+        /// Name of the protection container to use. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sourceRecoveryProtectionContainerName", required: true)]
         public Input<string> SourceRecoveryProtectionContainerName { get; set; } = null!;
 
         /// <summary>
-        /// Id of the VM to replicate
+        /// Id of the VM to replicate Changing this forces a new resource to be created.
         /// </summary>
         [Input("sourceVmId", required: true)]
         public Input<string> SourceVmId { get; set; } = null!;
@@ -473,25 +473,25 @@ namespace Pulumi.Azure.SiteRecovery
         public Input<string>? TargetNetworkId { get; set; }
 
         /// <summary>
-        /// Id of fabric where the VM replication should be handled when a failover is done.
+        /// Id of fabric where the VM replication should be handled when a failover is done. Changing this forces a new resource to be created.
         /// </summary>
         [Input("targetRecoveryFabricId", required: true)]
         public Input<string> TargetRecoveryFabricId { get; set; } = null!;
 
         /// <summary>
-        /// Id of protection container where the VM replication should be created when a failover is done.
+        /// Id of protection container where the VM replication should be created when a failover is done. Changing this forces a new resource to be created.
         /// </summary>
         [Input("targetRecoveryProtectionContainerId", required: true)]
         public Input<string> TargetRecoveryProtectionContainerId { get; set; } = null!;
 
         /// <summary>
-        /// Id of resource group where the VM should be created when a failover is done.
+        /// Id of resource group where the VM should be created when a failover is done. Changing this forces a new resource to be created.
         /// </summary>
         [Input("targetResourceGroupId", required: true)]
         public Input<string> TargetResourceGroupId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the Availability Zone where the Failover VM should exist.
+        /// Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("targetZone")]
         public Input<string>? TargetZone { get; set; }
@@ -517,7 +517,7 @@ namespace Pulumi.Azure.SiteRecovery
         }
 
         /// <summary>
-        /// The name of the replication for the replicated VM.
+        /// The name of the replication for the replicated VM. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -538,31 +538,31 @@ namespace Pulumi.Azure.SiteRecovery
         public Input<string>? RecoveryReplicationPolicyId { get; set; }
 
         /// <summary>
-        /// The name of the vault that should be updated.
+        /// The name of the vault that should be updated. Changing this forces a new resource to be created.
         /// </summary>
         [Input("recoveryVaultName")]
         public Input<string>? RecoveryVaultName { get; set; }
 
         /// <summary>
-        /// Name of the resource group where the vault that should be updated is located.
+        /// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Name of fabric that should contains this replication.
+        /// Name of fabric that should contains this replication. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sourceRecoveryFabricName")]
         public Input<string>? SourceRecoveryFabricName { get; set; }
 
         /// <summary>
-        /// Name of the protection container to use.
+        /// Name of the protection container to use. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sourceRecoveryProtectionContainerName")]
         public Input<string>? SourceRecoveryProtectionContainerName { get; set; }
 
         /// <summary>
-        /// Id of the VM to replicate
+        /// Id of the VM to replicate Changing this forces a new resource to be created.
         /// </summary>
         [Input("sourceVmId")]
         public Input<string>? SourceVmId { get; set; }
@@ -580,25 +580,25 @@ namespace Pulumi.Azure.SiteRecovery
         public Input<string>? TargetNetworkId { get; set; }
 
         /// <summary>
-        /// Id of fabric where the VM replication should be handled when a failover is done.
+        /// Id of fabric where the VM replication should be handled when a failover is done. Changing this forces a new resource to be created.
         /// </summary>
         [Input("targetRecoveryFabricId")]
         public Input<string>? TargetRecoveryFabricId { get; set; }
 
         /// <summary>
-        /// Id of protection container where the VM replication should be created when a failover is done.
+        /// Id of protection container where the VM replication should be created when a failover is done. Changing this forces a new resource to be created.
         /// </summary>
         [Input("targetRecoveryProtectionContainerId")]
         public Input<string>? TargetRecoveryProtectionContainerId { get; set; }
 
         /// <summary>
-        /// Id of resource group where the VM should be created when a failover is done.
+        /// Id of resource group where the VM should be created when a failover is done. Changing this forces a new resource to be created.
         /// </summary>
         [Input("targetResourceGroupId")]
         public Input<string>? TargetResourceGroupId { get; set; }
 
         /// <summary>
-        /// Specifies the Availability Zone where the Failover VM should exist.
+        /// Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("targetZone")]
         public Input<string>? TargetZone { get; set; }

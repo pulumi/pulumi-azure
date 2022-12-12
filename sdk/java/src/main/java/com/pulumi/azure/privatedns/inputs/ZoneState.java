@@ -64,14 +64,14 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Private DNS Zone. Must be a valid domain name.
+     * The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Private DNS Zone. Must be a valid domain name.
+     * @return The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -233,7 +233,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Private DNS Zone. Must be a valid domain name.
+         * @param name The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Private DNS Zone. Must be a valid domain name.
+         * @param name The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

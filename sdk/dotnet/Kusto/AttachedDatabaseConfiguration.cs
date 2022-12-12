@@ -106,7 +106,7 @@ namespace Pulumi.Azure.Kusto
     /// Kusto Attached Database Configurations can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:kusto/attachedDatabaseConfiguration:AttachedDatabaseConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1/AttachedDatabaseConfigurations/configuration1
+    ///  $ pulumi import azure:kusto/attachedDatabaseConfiguration:AttachedDatabaseConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/attachedDatabaseConfigurations/configuration1
     /// ```
     /// </summary>
     [AzureResourceType("azure:kusto/attachedDatabaseConfiguration:AttachedDatabaseConfiguration")]
@@ -125,13 +125,13 @@ namespace Pulumi.Azure.Kusto
         public Output<string> ClusterName { get; private set; } = null!;
 
         /// <summary>
-        /// The resource id of the cluster where the databases you would like to attach reside.
+        /// The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
         /// </summary>
         [Output("clusterResourceId")]
         public Output<string> ClusterResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the database which you would like to attach, use * if you want to follow all current and future databases.
+        /// The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
         /// </summary>
         [Output("databaseName")]
         public Output<string> DatabaseName { get; private set; } = null!;
@@ -219,13 +219,13 @@ namespace Pulumi.Azure.Kusto
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// The resource id of the cluster where the databases you would like to attach reside.
+        /// The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
         /// </summary>
         [Input("clusterResourceId", required: true)]
         public Input<string> ClusterResourceId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the database which you would like to attach, use * if you want to follow all current and future databases.
+        /// The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
         /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
@@ -287,13 +287,13 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? ClusterName { get; set; }
 
         /// <summary>
-        /// The resource id of the cluster where the databases you would like to attach reside.
+        /// The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
         /// </summary>
         [Input("clusterResourceId")]
         public Input<string>? ClusterResourceId { get; set; }
 
         /// <summary>
-        /// The name of the database which you would like to attach, use * if you want to follow all current and future databases.
+        /// The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
         /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }

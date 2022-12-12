@@ -16,14 +16,14 @@ public final class ContainerStorageAccountState extends com.pulumi.resources.Res
     public static final ContainerStorageAccountState Empty = new ContainerStorageAccountState();
 
     /**
-     * The name of the vault where the storage account will be registered.
+     * The name of the vault where the storage account will be registered. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="recoveryVaultName")
     private @Nullable Output<String> recoveryVaultName;
 
     /**
-     * @return The name of the vault where the storage account will be registered.
+     * @return The name of the vault where the storage account will be registered. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> recoveryVaultName() {
@@ -31,14 +31,14 @@ public final class ContainerStorageAccountState extends com.pulumi.resources.Res
     }
 
     /**
-     * Name of the resource group where the vault is located.
+     * Name of the resource group where the vault is located. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return Name of the resource group where the vault is located.
+     * @return Name of the resource group where the vault is located. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -46,14 +46,14 @@ public final class ContainerStorageAccountState extends com.pulumi.resources.Res
     }
 
     /**
-     * The ID of the Storage Account to be registered
+     * The ID of the Storage Account to be registered Changing this forces a new resource to be created.
      * 
      */
     @Import(name="storageAccountId")
     private @Nullable Output<String> storageAccountId;
 
     /**
-     * @return The ID of the Storage Account to be registered
+     * @return The ID of the Storage Account to be registered Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> storageAccountId() {
@@ -87,7 +87,7 @@ public final class ContainerStorageAccountState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param recoveryVaultName The name of the vault where the storage account will be registered.
+         * @param recoveryVaultName The name of the vault where the storage account will be registered. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class ContainerStorageAccountState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param recoveryVaultName The name of the vault where the storage account will be registered.
+         * @param recoveryVaultName The name of the vault where the storage account will be registered. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class ContainerStorageAccountState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param resourceGroupName Name of the resource group where the vault is located.
+         * @param resourceGroupName Name of the resource group where the vault is located. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class ContainerStorageAccountState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param resourceGroupName Name of the resource group where the vault is located.
+         * @param resourceGroupName Name of the resource group where the vault is located. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class ContainerStorageAccountState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param storageAccountId The ID of the Storage Account to be registered
+         * @param storageAccountId The ID of the Storage Account to be registered Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ContainerStorageAccountState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param storageAccountId The ID of the Storage Account to be registered
+         * @param storageAccountId The ID of the Storage Account to be registered Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -69,11 +69,11 @@ export class FirewallRule extends pulumi.CustomResource {
      */
     public readonly endIpAddress!: pulumi.Output<string>;
     /**
-     * The name of the firewall rule.
+     * The name of the firewall rule. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The resource ID of the SQL Server on which to create the Firewall Rule.
+     * The resource ID of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
      */
     public readonly serverId!: pulumi.Output<string>;
     /**
@@ -128,11 +128,11 @@ export interface FirewallRuleState {
      */
     endIpAddress?: pulumi.Input<string>;
     /**
-     * The name of the firewall rule.
+     * The name of the firewall rule. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The resource ID of the SQL Server on which to create the Firewall Rule.
+     * The resource ID of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
      */
     serverId?: pulumi.Input<string>;
     /**
@@ -150,11 +150,11 @@ export interface FirewallRuleArgs {
      */
     endIpAddress: pulumi.Input<string>;
     /**
-     * The name of the firewall rule.
+     * The name of the firewall rule. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The resource ID of the SQL Server on which to create the Firewall Rule.
+     * The resource ID of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
      */
     serverId: pulumi.Input<string>;
     /**

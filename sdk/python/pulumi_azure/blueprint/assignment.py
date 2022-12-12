@@ -29,13 +29,13 @@ class AssignmentArgs:
         """
         The set of arguments for constructing a Assignment resource.
         :param pulumi.Input['AssignmentIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] target_subscription_id: The Subscription ID the Blueprint Published Version is to be applied to.
+        :param pulumi.Input[str] target_subscription_id: The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] version_id: The ID of the Published Version of the blueprint to be assigned.
-        :param pulumi.Input[str] location: The Azure location of the Assignment.
+        :param pulumi.Input[str] location: The Azure location of the Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lock_exclude_actions: a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lock_exclude_principals: a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
         :param pulumi.Input[str] lock_mode: The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`.
-        :param pulumi.Input[str] name: The name of the Blueprint Assignment
+        :param pulumi.Input[str] name: The name of the Blueprint Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] parameter_values: a JSON string to supply Blueprint Assignment parameter values.
         :param pulumi.Input[str] resource_groups: a JSON string to supply the Blueprint Resource Group information.
         """
@@ -73,7 +73,7 @@ class AssignmentArgs:
     @pulumi.getter(name="targetSubscriptionId")
     def target_subscription_id(self) -> pulumi.Input[str]:
         """
-        The Subscription ID the Blueprint Published Version is to be applied to.
+        The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_subscription_id")
 
@@ -97,7 +97,7 @@ class AssignmentArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The Azure location of the Assignment.
+        The Azure location of the Assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -145,7 +145,7 @@ class AssignmentArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Blueprint Assignment
+        The name of the Blueprint Assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -201,14 +201,14 @@ class _AssignmentState:
         :param pulumi.Input[str] description: The Description on the Blueprint
         :param pulumi.Input[str] display_name: The display name of the blueprint
         :param pulumi.Input['AssignmentIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] location: The Azure location of the Assignment.
+        :param pulumi.Input[str] location: The Azure location of the Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lock_exclude_actions: a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lock_exclude_principals: a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
         :param pulumi.Input[str] lock_mode: The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`.
-        :param pulumi.Input[str] name: The name of the Blueprint Assignment
+        :param pulumi.Input[str] name: The name of the Blueprint Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] parameter_values: a JSON string to supply Blueprint Assignment parameter values.
         :param pulumi.Input[str] resource_groups: a JSON string to supply the Blueprint Resource Group information.
-        :param pulumi.Input[str] target_subscription_id: The Subscription ID the Blueprint Published Version is to be applied to.
+        :param pulumi.Input[str] target_subscription_id: The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
         :param pulumi.Input[str] version_id: The ID of the Published Version of the blueprint to be assigned.
         """
@@ -293,7 +293,7 @@ class _AssignmentState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The Azure location of the Assignment.
+        The Azure location of the Assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -341,7 +341,7 @@ class _AssignmentState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Blueprint Assignment
+        The name of the Blueprint Assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -377,7 +377,7 @@ class _AssignmentState:
     @pulumi.getter(name="targetSubscriptionId")
     def target_subscription_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Subscription ID the Blueprint Published Version is to be applied to.
+        The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_subscription_id")
 
@@ -501,14 +501,14 @@ class Assignment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AssignmentIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] location: The Azure location of the Assignment.
+        :param pulumi.Input[str] location: The Azure location of the Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lock_exclude_actions: a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lock_exclude_principals: a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
         :param pulumi.Input[str] lock_mode: The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`.
-        :param pulumi.Input[str] name: The name of the Blueprint Assignment
+        :param pulumi.Input[str] name: The name of the Blueprint Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] parameter_values: a JSON string to supply Blueprint Assignment parameter values.
         :param pulumi.Input[str] resource_groups: a JSON string to supply the Blueprint Resource Group information.
-        :param pulumi.Input[str] target_subscription_id: The Subscription ID the Blueprint Published Version is to be applied to.
+        :param pulumi.Input[str] target_subscription_id: The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] version_id: The ID of the Published Version of the blueprint to be assigned.
         """
         ...
@@ -678,14 +678,14 @@ class Assignment(pulumi.CustomResource):
         :param pulumi.Input[str] description: The Description on the Blueprint
         :param pulumi.Input[str] display_name: The display name of the blueprint
         :param pulumi.Input[pulumi.InputType['AssignmentIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] location: The Azure location of the Assignment.
+        :param pulumi.Input[str] location: The Azure location of the Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lock_exclude_actions: a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lock_exclude_principals: a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
         :param pulumi.Input[str] lock_mode: The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`.
-        :param pulumi.Input[str] name: The name of the Blueprint Assignment
+        :param pulumi.Input[str] name: The name of the Blueprint Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] parameter_values: a JSON string to supply Blueprint Assignment parameter values.
         :param pulumi.Input[str] resource_groups: a JSON string to supply the Blueprint Resource Group information.
-        :param pulumi.Input[str] target_subscription_id: The Subscription ID the Blueprint Published Version is to be applied to.
+        :param pulumi.Input[str] target_subscription_id: The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
         :param pulumi.Input[str] version_id: The ID of the Published Version of the blueprint to be assigned.
         """
@@ -745,7 +745,7 @@ class Assignment(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        The Azure location of the Assignment.
+        The Azure location of the Assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -777,7 +777,7 @@ class Assignment(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the Blueprint Assignment
+        The name of the Blueprint Assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -801,7 +801,7 @@ class Assignment(pulumi.CustomResource):
     @pulumi.getter(name="targetSubscriptionId")
     def target_subscription_id(self) -> pulumi.Output[str]:
         """
-        The Subscription ID the Blueprint Published Version is to be applied to.
+        The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_subscription_id")
 

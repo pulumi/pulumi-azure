@@ -64,7 +64,7 @@ export class CnameRecord extends pulumi.CustomResource {
      */
     public /*out*/ readonly fqdn!: pulumi.Output<string>;
     /**
-     * The name of the DNS CNAME Record.
+     * The name of the DNS CNAME Record. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -144,7 +144,7 @@ export interface CnameRecordState {
      */
     fqdn?: pulumi.Input<string>;
     /**
-     * The name of the DNS CNAME Record.
+     * The name of the DNS CNAME Record. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -174,7 +174,7 @@ export interface CnameRecordState {
  */
 export interface CnameRecordArgs {
     /**
-     * The name of the DNS CNAME Record.
+     * The name of the DNS CNAME Record. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

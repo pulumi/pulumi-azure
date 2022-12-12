@@ -68,7 +68,7 @@ export class ReplicationPolicy extends pulumi.CustomResource {
      */
     public readonly applicationConsistentSnapshotFrequencyInMinutes!: pulumi.Output<number>;
     /**
-     * The name of the replication policy.
+     * The name of the replication policy. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -76,11 +76,11 @@ export class ReplicationPolicy extends pulumi.CustomResource {
      */
     public readonly recoveryPointRetentionInMinutes!: pulumi.Output<number>;
     /**
-     * The name of the vault that should be updated.
+     * The name of the vault that should be updated. Changing this forces a new resource to be created.
      */
     public readonly recoveryVaultName!: pulumi.Output<string>;
     /**
-     * Name of the resource group where the vault that should be updated is located.
+     * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
 
@@ -136,7 +136,7 @@ export interface ReplicationPolicyState {
      */
     applicationConsistentSnapshotFrequencyInMinutes?: pulumi.Input<number>;
     /**
-     * The name of the replication policy.
+     * The name of the replication policy. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -144,11 +144,11 @@ export interface ReplicationPolicyState {
      */
     recoveryPointRetentionInMinutes?: pulumi.Input<number>;
     /**
-     * The name of the vault that should be updated.
+     * The name of the vault that should be updated. Changing this forces a new resource to be created.
      */
     recoveryVaultName?: pulumi.Input<string>;
     /**
-     * Name of the resource group where the vault that should be updated is located.
+     * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
 }
@@ -162,7 +162,7 @@ export interface ReplicationPolicyArgs {
      */
     applicationConsistentSnapshotFrequencyInMinutes: pulumi.Input<number>;
     /**
-     * The name of the replication policy.
+     * The name of the replication policy. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -170,11 +170,11 @@ export interface ReplicationPolicyArgs {
      */
     recoveryPointRetentionInMinutes: pulumi.Input<number>;
     /**
-     * The name of the vault that should be updated.
+     * The name of the vault that should be updated. Changing this forces a new resource to be created.
      */
     recoveryVaultName: pulumi.Input<string>;
     /**
-     * Name of the resource group where the vault that should be updated is located.
+     * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
 }

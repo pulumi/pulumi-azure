@@ -95,7 +95,7 @@ class ElasticsearchLogsFilteringTagArgs:
                  value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] action: Specifies the type of action which should be taken when the Tag matches the `name` and `value`. Possible values are `Exclude` and `Include`.
-        :param pulumi.Input[str] name: Specifies the name (key) of the Tag which should be filtered.
+        :param pulumi.Input[str] name: Specifies the name (key) of the Tag which should be filtered. Changing this forces a new resource to be created.
         :param pulumi.Input[str] value: Specifies the value of the Tag which should be filtered.
         """
         pulumi.set(__self__, "action", action)
@@ -118,7 +118,7 @@ class ElasticsearchLogsFilteringTagArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name (key) of the Tag which should be filtered.
+        Specifies the name (key) of the Tag which should be filtered. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

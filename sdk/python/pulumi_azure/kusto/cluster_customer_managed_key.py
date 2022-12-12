@@ -23,7 +23,7 @@ class ClusterCustomerManagedKeyArgs:
         The set of arguments for constructing a ClusterCustomerManagedKey resource.
         :param pulumi.Input[str] cluster_id: The ID of the Kusto Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_name: The name of Key Vault Key.
-        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault.
         :param pulumi.Input[str] key_version: The version of Key Vault Key.
         :param pulumi.Input[str] user_identity: The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
         """
@@ -62,7 +62,7 @@ class ClusterCustomerManagedKeyArgs:
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> pulumi.Input[str]:
         """
-        The ID of the Key Vault. Changing this forces a new resource to be created.
+        The ID of the Key Vault.
         """
         return pulumi.get(self, "key_vault_id")
 
@@ -107,7 +107,7 @@ class _ClusterCustomerManagedKeyState:
         Input properties used for looking up and filtering ClusterCustomerManagedKey resources.
         :param pulumi.Input[str] cluster_id: The ID of the Kusto Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_name: The name of Key Vault Key.
-        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault.
         :param pulumi.Input[str] key_version: The version of Key Vault Key.
         :param pulumi.Input[str] user_identity: The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
         """
@@ -150,7 +150,7 @@ class _ClusterCustomerManagedKeyState:
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Key Vault. Changing this forces a new resource to be created.
+        The ID of the Key Vault.
         """
         return pulumi.get(self, "key_vault_id")
 
@@ -276,7 +276,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_id: The ID of the Kusto Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_name: The name of Key Vault Key.
-        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault.
         :param pulumi.Input[str] key_version: The version of Key Vault Key.
         :param pulumi.Input[str] user_identity: The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
         """
@@ -430,7 +430,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_id: The ID of the Kusto Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_name: The name of Key Vault Key.
-        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault.
         :param pulumi.Input[str] key_version: The version of Key Vault Key.
         :param pulumi.Input[str] user_identity: The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
         """
@@ -465,7 +465,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> pulumi.Output[str]:
         """
-        The ID of the Key Vault. Changing this forces a new resource to be created.
+        The ID of the Key Vault.
         """
         return pulumi.get(self, "key_vault_id")
 

@@ -55,7 +55,7 @@ namespace Pulumi.Azure.NotificationHub
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure Region in which this Notification Hub Namespace should be created.
+        /// The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.NotificationHub
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
+        /// The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
         /// </summary>
         [Output("namespaceType")]
         public Output<string> NamespaceType { get; private set; } = null!;
@@ -85,7 +85,7 @@ namespace Pulumi.Azure.NotificationHub
         public Output<string> ServicebusEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+        /// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.Azure.NotificationHub
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The Azure Region in which this Notification Hub Namespace should be created.
+        /// The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -161,7 +161,7 @@ namespace Pulumi.Azure.NotificationHub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
+        /// The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
         /// </summary>
         [Input("namespaceType", required: true)]
         public Input<string> NamespaceType { get; set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.Azure.NotificationHub
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+        /// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
@@ -205,7 +205,7 @@ namespace Pulumi.Azure.NotificationHub
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The Azure Region in which this Notification Hub Namespace should be created.
+        /// The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -217,7 +217,7 @@ namespace Pulumi.Azure.NotificationHub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
+        /// The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
         /// </summary>
         [Input("namespaceType")]
         public Input<string>? NamespaceType { get; set; }
@@ -235,7 +235,7 @@ namespace Pulumi.Azure.NotificationHub
         public Input<string>? ServicebusEndpoint { get; set; }
 
         /// <summary>
-        /// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+        /// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }

@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string> AddressPrefix { get; set; } = null!;
 
         /// <summary>
-        /// The name of the route.
+        /// The name of the route. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

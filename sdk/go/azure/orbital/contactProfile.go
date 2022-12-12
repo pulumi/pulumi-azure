@@ -125,7 +125,7 @@ type ContactProfile struct {
 	EventHubUri pulumi.StringPtrOutput `pulumi:"eventHubUri"`
 	// A list of spacecraft links. A `links` block as defined below.
 	Links ContactProfileLinkArrayOutput `pulumi:"links"`
-	// The location where the contact profile exists.
+	// The location where the contact profile exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Maximum elevation of the antenna during the contact in decimal degrees.
 	MinimumElevationDegrees pulumi.Float64PtrOutput `pulumi:"minimumElevationDegrees"`
@@ -133,9 +133,9 @@ type ContactProfile struct {
 	MinimumVariableContactDuration pulumi.StringOutput `pulumi:"minimumVariableContactDuration"`
 	// The name of the contact profile. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
+	// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
 	NetworkConfigurationSubnetId pulumi.StringOutput `pulumi:"networkConfigurationSubnetId"`
-	// The name of the Resource Group where the contact profile exists.
+	// The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput    `pulumi:"resourceGroupName"`
 	Tags              pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -190,7 +190,7 @@ type contactProfileState struct {
 	EventHubUri *string `pulumi:"eventHubUri"`
 	// A list of spacecraft links. A `links` block as defined below.
 	Links []ContactProfileLink `pulumi:"links"`
-	// The location where the contact profile exists.
+	// The location where the contact profile exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Maximum elevation of the antenna during the contact in decimal degrees.
 	MinimumElevationDegrees *float64 `pulumi:"minimumElevationDegrees"`
@@ -198,9 +198,9 @@ type contactProfileState struct {
 	MinimumVariableContactDuration *string `pulumi:"minimumVariableContactDuration"`
 	// The name of the contact profile. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
+	// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
 	NetworkConfigurationSubnetId *string `pulumi:"networkConfigurationSubnetId"`
-	// The name of the Resource Group where the contact profile exists.
+	// The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string           `pulumi:"resourceGroupName"`
 	Tags              map[string]string `pulumi:"tags"`
 }
@@ -212,7 +212,7 @@ type ContactProfileState struct {
 	EventHubUri pulumi.StringPtrInput
 	// A list of spacecraft links. A `links` block as defined below.
 	Links ContactProfileLinkArrayInput
-	// The location where the contact profile exists.
+	// The location where the contact profile exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Maximum elevation of the antenna during the contact in decimal degrees.
 	MinimumElevationDegrees pulumi.Float64PtrInput
@@ -220,9 +220,9 @@ type ContactProfileState struct {
 	MinimumVariableContactDuration pulumi.StringPtrInput
 	// The name of the contact profile. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
+	// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
 	NetworkConfigurationSubnetId pulumi.StringPtrInput
-	// The name of the Resource Group where the contact profile exists.
+	// The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	Tags              pulumi.StringMapInput
 }
@@ -238,7 +238,7 @@ type contactProfileArgs struct {
 	EventHubUri *string `pulumi:"eventHubUri"`
 	// A list of spacecraft links. A `links` block as defined below.
 	Links []ContactProfileLink `pulumi:"links"`
-	// The location where the contact profile exists.
+	// The location where the contact profile exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Maximum elevation of the antenna during the contact in decimal degrees.
 	MinimumElevationDegrees *float64 `pulumi:"minimumElevationDegrees"`
@@ -246,9 +246,9 @@ type contactProfileArgs struct {
 	MinimumVariableContactDuration string `pulumi:"minimumVariableContactDuration"`
 	// The name of the contact profile. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
+	// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
 	NetworkConfigurationSubnetId string `pulumi:"networkConfigurationSubnetId"`
-	// The name of the Resource Group where the contact profile exists.
+	// The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
 	ResourceGroupName string            `pulumi:"resourceGroupName"`
 	Tags              map[string]string `pulumi:"tags"`
 }
@@ -261,7 +261,7 @@ type ContactProfileArgs struct {
 	EventHubUri pulumi.StringPtrInput
 	// A list of spacecraft links. A `links` block as defined below.
 	Links ContactProfileLinkArrayInput
-	// The location where the contact profile exists.
+	// The location where the contact profile exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Maximum elevation of the antenna during the contact in decimal degrees.
 	MinimumElevationDegrees pulumi.Float64PtrInput
@@ -269,9 +269,9 @@ type ContactProfileArgs struct {
 	MinimumVariableContactDuration pulumi.StringInput
 	// The name of the contact profile. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
+	// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
 	NetworkConfigurationSubnetId pulumi.StringInput
-	// The name of the Resource Group where the contact profile exists.
+	// The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	Tags              pulumi.StringMapInput
 }
@@ -378,7 +378,7 @@ func (o ContactProfileOutput) Links() ContactProfileLinkArrayOutput {
 	return o.ApplyT(func(v *ContactProfile) ContactProfileLinkArrayOutput { return v.Links }).(ContactProfileLinkArrayOutput)
 }
 
-// The location where the contact profile exists.
+// The location where the contact profile exists. Changing this forces a new resource to be created.
 func (o ContactProfileOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactProfile) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
@@ -398,12 +398,12 @@ func (o ContactProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
+// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
 func (o ContactProfileOutput) NetworkConfigurationSubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactProfile) pulumi.StringOutput { return v.NetworkConfigurationSubnetId }).(pulumi.StringOutput)
 }
 
-// The name of the Resource Group where the contact profile exists.
+// The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
 func (o ContactProfileOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactProfile) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

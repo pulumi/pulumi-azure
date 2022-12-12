@@ -24,12 +24,17 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable String capacityReservationGroupId;
     /**
+     * @return Specifies whether to trust a Custom CA. Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean customCaTrustEnabled;
+    /**
      * @return Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
      * 
      */
     private @Nullable Boolean enableAutoScaling;
     /**
-     * @return Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
+     * @return Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable Boolean enableHostEncryption;
@@ -142,12 +147,12 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable Map<String,String> tags;
     /**
-     * @return The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
+     * @return The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String type;
     /**
-     * @return Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+     * @return Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable Boolean ultraSsdEnabled;
@@ -186,6 +191,13 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.capacityReservationGroupId);
     }
     /**
+     * @return Specifies whether to trust a Custom CA. Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> customCaTrustEnabled() {
+        return Optional.ofNullable(this.customCaTrustEnabled);
+    }
+    /**
      * @return Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
      * 
      */
@@ -193,7 +205,7 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.enableAutoScaling);
     }
     /**
-     * @return Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
+     * @return Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Boolean> enableHostEncryption() {
@@ -356,14 +368,14 @@ public final class KubernetesClusterDefaultNodePool {
         return this.tags == null ? Map.of() : this.tags;
     }
     /**
-     * @return The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
+     * @return The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }
     /**
-     * @return Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+     * @return Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Boolean> ultraSsdEnabled() {
@@ -415,6 +427,7 @@ public final class KubernetesClusterDefaultNodePool {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String capacityReservationGroupId;
+        private @Nullable Boolean customCaTrustEnabled;
         private @Nullable Boolean enableAutoScaling;
         private @Nullable Boolean enableHostEncryption;
         private @Nullable Boolean enableNodePublicIp;
@@ -452,6 +465,7 @@ public final class KubernetesClusterDefaultNodePool {
         public Builder(KubernetesClusterDefaultNodePool defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacityReservationGroupId = defaults.capacityReservationGroupId;
+    	      this.customCaTrustEnabled = defaults.customCaTrustEnabled;
     	      this.enableAutoScaling = defaults.enableAutoScaling;
     	      this.enableHostEncryption = defaults.enableHostEncryption;
     	      this.enableNodePublicIp = defaults.enableNodePublicIp;
@@ -490,6 +504,11 @@ public final class KubernetesClusterDefaultNodePool {
         @CustomType.Setter
         public Builder capacityReservationGroupId(@Nullable String capacityReservationGroupId) {
             this.capacityReservationGroupId = capacityReservationGroupId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder customCaTrustEnabled(@Nullable Boolean customCaTrustEnabled) {
+            this.customCaTrustEnabled = customCaTrustEnabled;
             return this;
         }
         @CustomType.Setter
@@ -666,6 +685,7 @@ public final class KubernetesClusterDefaultNodePool {
         public KubernetesClusterDefaultNodePool build() {
             final var o = new KubernetesClusterDefaultNodePool();
             o.capacityReservationGroupId = capacityReservationGroupId;
+            o.customCaTrustEnabled = customCaTrustEnabled;
             o.enableAutoScaling = enableAutoScaling;
             o.enableHostEncryption = enableHostEncryption;
             o.enableNodePublicIp = enableNodePublicIp;

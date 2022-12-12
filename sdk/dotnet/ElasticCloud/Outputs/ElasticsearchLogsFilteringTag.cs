@@ -18,7 +18,7 @@ namespace Pulumi.Azure.ElasticCloud.Outputs
         /// </summary>
         public readonly string Action;
         /// <summary>
-        /// Specifies the name (key) of the Tag which should be filtered.
+        /// Specifies the name (key) of the Tag which should be filtered. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
         /// <summary>

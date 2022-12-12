@@ -687,7 +687,7 @@ func (o CacheRedisConfigurationPtrOutput) RdbStorageConnectionString() pulumi.St
 }
 
 type EnterpriseDatabaseModule struct {
-	// Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
+	// Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created.
 	Args *string `pulumi:"args"`
 	// The name which should be used for this module. Possible values are `RediSearch`, `RedisBloom` and `RedisTimeSeries`. Changing this forces a new Redis Enterprise Database to be created.
 	Name    string  `pulumi:"name"`
@@ -706,7 +706,7 @@ type EnterpriseDatabaseModuleInput interface {
 }
 
 type EnterpriseDatabaseModuleArgs struct {
-	// Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
+	// Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created.
 	Args pulumi.StringPtrInput `pulumi:"args"`
 	// The name which should be used for this module. Possible values are `RediSearch`, `RedisBloom` and `RedisTimeSeries`. Changing this forces a new Redis Enterprise Database to be created.
 	Name    pulumi.StringInput    `pulumi:"name"`
@@ -764,7 +764,7 @@ func (o EnterpriseDatabaseModuleOutput) ToEnterpriseDatabaseModuleOutputWithCont
 	return o
 }
 
-// Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
+// Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created.
 func (o EnterpriseDatabaseModuleOutput) Args() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnterpriseDatabaseModule) *string { return v.Args }).(pulumi.StringPtrOutput)
 }

@@ -99,7 +99,7 @@ type NatGateway struct {
 	ResourceGuid pulumi.StringOutput `pulumi:"resourceGuid"`
 	// The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
 	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
-	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
@@ -149,7 +149,7 @@ type natGatewayState struct {
 	ResourceGuid *string `pulumi:"resourceGuid"`
 	// The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
 	SkuName *string `pulumi:"skuName"`
-	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
 	Zones []string `pulumi:"zones"`
@@ -168,7 +168,7 @@ type NatGatewayState struct {
 	ResourceGuid pulumi.StringPtrInput
 	// The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
 	SkuName pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
 	Zones pulumi.StringArrayInput
@@ -189,7 +189,7 @@ type natGatewayArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
 	SkuName *string `pulumi:"skuName"`
-	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
 	Zones []string `pulumi:"zones"`
@@ -207,7 +207,7 @@ type NatGatewayArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
 	SkuName pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
 	Zones pulumi.StringArrayInput
@@ -330,7 +330,7 @@ func (o NatGatewayOutput) SkuName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringPtrOutput { return v.SkuName }).(pulumi.StringPtrOutput)
 }
 
-// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+// A mapping of tags to assign to the resource.
 func (o NatGatewayOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

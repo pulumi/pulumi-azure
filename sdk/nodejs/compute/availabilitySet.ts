@@ -64,7 +64,7 @@ export class AvailabilitySet extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`.
+     * Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`. Changing this forces a new resource to be created.
      */
     public readonly managed!: pulumi.Output<boolean | undefined>;
     /**
@@ -141,7 +141,7 @@ export interface AvailabilitySetState {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`.
+     * Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`. Changing this forces a new resource to be created.
      */
     managed?: pulumi.Input<boolean>;
     /**
@@ -179,7 +179,7 @@ export interface AvailabilitySetArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`.
+     * Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`. Changing this forces a new resource to be created.
      */
     managed?: pulumi.Input<boolean>;
     /**

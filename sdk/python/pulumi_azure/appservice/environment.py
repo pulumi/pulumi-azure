@@ -32,7 +32,7 @@ class EnvironmentArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_user_ip_cidrs: Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentClusterSettingArgs']]] cluster_settings: Zero or more `cluster_setting` blocks as defined below.
         :param pulumi.Input[int] front_end_scale_factor: Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
-        :param pulumi.Input[str] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
+        :param pulumi.Input[str] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the App Service Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pricing_tier: Pricing tier for the front end instances. Possible values are `I1`, `I2` and `I3`. Defaults to `I1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
@@ -118,7 +118,7 @@ class EnvironmentArgs:
     @pulumi.getter(name="internalLoadBalancingMode")
     def internal_load_balancing_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
+        Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "internal_load_balancing_mode")
 
@@ -185,7 +185,7 @@ class _EnvironmentState:
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentClusterSettingArgs']]] cluster_settings: Zero or more `cluster_setting` blocks as defined below.
         :param pulumi.Input[int] front_end_scale_factor: Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
         :param pulumi.Input[str] internal_ip_address: IP address of internal load balancer of the App Service Environment.
-        :param pulumi.Input[str] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
+        :param pulumi.Input[str] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the App Service Environment exists.
         :param pulumi.Input[str] name: The name of the App Service Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_addresses: List of outbound IP addresses of the App Service Environment.
@@ -274,7 +274,7 @@ class _EnvironmentState:
     @pulumi.getter(name="internalLoadBalancingMode")
     def internal_load_balancing_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
+        Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "internal_load_balancing_mode")
 
@@ -445,7 +445,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_user_ip_cidrs: Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentClusterSettingArgs']]]] cluster_settings: Zero or more `cluster_setting` blocks as defined below.
         :param pulumi.Input[int] front_end_scale_factor: Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
-        :param pulumi.Input[str] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
+        :param pulumi.Input[str] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the App Service Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pricing_tier: Pricing tier for the front end instances. Possible values are `I1`, `I2` and `I3`. Defaults to `I1`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`).
@@ -588,7 +588,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentClusterSettingArgs']]]] cluster_settings: Zero or more `cluster_setting` blocks as defined below.
         :param pulumi.Input[int] front_end_scale_factor: Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
         :param pulumi.Input[str] internal_ip_address: IP address of internal load balancer of the App Service Environment.
-        :param pulumi.Input[str] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
+        :param pulumi.Input[str] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the App Service Environment exists.
         :param pulumi.Input[str] name: The name of the App Service Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_addresses: List of outbound IP addresses of the App Service Environment.
@@ -653,7 +653,7 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter(name="internalLoadBalancingMode")
     def internal_load_balancing_mode(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
+        Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "internal_load_balancing_mode")
 

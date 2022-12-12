@@ -72,7 +72,7 @@ export class FirewallRule extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+     * Specifies the End IP Address associated with this Firewall Rule.
      */
     public readonly endIpAddress!: pulumi.Output<string>;
     /**
@@ -88,7 +88,7 @@ export class FirewallRule extends pulumi.CustomResource {
      */
     public readonly serverName!: pulumi.Output<string>;
     /**
-     * Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+     * Specifies the Start IP Address associated with this Firewall Rule.
      */
     public readonly startIpAddress!: pulumi.Output<string>;
 
@@ -140,7 +140,7 @@ export class FirewallRule extends pulumi.CustomResource {
  */
 export interface FirewallRuleState {
     /**
-     * Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+     * Specifies the End IP Address associated with this Firewall Rule.
      */
     endIpAddress?: pulumi.Input<string>;
     /**
@@ -156,7 +156,7 @@ export interface FirewallRuleState {
      */
     serverName?: pulumi.Input<string>;
     /**
-     * Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+     * Specifies the Start IP Address associated with this Firewall Rule.
      */
     startIpAddress?: pulumi.Input<string>;
 }
@@ -166,7 +166,7 @@ export interface FirewallRuleState {
  */
 export interface FirewallRuleArgs {
     /**
-     * Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+     * Specifies the End IP Address associated with this Firewall Rule.
      */
     endIpAddress: pulumi.Input<string>;
     /**
@@ -182,7 +182,7 @@ export interface FirewallRuleArgs {
      */
     serverName: pulumi.Input<string>;
     /**
-     * Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+     * Specifies the Start IP Address associated with this Firewall Rule.
      */
     startIpAddress: pulumi.Input<string>;
 }

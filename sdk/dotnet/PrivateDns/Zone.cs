@@ -64,7 +64,7 @@ namespace Pulumi.Azure.PrivateDns
         public Output<int> MaxNumberOfVirtualNetworkLinksWithRegistration { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Private DNS Zone. Must be a valid domain name.
+        /// The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.Azure.PrivateDns
     public sealed class ZoneArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Private DNS Zone. Must be a valid domain name.
+        /// The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -196,7 +196,7 @@ namespace Pulumi.Azure.PrivateDns
         public Input<int>? MaxNumberOfVirtualNetworkLinksWithRegistration { get; set; }
 
         /// <summary>
-        /// The name of the Private DNS Zone. Must be a valid domain name.
+        /// The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -34,14 +34,14 @@ public final class SpacecraftState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The location where the Spacecraft exists.
+     * The location where the Spacecraft exists. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return The location where the Spacecraft exists.
+     * @return The location where the Spacecraft exists. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> location() {
@@ -49,14 +49,14 @@ public final class SpacecraftState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the link.
+     * Name of the link. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the link.
+     * @return Name of the link. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -79,14 +79,14 @@ public final class SpacecraftState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Resource Group where the Spacecraft exists.
+     * The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the Spacecraft exists.
+     * @return The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -193,7 +193,7 @@ public final class SpacecraftState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The location where the Spacecraft exists.
+         * @param location The location where the Spacecraft exists. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class SpacecraftState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The location where the Spacecraft exists.
+         * @param location The location where the Spacecraft exists. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class SpacecraftState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the link.
+         * @param name Name of the link. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class SpacecraftState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the link.
+         * @param name Name of the link. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class SpacecraftState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the Spacecraft exists.
+         * @param resourceGroupName The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class SpacecraftState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the Spacecraft exists.
+         * @param resourceGroupName The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

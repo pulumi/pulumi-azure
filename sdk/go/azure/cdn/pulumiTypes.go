@@ -6535,7 +6535,7 @@ func (o FrontdoorOriginGroupLoadBalancingPtrOutput) SuccessfulSamplesRequired() 
 }
 
 type FrontdoorOriginPrivateLink struct {
-	// Specifies the location where the Private Link resource should exist.
+	// Specifies the location where the Private Link resource should exist. Changing this forces a new resource to be created.
 	Location string `pulumi:"location"`
 	// The ID of the Azure Resource to connect to via the Private Link.
 	PrivateLinkTargetId string `pulumi:"privateLinkTargetId"`
@@ -6557,7 +6557,7 @@ type FrontdoorOriginPrivateLinkInput interface {
 }
 
 type FrontdoorOriginPrivateLinkArgs struct {
-	// Specifies the location where the Private Link resource should exist.
+	// Specifies the location where the Private Link resource should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringInput `pulumi:"location"`
 	// The ID of the Azure Resource to connect to via the Private Link.
 	PrivateLinkTargetId pulumi.StringInput `pulumi:"privateLinkTargetId"`
@@ -6644,7 +6644,7 @@ func (o FrontdoorOriginPrivateLinkOutput) ToFrontdoorOriginPrivateLinkPtrOutputW
 	}).(FrontdoorOriginPrivateLinkPtrOutput)
 }
 
-// Specifies the location where the Private Link resource should exist.
+// Specifies the location where the Private Link resource should exist. Changing this forces a new resource to be created.
 func (o FrontdoorOriginPrivateLinkOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorOriginPrivateLink) string { return v.Location }).(pulumi.StringOutput)
 }
@@ -6688,7 +6688,7 @@ func (o FrontdoorOriginPrivateLinkPtrOutput) Elem() FrontdoorOriginPrivateLinkOu
 	}).(FrontdoorOriginPrivateLinkOutput)
 }
 
-// Specifies the location where the Private Link resource should exist.
+// Specifies the location where the Private Link resource should exist. Changing this forces a new resource to be created.
 func (o FrontdoorOriginPrivateLinkPtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorOriginPrivateLink) *string {
 		if v == nil {

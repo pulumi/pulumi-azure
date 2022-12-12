@@ -153,7 +153,7 @@ type ManagedStorageAccountSasTokenDefinition struct {
 	SasType pulumi.StringOutput `pulumi:"sasType"`
 	// The ID of the Secret that is created by Managed Storage Account SAS Definition.
 	SecretId pulumi.StringOutput `pulumi:"secretId"`
-	// A mapping of tags which should be assigned to the SAS Definition.
+	// A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Validity period of SAS token. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
 	ValidityPeriod pulumi.StringOutput `pulumi:"validityPeriod"`
@@ -210,7 +210,7 @@ type managedStorageAccountSasTokenDefinitionState struct {
 	SasType *string `pulumi:"sasType"`
 	// The ID of the Secret that is created by Managed Storage Account SAS Definition.
 	SecretId *string `pulumi:"secretId"`
-	// A mapping of tags which should be assigned to the SAS Definition.
+	// A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created.
 	Tags map[string]string `pulumi:"tags"`
 	// Validity period of SAS token. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
 	ValidityPeriod *string `pulumi:"validityPeriod"`
@@ -227,7 +227,7 @@ type ManagedStorageAccountSasTokenDefinitionState struct {
 	SasType pulumi.StringPtrInput
 	// The ID of the Secret that is created by Managed Storage Account SAS Definition.
 	SecretId pulumi.StringPtrInput
-	// A mapping of tags which should be assigned to the SAS Definition.
+	// A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created.
 	Tags pulumi.StringMapInput
 	// Validity period of SAS token. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
 	ValidityPeriod pulumi.StringPtrInput
@@ -246,7 +246,7 @@ type managedStorageAccountSasTokenDefinitionArgs struct {
 	SasTemplateUri string `pulumi:"sasTemplateUri"`
 	// The type of SAS token the SAS definition will create. Possible values are `account` and `service`.
 	SasType string `pulumi:"sasType"`
-	// A mapping of tags which should be assigned to the SAS Definition.
+	// A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created.
 	Tags map[string]string `pulumi:"tags"`
 	// Validity period of SAS token. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
 	ValidityPeriod string `pulumi:"validityPeriod"`
@@ -262,7 +262,7 @@ type ManagedStorageAccountSasTokenDefinitionArgs struct {
 	SasTemplateUri pulumi.StringInput
 	// The type of SAS token the SAS definition will create. Possible values are `account` and `service`.
 	SasType pulumi.StringInput
-	// A mapping of tags which should be assigned to the SAS Definition.
+	// A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created.
 	Tags pulumi.StringMapInput
 	// Validity period of SAS token. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
 	ValidityPeriod pulumi.StringInput
@@ -380,7 +380,7 @@ func (o ManagedStorageAccountSasTokenDefinitionOutput) SecretId() pulumi.StringO
 	return o.ApplyT(func(v *ManagedStorageAccountSasTokenDefinition) pulumi.StringOutput { return v.SecretId }).(pulumi.StringOutput)
 }
 
-// A mapping of tags which should be assigned to the SAS Definition.
+// A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created.
 func (o ManagedStorageAccountSasTokenDefinitionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ManagedStorageAccountSasTokenDefinition) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

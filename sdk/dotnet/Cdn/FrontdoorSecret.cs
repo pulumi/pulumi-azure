@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Cdn
     /// 
     ///     var frontdoor = AzureAD.GetServicePrincipal.Invoke(new()
     ///     {
-    ///         DisplayName = "Microsoft.AzureFrontDoor-Cdn",
+    ///         DisplayName = "Microsoft.Azure.Cdn",
     ///     });
     /// 
     ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()

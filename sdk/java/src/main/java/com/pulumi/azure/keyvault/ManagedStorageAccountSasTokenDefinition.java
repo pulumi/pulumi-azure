@@ -220,14 +220,14 @@ public class ManagedStorageAccountSasTokenDefinition extends com.pulumi.resource
         return this.secretId;
     }
     /**
-     * A mapping of tags which should be assigned to the SAS Definition.
+     * A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags which should be assigned to the SAS Definition.
+     * @return A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

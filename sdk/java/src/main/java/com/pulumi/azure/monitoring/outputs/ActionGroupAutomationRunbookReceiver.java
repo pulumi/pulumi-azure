@@ -23,7 +23,7 @@ public final class ActionGroupAutomationRunbookReceiver {
      */
     private Boolean isGlobalRunbook;
     /**
-     * @return The name of the automation runbook receiver.
+     * @return The name of the automation runbook receiver. Changing this forces a new resource to be created.
      * 
      */
     private String name;
@@ -64,7 +64,7 @@ public final class ActionGroupAutomationRunbookReceiver {
         return this.isGlobalRunbook;
     }
     /**
-     * @return The name of the automation runbook receiver.
+     * @return The name of the automation runbook receiver. Changing this forces a new resource to be created.
      * 
      */
     public String name() {

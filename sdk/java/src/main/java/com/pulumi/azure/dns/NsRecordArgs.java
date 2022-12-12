@@ -19,14 +19,14 @@ public final class NsRecordArgs extends com.pulumi.resources.ResourceArgs {
     public static final NsRecordArgs Empty = new NsRecordArgs();
 
     /**
-     * The name of the DNS NS Record.
+     * The name of the DNS NS Record. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the DNS NS Record.
+     * @return The name of the DNS NS Record. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -138,7 +138,7 @@ public final class NsRecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the DNS NS Record.
+         * @param name The name of the DNS NS Record. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class NsRecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the DNS NS Record.
+         * @param name The name of the DNS NS Record. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

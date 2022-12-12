@@ -187,14 +187,14 @@ public class ExpressRouteCircuitPeering extends com.pulumi.resources.CustomResou
         return this.azureAsn;
     }
     /**
-     * The name of the ExpressRoute Circuit in which to create the Peering.
+     * The name of the ExpressRoute Circuit in which to create the Peering. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="expressRouteCircuitName", type=String.class, parameters={})
     private Output<String> expressRouteCircuitName;
 
     /**
-     * @return The name of the ExpressRoute Circuit in which to create the Peering.
+     * @return The name of the ExpressRoute Circuit in which to create the Peering. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> expressRouteCircuitName() {
@@ -263,14 +263,14 @@ public class ExpressRouteCircuitPeering extends com.pulumi.resources.CustomResou
         return this.peerAsn;
     }
     /**
-     * The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. Changing this forces a new resource to be created.
+     * The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
      * 
      */
     @Export(name="peeringType", type=String.class, parameters={})
     private Output<String> peeringType;
 
     /**
-     * @return The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. Changing this forces a new resource to be created.
+     * @return The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
      * 
      */
     public Output<String> peeringType() {

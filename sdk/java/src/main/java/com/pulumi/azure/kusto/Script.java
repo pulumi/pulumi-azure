@@ -127,7 +127,7 @@ import javax.annotation.Nullable;
  * Kusto Scripts can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:kusto/script:Script example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Kusto/Clusters/cluster1/Databases/database1/Scripts/script1
+ *  $ pulumi import azure:kusto/script:Script example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Kusto/clusters/cluster1/databases/database1/scripts/script1
  * ```
  * 
  */
@@ -190,28 +190,28 @@ public class Script extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The SAS token used to access the script. Must be provided when using scriptUrl property.
+     * The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="sasToken", type=String.class, parameters={})
     private Output</* @Nullable */ String> sasToken;
 
     /**
-     * @return The SAS token used to access the script. Must be provided when using scriptUrl property.
+     * @return The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> sasToken() {
         return Codegen.optional(this.sasToken);
     }
     /**
-     * The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties.
+     * The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="scriptContent", type=String.class, parameters={})
     private Output</* @Nullable */ String> scriptContent;
 
     /**
-     * @return The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties.
+     * @return The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> scriptContent() {

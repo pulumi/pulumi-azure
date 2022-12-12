@@ -29,14 +29,14 @@ public final class TimeSeriesInsightsGen2EnvironmentStorageArgs extends com.pulu
     }
 
     /**
-     * Name of storage account for Azure IoT Time Series Insights Gen2 Environment
+     * Name of storage account for Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of storage account for Azure IoT Time Series Insights Gen2 Environment
+     * @return Name of storage account for Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -90,7 +90,7 @@ public final class TimeSeriesInsightsGen2EnvironmentStorageArgs extends com.pulu
         }
 
         /**
-         * @param name Name of storage account for Azure IoT Time Series Insights Gen2 Environment
+         * @param name Name of storage account for Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class TimeSeriesInsightsGen2EnvironmentStorageArgs extends com.pulu
         }
 
         /**
-         * @param name Name of storage account for Azure IoT Time Series Insights Gen2 Environment
+         * @param name Name of storage account for Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

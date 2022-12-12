@@ -72,7 +72,7 @@ export class RoleDefinition extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The name of the Role Definition. Changing this forces a new resource to be created.
+     * The name of the Role Definition.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -145,7 +145,7 @@ export interface RoleDefinitionState {
      */
     description?: pulumi.Input<string>;
     /**
-     * The name of the Role Definition. Changing this forces a new resource to be created.
+     * The name of the Role Definition.
      */
     name?: pulumi.Input<string>;
     /**
@@ -179,7 +179,7 @@ export interface RoleDefinitionArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The name of the Role Definition. Changing this forces a new resource to be created.
+     * The name of the Role Definition.
      */
     name?: pulumi.Input<string>;
     /**

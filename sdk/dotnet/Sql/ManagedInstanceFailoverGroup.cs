@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Sql
     public partial class ManagedInstanceFailoverGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Azure Region where the SQL Instance Failover Group exists.
+        /// The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Sql
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the SQL Managed Instance which will be replicated to.
+        /// ID of the SQL Managed Instance which will be replicated to. Changing this forces a new resource to be created.
         /// </summary>
         [Output("partnerManagedInstanceId")]
         public Output<string> PartnerManagedInstanceId { get; private set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.Azure.Sql
     public sealed class ManagedInstanceFailoverGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Azure Region where the SQL Instance Failover Group exists.
+        /// The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -140,7 +140,7 @@ namespace Pulumi.Azure.Sql
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// ID of the SQL Managed Instance which will be replicated to.
+        /// ID of the SQL Managed Instance which will be replicated to. Changing this forces a new resource to be created.
         /// </summary>
         [Input("partnerManagedInstanceId", required: true)]
         public Input<string> PartnerManagedInstanceId { get; set; } = null!;
@@ -172,7 +172,7 @@ namespace Pulumi.Azure.Sql
     public sealed class ManagedInstanceFailoverGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Azure Region where the SQL Instance Failover Group exists.
+        /// The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -190,7 +190,7 @@ namespace Pulumi.Azure.Sql
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// ID of the SQL Managed Instance which will be replicated to.
+        /// ID of the SQL Managed Instance which will be replicated to. Changing this forces a new resource to be created.
         /// </summary>
         [Input("partnerManagedInstanceId")]
         public Input<string>? PartnerManagedInstanceId { get; set; }

@@ -75,7 +75,7 @@ export class CustomProvider extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to create the Custom Provider.
+     * The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -83,7 +83,7 @@ export class CustomProvider extends pulumi.CustomResource {
      */
     public readonly resourceTypes!: pulumi.Output<outputs.core.CustomProviderResourceType[] | undefined>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -146,7 +146,7 @@ export interface CustomProviderState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the Custom Provider.
+     * The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -154,7 +154,7 @@ export interface CustomProviderState {
      */
     resourceTypes?: pulumi.Input<pulumi.Input<inputs.core.CustomProviderResourceType>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -180,7 +180,7 @@ export interface CustomProviderArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the Custom Provider.
+     * The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -188,7 +188,7 @@ export interface CustomProviderArgs {
      */
     resourceTypes?: pulumi.Input<pulumi.Input<inputs.core.CustomProviderResourceType>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

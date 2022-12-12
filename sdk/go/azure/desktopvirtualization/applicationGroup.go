@@ -102,18 +102,15 @@ type ApplicationGroup struct {
 	// Resource ID for a Virtual Desktop Host Pool to associate with the
 	// Virtual Desktop Application Group.
 	HostPoolId pulumi.StringOutput `pulumi:"hostPoolId"`
-	// The location/region where the Virtual Desktop Application Group is
-	// located. Changing the location/region forces a new resource to be created.
+	// The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the resource group in which to
-	// create the Virtual Desktop Application Group. Changing the resource group name forces
-	// a new resource to be created.
+	// The name of the resource group in which to create the Virtual Desktop Application Group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
+	// Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups. Changing this forces a new resource to be created.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -164,18 +161,15 @@ type applicationGroupState struct {
 	// Resource ID for a Virtual Desktop Host Pool to associate with the
 	// Virtual Desktop Application Group.
 	HostPoolId *string `pulumi:"hostPoolId"`
-	// The location/region where the Virtual Desktop Application Group is
-	// located. Changing the location/region forces a new resource to be created.
+	// The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to
-	// create the Virtual Desktop Application Group. Changing the resource group name forces
-	// a new resource to be created.
+	// The name of the resource group in which to create the Virtual Desktop Application Group. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
+	// Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups. Changing this forces a new resource to be created.
 	Type *string `pulumi:"type"`
 }
 
@@ -189,18 +183,15 @@ type ApplicationGroupState struct {
 	// Resource ID for a Virtual Desktop Host Pool to associate with the
 	// Virtual Desktop Application Group.
 	HostPoolId pulumi.StringPtrInput
-	// The location/region where the Virtual Desktop Application Group is
-	// located. Changing the location/region forces a new resource to be created.
+	// The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to
-	// create the Virtual Desktop Application Group. Changing the resource group name forces
-	// a new resource to be created.
+	// The name of the resource group in which to create the Virtual Desktop Application Group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
+	// Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups. Changing this forces a new resource to be created.
 	Type pulumi.StringPtrInput
 }
 
@@ -218,18 +209,15 @@ type applicationGroupArgs struct {
 	// Resource ID for a Virtual Desktop Host Pool to associate with the
 	// Virtual Desktop Application Group.
 	HostPoolId string `pulumi:"hostPoolId"`
-	// The location/region where the Virtual Desktop Application Group is
-	// located. Changing the location/region forces a new resource to be created.
+	// The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to
-	// create the Virtual Desktop Application Group. Changing the resource group name forces
-	// a new resource to be created.
+	// The name of the resource group in which to create the Virtual Desktop Application Group. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
+	// Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups. Changing this forces a new resource to be created.
 	Type string `pulumi:"type"`
 }
 
@@ -244,18 +232,15 @@ type ApplicationGroupArgs struct {
 	// Resource ID for a Virtual Desktop Host Pool to associate with the
 	// Virtual Desktop Application Group.
 	HostPoolId pulumi.StringInput
-	// The location/region where the Virtual Desktop Application Group is
-	// located. Changing the location/region forces a new resource to be created.
+	// The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to
-	// create the Virtual Desktop Application Group. Changing the resource group name forces
-	// a new resource to be created.
+	// The name of the resource group in which to create the Virtual Desktop Application Group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
+	// Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups. Changing this forces a new resource to be created.
 	Type pulumi.StringInput
 }
 
@@ -367,8 +352,7 @@ func (o ApplicationGroupOutput) HostPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationGroup) pulumi.StringOutput { return v.HostPoolId }).(pulumi.StringOutput)
 }
 
-// The location/region where the Virtual Desktop Application Group is
-// located. Changing the location/region forces a new resource to be created.
+// The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
 func (o ApplicationGroupOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationGroup) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
@@ -378,9 +362,7 @@ func (o ApplicationGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the resource group in which to
-// create the Virtual Desktop Application Group. Changing the resource group name forces
-// a new resource to be created.
+// The name of the resource group in which to create the Virtual Desktop Application Group. Changing this forces a new resource to be created.
 func (o ApplicationGroupOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationGroup) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
@@ -390,7 +372,7 @@ func (o ApplicationGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ApplicationGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
+// Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups. Changing this forces a new resource to be created.
 func (o ApplicationGroupOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

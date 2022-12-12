@@ -15,14 +15,14 @@ public final class GremlinGraphUniqueKeyArgs extends com.pulumi.resources.Resour
     public static final GremlinGraphUniqueKeyArgs Empty = new GremlinGraphUniqueKeyArgs();
 
     /**
-     * A list of paths to use for this unique key.
+     * A list of paths to use for this unique key. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="paths", required=true)
     private Output<List<String>> paths;
 
     /**
-     * @return A list of paths to use for this unique key.
+     * @return A list of paths to use for this unique key. Changing this forces a new resource to be created.
      * 
      */
     public Output<List<String>> paths() {
@@ -54,7 +54,7 @@ public final class GremlinGraphUniqueKeyArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param paths A list of paths to use for this unique key.
+         * @param paths A list of paths to use for this unique key. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class GremlinGraphUniqueKeyArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param paths A list of paths to use for this unique key.
+         * @param paths A list of paths to use for this unique key. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -75,7 +75,7 @@ public final class GremlinGraphUniqueKeyArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param paths A list of paths to use for this unique key.
+         * @param paths A list of paths to use for this unique key. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

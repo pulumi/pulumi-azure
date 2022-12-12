@@ -61,14 +61,14 @@ public final class FirewallIpConfigurationArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Reference to the subnet associated with the IP Configuration.
+     * Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
     /**
-     * @return Reference to the subnet associated with the IP Configuration.
+     * @return Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -166,7 +166,7 @@ public final class FirewallIpConfigurationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param subnetId Reference to the subnet associated with the IP Configuration.
+         * @param subnetId Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class FirewallIpConfigurationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param subnetId Reference to the subnet associated with the IP Configuration.
+         * @param subnetId Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

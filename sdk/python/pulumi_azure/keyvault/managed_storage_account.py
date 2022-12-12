@@ -29,7 +29,7 @@ class ManagedStorageAccountArgs:
         :param pulumi.Input[str] name: The name which should be used for this Key Vault Managed Storage Account. Changing this forces a new Key Vault Managed Storage Account to be created.
         :param pulumi.Input[bool] regenerate_key_automatically: Should Storage Account access key be regenerated periodically?
         :param pulumi.Input[str] regeneration_period: How often Storage Account access key should be regenerated. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Key Vault Managed Storage Account.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "key_vault_id", key_vault_id)
         pulumi.set(__self__, "storage_account_id", storage_account_id)
@@ -119,7 +119,7 @@ class ManagedStorageAccountArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags which should be assigned to the Key Vault Managed Storage Account.
+        A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tags")
 
@@ -146,7 +146,7 @@ class _ManagedStorageAccountState:
         :param pulumi.Input[str] regeneration_period: How often Storage Account access key should be regenerated. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account.
         :param pulumi.Input[str] storage_account_key: Which Storage Account access key that is managed by Key Vault. Possible values are `key1` and `key2`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Key Vault Managed Storage Account.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
         """
         if key_vault_id is not None:
             pulumi.set(__self__, "key_vault_id", key_vault_id)
@@ -239,7 +239,7 @@ class _ManagedStorageAccountState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags which should be assigned to the Key Vault Managed Storage Account.
+        A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tags")
 
@@ -374,7 +374,7 @@ class ManagedStorageAccount(pulumi.CustomResource):
         :param pulumi.Input[str] regeneration_period: How often Storage Account access key should be regenerated. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account.
         :param pulumi.Input[str] storage_account_key: Which Storage Account access key that is managed by Key Vault. Possible values are `key1` and `key2`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Key Vault Managed Storage Account.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -561,7 +561,7 @@ class ManagedStorageAccount(pulumi.CustomResource):
         :param pulumi.Input[str] regeneration_period: How often Storage Account access key should be regenerated. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account.
         :param pulumi.Input[str] storage_account_key: Which Storage Account access key that is managed by Key Vault. Possible values are `key1` and `key2`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Key Vault Managed Storage Account.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -628,7 +628,7 @@ class ManagedStorageAccount(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A mapping of tags which should be assigned to the Key Vault Managed Storage Account.
+        A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tags")
 

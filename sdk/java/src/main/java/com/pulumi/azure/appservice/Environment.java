@@ -159,14 +159,14 @@ public class Environment extends com.pulumi.resources.CustomResource {
         return this.internalIpAddress;
     }
     /**
-     * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `&#34;Web, Publishing&#34;`. Defaults to `None`.
+     * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `&#34;Web, Publishing&#34;`. Defaults to `None`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="internalLoadBalancingMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> internalLoadBalancingMode;
 
     /**
-     * @return Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `&#34;Web, Publishing&#34;`. Defaults to `None`.
+     * @return Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `&#34;Web, Publishing&#34;`. Defaults to `None`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> internalLoadBalancingMode() {

@@ -118,98 +118,98 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:siterecovery/protectionContainerMapping:ProtectionContainerMapping")
 public class ProtectionContainerMapping extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the protection container mapping.
+     * The name of the protection container mapping. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the protection container mapping.
+     * @return The name of the protection container mapping. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Name of fabric that should contains the protection container to map.
+     * Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="recoveryFabricName", type=String.class, parameters={})
     private Output<String> recoveryFabricName;
 
     /**
-     * @return Name of fabric that should contains the protection container to map.
+     * @return Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> recoveryFabricName() {
         return this.recoveryFabricName;
     }
     /**
-     * Id of the policy to use for this mapping.
+     * Id of the policy to use for this mapping. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="recoveryReplicationPolicyId", type=String.class, parameters={})
     private Output<String> recoveryReplicationPolicyId;
 
     /**
-     * @return Id of the policy to use for this mapping.
+     * @return Id of the policy to use for this mapping. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> recoveryReplicationPolicyId() {
         return this.recoveryReplicationPolicyId;
     }
     /**
-     * Name of the source protection container to map.
+     * Name of the source protection container to map. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="recoverySourceProtectionContainerName", type=String.class, parameters={})
     private Output<String> recoverySourceProtectionContainerName;
 
     /**
-     * @return Name of the source protection container to map.
+     * @return Name of the source protection container to map. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> recoverySourceProtectionContainerName() {
         return this.recoverySourceProtectionContainerName;
     }
     /**
-     * Id of target protection container to map to.
+     * Id of target protection container to map to. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="recoveryTargetProtectionContainerId", type=String.class, parameters={})
     private Output<String> recoveryTargetProtectionContainerId;
 
     /**
-     * @return Id of target protection container to map to.
+     * @return Id of target protection container to map to. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> recoveryTargetProtectionContainerId() {
         return this.recoveryTargetProtectionContainerId;
     }
     /**
-     * The name of the vault that should be updated.
+     * The name of the vault that should be updated. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="recoveryVaultName", type=String.class, parameters={})
     private Output<String> recoveryVaultName;
 
     /**
-     * @return The name of the vault that should be updated.
+     * @return The name of the vault that should be updated. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> recoveryVaultName() {
         return this.recoveryVaultName;
     }
     /**
-     * Name of the resource group where the vault that should be updated is located.
+     * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return Name of the resource group where the vault that should be updated is located.
+     * @return Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {

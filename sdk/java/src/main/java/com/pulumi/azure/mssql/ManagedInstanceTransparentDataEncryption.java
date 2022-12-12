@@ -278,14 +278,14 @@ public class ManagedInstanceTransparentDataEncryption extends com.pulumi.resourc
         return Codegen.optional(this.keyVaultKeyId);
     }
     /**
-     * Specifies the name of the MS SQL Managed Instance.
+     * Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="managedInstanceId", type=String.class, parameters={})
     private Output<String> managedInstanceId;
 
     /**
-     * @return Specifies the name of the MS SQL Managed Instance.
+     * @return Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> managedInstanceId() {

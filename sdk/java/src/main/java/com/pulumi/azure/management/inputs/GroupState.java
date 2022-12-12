@@ -47,14 +47,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the Parent Management Group. Changing this forces a new resource to be created.
+     * The ID of the Parent Management Group.
      * 
      */
     @Import(name="parentManagementGroupId")
     private @Nullable Output<String> parentManagementGroupId;
 
     /**
-     * @return The ID of the Parent Management Group. Changing this forces a new resource to be created.
+     * @return The ID of the Parent Management Group.
      * 
      */
     public Optional<Output<String>> parentManagementGroupId() {
@@ -146,7 +146,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parentManagementGroupId The ID of the Parent Management Group. Changing this forces a new resource to be created.
+         * @param parentManagementGroupId The ID of the Parent Management Group.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parentManagementGroupId The ID of the Parent Management Group. Changing this forces a new resource to be created.
+         * @param parentManagementGroupId The ID of the Parent Management Group.
          * 
          * @return builder
          * 

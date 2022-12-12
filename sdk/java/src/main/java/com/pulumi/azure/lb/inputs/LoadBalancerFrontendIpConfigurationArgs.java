@@ -77,14 +77,14 @@ public final class LoadBalancerFrontendIpConfigurationArgs extends com.pulumi.re
     }
 
     /**
-     * Specifies the name of the frontend IP configuration.
+     * Specifies the name of the frontend IP configuration. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the frontend IP configuration.
+     * @return Specifies the name of the frontend IP configuration. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -352,7 +352,7 @@ public final class LoadBalancerFrontendIpConfigurationArgs extends com.pulumi.re
         }
 
         /**
-         * @param name Specifies the name of the frontend IP configuration.
+         * @param name Specifies the name of the frontend IP configuration. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class LoadBalancerFrontendIpConfigurationArgs extends com.pulumi.re
         }
 
         /**
-         * @param name Specifies the name of the frontend IP configuration.
+         * @param name Specifies the name of the frontend IP configuration. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

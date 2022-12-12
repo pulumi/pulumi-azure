@@ -77,7 +77,7 @@ namespace Pulumi.Azure.Network
         public Output<int?> BandwidthInMbps { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Express Route Port this Express Route Circuit is based on.
+        /// The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
         /// </summary>
         [Output("expressRoutePortId")]
         public Output<string?> ExpressRoutePortId { get; private set; } = null!;
@@ -201,7 +201,7 @@ namespace Pulumi.Azure.Network
         public Input<int>? BandwidthInMbps { get; set; }
 
         /// <summary>
-        /// The ID of the Express Route Port this Express Route Circuit is based on.
+        /// The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
         /// </summary>
         [Input("expressRoutePortId")]
         public Input<string>? ExpressRoutePortId { get; set; }
@@ -281,7 +281,7 @@ namespace Pulumi.Azure.Network
         public Input<int>? BandwidthInMbps { get; set; }
 
         /// <summary>
-        /// The ID of the Express Route Port this Express Route Circuit is based on.
+        /// The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
         /// </summary>
         [Input("expressRoutePortId")]
         public Input<string>? ExpressRoutePortId { get; set; }

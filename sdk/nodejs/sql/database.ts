@@ -82,7 +82,7 @@ export class Database extends pulumi.CustomResource {
     public readonly maxSizeBytes!: pulumi.Output<string>;
     public readonly maxSizeGb!: pulumi.Output<string>;
     /**
-     * The name of the database.
+     * The name of the database. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -99,7 +99,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly requestedServiceObjectiveName!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
+     * The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -107,7 +107,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly restorePointInTime!: pulumi.Output<string>;
     /**
-     * The name of the SQL Server on which to create the database.
+     * The name of the SQL Server on which to create the database. Changing this forces a new resource to be created.
      */
     public readonly serverName!: pulumi.Output<string>;
     /**
@@ -247,7 +247,7 @@ export interface DatabaseState {
     maxSizeBytes?: pulumi.Input<string>;
     maxSizeGb?: pulumi.Input<string>;
     /**
-     * The name of the database.
+     * The name of the database. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -264,7 +264,7 @@ export interface DatabaseState {
      */
     requestedServiceObjectiveName?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
+     * The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -272,7 +272,7 @@ export interface DatabaseState {
      */
     restorePointInTime?: pulumi.Input<string>;
     /**
-     * The name of the SQL Server on which to create the database.
+     * The name of the SQL Server on which to create the database. Changing this forces a new resource to be created.
      */
     serverName?: pulumi.Input<string>;
     /**
@@ -331,7 +331,7 @@ export interface DatabaseArgs {
     maxSizeBytes?: pulumi.Input<string>;
     maxSizeGb?: pulumi.Input<string>;
     /**
-     * The name of the database.
+     * The name of the database. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -348,7 +348,7 @@ export interface DatabaseArgs {
      */
     requestedServiceObjectiveName?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
+     * The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -356,7 +356,7 @@ export interface DatabaseArgs {
      */
     restorePointInTime?: pulumi.Input<string>;
     /**
-     * The name of the SQL Server on which to create the database.
+     * The name of the SQL Server on which to create the database. Changing this forces a new resource to be created.
      */
     serverName: pulumi.Input<string>;
     /**

@@ -139,11 +139,11 @@ type ManagedDisk struct {
 	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
 	// A `encryptionSettings` block as defined below.
 	EncryptionSettings ManagedDiskEncryptionSettingsPtrOutput `pulumi:"encryptionSettings"`
-	// ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified.
+	// ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified. Changing this forces a new resource to be created.
 	GalleryImageReferenceId pulumi.StringPtrOutput `pulumi:"galleryImageReferenceId"`
 	// The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
 	HyperVGeneration pulumi.StringPtrOutput `pulumi:"hyperVGeneration"`
-	// ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`. This field cannot be specified if galleryImageReferenceId is specified.
+	// ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`. This field cannot be specified if galleryImageReferenceId is specified. Changing this forces a new resource to be created.
 	ImageReferenceId pulumi.StringPtrOutput `pulumi:"imageReferenceId"`
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -161,15 +161,15 @@ type ManagedDisk struct {
 	OsType pulumi.StringPtrOutput `pulumi:"osType"`
 	// Whether it is allowed to access the disk via public network. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
-	// The name of the Resource Group where the Managed Disk should exist.
+	// The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
 	SecureVmDiskEncryptionSetId pulumi.StringPtrOutput `pulumi:"secureVmDiskEncryptionSetId"`
 	// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
 	SecurityType pulumi.StringPtrOutput `pulumi:"securityType"`
-	// The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
+	// The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`. Changing this forces a new resource to be created.
 	SourceResourceId pulumi.StringPtrOutput `pulumi:"sourceResourceId"`
-	// URI to a valid VHD file to be used when `createOption` is `Import`.
+	// URI to a valid VHD file to be used when `createOption` is `Import`. Changing this forces a new resource to be created.
 	SourceUri pulumi.StringOutput `pulumi:"sourceUri"`
 	// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.  Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrOutput `pulumi:"storageAccountId"`
@@ -179,7 +179,7 @@ type ManagedDisk struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
 	Tier pulumi.StringOutput `pulumi:"tier"`
-	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
 	TrustedLaunchEnabled pulumi.BoolPtrOutput `pulumi:"trustedLaunchEnabled"`
 	// Specifies the size of the managed disk to create in bytes. Required when `createOption` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
 	UploadSizeBytes pulumi.IntPtrOutput `pulumi:"uploadSizeBytes"`
@@ -245,11 +245,11 @@ type managedDiskState struct {
 	EdgeZone *string `pulumi:"edgeZone"`
 	// A `encryptionSettings` block as defined below.
 	EncryptionSettings *ManagedDiskEncryptionSettings `pulumi:"encryptionSettings"`
-	// ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified.
+	// ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified. Changing this forces a new resource to be created.
 	GalleryImageReferenceId *string `pulumi:"galleryImageReferenceId"`
 	// The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
-	// ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`. This field cannot be specified if galleryImageReferenceId is specified.
+	// ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`. This field cannot be specified if galleryImageReferenceId is specified. Changing this forces a new resource to be created.
 	ImageReferenceId *string `pulumi:"imageReferenceId"`
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -267,15 +267,15 @@ type managedDiskState struct {
 	OsType *string `pulumi:"osType"`
 	// Whether it is allowed to access the disk via public network. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
-	// The name of the Resource Group where the Managed Disk should exist.
+	// The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
 	SecureVmDiskEncryptionSetId *string `pulumi:"secureVmDiskEncryptionSetId"`
 	// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
 	SecurityType *string `pulumi:"securityType"`
-	// The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
+	// The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`. Changing this forces a new resource to be created.
 	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// URI to a valid VHD file to be used when `createOption` is `Import`.
+	// URI to a valid VHD file to be used when `createOption` is `Import`. Changing this forces a new resource to be created.
 	SourceUri *string `pulumi:"sourceUri"`
 	// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.  Changing this forces a new resource to be created.
 	StorageAccountId *string `pulumi:"storageAccountId"`
@@ -285,7 +285,7 @@ type managedDiskState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
 	Tier *string `pulumi:"tier"`
-	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
 	TrustedLaunchEnabled *bool `pulumi:"trustedLaunchEnabled"`
 	// Specifies the size of the managed disk to create in bytes. Required when `createOption` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
 	UploadSizeBytes *int `pulumi:"uploadSizeBytes"`
@@ -314,11 +314,11 @@ type ManagedDiskState struct {
 	EdgeZone pulumi.StringPtrInput
 	// A `encryptionSettings` block as defined below.
 	EncryptionSettings ManagedDiskEncryptionSettingsPtrInput
-	// ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified.
+	// ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified. Changing this forces a new resource to be created.
 	GalleryImageReferenceId pulumi.StringPtrInput
 	// The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
 	HyperVGeneration pulumi.StringPtrInput
-	// ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`. This field cannot be specified if galleryImageReferenceId is specified.
+	// ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`. This field cannot be specified if galleryImageReferenceId is specified. Changing this forces a new resource to be created.
 	ImageReferenceId pulumi.StringPtrInput
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -336,15 +336,15 @@ type ManagedDiskState struct {
 	OsType pulumi.StringPtrInput
 	// Whether it is allowed to access the disk via public network. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
-	// The name of the Resource Group where the Managed Disk should exist.
+	// The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
 	SecureVmDiskEncryptionSetId pulumi.StringPtrInput
 	// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
 	SecurityType pulumi.StringPtrInput
-	// The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
+	// The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`. Changing this forces a new resource to be created.
 	SourceResourceId pulumi.StringPtrInput
-	// URI to a valid VHD file to be used when `createOption` is `Import`.
+	// URI to a valid VHD file to be used when `createOption` is `Import`. Changing this forces a new resource to be created.
 	SourceUri pulumi.StringPtrInput
 	// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.  Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrInput
@@ -354,7 +354,7 @@ type ManagedDiskState struct {
 	Tags pulumi.StringMapInput
 	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
 	Tier pulumi.StringPtrInput
-	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
 	TrustedLaunchEnabled pulumi.BoolPtrInput
 	// Specifies the size of the managed disk to create in bytes. Required when `createOption` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
 	UploadSizeBytes pulumi.IntPtrInput
@@ -387,11 +387,11 @@ type managedDiskArgs struct {
 	EdgeZone *string `pulumi:"edgeZone"`
 	// A `encryptionSettings` block as defined below.
 	EncryptionSettings *ManagedDiskEncryptionSettings `pulumi:"encryptionSettings"`
-	// ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified.
+	// ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified. Changing this forces a new resource to be created.
 	GalleryImageReferenceId *string `pulumi:"galleryImageReferenceId"`
 	// The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
-	// ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`. This field cannot be specified if galleryImageReferenceId is specified.
+	// ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`. This field cannot be specified if galleryImageReferenceId is specified. Changing this forces a new resource to be created.
 	ImageReferenceId *string `pulumi:"imageReferenceId"`
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -409,15 +409,15 @@ type managedDiskArgs struct {
 	OsType *string `pulumi:"osType"`
 	// Whether it is allowed to access the disk via public network. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
-	// The name of the Resource Group where the Managed Disk should exist.
+	// The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
 	SecureVmDiskEncryptionSetId *string `pulumi:"secureVmDiskEncryptionSetId"`
 	// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
 	SecurityType *string `pulumi:"securityType"`
-	// The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
+	// The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`. Changing this forces a new resource to be created.
 	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// URI to a valid VHD file to be used when `createOption` is `Import`.
+	// URI to a valid VHD file to be used when `createOption` is `Import`. Changing this forces a new resource to be created.
 	SourceUri *string `pulumi:"sourceUri"`
 	// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.  Changing this forces a new resource to be created.
 	StorageAccountId *string `pulumi:"storageAccountId"`
@@ -427,7 +427,7 @@ type managedDiskArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
 	Tier *string `pulumi:"tier"`
-	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
 	TrustedLaunchEnabled *bool `pulumi:"trustedLaunchEnabled"`
 	// Specifies the size of the managed disk to create in bytes. Required when `createOption` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
 	UploadSizeBytes *int `pulumi:"uploadSizeBytes"`
@@ -457,11 +457,11 @@ type ManagedDiskArgs struct {
 	EdgeZone pulumi.StringPtrInput
 	// A `encryptionSettings` block as defined below.
 	EncryptionSettings ManagedDiskEncryptionSettingsPtrInput
-	// ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified.
+	// ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified. Changing this forces a new resource to be created.
 	GalleryImageReferenceId pulumi.StringPtrInput
 	// The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
 	HyperVGeneration pulumi.StringPtrInput
-	// ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`. This field cannot be specified if galleryImageReferenceId is specified.
+	// ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`. This field cannot be specified if galleryImageReferenceId is specified. Changing this forces a new resource to be created.
 	ImageReferenceId pulumi.StringPtrInput
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -479,15 +479,15 @@ type ManagedDiskArgs struct {
 	OsType pulumi.StringPtrInput
 	// Whether it is allowed to access the disk via public network. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
-	// The name of the Resource Group where the Managed Disk should exist.
+	// The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
 	SecureVmDiskEncryptionSetId pulumi.StringPtrInput
 	// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
 	SecurityType pulumi.StringPtrInput
-	// The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
+	// The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`. Changing this forces a new resource to be created.
 	SourceResourceId pulumi.StringPtrInput
-	// URI to a valid VHD file to be used when `createOption` is `Import`.
+	// URI to a valid VHD file to be used when `createOption` is `Import`. Changing this forces a new resource to be created.
 	SourceUri pulumi.StringPtrInput
 	// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.  Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrInput
@@ -497,7 +497,7 @@ type ManagedDiskArgs struct {
 	Tags pulumi.StringMapInput
 	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
 	Tier pulumi.StringPtrInput
-	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
 	TrustedLaunchEnabled pulumi.BoolPtrInput
 	// Specifies the size of the managed disk to create in bytes. Required when `createOption` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
 	UploadSizeBytes pulumi.IntPtrInput
@@ -642,7 +642,7 @@ func (o ManagedDiskOutput) EncryptionSettings() ManagedDiskEncryptionSettingsPtr
 	return o.ApplyT(func(v *ManagedDisk) ManagedDiskEncryptionSettingsPtrOutput { return v.EncryptionSettings }).(ManagedDiskEncryptionSettingsPtrOutput)
 }
 
-// ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified.
+// ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified. Changing this forces a new resource to be created.
 func (o ManagedDiskOutput) GalleryImageReferenceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringPtrOutput { return v.GalleryImageReferenceId }).(pulumi.StringPtrOutput)
 }
@@ -652,7 +652,7 @@ func (o ManagedDiskOutput) HyperVGeneration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringPtrOutput { return v.HyperVGeneration }).(pulumi.StringPtrOutput)
 }
 
-// ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`. This field cannot be specified if galleryImageReferenceId is specified.
+// ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`. This field cannot be specified if galleryImageReferenceId is specified. Changing this forces a new resource to be created.
 func (o ManagedDiskOutput) ImageReferenceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringPtrOutput { return v.ImageReferenceId }).(pulumi.StringPtrOutput)
 }
@@ -697,7 +697,7 @@ func (o ManagedDiskOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the Resource Group where the Managed Disk should exist.
+// The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
 func (o ManagedDiskOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
@@ -712,12 +712,12 @@ func (o ManagedDiskOutput) SecurityType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringPtrOutput { return v.SecurityType }).(pulumi.StringPtrOutput)
 }
 
-// The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
+// The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`. Changing this forces a new resource to be created.
 func (o ManagedDiskOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringPtrOutput { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// URI to a valid VHD file to be used when `createOption` is `Import`.
+// URI to a valid VHD file to be used when `createOption` is `Import`. Changing this forces a new resource to be created.
 func (o ManagedDiskOutput) SourceUri() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringOutput { return v.SourceUri }).(pulumi.StringOutput)
 }
@@ -742,7 +742,7 @@ func (o ManagedDiskOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringOutput { return v.Tier }).(pulumi.StringOutput)
 }
 
-// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
 func (o ManagedDiskOutput) TrustedLaunchEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.BoolPtrOutput { return v.TrustedLaunchEnabled }).(pulumi.BoolPtrOutput)
 }

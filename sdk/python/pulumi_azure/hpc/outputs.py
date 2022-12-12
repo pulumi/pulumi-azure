@@ -665,8 +665,8 @@ class CacheIdentity(dict):
                  identity_ids: Sequence[str],
                  type: str):
         """
-        :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache.
-        :param str type: Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`.
+        :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "type", type)
@@ -675,7 +675,7 @@ class CacheIdentity(dict):
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Sequence[str]:
         """
-        Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache.
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -683,7 +683,7 @@ class CacheIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 

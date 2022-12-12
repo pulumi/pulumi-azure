@@ -34,7 +34,7 @@ class ActionGroupArgs:
                  webhook_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupWebhookReceiverArgs']]]] = None):
         """
         The set of arguments for constructing a ActionGroup resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Action Group instance.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Action Group instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] short_name: The short name of the action group. This will be used in SMS messages.
         :param pulumi.Input[Sequence[pulumi.Input['ActionGroupArmRoleReceiverArgs']]] arm_role_receivers: One or more `arm_role_receiver` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ActionGroupAutomationRunbookReceiverArgs']]] automation_runbook_receivers: One or more `automation_runbook_receiver` blocks as defined below.
@@ -86,7 +86,7 @@ class ActionGroupArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to create the Action Group instance.
+        The name of the resource group in which to create the Action Group instance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -306,7 +306,7 @@ class _ActionGroupState:
         :param pulumi.Input[Sequence[pulumi.Input['ActionGroupItsmReceiverArgs']]] itsm_receivers: One or more `itsm_receiver` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ActionGroupLogicAppReceiverArgs']]] logic_app_receivers: One or more `logic_app_receiver` blocks as defined below.
         :param pulumi.Input[str] name: The name of the Action Group. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Action Group instance.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Action Group instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] short_name: The short name of the action group. This will be used in SMS messages.
         :param pulumi.Input[Sequence[pulumi.Input['ActionGroupSmsReceiverArgs']]] sms_receivers: One or more `sms_receiver` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -470,7 +470,7 @@ class _ActionGroupState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to create the Action Group instance.
+        The name of the resource group in which to create the Action Group instance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -671,7 +671,7 @@ class ActionGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupItsmReceiverArgs']]]] itsm_receivers: One or more `itsm_receiver` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupLogicAppReceiverArgs']]]] logic_app_receivers: One or more `logic_app_receiver` blocks as defined below.
         :param pulumi.Input[str] name: The name of the Action Group. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Action Group instance.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Action Group instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] short_name: The short name of the action group. This will be used in SMS messages.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupSmsReceiverArgs']]]] sms_receivers: One or more `sms_receiver` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -885,7 +885,7 @@ class ActionGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupItsmReceiverArgs']]]] itsm_receivers: One or more `itsm_receiver` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupLogicAppReceiverArgs']]]] logic_app_receivers: One or more `logic_app_receiver` blocks as defined below.
         :param pulumi.Input[str] name: The name of the Action Group. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Action Group instance.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Action Group instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] short_name: The short name of the action group. This will be used in SMS messages.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupSmsReceiverArgs']]]] sms_receivers: One or more `sms_receiver` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -998,7 +998,7 @@ class ActionGroup(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to create the Action Group instance.
+        The name of the resource group in which to create the Action Group instance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 

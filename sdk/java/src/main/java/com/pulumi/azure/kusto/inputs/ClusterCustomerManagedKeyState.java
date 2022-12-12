@@ -46,14 +46,14 @@ public final class ClusterCustomerManagedKeyState extends com.pulumi.resources.R
     }
 
     /**
-     * The ID of the Key Vault. Changing this forces a new resource to be created.
+     * The ID of the Key Vault.
      * 
      */
     @Import(name="keyVaultId")
     private @Nullable Output<String> keyVaultId;
 
     /**
-     * @return The ID of the Key Vault. Changing this forces a new resource to be created.
+     * @return The ID of the Key Vault.
      * 
      */
     public Optional<Output<String>> keyVaultId() {
@@ -161,7 +161,7 @@ public final class ClusterCustomerManagedKeyState extends com.pulumi.resources.R
         }
 
         /**
-         * @param keyVaultId The ID of the Key Vault. Changing this forces a new resource to be created.
+         * @param keyVaultId The ID of the Key Vault.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class ClusterCustomerManagedKeyState extends com.pulumi.resources.R
         }
 
         /**
-         * @param keyVaultId The ID of the Key Vault. Changing this forces a new resource to be created.
+         * @param keyVaultId The ID of the Key Vault.
          * 
          * @return builder
          * 

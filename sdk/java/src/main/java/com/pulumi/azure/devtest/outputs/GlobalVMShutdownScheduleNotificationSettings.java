@@ -29,7 +29,7 @@ public final class GlobalVMShutdownScheduleNotificationSettings {
      */
     private @Nullable Integer timeInMinutes;
     /**
-     * @return The webhook URL to which the notification will be sent. Required if `enabled` is `true`. Optional otherwise.
+     * @return The webhook URL to which the notification will be sent.
      * 
      */
     private @Nullable String webhookUrl;
@@ -57,7 +57,7 @@ public final class GlobalVMShutdownScheduleNotificationSettings {
         return Optional.ofNullable(this.timeInMinutes);
     }
     /**
-     * @return The webhook URL to which the notification will be sent. Required if `enabled` is `true`. Optional otherwise.
+     * @return The webhook URL to which the notification will be sent.
      * 
      */
     public Optional<String> webhookUrl() {

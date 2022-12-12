@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly int Capacity;
         /// <summary>
-        /// Specifies the size of virtual machines in a scale set.
+        /// Specifies the size of virtual machines in a scale set. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
         /// <summary>

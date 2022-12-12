@@ -79,11 +79,11 @@ export class Spacecraft extends pulumi.CustomResource {
      */
     public readonly links!: pulumi.Output<outputs.orbital.SpacecraftLink[]>;
     /**
-     * The location where the Spacecraft exists.
+     * The location where the Spacecraft exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Name of the link.
+     * Name of the link. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -91,7 +91,7 @@ export class Spacecraft extends pulumi.CustomResource {
      */
     public readonly noradId!: pulumi.Output<string>;
     /**
-     * The name of the Resource Group where the Spacecraft exists.
+     * The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -165,11 +165,11 @@ export interface SpacecraftState {
      */
     links?: pulumi.Input<pulumi.Input<inputs.orbital.SpacecraftLink>[]>;
     /**
-     * The location where the Spacecraft exists.
+     * The location where the Spacecraft exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
-     * Name of the link.
+     * Name of the link. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -177,7 +177,7 @@ export interface SpacecraftState {
      */
     noradId?: pulumi.Input<string>;
     /**
-     * The name of the Resource Group where the Spacecraft exists.
+     * The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -200,11 +200,11 @@ export interface SpacecraftArgs {
      */
     links: pulumi.Input<pulumi.Input<inputs.orbital.SpacecraftLink>[]>;
     /**
-     * The location where the Spacecraft exists.
+     * The location where the Spacecraft exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
-     * Name of the link.
+     * Name of the link. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -212,7 +212,7 @@ export interface SpacecraftArgs {
      */
     noradId: pulumi.Input<string>;
     /**
-     * The name of the Resource Group where the Spacecraft exists.
+     * The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

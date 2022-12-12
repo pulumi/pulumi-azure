@@ -68,7 +68,7 @@ export class NsRecord extends pulumi.CustomResource {
      */
     public /*out*/ readonly fqdn!: pulumi.Output<string>;
     /**
-     * The name of the DNS NS Record.
+     * The name of the DNS NS Record. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -148,7 +148,7 @@ export interface NsRecordState {
      */
     fqdn?: pulumi.Input<string>;
     /**
-     * The name of the DNS NS Record.
+     * The name of the DNS NS Record. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -178,7 +178,7 @@ export interface NsRecordState {
  */
 export interface NsRecordArgs {
     /**
-     * The name of the DNS NS Record.
+     * The name of the DNS NS Record. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

@@ -13,19 +13,19 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class BastionHostIpConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the IP configuration.
+        /// The name of the IP configuration. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Reference to a Public IP Address to associate with this Bastion Host.
+        /// Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
         /// </summary>
         [Input("publicIpAddressId", required: true)]
         public Input<string> PublicIpAddressId { get; set; } = null!;
 
         /// <summary>
-        /// Reference to a subnet in which this Bastion Host has been created.
+        /// Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;

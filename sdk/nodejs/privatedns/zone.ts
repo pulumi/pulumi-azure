@@ -68,7 +68,7 @@ export class Zone extends pulumi.CustomResource {
      */
     public /*out*/ readonly maxNumberOfVirtualNetworkLinksWithRegistration!: pulumi.Output<number>;
     /**
-     * The name of the Private DNS Zone. Must be a valid domain name.
+     * The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -145,7 +145,7 @@ export interface ZoneState {
      */
     maxNumberOfVirtualNetworkLinksWithRegistration?: pulumi.Input<number>;
     /**
-     * The name of the Private DNS Zone. Must be a valid domain name.
+     * The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -171,7 +171,7 @@ export interface ZoneState {
  */
 export interface ZoneArgs {
     /**
-     * The name of the Private DNS Zone. Must be a valid domain name.
+     * The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

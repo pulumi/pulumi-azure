@@ -286,14 +286,14 @@ public class CustomDataset extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.schemaJson);
     }
     /**
-     * The type of dataset that will be associated with Data Factory.
+     * The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="type", type=String.class, parameters={})
     private Output<String> type;
 
     /**
-     * @return The type of dataset that will be associated with Data Factory.
+     * @return The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> type() {

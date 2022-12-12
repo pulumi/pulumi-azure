@@ -31,14 +31,14 @@ public final class FirewallRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the firewall rule.
+     * The name of the firewall rule. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the firewall rule.
+     * @return The name of the firewall rule. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -46,16 +46,14 @@ public final class FirewallRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the resource group in which to
-     * create the SQL Server.
+     * The name of the resource group in which to create the SQL Server. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to
-     * create the SQL Server.
+     * @return The name of the resource group in which to create the SQL Server. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -63,14 +61,14 @@ public final class FirewallRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the SQL Server on which to create the Firewall Rule.
+     * The name of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="serverName")
     private @Nullable Output<String> serverName;
 
     /**
-     * @return The name of the SQL Server on which to create the Firewall Rule.
+     * @return The name of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> serverName() {
@@ -142,7 +140,7 @@ public final class FirewallRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the firewall rule.
+         * @param name The name of the firewall rule. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -153,7 +151,7 @@ public final class FirewallRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the firewall rule.
+         * @param name The name of the firewall rule. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -163,8 +161,7 @@ public final class FirewallRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to
-         * create the SQL Server.
+         * @param resourceGroupName The name of the resource group in which to create the SQL Server. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -175,8 +172,7 @@ public final class FirewallRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to
-         * create the SQL Server.
+         * @param resourceGroupName The name of the resource group in which to create the SQL Server. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -186,7 +182,7 @@ public final class FirewallRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverName The name of the SQL Server on which to create the Firewall Rule.
+         * @param serverName The name of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -197,7 +193,7 @@ public final class FirewallRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverName The name of the SQL Server on which to create the Firewall Rule.
+         * @param serverName The name of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

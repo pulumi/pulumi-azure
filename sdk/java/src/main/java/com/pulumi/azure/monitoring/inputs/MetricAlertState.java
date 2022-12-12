@@ -159,14 +159,14 @@ public final class MetricAlertState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the resource group in which to create the Metric Alert instance.
+     * The name of the resource group in which to create the Metric Alert instance. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the Metric Alert instance.
+     * @return The name of the resource group in which to create the Metric Alert instance. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -512,7 +512,7 @@ public final class MetricAlertState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the Metric Alert instance.
+         * @param resourceGroupName The name of the resource group in which to create the Metric Alert instance. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -523,7 +523,7 @@ public final class MetricAlertState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the Metric Alert instance.
+         * @param resourceGroupName The name of the resource group in which to create the Metric Alert instance. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

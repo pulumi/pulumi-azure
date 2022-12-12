@@ -69,7 +69,7 @@ type CnameRecord struct {
 
 	// The FQDN of the DNS CNAME Record.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
-	// The name of the DNS CNAME Record.
+	// The name of the DNS CNAME Record. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The target of the CNAME.
 	Record pulumi.StringOutput `pulumi:"record"`
@@ -126,7 +126,7 @@ func GetCnameRecord(ctx *pulumi.Context,
 type cnameRecordState struct {
 	// The FQDN of the DNS CNAME Record.
 	Fqdn *string `pulumi:"fqdn"`
-	// The name of the DNS CNAME Record.
+	// The name of the DNS CNAME Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The target of the CNAME.
 	Record *string `pulumi:"record"`
@@ -143,7 +143,7 @@ type cnameRecordState struct {
 type CnameRecordState struct {
 	// The FQDN of the DNS CNAME Record.
 	Fqdn pulumi.StringPtrInput
-	// The name of the DNS CNAME Record.
+	// The name of the DNS CNAME Record. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The target of the CNAME.
 	Record pulumi.StringPtrInput
@@ -162,7 +162,7 @@ func (CnameRecordState) ElementType() reflect.Type {
 }
 
 type cnameRecordArgs struct {
-	// The name of the DNS CNAME Record.
+	// The name of the DNS CNAME Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The target of the CNAME.
 	Record string `pulumi:"record"`
@@ -178,7 +178,7 @@ type cnameRecordArgs struct {
 
 // The set of arguments for constructing a CnameRecord resource.
 type CnameRecordArgs struct {
-	// The name of the DNS CNAME Record.
+	// The name of the DNS CNAME Record. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The target of the CNAME.
 	Record pulumi.StringInput
@@ -284,7 +284,7 @@ func (o CnameRecordOutput) Fqdn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CnameRecord) pulumi.StringOutput { return v.Fqdn }).(pulumi.StringOutput)
 }
 
-// The name of the DNS CNAME Record.
+// The name of the DNS CNAME Record. Changing this forces a new resource to be created.
 func (o CnameRecordOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CnameRecord) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

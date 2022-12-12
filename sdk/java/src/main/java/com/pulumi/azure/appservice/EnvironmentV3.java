@@ -131,14 +131,14 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
         return this.internalInboundIpAddresses;
     }
     /**
-     * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `&#34;Web, Publishing&#34;` (for an Internal VIP Type). Defaults to `None`.
+     * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `&#34;Web, Publishing&#34;` (for an Internal VIP Type). Defaults to `None`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="internalLoadBalancingMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> internalLoadBalancingMode;
 
     /**
-     * @return Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `&#34;Web, Publishing&#34;` (for an Internal VIP Type). Defaults to `None`.
+     * @return Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `&#34;Web, Publishing&#34;` (for an Internal VIP Type). Defaults to `None`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> internalLoadBalancingMode() {
@@ -215,14 +215,14 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
         return this.pricingTier;
     }
     /**
-     * The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`).
+     * The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`). Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`).
+     * @return The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`). Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -243,14 +243,14 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
         return this.subnetId;
     }
     /**
-     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+     * A mapping of tags to assign to the resource.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+     * @return A mapping of tags to assign to the resource.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
@@ -271,14 +271,14 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
         return this.windowsOutboundIpAddresses;
     }
     /**
-     * Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicated_host_count` or `zone_redundant` but not both.
+     * Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicated_host_count` or `zone_redundant` but not both. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="zoneRedundant", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> zoneRedundant;
 
     /**
-     * @return Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicated_host_count` or `zone_redundant` but not both.
+     * @return Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicated_host_count` or `zone_redundant` but not both. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> zoneRedundant() {

@@ -79,14 +79,14 @@ public final class ScaleSetNetworkProfileIpConfigurationArgs extends com.pulumi.
     }
 
     /**
-     * Specifies name of the IP configuration.
+     * Specifies name of the IP configuration. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies name of the IP configuration.
+     * @return Specifies name of the IP configuration. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -294,7 +294,7 @@ public final class ScaleSetNetworkProfileIpConfigurationArgs extends com.pulumi.
         }
 
         /**
-         * @param name Specifies name of the IP configuration.
+         * @param name Specifies name of the IP configuration. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class ScaleSetNetworkProfileIpConfigurationArgs extends com.pulumi.
         }
 
         /**
-         * @param name Specifies name of the IP configuration.
+         * @param name Specifies name of the IP configuration. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

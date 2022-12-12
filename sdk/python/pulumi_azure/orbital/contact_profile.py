@@ -31,10 +31,10 @@ class ContactProfileArgs:
         :param pulumi.Input[str] auto_tracking: Auto-tracking configurations for a spacecraft. Possible values are `disabled`, `xBand` and `sBand`.
         :param pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkArgs']]] links: A list of spacecraft links. A `links` block as defined below.
         :param pulumi.Input[str] minimum_variable_contact_duration: Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
-        :param pulumi.Input[str] network_configuration_subnet_id: ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the contact profile exists.
+        :param pulumi.Input[str] network_configuration_subnet_id: ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] event_hub_uri: ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
-        :param pulumi.Input[str] location: The location where the contact profile exists.
+        :param pulumi.Input[str] location: The location where the contact profile exists. Changing this forces a new resource to be created.
         :param pulumi.Input[float] minimum_elevation_degrees: Maximum elevation of the antenna during the contact in decimal degrees.
         :param pulumi.Input[str] name: The name of the contact profile. Changing this forces a new resource to be created.
         """
@@ -94,7 +94,7 @@ class ContactProfileArgs:
     @pulumi.getter(name="networkConfigurationSubnetId")
     def network_configuration_subnet_id(self) -> pulumi.Input[str]:
         """
-        ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
+        ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_configuration_subnet_id")
 
@@ -106,7 +106,7 @@ class ContactProfileArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the Resource Group where the contact profile exists.
+        The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -130,7 +130,7 @@ class ContactProfileArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The location where the contact profile exists.
+        The location where the contact profile exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -190,12 +190,12 @@ class _ContactProfileState:
         :param pulumi.Input[str] auto_tracking: Auto-tracking configurations for a spacecraft. Possible values are `disabled`, `xBand` and `sBand`.
         :param pulumi.Input[str] event_hub_uri: ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
         :param pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkArgs']]] links: A list of spacecraft links. A `links` block as defined below.
-        :param pulumi.Input[str] location: The location where the contact profile exists.
+        :param pulumi.Input[str] location: The location where the contact profile exists. Changing this forces a new resource to be created.
         :param pulumi.Input[float] minimum_elevation_degrees: Maximum elevation of the antenna during the contact in decimal degrees.
         :param pulumi.Input[str] minimum_variable_contact_duration: Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
         :param pulumi.Input[str] name: The name of the contact profile. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] network_configuration_subnet_id: ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the contact profile exists.
+        :param pulumi.Input[str] network_configuration_subnet_id: ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
         """
         if auto_tracking is not None:
             pulumi.set(__self__, "auto_tracking", auto_tracking)
@@ -258,7 +258,7 @@ class _ContactProfileState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The location where the contact profile exists.
+        The location where the contact profile exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -306,7 +306,7 @@ class _ContactProfileState:
     @pulumi.getter(name="networkConfigurationSubnetId")
     def network_configuration_subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
+        ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_configuration_subnet_id")
 
@@ -318,7 +318,7 @@ class _ContactProfileState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Resource Group where the contact profile exists.
+        The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -419,12 +419,12 @@ class ContactProfile(pulumi.CustomResource):
         :param pulumi.Input[str] auto_tracking: Auto-tracking configurations for a spacecraft. Possible values are `disabled`, `xBand` and `sBand`.
         :param pulumi.Input[str] event_hub_uri: ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactProfileLinkArgs']]]] links: A list of spacecraft links. A `links` block as defined below.
-        :param pulumi.Input[str] location: The location where the contact profile exists.
+        :param pulumi.Input[str] location: The location where the contact profile exists. Changing this forces a new resource to be created.
         :param pulumi.Input[float] minimum_elevation_degrees: Maximum elevation of the antenna during the contact in decimal degrees.
         :param pulumi.Input[str] minimum_variable_contact_duration: Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
         :param pulumi.Input[str] name: The name of the contact profile. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] network_configuration_subnet_id: ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the contact profile exists.
+        :param pulumi.Input[str] network_configuration_subnet_id: ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -578,12 +578,12 @@ class ContactProfile(pulumi.CustomResource):
         :param pulumi.Input[str] auto_tracking: Auto-tracking configurations for a spacecraft. Possible values are `disabled`, `xBand` and `sBand`.
         :param pulumi.Input[str] event_hub_uri: ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactProfileLinkArgs']]]] links: A list of spacecraft links. A `links` block as defined below.
-        :param pulumi.Input[str] location: The location where the contact profile exists.
+        :param pulumi.Input[str] location: The location where the contact profile exists. Changing this forces a new resource to be created.
         :param pulumi.Input[float] minimum_elevation_degrees: Maximum elevation of the antenna during the contact in decimal degrees.
         :param pulumi.Input[str] minimum_variable_contact_duration: Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
         :param pulumi.Input[str] name: The name of the contact profile. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] network_configuration_subnet_id: ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the contact profile exists.
+        :param pulumi.Input[str] network_configuration_subnet_id: ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -629,7 +629,7 @@ class ContactProfile(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        The location where the contact profile exists.
+        The location where the contact profile exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -661,7 +661,7 @@ class ContactProfile(pulumi.CustomResource):
     @pulumi.getter(name="networkConfigurationSubnetId")
     def network_configuration_subnet_id(self) -> pulumi.Output[str]:
         """
-        ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
+        ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_configuration_subnet_id")
 
@@ -669,7 +669,7 @@ class ContactProfile(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the Resource Group where the contact profile exists.
+        The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 

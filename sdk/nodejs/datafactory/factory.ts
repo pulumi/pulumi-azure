@@ -96,7 +96,7 @@ export class Factory extends pulumi.CustomResource {
     public readonly publicNetworkEnabled!: pulumi.Output<boolean | undefined>;
     public readonly purviewId!: pulumi.Output<string | undefined>;
     /**
-     * The name of the resource group in which to create the Data Factory.
+     * The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -200,7 +200,7 @@ export interface FactoryState {
     publicNetworkEnabled?: pulumi.Input<boolean>;
     purviewId?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the Data Factory.
+     * The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -255,7 +255,7 @@ export interface FactoryArgs {
     publicNetworkEnabled?: pulumi.Input<boolean>;
     purviewId?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the Data Factory.
+     * The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

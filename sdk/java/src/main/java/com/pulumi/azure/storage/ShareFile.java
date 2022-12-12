@@ -196,14 +196,14 @@ public class ShareFile extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.path);
     }
     /**
-     * An absolute path to a file on the local system.
+     * An absolute path to a file on the local system. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="source", type=String.class, parameters={})
     private Output</* @Nullable */ String> source;
 
     /**
-     * @return An absolute path to a file on the local system.
+     * @return An absolute path to a file on the local system. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> source() {

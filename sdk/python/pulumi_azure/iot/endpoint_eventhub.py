@@ -24,14 +24,14 @@ class EndpointEventhubArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a EndpointEventhub resource.
-        :param pulumi.Input[str] iothub_id: The IoTHub ID for the endpoint.
+        :param pulumi.Input[str] iothub_id: The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Event Hub has been created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] authentication_type: Type used to authenticate against the Event Hub endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
         :param pulumi.Input[str] connection_string: The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
         :param pulumi.Input[str] endpoint_uri: URI of the Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
         :param pulumi.Input[str] entity_path: Name of the Event Hub. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
         :param pulumi.Input[str] identity_id: ID of the User Managed Identity used to authenticate against the Event Hub endpoint.
-        :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+        :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "iothub_id", iothub_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -52,7 +52,7 @@ class EndpointEventhubArgs:
     @pulumi.getter(name="iothubId")
     def iothub_id(self) -> pulumi.Input[str]:
         """
-        The IoTHub ID for the endpoint.
+        The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "iothub_id")
 
@@ -136,7 +136,7 @@ class EndpointEventhubArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+        The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -163,8 +163,8 @@ class _EndpointEventhubState:
         :param pulumi.Input[str] endpoint_uri: URI of the Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
         :param pulumi.Input[str] entity_path: Name of the Event Hub. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
         :param pulumi.Input[str] identity_id: ID of the User Managed Identity used to authenticate against the Event Hub endpoint.
-        :param pulumi.Input[str] iothub_id: The IoTHub ID for the endpoint.
-        :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+        :param pulumi.Input[str] iothub_id: The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Event Hub has been created. Changing this forces a new resource to be created.
         """
         if authentication_type is not None:
@@ -248,7 +248,7 @@ class _EndpointEventhubState:
     @pulumi.getter(name="iothubId")
     def iothub_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The IoTHub ID for the endpoint.
+        The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "iothub_id")
 
@@ -260,7 +260,7 @@ class _EndpointEventhubState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+        The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -344,7 +344,7 @@ class EndpointEventhub(pulumi.CustomResource):
         IoTHub EventHub Endpoint can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:iot/endpointEventhub:EndpointEventhub eventhub1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/Endpoints/eventhub_endpoint1
+         $ pulumi import azure:iot/endpointEventhub:EndpointEventhub eventhub1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/endpoints/eventhub_endpoint1
         ```
 
         :param str resource_name: The name of the resource.
@@ -354,8 +354,8 @@ class EndpointEventhub(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint_uri: URI of the Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
         :param pulumi.Input[str] entity_path: Name of the Event Hub. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
         :param pulumi.Input[str] identity_id: ID of the User Managed Identity used to authenticate against the Event Hub endpoint.
-        :param pulumi.Input[str] iothub_id: The IoTHub ID for the endpoint.
-        :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+        :param pulumi.Input[str] iothub_id: The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Event Hub has been created. Changing this forces a new resource to be created.
         """
         ...
@@ -413,7 +413,7 @@ class EndpointEventhub(pulumi.CustomResource):
         IoTHub EventHub Endpoint can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:iot/endpointEventhub:EndpointEventhub eventhub1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/Endpoints/eventhub_endpoint1
+         $ pulumi import azure:iot/endpointEventhub:EndpointEventhub eventhub1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/endpoints/eventhub_endpoint1
         ```
 
         :param str resource_name: The name of the resource.
@@ -490,8 +490,8 @@ class EndpointEventhub(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint_uri: URI of the Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
         :param pulumi.Input[str] entity_path: Name of the Event Hub. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
         :param pulumi.Input[str] identity_id: ID of the User Managed Identity used to authenticate against the Event Hub endpoint.
-        :param pulumi.Input[str] iothub_id: The IoTHub ID for the endpoint.
-        :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+        :param pulumi.Input[str] iothub_id: The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Event Hub has been created. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -552,7 +552,7 @@ class EndpointEventhub(pulumi.CustomResource):
     @pulumi.getter(name="iothubId")
     def iothub_id(self) -> pulumi.Output[str]:
         """
-        The IoTHub ID for the endpoint.
+        The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "iothub_id")
 
@@ -560,7 +560,7 @@ class EndpointEventhub(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+        The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

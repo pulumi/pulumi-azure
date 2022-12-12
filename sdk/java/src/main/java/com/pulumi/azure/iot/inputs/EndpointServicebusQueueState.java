@@ -91,14 +91,14 @@ public final class EndpointServicebusQueueState extends com.pulumi.resources.Res
     }
 
     /**
-     * The IoTHub ID for the endpoint.
+     * The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="iothubId")
     private @Nullable Output<String> iothubId;
 
     /**
-     * @return The IoTHub ID for the endpoint.
+     * @return The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> iothubId() {
@@ -106,14 +106,14 @@ public final class EndpointServicebusQueueState extends com.pulumi.resources.Res
     }
 
     /**
-     * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+     * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+     * @return The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -272,7 +272,7 @@ public final class EndpointServicebusQueueState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param iothubId The IoTHub ID for the endpoint.
+         * @param iothubId The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class EndpointServicebusQueueState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param iothubId The IoTHub ID for the endpoint.
+         * @param iothubId The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -293,7 +293,7 @@ public final class EndpointServicebusQueueState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+         * @param name The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -304,7 +304,7 @@ public final class EndpointServicebusQueueState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+         * @param name The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

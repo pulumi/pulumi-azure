@@ -86,7 +86,7 @@ type IotHubCertificate struct {
 	CertificateContent pulumi.StringOutput `pulumi:"certificateContent"`
 	// The name of the IoT Device Provisioning Service that this certificate will be attached to. Changing this forces a new resource to be created.
 	IotDpsName pulumi.StringOutput `pulumi:"iotDpsName"`
-	// Specifies if the certificate is created in verified state. Defaults to `false`.
+	// Specifies if the certificate is created in verified state. Defaults to `false`. Changing this forces a new resource to be created.
 	IsVerified pulumi.BoolPtrOutput `pulumi:"isVerified"`
 	// Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -136,7 +136,7 @@ type iotHubCertificateState struct {
 	CertificateContent *string `pulumi:"certificateContent"`
 	// The name of the IoT Device Provisioning Service that this certificate will be attached to. Changing this forces a new resource to be created.
 	IotDpsName *string `pulumi:"iotDpsName"`
-	// Specifies if the certificate is created in verified state. Defaults to `false`.
+	// Specifies if the certificate is created in verified state. Defaults to `false`. Changing this forces a new resource to be created.
 	IsVerified *bool `pulumi:"isVerified"`
 	// Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -149,7 +149,7 @@ type IotHubCertificateState struct {
 	CertificateContent pulumi.StringPtrInput
 	// The name of the IoT Device Provisioning Service that this certificate will be attached to. Changing this forces a new resource to be created.
 	IotDpsName pulumi.StringPtrInput
-	// Specifies if the certificate is created in verified state. Defaults to `false`.
+	// Specifies if the certificate is created in verified state. Defaults to `false`. Changing this forces a new resource to be created.
 	IsVerified pulumi.BoolPtrInput
 	// Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -166,7 +166,7 @@ type iotHubCertificateArgs struct {
 	CertificateContent string `pulumi:"certificateContent"`
 	// The name of the IoT Device Provisioning Service that this certificate will be attached to. Changing this forces a new resource to be created.
 	IotDpsName string `pulumi:"iotDpsName"`
-	// Specifies if the certificate is created in verified state. Defaults to `false`.
+	// Specifies if the certificate is created in verified state. Defaults to `false`. Changing this forces a new resource to be created.
 	IsVerified *bool `pulumi:"isVerified"`
 	// Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -180,7 +180,7 @@ type IotHubCertificateArgs struct {
 	CertificateContent pulumi.StringInput
 	// The name of the IoT Device Provisioning Service that this certificate will be attached to. Changing this forces a new resource to be created.
 	IotDpsName pulumi.StringInput
-	// Specifies if the certificate is created in verified state. Defaults to `false`.
+	// Specifies if the certificate is created in verified state. Defaults to `false`. Changing this forces a new resource to be created.
 	IsVerified pulumi.BoolPtrInput
 	// Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -285,7 +285,7 @@ func (o IotHubCertificateOutput) IotDpsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *IotHubCertificate) pulumi.StringOutput { return v.IotDpsName }).(pulumi.StringOutput)
 }
 
-// Specifies if the certificate is created in verified state. Defaults to `false`.
+// Specifies if the certificate is created in verified state. Defaults to `false`. Changing this forces a new resource to be created.
 func (o IotHubCertificateOutput) IsVerified() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IotHubCertificate) pulumi.BoolPtrOutput { return v.IsVerified }).(pulumi.BoolPtrOutput)
 }

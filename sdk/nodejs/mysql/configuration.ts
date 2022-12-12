@@ -91,7 +91,7 @@ export class Configuration extends pulumi.CustomResource {
      */
     public readonly serverName!: pulumi.Output<string>;
     /**
-     * Specifies the value of the MySQL Configuration. See the MySQL documentation for valid values.
+     * Specifies the value of the MySQL Configuration. See the MySQL documentation for valid values. Changing this forces a new resource to be created.
      */
     public readonly value!: pulumi.Output<string>;
 
@@ -153,7 +153,7 @@ export interface ConfigurationState {
      */
     serverName?: pulumi.Input<string>;
     /**
-     * Specifies the value of the MySQL Configuration. See the MySQL documentation for valid values.
+     * Specifies the value of the MySQL Configuration. See the MySQL documentation for valid values. Changing this forces a new resource to be created.
      */
     value?: pulumi.Input<string>;
 }
@@ -175,7 +175,7 @@ export interface ConfigurationArgs {
      */
     serverName: pulumi.Input<string>;
     /**
-     * Specifies the value of the MySQL Configuration. See the MySQL documentation for valid values.
+     * Specifies the value of the MySQL Configuration. See the MySQL documentation for valid values. Changing this forces a new resource to be created.
      */
     value: pulumi.Input<string>;
 }

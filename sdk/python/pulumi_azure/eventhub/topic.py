@@ -29,7 +29,7 @@ class TopicArgs:
                  support_ordering: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Topic resource.
-        :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create
+        :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
                this topic in. Changing this forces a new resource to be created.
         :param pulumi.Input[str] auto_delete_on_idle: The ISO 8601 timespan duration of the idle interval after which the
                Topic is automatically deleted, minimum of 5 minutes.
@@ -42,7 +42,7 @@ class TopicArgs:
         :param pulumi.Input[bool] enable_express: Boolean flag which controls whether Express Entities
                are enabled. An express topic holds a message in memory temporarily before writing
                it to persistent storage. Defaults to false.
-        :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable
+        :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable Changing this forces a new resource to be created.
                the topic to be partitioned across multiple message brokers. Defaults to false.
                Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of
@@ -53,7 +53,7 @@ class TopicArgs:
                section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a
                new resource to be created.
-        :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether
+        :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether Changing this forces a new resource to be created.
                the Topic requires duplicate detection. Defaults to false. Changing this forces
                a new resource to be created.
         :param pulumi.Input[str] status: The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
@@ -90,7 +90,7 @@ class TopicArgs:
     @pulumi.getter(name="namespaceId")
     def namespace_id(self) -> pulumi.Input[str]:
         """
-        The ID of the ServiceBus Namespace to create
+        The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
         this topic in. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "namespace_id")
@@ -169,7 +169,7 @@ class TopicArgs:
     @pulumi.getter(name="enablePartitioning")
     def enable_partitioning(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean flag which controls whether to enable
+        Boolean flag which controls whether to enable Changing this forces a new resource to be created.
         the topic to be partitioned across multiple message brokers. Defaults to false.
         Changing this forces a new resource to be created.
         """
@@ -224,7 +224,7 @@ class TopicArgs:
     @pulumi.getter(name="requiresDuplicateDetection")
     def requires_duplicate_detection(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean flag which controls whether
+        Boolean flag which controls whether Changing this forces a new resource to be created.
         the Topic requires duplicate detection. Defaults to false. Changing this forces
         a new resource to be created.
         """
@@ -291,7 +291,7 @@ class _TopicState:
         :param pulumi.Input[bool] enable_express: Boolean flag which controls whether Express Entities
                are enabled. An express topic holds a message in memory temporarily before writing
                it to persistent storage. Defaults to false.
-        :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable
+        :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable Changing this forces a new resource to be created.
                the topic to be partitioned across multiple message brokers. Defaults to false.
                Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of
@@ -302,9 +302,9 @@ class _TopicState:
                section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a
                new resource to be created.
-        :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create
+        :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
                this topic in. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether
+        :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether Changing this forces a new resource to be created.
                the Topic requires duplicate detection. Defaults to false. Changing this forces
                a new resource to be created.
         :param pulumi.Input[str] status: The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
@@ -412,7 +412,7 @@ class _TopicState:
     @pulumi.getter(name="enablePartitioning")
     def enable_partitioning(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean flag which controls whether to enable
+        Boolean flag which controls whether to enable Changing this forces a new resource to be created.
         the topic to be partitioned across multiple message brokers. Defaults to false.
         Changing this forces a new resource to be created.
         """
@@ -467,7 +467,7 @@ class _TopicState:
     @pulumi.getter(name="namespaceId")
     def namespace_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the ServiceBus Namespace to create
+        The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
         this topic in. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "namespace_id")
@@ -489,7 +489,7 @@ class _TopicState:
     @pulumi.getter(name="requiresDuplicateDetection")
     def requires_duplicate_detection(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean flag which controls whether
+        Boolean flag which controls whether Changing this forces a new resource to be created.
         the Topic requires duplicate detection. Defaults to false. Changing this forces
         a new resource to be created.
         """
@@ -603,7 +603,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_express: Boolean flag which controls whether Express Entities
                are enabled. An express topic holds a message in memory temporarily before writing
                it to persistent storage. Defaults to false.
-        :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable
+        :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable Changing this forces a new resource to be created.
                the topic to be partitioned across multiple message brokers. Defaults to false.
                Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of
@@ -614,9 +614,9 @@ class Topic(pulumi.CustomResource):
                section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a
                new resource to be created.
-        :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create
+        :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
                this topic in. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether
+        :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether Changing this forces a new resource to be created.
                the Topic requires duplicate detection. Defaults to false. Changing this forces
                a new resource to be created.
         :param pulumi.Input[str] status: The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
@@ -759,7 +759,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_express: Boolean flag which controls whether Express Entities
                are enabled. An express topic holds a message in memory temporarily before writing
                it to persistent storage. Defaults to false.
-        :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable
+        :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable Changing this forces a new resource to be created.
                the topic to be partitioned across multiple message brokers. Defaults to false.
                Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of
@@ -770,9 +770,9 @@ class Topic(pulumi.CustomResource):
                section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a
                new resource to be created.
-        :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create
+        :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
                this topic in. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether
+        :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether Changing this forces a new resource to be created.
                the Topic requires duplicate detection. Defaults to false. Changing this forces
                a new resource to be created.
         :param pulumi.Input[str] status: The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
@@ -850,7 +850,7 @@ class Topic(pulumi.CustomResource):
     @pulumi.getter(name="enablePartitioning")
     def enable_partitioning(self) -> pulumi.Output[Optional[bool]]:
         """
-        Boolean flag which controls whether to enable
+        Boolean flag which controls whether to enable Changing this forces a new resource to be created.
         the topic to be partitioned across multiple message brokers. Defaults to false.
         Changing this forces a new resource to be created.
         """
@@ -889,7 +889,7 @@ class Topic(pulumi.CustomResource):
     @pulumi.getter(name="namespaceId")
     def namespace_id(self) -> pulumi.Output[str]:
         """
-        The ID of the ServiceBus Namespace to create
+        The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
         this topic in. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "namespace_id")
@@ -903,7 +903,7 @@ class Topic(pulumi.CustomResource):
     @pulumi.getter(name="requiresDuplicateDetection")
     def requires_duplicate_detection(self) -> pulumi.Output[Optional[bool]]:
         """
-        Boolean flag which controls whether
+        Boolean flag which controls whether Changing this forces a new resource to be created.
         the Topic requires duplicate detection. Defaults to false. Changing this forces
         a new resource to be created.
         """

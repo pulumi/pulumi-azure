@@ -29,6 +29,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.postgresql.FlexibleServer;
  * import com.pulumi.azure.postgresql.FlexibleServerArgs;
+ * import com.pulumi.azure.postgresql.inputs.FlexibleServerAuthenticationArgs;
  * import com.pulumi.azure.postgresql.FlexibleServerActiveDirectoryAdministrator;
  * import com.pulumi.azure.postgresql.FlexibleServerActiveDirectoryAdministratorArgs;
  * import java.util.List;
@@ -58,7 +59,10 @@ import javax.annotation.Nullable;
  *             .administratorLoginPassword(&#34;4-v3ry-53cr37-p455w0rd&#34;)
  *             .skuName(&#34;GP_Standard_D2s_v3&#34;)
  *             .zone(&#34;2&#34;)
- *             .authConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .authentication(FlexibleServerAuthenticationArgs.builder()
+ *                 .activeDirectoryAuthEnabled(true)
+ *                 .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *                 .build())
  *             .build());
  * 
  *         var exampleFlexibleServerActiveDirectoryAdministrator = new FlexibleServerActiveDirectoryAdministrator(&#34;exampleFlexibleServerActiveDirectoryAdministrator&#34;, FlexibleServerActiveDirectoryAdministratorArgs.builder()        

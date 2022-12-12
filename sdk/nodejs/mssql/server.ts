@@ -102,7 +102,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly minimumTlsVersion!: pulumi.Output<string | undefined>;
     /**
-     * The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+     * The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -118,7 +118,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The name of the resource group in which to create the Microsoft SQL Server.
+     * The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -130,7 +130,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+     * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
      */
     public readonly version!: pulumi.Output<string>;
 
@@ -230,7 +230,7 @@ export interface ServerState {
      */
     minimumTlsVersion?: pulumi.Input<string>;
     /**
-     * The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+     * The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -246,7 +246,7 @@ export interface ServerState {
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
-     * The name of the resource group in which to create the Microsoft SQL Server.
+     * The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -258,7 +258,7 @@ export interface ServerState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+     * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
      */
     version?: pulumi.Input<string>;
 }
@@ -296,7 +296,7 @@ export interface ServerArgs {
      */
     minimumTlsVersion?: pulumi.Input<string>;
     /**
-     * The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+     * The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -312,7 +312,7 @@ export interface ServerArgs {
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
-     * The name of the resource group in which to create the Microsoft SQL Server.
+     * The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -320,7 +320,7 @@ export interface ServerArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+     * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
      */
     version: pulumi.Input<string>;
 }

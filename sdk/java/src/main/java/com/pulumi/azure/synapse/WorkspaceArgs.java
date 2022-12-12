@@ -55,14 +55,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Subnet ID used for computes in workspace
+     * Subnet ID used for computes in workspace Changing this forces a new resource to be created.
      * 
      */
     @Import(name="computeSubnetId")
     private @Nullable Output<String> computeSubnetId;
 
     /**
-     * @return Subnet ID used for computes in workspace
+     * @return Subnet ID used for computes in workspace Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> computeSubnetId() {
@@ -160,14 +160,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Workspace managed resource group.
+     * Workspace managed resource group. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="managedResourceGroupName")
     private @Nullable Output<String> managedResourceGroupName;
 
     /**
-     * @return Workspace managed resource group.
+     * @return Workspace managed resource group. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> managedResourceGroupName() {
@@ -426,7 +426,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param computeSubnetId Subnet ID used for computes in workspace
+         * @param computeSubnetId Subnet ID used for computes in workspace Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -437,7 +437,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param computeSubnetId Subnet ID used for computes in workspace
+         * @param computeSubnetId Subnet ID used for computes in workspace Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -583,7 +583,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedResourceGroupName Workspace managed resource group.
+         * @param managedResourceGroupName Workspace managed resource group. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -594,7 +594,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedResourceGroupName Workspace managed resource group.
+         * @param managedResourceGroupName Workspace managed resource group. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

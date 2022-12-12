@@ -93,31 +93,31 @@ export class ProtectionContainerMapping extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the protection container mapping.
+     * The name of the protection container mapping. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Name of fabric that should contains the protection container to map.
+     * Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
      */
     public readonly recoveryFabricName!: pulumi.Output<string>;
     /**
-     * Id of the policy to use for this mapping.
+     * Id of the policy to use for this mapping. Changing this forces a new resource to be created.
      */
     public readonly recoveryReplicationPolicyId!: pulumi.Output<string>;
     /**
-     * Name of the source protection container to map.
+     * Name of the source protection container to map. Changing this forces a new resource to be created.
      */
     public readonly recoverySourceProtectionContainerName!: pulumi.Output<string>;
     /**
-     * Id of target protection container to map to.
+     * Id of target protection container to map to. Changing this forces a new resource to be created.
      */
     public readonly recoveryTargetProtectionContainerId!: pulumi.Output<string>;
     /**
-     * The name of the vault that should be updated.
+     * The name of the vault that should be updated. Changing this forces a new resource to be created.
      */
     public readonly recoveryVaultName!: pulumi.Output<string>;
     /**
-     * Name of the resource group where the vault that should be updated is located.
+     * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
 
@@ -179,31 +179,31 @@ export class ProtectionContainerMapping extends pulumi.CustomResource {
  */
 export interface ProtectionContainerMappingState {
     /**
-     * The name of the protection container mapping.
+     * The name of the protection container mapping. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * Name of fabric that should contains the protection container to map.
+     * Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
      */
     recoveryFabricName?: pulumi.Input<string>;
     /**
-     * Id of the policy to use for this mapping.
+     * Id of the policy to use for this mapping. Changing this forces a new resource to be created.
      */
     recoveryReplicationPolicyId?: pulumi.Input<string>;
     /**
-     * Name of the source protection container to map.
+     * Name of the source protection container to map. Changing this forces a new resource to be created.
      */
     recoverySourceProtectionContainerName?: pulumi.Input<string>;
     /**
-     * Id of target protection container to map to.
+     * Id of target protection container to map to. Changing this forces a new resource to be created.
      */
     recoveryTargetProtectionContainerId?: pulumi.Input<string>;
     /**
-     * The name of the vault that should be updated.
+     * The name of the vault that should be updated. Changing this forces a new resource to be created.
      */
     recoveryVaultName?: pulumi.Input<string>;
     /**
-     * Name of the resource group where the vault that should be updated is located.
+     * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
 }
@@ -213,31 +213,31 @@ export interface ProtectionContainerMappingState {
  */
 export interface ProtectionContainerMappingArgs {
     /**
-     * The name of the protection container mapping.
+     * The name of the protection container mapping. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * Name of fabric that should contains the protection container to map.
+     * Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
      */
     recoveryFabricName: pulumi.Input<string>;
     /**
-     * Id of the policy to use for this mapping.
+     * Id of the policy to use for this mapping. Changing this forces a new resource to be created.
      */
     recoveryReplicationPolicyId: pulumi.Input<string>;
     /**
-     * Name of the source protection container to map.
+     * Name of the source protection container to map. Changing this forces a new resource to be created.
      */
     recoverySourceProtectionContainerName: pulumi.Input<string>;
     /**
-     * Id of target protection container to map to.
+     * Id of target protection container to map to. Changing this forces a new resource to be created.
      */
     recoveryTargetProtectionContainerId: pulumi.Input<string>;
     /**
-     * The name of the vault that should be updated.
+     * The name of the vault that should be updated. Changing this forces a new resource to be created.
      */
     recoveryVaultName: pulumi.Input<string>;
     /**
-     * Name of the resource group where the vault that should be updated is located.
+     * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
 }

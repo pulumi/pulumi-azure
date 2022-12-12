@@ -26,13 +26,12 @@ class ShareArgs:
         """
         The set of arguments for constructing a Share resource.
         :param pulumi.Input[int] quota: The maximum size of the share, in gigabytes. For Standard storage accounts, this must be `1`GB (or higher) and at most `5120` GB (`5` TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and at most `102400` GB (`100` TB).
-        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the share.
-               Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
         :param pulumi.Input[str] access_tier: The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
         :param pulumi.Input[Sequence[pulumi.Input['ShareAclArgs']]] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[str] enabled_protocol: The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this File Share.
-        :param pulumi.Input[str] name: The name of the share. Must be unique within the storage account where the share is located.
+        :param pulumi.Input[str] name: The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "quota", quota)
         pulumi.set(__self__, "storage_account_name", storage_account_name)
@@ -63,8 +62,7 @@ class ShareArgs:
     @pulumi.getter(name="storageAccountName")
     def storage_account_name(self) -> pulumi.Input[str]:
         """
-        Specifies the storage account in which to create the share.
-        Changing this forces a new resource to be created.
+        Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_name")
 
@@ -124,7 +122,7 @@ class ShareArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the share. Must be unique within the storage account where the share is located.
+        The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -151,11 +149,10 @@ class _ShareState:
         :param pulumi.Input[Sequence[pulumi.Input['ShareAclArgs']]] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[str] enabled_protocol: The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this File Share.
-        :param pulumi.Input[str] name: The name of the share. Must be unique within the storage account where the share is located.
+        :param pulumi.Input[str] name: The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
         :param pulumi.Input[int] quota: The maximum size of the share, in gigabytes. For Standard storage accounts, this must be `1`GB (or higher) and at most `5120` GB (`5` TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and at most `102400` GB (`100` TB).
         :param pulumi.Input[str] resource_manager_id: The Resource Manager ID of this File Share.
-        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the share.
-               Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
         :param pulumi.Input[str] url: The URL of the File Share
         """
         if access_tier is not None:
@@ -229,7 +226,7 @@ class _ShareState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the share. Must be unique within the storage account where the share is located.
+        The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -265,8 +262,7 @@ class _ShareState:
     @pulumi.getter(name="storageAccountName")
     def storage_account_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the storage account in which to create the share.
-        Changing this forces a new resource to be created.
+        Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_name")
 
@@ -344,10 +340,9 @@ class Share(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ShareAclArgs']]]] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[str] enabled_protocol: The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this File Share.
-        :param pulumi.Input[str] name: The name of the share. Must be unique within the storage account where the share is located.
+        :param pulumi.Input[str] name: The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
         :param pulumi.Input[int] quota: The maximum size of the share, in gigabytes. For Standard storage accounts, this must be `1`GB (or higher) and at most `5120` GB (`5` TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and at most `102400` GB (`100` TB).
-        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the share.
-               Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -467,11 +462,10 @@ class Share(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ShareAclArgs']]]] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[str] enabled_protocol: The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this File Share.
-        :param pulumi.Input[str] name: The name of the share. Must be unique within the storage account where the share is located.
+        :param pulumi.Input[str] name: The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
         :param pulumi.Input[int] quota: The maximum size of the share, in gigabytes. For Standard storage accounts, this must be `1`GB (or higher) and at most `5120` GB (`5` TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and at most `102400` GB (`100` TB).
         :param pulumi.Input[str] resource_manager_id: The Resource Manager ID of this File Share.
-        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the share.
-               Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
         :param pulumi.Input[str] url: The URL of the File Share
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -525,7 +519,7 @@ class Share(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the share. Must be unique within the storage account where the share is located.
+        The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -549,8 +543,7 @@ class Share(pulumi.CustomResource):
     @pulumi.getter(name="storageAccountName")
     def storage_account_name(self) -> pulumi.Output[str]:
         """
-        Specifies the storage account in which to create the share.
-        Changing this forces a new resource to be created.
+        Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_name")
 

@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PoolContainerConfiguration {
     /**
-     * @return A list of container image names to use, as would be specified by `docker pull`.
+     * @return A list of container image names to use, as would be specified by `docker pull`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable List<String> containerImageNames;
     /**
-     * @return Additional container registries from which container images can be pulled by the pool&#39;s VMs.
+     * @return Additional container registries from which container images can be pulled by the pool&#39;s VMs. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable List<PoolContainerConfigurationContainerRegistry> containerRegistries;
@@ -31,14 +31,14 @@ public final class PoolContainerConfiguration {
 
     private PoolContainerConfiguration() {}
     /**
-     * @return A list of container image names to use, as would be specified by `docker pull`.
+     * @return A list of container image names to use, as would be specified by `docker pull`. Changing this forces a new resource to be created.
      * 
      */
     public List<String> containerImageNames() {
         return this.containerImageNames == null ? List.of() : this.containerImageNames;
     }
     /**
-     * @return Additional container registries from which container images can be pulled by the pool&#39;s VMs.
+     * @return Additional container registries from which container images can be pulled by the pool&#39;s VMs. Changing this forces a new resource to be created.
      * 
      */
     public List<PoolContainerConfigurationContainerRegistry> containerRegistries() {

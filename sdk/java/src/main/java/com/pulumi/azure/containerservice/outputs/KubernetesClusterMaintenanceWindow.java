@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class KubernetesClusterMaintenanceWindow {
     /**
-     * @return One or more `allowed` block as defined below.
+     * @return One or more `allowed` blocks as defined below.
      * 
      */
     private @Nullable List<KubernetesClusterMaintenanceWindowAllowed> alloweds;
@@ -25,7 +25,7 @@ public final class KubernetesClusterMaintenanceWindow {
 
     private KubernetesClusterMaintenanceWindow() {}
     /**
-     * @return One or more `allowed` block as defined below.
+     * @return One or more `allowed` blocks as defined below.
      * 
      */
     public List<KubernetesClusterMaintenanceWindowAllowed> alloweds() {

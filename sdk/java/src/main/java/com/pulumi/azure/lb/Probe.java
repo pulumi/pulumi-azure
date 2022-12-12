@@ -110,28 +110,28 @@ public class Probe extends com.pulumi.resources.CustomResource {
         return this.loadBalancerRules;
     }
     /**
-     * The ID of the LoadBalancer in which to create the NAT Rule.
+     * The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="loadbalancerId", type=String.class, parameters={})
     private Output<String> loadbalancerId;
 
     /**
-     * @return The ID of the LoadBalancer in which to create the NAT Rule.
+     * @return The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> loadbalancerId() {
         return this.loadbalancerId;
     }
     /**
-     * Specifies the name of the Probe.
+     * Specifies the name of the Probe. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the Probe.
+     * @return Specifies the name of the Probe. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -164,6 +164,20 @@ public class Probe extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> port() {
         return this.port;
+    }
+    /**
+     * The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
+     * 
+     */
+    @Export(name="probeThreshold", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> probeThreshold;
+
+    /**
+     * @return The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
+     * 
+     */
+    public Output<Optional<Integer>> probeThreshold() {
+        return Codegen.optional(this.probeThreshold);
     }
     /**
      * Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful.

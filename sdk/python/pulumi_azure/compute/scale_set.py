@@ -54,7 +54,7 @@ class ScaleSetArgs:
         :param pulumi.Input[str] upgrade_policy_mode: Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
         :param pulumi.Input[bool] automatic_os_upgrade: Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
         :param pulumi.Input['ScaleSetBootDiagnosticsArgs'] boot_diagnostics: A boot diagnostics profile block as referenced below.
-        :param pulumi.Input[str] eviction_policy: Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
+        :param pulumi.Input[str] eviction_policy: Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ScaleSetExtensionArgs']]] extensions: Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
         :param pulumi.Input[str] health_probe_id: Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
         :param pulumi.Input[str] license_type: Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
@@ -65,14 +65,14 @@ class ScaleSetArgs:
         :param pulumi.Input['ScaleSetOsProfileWindowsConfigArgs'] os_profile_windows_config: A Windows config block as documented below.
         :param pulumi.Input[bool] overprovision: Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
         :param pulumi.Input['ScaleSetPlanArgs'] plan: A plan block as documented below.
-        :param pulumi.Input[str] priority: Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
+        :param pulumi.Input[str] priority: Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
         :param pulumi.Input['ScaleSetRollingUpgradePolicyArgs'] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
         :param pulumi.Input[bool] single_placement_group: Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
         :param pulumi.Input[Sequence[pulumi.Input['ScaleSetStorageProfileDataDiskArgs']]] storage_profile_data_disks: A storage profile data disk block as documented below
         :param pulumi.Input['ScaleSetStorageProfileImageReferenceArgs'] storage_profile_image_reference: A storage profile image reference block as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A collection of availability zones to spread the Virtual Machines over.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "network_profiles", network_profiles)
         pulumi.set(__self__, "os_profile", os_profile)
@@ -225,7 +225,7 @@ class ScaleSetArgs:
     @pulumi.getter(name="evictionPolicy")
     def eviction_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
+        Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "eviction_policy")
 
@@ -366,7 +366,7 @@ class ScaleSetArgs:
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
+        Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "priority")
 
@@ -450,7 +450,7 @@ class ScaleSetArgs:
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A collection of availability zones to spread the Virtual Machines over.
+        A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "zones")
 
@@ -494,7 +494,7 @@ class _ScaleSetState:
         Input properties used for looking up and filtering ScaleSet resources.
         :param pulumi.Input[bool] automatic_os_upgrade: Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
         :param pulumi.Input['ScaleSetBootDiagnosticsArgs'] boot_diagnostics: A boot diagnostics profile block as referenced below.
-        :param pulumi.Input[str] eviction_policy: Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
+        :param pulumi.Input[str] eviction_policy: Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ScaleSetExtensionArgs']]] extensions: Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
         :param pulumi.Input[str] health_probe_id: Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
         :param pulumi.Input[str] license_type: Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
@@ -507,7 +507,7 @@ class _ScaleSetState:
         :param pulumi.Input['ScaleSetOsProfileWindowsConfigArgs'] os_profile_windows_config: A Windows config block as documented below.
         :param pulumi.Input[bool] overprovision: Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
         :param pulumi.Input['ScaleSetPlanArgs'] plan: A plan block as documented below.
-        :param pulumi.Input[str] priority: Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
+        :param pulumi.Input[str] priority: Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
         :param pulumi.Input['ScaleSetRollingUpgradePolicyArgs'] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
@@ -518,7 +518,7 @@ class _ScaleSetState:
         :param pulumi.Input['ScaleSetStorageProfileOsDiskArgs'] storage_profile_os_disk: A storage profile os disk block as documented below
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] upgrade_policy_mode: Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A collection of availability zones to spread the Virtual Machines over.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
         """
         if automatic_os_upgrade is not None:
             pulumi.set(__self__, "automatic_os_upgrade", automatic_os_upgrade)
@@ -605,7 +605,7 @@ class _ScaleSetState:
     @pulumi.getter(name="evictionPolicy")
     def eviction_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
+        Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "eviction_policy")
 
@@ -770,7 +770,7 @@ class _ScaleSetState:
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
+        Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "priority")
 
@@ -902,7 +902,7 @@ class _ScaleSetState:
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A collection of availability zones to spread the Virtual Machines over.
+        A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "zones")
 
@@ -1043,7 +1043,7 @@ class ScaleSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] automatic_os_upgrade: Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['ScaleSetBootDiagnosticsArgs']] boot_diagnostics: A boot diagnostics profile block as referenced below.
-        :param pulumi.Input[str] eviction_policy: Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
+        :param pulumi.Input[str] eviction_policy: Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetExtensionArgs']]]] extensions: Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
         :param pulumi.Input[str] health_probe_id: Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
         :param pulumi.Input[str] license_type: Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
@@ -1056,7 +1056,7 @@ class ScaleSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ScaleSetOsProfileWindowsConfigArgs']] os_profile_windows_config: A Windows config block as documented below.
         :param pulumi.Input[bool] overprovision: Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['ScaleSetPlanArgs']] plan: A plan block as documented below.
-        :param pulumi.Input[str] priority: Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
+        :param pulumi.Input[str] priority: Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ScaleSetRollingUpgradePolicyArgs']] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
@@ -1067,7 +1067,7 @@ class ScaleSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ScaleSetStorageProfileOsDiskArgs']] storage_profile_os_disk: A storage profile os disk block as documented below
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] upgrade_policy_mode: Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A collection of availability zones to spread the Virtual Machines over.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -1308,7 +1308,7 @@ class ScaleSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] automatic_os_upgrade: Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['ScaleSetBootDiagnosticsArgs']] boot_diagnostics: A boot diagnostics profile block as referenced below.
-        :param pulumi.Input[str] eviction_policy: Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
+        :param pulumi.Input[str] eviction_policy: Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetExtensionArgs']]]] extensions: Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
         :param pulumi.Input[str] health_probe_id: Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
         :param pulumi.Input[str] license_type: Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
@@ -1321,7 +1321,7 @@ class ScaleSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ScaleSetOsProfileWindowsConfigArgs']] os_profile_windows_config: A Windows config block as documented below.
         :param pulumi.Input[bool] overprovision: Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['ScaleSetPlanArgs']] plan: A plan block as documented below.
-        :param pulumi.Input[str] priority: Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
+        :param pulumi.Input[str] priority: Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ScaleSetRollingUpgradePolicyArgs']] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
@@ -1332,7 +1332,7 @@ class ScaleSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ScaleSetStorageProfileOsDiskArgs']] storage_profile_os_disk: A storage profile os disk block as documented below
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] upgrade_policy_mode: Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A collection of availability zones to spread the Virtual Machines over.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1388,7 +1388,7 @@ class ScaleSet(pulumi.CustomResource):
     @pulumi.getter(name="evictionPolicy")
     def eviction_policy(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
+        Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "eviction_policy")
 
@@ -1497,7 +1497,7 @@ class ScaleSet(pulumi.CustomResource):
     @pulumi.getter
     def priority(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
+        Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "priority")
 
@@ -1585,7 +1585,7 @@ class ScaleSet(pulumi.CustomResource):
     @pulumi.getter
     def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A collection of availability zones to spread the Virtual Machines over.
+        A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "zones")
 

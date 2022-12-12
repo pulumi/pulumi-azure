@@ -27,11 +27,11 @@ class ImageArgs:
                  zone_resilient: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Image resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create. Changing this forces a new resource to be created.
                the image. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ImageDataDiskArgs']]] data_disks: One or more `data_disk` elements as defined below.
-        :param pulumi.Input[str] hyper_v_generation: The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
-        :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists.
+        :param pulumi.Input[str] hyper_v_generation: The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
                Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the image. Changing this forces a
                new resource to be created.
@@ -62,7 +62,7 @@ class ImageArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to create
+        The name of the resource group in which to create. Changing this forces a new resource to be created.
         the image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
@@ -87,7 +87,7 @@ class ImageArgs:
     @pulumi.getter(name="hyperVGeneration")
     def hyper_v_generation(self) -> Optional[pulumi.Input[str]]:
         """
-        The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
+        The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "hyper_v_generation")
 
@@ -99,7 +99,7 @@ class ImageArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        Specified the supported Azure location where the resource exists.
+        Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
@@ -185,13 +185,13 @@ class _ImageState:
         """
         Input properties used for looking up and filtering Image resources.
         :param pulumi.Input[Sequence[pulumi.Input['ImageDataDiskArgs']]] data_disks: One or more `data_disk` elements as defined below.
-        :param pulumi.Input[str] hyper_v_generation: The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
-        :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists.
+        :param pulumi.Input[str] hyper_v_generation: The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
                Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the image. Changing this forces a
                new resource to be created.
         :param pulumi.Input['ImageOsDiskArgs'] os_disk: One or more `os_disk` elements as defined below.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create. Changing this forces a new resource to be created.
                the image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_virtual_machine_id: The Virtual Machine ID from which to create the image.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -232,7 +232,7 @@ class _ImageState:
     @pulumi.getter(name="hyperVGeneration")
     def hyper_v_generation(self) -> Optional[pulumi.Input[str]]:
         """
-        The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
+        The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "hyper_v_generation")
 
@@ -244,7 +244,7 @@ class _ImageState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        Specified the supported Azure location where the resource exists.
+        Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
@@ -282,7 +282,7 @@ class _ImageState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to create
+        The name of the resource group in which to create. Changing this forces a new resource to be created.
         the image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
@@ -420,13 +420,13 @@ class Image(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageDataDiskArgs']]]] data_disks: One or more `data_disk` elements as defined below.
-        :param pulumi.Input[str] hyper_v_generation: The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
-        :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists.
+        :param pulumi.Input[str] hyper_v_generation: The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
                Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the image. Changing this forces a
                new resource to be created.
         :param pulumi.Input[pulumi.InputType['ImageOsDiskArgs']] os_disk: One or more `os_disk` elements as defined below.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create. Changing this forces a new resource to be created.
                the image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_virtual_machine_id: The Virtual Machine ID from which to create the image.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -583,13 +583,13 @@ class Image(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageDataDiskArgs']]]] data_disks: One or more `data_disk` elements as defined below.
-        :param pulumi.Input[str] hyper_v_generation: The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
-        :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists.
+        :param pulumi.Input[str] hyper_v_generation: The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
                Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the image. Changing this forces a
                new resource to be created.
         :param pulumi.Input[pulumi.InputType['ImageOsDiskArgs']] os_disk: One or more `os_disk` elements as defined below.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create. Changing this forces a new resource to be created.
                the image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_virtual_machine_id: The Virtual Machine ID from which to create the image.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -622,7 +622,7 @@ class Image(pulumi.CustomResource):
     @pulumi.getter(name="hyperVGeneration")
     def hyper_v_generation(self) -> pulumi.Output[Optional[str]]:
         """
-        The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
+        The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "hyper_v_generation")
 
@@ -630,7 +630,7 @@ class Image(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        Specified the supported Azure location where the resource exists.
+        Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
@@ -656,7 +656,7 @@ class Image(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to create
+        The name of the resource group in which to create. Changing this forces a new resource to be created.
         the image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")

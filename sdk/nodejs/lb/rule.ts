@@ -112,11 +112,11 @@ export class Rule extends pulumi.CustomResource {
      */
     public readonly loadDistribution!: pulumi.Output<string>;
     /**
-     * The ID of the Load Balancer in which to create the Rule.
+     * The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
      */
     public readonly loadbalancerId!: pulumi.Output<string>;
     /**
-     * Specifies the name of the LB Rule.
+     * Specifies the name of the LB Rule. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -234,11 +234,11 @@ export interface RuleState {
      */
     loadDistribution?: pulumi.Input<string>;
     /**
-     * The ID of the Load Balancer in which to create the Rule.
+     * The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
      */
     loadbalancerId?: pulumi.Input<string>;
     /**
-     * Specifies the name of the LB Rule.
+     * Specifies the name of the LB Rule. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -292,11 +292,11 @@ export interface RuleArgs {
      */
     loadDistribution?: pulumi.Input<string>;
     /**
-     * The ID of the Load Balancer in which to create the Rule.
+     * The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
      */
     loadbalancerId: pulumi.Input<string>;
     /**
-     * Specifies the name of the LB Rule.
+     * Specifies the name of the LB Rule. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

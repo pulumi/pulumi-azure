@@ -98,13 +98,13 @@ type Service struct {
 	CosmosdbThroughput pulumi.IntPtrOutput `pulumi:"cosmosdbThroughput"`
 	// The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Specifies the supported Azure Region where the Service should be created.
+	// Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the service instance. Used for service endpoint, must be unique within the audience.
+	// The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Whether public network access is enabled or disabled for this service instance.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
-	// The name of the Resource Group in which to create the Service.
+	// The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -153,13 +153,13 @@ type serviceState struct {
 	CosmosdbThroughput *int `pulumi:"cosmosdbThroughput"`
 	// The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
 	Kind *string `pulumi:"kind"`
-	// Specifies the supported Azure Region where the Service should be created.
+	// Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the service instance. Used for service endpoint, must be unique within the audience.
+	// The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Whether public network access is enabled or disabled for this service instance.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
-	// The name of the Resource Group in which to create the Service.
+	// The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -177,13 +177,13 @@ type ServiceState struct {
 	CosmosdbThroughput pulumi.IntPtrInput
 	// The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
 	Kind pulumi.StringPtrInput
-	// Specifies the supported Azure Region where the Service should be created.
+	// Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the service instance. Used for service endpoint, must be unique within the audience.
+	// The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Whether public network access is enabled or disabled for this service instance.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
-	// The name of the Resource Group in which to create the Service.
+	// The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -205,13 +205,13 @@ type serviceArgs struct {
 	CosmosdbThroughput *int `pulumi:"cosmosdbThroughput"`
 	// The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
 	Kind *string `pulumi:"kind"`
-	// Specifies the supported Azure Region where the Service should be created.
+	// Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the service instance. Used for service endpoint, must be unique within the audience.
+	// The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Whether public network access is enabled or disabled for this service instance.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
-	// The name of the Resource Group in which to create the Service.
+	// The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -230,13 +230,13 @@ type ServiceArgs struct {
 	CosmosdbThroughput pulumi.IntPtrInput
 	// The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
 	Kind pulumi.StringPtrInput
-	// Specifies the supported Azure Region where the Service should be created.
+	// Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the service instance. Used for service endpoint, must be unique within the audience.
+	// The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Whether public network access is enabled or disabled for this service instance.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
-	// The name of the Resource Group in which to create the Service.
+	// The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -358,12 +358,12 @@ func (o ServiceOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the supported Azure Region where the Service should be created.
+// Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
 func (o ServiceOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The name of the service instance. Used for service endpoint, must be unique within the audience.
+// The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
 func (o ServiceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -373,7 +373,7 @@ func (o ServiceOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the Resource Group in which to create the Service.
+// The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
 func (o ServiceOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

@@ -71,14 +71,11 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The name of the Virtual Desktop Workspace. Changing the name
-     * forces a new resource to be created.
+     * The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to
-     * create the Virtual Desktop Workspace. Changing the resource group name forces
-     * a new resource to be created.
+     * The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -139,14 +136,11 @@ export interface WorkspaceState {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the Virtual Desktop Workspace. Changing the name
-     * forces a new resource to be created.
+     * The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to
-     * create the Virtual Desktop Workspace. Changing the resource group name forces
-     * a new resource to be created.
+     * The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -172,14 +166,11 @@ export interface WorkspaceArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the Virtual Desktop Workspace. Changing the name
-     * forces a new resource to be created.
+     * The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to
-     * create the Virtual Desktop Workspace. Changing the resource group name forces
-     * a new resource to be created.
+     * The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

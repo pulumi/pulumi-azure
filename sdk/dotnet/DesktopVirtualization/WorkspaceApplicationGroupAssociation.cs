@@ -69,13 +69,13 @@ namespace Pulumi.Azure.DesktopVirtualization
     public partial class WorkspaceApplicationGroupAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The resource ID for the Virtual Desktop Application Group.
+        /// The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
         /// </summary>
         [Output("applicationGroupId")]
         public Output<string> ApplicationGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// The resource ID for the Virtual Desktop Workspace.
+        /// The resource ID for the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         /// </summary>
         [Output("workspaceId")]
         public Output<string> WorkspaceId { get; private set; } = null!;
@@ -127,13 +127,13 @@ namespace Pulumi.Azure.DesktopVirtualization
     public sealed class WorkspaceApplicationGroupAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The resource ID for the Virtual Desktop Application Group.
+        /// The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
         /// </summary>
         [Input("applicationGroupId", required: true)]
         public Input<string> ApplicationGroupId { get; set; } = null!;
 
         /// <summary>
-        /// The resource ID for the Virtual Desktop Workspace.
+        /// The resource ID for the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         /// </summary>
         [Input("workspaceId", required: true)]
         public Input<string> WorkspaceId { get; set; } = null!;
@@ -147,13 +147,13 @@ namespace Pulumi.Azure.DesktopVirtualization
     public sealed class WorkspaceApplicationGroupAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The resource ID for the Virtual Desktop Application Group.
+        /// The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
         /// </summary>
         [Input("applicationGroupId")]
         public Input<string>? ApplicationGroupId { get; set; }
 
         /// <summary>
-        /// The resource ID for the Virtual Desktop Workspace.
+        /// The resource ID for the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }

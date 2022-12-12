@@ -255,14 +255,14 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.capacityReservationGroupId);
     }
     /**
-     * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+     * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="computerNamePrefix", type=String.class, parameters={})
     private Output<String> computerNamePrefix;
 
     /**
-     * @return The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+     * @return The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> computerNamePrefix() {
@@ -871,14 +871,14 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
         return this.uniqueId;
     }
     /**
-     * Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+     * Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="upgradeMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> upgradeMode;
 
     /**
-     * @return Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+     * @return Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> upgradeMode() {

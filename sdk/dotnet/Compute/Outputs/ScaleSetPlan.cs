@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class ScaleSetPlan
     {
         /// <summary>
-        /// Specifies the name of the image from the marketplace.
+        /// Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
         /// <summary>

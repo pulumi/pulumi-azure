@@ -161,14 +161,14 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
     }
 
     /**
-     * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+     * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="computerNamePrefix")
     private @Nullable Output<String> computerNamePrefix;
 
     /**
-     * @return The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+     * @return The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> computerNamePrefix() {
@@ -837,14 +837,14 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
     }
 
     /**
-     * Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+     * Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="upgradeMode")
     private @Nullable Output<String> upgradeMode;
 
     /**
-     * @return Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+     * @return Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> upgradeMode() {
@@ -1186,7 +1186,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         }
 
         /**
-         * @param computerNamePrefix The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+         * @param computerNamePrefix The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1197,7 +1197,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         }
 
         /**
-         * @param computerNamePrefix The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+         * @param computerNamePrefix The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -2178,7 +2178,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         }
 
         /**
-         * @param upgradeMode Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+         * @param upgradeMode Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -2189,7 +2189,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         }
 
         /**
-         * @param upgradeMode Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+         * @param upgradeMode Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -65,19 +65,19 @@ namespace Pulumi.Azure.Backup
     public partial class ContainerStorageAccount : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the vault where the storage account will be registered.
+        /// The name of the vault where the storage account will be registered. Changing this forces a new resource to be created.
         /// </summary>
         [Output("recoveryVaultName")]
         public Output<string> RecoveryVaultName { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the resource group where the vault is located.
+        /// Name of the resource group where the vault is located. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Storage Account to be registered
+        /// The ID of the Storage Account to be registered Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageAccountId")]
         public Output<string> StorageAccountId { get; private set; } = null!;
@@ -129,19 +129,19 @@ namespace Pulumi.Azure.Backup
     public sealed class ContainerStorageAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the vault where the storage account will be registered.
+        /// The name of the vault where the storage account will be registered. Changing this forces a new resource to be created.
         /// </summary>
         [Input("recoveryVaultName", required: true)]
         public Input<string> RecoveryVaultName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the resource group where the vault is located.
+        /// Name of the resource group where the vault is located. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Storage Account to be registered
+        /// The ID of the Storage Account to be registered Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountId", required: true)]
         public Input<string> StorageAccountId { get; set; } = null!;
@@ -155,19 +155,19 @@ namespace Pulumi.Azure.Backup
     public sealed class ContainerStorageAccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the vault where the storage account will be registered.
+        /// The name of the vault where the storage account will be registered. Changing this forces a new resource to be created.
         /// </summary>
         [Input("recoveryVaultName")]
         public Input<string>? RecoveryVaultName { get; set; }
 
         /// <summary>
-        /// Name of the resource group where the vault is located.
+        /// Name of the resource group where the vault is located. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The ID of the Storage Account to be registered
+        /// The ID of the Storage Account to be registered Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }

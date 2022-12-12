@@ -136,8 +136,7 @@ type Insights struct {
 	// Specifies the name of the Application Insights component. Changing this forces a
 	// new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the resource group in which to
-	// create the Application Insights component.
+	// The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
 	RetentionInDays pulumi.IntPtrOutput `pulumi:"retentionInDays"`
@@ -211,8 +210,7 @@ type insightsState struct {
 	// Specifies the name of the Application Insights component. Changing this forces a
 	// new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to
-	// create the Application Insights component.
+	// The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
 	RetentionInDays *int `pulumi:"retentionInDays"`
@@ -252,8 +250,7 @@ type InsightsState struct {
 	// Specifies the name of the Application Insights component. Changing this forces a
 	// new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to
-	// create the Application Insights component.
+	// The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
 	RetentionInDays pulumi.IntPtrInput
@@ -291,8 +288,7 @@ type insightsArgs struct {
 	// Specifies the name of the Application Insights component. Changing this forces a
 	// new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to
-	// create the Application Insights component.
+	// The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
 	RetentionInDays *int `pulumi:"retentionInDays"`
@@ -327,8 +323,7 @@ type InsightsArgs struct {
 	// Specifies the name of the Application Insights component. Changing this forces a
 	// new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to
-	// create the Application Insights component.
+	// The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
 	RetentionInDays pulumi.IntPtrInput
@@ -493,8 +488,7 @@ func (o InsightsOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Insights) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the resource group in which to
-// create the Application Insights component.
+// The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
 func (o InsightsOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Insights) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

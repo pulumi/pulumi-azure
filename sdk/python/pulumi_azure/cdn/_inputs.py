@@ -3182,7 +3182,7 @@ class FrontdoorOriginPrivateLinkArgs:
                  request_message: Optional[pulumi.Input[str]] = None,
                  target_type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] location: Specifies the location where the Private Link resource should exist.
+        :param pulumi.Input[str] location: Specifies the location where the Private Link resource should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_link_target_id: The ID of the Azure Resource to connect to via the Private Link.
         :param pulumi.Input[str] request_message: Specifies the request message that will be submitted to the `private_link_target_id` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for Front Door Private Link Origin`.
         :param pulumi.Input[str] target_type: Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `web` and `sites`.
@@ -3198,7 +3198,7 @@ class FrontdoorOriginPrivateLinkArgs:
     @pulumi.getter
     def location(self) -> pulumi.Input[str]:
         """
-        Specifies the location where the Private Link resource should exist.
+        Specifies the location where the Private Link resource should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 

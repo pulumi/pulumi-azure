@@ -38,7 +38,7 @@ public final class ServiceInitialReplicaSet {
      */
     private @Nullable String serviceStatus;
     /**
-     * @return The ID of the subnet in which to place the initial replica set.
+     * @return The ID of the subnet in which to place the initial replica set. Changing this forces a new resource to be created.
      * 
      */
     private String subnetId;
@@ -80,7 +80,7 @@ public final class ServiceInitialReplicaSet {
         return Optional.ofNullable(this.serviceStatus);
     }
     /**
-     * @return The ID of the subnet in which to place the initial replica set.
+     * @return The ID of the subnet in which to place the initial replica set. Changing this forces a new resource to be created.
      * 
      */
     public String subnetId() {

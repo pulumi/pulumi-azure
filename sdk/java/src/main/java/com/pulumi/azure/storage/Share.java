@@ -146,14 +146,14 @@ public class Share extends com.pulumi.resources.CustomResource {
         return this.metadata;
     }
     /**
-     * The name of the share. Must be unique within the storage account where the share is located.
+     * The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the share. Must be unique within the storage account where the share is located.
+     * @return The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -188,16 +188,14 @@ public class Share extends com.pulumi.resources.CustomResource {
         return this.resourceManagerId;
     }
     /**
-     * Specifies the storage account in which to create the share.
-     * Changing this forces a new resource to be created.
+     * Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="storageAccountName", type=String.class, parameters={})
     private Output<String> storageAccountName;
 
     /**
-     * @return Specifies the storage account in which to create the share.
-     * Changing this forces a new resource to be created.
+     * @return Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> storageAccountName() {

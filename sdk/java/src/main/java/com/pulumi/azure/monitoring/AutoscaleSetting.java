@@ -597,14 +597,14 @@ public class AutoscaleSetting extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * Specifies the resource ID of the resource that the autoscale setting should be added to.
+     * Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="targetResourceId", type=String.class, parameters={})
     private Output<String> targetResourceId;
 
     /**
-     * @return Specifies the resource ID of the resource that the autoscale setting should be added to.
+     * @return Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> targetResourceId() {

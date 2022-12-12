@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FrontdoorOriginPrivateLink {
     /**
-     * @return Specifies the location where the Private Link resource should exist.
+     * @return Specifies the location where the Private Link resource should exist. Changing this forces a new resource to be created.
      * 
      */
     private String location;
@@ -34,7 +34,7 @@ public final class FrontdoorOriginPrivateLink {
 
     private FrontdoorOriginPrivateLink() {}
     /**
-     * @return Specifies the location where the Private Link resource should exist.
+     * @return Specifies the location where the Private Link resource should exist. Changing this forces a new resource to be created.
      * 
      */
     public String location() {

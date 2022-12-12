@@ -531,14 +531,14 @@ class ClusterNodeType(dict):
                  placement_properties: Optional[Mapping[str, str]] = None,
                  reverse_proxy_endpoint_port: Optional[int] = None):
         """
-        :param int client_endpoint_port: The Port used for the Client Endpoint for this Node Type. Changing this forces a new resource to be created.
-        :param int http_endpoint_port: The Port used for the HTTP Endpoint for this Node Type. Changing this forces a new resource to be created.
+        :param int client_endpoint_port: The Port used for the Client Endpoint for this Node Type.
+        :param int http_endpoint_port: The Port used for the HTTP Endpoint for this Node Type.
         :param int instance_count: The number of nodes for this Node Type.
-        :param bool is_primary: Is this the Primary Node Type? Changing this forces a new resource to be created.
-        :param str name: The name of the Node Type. Changing this forces a new resource to be created.
+        :param bool is_primary: Is this the Primary Node Type?
+        :param str name: The name of the Node Type.
         :param 'ClusterNodeTypeApplicationPortsArgs' application_ports: A `application_ports` block as defined below.
         :param Mapping[str, str] capacities: The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
-        :param str durability_level: The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`. Changing this forces a new resource to be created.
+        :param str durability_level: The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`.
         :param 'ClusterNodeTypeEphemeralPortsArgs' ephemeral_ports: A `ephemeral_ports` block as defined below.
         :param bool is_stateless: Should this node type run only stateless services?
         :param bool multiple_availability_zones: Does this node type span availability zones?
@@ -571,7 +571,7 @@ class ClusterNodeType(dict):
     @pulumi.getter(name="clientEndpointPort")
     def client_endpoint_port(self) -> int:
         """
-        The Port used for the Client Endpoint for this Node Type. Changing this forces a new resource to be created.
+        The Port used for the Client Endpoint for this Node Type.
         """
         return pulumi.get(self, "client_endpoint_port")
 
@@ -579,7 +579,7 @@ class ClusterNodeType(dict):
     @pulumi.getter(name="httpEndpointPort")
     def http_endpoint_port(self) -> int:
         """
-        The Port used for the HTTP Endpoint for this Node Type. Changing this forces a new resource to be created.
+        The Port used for the HTTP Endpoint for this Node Type.
         """
         return pulumi.get(self, "http_endpoint_port")
 
@@ -595,7 +595,7 @@ class ClusterNodeType(dict):
     @pulumi.getter(name="isPrimary")
     def is_primary(self) -> bool:
         """
-        Is this the Primary Node Type? Changing this forces a new resource to be created.
+        Is this the Primary Node Type?
         """
         return pulumi.get(self, "is_primary")
 
@@ -603,7 +603,7 @@ class ClusterNodeType(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the Node Type. Changing this forces a new resource to be created.
+        The name of the Node Type.
         """
         return pulumi.get(self, "name")
 
@@ -627,7 +627,7 @@ class ClusterNodeType(dict):
     @pulumi.getter(name="durabilityLevel")
     def durability_level(self) -> Optional[str]:
         """
-        The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`. Changing this forces a new resource to be created.
+        The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`.
         """
         return pulumi.get(self, "durability_level")
 

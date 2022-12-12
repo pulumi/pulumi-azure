@@ -34,7 +34,7 @@ class MongoCollectionArgs:
         :param pulumi.Input[int] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
         :param pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArgs']]] indices: One or more `index` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys.
+        :param pulumi.Input[str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "database_name", database_name)
@@ -148,7 +148,7 @@ class MongoCollectionArgs:
     @pulumi.getter(name="shardKey")
     def shard_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the key to partition on for sharding. There must not be any other unique index keys.
+        The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "shard_key")
 
@@ -188,7 +188,7 @@ class _MongoCollectionState:
         :param pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArgs']]] indices: One or more `index` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys.
+        :param pulumi.Input[str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['MongoCollectionSystemIndexArgs']]] system_indexes: One or more `system_indexes` blocks as defined below.
         """
         if account_name is not None:
@@ -308,7 +308,7 @@ class _MongoCollectionState:
     @pulumi.getter(name="shardKey")
     def shard_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the key to partition on for sharding. There must not be any other unique index keys.
+        The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "shard_key")
 
@@ -397,7 +397,7 @@ class MongoCollection(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoCollectionIndexArgs']]]] indices: One or more `index` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys.
+        :param pulumi.Input[str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -525,7 +525,7 @@ class MongoCollection(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoCollectionIndexArgs']]]] indices: One or more `index` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys.
+        :param pulumi.Input[str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoCollectionSystemIndexArgs']]]] system_indexes: One or more `system_indexes` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -607,7 +607,7 @@ class MongoCollection(pulumi.CustomResource):
     @pulumi.getter(name="shardKey")
     def shard_key(self) -> pulumi.Output[Optional[str]]:
         """
-        The name of the key to partition on for sharding. There must not be any other unique index keys.
+        The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "shard_key")
 

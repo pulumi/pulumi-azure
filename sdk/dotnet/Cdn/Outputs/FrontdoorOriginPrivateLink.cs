@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class FrontdoorOriginPrivateLink
     {
         /// <summary>
-        /// Specifies the location where the Private Link resource should exist.
+        /// Specifies the location where the Private Link resource should exist. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Location;
         /// <summary>

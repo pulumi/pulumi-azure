@@ -291,9 +291,7 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
         return Codegen.optional(this.connectionMode);
     }
     /**
-     * The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
-     * values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
-     * Changing this value will force a resource to be created.
+     * The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
      * &gt; **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
      * 
      */
@@ -301,9 +299,7 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
     private Output<String> connectionProtocol;
 
     /**
-     * @return The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
-     * values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
-     * Changing this value will force a resource to be created.
+     * @return The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
      * &gt; **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
      * 
      */
@@ -373,18 +369,14 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
         return this.enableBgp;
     }
     /**
-     * The ID of the Express Route Circuit
-     * when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
-     * The Express Route Circuit can be in the same or in a different subscription.
+     * The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="expressRouteCircuitId", type=String.class, parameters={})
     private Output</* @Nullable */ String> expressRouteCircuitId;
 
     /**
-     * @return The ID of the Express Route Circuit
-     * when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
-     * The Express Route Circuit can be in the same or in a different subscription.
+     * @return The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> expressRouteCircuitId() {
@@ -467,16 +459,14 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
         return Codegen.optional(this.localNetworkGatewayId);
     }
     /**
-     * The location/region where the connection is
-     * located. Changing this forces a new resource to be created.
+     * The location/region where the connection is located. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
-     * @return The location/region where the connection is
-     * located. Changing this forces a new resource to be created.
+     * @return The location/region where the connection is located. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> location() {
@@ -499,36 +489,28 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
         return this.name;
     }
     /**
-     * The ID of the peer virtual
-     * network gateway when creating a VNet-to-VNet connection (i.e. when `type`
-     * is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or
-     * in a different subscription.
+     * The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="peerVirtualNetworkGatewayId", type=String.class, parameters={})
     private Output</* @Nullable */ String> peerVirtualNetworkGatewayId;
 
     /**
-     * @return The ID of the peer virtual
-     * network gateway when creating a VNet-to-VNet connection (i.e. when `type`
-     * is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or
-     * in a different subscription.
+     * @return The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> peerVirtualNetworkGatewayId() {
         return Codegen.optional(this.peerVirtualNetworkGatewayId);
     }
     /**
-     * The name of the resource group in which to
-     * create the connection Changing the name forces a new resource to be created.
+     * The name of the resource group in which to create the connection Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to
-     * create the connection Changing the name forces a new resource to be created.
+     * @return The name of the resource group in which to create the connection Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -597,22 +579,14 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
         return Codegen.optional(this.trafficSelectorPolicy);
     }
     /**
-     * The type of connection. Valid options are `IPsec`
-     * (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
-     * Each connection type requires different mandatory arguments (refer to the
-     * examples above). Changing the connection type will force a new connection
-     * to be created.
+     * The type of connection. Valid options are `IPsec` (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet). Each connection type requires different mandatory arguments (refer to the examples above). Changing this forces a new resource to be created.
      * 
      */
     @Export(name="type", type=String.class, parameters={})
     private Output<String> type;
 
     /**
-     * @return The type of connection. Valid options are `IPsec`
-     * (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
-     * Each connection type requires different mandatory arguments (refer to the
-     * examples above). Changing the connection type will force a new connection
-     * to be created.
+     * @return The type of connection. Valid options are `IPsec` (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet). Each connection type requires different mandatory arguments (refer to the examples above). Changing this forces a new resource to be created.
      * 
      */
     public Output<String> type() {
@@ -637,18 +611,14 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
         return this.usePolicyBasedTrafficSelectors;
     }
     /**
-     * The ID of the Virtual Network Gateway
-     * in which the connection will be created. Changing the gateway forces a new
-     * resource to be created.
+     * The ID of the Virtual Network Gateway in which the connection will be created. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="virtualNetworkGatewayId", type=String.class, parameters={})
     private Output<String> virtualNetworkGatewayId;
 
     /**
-     * @return The ID of the Virtual Network Gateway
-     * in which the connection will be created. Changing the gateway forces a new
-     * resource to be created.
+     * @return The ID of the Virtual Network Gateway in which the connection will be created. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> virtualNetworkGatewayId() {

@@ -79,27 +79,27 @@ type PublicIp struct {
 	IdleTimeoutInMinutes pulumi.IntPtrOutput `pulumi:"idleTimeoutInMinutes"`
 	// The IP address value that was allocated.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
-	// A mapping of IP tags to assign to the public IP.
+	// A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
 	IpTags pulumi.StringMapOutput `pulumi:"ipTags"`
-	// The IP Version to use, IPv6 or IPv4.
+	// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
 	IpVersion pulumi.StringPtrOutput `pulumi:"ipVersion"`
 	// Specifies the supported Azure location where the Public IP should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Public IP. Changing this forces a new Public IP to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// If specified then public IP address allocated will be provided from the public IP prefix resource.
+	// If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created.
 	PublicIpPrefixId pulumi.StringPtrOutput `pulumi:"publicIpPrefixId"`
 	// The name of the Resource Group where this Public IP should exist. Changing this forces a new Public IP to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
 	ReverseFqdn pulumi.StringPtrOutput `pulumi:"reverseFqdn"`
-	// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+	// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
-	// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
+	// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
 	SkuTier pulumi.StringPtrOutput `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A collection containing the availability zone to allocate the Public IP in.
+	// A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
@@ -154,27 +154,27 @@ type publicIpState struct {
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
 	// The IP address value that was allocated.
 	IpAddress *string `pulumi:"ipAddress"`
-	// A mapping of IP tags to assign to the public IP.
+	// A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
 	IpTags map[string]string `pulumi:"ipTags"`
-	// The IP Version to use, IPv6 or IPv4.
+	// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
 	IpVersion *string `pulumi:"ipVersion"`
 	// Specifies the supported Azure location where the Public IP should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Public IP. Changing this forces a new Public IP to be created.
 	Name *string `pulumi:"name"`
-	// If specified then public IP address allocated will be provided from the public IP prefix resource.
+	// If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created.
 	PublicIpPrefixId *string `pulumi:"publicIpPrefixId"`
 	// The name of the Resource Group where this Public IP should exist. Changing this forces a new Public IP to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
 	ReverseFqdn *string `pulumi:"reverseFqdn"`
-	// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+	// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
 	Sku *string `pulumi:"sku"`
-	// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
+	// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
 	SkuTier *string `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A collection containing the availability zone to allocate the Public IP in.
+	// A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -195,27 +195,27 @@ type PublicIpState struct {
 	IdleTimeoutInMinutes pulumi.IntPtrInput
 	// The IP address value that was allocated.
 	IpAddress pulumi.StringPtrInput
-	// A mapping of IP tags to assign to the public IP.
+	// A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
 	IpTags pulumi.StringMapInput
-	// The IP Version to use, IPv6 or IPv4.
+	// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
 	IpVersion pulumi.StringPtrInput
 	// Specifies the supported Azure location where the Public IP should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Public IP. Changing this forces a new Public IP to be created.
 	Name pulumi.StringPtrInput
-	// If specified then public IP address allocated will be provided from the public IP prefix resource.
+	// If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created.
 	PublicIpPrefixId pulumi.StringPtrInput
 	// The name of the Resource Group where this Public IP should exist. Changing this forces a new Public IP to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
 	ReverseFqdn pulumi.StringPtrInput
-	// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+	// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
 	Sku pulumi.StringPtrInput
-	// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
+	// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
 	SkuTier pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// A collection containing the availability zone to allocate the Public IP in.
+	// A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
 	Zones pulumi.StringArrayInput
 }
 
@@ -236,27 +236,27 @@ type publicIpArgs struct {
 	EdgeZone *string `pulumi:"edgeZone"`
 	// Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
-	// A mapping of IP tags to assign to the public IP.
+	// A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
 	IpTags map[string]string `pulumi:"ipTags"`
-	// The IP Version to use, IPv6 or IPv4.
+	// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
 	IpVersion *string `pulumi:"ipVersion"`
 	// Specifies the supported Azure location where the Public IP should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Public IP. Changing this forces a new Public IP to be created.
 	Name *string `pulumi:"name"`
-	// If specified then public IP address allocated will be provided from the public IP prefix resource.
+	// If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created.
 	PublicIpPrefixId *string `pulumi:"publicIpPrefixId"`
 	// The name of the Resource Group where this Public IP should exist. Changing this forces a new Public IP to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
 	ReverseFqdn *string `pulumi:"reverseFqdn"`
-	// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+	// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
 	Sku *string `pulumi:"sku"`
-	// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
+	// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
 	SkuTier *string `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A collection containing the availability zone to allocate the Public IP in.
+	// A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -274,27 +274,27 @@ type PublicIpArgs struct {
 	EdgeZone pulumi.StringPtrInput
 	// Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
 	IdleTimeoutInMinutes pulumi.IntPtrInput
-	// A mapping of IP tags to assign to the public IP.
+	// A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
 	IpTags pulumi.StringMapInput
-	// The IP Version to use, IPv6 or IPv4.
+	// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
 	IpVersion pulumi.StringPtrInput
 	// Specifies the supported Azure location where the Public IP should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Public IP. Changing this forces a new Public IP to be created.
 	Name pulumi.StringPtrInput
-	// If specified then public IP address allocated will be provided from the public IP prefix resource.
+	// If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created.
 	PublicIpPrefixId pulumi.StringPtrInput
 	// The name of the Resource Group where this Public IP should exist. Changing this forces a new Public IP to be created.
 	ResourceGroupName pulumi.StringInput
 	// A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
 	ReverseFqdn pulumi.StringPtrInput
-	// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+	// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
 	Sku pulumi.StringPtrInput
-	// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
+	// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
 	SkuTier pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// A collection containing the availability zone to allocate the Public IP in.
+	// A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
 	Zones pulumi.StringArrayInput
 }
 
@@ -425,12 +425,12 @@ func (o PublicIpOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *PublicIp) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
 }
 
-// A mapping of IP tags to assign to the public IP.
+// A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
 func (o PublicIpOutput) IpTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PublicIp) pulumi.StringMapOutput { return v.IpTags }).(pulumi.StringMapOutput)
 }
 
-// The IP Version to use, IPv6 or IPv4.
+// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
 func (o PublicIpOutput) IpVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicIp) pulumi.StringPtrOutput { return v.IpVersion }).(pulumi.StringPtrOutput)
 }
@@ -445,7 +445,7 @@ func (o PublicIpOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PublicIp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// If specified then public IP address allocated will be provided from the public IP prefix resource.
+// If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created.
 func (o PublicIpOutput) PublicIpPrefixId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicIp) pulumi.StringPtrOutput { return v.PublicIpPrefixId }).(pulumi.StringPtrOutput)
 }
@@ -460,12 +460,12 @@ func (o PublicIpOutput) ReverseFqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicIp) pulumi.StringPtrOutput { return v.ReverseFqdn }).(pulumi.StringPtrOutput)
 }
 
-// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
 func (o PublicIpOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicIp) pulumi.StringPtrOutput { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
-// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
+// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
 func (o PublicIpOutput) SkuTier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicIp) pulumi.StringPtrOutput { return v.SkuTier }).(pulumi.StringPtrOutput)
 }
@@ -475,7 +475,7 @@ func (o PublicIpOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PublicIp) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A collection containing the availability zone to allocate the Public IP in.
+// A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
 func (o PublicIpOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PublicIp) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
 }

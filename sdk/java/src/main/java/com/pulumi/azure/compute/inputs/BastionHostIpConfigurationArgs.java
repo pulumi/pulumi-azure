@@ -14,14 +14,14 @@ public final class BastionHostIpConfigurationArgs extends com.pulumi.resources.R
     public static final BastionHostIpConfigurationArgs Empty = new BastionHostIpConfigurationArgs();
 
     /**
-     * The name of the IP configuration.
+     * The name of the IP configuration. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the IP configuration.
+     * @return The name of the IP configuration. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -29,14 +29,14 @@ public final class BastionHostIpConfigurationArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Reference to a Public IP Address to associate with this Bastion Host.
+     * Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="publicIpAddressId", required=true)
     private Output<String> publicIpAddressId;
 
     /**
-     * @return Reference to a Public IP Address to associate with this Bastion Host.
+     * @return Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> publicIpAddressId() {
@@ -44,14 +44,14 @@ public final class BastionHostIpConfigurationArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Reference to a subnet in which this Bastion Host has been created.
+     * Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="subnetId", required=true)
     private Output<String> subnetId;
 
     /**
-     * @return Reference to a subnet in which this Bastion Host has been created.
+     * @return Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> subnetId() {
@@ -85,7 +85,7 @@ public final class BastionHostIpConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param name The name of the IP configuration.
+         * @param name The name of the IP configuration. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -96,7 +96,7 @@ public final class BastionHostIpConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param name The name of the IP configuration.
+         * @param name The name of the IP configuration. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -106,7 +106,7 @@ public final class BastionHostIpConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param publicIpAddressId Reference to a Public IP Address to associate with this Bastion Host.
+         * @param publicIpAddressId Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class BastionHostIpConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param publicIpAddressId Reference to a Public IP Address to associate with this Bastion Host.
+         * @param publicIpAddressId Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class BastionHostIpConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param subnetId Reference to a subnet in which this Bastion Host has been created.
+         * @param subnetId Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class BastionHostIpConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param subnetId Reference to a subnet in which this Bastion Host has been created.
+         * @param subnetId Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -101,7 +101,7 @@ export class Environment extends pulumi.CustomResource {
      */
     public /*out*/ readonly internalIpAddress!: pulumi.Output<string>;
     /**
-     * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
+     * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`. Changing this forces a new resource to be created.
      */
     public readonly internalLoadBalancingMode!: pulumi.Output<string | undefined>;
     /**
@@ -211,7 +211,7 @@ export interface EnvironmentState {
      */
     internalIpAddress?: pulumi.Input<string>;
     /**
-     * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
+     * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`. Changing this forces a new resource to be created.
      */
     internalLoadBalancingMode?: pulumi.Input<string>;
     /**
@@ -265,7 +265,7 @@ export interface EnvironmentArgs {
      */
     frontEndScaleFactor?: pulumi.Input<number>;
     /**
-     * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
+     * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`. Changing this forces a new resource to be created.
      */
     internalLoadBalancingMode?: pulumi.Input<string>;
     /**

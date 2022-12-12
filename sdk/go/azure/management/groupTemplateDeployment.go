@@ -197,7 +197,7 @@ type GroupTemplateDeployment struct {
 	DebugLevel pulumi.StringPtrOutput `pulumi:"debugLevel"`
 	// The Azure Region where the Template should exist. Changing this forces a new Template to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The ID of the Management Group to apply the Deployment Template to.
+	// The ID of the Management Group to apply the Deployment Template to. Changing this forces a new resource to be created.
 	ManagementGroupId pulumi.StringOutput `pulumi:"managementGroupId"`
 	// The name which should be used for this Template Deployment. Changing this forces a new Template Deployment to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -249,7 +249,7 @@ type groupTemplateDeploymentState struct {
 	DebugLevel *string `pulumi:"debugLevel"`
 	// The Azure Region where the Template should exist. Changing this forces a new Template to be created.
 	Location *string `pulumi:"location"`
-	// The ID of the Management Group to apply the Deployment Template to.
+	// The ID of the Management Group to apply the Deployment Template to. Changing this forces a new resource to be created.
 	ManagementGroupId *string `pulumi:"managementGroupId"`
 	// The name which should be used for this Template Deployment. Changing this forces a new Template Deployment to be created.
 	Name *string `pulumi:"name"`
@@ -270,7 +270,7 @@ type GroupTemplateDeploymentState struct {
 	DebugLevel pulumi.StringPtrInput
 	// The Azure Region where the Template should exist. Changing this forces a new Template to be created.
 	Location pulumi.StringPtrInput
-	// The ID of the Management Group to apply the Deployment Template to.
+	// The ID of the Management Group to apply the Deployment Template to. Changing this forces a new resource to be created.
 	ManagementGroupId pulumi.StringPtrInput
 	// The name which should be used for this Template Deployment. Changing this forces a new Template Deployment to be created.
 	Name pulumi.StringPtrInput
@@ -295,7 +295,7 @@ type groupTemplateDeploymentArgs struct {
 	DebugLevel *string `pulumi:"debugLevel"`
 	// The Azure Region where the Template should exist. Changing this forces a new Template to be created.
 	Location *string `pulumi:"location"`
-	// The ID of the Management Group to apply the Deployment Template to.
+	// The ID of the Management Group to apply the Deployment Template to. Changing this forces a new resource to be created.
 	ManagementGroupId string `pulumi:"managementGroupId"`
 	// The name which should be used for this Template Deployment. Changing this forces a new Template Deployment to be created.
 	Name *string `pulumi:"name"`
@@ -315,7 +315,7 @@ type GroupTemplateDeploymentArgs struct {
 	DebugLevel pulumi.StringPtrInput
 	// The Azure Region where the Template should exist. Changing this forces a new Template to be created.
 	Location pulumi.StringPtrInput
-	// The ID of the Management Group to apply the Deployment Template to.
+	// The ID of the Management Group to apply the Deployment Template to. Changing this forces a new resource to be created.
 	ManagementGroupId pulumi.StringInput
 	// The name which should be used for this Template Deployment. Changing this forces a new Template Deployment to be created.
 	Name pulumi.StringPtrInput
@@ -426,7 +426,7 @@ func (o GroupTemplateDeploymentOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupTemplateDeployment) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The ID of the Management Group to apply the Deployment Template to.
+// The ID of the Management Group to apply the Deployment Template to. Changing this forces a new resource to be created.
 func (o GroupTemplateDeploymentOutput) ManagementGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupTemplateDeployment) pulumi.StringOutput { return v.ManagementGroupId }).(pulumi.StringOutput)
 }

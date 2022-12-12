@@ -99,7 +99,7 @@ namespace Pulumi.Azure.DevTest
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. Changing this forces a new resource to be created.
+        /// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`.
         /// </summary>
         [Output("storageType")]
         public Output<string?> StorageType { get; private set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Azure.DevTest
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. Changing this forces a new resource to be created.
+        /// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`.
         /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }
@@ -255,7 +255,7 @@ namespace Pulumi.Azure.DevTest
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. Changing this forces a new resource to be created.
+        /// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`.
         /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }

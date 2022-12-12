@@ -287,14 +287,14 @@ public class ManagedStorageAccount extends com.pulumi.resources.CustomResource {
         return this.storageAccountKey;
     }
     /**
-     * A mapping of tags which should be assigned to the Key Vault Managed Storage Account.
+     * A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags which should be assigned to the Key Vault Managed Storage Account.
+     * @return A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

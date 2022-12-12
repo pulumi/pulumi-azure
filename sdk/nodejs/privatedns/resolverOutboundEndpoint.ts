@@ -95,7 +95,7 @@ export class ResolverOutboundEndpoint extends pulumi.CustomResource {
      */
     public readonly privateDnsResolverId!: pulumi.Output<string>;
     /**
-     * The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint.
+     * The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint. Changing this forces a new resource to be created.
      */
     public readonly subnetId!: pulumi.Output<string>;
     /**
@@ -157,7 +157,7 @@ export interface ResolverOutboundEndpointState {
      */
     privateDnsResolverId?: pulumi.Input<string>;
     /**
-     * The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint.
+     * The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint. Changing this forces a new resource to be created.
      */
     subnetId?: pulumi.Input<string>;
     /**
@@ -183,7 +183,7 @@ export interface ResolverOutboundEndpointArgs {
      */
     privateDnsResolverId: pulumi.Input<string>;
     /**
-     * The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint.
+     * The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint. Changing this forces a new resource to be created.
      */
     subnetId: pulumi.Input<string>;
     /**

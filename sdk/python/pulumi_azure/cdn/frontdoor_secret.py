@@ -158,7 +158,7 @@ class FrontdoorSecret(pulumi.CustomResource):
         import pulumi_azuread as azuread
 
         current = azure.core.get_client_config()
-        frontdoor = azuread.get_service_principal(display_name="Microsoft.AzureFrontDoor-Cdn")
+        frontdoor = azuread.get_service_principal(display_name="Microsoft.Azure.Cdn")
         example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
             location=azurerm_resource_group["example"]["location"],
             resource_group_name=azurerm_resource_group["example"]["name"],
@@ -232,7 +232,7 @@ class FrontdoorSecret(pulumi.CustomResource):
         import pulumi_azuread as azuread
 
         current = azure.core.get_client_config()
-        frontdoor = azuread.get_service_principal(display_name="Microsoft.AzureFrontDoor-Cdn")
+        frontdoor = azuread.get_service_principal(display_name="Microsoft.Azure.Cdn")
         example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
             location=azurerm_resource_group["example"]["location"],
             resource_group_name=azurerm_resource_group["example"]["name"],

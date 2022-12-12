@@ -140,7 +140,7 @@ export class CustomerManagedKey extends pulumi.CustomResource {
      */
     public readonly keyName!: pulumi.Output<string>;
     /**
-     * The ID of the Key Vault. Changing this forces a new resource to be created.
+     * The ID of the Key Vault.
      */
     public readonly keyVaultId!: pulumi.Output<string>;
     /**
@@ -205,7 +205,7 @@ export interface CustomerManagedKeyState {
      */
     keyName?: pulumi.Input<string>;
     /**
-     * The ID of the Key Vault. Changing this forces a new resource to be created.
+     * The ID of the Key Vault.
      */
     keyVaultId?: pulumi.Input<string>;
     /**
@@ -231,7 +231,7 @@ export interface CustomerManagedKeyArgs {
      */
     keyName: pulumi.Input<string>;
     /**
-     * The ID of the Key Vault. Changing this forces a new resource to be created.
+     * The ID of the Key Vault.
      */
     keyVaultId: pulumi.Input<string>;
     /**

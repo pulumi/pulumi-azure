@@ -214,7 +214,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<string> StorageAccountKey { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Key Vault Managed Storage Account.
+        /// A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -305,7 +305,7 @@ namespace Pulumi.Azure.KeyVault
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Key Vault Managed Storage Account.
+        /// A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -361,7 +361,7 @@ namespace Pulumi.Azure.KeyVault
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Key Vault Managed Storage Account.
+        /// A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
         /// </summary>
         public InputMap<string> Tags
         {

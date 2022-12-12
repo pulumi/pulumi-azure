@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Spring Cloud Buildpack Binding.
+// Manages a Spring Cloud Build Pack Binding.
 //
 // > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 //
@@ -50,12 +50,12 @@ import (
 //					&appplatform.SpringCloudBuilderBuildPackGroupArgs{
 //						Name: pulumi.String("mix"),
 //						BuildPackIds: pulumi.StringArray{
-//							pulumi.String("tanzu-buildpacks/java-azure"),
+//							pulumi.String("tanzu-Build Packs/java-azure"),
 //						},
 //					},
 //				},
 //				Stack: &appplatform.SpringCloudBuilderStackArgs{
-//					Id:      pulumi.String("io.buildpacks.stacks.bionic"),
+//					Id:      pulumi.String("io.Build Packs.stacks.bionic"),
 //					Version: pulumi.String("base"),
 //				},
 //			})
@@ -87,23 +87,23 @@ import (
 //
 // ## Import
 //
-// Spring Cloud Buildpack Bindings can be imported using the `resource id`, e.g.
+// Spring Cloud Build Pack Bindings can be imported using the `resource id`, e.g.
 //
 // ```sh
 //
-//	$ pulumi import azure:appplatform/springCloudBuildPackBinding:SpringCloudBuildPackBinding example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/Spring/service1/buildServices/buildService1/builders/builder1/buildpackBindings/buildpackBinding1
+//	$ pulumi import azure:appplatform/springCloudBuildPackBinding:SpringCloudBuildPackBinding example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/spring/service1/buildServices/buildService1/builders/builder1/Build PackBindings/Build PackBinding1
 //
 // ```
 type SpringCloudBuildPackBinding struct {
 	pulumi.CustomResourceState
 
-	// Specifies the Buildpack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
+	// Specifies the Build Pack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
 	BindingType pulumi.StringPtrOutput `pulumi:"bindingType"`
 	// A `launch` block as defined below.
 	Launch SpringCloudBuildPackBindingLaunchPtrOutput `pulumi:"launch"`
-	// The name which should be used for this Spring Cloud Buildpack Binding. Changing this forces a new Spring Cloud Buildpack Binding to be created.
+	// The name which should be used for this Spring Cloud Build Pack Binding. Changing this forces a new Spring Cloud Build Pack Binding to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Buildpack Binding to be created.
+	// The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Build Pack Binding to be created.
 	SpringCloudBuilderId pulumi.StringOutput `pulumi:"springCloudBuilderId"`
 }
 
@@ -139,24 +139,24 @@ func GetSpringCloudBuildPackBinding(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SpringCloudBuildPackBinding resources.
 type springCloudBuildPackBindingState struct {
-	// Specifies the Buildpack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
+	// Specifies the Build Pack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
 	BindingType *string `pulumi:"bindingType"`
 	// A `launch` block as defined below.
 	Launch *SpringCloudBuildPackBindingLaunch `pulumi:"launch"`
-	// The name which should be used for this Spring Cloud Buildpack Binding. Changing this forces a new Spring Cloud Buildpack Binding to be created.
+	// The name which should be used for this Spring Cloud Build Pack Binding. Changing this forces a new Spring Cloud Build Pack Binding to be created.
 	Name *string `pulumi:"name"`
-	// The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Buildpack Binding to be created.
+	// The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Build Pack Binding to be created.
 	SpringCloudBuilderId *string `pulumi:"springCloudBuilderId"`
 }
 
 type SpringCloudBuildPackBindingState struct {
-	// Specifies the Buildpack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
+	// Specifies the Build Pack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
 	BindingType pulumi.StringPtrInput
 	// A `launch` block as defined below.
 	Launch SpringCloudBuildPackBindingLaunchPtrInput
-	// The name which should be used for this Spring Cloud Buildpack Binding. Changing this forces a new Spring Cloud Buildpack Binding to be created.
+	// The name which should be used for this Spring Cloud Build Pack Binding. Changing this forces a new Spring Cloud Build Pack Binding to be created.
 	Name pulumi.StringPtrInput
-	// The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Buildpack Binding to be created.
+	// The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Build Pack Binding to be created.
 	SpringCloudBuilderId pulumi.StringPtrInput
 }
 
@@ -165,25 +165,25 @@ func (SpringCloudBuildPackBindingState) ElementType() reflect.Type {
 }
 
 type springCloudBuildPackBindingArgs struct {
-	// Specifies the Buildpack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
+	// Specifies the Build Pack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
 	BindingType *string `pulumi:"bindingType"`
 	// A `launch` block as defined below.
 	Launch *SpringCloudBuildPackBindingLaunch `pulumi:"launch"`
-	// The name which should be used for this Spring Cloud Buildpack Binding. Changing this forces a new Spring Cloud Buildpack Binding to be created.
+	// The name which should be used for this Spring Cloud Build Pack Binding. Changing this forces a new Spring Cloud Build Pack Binding to be created.
 	Name *string `pulumi:"name"`
-	// The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Buildpack Binding to be created.
+	// The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Build Pack Binding to be created.
 	SpringCloudBuilderId string `pulumi:"springCloudBuilderId"`
 }
 
 // The set of arguments for constructing a SpringCloudBuildPackBinding resource.
 type SpringCloudBuildPackBindingArgs struct {
-	// Specifies the Buildpack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
+	// Specifies the Build Pack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
 	BindingType pulumi.StringPtrInput
 	// A `launch` block as defined below.
 	Launch SpringCloudBuildPackBindingLaunchPtrInput
-	// The name which should be used for this Spring Cloud Buildpack Binding. Changing this forces a new Spring Cloud Buildpack Binding to be created.
+	// The name which should be used for this Spring Cloud Build Pack Binding. Changing this forces a new Spring Cloud Build Pack Binding to be created.
 	Name pulumi.StringPtrInput
-	// The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Buildpack Binding to be created.
+	// The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Build Pack Binding to be created.
 	SpringCloudBuilderId pulumi.StringInput
 }
 
@@ -274,7 +274,7 @@ func (o SpringCloudBuildPackBindingOutput) ToSpringCloudBuildPackBindingOutputWi
 	return o
 }
 
-// Specifies the Buildpack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
+// Specifies the Build Pack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
 func (o SpringCloudBuildPackBindingOutput) BindingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpringCloudBuildPackBinding) pulumi.StringPtrOutput { return v.BindingType }).(pulumi.StringPtrOutput)
 }
@@ -284,12 +284,12 @@ func (o SpringCloudBuildPackBindingOutput) Launch() SpringCloudBuildPackBindingL
 	return o.ApplyT(func(v *SpringCloudBuildPackBinding) SpringCloudBuildPackBindingLaunchPtrOutput { return v.Launch }).(SpringCloudBuildPackBindingLaunchPtrOutput)
 }
 
-// The name which should be used for this Spring Cloud Buildpack Binding. Changing this forces a new Spring Cloud Buildpack Binding to be created.
+// The name which should be used for this Spring Cloud Build Pack Binding. Changing this forces a new Spring Cloud Build Pack Binding to be created.
 func (o SpringCloudBuildPackBindingOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpringCloudBuildPackBinding) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Buildpack Binding to be created.
+// The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Build Pack Binding to be created.
 func (o SpringCloudBuildPackBindingOutput) SpringCloudBuilderId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpringCloudBuildPackBinding) pulumi.StringOutput { return v.SpringCloudBuilderId }).(pulumi.StringOutput)
 }

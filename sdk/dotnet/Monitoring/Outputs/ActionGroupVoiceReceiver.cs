@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string CountryCode;
         /// <summary>
-        /// The name of the voice receiver.
+        /// The name of the voice receiver. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
         /// <summary>

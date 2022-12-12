@@ -57,7 +57,7 @@ class AccountArgs:
         :param pulumi.Input[str] account_tier: Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] access_tier: Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
-        :param pulumi.Input[str] account_kind: Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+        :param pulumi.Input[str] account_kind: Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
         :param pulumi.Input[bool] allow_nested_items_to_be_public: Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
         :param pulumi.Input['AccountAzureFilesAuthenticationArgs'] azure_files_authentication: A `azure_files_authentication` block as defined below.
         :param pulumi.Input['AccountBlobPropertiesArgs'] blob_properties: A `blob_properties` block as defined below.
@@ -83,6 +83,7 @@ class AccountArgs:
         :param pulumi.Input['AccountQueuePropertiesArgs'] queue_properties: A `queue_properties` block as defined below.
         :param pulumi.Input['AccountRoutingArgs'] routing: A `routing` block as defined below.
         :param pulumi.Input['AccountSasPolicyArgs'] sas_policy: A `sas_policy` block as defined below.
+        :param pulumi.Input[bool] sftp_enabled: Boolean, enable SFTP for the storage account
         :param pulumi.Input['AccountSharePropertiesArgs'] share_properties: A `share_properties` block as defined below.
         :param pulumi.Input[bool] shared_access_key_enabled: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
         :param pulumi.Input['AccountStaticWebsiteArgs'] static_website: A `static_website` block as defined below.
@@ -209,7 +210,7 @@ class AccountArgs:
     @pulumi.getter(name="accountKind")
     def account_kind(self) -> Optional[pulumi.Input[str]]:
         """
-        Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+        Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
         """
         return pulumi.get(self, "account_kind")
 
@@ -509,6 +510,9 @@ class AccountArgs:
     @property
     @pulumi.getter(name="sftpEnabled")
     def sftp_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean, enable SFTP for the storage account
+        """
         return pulumi.get(self, "sftp_enabled")
 
     @sftp_enabled.setter
@@ -649,7 +653,7 @@ class _AccountState:
         """
         Input properties used for looking up and filtering Account resources.
         :param pulumi.Input[str] access_tier: Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
-        :param pulumi.Input[str] account_kind: Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+        :param pulumi.Input[str] account_kind: Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
         :param pulumi.Input[str] account_replication_type: Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
         :param pulumi.Input[str] account_tier: Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] allow_nested_items_to_be_public: Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
@@ -710,6 +714,7 @@ class _AccountState:
         :param pulumi.Input[str] secondary_table_host: The hostname with port if applicable for table storage in the secondary location.
         :param pulumi.Input[str] secondary_web_endpoint: The endpoint URL for web storage in the secondary location.
         :param pulumi.Input[str] secondary_web_host: The hostname with port if applicable for web storage in the secondary location.
+        :param pulumi.Input[bool] sftp_enabled: Boolean, enable SFTP for the storage account
         :param pulumi.Input['AccountSharePropertiesArgs'] share_properties: A `share_properties` block as defined below.
         :param pulumi.Input[bool] shared_access_key_enabled: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
         :param pulumi.Input['AccountStaticWebsiteArgs'] static_website: A `static_website` block as defined below.
@@ -867,7 +872,7 @@ class _AccountState:
     @pulumi.getter(name="accountKind")
     def account_kind(self) -> Optional[pulumi.Input[str]]:
         """
-        Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+        Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
         """
         return pulumi.get(self, "account_kind")
 
@@ -1587,6 +1592,9 @@ class _AccountState:
     @property
     @pulumi.getter(name="sftpEnabled")
     def sftp_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean, enable SFTP for the storage account
+        """
         return pulumi.get(self, "sftp_enabled")
 
     @sftp_enabled.setter
@@ -1759,7 +1767,7 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_tier: Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
-        :param pulumi.Input[str] account_kind: Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+        :param pulumi.Input[str] account_kind: Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
         :param pulumi.Input[str] account_replication_type: Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
         :param pulumi.Input[str] account_tier: Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] allow_nested_items_to_be_public: Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
@@ -1788,6 +1796,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AccountRoutingArgs']] routing: A `routing` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountSasPolicyArgs']] sas_policy: A `sas_policy` block as defined below.
+        :param pulumi.Input[bool] sftp_enabled: Boolean, enable SFTP for the storage account
         :param pulumi.Input[pulumi.InputType['AccountSharePropertiesArgs']] share_properties: A `share_properties` block as defined below.
         :param pulumi.Input[bool] shared_access_key_enabled: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
         :param pulumi.Input[pulumi.InputType['AccountStaticWebsiteArgs']] static_website: A `static_website` block as defined below.
@@ -2078,7 +2087,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_tier: Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
-        :param pulumi.Input[str] account_kind: Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+        :param pulumi.Input[str] account_kind: Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
         :param pulumi.Input[str] account_replication_type: Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
         :param pulumi.Input[str] account_tier: Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] allow_nested_items_to_be_public: Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
@@ -2139,6 +2148,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] secondary_table_host: The hostname with port if applicable for table storage in the secondary location.
         :param pulumi.Input[str] secondary_web_endpoint: The endpoint URL for web storage in the secondary location.
         :param pulumi.Input[str] secondary_web_host: The hostname with port if applicable for web storage in the secondary location.
+        :param pulumi.Input[bool] sftp_enabled: Boolean, enable SFTP for the storage account
         :param pulumi.Input[pulumi.InputType['AccountSharePropertiesArgs']] share_properties: A `share_properties` block as defined below.
         :param pulumi.Input[bool] shared_access_key_enabled: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
         :param pulumi.Input[pulumi.InputType['AccountStaticWebsiteArgs']] static_website: A `static_website` block as defined below.
@@ -2230,7 +2240,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="accountKind")
     def account_kind(self) -> pulumi.Output[Optional[str]]:
         """
-        Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+        Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
         """
         return pulumi.get(self, "account_kind")
 
@@ -2710,6 +2720,9 @@ class Account(pulumi.CustomResource):
     @property
     @pulumi.getter(name="sftpEnabled")
     def sftp_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Boolean, enable SFTP for the storage account
+        """
         return pulumi.get(self, "sftp_enabled")
 
     @property

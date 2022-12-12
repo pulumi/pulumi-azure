@@ -83,16 +83,14 @@ public final class LocalNetworkGatewayArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The location/region where the local network gateway is
-     * created. Changing this forces a new resource to be created.
+     * The location/region where the local network gateway is created. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return The location/region where the local network gateway is
-     * created. Changing this forces a new resource to be created.
+     * @return The location/region where the local network gateway is created. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> location() {
@@ -100,16 +98,14 @@ public final class LocalNetworkGatewayArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The name of the local network gateway. Changing this
-     * forces a new resource to be created.
+     * The name of the local network gateway. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the local network gateway. Changing this
-     * forces a new resource to be created.
+     * @return The name of the local network gateway. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -117,16 +113,14 @@ public final class LocalNetworkGatewayArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The name of the resource group in which to
-     * create the local network gateway.
+     * The name of the resource group in which to create the local network gateway. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to
-     * create the local network gateway.
+     * @return The name of the resource group in which to create the local network gateway. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -279,8 +273,7 @@ public final class LocalNetworkGatewayArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param location The location/region where the local network gateway is
-         * created. Changing this forces a new resource to be created.
+         * @param location The location/region where the local network gateway is created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -291,8 +284,7 @@ public final class LocalNetworkGatewayArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param location The location/region where the local network gateway is
-         * created. Changing this forces a new resource to be created.
+         * @param location The location/region where the local network gateway is created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -302,8 +294,7 @@ public final class LocalNetworkGatewayArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name of the local network gateway. Changing this
-         * forces a new resource to be created.
+         * @param name The name of the local network gateway. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -314,8 +305,7 @@ public final class LocalNetworkGatewayArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name of the local network gateway. Changing this
-         * forces a new resource to be created.
+         * @param name The name of the local network gateway. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -325,8 +315,7 @@ public final class LocalNetworkGatewayArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to
-         * create the local network gateway.
+         * @param resourceGroupName The name of the resource group in which to create the local network gateway. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -337,8 +326,7 @@ public final class LocalNetworkGatewayArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to
-         * create the local network gateway.
+         * @param resourceGroupName The name of the resource group in which to create the local network gateway. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

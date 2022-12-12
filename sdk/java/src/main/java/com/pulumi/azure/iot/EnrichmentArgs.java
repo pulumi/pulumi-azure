@@ -37,14 +37,14 @@ public final class EnrichmentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The key of the enrichment.
+     * The key of the enrichment. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return The key of the enrichment.
+     * @return The key of the enrichment. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> key() {
@@ -142,7 +142,7 @@ public final class EnrichmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param key The key of the enrichment.
+         * @param key The key of the enrichment. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class EnrichmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param key The key of the enrichment.
+         * @param key The key of the enrichment. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

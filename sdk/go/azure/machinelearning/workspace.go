@@ -435,7 +435,7 @@ type Workspace struct {
 	HighBusinessImpact pulumi.BoolPtrOutput `pulumi:"highBusinessImpact"`
 	// An `identity` block as defined below.
 	Identity WorkspaceIdentityOutput `pulumi:"identity"`
-	// The compute name for image build of the Machine Learning Workspace.
+	// The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
 	ImageBuildComputeName pulumi.StringPtrOutput `pulumi:"imageBuildComputeName"`
 	// The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringOutput `pulumi:"keyVaultId"`
@@ -445,7 +445,7 @@ type Workspace struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The user assigned identity id that represents the workspace identity.
 	PrimaryUserAssignedIdentity pulumi.StringPtrOutput `pulumi:"primaryUserAssignedIdentity"`
-	// Enable public access when this Machine Learning Workspace is behind a VNet.
+	// Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
 	//
 	// Deprecated: `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
 	PublicAccessBehindVirtualNetworkEnabled pulumi.BoolPtrOutput `pulumi:"publicAccessBehindVirtualNetworkEnabled"`
@@ -522,7 +522,7 @@ type workspaceState struct {
 	HighBusinessImpact *bool `pulumi:"highBusinessImpact"`
 	// An `identity` block as defined below.
 	Identity *WorkspaceIdentity `pulumi:"identity"`
-	// The compute name for image build of the Machine Learning Workspace.
+	// The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
 	ImageBuildComputeName *string `pulumi:"imageBuildComputeName"`
 	// The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	KeyVaultId *string `pulumi:"keyVaultId"`
@@ -532,7 +532,7 @@ type workspaceState struct {
 	Name *string `pulumi:"name"`
 	// The user assigned identity id that represents the workspace identity.
 	PrimaryUserAssignedIdentity *string `pulumi:"primaryUserAssignedIdentity"`
-	// Enable public access when this Machine Learning Workspace is behind a VNet.
+	// Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
 	//
 	// Deprecated: `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
 	PublicAccessBehindVirtualNetworkEnabled *bool `pulumi:"publicAccessBehindVirtualNetworkEnabled"`
@@ -566,7 +566,7 @@ type WorkspaceState struct {
 	HighBusinessImpact pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity WorkspaceIdentityPtrInput
-	// The compute name for image build of the Machine Learning Workspace.
+	// The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
 	ImageBuildComputeName pulumi.StringPtrInput
 	// The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringPtrInput
@@ -576,7 +576,7 @@ type WorkspaceState struct {
 	Name pulumi.StringPtrInput
 	// The user assigned identity id that represents the workspace identity.
 	PrimaryUserAssignedIdentity pulumi.StringPtrInput
-	// Enable public access when this Machine Learning Workspace is behind a VNet.
+	// Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
 	//
 	// Deprecated: `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
 	PublicAccessBehindVirtualNetworkEnabled pulumi.BoolPtrInput
@@ -612,7 +612,7 @@ type workspaceArgs struct {
 	HighBusinessImpact *bool `pulumi:"highBusinessImpact"`
 	// An `identity` block as defined below.
 	Identity WorkspaceIdentity `pulumi:"identity"`
-	// The compute name for image build of the Machine Learning Workspace.
+	// The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
 	ImageBuildComputeName *string `pulumi:"imageBuildComputeName"`
 	// The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	KeyVaultId string `pulumi:"keyVaultId"`
@@ -622,7 +622,7 @@ type workspaceArgs struct {
 	Name *string `pulumi:"name"`
 	// The user assigned identity id that represents the workspace identity.
 	PrimaryUserAssignedIdentity *string `pulumi:"primaryUserAssignedIdentity"`
-	// Enable public access when this Machine Learning Workspace is behind a VNet.
+	// Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
 	//
 	// Deprecated: `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
 	PublicAccessBehindVirtualNetworkEnabled *bool `pulumi:"publicAccessBehindVirtualNetworkEnabled"`
@@ -655,7 +655,7 @@ type WorkspaceArgs struct {
 	HighBusinessImpact pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity WorkspaceIdentityInput
-	// The compute name for image build of the Machine Learning Workspace.
+	// The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
 	ImageBuildComputeName pulumi.StringPtrInput
 	// The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringInput
@@ -665,7 +665,7 @@ type WorkspaceArgs struct {
 	Name pulumi.StringPtrInput
 	// The user assigned identity id that represents the workspace identity.
 	PrimaryUserAssignedIdentity pulumi.StringPtrInput
-	// Enable public access when this Machine Learning Workspace is behind a VNet.
+	// Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
 	//
 	// Deprecated: `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
 	PublicAccessBehindVirtualNetworkEnabled pulumi.BoolPtrInput
@@ -809,7 +809,7 @@ func (o WorkspaceOutput) Identity() WorkspaceIdentityOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceIdentityOutput { return v.Identity }).(WorkspaceIdentityOutput)
 }
 
-// The compute name for image build of the Machine Learning Workspace.
+// The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
 func (o WorkspaceOutput) ImageBuildComputeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.ImageBuildComputeName }).(pulumi.StringPtrOutput)
 }
@@ -834,7 +834,7 @@ func (o WorkspaceOutput) PrimaryUserAssignedIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.PrimaryUserAssignedIdentity }).(pulumi.StringPtrOutput)
 }
 
-// Enable public access when this Machine Learning Workspace is behind a VNet.
+// Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
 //
 // Deprecated: `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
 func (o WorkspaceOutput) PublicAccessBehindVirtualNetworkEnabled() pulumi.BoolPtrOutput {

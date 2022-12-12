@@ -66,7 +66,7 @@ type IotHubDps struct {
 
 	// The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
 	AllocationPolicy pulumi.StringPtrOutput `pulumi:"allocationPolicy"`
-	// Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`.
+	// Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
 	DataResidencyEnabled pulumi.BoolPtrOutput `pulumi:"dataResidencyEnabled"`
 	// The device endpoint of the IoT Device Provisioning Service.
 	DeviceProvisioningHostName pulumi.StringOutput `pulumi:"deviceProvisioningHostName"`
@@ -129,7 +129,7 @@ func GetIotHubDps(ctx *pulumi.Context,
 type iotHubDpsState struct {
 	// The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
 	AllocationPolicy *string `pulumi:"allocationPolicy"`
-	// Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`.
+	// Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
 	DataResidencyEnabled *bool `pulumi:"dataResidencyEnabled"`
 	// The device endpoint of the IoT Device Provisioning Service.
 	DeviceProvisioningHostName *string `pulumi:"deviceProvisioningHostName"`
@@ -158,7 +158,7 @@ type iotHubDpsState struct {
 type IotHubDpsState struct {
 	// The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
 	AllocationPolicy pulumi.StringPtrInput
-	// Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`.
+	// Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
 	DataResidencyEnabled pulumi.BoolPtrInput
 	// The device endpoint of the IoT Device Provisioning Service.
 	DeviceProvisioningHostName pulumi.StringPtrInput
@@ -191,7 +191,7 @@ func (IotHubDpsState) ElementType() reflect.Type {
 type iotHubDpsArgs struct {
 	// The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
 	AllocationPolicy *string `pulumi:"allocationPolicy"`
-	// Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`.
+	// Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
 	DataResidencyEnabled *bool `pulumi:"dataResidencyEnabled"`
 	// An `ipFilterRule` block as defined below.
 	IpFilterRules []IotHubDpsIpFilterRule `pulumi:"ipFilterRules"`
@@ -215,7 +215,7 @@ type iotHubDpsArgs struct {
 type IotHubDpsArgs struct {
 	// The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
 	AllocationPolicy pulumi.StringPtrInput
-	// Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`.
+	// Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
 	DataResidencyEnabled pulumi.BoolPtrInput
 	// An `ipFilterRule` block as defined below.
 	IpFilterRules IotHubDpsIpFilterRuleArrayInput
@@ -327,7 +327,7 @@ func (o IotHubDpsOutput) AllocationPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotHubDps) pulumi.StringPtrOutput { return v.AllocationPolicy }).(pulumi.StringPtrOutput)
 }
 
-// Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`.
+// Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
 func (o IotHubDpsOutput) DataResidencyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IotHubDps) pulumi.BoolPtrOutput { return v.DataResidencyEnabled }).(pulumi.BoolPtrOutput)
 }

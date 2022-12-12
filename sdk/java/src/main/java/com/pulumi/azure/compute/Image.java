@@ -182,21 +182,21 @@ public class Image extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dataDisks);
     }
     /**
-     * The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
+     * The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="hyperVGeneration", type=String.class, parameters={})
     private Output</* @Nullable */ String> hyperVGeneration;
 
     /**
-     * @return The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
+     * @return The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> hyperVGeneration() {
         return Codegen.optional(this.hyperVGeneration);
     }
     /**
-     * Specified the supported Azure location where the resource exists.
+     * Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * Changing this forces a new resource to be created.
      * 
      */
@@ -204,7 +204,7 @@ public class Image extends com.pulumi.resources.CustomResource {
     private Output<String> location;
 
     /**
-     * @return Specified the supported Azure location where the resource exists.
+     * @return Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * Changing this forces a new resource to be created.
      * 
      */
@@ -242,7 +242,7 @@ public class Image extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.osDisk);
     }
     /**
-     * The name of the resource group in which to create
+     * The name of the resource group in which to create. Changing this forces a new resource to be created.
      * the image. Changing this forces a new resource to be created.
      * 
      */
@@ -250,7 +250,7 @@ public class Image extends com.pulumi.resources.CustomResource {
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create
+     * @return The name of the resource group in which to create. Changing this forces a new resource to be created.
      * the image. Changing this forces a new resource to be created.
      * 
      */

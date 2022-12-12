@@ -140,7 +140,7 @@ namespace Pulumi.Azure.Storage
         public Output<ImmutableArray<Outputs.ManagementPolicyRule>> Rules { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the id of the storage account to apply the management policy to.
+        /// Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageAccountId")]
         public Output<string> StorageAccountId { get; private set; } = null!;
@@ -204,7 +204,7 @@ namespace Pulumi.Azure.Storage
         }
 
         /// <summary>
-        /// Specifies the id of the storage account to apply the management policy to.
+        /// Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountId", required: true)]
         public Input<string> StorageAccountId { get; set; } = null!;
@@ -230,7 +230,7 @@ namespace Pulumi.Azure.Storage
         }
 
         /// <summary>
-        /// Specifies the id of the storage account to apply the management policy to.
+        /// Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }

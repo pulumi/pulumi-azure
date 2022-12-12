@@ -27,13 +27,13 @@ class TimeSeriesInsightsGen2EnvironmentArgs:
         """
         The set of arguments for constructing a TimeSeriesInsightsGen2Environment resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] id_properties: A list of property ids for the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment.
-        :param pulumi.Input[str] sku_name: Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku_name: Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created.
         :param pulumi.Input['TimeSeriesInsightsGen2EnvironmentStorageArgs'] storage: A `storage` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created. Must be globally unique.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] warm_store_data_retention_time: Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] warm_store_data_retention_time: Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
         """
         pulumi.set(__self__, "id_properties", id_properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -64,7 +64,7 @@ class TimeSeriesInsightsGen2EnvironmentArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment.
+        The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -76,7 +76,7 @@ class TimeSeriesInsightsGen2EnvironmentArgs:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Input[str]:
         """
-        Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified.
+        Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -136,7 +136,7 @@ class TimeSeriesInsightsGen2EnvironmentArgs:
     @pulumi.getter(name="warmStoreDataRetentionTime")
     def warm_store_data_retention_time(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
+        Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
         """
         return pulumi.get(self, "warm_store_data_retention_time")
 
@@ -163,11 +163,11 @@ class _TimeSeriesInsightsGen2EnvironmentState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] id_properties: A list of property ids for the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created. Must be globally unique.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment.
-        :param pulumi.Input[str] sku_name: Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku_name: Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created.
         :param pulumi.Input['TimeSeriesInsightsGen2EnvironmentStorageArgs'] storage: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] warm_store_data_retention_time: Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] warm_store_data_retention_time: Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
         """
         if data_access_fqdn is not None:
             pulumi.set(__self__, "data_access_fqdn", data_access_fqdn)
@@ -240,7 +240,7 @@ class _TimeSeriesInsightsGen2EnvironmentState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment.
+        The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -252,7 +252,7 @@ class _TimeSeriesInsightsGen2EnvironmentState:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified.
+        Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -288,7 +288,7 @@ class _TimeSeriesInsightsGen2EnvironmentState:
     @pulumi.getter(name="warmStoreDataRetentionTime")
     def warm_store_data_retention_time(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
+        Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
         """
         return pulumi.get(self, "warm_store_data_retention_time")
 
@@ -351,11 +351,11 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] id_properties: A list of property ids for the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created. Must be globally unique.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment.
-        :param pulumi.Input[str] sku_name: Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku_name: Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['TimeSeriesInsightsGen2EnvironmentStorageArgs']] storage: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] warm_store_data_retention_time: Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] warm_store_data_retention_time: Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
         """
         ...
     @overload
@@ -477,11 +477,11 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] id_properties: A list of property ids for the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created. Must be globally unique.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment.
-        :param pulumi.Input[str] sku_name: Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku_name: Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['TimeSeriesInsightsGen2EnvironmentStorageArgs']] storage: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] warm_store_data_retention_time: Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] warm_store_data_retention_time: Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -534,7 +534,7 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment.
+        The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -542,7 +542,7 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Output[str]:
         """
-        Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified.
+        Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -566,7 +566,7 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
     @pulumi.getter(name="warmStoreDataRetentionTime")
     def warm_store_data_retention_time(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
+        Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
         """
         return pulumi.get(self, "warm_store_data_retention_time")
 

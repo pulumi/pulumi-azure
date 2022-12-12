@@ -301,7 +301,7 @@ export class AutoscaleSetting extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Specifies the resource ID of the resource that the autoscale setting should be added to.
+     * Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.
      */
     public readonly targetResourceId!: pulumi.Output<string>;
 
@@ -384,7 +384,7 @@ export interface AutoscaleSettingState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Specifies the resource ID of the resource that the autoscale setting should be added to.
+     * Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.
      */
     targetResourceId?: pulumi.Input<string>;
 }
@@ -422,7 +422,7 @@ export interface AutoscaleSettingArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Specifies the resource ID of the resource that the autoscale setting should be added to.
+     * Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.
      */
     targetResourceId: pulumi.Input<string>;
 }

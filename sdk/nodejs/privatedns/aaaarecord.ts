@@ -67,7 +67,7 @@ export class AAAARecord extends pulumi.CustomResource {
      */
     public /*out*/ readonly fqdn!: pulumi.Output<string>;
     /**
-     * The name of the DNS A Record.
+     * The name of the DNS A Record. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -144,7 +144,7 @@ export interface AAAARecordState {
      */
     fqdn?: pulumi.Input<string>;
     /**
-     * The name of the DNS A Record.
+     * The name of the DNS A Record. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -171,7 +171,7 @@ export interface AAAARecordState {
  */
 export interface AAAARecordArgs {
     /**
-     * The name of the DNS A Record.
+     * The name of the DNS A Record. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

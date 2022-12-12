@@ -75,7 +75,7 @@ type ExpressRouteCircuit struct {
 	BandwidthInGbps pulumi.Float64PtrOutput `pulumi:"bandwidthInGbps"`
 	// The bandwidth in Mbps of the circuit being created on the Service Provider.
 	BandwidthInMbps pulumi.IntPtrOutput `pulumi:"bandwidthInMbps"`
-	// The ID of the Express Route Port this Express Route Circuit is based on.
+	// The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
 	ExpressRoutePortId pulumi.StringPtrOutput `pulumi:"expressRoutePortId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -138,7 +138,7 @@ type expressRouteCircuitState struct {
 	BandwidthInGbps *float64 `pulumi:"bandwidthInGbps"`
 	// The bandwidth in Mbps of the circuit being created on the Service Provider.
 	BandwidthInMbps *int `pulumi:"bandwidthInMbps"`
-	// The ID of the Express Route Port this Express Route Circuit is based on.
+	// The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
 	ExpressRoutePortId *string `pulumi:"expressRoutePortId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -167,7 +167,7 @@ type ExpressRouteCircuitState struct {
 	BandwidthInGbps pulumi.Float64PtrInput
 	// The bandwidth in Mbps of the circuit being created on the Service Provider.
 	BandwidthInMbps pulumi.IntPtrInput
-	// The ID of the Express Route Port this Express Route Circuit is based on.
+	// The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
 	ExpressRoutePortId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -200,7 +200,7 @@ type expressRouteCircuitArgs struct {
 	BandwidthInGbps *float64 `pulumi:"bandwidthInGbps"`
 	// The bandwidth in Mbps of the circuit being created on the Service Provider.
 	BandwidthInMbps *int `pulumi:"bandwidthInMbps"`
-	// The ID of the Express Route Port this Express Route Circuit is based on.
+	// The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
 	ExpressRoutePortId *string `pulumi:"expressRoutePortId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -226,7 +226,7 @@ type ExpressRouteCircuitArgs struct {
 	BandwidthInGbps pulumi.Float64PtrInput
 	// The bandwidth in Mbps of the circuit being created on the Service Provider.
 	BandwidthInMbps pulumi.IntPtrInput
-	// The ID of the Express Route Port this Express Route Circuit is based on.
+	// The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
 	ExpressRoutePortId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -346,7 +346,7 @@ func (o ExpressRouteCircuitOutput) BandwidthInMbps() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.IntPtrOutput { return v.BandwidthInMbps }).(pulumi.IntPtrOutput)
 }
 
-// The ID of the Express Route Port this Express Route Circuit is based on.
+// The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
 func (o ExpressRouteCircuitOutput) ExpressRoutePortId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.StringPtrOutput { return v.ExpressRoutePortId }).(pulumi.StringPtrOutput)
 }

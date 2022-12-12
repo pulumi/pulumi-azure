@@ -83,13 +83,13 @@ import (
 type ProtectionContainer struct {
 	pulumi.CustomResourceState
 
-	// The name of the protection container.
+	// The name of the protection container. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Name of fabric that should contain this protection container.
+	// Name of fabric that should contain this protection container. Changing this forces a new resource to be created.
 	RecoveryFabricName pulumi.StringOutput `pulumi:"recoveryFabricName"`
-	// The name of the vault that should be updated.
+	// The name of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringOutput `pulumi:"recoveryVaultName"`
-	// Name of the resource group where the vault that should be updated is located.
+	// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
@@ -131,24 +131,24 @@ func GetProtectionContainer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProtectionContainer resources.
 type protectionContainerState struct {
-	// The name of the protection container.
+	// The name of the protection container. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Name of fabric that should contain this protection container.
+	// Name of fabric that should contain this protection container. Changing this forces a new resource to be created.
 	RecoveryFabricName *string `pulumi:"recoveryFabricName"`
-	// The name of the vault that should be updated.
+	// The name of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultName *string `pulumi:"recoveryVaultName"`
-	// Name of the resource group where the vault that should be updated is located.
+	// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
 type ProtectionContainerState struct {
-	// The name of the protection container.
+	// The name of the protection container. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Name of fabric that should contain this protection container.
+	// Name of fabric that should contain this protection container. Changing this forces a new resource to be created.
 	RecoveryFabricName pulumi.StringPtrInput
-	// The name of the vault that should be updated.
+	// The name of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringPtrInput
-	// Name of the resource group where the vault that should be updated is located.
+	// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 }
 
@@ -157,25 +157,25 @@ func (ProtectionContainerState) ElementType() reflect.Type {
 }
 
 type protectionContainerArgs struct {
-	// The name of the protection container.
+	// The name of the protection container. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Name of fabric that should contain this protection container.
+	// Name of fabric that should contain this protection container. Changing this forces a new resource to be created.
 	RecoveryFabricName string `pulumi:"recoveryFabricName"`
-	// The name of the vault that should be updated.
+	// The name of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultName string `pulumi:"recoveryVaultName"`
-	// Name of the resource group where the vault that should be updated is located.
+	// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a ProtectionContainer resource.
 type ProtectionContainerArgs struct {
-	// The name of the protection container.
+	// The name of the protection container. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Name of fabric that should contain this protection container.
+	// Name of fabric that should contain this protection container. Changing this forces a new resource to be created.
 	RecoveryFabricName pulumi.StringInput
-	// The name of the vault that should be updated.
+	// The name of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringInput
-	// Name of the resource group where the vault that should be updated is located.
+	// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -266,22 +266,22 @@ func (o ProtectionContainerOutput) ToProtectionContainerOutputWithContext(ctx co
 	return o
 }
 
-// The name of the protection container.
+// The name of the protection container. Changing this forces a new resource to be created.
 func (o ProtectionContainerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProtectionContainer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Name of fabric that should contain this protection container.
+// Name of fabric that should contain this protection container. Changing this forces a new resource to be created.
 func (o ProtectionContainerOutput) RecoveryFabricName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProtectionContainer) pulumi.StringOutput { return v.RecoveryFabricName }).(pulumi.StringOutput)
 }
 
-// The name of the vault that should be updated.
+// The name of the vault that should be updated. Changing this forces a new resource to be created.
 func (o ProtectionContainerOutput) RecoveryVaultName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProtectionContainer) pulumi.StringOutput { return v.RecoveryVaultName }).(pulumi.StringOutput)
 }
 
-// Name of the resource group where the vault that should be updated is located.
+// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 func (o ProtectionContainerOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProtectionContainer) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

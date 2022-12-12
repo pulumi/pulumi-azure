@@ -27,9 +27,9 @@ class GroupArgs:
         :param pulumi.Input[str] display_name: The display name of this API Management Group.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Group should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of this API Management Group.
-        :param pulumi.Input[str] external_id: The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant>.onmicrosoft.com/groups/<group object id>`.
+        :param pulumi.Input[str] external_id: The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant>.onmicrosoft.com/groups/<group object id>`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the API Management Group. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] type: The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`.
+        :param pulumi.Input[str] type: The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "api_management_name", api_management_name)
         pulumi.set(__self__, "display_name", display_name)
@@ -95,7 +95,7 @@ class GroupArgs:
     @pulumi.getter(name="externalId")
     def external_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant>.onmicrosoft.com/groups/<group object id>`.
+        The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant>.onmicrosoft.com/groups/<group object id>`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "external_id")
 
@@ -119,7 +119,7 @@ class GroupArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`.
+        The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
@@ -143,10 +143,10 @@ class _GroupState:
         :param pulumi.Input[str] api_management_name: The name of the API Management Service in which the API Management Group should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of this API Management Group.
         :param pulumi.Input[str] display_name: The display name of this API Management Group.
-        :param pulumi.Input[str] external_id: The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant>.onmicrosoft.com/groups/<group object id>`.
+        :param pulumi.Input[str] external_id: The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant>.onmicrosoft.com/groups/<group object id>`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the API Management Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Group should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] type: The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`.
+        :param pulumi.Input[str] type: The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`. Changing this forces a new resource to be created.
         """
         if api_management_name is not None:
             pulumi.set(__self__, "api_management_name", api_management_name)
@@ -203,7 +203,7 @@ class _GroupState:
     @pulumi.getter(name="externalId")
     def external_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant>.onmicrosoft.com/groups/<group object id>`.
+        The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant>.onmicrosoft.com/groups/<group object id>`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "external_id")
 
@@ -239,7 +239,7 @@ class _GroupState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`.
+        The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
@@ -297,10 +297,10 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] api_management_name: The name of the API Management Service in which the API Management Group should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of this API Management Group.
         :param pulumi.Input[str] display_name: The display name of this API Management Group.
-        :param pulumi.Input[str] external_id: The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant>.onmicrosoft.com/groups/<group object id>`.
+        :param pulumi.Input[str] external_id: The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant>.onmicrosoft.com/groups/<group object id>`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the API Management Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Group should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] type: The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`.
+        :param pulumi.Input[str] type: The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -410,10 +410,10 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] api_management_name: The name of the API Management Service in which the API Management Group should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of this API Management Group.
         :param pulumi.Input[str] display_name: The display name of this API Management Group.
-        :param pulumi.Input[str] external_id: The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant>.onmicrosoft.com/groups/<group object id>`.
+        :param pulumi.Input[str] external_id: The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant>.onmicrosoft.com/groups/<group object id>`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the API Management Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Group should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] type: The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`.
+        :param pulumi.Input[str] type: The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -456,7 +456,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter(name="externalId")
     def external_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant>.onmicrosoft.com/groups/<group object id>`.
+        The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant>.onmicrosoft.com/groups/<group object id>`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "external_id")
 
@@ -480,7 +480,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[str]]:
         """
-        The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`.
+        The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 

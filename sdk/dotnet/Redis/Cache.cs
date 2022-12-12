@@ -114,7 +114,7 @@ namespace Pulumi.Azure.Redis
         public Output<Outputs.CacheIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// The location of the resource group.
+        /// The location of the resource group. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -193,8 +193,7 @@ namespace Pulumi.Azure.Redis
         public Output<int> ReplicasPerPrimary { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the Redis instance.
+        /// The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -324,7 +323,7 @@ namespace Pulumi.Azure.Redis
         public Input<Inputs.CacheIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The location of the resource group.
+        /// The location of the resource group. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -391,8 +390,7 @@ namespace Pulumi.Azure.Redis
         public Input<int>? ReplicasPerPrimary { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the Redis instance.
+        /// The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -490,7 +488,7 @@ namespace Pulumi.Azure.Redis
         public Input<Inputs.CacheIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The location of the resource group.
+        /// The location of the resource group. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -575,8 +573,7 @@ namespace Pulumi.Azure.Redis
         public Input<int>? ReplicasPerPrimary { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the Redis instance.
+        /// The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

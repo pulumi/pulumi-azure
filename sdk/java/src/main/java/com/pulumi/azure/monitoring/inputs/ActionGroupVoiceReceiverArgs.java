@@ -29,14 +29,14 @@ public final class ActionGroupVoiceReceiverArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The name of the voice receiver.
+     * The name of the voice receiver. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the voice receiver.
+     * @return The name of the voice receiver. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -106,7 +106,7 @@ public final class ActionGroupVoiceReceiverArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name The name of the voice receiver.
+         * @param name The name of the voice receiver. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class ActionGroupVoiceReceiverArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name The name of the voice receiver.
+         * @param name The name of the voice receiver. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

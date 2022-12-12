@@ -85,8 +85,7 @@ export class Application extends pulumi.CustomResource {
     }
 
     /**
-     * Resource ID for a Virtual Desktop Application Group to associate with the
-     * Virtual Desktop Application. Changing the ID forces a new resource to be created.
+     * Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
      */
     public readonly applicationGroupId!: pulumi.Output<string>;
     /**
@@ -181,8 +180,7 @@ export class Application extends pulumi.CustomResource {
  */
 export interface ApplicationState {
     /**
-     * Resource ID for a Virtual Desktop Application Group to associate with the
-     * Virtual Desktop Application. Changing the ID forces a new resource to be created.
+     * Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
      */
     applicationGroupId?: pulumi.Input<string>;
     /**
@@ -228,8 +226,7 @@ export interface ApplicationState {
  */
 export interface ApplicationArgs {
     /**
-     * Resource ID for a Virtual Desktop Application Group to associate with the
-     * Virtual Desktop Application. Changing the ID forces a new resource to be created.
+     * Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
      */
     applicationGroupId: pulumi.Input<string>;
     /**

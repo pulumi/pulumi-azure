@@ -97,28 +97,28 @@ public class Spacecraft extends com.pulumi.resources.CustomResource {
         return this.links;
     }
     /**
-     * The location where the Spacecraft exists.
+     * The location where the Spacecraft exists. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
-     * @return The location where the Spacecraft exists.
+     * @return The location where the Spacecraft exists. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> location() {
         return this.location;
     }
     /**
-     * Name of the link.
+     * Name of the link. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Name of the link.
+     * @return Name of the link. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -139,14 +139,14 @@ public class Spacecraft extends com.pulumi.resources.CustomResource {
         return this.noradId;
     }
     /**
-     * The name of the Resource Group where the Spacecraft exists.
+     * The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the Spacecraft exists.
+     * @return The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {

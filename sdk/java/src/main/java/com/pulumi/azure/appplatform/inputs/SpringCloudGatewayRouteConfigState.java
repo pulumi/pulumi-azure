@@ -7,6 +7,7 @@ import com.pulumi.azure.appplatform.inputs.SpringCloudGatewayRouteConfigOpenApiA
 import com.pulumi.azure.appplatform.inputs.SpringCloudGatewayRouteConfigRouteArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -17,6 +18,21 @@ import javax.annotation.Nullable;
 public final class SpringCloudGatewayRouteConfigState extends com.pulumi.resources.ResourceArgs {
 
     public static final SpringCloudGatewayRouteConfigState Empty = new SpringCloudGatewayRouteConfigState();
+
+    /**
+     * Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response in app level.
+     * 
+     */
+    @Import(name="filters")
+    private @Nullable Output<List<String>> filters;
+
+    /**
+     * @return Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response in app level.
+     * 
+     */
+    public Optional<Output<List<String>>> filters() {
+        return Optional.ofNullable(this.filters);
+    }
 
     /**
      * The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
@@ -46,6 +62,21 @@ public final class SpringCloudGatewayRouteConfigState extends com.pulumi.resourc
      */
     public Optional<Output<SpringCloudGatewayRouteConfigOpenApiArgs>> openApi() {
         return Optional.ofNullable(this.openApi);
+    }
+
+    /**
+     * Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
+     * 
+     */
+    @Import(name="predicates")
+    private @Nullable Output<List<String>> predicates;
+
+    /**
+     * @return Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
+     * 
+     */
+    public Optional<Output<List<String>>> predicates() {
+        return Optional.ofNullable(this.predicates);
     }
 
     /**
@@ -108,15 +139,33 @@ public final class SpringCloudGatewayRouteConfigState extends com.pulumi.resourc
         return Optional.ofNullable(this.springCloudGatewayId);
     }
 
+    /**
+     * Should the sso validation be enabled in app level?
+     * 
+     */
+    @Import(name="ssoValidationEnabled")
+    private @Nullable Output<Boolean> ssoValidationEnabled;
+
+    /**
+     * @return Should the sso validation be enabled in app level?
+     * 
+     */
+    public Optional<Output<Boolean>> ssoValidationEnabled() {
+        return Optional.ofNullable(this.ssoValidationEnabled);
+    }
+
     private SpringCloudGatewayRouteConfigState() {}
 
     private SpringCloudGatewayRouteConfigState(SpringCloudGatewayRouteConfigState $) {
+        this.filters = $.filters;
         this.name = $.name;
         this.openApi = $.openApi;
+        this.predicates = $.predicates;
         this.protocol = $.protocol;
         this.routes = $.routes;
         this.springCloudAppId = $.springCloudAppId;
         this.springCloudGatewayId = $.springCloudGatewayId;
+        this.ssoValidationEnabled = $.ssoValidationEnabled;
     }
 
     public static Builder builder() {
@@ -135,6 +184,37 @@ public final class SpringCloudGatewayRouteConfigState extends com.pulumi.resourc
 
         public Builder(SpringCloudGatewayRouteConfigState defaults) {
             $ = new SpringCloudGatewayRouteConfigState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param filters Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response in app level.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filters(@Nullable Output<List<String>> filters) {
+            $.filters = filters;
+            return this;
+        }
+
+        /**
+         * @param filters Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response in app level.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filters(List<String> filters) {
+            return filters(Output.of(filters));
+        }
+
+        /**
+         * @param filters Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response in app level.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filters(String... filters) {
+            return filters(List.of(filters));
         }
 
         /**
@@ -177,6 +257,37 @@ public final class SpringCloudGatewayRouteConfigState extends com.pulumi.resourc
          */
         public Builder openApi(SpringCloudGatewayRouteConfigOpenApiArgs openApi) {
             return openApi(Output.of(openApi));
+        }
+
+        /**
+         * @param predicates Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder predicates(@Nullable Output<List<String>> predicates) {
+            $.predicates = predicates;
+            return this;
+        }
+
+        /**
+         * @param predicates Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder predicates(List<String> predicates) {
+            return predicates(Output.of(predicates));
+        }
+
+        /**
+         * @param predicates Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder predicates(String... predicates) {
+            return predicates(List.of(predicates));
         }
 
         /**
@@ -271,6 +382,27 @@ public final class SpringCloudGatewayRouteConfigState extends com.pulumi.resourc
          */
         public Builder springCloudGatewayId(String springCloudGatewayId) {
             return springCloudGatewayId(Output.of(springCloudGatewayId));
+        }
+
+        /**
+         * @param ssoValidationEnabled Should the sso validation be enabled in app level?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ssoValidationEnabled(@Nullable Output<Boolean> ssoValidationEnabled) {
+            $.ssoValidationEnabled = ssoValidationEnabled;
+            return this;
+        }
+
+        /**
+         * @param ssoValidationEnabled Should the sso validation be enabled in app level?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ssoValidationEnabled(Boolean ssoValidationEnabled) {
+            return ssoValidationEnabled(Output.of(ssoValidationEnabled));
         }
 
         public SpringCloudGatewayRouteConfigState build() {

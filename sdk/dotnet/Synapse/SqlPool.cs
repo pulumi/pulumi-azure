@@ -81,7 +81,7 @@ namespace Pulumi.Azure.Synapse
         public Output<string> Collation { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`.
+        /// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("createMode")]
         public Output<string?> CreateMode { get; private set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? Collation { get; set; }
 
         /// <summary>
-        /// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`.
+        /// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("createMode")]
         public Input<string>? CreateMode { get; set; }
@@ -249,7 +249,7 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? Collation { get; set; }
 
         /// <summary>
-        /// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`.
+        /// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("createMode")]
         public Input<string>? CreateMode { get; set; }

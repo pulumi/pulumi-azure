@@ -10,26 +10,26 @@ import java.util.Objects;
 @CustomType
 public final class ResourceGroupCostManagementExportExportDataStorageLocation {
     /**
-     * @return The Resource Manager ID of the container where exports will be uploaded.
+     * @return The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
      * 
      */
     private String containerId;
     /**
-     * @return The path of the directory where exports will be uploaded.
+     * @return The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
      * 
      */
     private String rootFolderPath;
 
     private ResourceGroupCostManagementExportExportDataStorageLocation() {}
     /**
-     * @return The Resource Manager ID of the container where exports will be uploaded.
+     * @return The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
      * 
      */
     public String containerId() {
         return this.containerId;
     }
     /**
-     * @return The path of the directory where exports will be uploaded.
+     * @return The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
      * 
      */
     public String rootFolderPath() {

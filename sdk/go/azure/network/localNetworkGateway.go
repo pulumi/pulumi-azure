@@ -73,14 +73,11 @@ type LocalNetworkGateway struct {
 	GatewayAddress pulumi.StringPtrOutput `pulumi:"gatewayAddress"`
 	// The gateway FQDN to connect with.
 	GatewayFqdn pulumi.StringPtrOutput `pulumi:"gatewayFqdn"`
-	// The location/region where the local network gateway is
-	// created. Changing this forces a new resource to be created.
+	// The location/region where the local network gateway is created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the local network gateway. Changing this
-	// forces a new resource to be created.
+	// The name of the local network gateway. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the resource group in which to
-	// create the local network gateway.
+	// The name of the resource group in which to create the local network gateway. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -128,14 +125,11 @@ type localNetworkGatewayState struct {
 	GatewayAddress *string `pulumi:"gatewayAddress"`
 	// The gateway FQDN to connect with.
 	GatewayFqdn *string `pulumi:"gatewayFqdn"`
-	// The location/region where the local network gateway is
-	// created. Changing this forces a new resource to be created.
+	// The location/region where the local network gateway is created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the local network gateway. Changing this
-	// forces a new resource to be created.
+	// The name of the local network gateway. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to
-	// create the local network gateway.
+	// The name of the resource group in which to create the local network gateway. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -152,14 +146,11 @@ type LocalNetworkGatewayState struct {
 	GatewayAddress pulumi.StringPtrInput
 	// The gateway FQDN to connect with.
 	GatewayFqdn pulumi.StringPtrInput
-	// The location/region where the local network gateway is
-	// created. Changing this forces a new resource to be created.
+	// The location/region where the local network gateway is created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the local network gateway. Changing this
-	// forces a new resource to be created.
+	// The name of the local network gateway. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to
-	// create the local network gateway.
+	// The name of the resource group in which to create the local network gateway. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -180,14 +171,11 @@ type localNetworkGatewayArgs struct {
 	GatewayAddress *string `pulumi:"gatewayAddress"`
 	// The gateway FQDN to connect with.
 	GatewayFqdn *string `pulumi:"gatewayFqdn"`
-	// The location/region where the local network gateway is
-	// created. Changing this forces a new resource to be created.
+	// The location/region where the local network gateway is created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the local network gateway. Changing this
-	// forces a new resource to be created.
+	// The name of the local network gateway. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to
-	// create the local network gateway.
+	// The name of the resource group in which to create the local network gateway. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -205,14 +193,11 @@ type LocalNetworkGatewayArgs struct {
 	GatewayAddress pulumi.StringPtrInput
 	// The gateway FQDN to connect with.
 	GatewayFqdn pulumi.StringPtrInput
-	// The location/region where the local network gateway is
-	// created. Changing this forces a new resource to be created.
+	// The location/region where the local network gateway is created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the local network gateway. Changing this
-	// forces a new resource to be created.
+	// The name of the local network gateway. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to
-	// create the local network gateway.
+	// The name of the resource group in which to create the local network gateway. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -327,20 +312,17 @@ func (o LocalNetworkGatewayOutput) GatewayFqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocalNetworkGateway) pulumi.StringPtrOutput { return v.GatewayFqdn }).(pulumi.StringPtrOutput)
 }
 
-// The location/region where the local network gateway is
-// created. Changing this forces a new resource to be created.
+// The location/region where the local network gateway is created. Changing this forces a new resource to be created.
 func (o LocalNetworkGatewayOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalNetworkGateway) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The name of the local network gateway. Changing this
-// forces a new resource to be created.
+// The name of the local network gateway. Changing this forces a new resource to be created.
 func (o LocalNetworkGatewayOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalNetworkGateway) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the resource group in which to
-// create the local network gateway.
+// The name of the resource group in which to create the local network gateway. Changing this forces a new resource to be created.
 func (o LocalNetworkGatewayOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalNetworkGateway) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

@@ -60,7 +60,7 @@ type Zone struct {
 
 	// (Optional) Maximum number of Records in the zone. Defaults to `1000`.
 	MaxNumberOfRecordSets pulumi.IntOutput `pulumi:"maxNumberOfRecordSets"`
-	// The name of the DNS Zone. Must be a valid domain name.
+	// The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// (Optional) A list of values that make up the NS record for the zone.
 	NameServers pulumi.StringArrayOutput `pulumi:"nameServers"`
@@ -108,7 +108,7 @@ func GetZone(ctx *pulumi.Context,
 type zoneState struct {
 	// (Optional) Maximum number of Records in the zone. Defaults to `1000`.
 	MaxNumberOfRecordSets *int `pulumi:"maxNumberOfRecordSets"`
-	// The name of the DNS Zone. Must be a valid domain name.
+	// The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// (Optional) A list of values that make up the NS record for the zone.
 	NameServers []string `pulumi:"nameServers"`
@@ -125,7 +125,7 @@ type zoneState struct {
 type ZoneState struct {
 	// (Optional) Maximum number of Records in the zone. Defaults to `1000`.
 	MaxNumberOfRecordSets pulumi.IntPtrInput
-	// The name of the DNS Zone. Must be a valid domain name.
+	// The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// (Optional) A list of values that make up the NS record for the zone.
 	NameServers pulumi.StringArrayInput
@@ -144,7 +144,7 @@ func (ZoneState) ElementType() reflect.Type {
 }
 
 type zoneArgs struct {
-	// The name of the DNS Zone. Must be a valid domain name.
+	// The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -156,7 +156,7 @@ type zoneArgs struct {
 
 // The set of arguments for constructing a Zone resource.
 type ZoneArgs struct {
-	// The name of the DNS Zone. Must be a valid domain name.
+	// The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -258,7 +258,7 @@ func (o ZoneOutput) MaxNumberOfRecordSets() pulumi.IntOutput {
 	return o.ApplyT(func(v *Zone) pulumi.IntOutput { return v.MaxNumberOfRecordSets }).(pulumi.IntOutput)
 }
 
-// The name of the DNS Zone. Must be a valid domain name.
+// The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
 func (o ZoneOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Zone) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

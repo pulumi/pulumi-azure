@@ -120,14 +120,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return this.displayName;
     }
     /**
-     * The identifier of the external Group. For example, an Azure Active Directory group `aad://&lt;tenant&gt;.onmicrosoft.com/groups/&lt;group object id&gt;`.
+     * The identifier of the external Group. For example, an Azure Active Directory group `aad://&lt;tenant&gt;.onmicrosoft.com/groups/&lt;group object id&gt;`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="externalId", type=String.class, parameters={})
     private Output</* @Nullable */ String> externalId;
 
     /**
-     * @return The identifier of the external Group. For example, an Azure Active Directory group `aad://&lt;tenant&gt;.onmicrosoft.com/groups/&lt;group object id&gt;`.
+     * @return The identifier of the external Group. For example, an Azure Active Directory group `aad://&lt;tenant&gt;.onmicrosoft.com/groups/&lt;group object id&gt;`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> externalId() {
@@ -162,14 +162,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`.
+     * The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="type", type=String.class, parameters={})
     private Output</* @Nullable */ String> type;
 
     /**
-     * @return The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`.
+     * @return The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> type() {

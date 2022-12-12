@@ -37,14 +37,14 @@ public final class IotHubDpsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`.
+     * Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="dataResidencyEnabled")
     private @Nullable Output<Boolean> dataResidencyEnabled;
 
     /**
-     * @return Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`.
+     * @return Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> dataResidencyEnabled() {
@@ -226,7 +226,7 @@ public final class IotHubDpsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataResidencyEnabled Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`.
+         * @param dataResidencyEnabled Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class IotHubDpsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataResidencyEnabled Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`.
+         * @param dataResidencyEnabled Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

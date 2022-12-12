@@ -27,7 +27,7 @@ class RouteTableArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] disable_bgp_route_propagation: Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the route.
+        :param pulumi.Input[str] name: The name of the route. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]] routes: A list of objects representing routes. Each object accepts the arguments documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -83,7 +83,7 @@ class RouteTableArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the route.
+        The name of the route. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -130,7 +130,7 @@ class _RouteTableState:
         Input properties used for looking up and filtering RouteTable resources.
         :param pulumi.Input[bool] disable_bgp_route_propagation: Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the route.
+        :param pulumi.Input[str] name: The name of the route. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]] routes: A list of objects representing routes. Each object accepts the arguments documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: The collection of Subnets associated with this route table.
@@ -179,7 +179,7 @@ class _RouteTableState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the route.
+        The name of the route. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -287,7 +287,7 @@ class RouteTable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] disable_bgp_route_propagation: Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the route.
+        :param pulumi.Input[str] name: The name of the route. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteTableRouteArgs']]]] routes: A list of objects representing routes. Each object accepts the arguments documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -398,7 +398,7 @@ class RouteTable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] disable_bgp_route_propagation: Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the route.
+        :param pulumi.Input[str] name: The name of the route. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteTableRouteArgs']]]] routes: A list of objects representing routes. Each object accepts the arguments documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: The collection of Subnets associated with this route table.
@@ -437,7 +437,7 @@ class RouteTable(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the route.
+        The name of the route. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

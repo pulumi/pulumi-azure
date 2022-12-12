@@ -180,7 +180,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly azureDevopsRepo!: pulumi.Output<outputs.synapse.WorkspaceAzureDevopsRepo | undefined>;
     /**
-     * Subnet ID used for computes in workspace
+     * Subnet ID used for computes in workspace Changing this forces a new resource to be created.
      */
     public readonly computeSubnetId!: pulumi.Output<string | undefined>;
     /**
@@ -212,7 +212,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Workspace managed resource group.
+     * Workspace managed resource group. Changing this forces a new resource to be created.
      */
     public readonly managedResourceGroupName!: pulumi.Output<string>;
     /**
@@ -344,7 +344,7 @@ export interface WorkspaceState {
      */
     azureDevopsRepo?: pulumi.Input<inputs.synapse.WorkspaceAzureDevopsRepo>;
     /**
-     * Subnet ID used for computes in workspace
+     * Subnet ID used for computes in workspace Changing this forces a new resource to be created.
      */
     computeSubnetId?: pulumi.Input<string>;
     /**
@@ -376,7 +376,7 @@ export interface WorkspaceState {
      */
     location?: pulumi.Input<string>;
     /**
-     * Workspace managed resource group.
+     * Workspace managed resource group. Changing this forces a new resource to be created.
      */
     managedResourceGroupName?: pulumi.Input<string>;
     /**
@@ -438,7 +438,7 @@ export interface WorkspaceArgs {
      */
     azureDevopsRepo?: pulumi.Input<inputs.synapse.WorkspaceAzureDevopsRepo>;
     /**
-     * Subnet ID used for computes in workspace
+     * Subnet ID used for computes in workspace Changing this forces a new resource to be created.
      */
     computeSubnetId?: pulumi.Input<string>;
     /**
@@ -466,7 +466,7 @@ export interface WorkspaceArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Workspace managed resource group.
+     * Workspace managed resource group. Changing this forces a new resource to be created.
      */
     managedResourceGroupName?: pulumi.Input<string>;
     /**

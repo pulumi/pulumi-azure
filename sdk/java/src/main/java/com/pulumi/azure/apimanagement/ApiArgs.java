@@ -219,14 +219,14 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Revision which used for this API.
+     * The Revision which used for this API. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="revision", required=true)
     private Output<String> revision;
 
     /**
-     * @return The Revision which used for this API.
+     * @return The Revision which used for this API. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> revision() {
@@ -722,7 +722,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param revision The Revision which used for this API.
+         * @param revision The Revision which used for this API. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -733,7 +733,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param revision The Revision which used for this API.
+         * @param revision The Revision which used for this API. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

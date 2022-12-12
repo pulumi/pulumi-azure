@@ -73,11 +73,11 @@ export class WorkspaceApplicationGroupAssociation extends pulumi.CustomResource 
     }
 
     /**
-     * The resource ID for the Virtual Desktop Application Group.
+     * The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
      */
     public readonly applicationGroupId!: pulumi.Output<string>;
     /**
-     * The resource ID for the Virtual Desktop Workspace.
+     * The resource ID for the Virtual Desktop Workspace. Changing this forces a new resource to be created.
      */
     public readonly workspaceId!: pulumi.Output<string>;
 
@@ -117,11 +117,11 @@ export class WorkspaceApplicationGroupAssociation extends pulumi.CustomResource 
  */
 export interface WorkspaceApplicationGroupAssociationState {
     /**
-     * The resource ID for the Virtual Desktop Application Group.
+     * The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
      */
     applicationGroupId?: pulumi.Input<string>;
     /**
-     * The resource ID for the Virtual Desktop Workspace.
+     * The resource ID for the Virtual Desktop Workspace. Changing this forces a new resource to be created.
      */
     workspaceId?: pulumi.Input<string>;
 }
@@ -131,11 +131,11 @@ export interface WorkspaceApplicationGroupAssociationState {
  */
 export interface WorkspaceApplicationGroupAssociationArgs {
     /**
-     * The resource ID for the Virtual Desktop Application Group.
+     * The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
      */
     applicationGroupId: pulumi.Input<string>;
     /**
-     * The resource ID for the Virtual Desktop Workspace.
+     * The resource ID for the Virtual Desktop Workspace. Changing this forces a new resource to be created.
      */
     workspaceId: pulumi.Input<string>;
 }

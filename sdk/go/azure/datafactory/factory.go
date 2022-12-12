@@ -78,7 +78,7 @@ type Factory struct {
 	// Is the Data Factory visible to the public network? Defaults to `true`.
 	PublicNetworkEnabled pulumi.BoolPtrOutput   `pulumi:"publicNetworkEnabled"`
 	PurviewId            pulumi.StringPtrOutput `pulumi:"purviewId"`
-	// The name of the resource group in which to create the Data Factory.
+	// The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -137,7 +137,7 @@ type factoryState struct {
 	// Is the Data Factory visible to the public network? Defaults to `true`.
 	PublicNetworkEnabled *bool   `pulumi:"publicNetworkEnabled"`
 	PurviewId            *string `pulumi:"purviewId"`
-	// The name of the resource group in which to create the Data Factory.
+	// The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -165,7 +165,7 @@ type FactoryState struct {
 	// Is the Data Factory visible to the public network? Defaults to `true`.
 	PublicNetworkEnabled pulumi.BoolPtrInput
 	PurviewId            pulumi.StringPtrInput
-	// The name of the resource group in which to create the Data Factory.
+	// The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -197,7 +197,7 @@ type factoryArgs struct {
 	// Is the Data Factory visible to the public network? Defaults to `true`.
 	PublicNetworkEnabled *bool   `pulumi:"publicNetworkEnabled"`
 	PurviewId            *string `pulumi:"purviewId"`
-	// The name of the resource group in which to create the Data Factory.
+	// The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -226,7 +226,7 @@ type FactoryArgs struct {
 	// Is the Data Factory visible to the public network? Defaults to `true`.
 	PublicNetworkEnabled pulumi.BoolPtrInput
 	PurviewId            pulumi.StringPtrInput
-	// The name of the resource group in which to create the Data Factory.
+	// The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -370,7 +370,7 @@ func (o FactoryOutput) PurviewId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Factory) pulumi.StringPtrOutput { return v.PurviewId }).(pulumi.StringPtrOutput)
 }
 
-// The name of the resource group in which to create the Data Factory.
+// The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created.
 func (o FactoryOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Factory) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

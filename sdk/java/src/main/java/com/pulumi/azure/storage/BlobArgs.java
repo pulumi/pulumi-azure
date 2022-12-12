@@ -94,14 +94,14 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the storage blob. Must be unique within the storage container the blob is located.
+     * The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the storage blob. Must be unique within the storage container the blob is located.
+     * @return The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -109,14 +109,14 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
+     * The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="parallelism")
     private @Nullable Output<Integer> parallelism;
 
     /**
-     * @return The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
+     * @return The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Integer>> parallelism() {
@@ -124,14 +124,14 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
+     * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="size")
     private @Nullable Output<Integer> size;
 
     /**
-     * @return Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
+     * @return Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Integer>> size() {
@@ -139,14 +139,14 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
+     * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="source")
     private @Nullable Output<AssetOrArchive> source;
 
     /**
-     * @return An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
+     * @return An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<AssetOrArchive>> source() {
@@ -154,14 +154,14 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified.
+     * The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="sourceContent")
     private @Nullable Output<String> sourceContent;
 
     /**
-     * @return The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified.
+     * @return The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> sourceContent() {
@@ -169,16 +169,14 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The URI of an existing blob, or a file in the Azure File service, to use as the source contents
-     * for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
+     * The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
      * 
      */
     @Import(name="sourceUri")
     private @Nullable Output<String> sourceUri;
 
     /**
-     * @return The URI of an existing blob, or a file in the Azure File service, to use as the source contents
-     * for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
+     * @return The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
      * 
      */
     public Optional<Output<String>> sourceUri() {
@@ -186,7 +184,7 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the storage account in which to create the storage container.
+     * Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
      * Changing this forces a new resource to be created.
      * 
      */
@@ -194,7 +192,7 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
     private Output<String> storageAccountName;
 
     /**
-     * @return Specifies the storage account in which to create the storage container.
+     * @return Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
      * Changing this forces a new resource to be created.
      * 
      */
@@ -203,14 +201,14 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the storage container in which this blob should be created.
+     * The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="storageContainerName", required=true)
     private Output<String> storageContainerName;
 
     /**
-     * @return The name of the storage container in which this blob should be created.
+     * @return The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> storageContainerName() {
@@ -375,7 +373,7 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the storage blob. Must be unique within the storage container the blob is located.
+         * @param name The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -386,7 +384,7 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the storage blob. Must be unique within the storage container the blob is located.
+         * @param name The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -396,7 +394,7 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parallelism The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
+         * @param parallelism The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -407,7 +405,7 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parallelism The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
+         * @param parallelism The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -417,7 +415,7 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param size Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
+         * @param size Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -428,7 +426,7 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param size Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
+         * @param size Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -438,7 +436,7 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param source An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
+         * @param source An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -449,7 +447,7 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param source An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
+         * @param source An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -459,7 +457,7 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceContent The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified.
+         * @param sourceContent The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -470,7 +468,7 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceContent The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified.
+         * @param sourceContent The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -480,8 +478,7 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceUri The URI of an existing blob, or a file in the Azure File service, to use as the source contents
-         * for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
+         * @param sourceUri The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
          * 
          * @return builder
          * 
@@ -492,8 +489,7 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceUri The URI of an existing blob, or a file in the Azure File service, to use as the source contents
-         * for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
+         * @param sourceUri The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
          * 
          * @return builder
          * 
@@ -503,7 +499,7 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountName Specifies the storage account in which to create the storage container.
+         * @param storageAccountName Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
          * Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -515,7 +511,7 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountName Specifies the storage account in which to create the storage container.
+         * @param storageAccountName Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
          * Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -526,7 +522,7 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageContainerName The name of the storage container in which this blob should be created.
+         * @param storageContainerName The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -537,7 +533,7 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageContainerName The name of the storage container in which this blob should be created.
+         * @param storageContainerName The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

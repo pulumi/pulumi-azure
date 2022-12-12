@@ -88,11 +88,11 @@ export class TimeSeriesInsightsGen2Environment extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment.
+     * The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified.
+     * Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -104,7 +104,7 @@ export class TimeSeriesInsightsGen2Environment extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
+     * Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
      */
     public readonly warmStoreDataRetentionTime!: pulumi.Output<string | undefined>;
 
@@ -180,11 +180,11 @@ export interface TimeSeriesInsightsGen2EnvironmentState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment.
+     * The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified.
+     * Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -196,7 +196,7 @@ export interface TimeSeriesInsightsGen2EnvironmentState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
+     * Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
      */
     warmStoreDataRetentionTime?: pulumi.Input<string>;
 }
@@ -218,11 +218,11 @@ export interface TimeSeriesInsightsGen2EnvironmentArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment.
+     * The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified.
+     * Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created.
      */
     skuName: pulumi.Input<string>;
     /**
@@ -234,7 +234,7 @@ export interface TimeSeriesInsightsGen2EnvironmentArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
+     * Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
      */
     warmStoreDataRetentionTime?: pulumi.Input<string>;
 }

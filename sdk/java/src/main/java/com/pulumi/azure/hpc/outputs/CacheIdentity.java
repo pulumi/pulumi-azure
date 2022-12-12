@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class CacheIdentity {
     /**
-     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache.
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
      * 
      */
     private List<String> identityIds;
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`.
+     * @return Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`. Changing this forces a new resource to be created.
      * 
      */
     private String type;
 
     private CacheIdentity() {}
     /**
-     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache.
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
      * 
      */
     public List<String> identityIds() {
         return this.identityIds;
     }
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`.
+     * @return Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`. Changing this forces a new resource to be created.
      * 
      */
     public String type() {

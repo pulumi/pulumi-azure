@@ -134,7 +134,7 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
      */
     public /*out*/ readonly azureAsn!: pulumi.Output<number>;
     /**
-     * The name of the ExpressRoute Circuit in which to create the Peering.
+     * The name of the ExpressRoute Circuit in which to create the Peering. Changing this forces a new resource to be created.
      */
     public readonly expressRouteCircuitName!: pulumi.Output<string>;
     public /*out*/ readonly gatewayManagerEtag!: pulumi.Output<string>;
@@ -155,7 +155,7 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
      */
     public readonly peerAsn!: pulumi.Output<number>;
     /**
-     * The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. Changing this forces a new resource to be created.
+     * The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
      */
     public readonly peeringType!: pulumi.Output<string>;
     /**
@@ -265,7 +265,7 @@ export interface ExpressRouteCircuitPeeringState {
      */
     azureAsn?: pulumi.Input<number>;
     /**
-     * The name of the ExpressRoute Circuit in which to create the Peering.
+     * The name of the ExpressRoute Circuit in which to create the Peering. Changing this forces a new resource to be created.
      */
     expressRouteCircuitName?: pulumi.Input<string>;
     gatewayManagerEtag?: pulumi.Input<string>;
@@ -286,7 +286,7 @@ export interface ExpressRouteCircuitPeeringState {
      */
     peerAsn?: pulumi.Input<number>;
     /**
-     * The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. Changing this forces a new resource to be created.
+     * The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
      */
     peeringType?: pulumi.Input<string>;
     /**
@@ -328,7 +328,7 @@ export interface ExpressRouteCircuitPeeringState {
  */
 export interface ExpressRouteCircuitPeeringArgs {
     /**
-     * The name of the ExpressRoute Circuit in which to create the Peering.
+     * The name of the ExpressRoute Circuit in which to create the Peering. Changing this forces a new resource to be created.
      */
     expressRouteCircuitName: pulumi.Input<string>;
     /**
@@ -348,7 +348,7 @@ export interface ExpressRouteCircuitPeeringArgs {
      */
     peerAsn?: pulumi.Input<number>;
     /**
-     * The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. Changing this forces a new resource to be created.
+     * The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
      */
     peeringType: pulumi.Input<string>;
     /**

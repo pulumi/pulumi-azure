@@ -122,14 +122,14 @@ public class ExpressRouteCircuit extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.bandwidthInMbps);
     }
     /**
-     * The ID of the Express Route Port this Express Route Circuit is based on.
+     * The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="expressRoutePortId", type=String.class, parameters={})
     private Output</* @Nullable */ String> expressRoutePortId;
 
     /**
-     * @return The ID of the Express Route Port this Express Route Circuit is based on.
+     * @return The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> expressRoutePortId() {

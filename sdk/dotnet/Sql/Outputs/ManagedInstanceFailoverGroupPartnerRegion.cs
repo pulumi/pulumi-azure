@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Sql.Outputs
     public sealed class ManagedInstanceFailoverGroupPartnerRegion
     {
         /// <summary>
-        /// The Azure Region where the SQL Instance Failover Group exists.
+        /// The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? Location;
         /// <summary>

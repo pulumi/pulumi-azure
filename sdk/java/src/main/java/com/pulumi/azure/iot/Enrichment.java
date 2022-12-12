@@ -118,7 +118,7 @@ import javax.annotation.Nullable;
  * IoTHub Enrichment can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:iot/enrichment:Enrichment enrichment1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/Enrichments/enrichment1
+ *  $ pulumi import azure:iot/enrichment:Enrichment enrichment1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/enrichments/enrichment1
  * ```
  * 
  */
@@ -145,14 +145,14 @@ public class Enrichment extends com.pulumi.resources.CustomResource {
         return this.iothubName;
     }
     /**
-     * The key of the enrichment.
+     * The key of the enrichment. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return The key of the enrichment.
+     * @return The key of the enrichment. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> key() {

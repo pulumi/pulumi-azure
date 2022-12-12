@@ -62,16 +62,14 @@ public final class TableEntityState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the storage account in which to create the storage table entity.
-     * Changing this forces a new resource to be created.
+     * Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="storageAccountName")
     private @Nullable Output<String> storageAccountName;
 
     /**
-     * @return Specifies the storage account in which to create the storage table entity.
-     * Changing this forces a new resource to be created.
+     * @return Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> storageAccountName() {
@@ -79,16 +77,14 @@ public final class TableEntityState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the storage table in which to create the storage table entity.
-     * Changing this forces a new resource to be created.
+     * The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="tableName")
     private @Nullable Output<String> tableName;
 
     /**
-     * @return The name of the storage table in which to create the storage table entity.
-     * Changing this forces a new resource to be created.
+     * @return The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> tableName() {
@@ -187,8 +183,7 @@ public final class TableEntityState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountName Specifies the storage account in which to create the storage table entity.
-         * Changing this forces a new resource to be created.
+         * @param storageAccountName Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -199,8 +194,7 @@ public final class TableEntityState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountName Specifies the storage account in which to create the storage table entity.
-         * Changing this forces a new resource to be created.
+         * @param storageAccountName Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -210,8 +204,7 @@ public final class TableEntityState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tableName The name of the storage table in which to create the storage table entity.
-         * Changing this forces a new resource to be created.
+         * @param tableName The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -222,8 +215,7 @@ public final class TableEntityState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tableName The name of the storage table in which to create the storage table entity.
-         * Changing this forces a new resource to be created.
+         * @param tableName The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

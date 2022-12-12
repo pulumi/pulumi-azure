@@ -107,7 +107,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> DnsNameLabel { get; private set; } = null!;
 
         /// <summary>
-        /// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+        /// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
         /// </summary>
         [Output("dnsNameLabelReusePolicy")]
         public Output<string?> DnsNameLabelReusePolicy { get; private set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A list of Availability Zones in which this Container Group is located.
+        /// A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created.
         /// </summary>
         [Output("zones")]
         public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
@@ -288,7 +288,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? DnsNameLabel { get; set; }
 
         /// <summary>
-        /// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+        /// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
         /// </summary>
         [Input("dnsNameLabelReusePolicy")]
         public Input<string>? DnsNameLabelReusePolicy { get; set; }
@@ -402,7 +402,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<string>? _zones;
 
         /// <summary>
-        /// A list of Availability Zones in which this Container Group is located.
+        /// A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> Zones
         {
@@ -449,7 +449,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? DnsNameLabel { get; set; }
 
         /// <summary>
-        /// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+        /// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
         /// </summary>
         [Input("dnsNameLabelReusePolicy")]
         public Input<string>? DnsNameLabelReusePolicy { get; set; }
@@ -575,7 +575,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<string>? _zones;
 
         /// <summary>
-        /// A list of Availability Zones in which this Container Group is located.
+        /// A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> Zones
         {

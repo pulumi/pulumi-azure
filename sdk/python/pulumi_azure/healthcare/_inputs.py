@@ -452,7 +452,7 @@ class ServiceAuthenticationConfigurationArgs:
         :param pulumi.Input[str] audience: The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
         :param pulumi.Input[str] authority: The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
                Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
-        :param pulumi.Input[bool] smart_proxy_enabled: Enables the 'SMART on FHIR' option for mobile and web implementations.
+        :param pulumi.Input[bool] smart_proxy_enabled: (Boolean) Enables the 'SMART on FHIR' option for mobile and web implementations.
         """
         if audience is not None:
             pulumi.set(__self__, "audience", audience)
@@ -490,7 +490,7 @@ class ServiceAuthenticationConfigurationArgs:
     @pulumi.getter(name="smartProxyEnabled")
     def smart_proxy_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enables the 'SMART on FHIR' option for mobile and web implementations.
+        (Boolean) Enables the 'SMART on FHIR' option for mobile and web implementations.
         """
         return pulumi.get(self, "smart_proxy_enabled")
 
@@ -508,7 +508,7 @@ class ServiceCorsConfigurationArgs:
                  allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_age_in_seconds: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[bool] allow_credentials: If credentials are allowed via CORS.
+        :param pulumi.Input[bool] allow_credentials: (Boolean) If credentials are allowed via CORS.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_headers: A set of headers to be allowed via CORS.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_methods: The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: A set of origins to be allowed via CORS.
@@ -529,7 +529,7 @@ class ServiceCorsConfigurationArgs:
     @pulumi.getter(name="allowCredentials")
     def allow_credentials(self) -> Optional[pulumi.Input[bool]]:
         """
-        If credentials are allowed via CORS.
+        (Boolean) If credentials are allowed via CORS.
         """
         return pulumi.get(self, "allow_credentials")
 

@@ -83,14 +83,14 @@ public class Zone extends com.pulumi.resources.CustomResource {
         return this.maxNumberOfRecordSets;
     }
     /**
-     * The name of the DNS Zone. Must be a valid domain name.
+     * The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the DNS Zone. Must be a valid domain name.
+     * @return The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {

@@ -2468,7 +2468,7 @@ class NamespaceCustomerManagedKey(dict):
         """
         :param str identity_id: The ID of the User Assigned Identity that has access to the key.
         :param str key_vault_key_id: The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
-        :param bool infrastructure_encryption_enabled: Used to specify whether enable Infrastructure Encryption (Double Encryption).
+        :param bool infrastructure_encryption_enabled: Used to specify whether enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "identity_id", identity_id)
         pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
@@ -2495,7 +2495,7 @@ class NamespaceCustomerManagedKey(dict):
     @pulumi.getter(name="infrastructureEncryptionEnabled")
     def infrastructure_encryption_enabled(self) -> Optional[bool]:
         """
-        Used to specify whether enable Infrastructure Encryption (Double Encryption).
+        Used to specify whether enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "infrastructure_encryption_enabled")
 
@@ -2603,9 +2603,9 @@ class SubscriptionClientScopedSubscription(dict):
                  is_client_scoped_subscription_durable: Optional[bool] = None,
                  is_client_scoped_subscription_shareable: Optional[bool] = None):
         """
-        :param str client_id: Specifies the Client ID of the application that created the client-scoped subscription.
+        :param str client_id: Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
         :param bool is_client_scoped_subscription_durable: Whether the client scoped subscription is durable. This property can only be controlled from the application side.
-        :param bool is_client_scoped_subscription_shareable: Whether the client scoped subscription is shareable. Defaults to `true`
+        :param bool is_client_scoped_subscription_shareable: Whether the client scoped subscription is shareable. Defaults to `true` Changing this forces a new resource to be created.
         """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
@@ -2618,7 +2618,7 @@ class SubscriptionClientScopedSubscription(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[str]:
         """
-        Specifies the Client ID of the application that created the client-scoped subscription.
+        Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "client_id")
 
@@ -2634,7 +2634,7 @@ class SubscriptionClientScopedSubscription(dict):
     @pulumi.getter(name="isClientScopedSubscriptionShareable")
     def is_client_scoped_subscription_shareable(self) -> Optional[bool]:
         """
-        Whether the client scoped subscription is shareable. Defaults to `true`
+        Whether the client scoped subscription is shareable. Defaults to `true` Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "is_client_scoped_subscription_shareable")
 

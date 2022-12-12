@@ -75,7 +75,7 @@ export class IotHubCertificate extends pulumi.CustomResource {
      */
     public readonly iotDpsName!: pulumi.Output<string>;
     /**
-     * Specifies if the certificate is created in verified state. Defaults to `false`.
+     * Specifies if the certificate is created in verified state. Defaults to `false`. Changing this forces a new resource to be created.
      */
     public readonly isVerified!: pulumi.Output<boolean | undefined>;
     /**
@@ -140,7 +140,7 @@ export interface IotHubCertificateState {
      */
     iotDpsName?: pulumi.Input<string>;
     /**
-     * Specifies if the certificate is created in verified state. Defaults to `false`.
+     * Specifies if the certificate is created in verified state. Defaults to `false`. Changing this forces a new resource to be created.
      */
     isVerified?: pulumi.Input<boolean>;
     /**
@@ -166,7 +166,7 @@ export interface IotHubCertificateArgs {
      */
     iotDpsName: pulumi.Input<string>;
     /**
-     * Specifies if the certificate is created in verified state. Defaults to `false`.
+     * Specifies if the certificate is created in verified state. Defaults to `false`. Changing this forces a new resource to be created.
      */
     isVerified?: pulumi.Input<boolean>;
     /**

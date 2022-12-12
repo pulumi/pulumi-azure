@@ -21,10 +21,9 @@ class TableArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Table resource.
-        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage table.
-               Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['TableAclArgs']]] acls: One or more `acl` blocks as defined below.
-        :param pulumi.Input[str] name: The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located.
+        :param pulumi.Input[str] name: The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "storage_account_name", storage_account_name)
         if acls is not None:
@@ -36,8 +35,7 @@ class TableArgs:
     @pulumi.getter(name="storageAccountName")
     def storage_account_name(self) -> pulumi.Input[str]:
         """
-        Specifies the storage account in which to create the storage table.
-        Changing this forces a new resource to be created.
+        Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_name")
 
@@ -61,7 +59,7 @@ class TableArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located.
+        The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -79,9 +77,8 @@ class _TableState:
         """
         Input properties used for looking up and filtering Table resources.
         :param pulumi.Input[Sequence[pulumi.Input['TableAclArgs']]] acls: One or more `acl` blocks as defined below.
-        :param pulumi.Input[str] name: The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located.
-        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage table.
-               Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
         """
         if acls is not None:
             pulumi.set(__self__, "acls", acls)
@@ -106,7 +103,7 @@ class _TableState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located.
+        The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -118,8 +115,7 @@ class _TableState:
     @pulumi.getter(name="storageAccountName")
     def storage_account_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the storage account in which to create the storage table.
-        Changing this forces a new resource to be created.
+        Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_name")
 
@@ -166,9 +162,8 @@ class Table(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAclArgs']]]] acls: One or more `acl` blocks as defined below.
-        :param pulumi.Input[str] name: The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located.
-        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage table.
-               Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -255,9 +250,8 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAclArgs']]]] acls: One or more `acl` blocks as defined below.
-        :param pulumi.Input[str] name: The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located.
-        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage table.
-               Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -280,7 +274,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located.
+        The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -288,8 +282,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="storageAccountName")
     def storage_account_name(self) -> pulumi.Output[str]:
         """
-        Specifies the storage account in which to create the storage table.
-        Changing this forces a new resource to be created.
+        Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_name")
 

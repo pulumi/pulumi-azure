@@ -47,14 +47,14 @@ public final class SecretState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the Key Vault where the Secret should be created.
+     * The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="keyVaultId")
     private @Nullable Output<String> keyVaultId;
 
     /**
-     * @return The ID of the Key Vault where the Secret should be created.
+     * @return The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> keyVaultId() {
@@ -258,7 +258,7 @@ public final class SecretState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyVaultId The ID of the Key Vault where the Secret should be created.
+         * @param keyVaultId The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class SecretState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyVaultId The ID of the Key Vault where the Secret should be created.
+         * @param keyVaultId The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

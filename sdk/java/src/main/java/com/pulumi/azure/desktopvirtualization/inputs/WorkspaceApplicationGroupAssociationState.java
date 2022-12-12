@@ -16,14 +16,14 @@ public final class WorkspaceApplicationGroupAssociationState extends com.pulumi.
     public static final WorkspaceApplicationGroupAssociationState Empty = new WorkspaceApplicationGroupAssociationState();
 
     /**
-     * The resource ID for the Virtual Desktop Application Group.
+     * The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="applicationGroupId")
     private @Nullable Output<String> applicationGroupId;
 
     /**
-     * @return The resource ID for the Virtual Desktop Application Group.
+     * @return The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> applicationGroupId() {
@@ -31,14 +31,14 @@ public final class WorkspaceApplicationGroupAssociationState extends com.pulumi.
     }
 
     /**
-     * The resource ID for the Virtual Desktop Workspace.
+     * The resource ID for the Virtual Desktop Workspace. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="workspaceId")
     private @Nullable Output<String> workspaceId;
 
     /**
-     * @return The resource ID for the Virtual Desktop Workspace.
+     * @return The resource ID for the Virtual Desktop Workspace. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> workspaceId() {
@@ -71,7 +71,7 @@ public final class WorkspaceApplicationGroupAssociationState extends com.pulumi.
         }
 
         /**
-         * @param applicationGroupId The resource ID for the Virtual Desktop Application Group.
+         * @param applicationGroupId The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class WorkspaceApplicationGroupAssociationState extends com.pulumi.
         }
 
         /**
-         * @param applicationGroupId The resource ID for the Virtual Desktop Application Group.
+         * @param applicationGroupId The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class WorkspaceApplicationGroupAssociationState extends com.pulumi.
         }
 
         /**
-         * @param workspaceId The resource ID for the Virtual Desktop Workspace.
+         * @param workspaceId The resource ID for the Virtual Desktop Workspace. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class WorkspaceApplicationGroupAssociationState extends com.pulumi.
         }
 
         /**
-         * @param workspaceId The resource ID for the Virtual Desktop Workspace.
+         * @param workspaceId The resource ID for the Virtual Desktop Workspace. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

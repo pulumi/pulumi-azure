@@ -175,7 +175,7 @@ namespace Pulumi.Azure.Network
         public Output<bool> EnableBgp { get; private set; } = null!;
 
         /// <summary>
-        /// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+        /// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("generation")]
         public Output<string> Generation { get; private set; } = null!;
@@ -190,15 +190,13 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<Outputs.VirtualNetworkGatewayIpConfiguration>> IpConfigurations { get; private set; } = null!;
 
         /// <summary>
-        /// The location/region where the Virtual Network Gateway is
-        /// located. Changing the location/region forces a new resource to be created.
+        /// The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// A user-defined name of the IP configuration. Defaults to
-        /// `vnetGatewayConfig`.
+        /// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -210,9 +208,7 @@ namespace Pulumi.Azure.Network
         public Output<bool?> PrivateIpAddressEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the Virtual Network Gateway. Changing the resource group name forces
-        /// a new resource to be created.
+        /// The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -250,7 +246,7 @@ namespace Pulumi.Azure.Network
         public Output<Outputs.VirtualNetworkGatewayVpnClientConfiguration?> VpnClientConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+        /// The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("vpnType")]
         public Output<string?> VpnType { get; private set; } = null!;
@@ -343,7 +339,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? EnableBgp { get; set; }
 
         /// <summary>
-        /// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+        /// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("generation")]
         public Input<string>? Generation { get; set; }
@@ -364,15 +360,13 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// The location/region where the Virtual Network Gateway is
-        /// located. Changing the location/region forces a new resource to be created.
+        /// The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A user-defined name of the IP configuration. Defaults to
-        /// `vnetGatewayConfig`.
+        /// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -384,9 +378,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? PrivateIpAddressEnabled { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the Virtual Network Gateway. Changing the resource group name forces
-        /// a new resource to be created.
+        /// The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -430,7 +422,7 @@ namespace Pulumi.Azure.Network
         public Input<Inputs.VirtualNetworkGatewayVpnClientConfigurationArgs>? VpnClientConfiguration { get; set; }
 
         /// <summary>
-        /// The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+        /// The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("vpnType")]
         public Input<string>? VpnType { get; set; }
@@ -485,7 +477,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? EnableBgp { get; set; }
 
         /// <summary>
-        /// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+        /// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("generation")]
         public Input<string>? Generation { get; set; }
@@ -506,15 +498,13 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// The location/region where the Virtual Network Gateway is
-        /// located. Changing the location/region forces a new resource to be created.
+        /// The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A user-defined name of the IP configuration. Defaults to
-        /// `vnetGatewayConfig`.
+        /// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -526,9 +516,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? PrivateIpAddressEnabled { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the Virtual Network Gateway. Changing the resource group name forces
-        /// a new resource to be created.
+        /// The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
@@ -572,7 +560,7 @@ namespace Pulumi.Azure.Network
         public Input<Inputs.VirtualNetworkGatewayVpnClientConfigurationGetArgs>? VpnClientConfiguration { get; set; }
 
         /// <summary>
-        /// The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+        /// The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("vpnType")]
         public Input<string>? VpnType { get; set; }

@@ -132,14 +132,14 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the resource group in which to create the App Service Plan component.
+     * The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the App Service Plan component.
+     * @return The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -383,7 +383,7 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the App Service Plan component.
+         * @param resourceGroupName The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -394,7 +394,7 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the App Service Plan component.
+         * @param resourceGroupName The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -46,11 +46,11 @@ class WorkspaceArgs:
         :param pulumi.Input[str] description: The description of this Machine Learning Workspace.
         :param pulumi.Input[str] friendly_name: Display name for this Machine Learning Workspace.
         :param pulumi.Input[bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
-        :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace.
+        :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_user_assigned_identity: The user assigned identity id that represents the workspace identity.
-        :param pulumi.Input[bool] public_access_behind_virtual_network_enabled: Enable public access when this Machine Learning Workspace is behind a VNet.
+        :param pulumi.Input[bool] public_access_behind_virtual_network_enabled: Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Enable public access when this Machine Learning Workspace is behind VNet.
         :param pulumi.Input[str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -214,7 +214,7 @@ class WorkspaceArgs:
     @pulumi.getter(name="imageBuildComputeName")
     def image_build_compute_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The compute name for image build of the Machine Learning Workspace.
+        The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "image_build_compute_name")
 
@@ -262,7 +262,7 @@ class WorkspaceArgs:
     @pulumi.getter(name="publicAccessBehindVirtualNetworkEnabled")
     def public_access_behind_virtual_network_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable public access when this Machine Learning Workspace is behind a VNet.
+        Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "public_access_behind_virtual_network_enabled")
 
@@ -351,12 +351,12 @@ class _WorkspaceState:
         :param pulumi.Input[str] friendly_name: Display name for this Machine Learning Workspace.
         :param pulumi.Input[bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
         :param pulumi.Input['WorkspaceIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace.
+        :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_vault_id: The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_user_assigned_identity: The user assigned identity id that represents the workspace identity.
-        :param pulumi.Input[bool] public_access_behind_virtual_network_enabled: Enable public access when this Machine Learning Workspace is behind a VNet.
+        :param pulumi.Input[bool] public_access_behind_virtual_network_enabled: Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Enable public access when this Machine Learning Workspace is behind VNet.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
@@ -505,7 +505,7 @@ class _WorkspaceState:
     @pulumi.getter(name="imageBuildComputeName")
     def image_build_compute_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The compute name for image build of the Machine Learning Workspace.
+        The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "image_build_compute_name")
 
@@ -565,7 +565,7 @@ class _WorkspaceState:
     @pulumi.getter(name="publicAccessBehindVirtualNetworkEnabled")
     def public_access_behind_virtual_network_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable public access when this Machine Learning Workspace is behind a VNet.
+        Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "public_access_behind_virtual_network_enabled")
 
@@ -917,12 +917,12 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] friendly_name: Display name for this Machine Learning Workspace.
         :param pulumi.Input[bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
         :param pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace.
+        :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_vault_id: The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_user_assigned_identity: The user assigned identity id that represents the workspace identity.
-        :param pulumi.Input[bool] public_access_behind_virtual_network_enabled: Enable public access when this Machine Learning Workspace is behind a VNet.
+        :param pulumi.Input[bool] public_access_behind_virtual_network_enabled: Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Enable public access when this Machine Learning Workspace is behind VNet.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
@@ -1294,12 +1294,12 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] friendly_name: Display name for this Machine Learning Workspace.
         :param pulumi.Input[bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
         :param pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace.
+        :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_vault_id: The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_user_assigned_identity: The user assigned identity id that represents the workspace identity.
-        :param pulumi.Input[bool] public_access_behind_virtual_network_enabled: Enable public access when this Machine Learning Workspace is behind a VNet.
+        :param pulumi.Input[bool] public_access_behind_virtual_network_enabled: Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Enable public access when this Machine Learning Workspace is behind VNet.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
@@ -1398,7 +1398,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="imageBuildComputeName")
     def image_build_compute_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The compute name for image build of the Machine Learning Workspace.
+        The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "image_build_compute_name")
 
@@ -1438,7 +1438,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="publicAccessBehindVirtualNetworkEnabled")
     def public_access_behind_virtual_network_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enable public access when this Machine Learning Workspace is behind a VNet.
+        Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "public_access_behind_virtual_network_enabled")
 

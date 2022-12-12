@@ -80,14 +80,14 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the share. Must be unique within the storage account where the share is located.
+     * The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the share. Must be unique within the storage account where the share is located.
+     * @return The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -110,16 +110,14 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the storage account in which to create the share.
-     * Changing this forces a new resource to be created.
+     * Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="storageAccountName", required=true)
     private Output<String> storageAccountName;
 
     /**
-     * @return Specifies the storage account in which to create the share.
-     * Changing this forces a new resource to be created.
+     * @return Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> storageAccountName() {
@@ -251,7 +249,7 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the share. Must be unique within the storage account where the share is located.
+         * @param name The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -262,7 +260,7 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the share. Must be unique within the storage account where the share is located.
+         * @param name The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -293,8 +291,7 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountName Specifies the storage account in which to create the share.
-         * Changing this forces a new resource to be created.
+         * @param storageAccountName Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -305,8 +302,7 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountName Specifies the storage account in which to create the share.
-         * Changing this forces a new resource to be created.
+         * @param storageAccountName Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

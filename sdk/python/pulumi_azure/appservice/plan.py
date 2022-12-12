@@ -30,7 +30,7 @@ class PlanArgs:
                  zone_redundant: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Plan resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Plan component.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
         :param pulumi.Input['PlanSkuArgs'] sku: A `sku` block as documented below.
         :param pulumi.Input[str] app_service_environment_id: The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
         :param pulumi.Input[str] kind: The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption), `xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
@@ -69,7 +69,7 @@ class PlanArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to create the App Service Plan component.
+        The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -233,7 +233,7 @@ class _PlanState:
         :param pulumi.Input[str] name: Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] per_site_scaling: Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
         :param pulumi.Input[bool] reserved: Is this App Service Plan `Reserved`. Defaults to `false`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Plan component.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
         :param pulumi.Input['PlanSkuArgs'] sku: A `sku` block as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_redundant: Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
@@ -374,7 +374,7 @@ class _PlanState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to create the App Service Plan component.
+        The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -522,7 +522,7 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] per_site_scaling: Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
         :param pulumi.Input[bool] reserved: Is this App Service Plan `Reserved`. Defaults to `false`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Plan component.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['PlanSkuArgs']] sku: A `sku` block as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_redundant: Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
@@ -700,7 +700,7 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] per_site_scaling: Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
         :param pulumi.Input[bool] reserved: Is this App Service Plan `Reserved`. Defaults to `false`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Plan component.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['PlanSkuArgs']] sku: A `sku` block as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_redundant: Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
@@ -797,7 +797,7 @@ class Plan(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to create the App Service Plan component.
+        The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 

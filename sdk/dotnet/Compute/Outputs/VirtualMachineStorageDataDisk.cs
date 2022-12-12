@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Specifies the URI of the VHD file backing this Unmanaged Data Disk. Changing this forces a new resource to be created.
+        /// Specifies the URI of the VHD file backing this Unmanaged Data Disk.
         /// </summary>
         public readonly string? VhdUri;
         /// <summary>

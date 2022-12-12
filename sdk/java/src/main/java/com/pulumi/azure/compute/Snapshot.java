@@ -82,14 +82,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:compute/snapshot:Snapshot")
 public class Snapshot extends com.pulumi.resources.CustomResource {
     /**
-     * Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
+     * Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
      * 
      */
     @Export(name="createOption", type=String.class, parameters={})
     private Output<String> createOption;
 
     /**
-     * @return Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
+     * @return Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
      * 
      */
     public Output<String> createOption() {

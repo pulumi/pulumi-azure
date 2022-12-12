@@ -103,16 +103,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:desktopvirtualization/application:Application")
 public class Application extends com.pulumi.resources.CustomResource {
     /**
-     * Resource ID for a Virtual Desktop Application Group to associate with the
-     * Virtual Desktop Application. Changing the ID forces a new resource to be created.
+     * Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="applicationGroupId", type=String.class, parameters={})
     private Output<String> applicationGroupId;
 
     /**
-     * @return Resource ID for a Virtual Desktop Application Group to associate with the
-     * Virtual Desktop Application. Changing the ID forces a new resource to be created.
+     * @return Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> applicationGroupId() {

@@ -90,28 +90,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:desktopvirtualization/workspaceApplicationGroupAssociation:WorkspaceApplicationGroupAssociation")
 public class WorkspaceApplicationGroupAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * The resource ID for the Virtual Desktop Application Group.
+     * The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="applicationGroupId", type=String.class, parameters={})
     private Output<String> applicationGroupId;
 
     /**
-     * @return The resource ID for the Virtual Desktop Application Group.
+     * @return The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> applicationGroupId() {
         return this.applicationGroupId;
     }
     /**
-     * The resource ID for the Virtual Desktop Workspace.
+     * The resource ID for the Virtual Desktop Workspace. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="workspaceId", type=String.class, parameters={})
     private Output<String> workspaceId;
 
     /**
-     * @return The resource ID for the Virtual Desktop Workspace.
+     * @return The resource ID for the Virtual Desktop Workspace. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> workspaceId() {

@@ -27,7 +27,7 @@ class ActivityLogAlertArgs:
         """
         The set of arguments for constructing a ActivityLogAlert resource.
         :param pulumi.Input['ActivityLogAlertCriteriaArgs'] criteria: A `criteria` block as defined below.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the activity log alert instance.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
         :param pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionArgs']]] actions: One or more `action` blocks as defined below.
         :param pulumi.Input[str] description: The description of this activity log alert.
@@ -65,7 +65,7 @@ class ActivityLogAlertArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to create the activity log alert instance.
+        The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -164,7 +164,7 @@ class _ActivityLogAlertState:
         :param pulumi.Input[str] description: The description of this activity log alert.
         :param pulumi.Input[bool] enabled: Should this Activity Log Alert be enabled? Defaults to `true`.
         :param pulumi.Input[str] name: The name of the activity log alert. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the activity log alert instance.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -249,7 +249,7 @@ class _ActivityLogAlertState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to create the activity log alert instance.
+        The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -350,7 +350,7 @@ class ActivityLogAlert(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of this activity log alert.
         :param pulumi.Input[bool] enabled: Should this Activity Log Alert be enabled? Defaults to `true`.
         :param pulumi.Input[str] name: The name of the activity log alert. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the activity log alert instance.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -483,7 +483,7 @@ class ActivityLogAlert(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of this activity log alert.
         :param pulumi.Input[bool] enabled: Should this Activity Log Alert be enabled? Defaults to `true`.
         :param pulumi.Input[str] name: The name of the activity log alert. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the activity log alert instance.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -545,7 +545,7 @@ class ActivityLogAlert(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to create the activity log alert instance.
+        The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 

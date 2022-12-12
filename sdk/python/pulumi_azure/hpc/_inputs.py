@@ -642,8 +642,8 @@ class CacheIdentityArgs:
                  identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  type: pulumi.Input[str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache.
-        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "type", type)
@@ -652,7 +652,7 @@ class CacheIdentityArgs:
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache.
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -664,7 +664,7 @@ class CacheIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 

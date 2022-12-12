@@ -101,7 +101,7 @@ namespace Pulumi.Azure.Kusto
     /// Kusto Scripts can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:kusto/script:Script example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Kusto/Clusters/cluster1/Databases/database1/Scripts/script1
+    ///  $ pulumi import azure:kusto/script:Script example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Kusto/clusters/cluster1/databases/database1/scripts/script1
     /// ```
     /// </summary>
     [AzureResourceType("azure:kusto/script:Script")]
@@ -132,13 +132,13 @@ namespace Pulumi.Azure.Kusto
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The SAS token used to access the script. Must be provided when using scriptUrl property.
+        /// The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
         /// </summary>
         [Output("sasToken")]
         public Output<string?> SasToken { get; private set; } = null!;
 
         /// <summary>
-        /// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties.
+        /// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties. Changing this forces a new resource to be created.
         /// </summary>
         [Output("scriptContent")]
         public Output<string?> ScriptContent { get; private set; } = null!;
@@ -220,13 +220,13 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The SAS token used to access the script. Must be provided when using scriptUrl property.
+        /// The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sasToken")]
         public Input<string>? SasToken { get; set; }
 
         /// <summary>
-        /// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties.
+        /// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties. Changing this forces a new resource to be created.
         /// </summary>
         [Input("scriptContent")]
         public Input<string>? ScriptContent { get; set; }
@@ -270,13 +270,13 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The SAS token used to access the script. Must be provided when using scriptUrl property.
+        /// The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sasToken")]
         public Input<string>? SasToken { get; set; }
 
         /// <summary>
-        /// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties.
+        /// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties. Changing this forces a new resource to be created.
         /// </summary>
         [Input("scriptContent")]
         public Input<string>? ScriptContent { get; set; }

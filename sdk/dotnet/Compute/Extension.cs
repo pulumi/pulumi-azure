@@ -178,8 +178,7 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> FailureSuppressionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the virtual machine extension peering. Changing
-        /// this forces a new resource to be created.
+        /// The name of the virtual machine extension peering. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -302,8 +301,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? FailureSuppressionEnabled { get; set; }
 
         /// <summary>
-        /// The name of the virtual machine extension peering. Changing
-        /// this forces a new resource to be created.
+        /// The name of the virtual machine extension peering. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -394,8 +392,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? FailureSuppressionEnabled { get; set; }
 
         /// <summary>
-        /// The name of the virtual machine extension peering. Changing
-        /// this forces a new resource to be created.
+        /// The name of the virtual machine extension peering. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -127,14 +127,14 @@ public class LinkedService extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
+     * The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
      * 
      */
     @Export(name="workspaceId", type=String.class, parameters={})
     private Output<String> workspaceId;
 
     /**
-     * @return The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
+     * @return The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
      * 
      */
     public Output<String> workspaceId() {

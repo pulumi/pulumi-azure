@@ -105,7 +105,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Boolean flag which controls whether to enable
+     * Boolean flag which controls whether to enable Changing this forces a new resource to be created.
      * the topic to be partitioned across multiple message brokers. Defaults to false.
      * Changing this forces a new resource to be created.
      * 
@@ -114,7 +114,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Boolean> enablePartitioning;
 
     /**
-     * @return Boolean flag which controls whether to enable
+     * @return Boolean flag which controls whether to enable Changing this forces a new resource to be created.
      * the topic to be partitioned across multiple message brokers. Defaults to false.
      * Changing this forces a new resource to be created.
      * 
@@ -179,7 +179,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the ServiceBus Namespace to create
+     * The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
      * this topic in. Changing this forces a new resource to be created.
      * 
      */
@@ -187,7 +187,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> namespaceId;
 
     /**
-     * @return The ID of the ServiceBus Namespace to create
+     * @return The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
      * this topic in. Changing this forces a new resource to be created.
      * 
      */
@@ -203,7 +203,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Boolean flag which controls whether
+     * Boolean flag which controls whether Changing this forces a new resource to be created.
      * the Topic requires duplicate detection. Defaults to false. Changing this forces
      * a new resource to be created.
      * 
@@ -212,7 +212,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Boolean> requiresDuplicateDetection;
 
     /**
-     * @return Boolean flag which controls whether
+     * @return Boolean flag which controls whether Changing this forces a new resource to be created.
      * the Topic requires duplicate detection. Defaults to false. Changing this forces
      * a new resource to be created.
      * 
@@ -416,7 +416,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enablePartitioning Boolean flag which controls whether to enable
+         * @param enablePartitioning Boolean flag which controls whether to enable Changing this forces a new resource to be created.
          * the topic to be partitioned across multiple message brokers. Defaults to false.
          * Changing this forces a new resource to be created.
          * 
@@ -429,7 +429,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enablePartitioning Boolean flag which controls whether to enable
+         * @param enablePartitioning Boolean flag which controls whether to enable Changing this forces a new resource to be created.
          * the topic to be partitioned across multiple message brokers. Defaults to false.
          * Changing this forces a new resource to be created.
          * 
@@ -514,7 +514,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namespaceId The ID of the ServiceBus Namespace to create
+         * @param namespaceId The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
          * this topic in. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -526,7 +526,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namespaceId The ID of the ServiceBus Namespace to create
+         * @param namespaceId The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
          * this topic in. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -546,7 +546,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requiresDuplicateDetection Boolean flag which controls whether
+         * @param requiresDuplicateDetection Boolean flag which controls whether Changing this forces a new resource to be created.
          * the Topic requires duplicate detection. Defaults to false. Changing this forces
          * a new resource to be created.
          * 
@@ -559,7 +559,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requiresDuplicateDetection Boolean flag which controls whether
+         * @param requiresDuplicateDetection Boolean flag which controls whether Changing this forces a new resource to be created.
          * the Topic requires duplicate detection. Defaults to false. Changing this forces
          * a new resource to be created.
          * 

@@ -88,7 +88,7 @@ class WindowsVirtualMachineScaleSetArgs:
         :param pulumi.Input['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs'] automatic_os_upgrade_policy: An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
         :param pulumi.Input['WindowsVirtualMachineScaleSetBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+        :param pulumi.Input[str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetDataDiskArgs']]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[bool] do_not_run_extensions_on_overprovisioned_machines: Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
@@ -124,7 +124,7 @@ class WindowsVirtualMachineScaleSetArgs:
         :param pulumi.Input['WindowsVirtualMachineScaleSetTerminateNotificationArgs'] terminate_notification: A `terminate_notification` block as defined below.
         :param pulumi.Input['WindowsVirtualMachineScaleSetTerminationNotificationArgs'] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] timezone: Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
-        :param pulumi.Input[str] upgrade_mode: Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+        :param pulumi.Input[str] upgrade_mode: Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[bool] vtpm_enabled: Specifies if vTPM (Virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetWinrmListenerArgs']]] winrm_listeners: One or more `winrm_listener` blocks as defined below.
@@ -408,7 +408,7 @@ class WindowsVirtualMachineScaleSetArgs:
     @pulumi.getter(name="computerNamePrefix")
     def computer_name_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+        The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "computer_name_prefix")
 
@@ -858,7 +858,7 @@ class WindowsVirtualMachineScaleSetArgs:
     @pulumi.getter(name="upgradeMode")
     def upgrade_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+        Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "upgrade_mode")
 
@@ -998,7 +998,7 @@ class _WindowsVirtualMachineScaleSetState:
         :param pulumi.Input['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs'] automatic_os_upgrade_policy: An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
         :param pulumi.Input['WindowsVirtualMachineScaleSetBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+        :param pulumi.Input[str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetDataDiskArgs']]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[bool] do_not_run_extensions_on_overprovisioned_machines: Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
@@ -1040,7 +1040,7 @@ class _WindowsVirtualMachineScaleSetState:
         :param pulumi.Input['WindowsVirtualMachineScaleSetTerminationNotificationArgs'] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] timezone: Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         :param pulumi.Input[str] unique_id: The Unique ID for this Windows Virtual Machine Scale Set.
-        :param pulumi.Input[str] upgrade_mode: Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+        :param pulumi.Input[str] upgrade_mode: Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[bool] vtpm_enabled: Specifies if vTPM (Virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetWinrmListenerArgs']]] winrm_listeners: One or more `winrm_listener` blocks as defined below.
@@ -1273,7 +1273,7 @@ class _WindowsVirtualMachineScaleSetState:
     @pulumi.getter(name="computerNamePrefix")
     def computer_name_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+        The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "computer_name_prefix")
 
@@ -1795,7 +1795,7 @@ class _WindowsVirtualMachineScaleSetState:
     @pulumi.getter(name="upgradeMode")
     def upgrade_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+        Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "upgrade_mode")
 
@@ -2001,7 +2001,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']] automatic_os_upgrade_policy: An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+        :param pulumi.Input[str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetDataDiskArgs']]]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[bool] do_not_run_extensions_on_overprovisioned_machines: Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
@@ -2042,7 +2042,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetTerminateNotificationArgs']] terminate_notification: A `terminate_notification` block as defined below.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetTerminationNotificationArgs']] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] timezone: Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
-        :param pulumi.Input[str] upgrade_mode: Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+        :param pulumi.Input[str] upgrade_mode: Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[bool] vtpm_enabled: Specifies if vTPM (Virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetWinrmListenerArgs']]]] winrm_listeners: One or more `winrm_listener` blocks as defined below.
@@ -2364,7 +2364,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']] automatic_os_upgrade_policy: An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+        :param pulumi.Input[str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetDataDiskArgs']]]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[bool] do_not_run_extensions_on_overprovisioned_machines: Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
@@ -2406,7 +2406,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetTerminationNotificationArgs']] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] timezone: Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         :param pulumi.Input[str] unique_id: The Unique ID for this Windows Virtual Machine Scale Set.
-        :param pulumi.Input[str] upgrade_mode: Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+        :param pulumi.Input[str] upgrade_mode: Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[bool] vtpm_enabled: Specifies if vTPM (Virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetWinrmListenerArgs']]]] winrm_listeners: One or more `winrm_listener` blocks as defined below.
@@ -2545,7 +2545,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     @pulumi.getter(name="computerNamePrefix")
     def computer_name_prefix(self) -> pulumi.Output[str]:
         """
-        The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+        The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "computer_name_prefix")
 
@@ -2891,7 +2891,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     @pulumi.getter(name="upgradeMode")
     def upgrade_mode(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+        Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "upgrade_mode")
 

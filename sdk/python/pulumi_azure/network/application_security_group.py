@@ -20,7 +20,7 @@ class ApplicationSecurityGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ApplicationSecurityGroup resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Application Security Group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Application Security Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Application Security Group. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -37,7 +37,7 @@ class ApplicationSecurityGroupArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to create the Application Security Group.
+        The name of the resource group in which to create the Application Security Group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -93,7 +93,7 @@ class _ApplicationSecurityGroupState:
         Input properties used for looking up and filtering ApplicationSecurityGroup resources.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Application Security Group. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Application Security Group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Application Security Group. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if location is not None:
@@ -133,7 +133,7 @@ class _ApplicationSecurityGroupState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to create the Application Security Group.
+        The name of the resource group in which to create the Application Security Group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -194,7 +194,7 @@ class ApplicationSecurityGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Application Security Group. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Application Security Group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Application Security Group. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -286,7 +286,7 @@ class ApplicationSecurityGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Application Security Group. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Application Security Group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Application Security Group. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -319,7 +319,7 @@ class ApplicationSecurityGroup(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to create the Application Security Group.
+        The name of the resource group in which to create the Application Security Group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 

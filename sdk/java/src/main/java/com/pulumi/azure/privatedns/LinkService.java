@@ -186,14 +186,14 @@ public class LinkService extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.fqdns);
     }
     /**
-     * A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
+     * A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="loadBalancerFrontendIpConfigurationIds", type=List.class, parameters={String.class})
     private Output<List<String>> loadBalancerFrontendIpConfigurationIds;
 
     /**
-     * @return A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
+     * @return A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
      * 
      */
     public Output<List<String>> loadBalancerFrontendIpConfigurationIds() {
@@ -256,14 +256,14 @@ public class LinkService extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+     * A mapping of tags to assign to the resource.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+     * @return A mapping of tags to assign to the resource.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

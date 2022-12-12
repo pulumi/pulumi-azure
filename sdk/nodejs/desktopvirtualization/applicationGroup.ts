@@ -99,8 +99,7 @@ export class ApplicationGroup extends pulumi.CustomResource {
      */
     public readonly hostPoolId!: pulumi.Output<string>;
     /**
-     * The location/region where the Virtual Desktop Application Group is
-     * located. Changing the location/region forces a new resource to be created.
+     * The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -108,9 +107,7 @@ export class ApplicationGroup extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to
-     * create the Virtual Desktop Application Group. Changing the resource group name forces
-     * a new resource to be created.
+     * The name of the resource group in which to create the Virtual Desktop Application Group. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -118,7 +115,7 @@ export class ApplicationGroup extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
+     * Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups. Changing this forces a new resource to be created.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -192,8 +189,7 @@ export interface ApplicationGroupState {
      */
     hostPoolId?: pulumi.Input<string>;
     /**
-     * The location/region where the Virtual Desktop Application Group is
-     * located. Changing the location/region forces a new resource to be created.
+     * The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -201,9 +197,7 @@ export interface ApplicationGroupState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to
-     * create the Virtual Desktop Application Group. Changing the resource group name forces
-     * a new resource to be created.
+     * The name of the resource group in which to create the Virtual Desktop Application Group. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -211,7 +205,7 @@ export interface ApplicationGroupState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
+     * Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups. Changing this forces a new resource to be created.
      */
     type?: pulumi.Input<string>;
 }
@@ -238,8 +232,7 @@ export interface ApplicationGroupArgs {
      */
     hostPoolId: pulumi.Input<string>;
     /**
-     * The location/region where the Virtual Desktop Application Group is
-     * located. Changing the location/region forces a new resource to be created.
+     * The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -247,9 +240,7 @@ export interface ApplicationGroupArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to
-     * create the Virtual Desktop Application Group. Changing the resource group name forces
-     * a new resource to be created.
+     * The name of the resource group in which to create the Virtual Desktop Application Group. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -257,7 +248,7 @@ export interface ApplicationGroupArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
+     * Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups. Changing this forces a new resource to be created.
      */
     type: pulumi.Input<string>;
 }

@@ -34,15 +34,13 @@ class EventGridDataConnectionArgs:
         The set of arguments for constructing a EventGridDataConnection resource.
         :param pulumi.Input[str] cluster_name: Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_name: Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] eventhub_consumer_group_name: Specifies the Event Hub consumer group this data connection will use for
-               ingestion. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] eventhub_id: Specifies the resource id of the Event Hub this data connection will use for ingestion.
-               Changing this forces a new resource to be created.
+        :param pulumi.Input[str] eventhub_consumer_group_name: Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] eventhub_id: Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_id: Specifies the resource id of the Storage Account this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] blob_storage_event_type: Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
         :param pulumi.Input[str] data_format: Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
-        :param pulumi.Input[str] database_routing_type: Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+        :param pulumi.Input[str] database_routing_type: Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventgrid_resource_id: The resource ID of the event grid that is subscribed to the storage account events.
         :param pulumi.Input[str] location: The location where the Kusto Database should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_identity_resource_id: Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
@@ -106,8 +104,7 @@ class EventGridDataConnectionArgs:
     @pulumi.getter(name="eventhubConsumerGroupName")
     def eventhub_consumer_group_name(self) -> pulumi.Input[str]:
         """
-        Specifies the Event Hub consumer group this data connection will use for
-        ingestion. Changing this forces a new resource to be created.
+        Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "eventhub_consumer_group_name")
 
@@ -119,8 +116,7 @@ class EventGridDataConnectionArgs:
     @pulumi.getter(name="eventhubId")
     def eventhub_id(self) -> pulumi.Input[str]:
         """
-        Specifies the resource id of the Event Hub this data connection will use for ingestion.
-        Changing this forces a new resource to be created.
+        Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "eventhub_id")
 
@@ -180,7 +176,7 @@ class EventGridDataConnectionArgs:
     @pulumi.getter(name="databaseRoutingType")
     def database_routing_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+        Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "database_routing_type")
 
@@ -298,12 +294,10 @@ class _EventGridDataConnectionState:
         :param pulumi.Input[str] cluster_name: Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] data_format: Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
         :param pulumi.Input[str] database_name: Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] database_routing_type: Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+        :param pulumi.Input[str] database_routing_type: Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventgrid_resource_id: The resource ID of the event grid that is subscribed to the storage account events.
-        :param pulumi.Input[str] eventhub_consumer_group_name: Specifies the Event Hub consumer group this data connection will use for
-               ingestion. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] eventhub_id: Specifies the resource id of the Event Hub this data connection will use for ingestion.
-               Changing this forces a new resource to be created.
+        :param pulumi.Input[str] eventhub_consumer_group_name: Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] eventhub_id: Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the Kusto Database should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_identity_resource_id: Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
         :param pulumi.Input[str] mapping_rule_name: Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
@@ -398,7 +392,7 @@ class _EventGridDataConnectionState:
     @pulumi.getter(name="databaseRoutingType")
     def database_routing_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+        Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "database_routing_type")
 
@@ -422,8 +416,7 @@ class _EventGridDataConnectionState:
     @pulumi.getter(name="eventhubConsumerGroupName")
     def eventhub_consumer_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the Event Hub consumer group this data connection will use for
-        ingestion. Changing this forces a new resource to be created.
+        Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "eventhub_consumer_group_name")
 
@@ -435,8 +428,7 @@ class _EventGridDataConnectionState:
     @pulumi.getter(name="eventhubId")
     def eventhub_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the resource id of the Event Hub this data connection will use for ingestion.
-        Changing this forces a new resource to be created.
+        Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "eventhub_id")
 
@@ -635,7 +627,7 @@ class EventGridDataConnection(pulumi.CustomResource):
         Kusto Event Grid Data Connections can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:kusto/eventGridDataConnection:EventGridDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1/Databases/database1/DataConnections/dataConnection1
+         $ pulumi import azure:kusto/eventGridDataConnection:EventGridDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/databases/database1/dataConnections/dataConnection1
         ```
 
         :param str resource_name: The name of the resource.
@@ -644,12 +636,10 @@ class EventGridDataConnection(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_name: Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] data_format: Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
         :param pulumi.Input[str] database_name: Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] database_routing_type: Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+        :param pulumi.Input[str] database_routing_type: Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventgrid_resource_id: The resource ID of the event grid that is subscribed to the storage account events.
-        :param pulumi.Input[str] eventhub_consumer_group_name: Specifies the Event Hub consumer group this data connection will use for
-               ingestion. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] eventhub_id: Specifies the resource id of the Event Hub this data connection will use for ingestion.
-               Changing this forces a new resource to be created.
+        :param pulumi.Input[str] eventhub_consumer_group_name: Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] eventhub_id: Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the Kusto Database should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_identity_resource_id: Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
         :param pulumi.Input[str] mapping_rule_name: Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
@@ -737,7 +727,7 @@ class EventGridDataConnection(pulumi.CustomResource):
         Kusto Event Grid Data Connections can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:kusto/eventGridDataConnection:EventGridDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1/Databases/database1/DataConnections/dataConnection1
+         $ pulumi import azure:kusto/eventGridDataConnection:EventGridDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/databases/database1/dataConnections/dataConnection1
         ```
 
         :param str resource_name: The name of the resource.
@@ -845,12 +835,10 @@ class EventGridDataConnection(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_name: Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] data_format: Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
         :param pulumi.Input[str] database_name: Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] database_routing_type: Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+        :param pulumi.Input[str] database_routing_type: Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventgrid_resource_id: The resource ID of the event grid that is subscribed to the storage account events.
-        :param pulumi.Input[str] eventhub_consumer_group_name: Specifies the Event Hub consumer group this data connection will use for
-               ingestion. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] eventhub_id: Specifies the resource id of the Event Hub this data connection will use for ingestion.
-               Changing this forces a new resource to be created.
+        :param pulumi.Input[str] eventhub_consumer_group_name: Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] eventhub_id: Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the Kusto Database should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_identity_resource_id: Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
         :param pulumi.Input[str] mapping_rule_name: Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
@@ -918,7 +906,7 @@ class EventGridDataConnection(pulumi.CustomResource):
     @pulumi.getter(name="databaseRoutingType")
     def database_routing_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+        Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "database_routing_type")
 
@@ -934,8 +922,7 @@ class EventGridDataConnection(pulumi.CustomResource):
     @pulumi.getter(name="eventhubConsumerGroupName")
     def eventhub_consumer_group_name(self) -> pulumi.Output[str]:
         """
-        Specifies the Event Hub consumer group this data connection will use for
-        ingestion. Changing this forces a new resource to be created.
+        Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "eventhub_consumer_group_name")
 
@@ -943,8 +930,7 @@ class EventGridDataConnection(pulumi.CustomResource):
     @pulumi.getter(name="eventhubId")
     def eventhub_id(self) -> pulumi.Output[str]:
         """
-        Specifies the resource id of the Event Hub this data connection will use for ingestion.
-        Changing this forces a new resource to be created.
+        Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "eventhub_id")
 

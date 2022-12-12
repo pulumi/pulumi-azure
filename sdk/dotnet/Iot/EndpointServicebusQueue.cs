@@ -76,10 +76,10 @@ namespace Pulumi.Azure.Iot
     /// 
     /// ## Import
     /// 
-    /// IoTHub ServiceBus Queue Endpoint can be imported using the `resource id`, e.g.
+    /// IoTHub ServiceBus Queue Endpoint can be imported using the `resource id`, e.g. g
     /// 
     /// ```sh
-    ///  $ pulumi import azure:iot/endpointServicebusQueue:EndpointServicebusQueue servicebus_queue1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/Endpoints/servicebusqueue_endpoint1
+    ///  $ pulumi import azure:iot/endpointServicebusQueue:EndpointServicebusQueue servicebus_queue1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/endpoints/servicebusqueue_endpoint1
     /// ```
     /// </summary>
     [AzureResourceType("azure:iot/endpointServicebusQueue:EndpointServicebusQueue")]
@@ -116,13 +116,13 @@ namespace Pulumi.Azure.Iot
         public Output<string?> IdentityId { get; private set; } = null!;
 
         /// <summary>
-        /// The IoTHub ID for the endpoint.
+        /// The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
         /// </summary>
         [Output("iothubId")]
         public Output<string> IothubId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+        /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -210,13 +210,13 @@ namespace Pulumi.Azure.Iot
         public Input<string>? IdentityId { get; set; }
 
         /// <summary>
-        /// The IoTHub ID for the endpoint.
+        /// The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
         /// </summary>
         [Input("iothubId", required: true)]
         public Input<string> IothubId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+        /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -266,13 +266,13 @@ namespace Pulumi.Azure.Iot
         public Input<string>? IdentityId { get; set; }
 
         /// <summary>
-        /// The IoTHub ID for the endpoint.
+        /// The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
         /// </summary>
         [Input("iothubId")]
         public Input<string>? IothubId { get; set; }
 
         /// <summary>
-        /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+        /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

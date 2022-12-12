@@ -14,14 +14,14 @@ public final class FunctionAppFunctionFileArgs extends com.pulumi.resources.Reso
     public static final FunctionAppFunctionFileArgs Empty = new FunctionAppFunctionFileArgs();
 
     /**
-     * The content of the file.
+     * The content of the file. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="content", required=true)
     private Output<String> content;
 
     /**
-     * @return The content of the file.
+     * @return The content of the file. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> content() {
@@ -29,14 +29,14 @@ public final class FunctionAppFunctionFileArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The filename of the file to be uploaded.
+     * The filename of the file to be uploaded. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The filename of the file to be uploaded.
+     * @return The filename of the file to be uploaded. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -69,7 +69,7 @@ public final class FunctionAppFunctionFileArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param content The content of the file.
+         * @param content The content of the file. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class FunctionAppFunctionFileArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param content The content of the file.
+         * @param content The content of the file. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class FunctionAppFunctionFileArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name The filename of the file to be uploaded.
+         * @param name The filename of the file to be uploaded. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class FunctionAppFunctionFileArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name The filename of the file to be uploaded.
+         * @param name The filename of the file to be uploaded. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

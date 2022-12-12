@@ -46,14 +46,14 @@ public final class VirtualMachineOsProfileArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Specifies the name of the Virtual Machine.
+     * Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="computerName", required=true)
     private Output<String> computerName;
 
     /**
-     * @return Specifies the name of the Virtual Machine.
+     * @return Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> computerName() {
@@ -61,14 +61,14 @@ public final class VirtualMachineOsProfileArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
+     * Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="customData")
     private @Nullable Output<String> customData;
 
     /**
-     * @return Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
+     * @return Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> customData() {
@@ -145,7 +145,7 @@ public final class VirtualMachineOsProfileArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param computerName Specifies the name of the Virtual Machine.
+         * @param computerName Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class VirtualMachineOsProfileArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param computerName Specifies the name of the Virtual Machine.
+         * @param computerName Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class VirtualMachineOsProfileArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param customData Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
+         * @param customData Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class VirtualMachineOsProfileArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param customData Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
+         * @param customData Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

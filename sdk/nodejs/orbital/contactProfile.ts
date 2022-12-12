@@ -112,7 +112,7 @@ export class ContactProfile extends pulumi.CustomResource {
      */
     public readonly links!: pulumi.Output<outputs.orbital.ContactProfileLink[]>;
     /**
-     * The location where the contact profile exists.
+     * The location where the contact profile exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -128,11 +128,11 @@ export class ContactProfile extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
+     * ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
      */
     public readonly networkConfigurationSubnetId!: pulumi.Output<string>;
     /**
-     * The name of the Resource Group where the contact profile exists.
+     * The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -210,7 +210,7 @@ export interface ContactProfileState {
      */
     links?: pulumi.Input<pulumi.Input<inputs.orbital.ContactProfileLink>[]>;
     /**
-     * The location where the contact profile exists.
+     * The location where the contact profile exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -226,11 +226,11 @@ export interface ContactProfileState {
      */
     name?: pulumi.Input<string>;
     /**
-     * ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
+     * ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
      */
     networkConfigurationSubnetId?: pulumi.Input<string>;
     /**
-     * The name of the Resource Group where the contact profile exists.
+     * The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -253,7 +253,7 @@ export interface ContactProfileArgs {
      */
     links: pulumi.Input<pulumi.Input<inputs.orbital.ContactProfileLink>[]>;
     /**
-     * The location where the contact profile exists.
+     * The location where the contact profile exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -269,11 +269,11 @@ export interface ContactProfileArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
+     * ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
      */
     networkConfigurationSubnetId: pulumi.Input<string>;
     /**
-     * The name of the Resource Group where the contact profile exists.
+     * The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

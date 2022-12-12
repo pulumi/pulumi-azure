@@ -200,11 +200,11 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
+     * Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
+     * A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
      */
     public readonly osType!: pulumi.Output<string | undefined>;
     /**
@@ -216,7 +216,7 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     public /*out*/ readonly possibleOutboundIpAddresses!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to create the Function App.
+     * The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -236,7 +236,7 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     public readonly storageAccountAccessKey!: pulumi.Output<string>;
     /**
-     * The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+     * The backend storage account name which will be used by this Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
      */
     public readonly storageAccountName!: pulumi.Output<string>;
     /**
@@ -400,11 +400,11 @@ export interface FunctionAppState {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
+     * Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
      */
     name?: pulumi.Input<string>;
     /**
-     * A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
+     * A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
      */
     osType?: pulumi.Input<string>;
     /**
@@ -416,7 +416,7 @@ export interface FunctionAppState {
      */
     possibleOutboundIpAddresses?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the Function App.
+     * The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -436,7 +436,7 @@ export interface FunctionAppState {
      */
     storageAccountAccessKey?: pulumi.Input<string>;
     /**
-     * The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+     * The backend storage account name which will be used by this Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
      */
     storageAccountName?: pulumi.Input<string>;
     /**
@@ -502,15 +502,15 @@ export interface FunctionAppArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
+     * Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
      */
     name?: pulumi.Input<string>;
     /**
-     * A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
+     * A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
      */
     osType?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the Function App.
+     * The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -526,7 +526,7 @@ export interface FunctionAppArgs {
      */
     storageAccountAccessKey: pulumi.Input<string>;
     /**
-     * The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+     * The backend storage account name which will be used by this Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
      */
     storageAccountName: pulumi.Input<string>;
     /**

@@ -77,34 +77,27 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
     }
 
     /**
-     * Controls if forwarded traffic from  VMs
-     * in the remote virtual network is allowed. Defaults to false.
+     * Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to false.
      */
     public readonly allowForwardedTraffic!: pulumi.Output<boolean>;
     /**
-     * Controls gatewayLinks can be used in the
-     * remote virtual network’s link to the local virtual network.
+     * Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
      */
     public readonly allowGatewayTransit!: pulumi.Output<boolean>;
     /**
-     * Controls if the VMs in the remote
-     * virtual network can access VMs in the local virtual network. Defaults to
-     * true.
+     * Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to true.
      */
     public readonly allowVirtualNetworkAccess!: pulumi.Output<boolean | undefined>;
     /**
-     * The name of the virtual network peering. Changing this
-     * forces a new resource to be created.
+     * The name of the virtual network peering. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The full Azure resource ID of the
-     * remote virtual network.  Changing this forces a new resource to be created.
+     * The full Azure resource ID of the remote virtual network.  Changing this forces a new resource to be created.
      */
     public readonly remoteVirtualNetworkId!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to
-     * create the virtual network peering. Changing this forces a new resource to be
+     * The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be
      * created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -118,8 +111,7 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
      */
     public readonly useRemoteGateways!: pulumi.Output<boolean>;
     /**
-     * The name of the virtual network. Changing
-     * this forces a new resource to be created.
+     * The name of the virtual network. Changing this forces a new resource to be created.
      */
     public readonly virtualNetworkName!: pulumi.Output<string>;
 
@@ -174,34 +166,27 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
  */
 export interface VirtualNetworkPeeringState {
     /**
-     * Controls if forwarded traffic from  VMs
-     * in the remote virtual network is allowed. Defaults to false.
+     * Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to false.
      */
     allowForwardedTraffic?: pulumi.Input<boolean>;
     /**
-     * Controls gatewayLinks can be used in the
-     * remote virtual network’s link to the local virtual network.
+     * Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
      */
     allowGatewayTransit?: pulumi.Input<boolean>;
     /**
-     * Controls if the VMs in the remote
-     * virtual network can access VMs in the local virtual network. Defaults to
-     * true.
+     * Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to true.
      */
     allowVirtualNetworkAccess?: pulumi.Input<boolean>;
     /**
-     * The name of the virtual network peering. Changing this
-     * forces a new resource to be created.
+     * The name of the virtual network peering. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The full Azure resource ID of the
-     * remote virtual network.  Changing this forces a new resource to be created.
+     * The full Azure resource ID of the remote virtual network.  Changing this forces a new resource to be created.
      */
     remoteVirtualNetworkId?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to
-     * create the virtual network peering. Changing this forces a new resource to be
+     * The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be
      * created.
      */
     resourceGroupName?: pulumi.Input<string>;
@@ -215,8 +200,7 @@ export interface VirtualNetworkPeeringState {
      */
     useRemoteGateways?: pulumi.Input<boolean>;
     /**
-     * The name of the virtual network. Changing
-     * this forces a new resource to be created.
+     * The name of the virtual network. Changing this forces a new resource to be created.
      */
     virtualNetworkName?: pulumi.Input<string>;
 }
@@ -226,34 +210,27 @@ export interface VirtualNetworkPeeringState {
  */
 export interface VirtualNetworkPeeringArgs {
     /**
-     * Controls if forwarded traffic from  VMs
-     * in the remote virtual network is allowed. Defaults to false.
+     * Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to false.
      */
     allowForwardedTraffic?: pulumi.Input<boolean>;
     /**
-     * Controls gatewayLinks can be used in the
-     * remote virtual network’s link to the local virtual network.
+     * Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
      */
     allowGatewayTransit?: pulumi.Input<boolean>;
     /**
-     * Controls if the VMs in the remote
-     * virtual network can access VMs in the local virtual network. Defaults to
-     * true.
+     * Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to true.
      */
     allowVirtualNetworkAccess?: pulumi.Input<boolean>;
     /**
-     * The name of the virtual network peering. Changing this
-     * forces a new resource to be created.
+     * The name of the virtual network peering. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The full Azure resource ID of the
-     * remote virtual network.  Changing this forces a new resource to be created.
+     * The full Azure resource ID of the remote virtual network.  Changing this forces a new resource to be created.
      */
     remoteVirtualNetworkId: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to
-     * create the virtual network peering. Changing this forces a new resource to be
+     * The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be
      * created.
      */
     resourceGroupName: pulumi.Input<string>;
@@ -267,8 +244,7 @@ export interface VirtualNetworkPeeringArgs {
      */
     useRemoteGateways?: pulumi.Input<boolean>;
     /**
-     * The name of the virtual network. Changing
-     * this forces a new resource to be created.
+     * The name of the virtual network. Changing this forces a new resource to be created.
      */
     virtualNetworkName: pulumi.Input<string>;
 }

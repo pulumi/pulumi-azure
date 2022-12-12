@@ -22,7 +22,7 @@ class GetKubernetesClusterResult:
     """
     A collection of values returned by getKubernetesCluster.
     """
-    def __init__(__self__, aci_connector_linuxes=None, agent_pool_profiles=None, api_server_authorized_ip_ranges=None, azure_active_directory_role_based_access_controls=None, azure_policy_enabled=None, disk_encryption_set_id=None, dns_prefix=None, fqdn=None, http_application_routing_enabled=None, http_application_routing_zone_name=None, id=None, identities=None, ingress_application_gateways=None, key_vault_secrets_providers=None, kube_admin_config_raw=None, kube_admin_configs=None, kube_config_raw=None, kube_configs=None, kubelet_identities=None, kubernetes_version=None, linux_profiles=None, location=None, microsoft_defenders=None, name=None, network_profiles=None, node_resource_group=None, oidc_issuer_enabled=None, oidc_issuer_url=None, oms_agents=None, open_service_mesh_enabled=None, private_cluster_enabled=None, private_fqdn=None, resource_group_name=None, role_based_access_control_enabled=None, service_principals=None, tags=None, windows_profiles=None):
+    def __init__(__self__, aci_connector_linuxes=None, agent_pool_profiles=None, api_server_authorized_ip_ranges=None, azure_active_directory_role_based_access_controls=None, azure_policy_enabled=None, disk_encryption_set_id=None, dns_prefix=None, fqdn=None, http_application_routing_enabled=None, http_application_routing_zone_name=None, id=None, identities=None, ingress_application_gateways=None, key_vault_secrets_providers=None, kube_admin_config_raw=None, kube_admin_configs=None, kube_config_raw=None, kube_configs=None, kubelet_identities=None, kubernetes_version=None, linux_profiles=None, location=None, microsoft_defenders=None, name=None, network_profiles=None, node_resource_group=None, oidc_issuer_enabled=None, oidc_issuer_url=None, oms_agents=None, open_service_mesh_enabled=None, private_cluster_enabled=None, private_fqdn=None, resource_group_name=None, role_based_access_control_enabled=None, service_principals=None, storage_profiles=None, tags=None, windows_profiles=None):
         if aci_connector_linuxes and not isinstance(aci_connector_linuxes, list):
             raise TypeError("Expected argument 'aci_connector_linuxes' to be a list")
         pulumi.set(__self__, "aci_connector_linuxes", aci_connector_linuxes)
@@ -128,6 +128,9 @@ class GetKubernetesClusterResult:
         if service_principals and not isinstance(service_principals, list):
             raise TypeError("Expected argument 'service_principals' to be a list")
         pulumi.set(__self__, "service_principals", service_principals)
+        if storage_profiles and not isinstance(storage_profiles, list):
+            raise TypeError("Expected argument 'storage_profiles' to be a list")
+        pulumi.set(__self__, "storage_profiles", storage_profiles)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -400,7 +403,7 @@ class GetKubernetesClusterResult:
     @pulumi.getter(name="roleBasedAccessControlEnabled")
     def role_based_access_control_enabled(self) -> bool:
         """
-        Is Role Based Access Control enabled for this managed Kubernetes Cluster.
+        Is Role Based Access Control enabled for this managed Kubernetes Cluster?
         """
         return pulumi.get(self, "role_based_access_control_enabled")
 
@@ -411,6 +414,14 @@ class GetKubernetesClusterResult:
         A `service_principal` block as documented below.
         """
         return pulumi.get(self, "service_principals")
+
+    @property
+    @pulumi.getter(name="storageProfiles")
+    def storage_profiles(self) -> Sequence['outputs.GetKubernetesClusterStorageProfileResult']:
+        """
+        A `storage_profile` block as documented below.
+        """
+        return pulumi.get(self, "storage_profiles")
 
     @property
     @pulumi.getter
@@ -470,6 +481,7 @@ class AwaitableGetKubernetesClusterResult(GetKubernetesClusterResult):
             resource_group_name=self.resource_group_name,
             role_based_access_control_enabled=self.role_based_access_control_enabled,
             service_principals=self.service_principals,
+            storage_profiles=self.storage_profiles,
             tags=self.tags,
             windows_profiles=self.windows_profiles)
 
@@ -536,6 +548,7 @@ def get_kubernetes_cluster(name: Optional[str] = None,
         resource_group_name=__ret__.resource_group_name,
         role_based_access_control_enabled=__ret__.role_based_access_control_enabled,
         service_principals=__ret__.service_principals,
+        storage_profiles=__ret__.storage_profiles,
         tags=__ret__.tags,
         windows_profiles=__ret__.windows_profiles)
 

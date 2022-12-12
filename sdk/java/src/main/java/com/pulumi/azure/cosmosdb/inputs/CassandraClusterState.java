@@ -51,14 +51,14 @@ public final class CassandraClusterState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The initial admin password for this Cassandra Cluster.
+     * The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="defaultAdminPassword")
     private @Nullable Output<String> defaultAdminPassword;
 
     /**
-     * @return The initial admin password for this Cassandra Cluster.
+     * @return The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> defaultAdminPassword() {
@@ -320,7 +320,7 @@ public final class CassandraClusterState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param defaultAdminPassword The initial admin password for this Cassandra Cluster.
+         * @param defaultAdminPassword The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -331,7 +331,7 @@ public final class CassandraClusterState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param defaultAdminPassword The initial admin password for this Cassandra Cluster.
+         * @param defaultAdminPassword The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

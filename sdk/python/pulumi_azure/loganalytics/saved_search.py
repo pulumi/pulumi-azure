@@ -31,7 +31,7 @@ class SavedSearchArgs:
         :param pulumi.Input[str] function_alias: The function alias if the query serves as a function. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] function_parameters: The function parameters if the query serves as a function. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Saved Search. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Logs Analytics Saved Search.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Logs Analytics Saved Search. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "category", category)
         pulumi.set(__self__, "display_name", display_name)
@@ -134,7 +134,7 @@ class SavedSearchArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags which should be assigned to the Logs Analytics Saved Search.
+        A mapping of tags which should be assigned to the Logs Analytics Saved Search. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tags")
 
@@ -163,7 +163,7 @@ class _SavedSearchState:
         :param pulumi.Input[str] log_analytics_workspace_id: Specifies the ID of the Log Analytics Workspace that the Saved Search will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Saved Search. Changing this forces a new resource to be created.
         :param pulumi.Input[str] query: The query expression for the saved search. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Logs Analytics Saved Search.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Logs Analytics Saved Search. Changing this forces a new resource to be created.
         """
         if category is not None:
             pulumi.set(__self__, "category", category)
@@ -270,7 +270,7 @@ class _SavedSearchState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags which should be assigned to the Logs Analytics Saved Search.
+        A mapping of tags which should be assigned to the Logs Analytics Saved Search. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tags")
 
@@ -332,7 +332,7 @@ class SavedSearch(pulumi.CustomResource):
         :param pulumi.Input[str] log_analytics_workspace_id: Specifies the ID of the Log Analytics Workspace that the Saved Search will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Saved Search. Changing this forces a new resource to be created.
         :param pulumi.Input[str] query: The query expression for the saved search. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Logs Analytics Saved Search.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Logs Analytics Saved Search. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -450,7 +450,7 @@ class SavedSearch(pulumi.CustomResource):
         :param pulumi.Input[str] log_analytics_workspace_id: Specifies the ID of the Log Analytics Workspace that the Saved Search will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Saved Search. Changing this forces a new resource to be created.
         :param pulumi.Input[str] query: The query expression for the saved search. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Logs Analytics Saved Search.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Logs Analytics Saved Search. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -526,7 +526,7 @@ class SavedSearch(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A mapping of tags which should be assigned to the Logs Analytics Saved Search.
+        A mapping of tags which should be assigned to the Logs Analytics Saved Search. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tags")
 

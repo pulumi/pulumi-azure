@@ -139,7 +139,7 @@ type Assignment struct {
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// An `identity` block as defined below.
 	Identity AssignmentIdentityOutput `pulumi:"identity"`
-	// The Azure location of the Assignment.
+	// The Azure location of the Assignment. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
 	LockExcludeActions pulumi.StringArrayOutput `pulumi:"lockExcludeActions"`
@@ -147,13 +147,13 @@ type Assignment struct {
 	LockExcludePrincipals pulumi.StringArrayOutput `pulumi:"lockExcludePrincipals"`
 	// The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`.
 	LockMode pulumi.StringPtrOutput `pulumi:"lockMode"`
-	// The name of the Blueprint Assignment
+	// The name of the Blueprint Assignment. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// a JSON string to supply Blueprint Assignment parameter values.
 	ParameterValues pulumi.StringPtrOutput `pulumi:"parameterValues"`
 	// a JSON string to supply the Blueprint Resource Group information.
 	ResourceGroups pulumi.StringPtrOutput `pulumi:"resourceGroups"`
-	// The Subscription ID the Blueprint Published Version is to be applied to.
+	// The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
 	TargetSubscriptionId pulumi.StringOutput `pulumi:"targetSubscriptionId"`
 	// Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -207,7 +207,7 @@ type assignmentState struct {
 	DisplayName *string `pulumi:"displayName"`
 	// An `identity` block as defined below.
 	Identity *AssignmentIdentity `pulumi:"identity"`
-	// The Azure location of the Assignment.
+	// The Azure location of the Assignment. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
 	LockExcludeActions []string `pulumi:"lockExcludeActions"`
@@ -215,13 +215,13 @@ type assignmentState struct {
 	LockExcludePrincipals []string `pulumi:"lockExcludePrincipals"`
 	// The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`.
 	LockMode *string `pulumi:"lockMode"`
-	// The name of the Blueprint Assignment
+	// The name of the Blueprint Assignment. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// a JSON string to supply Blueprint Assignment parameter values.
 	ParameterValues *string `pulumi:"parameterValues"`
 	// a JSON string to supply the Blueprint Resource Group information.
 	ResourceGroups *string `pulumi:"resourceGroups"`
-	// The Subscription ID the Blueprint Published Version is to be applied to.
+	// The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
 	TargetSubscriptionId *string `pulumi:"targetSubscriptionId"`
 	// Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
 	Type *string `pulumi:"type"`
@@ -238,7 +238,7 @@ type AssignmentState struct {
 	DisplayName pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity AssignmentIdentityPtrInput
-	// The Azure location of the Assignment.
+	// The Azure location of the Assignment. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
 	LockExcludeActions pulumi.StringArrayInput
@@ -246,13 +246,13 @@ type AssignmentState struct {
 	LockExcludePrincipals pulumi.StringArrayInput
 	// The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`.
 	LockMode pulumi.StringPtrInput
-	// The name of the Blueprint Assignment
+	// The name of the Blueprint Assignment. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// a JSON string to supply Blueprint Assignment parameter values.
 	ParameterValues pulumi.StringPtrInput
 	// a JSON string to supply the Blueprint Resource Group information.
 	ResourceGroups pulumi.StringPtrInput
-	// The Subscription ID the Blueprint Published Version is to be applied to.
+	// The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
 	TargetSubscriptionId pulumi.StringPtrInput
 	// Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
 	Type pulumi.StringPtrInput
@@ -267,7 +267,7 @@ func (AssignmentState) ElementType() reflect.Type {
 type assignmentArgs struct {
 	// An `identity` block as defined below.
 	Identity AssignmentIdentity `pulumi:"identity"`
-	// The Azure location of the Assignment.
+	// The Azure location of the Assignment. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
 	LockExcludeActions []string `pulumi:"lockExcludeActions"`
@@ -275,13 +275,13 @@ type assignmentArgs struct {
 	LockExcludePrincipals []string `pulumi:"lockExcludePrincipals"`
 	// The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`.
 	LockMode *string `pulumi:"lockMode"`
-	// The name of the Blueprint Assignment
+	// The name of the Blueprint Assignment. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// a JSON string to supply Blueprint Assignment parameter values.
 	ParameterValues *string `pulumi:"parameterValues"`
 	// a JSON string to supply the Blueprint Resource Group information.
 	ResourceGroups *string `pulumi:"resourceGroups"`
-	// The Subscription ID the Blueprint Published Version is to be applied to.
+	// The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
 	TargetSubscriptionId string `pulumi:"targetSubscriptionId"`
 	// The ID of the Published Version of the blueprint to be assigned.
 	VersionId string `pulumi:"versionId"`
@@ -291,7 +291,7 @@ type assignmentArgs struct {
 type AssignmentArgs struct {
 	// An `identity` block as defined below.
 	Identity AssignmentIdentityInput
-	// The Azure location of the Assignment.
+	// The Azure location of the Assignment. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
 	LockExcludeActions pulumi.StringArrayInput
@@ -299,13 +299,13 @@ type AssignmentArgs struct {
 	LockExcludePrincipals pulumi.StringArrayInput
 	// The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`.
 	LockMode pulumi.StringPtrInput
-	// The name of the Blueprint Assignment
+	// The name of the Blueprint Assignment. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// a JSON string to supply Blueprint Assignment parameter values.
 	ParameterValues pulumi.StringPtrInput
 	// a JSON string to supply the Blueprint Resource Group information.
 	ResourceGroups pulumi.StringPtrInput
-	// The Subscription ID the Blueprint Published Version is to be applied to.
+	// The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
 	TargetSubscriptionId pulumi.StringInput
 	// The ID of the Published Version of the blueprint to be assigned.
 	VersionId pulumi.StringInput
@@ -418,7 +418,7 @@ func (o AssignmentOutput) Identity() AssignmentIdentityOutput {
 	return o.ApplyT(func(v *Assignment) AssignmentIdentityOutput { return v.Identity }).(AssignmentIdentityOutput)
 }
 
-// The Azure location of the Assignment.
+// The Azure location of the Assignment. Changing this forces a new resource to be created.
 func (o AssignmentOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Assignment) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
@@ -438,7 +438,7 @@ func (o AssignmentOutput) LockMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Assignment) pulumi.StringPtrOutput { return v.LockMode }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Blueprint Assignment
+// The name of the Blueprint Assignment. Changing this forces a new resource to be created.
 func (o AssignmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Assignment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -453,7 +453,7 @@ func (o AssignmentOutput) ResourceGroups() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Assignment) pulumi.StringPtrOutput { return v.ResourceGroups }).(pulumi.StringPtrOutput)
 }
 
-// The Subscription ID the Blueprint Published Version is to be applied to.
+// The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
 func (o AssignmentOutput) TargetSubscriptionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Assignment) pulumi.StringOutput { return v.TargetSubscriptionId }).(pulumi.StringOutput)
 }

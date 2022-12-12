@@ -114,14 +114,14 @@ public class SqlPool extends com.pulumi.resources.CustomResource {
         return this.collation;
     }
     /**
-     * Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`.
+     * Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="createMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> createMode;
 
     /**
-     * @return Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`.
+     * @return Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> createMode() {

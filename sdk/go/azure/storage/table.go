@@ -69,10 +69,9 @@ type Table struct {
 
 	// One or more `acl` blocks as defined below.
 	Acls TableAclArrayOutput `pulumi:"acls"`
-	// The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located.
+	// The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the storage account in which to create the storage table.
-	// Changing this forces a new resource to be created.
+	// Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
 }
 
@@ -110,20 +109,18 @@ func GetTable(ctx *pulumi.Context,
 type tableState struct {
 	// One or more `acl` blocks as defined below.
 	Acls []TableAcl `pulumi:"acls"`
-	// The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located.
+	// The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the storage account in which to create the storage table.
-	// Changing this forces a new resource to be created.
+	// Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
 	StorageAccountName *string `pulumi:"storageAccountName"`
 }
 
 type TableState struct {
 	// One or more `acl` blocks as defined below.
 	Acls TableAclArrayInput
-	// The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located.
+	// The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the storage account in which to create the storage table.
-	// Changing this forces a new resource to be created.
+	// Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringPtrInput
 }
 
@@ -134,10 +131,9 @@ func (TableState) ElementType() reflect.Type {
 type tableArgs struct {
 	// One or more `acl` blocks as defined below.
 	Acls []TableAcl `pulumi:"acls"`
-	// The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located.
+	// The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the storage account in which to create the storage table.
-	// Changing this forces a new resource to be created.
+	// Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
 	StorageAccountName string `pulumi:"storageAccountName"`
 }
 
@@ -145,10 +141,9 @@ type tableArgs struct {
 type TableArgs struct {
 	// One or more `acl` blocks as defined below.
 	Acls TableAclArrayInput
-	// The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located.
+	// The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the storage account in which to create the storage table.
-	// Changing this forces a new resource to be created.
+	// Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringInput
 }
 
@@ -244,13 +239,12 @@ func (o TableOutput) Acls() TableAclArrayOutput {
 	return o.ApplyT(func(v *Table) TableAclArrayOutput { return v.Acls }).(TableAclArrayOutput)
 }
 
-// The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located.
+// The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
 func (o TableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the storage account in which to create the storage table.
-// Changing this forces a new resource to be created.
+// Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
 func (o TableOutput) StorageAccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.StorageAccountName }).(pulumi.StringOutput)
 }

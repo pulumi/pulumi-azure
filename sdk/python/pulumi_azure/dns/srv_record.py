@@ -28,7 +28,7 @@ class SrvRecordArgs:
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the DNS SRV Record.
+        :param pulumi.Input[str] name: The name of the DNS SRV Record. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "records", records)
@@ -92,7 +92,7 @@ class SrvRecordArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the DNS SRV Record.
+        The name of the DNS SRV Record. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -126,7 +126,7 @@ class _SrvRecordState:
         """
         Input properties used for looking up and filtering SrvRecord resources.
         :param pulumi.Input[str] fqdn: The FQDN of the DNS SRV Record.
-        :param pulumi.Input[str] name: The name of the DNS SRV Record.
+        :param pulumi.Input[str] name: The name of the DNS SRV Record. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['SrvRecordRecordArgs']]] records: A list of values that make up the SRV record. Each `record` block supports fields documented below.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -164,7 +164,7 @@ class _SrvRecordState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the DNS SRV Record.
+        The name of the DNS SRV Record. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -279,7 +279,7 @@ class SrvRecord(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the DNS SRV Record.
+        :param pulumi.Input[str] name: The name of the DNS SRV Record. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SrvRecordRecordArgs']]]] records: A list of values that make up the SRV record. Each `record` block supports fields documented below.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -394,7 +394,7 @@ class SrvRecord(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fqdn: The FQDN of the DNS SRV Record.
-        :param pulumi.Input[str] name: The name of the DNS SRV Record.
+        :param pulumi.Input[str] name: The name of the DNS SRV Record. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SrvRecordRecordArgs']]]] records: A list of values that make up the SRV record. Each `record` block supports fields documented below.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -426,7 +426,7 @@ class SrvRecord(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the DNS SRV Record.
+        The name of the DNS SRV Record. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

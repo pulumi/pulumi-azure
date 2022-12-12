@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Lb.Outputs
         /// </summary>
         public readonly ImmutableArray<string> LoadBalancerRules;
         /// <summary>
-        /// Specifies the name of the frontend IP configuration.
+        /// Specifies the name of the frontend IP configuration. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
         /// <summary>

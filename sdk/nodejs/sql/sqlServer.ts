@@ -95,11 +95,11 @@ export class SqlServer extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+     * The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to create the Microsoft SQL Server.
+     * The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -111,7 +111,7 @@ export class SqlServer extends pulumi.CustomResource {
      */
     public readonly threatDetectionPolicy!: pulumi.Output<outputs.sql.SqlServerThreatDetectionPolicy>;
     /**
-     * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+     * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
      */
     public readonly version!: pulumi.Output<string>;
 
@@ -199,11 +199,11 @@ export interface SqlServerState {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+     * The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the Microsoft SQL Server.
+     * The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -215,7 +215,7 @@ export interface SqlServerState {
      */
     threatDetectionPolicy?: pulumi.Input<inputs.sql.SqlServerThreatDetectionPolicy>;
     /**
-     * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+     * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
      */
     version?: pulumi.Input<string>;
 }
@@ -245,11 +245,11 @@ export interface SqlServerArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+     * The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the Microsoft SQL Server.
+     * The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -261,7 +261,7 @@ export interface SqlServerArgs {
      */
     threatDetectionPolicy?: pulumi.Input<inputs.sql.SqlServerThreatDetectionPolicy>;
     /**
-     * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+     * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
      */
     version: pulumi.Input<string>;
 }

@@ -164,7 +164,7 @@ export class AppService extends pulumi.CustomResource {
      */
     public /*out*/ readonly possibleOutboundIpAddresses!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to create the App Service.
+     * The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -358,7 +358,7 @@ export interface AppServiceState {
      */
     possibleOutboundIpAddresses?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the App Service.
+     * The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -448,7 +448,7 @@ export interface AppServiceArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the App Service.
+     * The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

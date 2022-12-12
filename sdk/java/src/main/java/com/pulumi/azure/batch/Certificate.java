@@ -188,14 +188,14 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * The thumbprint of the certificate. At this time the only supported value is &#39;SHA1&#39;.
+     * The thumbprint of the certificate. At this time the only supported value is &#39;SHA1&#39;. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="thumbprint", type=String.class, parameters={})
     private Output<String> thumbprint;
 
     /**
-     * @return The thumbprint of the certificate. At this time the only supported value is &#39;SHA1&#39;.
+     * @return The thumbprint of the certificate. At this time the only supported value is &#39;SHA1&#39;. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> thumbprint() {

@@ -100,13 +100,13 @@ namespace Pulumi.Azure.Network
         public Output<string> IpAddress { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of IP tags to assign to the public IP.
+        /// A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
         /// </summary>
         [Output("ipTags")]
         public Output<ImmutableDictionary<string, string>?> IpTags { get; private set; } = null!;
 
         /// <summary>
-        /// The IP Version to use, IPv6 or IPv4.
+        /// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
         /// </summary>
         [Output("ipVersion")]
         public Output<string?> IpVersion { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.Azure.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// If specified then public IP address allocated will be provided from the public IP prefix resource.
+        /// If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created.
         /// </summary>
         [Output("publicIpPrefixId")]
         public Output<string?> PublicIpPrefixId { get; private set; } = null!;
@@ -142,13 +142,13 @@ namespace Pulumi.Azure.Network
         public Output<string?> ReverseFqdn { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+        /// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("sku")]
         public Output<string?> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
+        /// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("skuTier")]
         public Output<string?> SkuTier { get; private set; } = null!;
@@ -160,7 +160,7 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A collection containing the availability zone to allocate the Public IP in.
+        /// A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
         /// </summary>
         [Output("zones")]
         public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
@@ -251,7 +251,7 @@ namespace Pulumi.Azure.Network
         private InputMap<string>? _ipTags;
 
         /// <summary>
-        /// A mapping of IP tags to assign to the public IP.
+        /// A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
         /// </summary>
         public InputMap<string> IpTags
         {
@@ -260,7 +260,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// The IP Version to use, IPv6 or IPv4.
+        /// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
         /// </summary>
         [Input("ipVersion")]
         public Input<string>? IpVersion { get; set; }
@@ -278,7 +278,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// If specified then public IP address allocated will be provided from the public IP prefix resource.
+        /// If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created.
         /// </summary>
         [Input("publicIpPrefixId")]
         public Input<string>? PublicIpPrefixId { get; set; }
@@ -296,13 +296,13 @@ namespace Pulumi.Azure.Network
         public Input<string>? ReverseFqdn { get; set; }
 
         /// <summary>
-        /// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+        /// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
 
         /// <summary>
-        /// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
+        /// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("skuTier")]
         public Input<string>? SkuTier { get; set; }
@@ -323,7 +323,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _zones;
 
         /// <summary>
-        /// A collection containing the availability zone to allocate the Public IP in.
+        /// A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> Zones
         {
@@ -391,7 +391,7 @@ namespace Pulumi.Azure.Network
         private InputMap<string>? _ipTags;
 
         /// <summary>
-        /// A mapping of IP tags to assign to the public IP.
+        /// A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
         /// </summary>
         public InputMap<string> IpTags
         {
@@ -400,7 +400,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// The IP Version to use, IPv6 or IPv4.
+        /// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
         /// </summary>
         [Input("ipVersion")]
         public Input<string>? IpVersion { get; set; }
@@ -418,7 +418,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// If specified then public IP address allocated will be provided from the public IP prefix resource.
+        /// If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created.
         /// </summary>
         [Input("publicIpPrefixId")]
         public Input<string>? PublicIpPrefixId { get; set; }
@@ -436,13 +436,13 @@ namespace Pulumi.Azure.Network
         public Input<string>? ReverseFqdn { get; set; }
 
         /// <summary>
-        /// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+        /// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
 
         /// <summary>
-        /// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
+        /// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("skuTier")]
         public Input<string>? SkuTier { get; set; }
@@ -463,7 +463,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _zones;
 
         /// <summary>
-        /// A collection containing the availability zone to allocate the Public IP in.
+        /// A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> Zones
         {

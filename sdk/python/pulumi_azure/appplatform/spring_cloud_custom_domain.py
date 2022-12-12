@@ -172,7 +172,7 @@ class SpringCloudCustomDomain(pulumi.CustomResource):
         Spring Cloud Custom Domain can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:appplatform/springCloudCustomDomain:SpringCloudCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.AppPlatform/Spring/spring1/apps/app1/domains/domain.com
+         $ pulumi import azure:appplatform/springCloudCustomDomain:SpringCloudCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.AppPlatform/spring/spring1/apps/app1/domains/domain.com
         ```
 
         :param str resource_name: The name of the resource.
@@ -196,7 +196,7 @@ class SpringCloudCustomDomain(pulumi.CustomResource):
         Spring Cloud Custom Domain can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:appplatform/springCloudCustomDomain:SpringCloudCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.AppPlatform/Spring/spring1/apps/app1/domains/domain.com
+         $ pulumi import azure:appplatform/springCloudCustomDomain:SpringCloudCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.AppPlatform/spring/spring1/apps/app1/domains/domain.com
         ```
 
         :param str resource_name: The name of the resource.

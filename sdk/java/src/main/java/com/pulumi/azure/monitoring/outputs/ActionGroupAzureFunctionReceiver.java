@@ -28,7 +28,7 @@ public final class ActionGroupAzureFunctionReceiver {
      */
     private String httpTriggerUrl;
     /**
-     * @return The name of the Azure Function receiver.
+     * @return The name of the Azure Function receiver. Changing this forces a new resource to be created.
      * 
      */
     private String name;
@@ -61,7 +61,7 @@ public final class ActionGroupAzureFunctionReceiver {
         return this.httpTriggerUrl;
     }
     /**
-     * @return The name of the Azure Function receiver.
+     * @return The name of the Azure Function receiver. Changing this forces a new resource to be created.
      * 
      */
     public String name() {

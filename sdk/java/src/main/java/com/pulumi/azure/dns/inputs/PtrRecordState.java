@@ -34,14 +34,14 @@ public final class PtrRecordState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the DNS PTR Record.
+     * The name of the DNS PTR Record. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the DNS PTR Record.
+     * @return The name of the DNS PTR Record. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -175,7 +175,7 @@ public final class PtrRecordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the DNS PTR Record.
+         * @param name The name of the DNS PTR Record. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class PtrRecordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the DNS PTR Record.
+         * @param name The name of the DNS PTR Record. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

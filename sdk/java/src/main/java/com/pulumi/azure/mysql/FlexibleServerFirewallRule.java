@@ -165,14 +165,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:mysql/flexibleServerFirewallRule:FlexibleServerFirewallRule")
 public class FlexibleServerFirewallRule extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+     * Specifies the End IP Address associated with this Firewall Rule.
      * 
      */
     @Export(name="endIpAddress", type=String.class, parameters={})
     private Output<String> endIpAddress;
 
     /**
-     * @return Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+     * @return Specifies the End IP Address associated with this Firewall Rule.
      * 
      */
     public Output<String> endIpAddress() {
@@ -221,14 +221,14 @@ public class FlexibleServerFirewallRule extends com.pulumi.resources.CustomResou
         return this.serverName;
     }
     /**
-     * Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+     * Specifies the Start IP Address associated with this Firewall Rule.
      * 
      */
     @Export(name="startIpAddress", type=String.class, parameters={})
     private Output<String> startIpAddress;
 
     /**
-     * @return Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+     * @return Specifies the Start IP Address associated with this Firewall Rule.
      * 
      */
     public Output<String> startIpAddress() {

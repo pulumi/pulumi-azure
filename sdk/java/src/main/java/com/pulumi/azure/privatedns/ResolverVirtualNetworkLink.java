@@ -161,14 +161,14 @@ public class ResolverVirtualNetworkLink extends com.pulumi.resources.CustomResou
         return this.name;
     }
     /**
-     * The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link.
+     * The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="virtualNetworkId", type=String.class, parameters={})
     private Output<String> virtualNetworkId;
 
     /**
-     * @return The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link.
+     * @return The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> virtualNetworkId() {

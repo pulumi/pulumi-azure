@@ -186,7 +186,7 @@ type ActionGroup struct {
 	LogicAppReceivers ActionGroupLogicAppReceiverArrayOutput `pulumi:"logicAppReceivers"`
 	// The name of the Action Group. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the resource group in which to create the Action Group instance.
+	// The name of the resource group in which to create the Action Group instance. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The short name of the action group. This will be used in SMS messages.
 	ShortName pulumi.StringOutput `pulumi:"shortName"`
@@ -255,7 +255,7 @@ type actionGroupState struct {
 	LogicAppReceivers []ActionGroupLogicAppReceiver `pulumi:"logicAppReceivers"`
 	// The name of the Action Group. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the Action Group instance.
+	// The name of the resource group in which to create the Action Group instance. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The short name of the action group. This will be used in SMS messages.
 	ShortName *string `pulumi:"shortName"`
@@ -290,7 +290,7 @@ type ActionGroupState struct {
 	LogicAppReceivers ActionGroupLogicAppReceiverArrayInput
 	// The name of the Action Group. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the Action Group instance.
+	// The name of the resource group in which to create the Action Group instance. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The short name of the action group. This will be used in SMS messages.
 	ShortName pulumi.StringPtrInput
@@ -329,7 +329,7 @@ type actionGroupArgs struct {
 	LogicAppReceivers []ActionGroupLogicAppReceiver `pulumi:"logicAppReceivers"`
 	// The name of the Action Group. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the Action Group instance.
+	// The name of the resource group in which to create the Action Group instance. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The short name of the action group. This will be used in SMS messages.
 	ShortName string `pulumi:"shortName"`
@@ -365,7 +365,7 @@ type ActionGroupArgs struct {
 	LogicAppReceivers ActionGroupLogicAppReceiverArrayInput
 	// The name of the Action Group. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the Action Group instance.
+	// The name of the resource group in which to create the Action Group instance. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The short name of the action group. This will be used in SMS messages.
 	ShortName pulumi.StringInput
@@ -518,7 +518,7 @@ func (o ActionGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the resource group in which to create the Action Group instance.
+// The name of the resource group in which to create the Action Group instance. Changing this forces a new resource to be created.
 func (o ActionGroupOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionGroup) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

@@ -23,11 +23,11 @@ class NamespaceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Namespace resource.
-        :param pulumi.Input[str] namespace_type: The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] namespace_type: The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku_name: The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku_name: The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
         :param pulumi.Input[bool] enabled: Is this Notification Hub Namespace enabled? Defaults to `true`.
-        :param pulumi.Input[str] location: The Azure Region in which this Notification Hub Namespace should be created.
+        :param pulumi.Input[str] location: The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -47,7 +47,7 @@ class NamespaceArgs:
     @pulumi.getter(name="namespaceType")
     def namespace_type(self) -> pulumi.Input[str]:
         """
-        The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
+        The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
         """
         return pulumi.get(self, "namespace_type")
 
@@ -71,7 +71,7 @@ class NamespaceArgs:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Input[str]:
         """
-        The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+        The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -95,7 +95,7 @@ class NamespaceArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The Azure Region in which this Notification Hub Namespace should be created.
+        The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -142,12 +142,12 @@ class _NamespaceState:
         """
         Input properties used for looking up and filtering Namespace resources.
         :param pulumi.Input[bool] enabled: Is this Notification Hub Namespace enabled? Defaults to `true`.
-        :param pulumi.Input[str] location: The Azure Region in which this Notification Hub Namespace should be created.
+        :param pulumi.Input[str] location: The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] namespace_type: The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] namespace_type: The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] servicebus_endpoint: The ServiceBus Endpoint for this Notification Hub Namespace.
-        :param pulumi.Input[str] sku_name: The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku_name: The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if enabled is not None:
@@ -183,7 +183,7 @@ class _NamespaceState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The Azure Region in which this Notification Hub Namespace should be created.
+        The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -207,7 +207,7 @@ class _NamespaceState:
     @pulumi.getter(name="namespaceType")
     def namespace_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
+        The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
         """
         return pulumi.get(self, "namespace_type")
 
@@ -243,7 +243,7 @@ class _NamespaceState:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+        The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -305,11 +305,11 @@ class Namespace(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Is this Notification Hub Namespace enabled? Defaults to `true`.
-        :param pulumi.Input[str] location: The Azure Region in which this Notification Hub Namespace should be created.
+        :param pulumi.Input[str] location: The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] namespace_type: The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] namespace_type: The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku_name: The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku_name: The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -414,12 +414,12 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Is this Notification Hub Namespace enabled? Defaults to `true`.
-        :param pulumi.Input[str] location: The Azure Region in which this Notification Hub Namespace should be created.
+        :param pulumi.Input[str] location: The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] namespace_type: The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] namespace_type: The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] servicebus_endpoint: The ServiceBus Endpoint for this Notification Hub Namespace.
-        :param pulumi.Input[str] sku_name: The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku_name: The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -448,7 +448,7 @@ class Namespace(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        The Azure Region in which this Notification Hub Namespace should be created.
+        The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -464,7 +464,7 @@ class Namespace(pulumi.CustomResource):
     @pulumi.getter(name="namespaceType")
     def namespace_type(self) -> pulumi.Output[str]:
         """
-        The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
+        The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
         """
         return pulumi.get(self, "namespace_type")
 
@@ -488,7 +488,7 @@ class Namespace(pulumi.CustomResource):
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Output[str]:
         """
-        The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+        The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
         """
         return pulumi.get(self, "sku_name")
 

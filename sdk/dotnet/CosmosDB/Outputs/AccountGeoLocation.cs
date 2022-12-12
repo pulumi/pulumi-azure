@@ -22,7 +22,7 @@ namespace Pulumi.Azure.CosmosDB.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// The name of the Azure region to host replicated data.
+        /// The name of the Azure region to host replicated data. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Location;
         /// <summary>

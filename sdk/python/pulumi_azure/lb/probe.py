@@ -19,15 +19,17 @@ class ProbeArgs:
                  interval_in_seconds: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  number_of_probes: Optional[pulumi.Input[int]] = None,
+                 probe_threshold: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  request_path: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Probe resource.
-        :param pulumi.Input[str] loadbalancer_id: The ID of the LoadBalancer in which to create the NAT Rule.
+        :param pulumi.Input[str] loadbalancer_id: The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[int] port: Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
         :param pulumi.Input[int] interval_in_seconds: The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
-        :param pulumi.Input[str] name: Specifies the name of the Probe.
+        :param pulumi.Input[str] name: Specifies the name of the Probe. Changing this forces a new resource to be created.
         :param pulumi.Input[int] number_of_probes: The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
+        :param pulumi.Input[int] probe_threshold: The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
         :param pulumi.Input[str] protocol: Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful.
         :param pulumi.Input[str] request_path: The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
         """
@@ -39,6 +41,8 @@ class ProbeArgs:
             pulumi.set(__self__, "name", name)
         if number_of_probes is not None:
             pulumi.set(__self__, "number_of_probes", number_of_probes)
+        if probe_threshold is not None:
+            pulumi.set(__self__, "probe_threshold", probe_threshold)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
         if request_path is not None:
@@ -48,7 +52,7 @@ class ProbeArgs:
     @pulumi.getter(name="loadbalancerId")
     def loadbalancer_id(self) -> pulumi.Input[str]:
         """
-        The ID of the LoadBalancer in which to create the NAT Rule.
+        The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "loadbalancer_id")
 
@@ -84,7 +88,7 @@ class ProbeArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Probe.
+        Specifies the name of the Probe. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -103,6 +107,18 @@ class ProbeArgs:
     @number_of_probes.setter
     def number_of_probes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "number_of_probes", value)
+
+    @property
+    @pulumi.getter(name="probeThreshold")
+    def probe_threshold(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
+        """
+        return pulumi.get(self, "probe_threshold")
+
+    @probe_threshold.setter
+    def probe_threshold(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "probe_threshold", value)
 
     @property
     @pulumi.getter
@@ -138,15 +154,17 @@ class _ProbeState:
                  name: Optional[pulumi.Input[str]] = None,
                  number_of_probes: Optional[pulumi.Input[int]] = None,
                  port: Optional[pulumi.Input[int]] = None,
+                 probe_threshold: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  request_path: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Probe resources.
         :param pulumi.Input[int] interval_in_seconds: The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
-        :param pulumi.Input[str] loadbalancer_id: The ID of the LoadBalancer in which to create the NAT Rule.
-        :param pulumi.Input[str] name: Specifies the name of the Probe.
+        :param pulumi.Input[str] loadbalancer_id: The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Probe. Changing this forces a new resource to be created.
         :param pulumi.Input[int] number_of_probes: The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
         :param pulumi.Input[int] port: Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
+        :param pulumi.Input[int] probe_threshold: The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
         :param pulumi.Input[str] protocol: Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful.
         :param pulumi.Input[str] request_path: The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
         """
@@ -162,6 +180,8 @@ class _ProbeState:
             pulumi.set(__self__, "number_of_probes", number_of_probes)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if probe_threshold is not None:
+            pulumi.set(__self__, "probe_threshold", probe_threshold)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
         if request_path is not None:
@@ -192,7 +212,7 @@ class _ProbeState:
     @pulumi.getter(name="loadbalancerId")
     def loadbalancer_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the LoadBalancer in which to create the NAT Rule.
+        The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "loadbalancer_id")
 
@@ -204,7 +224,7 @@ class _ProbeState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Probe.
+        Specifies the name of the Probe. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -235,6 +255,18 @@ class _ProbeState:
     @port.setter
     def port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="probeThreshold")
+    def probe_threshold(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
+        """
+        return pulumi.get(self, "probe_threshold")
+
+    @probe_threshold.setter
+    def probe_threshold(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "probe_threshold", value)
 
     @property
     @pulumi.getter
@@ -271,6 +303,7 @@ class Probe(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  number_of_probes: Optional[pulumi.Input[int]] = None,
                  port: Optional[pulumi.Input[int]] = None,
+                 probe_threshold: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  request_path: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -313,10 +346,11 @@ class Probe(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] interval_in_seconds: The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
-        :param pulumi.Input[str] loadbalancer_id: The ID of the LoadBalancer in which to create the NAT Rule.
-        :param pulumi.Input[str] name: Specifies the name of the Probe.
+        :param pulumi.Input[str] loadbalancer_id: The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Probe. Changing this forces a new resource to be created.
         :param pulumi.Input[int] number_of_probes: The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
         :param pulumi.Input[int] port: Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
+        :param pulumi.Input[int] probe_threshold: The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
         :param pulumi.Input[str] protocol: Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful.
         :param pulumi.Input[str] request_path: The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
         """
@@ -382,6 +416,7 @@ class Probe(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  number_of_probes: Optional[pulumi.Input[int]] = None,
                  port: Optional[pulumi.Input[int]] = None,
+                 probe_threshold: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  request_path: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -402,6 +437,7 @@ class Probe(pulumi.CustomResource):
             if port is None and not opts.urn:
                 raise TypeError("Missing required property 'port'")
             __props__.__dict__["port"] = port
+            __props__.__dict__["probe_threshold"] = probe_threshold
             __props__.__dict__["protocol"] = protocol
             __props__.__dict__["request_path"] = request_path
             __props__.__dict__["load_balancer_rules"] = None
@@ -421,6 +457,7 @@ class Probe(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             number_of_probes: Optional[pulumi.Input[int]] = None,
             port: Optional[pulumi.Input[int]] = None,
+            probe_threshold: Optional[pulumi.Input[int]] = None,
             protocol: Optional[pulumi.Input[str]] = None,
             request_path: Optional[pulumi.Input[str]] = None) -> 'Probe':
         """
@@ -431,10 +468,11 @@ class Probe(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] interval_in_seconds: The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
-        :param pulumi.Input[str] loadbalancer_id: The ID of the LoadBalancer in which to create the NAT Rule.
-        :param pulumi.Input[str] name: Specifies the name of the Probe.
+        :param pulumi.Input[str] loadbalancer_id: The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Probe. Changing this forces a new resource to be created.
         :param pulumi.Input[int] number_of_probes: The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
         :param pulumi.Input[int] port: Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
+        :param pulumi.Input[int] probe_threshold: The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
         :param pulumi.Input[str] protocol: Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful.
         :param pulumi.Input[str] request_path: The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
         """
@@ -448,6 +486,7 @@ class Probe(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["number_of_probes"] = number_of_probes
         __props__.__dict__["port"] = port
+        __props__.__dict__["probe_threshold"] = probe_threshold
         __props__.__dict__["protocol"] = protocol
         __props__.__dict__["request_path"] = request_path
         return Probe(resource_name, opts=opts, __props__=__props__)
@@ -469,7 +508,7 @@ class Probe(pulumi.CustomResource):
     @pulumi.getter(name="loadbalancerId")
     def loadbalancer_id(self) -> pulumi.Output[str]:
         """
-        The ID of the LoadBalancer in which to create the NAT Rule.
+        The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "loadbalancer_id")
 
@@ -477,7 +516,7 @@ class Probe(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the Probe.
+        Specifies the name of the Probe. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -496,6 +535,14 @@ class Probe(pulumi.CustomResource):
         Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
         """
         return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="probeThreshold")
+    def probe_threshold(self) -> pulumi.Output[Optional[int]]:
+        """
+        The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
+        """
+        return pulumi.get(self, "probe_threshold")
 
     @property
     @pulumi.getter

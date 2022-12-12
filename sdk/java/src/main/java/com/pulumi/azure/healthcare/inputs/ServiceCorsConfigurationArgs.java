@@ -19,14 +19,14 @@ public final class ServiceCorsConfigurationArgs extends com.pulumi.resources.Res
     public static final ServiceCorsConfigurationArgs Empty = new ServiceCorsConfigurationArgs();
 
     /**
-     * If credentials are allowed via CORS.
+     * (Boolean) If credentials are allowed via CORS.
      * 
      */
     @Import(name="allowCredentials")
     private @Nullable Output<Boolean> allowCredentials;
 
     /**
-     * @return If credentials are allowed via CORS.
+     * @return (Boolean) If credentials are allowed via CORS.
      * 
      */
     public Optional<Output<Boolean>> allowCredentials() {
@@ -122,7 +122,7 @@ public final class ServiceCorsConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param allowCredentials If credentials are allowed via CORS.
+         * @param allowCredentials (Boolean) If credentials are allowed via CORS.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class ServiceCorsConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param allowCredentials If credentials are allowed via CORS.
+         * @param allowCredentials (Boolean) If credentials are allowed via CORS.
          * 
          * @return builder
          * 

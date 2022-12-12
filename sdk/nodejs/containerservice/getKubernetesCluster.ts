@@ -181,13 +181,17 @@ export interface GetKubernetesClusterResult {
     readonly privateFqdn: string;
     readonly resourceGroupName: string;
     /**
-     * Is Role Based Access Control enabled for this managed Kubernetes Cluster.
+     * Is Role Based Access Control enabled for this managed Kubernetes Cluster?
      */
     readonly roleBasedAccessControlEnabled: boolean;
     /**
      * A `servicePrincipal` block as documented below.
      */
     readonly servicePrincipals: outputs.containerservice.GetKubernetesClusterServicePrincipal[];
+    /**
+     * A `storageProfile` block as documented below.
+     */
+    readonly storageProfiles: outputs.containerservice.GetKubernetesClusterStorageProfile[];
     /**
      * A mapping of tags to assign to the resource.
      */

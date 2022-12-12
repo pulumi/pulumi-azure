@@ -7,6 +7,188 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * Manages a Key Vault Certificate.
+ *
+ * ## Example Usage
+ * ### Importing A PFX)
+ *
+ * > **Note:** this example assumed the PFX file is located in the same directory at `certificate-to-import.pfx`.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as fs from "fs";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "premium",
+ *     accessPolicies: [{
+ *         tenantId: current.then(current => current.tenantId),
+ *         objectId: current.then(current => current.objectId),
+ *         certificatePermissions: [
+ *             "Create",
+ *             "Delete",
+ *             "DeleteIssuers",
+ *             "Get",
+ *             "GetIssuers",
+ *             "Import",
+ *             "List",
+ *             "ListIssuers",
+ *             "ManageContacts",
+ *             "ManageIssuers",
+ *             "SetIssuers",
+ *             "Update",
+ *         ],
+ *         keyPermissions: [
+ *             "Backup",
+ *             "Create",
+ *             "Decrypt",
+ *             "Delete",
+ *             "Encrypt",
+ *             "Get",
+ *             "Import",
+ *             "List",
+ *             "Purge",
+ *             "Recover",
+ *             "Restore",
+ *             "Sign",
+ *             "UnwrapKey",
+ *             "Update",
+ *             "Verify",
+ *             "WrapKey",
+ *         ],
+ *         secretPermissions: [
+ *             "Backup",
+ *             "Delete",
+ *             "Get",
+ *             "List",
+ *             "Purge",
+ *             "Recover",
+ *             "Restore",
+ *             "Set",
+ *         ],
+ *     }],
+ * });
+ * const exampleCertificate = new azure.keyvault.Certificate("exampleCertificate", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     certificate: {
+ *         contents: Buffer.from(fs.readFileSync("certificate-to-import.pfx"), 'binary').toString('base64'),
+ *         password: "",
+ *     },
+ * });
+ * ```
+ * ### Generating a new certificate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "standard",
+ *     softDeleteRetentionDays: 7,
+ *     accessPolicies: [{
+ *         tenantId: current.then(current => current.tenantId),
+ *         objectId: current.then(current => current.objectId),
+ *         certificatePermissions: [
+ *             "Create",
+ *             "Delete",
+ *             "DeleteIssuers",
+ *             "Get",
+ *             "GetIssuers",
+ *             "Import",
+ *             "List",
+ *             "ListIssuers",
+ *             "ManageContacts",
+ *             "ManageIssuers",
+ *             "Purge",
+ *             "SetIssuers",
+ *             "Update",
+ *         ],
+ *         keyPermissions: [
+ *             "Backup",
+ *             "Create",
+ *             "Decrypt",
+ *             "Delete",
+ *             "Encrypt",
+ *             "Get",
+ *             "Import",
+ *             "List",
+ *             "Purge",
+ *             "Recover",
+ *             "Restore",
+ *             "Sign",
+ *             "UnwrapKey",
+ *             "Update",
+ *             "Verify",
+ *             "WrapKey",
+ *         ],
+ *         secretPermissions: [
+ *             "Backup",
+ *             "Delete",
+ *             "Get",
+ *             "List",
+ *             "Purge",
+ *             "Recover",
+ *             "Restore",
+ *             "Set",
+ *         ],
+ *     }],
+ * });
+ * const exampleCertificate = new azure.keyvault.Certificate("exampleCertificate", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     certificatePolicy: {
+ *         issuerParameters: {
+ *             name: "Self",
+ *         },
+ *         keyProperties: {
+ *             exportable: true,
+ *             keySize: 2048,
+ *             keyType: "RSA",
+ *             reuseKey: true,
+ *         },
+ *         lifetimeActions: [{
+ *             action: {
+ *                 actionType: "AutoRenew",
+ *             },
+ *             trigger: {
+ *                 daysBeforeExpiry: 30,
+ *             },
+ *         }],
+ *         secretProperties: {
+ *             contentType: "application/x-pkcs12",
+ *         },
+ *         x509CertificateProperties: {
+ *             extendedKeyUsages: ["1.3.6.1.5.5.7.3.1"],
+ *             keyUsages: [
+ *                 "cRLSign",
+ *                 "dataEncipherment",
+ *                 "digitalSignature",
+ *                 "keyAgreement",
+ *                 "keyCertSign",
+ *                 "keyEncipherment",
+ *             ],
+ *             subjectAlternativeNames: {
+ *                 dnsNames: [
+ *                     "internal.contoso.com",
+ *                     "domain.hello.world",
+ *                 ],
+ *             },
+ *             subject: "CN=hello-world",
+ *             validityInMonths: 12,
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Key Vault Certificates can be imported using the `resource id`, e.g.
@@ -64,7 +246,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly certificatePolicy!: pulumi.Output<outputs.keyvault.CertificateCertificatePolicy>;
     /**
-     * The ID of the Key Vault where the Certificate should be created.
+     * The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
      */
     public readonly keyVaultId!: pulumi.Output<string>;
     /**
@@ -173,7 +355,7 @@ export interface CertificateState {
      */
     certificatePolicy?: pulumi.Input<inputs.keyvault.CertificateCertificatePolicy>;
     /**
-     * The ID of the Key Vault where the Certificate should be created.
+     * The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
      */
     keyVaultId?: pulumi.Input<string>;
     /**
@@ -219,7 +401,7 @@ export interface CertificateArgs {
      */
     certificatePolicy?: pulumi.Input<inputs.keyvault.CertificateCertificatePolicy>;
     /**
-     * The ID of the Key Vault where the Certificate should be created.
+     * The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
      */
     keyVaultId: pulumi.Input<string>;
     /**

@@ -31,7 +31,7 @@ class ElasticPoolArgs:
         """
         The set of arguments for constructing a ElasticPool resource.
         :param pulumi.Input['ElasticPoolPerDatabaseSettingsArgs'] per_database_settings: A `per_database_settings` block as defined below.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
         :param pulumi.Input['ElasticPoolSkuArgs'] sku: A `sku` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
@@ -80,7 +80,7 @@ class ElasticPoolArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+        The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -233,7 +233,7 @@ class _ElasticPoolState:
         :param pulumi.Input[float] max_size_gb: The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`.
         :param pulumi.Input[str] name: The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created.
         :param pulumi.Input['ElasticPoolPerDatabaseSettingsArgs'] per_database_settings: A `per_database_settings` block as defined below.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
         :param pulumi.Input['ElasticPoolSkuArgs'] sku: A `sku` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -352,7 +352,7 @@ class _ElasticPoolState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+        The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -478,7 +478,7 @@ class ElasticPool(pulumi.CustomResource):
         :param pulumi.Input[float] max_size_gb: The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`.
         :param pulumi.Input[str] name: The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ElasticPoolPerDatabaseSettingsArgs']] per_database_settings: A `per_database_settings` block as defined below.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ElasticPoolSkuArgs']] sku: A `sku` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -624,7 +624,7 @@ class ElasticPool(pulumi.CustomResource):
         :param pulumi.Input[float] max_size_gb: The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`.
         :param pulumi.Input[str] name: The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ElasticPoolPerDatabaseSettingsArgs']] per_database_settings: A `per_database_settings` block as defined below.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ElasticPoolSkuArgs']] sku: A `sku` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -708,7 +708,7 @@ class ElasticPool(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+        The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 

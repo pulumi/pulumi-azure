@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Network
         public Output<string> AuthorizationUseStatus { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Express Route Circuit in which to create the Authorization.
+        /// The name of the Express Route Circuit in which to create the Authorization. Changing this forces a new resource to be created.
         /// </summary>
         [Output("expressRouteCircuitName")]
         public Output<string> ExpressRouteCircuitName { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.Azure.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to
+        /// The name of the resource group in which to Changing this forces a new resource to be created.
         /// create the ExpressRoute circuit. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -144,7 +144,7 @@ namespace Pulumi.Azure.Network
     public sealed class ExpressRouteCircuitAuthorizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Express Route Circuit in which to create the Authorization.
+        /// The name of the Express Route Circuit in which to create the Authorization. Changing this forces a new resource to be created.
         /// </summary>
         [Input("expressRouteCircuitName", required: true)]
         public Input<string> ExpressRouteCircuitName { get; set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
+        /// The name of the resource group in which to Changing this forces a new resource to be created.
         /// create the ExpressRoute circuit. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -184,7 +184,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? AuthorizationUseStatus { get; set; }
 
         /// <summary>
-        /// The name of the Express Route Circuit in which to create the Authorization.
+        /// The name of the Express Route Circuit in which to create the Authorization. Changing this forces a new resource to be created.
         /// </summary>
         [Input("expressRouteCircuitName")]
         public Input<string>? ExpressRouteCircuitName { get; set; }
@@ -197,7 +197,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
+        /// The name of the resource group in which to Changing this forces a new resource to be created.
         /// create the ExpressRoute circuit. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]

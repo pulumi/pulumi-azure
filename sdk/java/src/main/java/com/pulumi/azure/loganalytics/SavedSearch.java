@@ -177,14 +177,14 @@ public class SavedSearch extends com.pulumi.resources.CustomResource {
         return this.query;
     }
     /**
-     * A mapping of tags which should be assigned to the Logs Analytics Saved Search.
+     * A mapping of tags which should be assigned to the Logs Analytics Saved Search. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags which should be assigned to the Logs Analytics Saved Search.
+     * @return A mapping of tags which should be assigned to the Logs Analytics Saved Search. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

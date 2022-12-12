@@ -102,7 +102,7 @@ export class SubscriptionCostManagementExport extends pulumi.CustomResource {
      */
     public readonly recurrenceType!: pulumi.Output<string>;
     /**
-     * The id of the subscription on which to create an export.
+     * The id of the subscription on which to create an export. Changing this forces a new resource to be created.
      */
     public readonly subscriptionId!: pulumi.Output<string>;
 
@@ -191,7 +191,7 @@ export interface SubscriptionCostManagementExportState {
      */
     recurrenceType?: pulumi.Input<string>;
     /**
-     * The id of the subscription on which to create an export.
+     * The id of the subscription on which to create an export. Changing this forces a new resource to be created.
      */
     subscriptionId?: pulumi.Input<string>;
 }
@@ -226,7 +226,7 @@ export interface SubscriptionCostManagementExportArgs {
      */
     recurrenceType: pulumi.Input<string>;
     /**
-     * The id of the subscription on which to create an export.
+     * The id of the subscription on which to create an export. Changing this forces a new resource to be created.
      */
     subscriptionId: pulumi.Input<string>;
 }

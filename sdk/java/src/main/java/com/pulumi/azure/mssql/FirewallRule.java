@@ -90,28 +90,28 @@ public class FirewallRule extends com.pulumi.resources.CustomResource {
         return this.endIpAddress;
     }
     /**
-     * The name of the firewall rule.
+     * The name of the firewall rule. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the firewall rule.
+     * @return The name of the firewall rule. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The resource ID of the SQL Server on which to create the Firewall Rule.
+     * The resource ID of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="serverId", type=String.class, parameters={})
     private Output<String> serverId;
 
     /**
-     * @return The resource ID of the SQL Server on which to create the Firewall Rule.
+     * @return The resource ID of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> serverId() {

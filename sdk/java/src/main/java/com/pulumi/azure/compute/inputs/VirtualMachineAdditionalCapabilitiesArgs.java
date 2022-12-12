@@ -14,14 +14,14 @@ public final class VirtualMachineAdditionalCapabilitiesArgs extends com.pulumi.r
     public static final VirtualMachineAdditionalCapabilitiesArgs Empty = new VirtualMachineAdditionalCapabilitiesArgs();
 
     /**
-     * Should Ultra SSD disk be enabled for this Virtual Machine?
+     * Should Ultra SSD disk be enabled for this Virtual Machine? Changing this forces a new resource to be created.
      * 
      */
     @Import(name="ultraSsdEnabled", required=true)
     private Output<Boolean> ultraSsdEnabled;
 
     /**
-     * @return Should Ultra SSD disk be enabled for this Virtual Machine?
+     * @return Should Ultra SSD disk be enabled for this Virtual Machine? Changing this forces a new resource to be created.
      * 
      */
     public Output<Boolean> ultraSsdEnabled() {
@@ -53,7 +53,7 @@ public final class VirtualMachineAdditionalCapabilitiesArgs extends com.pulumi.r
         }
 
         /**
-         * @param ultraSsdEnabled Should Ultra SSD disk be enabled for this Virtual Machine?
+         * @param ultraSsdEnabled Should Ultra SSD disk be enabled for this Virtual Machine? Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class VirtualMachineAdditionalCapabilitiesArgs extends com.pulumi.r
         }
 
         /**
-         * @param ultraSsdEnabled Should Ultra SSD disk be enabled for this Virtual Machine?
+         * @param ultraSsdEnabled Should Ultra SSD disk be enabled for this Virtual Machine? Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

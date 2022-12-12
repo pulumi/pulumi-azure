@@ -38,14 +38,14 @@ public final class AnalyticsSolutionPlanArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A promotion code to be used with the solution.
+     * A promotion code to be used with the solution. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="promotionCode")
     private @Nullable Output<String> promotionCode;
 
     /**
-     * @return A promotion code to be used with the solution.
+     * @return A promotion code to be used with the solution. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> promotionCode() {
@@ -125,7 +125,7 @@ public final class AnalyticsSolutionPlanArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param promotionCode A promotion code to be used with the solution.
+         * @param promotionCode A promotion code to be used with the solution. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class AnalyticsSolutionPlanArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param promotionCode A promotion code to be used with the solution.
+         * @param promotionCode A promotion code to be used with the solution. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

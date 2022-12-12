@@ -64,7 +64,7 @@ type Zone struct {
 	MaxNumberOfVirtualNetworkLinks pulumi.IntOutput `pulumi:"maxNumberOfVirtualNetworkLinks"`
 	// The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled.
 	MaxNumberOfVirtualNetworkLinksWithRegistration pulumi.IntOutput `pulumi:"maxNumberOfVirtualNetworkLinksWithRegistration"`
-	// The name of the Private DNS Zone. Must be a valid domain name.
+	// The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The current number of record sets in this Private DNS zone.
 	NumberOfRecordSets pulumi.IntOutput `pulumi:"numberOfRecordSets"`
@@ -114,7 +114,7 @@ type zoneState struct {
 	MaxNumberOfVirtualNetworkLinks *int `pulumi:"maxNumberOfVirtualNetworkLinks"`
 	// The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled.
 	MaxNumberOfVirtualNetworkLinksWithRegistration *int `pulumi:"maxNumberOfVirtualNetworkLinksWithRegistration"`
-	// The name of the Private DNS Zone. Must be a valid domain name.
+	// The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The current number of record sets in this Private DNS zone.
 	NumberOfRecordSets *int `pulumi:"numberOfRecordSets"`
@@ -133,7 +133,7 @@ type ZoneState struct {
 	MaxNumberOfVirtualNetworkLinks pulumi.IntPtrInput
 	// The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled.
 	MaxNumberOfVirtualNetworkLinksWithRegistration pulumi.IntPtrInput
-	// The name of the Private DNS Zone. Must be a valid domain name.
+	// The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The current number of record sets in this Private DNS zone.
 	NumberOfRecordSets pulumi.IntPtrInput
@@ -150,7 +150,7 @@ func (ZoneState) ElementType() reflect.Type {
 }
 
 type zoneArgs struct {
-	// The name of the Private DNS Zone. Must be a valid domain name.
+	// The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -162,7 +162,7 @@ type zoneArgs struct {
 
 // The set of arguments for constructing a Zone resource.
 type ZoneArgs struct {
-	// The name of the Private DNS Zone. Must be a valid domain name.
+	// The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -274,7 +274,7 @@ func (o ZoneOutput) MaxNumberOfVirtualNetworkLinksWithRegistration() pulumi.IntO
 	return o.ApplyT(func(v *Zone) pulumi.IntOutput { return v.MaxNumberOfVirtualNetworkLinksWithRegistration }).(pulumi.IntOutput)
 }
 
-// The name of the Private DNS Zone. Must be a valid domain name.
+// The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
 func (o ZoneOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Zone) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

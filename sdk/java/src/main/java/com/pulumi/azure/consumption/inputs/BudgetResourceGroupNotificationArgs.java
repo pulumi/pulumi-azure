@@ -109,14 +109,14 @@ public final class BudgetResourceGroupNotificationArgs extends com.pulumi.resour
     }
 
     /**
-     * The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
+     * The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="thresholdType")
     private @Nullable Output<String> thresholdType;
 
     /**
-     * @return The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
+     * @return The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> thresholdType() {
@@ -310,7 +310,7 @@ public final class BudgetResourceGroupNotificationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param thresholdType The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
+         * @param thresholdType The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class BudgetResourceGroupNotificationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param thresholdType The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
+         * @param thresholdType The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

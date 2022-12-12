@@ -448,7 +448,7 @@ class ElasticPoolSkuArgs:
                  family: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] capacity: The scale up/out capacity, representing server's compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
-        :param pulumi.Input[str] name: Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
+        :param pulumi.Input[str] name: Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tier: The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, or `Premium`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
         :param pulumi.Input[str] family: The `family` of hardware `Gen4`, `Gen5`, `Fsv2` or `DC`.
         """
@@ -474,7 +474,7 @@ class ElasticPoolSkuArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
+        Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -1241,17 +1241,21 @@ class VirtualMachineAutoBackupManualScheduleArgs:
                  full_backup_frequency: pulumi.Input[str],
                  full_backup_start_hour: pulumi.Input[int],
                  full_backup_window_in_hours: pulumi.Input[int],
-                 log_backup_frequency_in_minutes: pulumi.Input[int]):
+                 log_backup_frequency_in_minutes: pulumi.Input[int],
+                 days_of_weeks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] full_backup_frequency: Frequency of full backups. Valid values include `Daily` or `Weekly`.
         :param pulumi.Input[int] full_backup_start_hour: Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`.
         :param pulumi.Input[int] full_backup_window_in_hours: Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`.
         :param pulumi.Input[int] log_backup_frequency_in_minutes: Frequency of log backups, in minutes. Valid values are from `5` to `60`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] days_of_weeks: A list of days on which backup can take place. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`
         """
         pulumi.set(__self__, "full_backup_frequency", full_backup_frequency)
         pulumi.set(__self__, "full_backup_start_hour", full_backup_start_hour)
         pulumi.set(__self__, "full_backup_window_in_hours", full_backup_window_in_hours)
         pulumi.set(__self__, "log_backup_frequency_in_minutes", log_backup_frequency_in_minutes)
+        if days_of_weeks is not None:
+            pulumi.set(__self__, "days_of_weeks", days_of_weeks)
 
     @property
     @pulumi.getter(name="fullBackupFrequency")
@@ -1300,6 +1304,18 @@ class VirtualMachineAutoBackupManualScheduleArgs:
     @log_backup_frequency_in_minutes.setter
     def log_backup_frequency_in_minutes(self, value: pulumi.Input[int]):
         pulumi.set(self, "log_backup_frequency_in_minutes", value)
+
+    @property
+    @pulumi.getter(name="daysOfWeeks")
+    def days_of_weeks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of days on which backup can take place. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`
+        """
+        return pulumi.get(self, "days_of_weeks")
+
+    @days_of_weeks.setter
+    def days_of_weeks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "days_of_weeks", value)
 
 
 @pulumi.input_type

@@ -74,7 +74,7 @@ namespace Pulumi.Azure.Automation
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Must be the same location as the Automation Account.
+        /// Must be the same location as the Automation Account. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Must be the same location as the Automation Account.
+        /// Must be the same location as the Automation Account. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -233,7 +233,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Must be the same location as the Automation Account.
+        /// Must be the same location as the Automation Account. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

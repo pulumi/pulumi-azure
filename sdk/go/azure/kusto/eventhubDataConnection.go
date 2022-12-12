@@ -107,7 +107,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import azure:kusto/eventhubDataConnection:EventhubDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1/Databases/database1/DataConnections/eventHubConnection1
+//	$ pulumi import azure:kusto/eventhubDataConnection:EventhubDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/databases/database1/dataConnections/eventHubConnection1
 //
 // ```
 type EventhubDataConnection struct {
@@ -123,7 +123,7 @@ type EventhubDataConnection struct {
 	DataFormat pulumi.StringPtrOutput `pulumi:"dataFormat"`
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
-	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
 	DatabaseRoutingType pulumi.StringPtrOutput `pulumi:"databaseRoutingType"`
 	// Specifies a list of system properties for the Event Hub.
 	EventSystemProperties pulumi.StringArrayOutput `pulumi:"eventSystemProperties"`
@@ -197,7 +197,7 @@ type eventhubDataConnectionState struct {
 	DataFormat *string `pulumi:"dataFormat"`
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName *string `pulumi:"databaseName"`
-	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
 	DatabaseRoutingType *string `pulumi:"databaseRoutingType"`
 	// Specifies a list of system properties for the Event Hub.
 	EventSystemProperties []string `pulumi:"eventSystemProperties"`
@@ -228,7 +228,7 @@ type EventhubDataConnectionState struct {
 	DataFormat pulumi.StringPtrInput
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringPtrInput
-	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
 	DatabaseRoutingType pulumi.StringPtrInput
 	// Specifies a list of system properties for the Event Hub.
 	EventSystemProperties pulumi.StringArrayInput
@@ -263,7 +263,7 @@ type eventhubDataConnectionArgs struct {
 	DataFormat *string `pulumi:"dataFormat"`
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
-	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
 	DatabaseRoutingType *string `pulumi:"databaseRoutingType"`
 	// Specifies a list of system properties for the Event Hub.
 	EventSystemProperties []string `pulumi:"eventSystemProperties"`
@@ -295,7 +295,7 @@ type EventhubDataConnectionArgs struct {
 	DataFormat pulumi.StringPtrInput
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput
-	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
 	DatabaseRoutingType pulumi.StringPtrInput
 	// Specifies a list of system properties for the Event Hub.
 	EventSystemProperties pulumi.StringArrayInput
@@ -427,7 +427,7 @@ func (o EventhubDataConnectionOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventhubDataConnection) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
 func (o EventhubDataConnectionOutput) DatabaseRoutingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventhubDataConnection) pulumi.StringPtrOutput { return v.DatabaseRoutingType }).(pulumi.StringPtrOutput)
 }

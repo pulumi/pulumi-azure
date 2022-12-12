@@ -14,6 +14,10 @@ namespace Pulumi.Azure.MSSql.Outputs
     public sealed class VirtualMachineAutoBackupManualSchedule
     {
         /// <summary>
+        /// A list of days on which backup can take place. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`
+        /// </summary>
+        public readonly ImmutableArray<string> DaysOfWeeks;
+        /// <summary>
         /// Frequency of full backups. Valid values include `Daily` or `Weekly`.
         /// </summary>
         public readonly string FullBackupFrequency;
@@ -32,6 +36,8 @@ namespace Pulumi.Azure.MSSql.Outputs
 
         [OutputConstructor]
         private VirtualMachineAutoBackupManualSchedule(
+            ImmutableArray<string> daysOfWeeks,
+
             string fullBackupFrequency,
 
             int fullBackupStartHour,
@@ -40,6 +46,7 @@ namespace Pulumi.Azure.MSSql.Outputs
 
             int logBackupFrequencyInMinutes)
         {
+            DaysOfWeeks = daysOfWeeks;
             FullBackupFrequency = fullBackupFrequency;
             FullBackupStartHour = fullBackupStartHour;
             FullBackupWindowInHours = fullBackupWindowInHours;

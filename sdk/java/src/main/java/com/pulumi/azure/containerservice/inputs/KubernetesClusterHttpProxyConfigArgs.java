@@ -17,14 +17,14 @@ public final class KubernetesClusterHttpProxyConfigArgs extends com.pulumi.resou
     public static final KubernetesClusterHttpProxyConfigArgs Empty = new KubernetesClusterHttpProxyConfigArgs();
 
     /**
-     * The proxy address to be used when communicating over HTTP.
+     * The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="httpProxy")
     private @Nullable Output<String> httpProxy;
 
     /**
-     * @return The proxy address to be used when communicating over HTTP.
+     * @return The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> httpProxy() {
@@ -32,14 +32,14 @@ public final class KubernetesClusterHttpProxyConfigArgs extends com.pulumi.resou
     }
 
     /**
-     * The proxy address to be used when communicating over HTTPS.
+     * The proxy address to be used when communicating over HTTPS. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="httpsProxy")
     private @Nullable Output<String> httpsProxy;
 
     /**
-     * @return The proxy address to be used when communicating over HTTPS.
+     * @return The proxy address to be used when communicating over HTTPS. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> httpsProxy() {
@@ -47,14 +47,14 @@ public final class KubernetesClusterHttpProxyConfigArgs extends com.pulumi.resou
     }
 
     /**
-     * The list of domains that will not use the proxy for communication.
+     * The list of domains that will not use the proxy for communication. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="noProxies")
     private @Nullable Output<List<String>> noProxies;
 
     /**
-     * @return The list of domains that will not use the proxy for communication.
+     * @return The list of domains that will not use the proxy for communication. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<String>>> noProxies() {
@@ -104,7 +104,7 @@ public final class KubernetesClusterHttpProxyConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param httpProxy The proxy address to be used when communicating over HTTP.
+         * @param httpProxy The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class KubernetesClusterHttpProxyConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param httpProxy The proxy address to be used when communicating over HTTP.
+         * @param httpProxy The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class KubernetesClusterHttpProxyConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param httpsProxy The proxy address to be used when communicating over HTTPS.
+         * @param httpsProxy The proxy address to be used when communicating over HTTPS. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class KubernetesClusterHttpProxyConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param httpsProxy The proxy address to be used when communicating over HTTPS.
+         * @param httpsProxy The proxy address to be used when communicating over HTTPS. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class KubernetesClusterHttpProxyConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param noProxies The list of domains that will not use the proxy for communication.
+         * @param noProxies The list of domains that will not use the proxy for communication. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class KubernetesClusterHttpProxyConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param noProxies The list of domains that will not use the proxy for communication.
+         * @param noProxies The list of domains that will not use the proxy for communication. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class KubernetesClusterHttpProxyConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param noProxies The list of domains that will not use the proxy for communication.
+         * @param noProxies The list of domains that will not use the proxy for communication. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

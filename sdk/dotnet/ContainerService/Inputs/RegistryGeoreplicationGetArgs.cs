@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class RegistryGeoreplicationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A location where the container registry should be geo-replicated.
+        /// A location where the container registry should be geo-replicated. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         }
 
         /// <summary>
-        /// Whether zone redundancy is enabled for this replication location? Defaults to `false`.
+        /// Whether zone redundancy is enabled for this replication location? Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("zoneRedundancyEnabled")]
         public Input<bool>? ZoneRedundancyEnabled { get; set; }

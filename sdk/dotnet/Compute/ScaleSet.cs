@@ -185,7 +185,7 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.ScaleSetBootDiagnostics?> BootDiagnostics { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
+        /// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("evictionPolicy")]
         public Output<string?> EvictionPolicy { get; private set; } = null!;
@@ -266,7 +266,7 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.ScaleSetPlan?> Plan { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
+        /// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("priority")]
         public Output<string?> Priority { get; private set; } = null!;
@@ -332,7 +332,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> UpgradePolicyMode { get; private set; } = null!;
 
         /// <summary>
-        /// A collection of availability zones to spread the Virtual Machines over.
+        /// A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
         /// </summary>
         [Output("zones")]
         public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
@@ -396,7 +396,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.ScaleSetBootDiagnosticsArgs>? BootDiagnostics { get; set; }
 
         /// <summary>
-        /// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
+        /// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("evictionPolicy")]
         public Input<string>? EvictionPolicy { get; set; }
@@ -495,7 +495,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.ScaleSetPlanArgs>? Plan { get; set; }
 
         /// <summary>
-        /// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
+        /// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("priority")]
         public Input<string>? Priority { get; set; }
@@ -576,7 +576,7 @@ namespace Pulumi.Azure.Compute
         private InputList<string>? _zones;
 
         /// <summary>
-        /// A collection of availability zones to spread the Virtual Machines over.
+        /// A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> Zones
         {
@@ -605,7 +605,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.ScaleSetBootDiagnosticsGetArgs>? BootDiagnostics { get; set; }
 
         /// <summary>
-        /// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
+        /// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("evictionPolicy")]
         public Input<string>? EvictionPolicy { get; set; }
@@ -704,7 +704,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.ScaleSetPlanGetArgs>? Plan { get; set; }
 
         /// <summary>
-        /// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
+        /// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("priority")]
         public Input<string>? Priority { get; set; }
@@ -785,7 +785,7 @@ namespace Pulumi.Azure.Compute
         private InputList<string>? _zones;
 
         /// <summary>
-        /// A collection of availability zones to spread the Virtual Machines over.
+        /// A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> Zones
         {

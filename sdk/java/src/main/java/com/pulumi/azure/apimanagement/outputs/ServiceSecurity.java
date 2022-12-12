@@ -51,7 +51,15 @@ public final class ServiceSecurity {
      * 
      */
     private @Nullable Boolean tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled;
+    /**
+     * @return Should the `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+     * 
+     */
     private @Nullable Boolean tlsEcdheRsaWithAes128CbcShaCiphersEnabled;
+    /**
+     * @return Should the `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+     * 
+     */
     private @Nullable Boolean tlsEcdheRsaWithAes256CbcShaCiphersEnabled;
     /**
      * @return Should the `TLS_RSA_WITH_AES_128_CBC_SHA256` cipher be enabled? Defaults to `false`.
@@ -78,6 +86,11 @@ public final class ServiceSecurity {
      * 
      */
     private @Nullable Boolean tlsRsaWithAes256CbcShaCiphersEnabled;
+    /**
+     * @return Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean tlsRsaWithAes256GcmSha384CiphersEnabled;
     /**
      * @return Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
      * 
@@ -141,9 +154,17 @@ public final class ServiceSecurity {
     public Optional<Boolean> tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled() {
         return Optional.ofNullable(this.tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled);
     }
+    /**
+     * @return Should the `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+     * 
+     */
     public Optional<Boolean> tlsEcdheRsaWithAes128CbcShaCiphersEnabled() {
         return Optional.ofNullable(this.tlsEcdheRsaWithAes128CbcShaCiphersEnabled);
     }
+    /**
+     * @return Should the `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+     * 
+     */
     public Optional<Boolean> tlsEcdheRsaWithAes256CbcShaCiphersEnabled() {
         return Optional.ofNullable(this.tlsEcdheRsaWithAes256CbcShaCiphersEnabled);
     }
@@ -183,6 +204,13 @@ public final class ServiceSecurity {
         return Optional.ofNullable(this.tlsRsaWithAes256CbcShaCiphersEnabled);
     }
     /**
+     * @return Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> tlsRsaWithAes256GcmSha384CiphersEnabled() {
+        return Optional.ofNullable(this.tlsRsaWithAes256GcmSha384CiphersEnabled);
+    }
+    /**
      * @return Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
      * 
      */
@@ -214,6 +242,7 @@ public final class ServiceSecurity {
         private @Nullable Boolean tlsRsaWithAes128GcmSha256CiphersEnabled;
         private @Nullable Boolean tlsRsaWithAes256CbcSha256CiphersEnabled;
         private @Nullable Boolean tlsRsaWithAes256CbcShaCiphersEnabled;
+        private @Nullable Boolean tlsRsaWithAes256GcmSha384CiphersEnabled;
         private @Nullable Boolean tripleDesCiphersEnabled;
         public Builder() {}
         public Builder(ServiceSecurity defaults) {
@@ -233,6 +262,7 @@ public final class ServiceSecurity {
     	      this.tlsRsaWithAes128GcmSha256CiphersEnabled = defaults.tlsRsaWithAes128GcmSha256CiphersEnabled;
     	      this.tlsRsaWithAes256CbcSha256CiphersEnabled = defaults.tlsRsaWithAes256CbcSha256CiphersEnabled;
     	      this.tlsRsaWithAes256CbcShaCiphersEnabled = defaults.tlsRsaWithAes256CbcShaCiphersEnabled;
+    	      this.tlsRsaWithAes256GcmSha384CiphersEnabled = defaults.tlsRsaWithAes256GcmSha384CiphersEnabled;
     	      this.tripleDesCiphersEnabled = defaults.tripleDesCiphersEnabled;
         }
 
@@ -312,6 +342,11 @@ public final class ServiceSecurity {
             return this;
         }
         @CustomType.Setter
+        public Builder tlsRsaWithAes256GcmSha384CiphersEnabled(@Nullable Boolean tlsRsaWithAes256GcmSha384CiphersEnabled) {
+            this.tlsRsaWithAes256GcmSha384CiphersEnabled = tlsRsaWithAes256GcmSha384CiphersEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tripleDesCiphersEnabled(@Nullable Boolean tripleDesCiphersEnabled) {
             this.tripleDesCiphersEnabled = tripleDesCiphersEnabled;
             return this;
@@ -333,6 +368,7 @@ public final class ServiceSecurity {
             o.tlsRsaWithAes128GcmSha256CiphersEnabled = tlsRsaWithAes128GcmSha256CiphersEnabled;
             o.tlsRsaWithAes256CbcSha256CiphersEnabled = tlsRsaWithAes256CbcSha256CiphersEnabled;
             o.tlsRsaWithAes256CbcShaCiphersEnabled = tlsRsaWithAes256CbcShaCiphersEnabled;
+            o.tlsRsaWithAes256GcmSha384CiphersEnabled = tlsRsaWithAes256GcmSha384CiphersEnabled;
             o.tripleDesCiphersEnabled = tripleDesCiphersEnabled;
             return o;
         }

@@ -61,14 +61,14 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The identifier of the external Group. For example, an Azure Active Directory group `aad://&lt;tenant&gt;.onmicrosoft.com/groups/&lt;group object id&gt;`.
+     * The identifier of the external Group. For example, an Azure Active Directory group `aad://&lt;tenant&gt;.onmicrosoft.com/groups/&lt;group object id&gt;`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="externalId")
     private @Nullable Output<String> externalId;
 
     /**
-     * @return The identifier of the external Group. For example, an Azure Active Directory group `aad://&lt;tenant&gt;.onmicrosoft.com/groups/&lt;group object id&gt;`.
+     * @return The identifier of the external Group. For example, an Azure Active Directory group `aad://&lt;tenant&gt;.onmicrosoft.com/groups/&lt;group object id&gt;`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> externalId() {
@@ -106,14 +106,14 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`.
+     * The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`.
+     * @return The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> type() {
@@ -214,7 +214,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param externalId The identifier of the external Group. For example, an Azure Active Directory group `aad://&lt;tenant&gt;.onmicrosoft.com/groups/&lt;group object id&gt;`.
+         * @param externalId The identifier of the external Group. For example, an Azure Active Directory group `aad://&lt;tenant&gt;.onmicrosoft.com/groups/&lt;group object id&gt;`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param externalId The identifier of the external Group. For example, an Azure Active Directory group `aad://&lt;tenant&gt;.onmicrosoft.com/groups/&lt;group object id&gt;`.
+         * @param externalId The identifier of the external Group. For example, an Azure Active Directory group `aad://&lt;tenant&gt;.onmicrosoft.com/groups/&lt;group object id&gt;`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -277,7 +277,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`.
+         * @param type The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`.
+         * @param type The type of this API Management Group. Possible values are `custom`, `external` and `system`. Default is `custom`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

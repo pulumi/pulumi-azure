@@ -25,12 +25,12 @@ class CustomProviderArgs:
                  validations: Optional[pulumi.Input[Sequence[pulumi.Input['CustomProviderValidationArgs']]]] = None):
         """
         The set of arguments for constructing a CustomProvider resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Custom Provider.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['CustomProviderActionArgs']]] actions: Any number of `action` block as defined below. One of `resource_type` or `action` must be specified.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Custom Provider. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['CustomProviderResourceTypeArgs']]] resource_types: Any number of `resource_type` block as defined below. One of `resource_type` or `action` must be specified.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['CustomProviderValidationArgs']]] validations: Any number of `validation` block as defined below.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -51,7 +51,7 @@ class CustomProviderArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to create the Custom Provider.
+        The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -111,7 +111,7 @@ class CustomProviderArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags to assign to the resource.
+        A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tags")
 
@@ -147,9 +147,9 @@ class _CustomProviderState:
         :param pulumi.Input[Sequence[pulumi.Input['CustomProviderActionArgs']]] actions: Any number of `action` block as defined below. One of `resource_type` or `action` must be specified.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Custom Provider. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Custom Provider.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['CustomProviderResourceTypeArgs']]] resource_types: Any number of `resource_type` block as defined below. One of `resource_type` or `action` must be specified.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['CustomProviderValidationArgs']]] validations: Any number of `validation` block as defined below.
         """
         if actions is not None:
@@ -207,7 +207,7 @@ class _CustomProviderState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to create the Custom Provider.
+        The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -231,7 +231,7 @@ class _CustomProviderState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags to assign to the resource.
+        A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tags")
 
@@ -297,9 +297,9 @@ class CustomProvider(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomProviderActionArgs']]]] actions: Any number of `action` block as defined below. One of `resource_type` or `action` must be specified.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Custom Provider. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Custom Provider.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomProviderResourceTypeArgs']]]] resource_types: Any number of `resource_type` block as defined below. One of `resource_type` or `action` must be specified.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomProviderValidationArgs']]]] validations: Any number of `validation` block as defined below.
         """
         ...
@@ -402,9 +402,9 @@ class CustomProvider(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomProviderActionArgs']]]] actions: Any number of `action` block as defined below. One of `resource_type` or `action` must be specified.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Custom Provider. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Custom Provider.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomProviderResourceTypeArgs']]]] resource_types: Any number of `resource_type` block as defined below. One of `resource_type` or `action` must be specified.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomProviderValidationArgs']]]] validations: Any number of `validation` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -448,7 +448,7 @@ class CustomProvider(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to create the Custom Provider.
+        The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -464,7 +464,7 @@ class CustomProvider(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A mapping of tags to assign to the resource.
+        A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tags")
 

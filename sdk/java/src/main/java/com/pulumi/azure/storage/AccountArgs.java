@@ -45,14 +45,14 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+     * Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
      * 
      */
     @Import(name="accountKind")
     private @Nullable Output<String> accountKind;
 
     /**
-     * @return Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+     * @return Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
      * 
      */
     public Optional<Output<String>> accountKind() {
@@ -466,9 +466,17 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.sasPolicy);
     }
 
+    /**
+     * Boolean, enable SFTP for the storage account
+     * 
+     */
     @Import(name="sftpEnabled")
     private @Nullable Output<Boolean> sftpEnabled;
 
+    /**
+     * @return Boolean, enable SFTP for the storage account
+     * 
+     */
     public Optional<Output<Boolean>> sftpEnabled() {
         return Optional.ofNullable(this.sftpEnabled);
     }
@@ -628,7 +636,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountKind Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+         * @param accountKind Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
          * 
          * @return builder
          * 
@@ -639,7 +647,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountKind Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+         * @param accountKind Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
          * 
          * @return builder
          * 
@@ -1217,11 +1225,23 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
             return sasPolicy(Output.of(sasPolicy));
         }
 
+        /**
+         * @param sftpEnabled Boolean, enable SFTP for the storage account
+         * 
+         * @return builder
+         * 
+         */
         public Builder sftpEnabled(@Nullable Output<Boolean> sftpEnabled) {
             $.sftpEnabled = sftpEnabled;
             return this;
         }
 
+        /**
+         * @param sftpEnabled Boolean, enable SFTP for the storage account
+         * 
+         * @return builder
+         * 
+         */
         public Builder sftpEnabled(Boolean sftpEnabled) {
             return sftpEnabled(Output.of(sftpEnabled));
         }

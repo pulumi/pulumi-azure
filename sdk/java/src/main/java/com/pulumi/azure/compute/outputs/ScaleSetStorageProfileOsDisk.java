@@ -35,7 +35,7 @@ public final class ScaleSetStorageProfileOsDisk {
      */
     private @Nullable String managedDiskType;
     /**
-     * @return Specifies the disk name. Must be specified when using unmanaged disk (&#39;managed_disk_type&#39; property not set).
+     * @return Specifies the disk name. Must be specified when using unmanaged disk (&#39;managed_disk_type&#39; property not set). Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String name;
@@ -82,7 +82,7 @@ public final class ScaleSetStorageProfileOsDisk {
         return Optional.ofNullable(this.managedDiskType);
     }
     /**
-     * @return Specifies the disk name. Must be specified when using unmanaged disk (&#39;managed_disk_type&#39; property not set).
+     * @return Specifies the disk name. Must be specified when using unmanaged disk (&#39;managed_disk_type&#39; property not set). Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> name() {

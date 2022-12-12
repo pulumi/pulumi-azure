@@ -180,14 +180,14 @@ public class Cache extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identity);
     }
     /**
-     * The location of the resource group.
+     * The location of the resource group. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
-     * @return The location of the resource group.
+     * @return The location of the resource group. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> location() {
@@ -364,16 +364,14 @@ public class Cache extends com.pulumi.resources.CustomResource {
         return this.replicasPerPrimary;
     }
     /**
-     * The name of the resource group in which to
-     * create the Redis instance.
+     * The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to
-     * create the Redis instance.
+     * @return The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {

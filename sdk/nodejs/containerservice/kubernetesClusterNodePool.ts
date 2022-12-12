@@ -85,11 +85,15 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly capacityReservationGroupId!: pulumi.Output<string | undefined>;
     /**
+     * Specifies whether to trust a Custom CA. Defaults to `false`.
+     */
+    public readonly customCaTrustEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
      */
     public readonly enableAutoScaling!: pulumi.Output<boolean | undefined>;
     /**
-     * Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+     * Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
      */
     public readonly enableHostEncryption!: pulumi.Output<boolean | undefined>;
     /**
@@ -209,7 +213,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+     * Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
      */
     public readonly ultraSsdEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -221,7 +225,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly vmSize!: pulumi.Output<string>;
     /**
-     * The ID of the Subnet where this Node Pool should exist.
+     * The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
      */
     public readonly vnetSubnetId!: pulumi.Output<string | undefined>;
     /**
@@ -247,6 +251,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as KubernetesClusterNodePoolState | undefined;
             resourceInputs["capacityReservationGroupId"] = state ? state.capacityReservationGroupId : undefined;
+            resourceInputs["customCaTrustEnabled"] = state ? state.customCaTrustEnabled : undefined;
             resourceInputs["enableAutoScaling"] = state ? state.enableAutoScaling : undefined;
             resourceInputs["enableHostEncryption"] = state ? state.enableHostEncryption : undefined;
             resourceInputs["enableNodePublicIp"] = state ? state.enableNodePublicIp : undefined;
@@ -293,6 +298,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vmSize'");
             }
             resourceInputs["capacityReservationGroupId"] = args ? args.capacityReservationGroupId : undefined;
+            resourceInputs["customCaTrustEnabled"] = args ? args.customCaTrustEnabled : undefined;
             resourceInputs["enableAutoScaling"] = args ? args.enableAutoScaling : undefined;
             resourceInputs["enableHostEncryption"] = args ? args.enableHostEncryption : undefined;
             resourceInputs["enableNodePublicIp"] = args ? args.enableNodePublicIp : undefined;
@@ -345,11 +351,15 @@ export interface KubernetesClusterNodePoolState {
      */
     capacityReservationGroupId?: pulumi.Input<string>;
     /**
+     * Specifies whether to trust a Custom CA. Defaults to `false`.
+     */
+    customCaTrustEnabled?: pulumi.Input<boolean>;
+    /**
      * Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
      */
     enableAutoScaling?: pulumi.Input<boolean>;
     /**
-     * Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+     * Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
      */
     enableHostEncryption?: pulumi.Input<boolean>;
     /**
@@ -469,7 +479,7 @@ export interface KubernetesClusterNodePoolState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+     * Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
      */
     ultraSsdEnabled?: pulumi.Input<boolean>;
     /**
@@ -481,7 +491,7 @@ export interface KubernetesClusterNodePoolState {
      */
     vmSize?: pulumi.Input<string>;
     /**
-     * The ID of the Subnet where this Node Pool should exist.
+     * The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
      */
     vnetSubnetId?: pulumi.Input<string>;
     /**
@@ -503,11 +513,15 @@ export interface KubernetesClusterNodePoolArgs {
      */
     capacityReservationGroupId?: pulumi.Input<string>;
     /**
+     * Specifies whether to trust a Custom CA. Defaults to `false`.
+     */
+    customCaTrustEnabled?: pulumi.Input<boolean>;
+    /**
      * Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
      */
     enableAutoScaling?: pulumi.Input<boolean>;
     /**
-     * Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+     * Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
      */
     enableHostEncryption?: pulumi.Input<boolean>;
     /**
@@ -627,7 +641,7 @@ export interface KubernetesClusterNodePoolArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+     * Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
      */
     ultraSsdEnabled?: pulumi.Input<boolean>;
     /**
@@ -639,7 +653,7 @@ export interface KubernetesClusterNodePoolArgs {
      */
     vmSize: pulumi.Input<string>;
     /**
-     * The ID of the Subnet where this Node Pool should exist.
+     * The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
      */
     vnetSubnetId?: pulumi.Input<string>;
     /**

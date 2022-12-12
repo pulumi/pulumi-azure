@@ -258,7 +258,7 @@ type LoadBalancerFrontendIpConfiguration struct {
 	InboundNatRules []string `pulumi:"inboundNatRules"`
 	// The list of IDs of load balancing rules that use this frontend IP.
 	LoadBalancerRules []string `pulumi:"loadBalancerRules"`
-	// Specifies the name of the frontend IP configuration.
+	// Specifies the name of the frontend IP configuration. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// The list of IDs outbound rules that use this frontend IP.
 	OutboundRules []string `pulumi:"outboundRules"`
@@ -298,7 +298,7 @@ type LoadBalancerFrontendIpConfigurationArgs struct {
 	InboundNatRules pulumi.StringArrayInput `pulumi:"inboundNatRules"`
 	// The list of IDs of load balancing rules that use this frontend IP.
 	LoadBalancerRules pulumi.StringArrayInput `pulumi:"loadBalancerRules"`
-	// Specifies the name of the frontend IP configuration.
+	// Specifies the name of the frontend IP configuration. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The list of IDs outbound rules that use this frontend IP.
 	OutboundRules pulumi.StringArrayInput `pulumi:"outboundRules"`
@@ -391,7 +391,7 @@ func (o LoadBalancerFrontendIpConfigurationOutput) LoadBalancerRules() pulumi.St
 	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) []string { return v.LoadBalancerRules }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the name of the frontend IP configuration.
+// Specifies the name of the frontend IP configuration. Changing this forces a new resource to be created.
 func (o LoadBalancerFrontendIpConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }

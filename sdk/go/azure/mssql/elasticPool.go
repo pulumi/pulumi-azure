@@ -97,7 +97,7 @@ type ElasticPool struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `perDatabaseSettings` block as defined below.
 	PerDatabaseSettings ElasticPoolPerDatabaseSettingsOutput `pulumi:"perDatabaseSettings"`
-	// The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+	// The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
 	ServerName pulumi.StringOutput `pulumi:"serverName"`
@@ -164,7 +164,7 @@ type elasticPoolState struct {
 	Name *string `pulumi:"name"`
 	// A `perDatabaseSettings` block as defined below.
 	PerDatabaseSettings *ElasticPoolPerDatabaseSettings `pulumi:"perDatabaseSettings"`
-	// The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+	// The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
 	ServerName *string `pulumi:"serverName"`
@@ -191,7 +191,7 @@ type ElasticPoolState struct {
 	Name pulumi.StringPtrInput
 	// A `perDatabaseSettings` block as defined below.
 	PerDatabaseSettings ElasticPoolPerDatabaseSettingsPtrInput
-	// The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+	// The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
 	ServerName pulumi.StringPtrInput
@@ -222,7 +222,7 @@ type elasticPoolArgs struct {
 	Name *string `pulumi:"name"`
 	// A `perDatabaseSettings` block as defined below.
 	PerDatabaseSettings ElasticPoolPerDatabaseSettings `pulumi:"perDatabaseSettings"`
-	// The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+	// The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
 	ServerName string `pulumi:"serverName"`
@@ -250,7 +250,7 @@ type ElasticPoolArgs struct {
 	Name pulumi.StringPtrInput
 	// A `perDatabaseSettings` block as defined below.
 	PerDatabaseSettings ElasticPoolPerDatabaseSettingsInput
-	// The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+	// The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
 	ServerName pulumi.StringInput
@@ -384,7 +384,7 @@ func (o ElasticPoolOutput) PerDatabaseSettings() ElasticPoolPerDatabaseSettingsO
 	return o.ApplyT(func(v *ElasticPool) ElasticPoolPerDatabaseSettingsOutput { return v.PerDatabaseSettings }).(ElasticPoolPerDatabaseSettingsOutput)
 }
 
-// The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+// The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
 func (o ElasticPoolOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ElasticPool) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

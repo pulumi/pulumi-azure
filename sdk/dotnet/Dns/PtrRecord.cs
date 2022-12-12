@@ -61,7 +61,7 @@ namespace Pulumi.Azure.Dns
         public Output<string> Fqdn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the DNS PTR Record.
+        /// The name of the DNS PTR Record. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Azure.Dns
     public sealed class PtrRecordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the DNS PTR Record.
+        /// The name of the DNS PTR Record. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -205,7 +205,7 @@ namespace Pulumi.Azure.Dns
         public Input<string>? Fqdn { get; set; }
 
         /// <summary>
-        /// The name of the DNS PTR Record.
+        /// The name of the DNS PTR Record. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

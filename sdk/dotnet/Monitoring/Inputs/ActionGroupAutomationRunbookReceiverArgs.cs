@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<bool> IsGlobalRunbook { get; set; } = null!;
 
         /// <summary>
-        /// The name of the automation runbook receiver.
+        /// The name of the automation runbook receiver. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

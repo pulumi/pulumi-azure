@@ -23,7 +23,7 @@ class SecretArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Secret resource.
-        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Secret should be created.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] value: Specifies the value of the Key Vault Secret.
         :param pulumi.Input[str] content_type: Specifies the content type for the Key Vault Secret.
         :param pulumi.Input[str] expiration_date: Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
@@ -48,7 +48,7 @@ class SecretArgs:
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> pulumi.Input[str]:
         """
-        The ID of the Key Vault where the Secret should be created.
+        The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_vault_id")
 
@@ -147,7 +147,7 @@ class _SecretState:
         Input properties used for looking up and filtering Secret resources.
         :param pulumi.Input[str] content_type: Specifies the content type for the Key Vault Secret.
         :param pulumi.Input[str] expiration_date: Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
-        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Secret should be created.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
         :param pulumi.Input[str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
         :param pulumi.Input[str] resource_id: The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won't auto-rotate values if used in other Azure Services.
@@ -208,7 +208,7 @@ class _SecretState:
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Key Vault where the Secret should be created.
+        The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_vault_id")
 
@@ -375,7 +375,7 @@ class Secret(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content_type: Specifies the content type for the Key Vault Secret.
         :param pulumi.Input[str] expiration_date: Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
-        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Secret should be created.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
         :param pulumi.Input[str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -508,7 +508,7 @@ class Secret(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content_type: Specifies the content type for the Key Vault Secret.
         :param pulumi.Input[str] expiration_date: Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
-        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Secret should be created.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
         :param pulumi.Input[str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
         :param pulumi.Input[str] resource_id: The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won't auto-rotate values if used in other Azure Services.
@@ -555,7 +555,7 @@ class Secret(pulumi.CustomResource):
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> pulumi.Output[str]:
         """
-        The ID of the Key Vault where the Secret should be created.
+        The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_vault_id")
 

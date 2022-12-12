@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ActionGroupArmRoleReceiver {
     /**
-     * @return The name of the ARM role receiver.
+     * @return The name of the ARM role receiver. Changing this forces a new resource to be created.
      * 
      */
     private String name;
@@ -30,7 +30,7 @@ public final class ActionGroupArmRoleReceiver {
 
     private ActionGroupArmRoleReceiver() {}
     /**
-     * @return The name of the ARM role receiver.
+     * @return The name of the ARM role receiver. Changing this forces a new resource to be created.
      * 
      */
     public String name() {

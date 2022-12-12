@@ -16,14 +16,14 @@ public final class FirewallRuleArgs extends com.pulumi.resources.ResourceArgs {
     public static final FirewallRuleArgs Empty = new FirewallRuleArgs();
 
     /**
-     * Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+     * Specifies the End IP Address associated with this Firewall Rule.
      * 
      */
     @Import(name="endIpAddress", required=true)
     private Output<String> endIpAddress;
 
     /**
-     * @return Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+     * @return Specifies the End IP Address associated with this Firewall Rule.
      * 
      */
     public Output<String> endIpAddress() {
@@ -76,14 +76,14 @@ public final class FirewallRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+     * Specifies the Start IP Address associated with this Firewall Rule.
      * 
      */
     @Import(name="startIpAddress", required=true)
     private Output<String> startIpAddress;
 
     /**
-     * @return Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+     * @return Specifies the Start IP Address associated with this Firewall Rule.
      * 
      */
     public Output<String> startIpAddress() {
@@ -119,7 +119,7 @@ public final class FirewallRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endIpAddress Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+         * @param endIpAddress Specifies the End IP Address associated with this Firewall Rule.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class FirewallRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endIpAddress Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+         * @param endIpAddress Specifies the End IP Address associated with this Firewall Rule.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class FirewallRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param startIpAddress Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+         * @param startIpAddress Specifies the Start IP Address associated with this Firewall Rule.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class FirewallRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param startIpAddress Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+         * @param startIpAddress Specifies the Start IP Address associated with this Firewall Rule.
          * 
          * @return builder
          * 

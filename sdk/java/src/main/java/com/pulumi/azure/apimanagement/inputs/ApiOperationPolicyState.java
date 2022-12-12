@@ -46,14 +46,14 @@ public final class ApiOperationPolicyState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The operation identifier within an API. Must be unique in the current API Management service instance.
+     * The operation identifier within an API. Must be unique in the current API Management service instance. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="operationId")
     private @Nullable Output<String> operationId;
 
     /**
-     * @return The operation identifier within an API. Must be unique in the current API Management service instance.
+     * @return The operation identifier within an API. Must be unique in the current API Management service instance. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> operationId() {
@@ -177,7 +177,7 @@ public final class ApiOperationPolicyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param operationId The operation identifier within an API. Must be unique in the current API Management service instance.
+         * @param operationId The operation identifier within an API. Must be unique in the current API Management service instance. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class ApiOperationPolicyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param operationId The operation identifier within an API. Must be unique in the current API Management service instance.
+         * @param operationId The operation identifier within an API. Must be unique in the current API Management service instance. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

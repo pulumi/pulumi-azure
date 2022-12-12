@@ -92,7 +92,7 @@ export class DataLakeGen2Path extends pulumi.CustomResource {
      */
     public readonly path!: pulumi.Output<string>;
     /**
-     * Specifies the type for path to create. Currently only `directory` is supported.
+     * Specifies the type for path to create. Currently only `directory` is supported. Changing this forces a new resource to be created.
      */
     public readonly resource!: pulumi.Output<string>;
     /**
@@ -172,7 +172,7 @@ export interface DataLakeGen2PathState {
      */
     path?: pulumi.Input<string>;
     /**
-     * Specifies the type for path to create. Currently only `directory` is supported.
+     * Specifies the type for path to create. Currently only `directory` is supported. Changing this forces a new resource to be created.
      */
     resource?: pulumi.Input<string>;
     /**
@@ -206,7 +206,7 @@ export interface DataLakeGen2PathArgs {
      */
     path: pulumi.Input<string>;
     /**
-     * Specifies the type for path to create. Currently only `directory` is supported.
+     * Specifies the type for path to create. Currently only `directory` is supported. Changing this forces a new resource to be created.
      */
     resource: pulumi.Input<string>;
     /**

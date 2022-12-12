@@ -18,8 +18,8 @@ class WorkspaceApplicationGroupAssociationArgs:
                  workspace_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a WorkspaceApplicationGroupAssociation resource.
-        :param pulumi.Input[str] application_group_id: The resource ID for the Virtual Desktop Application Group.
-        :param pulumi.Input[str] workspace_id: The resource ID for the Virtual Desktop Workspace.
+        :param pulumi.Input[str] application_group_id: The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] workspace_id: The resource ID for the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "application_group_id", application_group_id)
         pulumi.set(__self__, "workspace_id", workspace_id)
@@ -28,7 +28,7 @@ class WorkspaceApplicationGroupAssociationArgs:
     @pulumi.getter(name="applicationGroupId")
     def application_group_id(self) -> pulumi.Input[str]:
         """
-        The resource ID for the Virtual Desktop Application Group.
+        The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "application_group_id")
 
@@ -40,7 +40,7 @@ class WorkspaceApplicationGroupAssociationArgs:
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Input[str]:
         """
-        The resource ID for the Virtual Desktop Workspace.
+        The resource ID for the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "workspace_id")
 
@@ -56,8 +56,8 @@ class _WorkspaceApplicationGroupAssociationState:
                  workspace_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceApplicationGroupAssociation resources.
-        :param pulumi.Input[str] application_group_id: The resource ID for the Virtual Desktop Application Group.
-        :param pulumi.Input[str] workspace_id: The resource ID for the Virtual Desktop Workspace.
+        :param pulumi.Input[str] application_group_id: The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] workspace_id: The resource ID for the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         """
         if application_group_id is not None:
             pulumi.set(__self__, "application_group_id", application_group_id)
@@ -68,7 +68,7 @@ class _WorkspaceApplicationGroupAssociationState:
     @pulumi.getter(name="applicationGroupId")
     def application_group_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The resource ID for the Virtual Desktop Application Group.
+        The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "application_group_id")
 
@@ -80,7 +80,7 @@ class _WorkspaceApplicationGroupAssociationState:
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The resource ID for the Virtual Desktop Workspace.
+        The resource ID for the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "workspace_id")
 
@@ -135,8 +135,8 @@ class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application_group_id: The resource ID for the Virtual Desktop Application Group.
-        :param pulumi.Input[str] workspace_id: The resource ID for the Virtual Desktop Workspace.
+        :param pulumi.Input[str] application_group_id: The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] workspace_id: The resource ID for the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -231,8 +231,8 @@ class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application_group_id: The resource ID for the Virtual Desktop Application Group.
-        :param pulumi.Input[str] workspace_id: The resource ID for the Virtual Desktop Workspace.
+        :param pulumi.Input[str] application_group_id: The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] workspace_id: The resource ID for the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -246,7 +246,7 @@ class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
     @pulumi.getter(name="applicationGroupId")
     def application_group_id(self) -> pulumi.Output[str]:
         """
-        The resource ID for the Virtual Desktop Application Group.
+        The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "application_group_id")
 
@@ -254,7 +254,7 @@ class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Output[str]:
         """
-        The resource ID for the Virtual Desktop Workspace.
+        The resource ID for the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "workspace_id")
 

@@ -126,14 +126,14 @@ public final class AutoscaleSettingArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies the resource ID of the resource that the autoscale setting should be added to.
+     * Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="targetResourceId", required=true)
     private Output<String> targetResourceId;
 
     /**
-     * @return Specifies the resource ID of the resource that the autoscale setting should be added to.
+     * @return Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> targetResourceId() {
@@ -329,7 +329,7 @@ public final class AutoscaleSettingArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param targetResourceId Specifies the resource ID of the resource that the autoscale setting should be added to.
+         * @param targetResourceId Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -340,7 +340,7 @@ public final class AutoscaleSettingArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param targetResourceId Specifies the resource ID of the resource that the autoscale setting should be added to.
+         * @param targetResourceId Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

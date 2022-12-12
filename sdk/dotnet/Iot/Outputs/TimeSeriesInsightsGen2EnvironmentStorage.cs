@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Iot.Outputs
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// Name of storage account for Azure IoT Time Series Insights Gen2 Environment
+        /// Name of storage account for Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
 

@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string>? ImageUri { get; set; }
 
         /// <summary>
-        /// Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `create_option` must be set to `Attach`.
+        /// Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `create_option` must be set to `Attach`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("managedDiskId")]
         public Input<string>? ManagedDiskId { get; set; }

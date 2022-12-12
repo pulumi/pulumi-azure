@@ -154,14 +154,14 @@ public final class CustomDatasetState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The type of dataset that will be associated with Data Factory.
+     * The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of dataset that will be associated with Data Factory.
+     * @return The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> type() {
@@ -417,7 +417,7 @@ public final class CustomDatasetState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param type The type of dataset that will be associated with Data Factory.
+         * @param type The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -428,7 +428,7 @@ public final class CustomDatasetState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param type The type of dataset that will be associated with Data Factory.
+         * @param type The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

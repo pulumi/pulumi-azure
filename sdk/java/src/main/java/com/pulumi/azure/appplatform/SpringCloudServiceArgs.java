@@ -141,14 +141,14 @@ public final class SpringCloudServiceArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
+     * Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="skuName")
     private @Nullable Output<String> skuName;
 
     /**
-     * @return Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
+     * @return Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> skuName() {
@@ -404,7 +404,7 @@ public final class SpringCloudServiceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param skuName Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
+         * @param skuName Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -415,7 +415,7 @@ public final class SpringCloudServiceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param skuName Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
+         * @param skuName Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

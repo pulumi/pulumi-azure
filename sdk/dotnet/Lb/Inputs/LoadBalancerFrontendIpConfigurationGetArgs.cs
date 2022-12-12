@@ -49,7 +49,7 @@ namespace Pulumi.Azure.Lb.Inputs
         }
 
         /// <summary>
-        /// Specifies the name of the frontend IP configuration.
+        /// Specifies the name of the frontend IP configuration. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

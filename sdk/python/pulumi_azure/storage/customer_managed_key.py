@@ -22,7 +22,7 @@ class CustomerManagedKeyArgs:
         """
         The set of arguments for constructing a CustomerManagedKey resource.
         :param pulumi.Input[str] key_name: The name of Key Vault Key.
-        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_version: The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
         :param pulumi.Input[str] user_assigned_identity_id: The ID of a user assigned identity.
@@ -51,7 +51,7 @@ class CustomerManagedKeyArgs:
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> pulumi.Input[str]:
         """
-        The ID of the Key Vault. Changing this forces a new resource to be created.
+        The ID of the Key Vault.
         """
         return pulumi.get(self, "key_vault_id")
 
@@ -107,7 +107,7 @@ class _CustomerManagedKeyState:
         """
         Input properties used for looking up and filtering CustomerManagedKey resources.
         :param pulumi.Input[str] key_name: The name of Key Vault Key.
-        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault.
         :param pulumi.Input[str] key_version: The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_assigned_identity_id: The ID of a user assigned identity.
@@ -139,7 +139,7 @@ class _CustomerManagedKeyState:
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Key Vault. Changing this forces a new resource to be created.
+        The ID of the Key Vault.
         """
         return pulumi.get(self, "key_vault_id")
 
@@ -294,7 +294,7 @@ class CustomerManagedKey(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key_name: The name of Key Vault Key.
-        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault.
         :param pulumi.Input[str] key_version: The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_assigned_identity_id: The ID of a user assigned identity.
@@ -464,7 +464,7 @@ class CustomerManagedKey(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key_name: The name of Key Vault Key.
-        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault.
         :param pulumi.Input[str] key_version: The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_assigned_identity_id: The ID of a user assigned identity.
@@ -492,7 +492,7 @@ class CustomerManagedKey(pulumi.CustomResource):
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> pulumi.Output[str]:
         """
-        The ID of the Key Vault. Changing this forces a new resource to be created.
+        The ID of the Key Vault.
         """
         return pulumi.get(self, "key_vault_id")
 

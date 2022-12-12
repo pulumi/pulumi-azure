@@ -168,6 +168,18 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether Image Cleaner is enabled.
+        /// </summary>
+        [Output("imageCleanerEnabled")]
+        public Output<bool?> ImageCleanerEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the interval in hours when images should be cleaned up.
+        /// </summary>
+        [Output("imageCleanerIntervalHours")]
+        public Output<int?> ImageCleanerIntervalHours { get; private set; } = null!;
+
+        /// <summary>
         /// A `ingress_application_gateway` block as defined below.
         /// </summary>
         [Output("ingressApplicationGateway")]
@@ -306,7 +318,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<bool?> PrivateClusterPublicFqdnEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
+        /// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
         /// </summary>
         [Output("privateDnsZoneId")]
         public Output<string> PrivateDnsZoneId { get; private set; } = null!;
@@ -349,6 +361,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Output("skuTier")]
         public Output<string?> SkuTier { get; private set; } = null!;
+
+        /// <summary>
+        /// A `storage_profile` block as defined below.
+        /// </summary>
+        [Output("storageProfile")]
+        public Output<Outputs.KubernetesClusterStorageProfile?> StorageProfile { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -520,6 +538,18 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterIdentityArgs>? Identity { get; set; }
 
         /// <summary>
+        /// Specifies whether Image Cleaner is enabled.
+        /// </summary>
+        [Input("imageCleanerEnabled")]
+        public Input<bool>? ImageCleanerEnabled { get; set; }
+
+        /// <summary>
+        /// Specifies the interval in hours when images should be cleaned up.
+        /// </summary>
+        [Input("imageCleanerIntervalHours")]
+        public Input<int>? ImageCleanerIntervalHours { get; set; }
+
+        /// <summary>
         /// A `ingress_application_gateway` block as defined below.
         /// </summary>
         [Input("ingressApplicationGateway")]
@@ -622,7 +652,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? PrivateClusterPublicFqdnEnabled { get; set; }
 
         /// <summary>
-        /// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
+        /// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
         /// </summary>
         [Input("privateDnsZoneId")]
         public Input<string>? PrivateDnsZoneId { get; set; }
@@ -659,6 +689,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("skuTier")]
         public Input<string>? SkuTier { get; set; }
+
+        /// <summary>
+        /// A `storage_profile` block as defined below.
+        /// </summary>
+        [Input("storageProfile")]
+        public Input<Inputs.KubernetesClusterStorageProfileArgs>? StorageProfile { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -808,6 +844,18 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("identity")]
         public Input<Inputs.KubernetesClusterIdentityGetArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// Specifies whether Image Cleaner is enabled.
+        /// </summary>
+        [Input("imageCleanerEnabled")]
+        public Input<bool>? ImageCleanerEnabled { get; set; }
+
+        /// <summary>
+        /// Specifies the interval in hours when images should be cleaned up.
+        /// </summary>
+        [Input("imageCleanerIntervalHours")]
+        public Input<int>? ImageCleanerIntervalHours { get; set; }
 
         /// <summary>
         /// A `ingress_application_gateway` block as defined below.
@@ -960,7 +1008,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? PrivateClusterPublicFqdnEnabled { get; set; }
 
         /// <summary>
-        /// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
+        /// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
         /// </summary>
         [Input("privateDnsZoneId")]
         public Input<string>? PrivateDnsZoneId { get; set; }
@@ -1003,6 +1051,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("skuTier")]
         public Input<string>? SkuTier { get; set; }
+
+        /// <summary>
+        /// A `storage_profile` block as defined below.
+        /// </summary>
+        [Input("storageProfile")]
+        public Input<Inputs.KubernetesClusterStorageProfileGetArgs>? StorageProfile { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

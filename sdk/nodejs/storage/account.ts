@@ -104,7 +104,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly accessTier!: pulumi.Output<string>;
     /**
-     * Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+     * Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
      */
     public readonly accountKind!: pulumi.Output<string | undefined>;
     /**
@@ -344,6 +344,9 @@ export class Account extends pulumi.CustomResource {
      * The hostname with port if applicable for web storage in the secondary location.
      */
     public /*out*/ readonly secondaryWebHost!: pulumi.Output<string>;
+    /**
+     * Boolean, enable SFTP for the storage account
+     */
     public readonly sftpEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * A `shareProperties` block as defined below.
@@ -539,7 +542,7 @@ export interface AccountState {
      */
     accessTier?: pulumi.Input<string>;
     /**
-     * Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+     * Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
      */
     accountKind?: pulumi.Input<string>;
     /**
@@ -779,6 +782,9 @@ export interface AccountState {
      * The hostname with port if applicable for web storage in the secondary location.
      */
     secondaryWebHost?: pulumi.Input<string>;
+    /**
+     * Boolean, enable SFTP for the storage account
+     */
     sftpEnabled?: pulumi.Input<boolean>;
     /**
      * A `shareProperties` block as defined below.
@@ -811,7 +817,7 @@ export interface AccountArgs {
      */
     accessTier?: pulumi.Input<string>;
     /**
-     * Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+     * Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
      */
     accountKind?: pulumi.Input<string>;
     /**
@@ -923,6 +929,9 @@ export interface AccountArgs {
      * A `sasPolicy` block as defined below.
      */
     sasPolicy?: pulumi.Input<inputs.storage.AccountSasPolicy>;
+    /**
+     * Boolean, enable SFTP for the storage account
+     */
     sftpEnabled?: pulumi.Input<boolean>;
     /**
      * A `shareProperties` block as defined below.

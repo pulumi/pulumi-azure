@@ -63,14 +63,14 @@ public final class DscConfigurationState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Must be the same location as the Automation Account.
+     * Must be the same location as the Automation Account. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return Must be the same location as the Automation Account.
+     * @return Must be the same location as the Automation Account. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> location() {
@@ -240,7 +240,7 @@ public final class DscConfigurationState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param location Must be the same location as the Automation Account.
+         * @param location Must be the same location as the Automation Account. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class DscConfigurationState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param location Must be the same location as the Automation Account.
+         * @param location Must be the same location as the Automation Account. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class VirtualMachineAdditionalCapabilities {
     /**
-     * @return Should Ultra SSD disk be enabled for this Virtual Machine?
+     * @return Should Ultra SSD disk be enabled for this Virtual Machine? Changing this forces a new resource to be created.
      * 
      */
     private Boolean ultraSsdEnabled;
 
     private VirtualMachineAdditionalCapabilities() {}
     /**
-     * @return Should Ultra SSD disk be enabled for this Virtual Machine?
+     * @return Should Ultra SSD disk be enabled for this Virtual Machine? Changing this forces a new resource to be created.
      * 
      */
     public Boolean ultraSsdEnabled() {

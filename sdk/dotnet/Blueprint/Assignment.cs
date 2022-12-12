@@ -149,7 +149,7 @@ namespace Pulumi.Azure.Blueprint
         public Output<Outputs.AssignmentIdentity> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure location of the Assignment.
+        /// The Azure location of the Assignment. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.Azure.Blueprint
         public Output<string?> LockMode { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Blueprint Assignment
+        /// The name of the Blueprint Assignment. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -191,7 +191,7 @@ namespace Pulumi.Azure.Blueprint
         public Output<string?> ResourceGroups { get; private set; } = null!;
 
         /// <summary>
-        /// The Subscription ID the Blueprint Published Version is to be applied to.
+        /// The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
         /// </summary>
         [Output("targetSubscriptionId")]
         public Output<string> TargetSubscriptionId { get; private set; } = null!;
@@ -261,7 +261,7 @@ namespace Pulumi.Azure.Blueprint
         public Input<Inputs.AssignmentIdentityArgs> Identity { get; set; } = null!;
 
         /// <summary>
-        /// The Azure location of the Assignment.
+        /// The Azure location of the Assignment. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -297,7 +297,7 @@ namespace Pulumi.Azure.Blueprint
         public Input<string>? LockMode { get; set; }
 
         /// <summary>
-        /// The name of the Blueprint Assignment
+        /// The name of the Blueprint Assignment. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -315,7 +315,7 @@ namespace Pulumi.Azure.Blueprint
         public Input<string>? ResourceGroups { get; set; }
 
         /// <summary>
-        /// The Subscription ID the Blueprint Published Version is to be applied to.
+        /// The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
         /// </summary>
         [Input("targetSubscriptionId", required: true)]
         public Input<string> TargetSubscriptionId { get; set; } = null!;
@@ -359,7 +359,7 @@ namespace Pulumi.Azure.Blueprint
         public Input<Inputs.AssignmentIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The Azure location of the Assignment.
+        /// The Azure location of the Assignment. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -395,7 +395,7 @@ namespace Pulumi.Azure.Blueprint
         public Input<string>? LockMode { get; set; }
 
         /// <summary>
-        /// The name of the Blueprint Assignment
+        /// The name of the Blueprint Assignment. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -413,7 +413,7 @@ namespace Pulumi.Azure.Blueprint
         public Input<string>? ResourceGroups { get; set; }
 
         /// <summary>
-        /// The Subscription ID the Blueprint Published Version is to be applied to.
+        /// The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
         /// </summary>
         [Input("targetSubscriptionId")]
         public Input<string>? TargetSubscriptionId { get; set; }

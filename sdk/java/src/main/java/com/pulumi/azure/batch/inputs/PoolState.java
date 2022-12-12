@@ -126,14 +126,14 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the display name of the Batch pool.
+     * Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
     /**
-     * @return Specifies the display name of the Batch pool.
+     * @return Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> displayName() {
@@ -291,14 +291,14 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the SKU of the node agents that will be created in the Batch pool.
+     * Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="nodeAgentSkuId")
     private @Nullable Output<String> nodeAgentSkuId;
 
     /**
-     * @return Specifies the SKU of the node agents that will be created in the Batch pool.
+     * @return Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> nodeAgentSkuId() {
@@ -418,14 +418,14 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the size of the VM created in the Batch pool.
+     * Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="vmSize")
     private @Nullable Output<String> vmSize;
 
     /**
-     * @return Specifies the size of the VM created in the Batch pool.
+     * @return Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> vmSize() {
@@ -655,7 +655,7 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param displayName Specifies the display name of the Batch pool.
+         * @param displayName Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -666,7 +666,7 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param displayName Specifies the display name of the Batch pool.
+         * @param displayName Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -906,7 +906,7 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodeAgentSkuId Specifies the SKU of the node agents that will be created in the Batch pool.
+         * @param nodeAgentSkuId Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -917,7 +917,7 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodeAgentSkuId Specifies the SKU of the node agents that will be created in the Batch pool.
+         * @param nodeAgentSkuId Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1113,7 +1113,7 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vmSize Specifies the size of the VM created in the Batch pool.
+         * @param vmSize Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1124,7 +1124,7 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vmSize Specifies the size of the VM created in the Batch pool.
+         * @param vmSize Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

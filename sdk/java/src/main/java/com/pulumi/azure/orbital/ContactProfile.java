@@ -161,14 +161,14 @@ public class ContactProfile extends com.pulumi.resources.CustomResource {
         return this.links;
     }
     /**
-     * The location where the contact profile exists.
+     * The location where the contact profile exists. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
-     * @return The location where the contact profile exists.
+     * @return The location where the contact profile exists. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> location() {
@@ -217,28 +217,28 @@ public class ContactProfile extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
+     * ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="networkConfigurationSubnetId", type=String.class, parameters={})
     private Output<String> networkConfigurationSubnetId;
 
     /**
-     * @return ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
+     * @return ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> networkConfigurationSubnetId() {
         return this.networkConfigurationSubnetId;
     }
     /**
-     * The name of the Resource Group where the contact profile exists.
+     * The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the contact profile exists.
+     * @return The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {

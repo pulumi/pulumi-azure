@@ -49,7 +49,7 @@ namespace Pulumi.Azure.DataProtection
     public partial class BackupVault : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`.
+        /// Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("datastoreType")]
         public Output<string> DatastoreType { get; private set; } = null!;
@@ -137,7 +137,7 @@ namespace Pulumi.Azure.DataProtection
     public sealed class BackupVaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`.
+        /// Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("datastoreType", required: true)]
         public Input<string> DatastoreType { get; set; } = null!;
@@ -193,7 +193,7 @@ namespace Pulumi.Azure.DataProtection
     public sealed class BackupVaultState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`.
+        /// Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("datastoreType")]
         public Input<string>? DatastoreType { get; set; }

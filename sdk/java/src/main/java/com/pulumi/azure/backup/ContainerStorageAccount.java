@@ -85,42 +85,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:backup/containerStorageAccount:ContainerStorageAccount")
 public class ContainerStorageAccount extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the vault where the storage account will be registered.
+     * The name of the vault where the storage account will be registered. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="recoveryVaultName", type=String.class, parameters={})
     private Output<String> recoveryVaultName;
 
     /**
-     * @return The name of the vault where the storage account will be registered.
+     * @return The name of the vault where the storage account will be registered. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> recoveryVaultName() {
         return this.recoveryVaultName;
     }
     /**
-     * Name of the resource group where the vault is located.
+     * Name of the resource group where the vault is located. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return Name of the resource group where the vault is located.
+     * @return Name of the resource group where the vault is located. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
     /**
-     * The ID of the Storage Account to be registered
+     * The ID of the Storage Account to be registered Changing this forces a new resource to be created.
      * 
      */
     @Export(name="storageAccountId", type=String.class, parameters={})
     private Output<String> storageAccountId;
 
     /**
-     * @return The ID of the Storage Account to be registered
+     * @return The ID of the Storage Account to be registered Changing this forces a new resource to be created.
      * 
      */
     public Output<String> storageAccountId() {

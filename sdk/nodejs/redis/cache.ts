@@ -116,7 +116,7 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.redis.CacheIdentity | undefined>;
     /**
-     * The location of the resource group.
+     * The location of the resource group. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -169,8 +169,7 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly replicasPerPrimary!: pulumi.Output<number>;
     /**
-     * The name of the resource group in which to
-     * create the Redis instance.
+     * The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -324,7 +323,7 @@ export interface CacheState {
      */
     identity?: pulumi.Input<inputs.redis.CacheIdentity>;
     /**
-     * The location of the resource group.
+     * The location of the resource group. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -377,8 +376,7 @@ export interface CacheState {
      */
     replicasPerPrimary?: pulumi.Input<number>;
     /**
-     * The name of the resource group in which to
-     * create the Redis instance.
+     * The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -440,7 +438,7 @@ export interface CacheArgs {
      */
     identity?: pulumi.Input<inputs.redis.CacheIdentity>;
     /**
-     * The location of the resource group.
+     * The location of the resource group. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -481,8 +479,7 @@ export interface CacheArgs {
      */
     replicasPerPrimary?: pulumi.Input<number>;
     /**
-     * The name of the resource group in which to
-     * create the Redis instance.
+     * The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

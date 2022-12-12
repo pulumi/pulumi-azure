@@ -86,15 +86,15 @@ type TimeSeriesInsightsGen2Environment struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created. Must be globally unique.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment.
+	// The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified.
+	// Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A `storage` block as defined below.
 	Storage TimeSeriesInsightsGen2EnvironmentStorageOutput `pulumi:"storage"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
+	// Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
 	WarmStoreDataRetentionTime pulumi.StringPtrOutput `pulumi:"warmStoreDataRetentionTime"`
 }
 
@@ -147,15 +147,15 @@ type timeSeriesInsightsGen2EnvironmentState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created. Must be globally unique.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment.
+	// The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified.
+	// Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created.
 	SkuName *string `pulumi:"skuName"`
 	// A `storage` block as defined below.
 	Storage *TimeSeriesInsightsGen2EnvironmentStorage `pulumi:"storage"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
+	// Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
 	WarmStoreDataRetentionTime *string `pulumi:"warmStoreDataRetentionTime"`
 }
 
@@ -168,15 +168,15 @@ type TimeSeriesInsightsGen2EnvironmentState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created. Must be globally unique.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment.
+	// The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified.
+	// Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created.
 	SkuName pulumi.StringPtrInput
 	// A `storage` block as defined below.
 	Storage TimeSeriesInsightsGen2EnvironmentStoragePtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
+	// Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
 	WarmStoreDataRetentionTime pulumi.StringPtrInput
 }
 
@@ -191,15 +191,15 @@ type timeSeriesInsightsGen2EnvironmentArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created. Must be globally unique.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment.
+	// The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified.
+	// Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created.
 	SkuName string `pulumi:"skuName"`
 	// A `storage` block as defined below.
 	Storage TimeSeriesInsightsGen2EnvironmentStorage `pulumi:"storage"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
+	// Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
 	WarmStoreDataRetentionTime *string `pulumi:"warmStoreDataRetentionTime"`
 }
 
@@ -211,15 +211,15 @@ type TimeSeriesInsightsGen2EnvironmentArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created. Must be globally unique.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment.
+	// The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified.
+	// Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created.
 	SkuName pulumi.StringInput
 	// A `storage` block as defined below.
 	Storage TimeSeriesInsightsGen2EnvironmentStorageInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
+	// Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
 	WarmStoreDataRetentionTime pulumi.StringPtrInput
 }
 
@@ -330,12 +330,12 @@ func (o TimeSeriesInsightsGen2EnvironmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TimeSeriesInsightsGen2Environment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment.
+// The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
 func (o TimeSeriesInsightsGen2EnvironmentOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TimeSeriesInsightsGen2Environment) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified.
+// Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created.
 func (o TimeSeriesInsightsGen2EnvironmentOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TimeSeriesInsightsGen2Environment) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }
@@ -352,7 +352,7 @@ func (o TimeSeriesInsightsGen2EnvironmentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TimeSeriesInsightsGen2Environment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
+// Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
 func (o TimeSeriesInsightsGen2EnvironmentOutput) WarmStoreDataRetentionTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TimeSeriesInsightsGen2Environment) pulumi.StringPtrOutput { return v.WarmStoreDataRetentionTime }).(pulumi.StringPtrOutput)
 }

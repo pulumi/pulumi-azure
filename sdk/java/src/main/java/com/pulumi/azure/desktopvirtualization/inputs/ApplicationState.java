@@ -18,16 +18,14 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
     public static final ApplicationState Empty = new ApplicationState();
 
     /**
-     * Resource ID for a Virtual Desktop Application Group to associate with the
-     * Virtual Desktop Application. Changing the ID forces a new resource to be created.
+     * Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="applicationGroupId")
     private @Nullable Output<String> applicationGroupId;
 
     /**
-     * @return Resource ID for a Virtual Desktop Application Group to associate with the
-     * Virtual Desktop Application. Changing the ID forces a new resource to be created.
+     * @return Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> applicationGroupId() {
@@ -203,8 +201,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationGroupId Resource ID for a Virtual Desktop Application Group to associate with the
-         * Virtual Desktop Application. Changing the ID forces a new resource to be created.
+         * @param applicationGroupId Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -215,8 +212,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationGroupId Resource ID for a Virtual Desktop Application Group to associate with the
-         * Virtual Desktop Application. Changing the ID forces a new resource to be created.
+         * @param applicationGroupId Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

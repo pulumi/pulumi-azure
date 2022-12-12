@@ -124,7 +124,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/azure/data-factory/connector-overview).
+        /// The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/azure/data-factory/connector-overview). Changing this forces a new resource to be created.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -242,7 +242,7 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/azure/data-factory/connector-overview).
+        /// The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/azure/data-factory/connector-overview). Changing this forces a new resource to be created.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -322,7 +322,7 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/azure/data-factory/connector-overview).
+        /// The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/azure/data-factory/connector-overview). Changing this forces a new resource to be created.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

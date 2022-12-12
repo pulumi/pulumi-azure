@@ -34,7 +34,7 @@ namespace Pulumi.Azure.DomainServices
         public Output<string?> DomainConfigurationType { get; private set; } = null!;
 
         /// <summary>
-        /// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
+        /// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations. Changing this forces a new resource to be created.
         /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
@@ -167,7 +167,7 @@ namespace Pulumi.Azure.DomainServices
         public Input<string>? DomainConfigurationType { get; set; }
 
         /// <summary>
-        /// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
+        /// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations. Changing this forces a new resource to be created.
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
@@ -259,7 +259,7 @@ namespace Pulumi.Azure.DomainServices
         public Input<string>? DomainConfigurationType { get; set; }
 
         /// <summary>
-        /// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
+        /// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations. Changing this forces a new resource to be created.
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }

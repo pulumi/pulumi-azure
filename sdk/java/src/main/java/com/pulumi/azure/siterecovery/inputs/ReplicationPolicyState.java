@@ -32,14 +32,14 @@ public final class ReplicationPolicyState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The name of the replication policy.
+     * The name of the replication policy. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the replication policy.
+     * @return The name of the replication policy. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -62,14 +62,14 @@ public final class ReplicationPolicyState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The name of the vault that should be updated.
+     * The name of the vault that should be updated. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="recoveryVaultName")
     private @Nullable Output<String> recoveryVaultName;
 
     /**
-     * @return The name of the vault that should be updated.
+     * @return The name of the vault that should be updated. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> recoveryVaultName() {
@@ -77,14 +77,14 @@ public final class ReplicationPolicyState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Name of the resource group where the vault that should be updated is located.
+     * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return Name of the resource group where the vault that should be updated is located.
+     * @return Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -141,7 +141,7 @@ public final class ReplicationPolicyState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name The name of the replication policy.
+         * @param name The name of the replication policy. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class ReplicationPolicyState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name The name of the replication policy.
+         * @param name The name of the replication policy. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class ReplicationPolicyState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param recoveryVaultName The name of the vault that should be updated.
+         * @param recoveryVaultName The name of the vault that should be updated. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class ReplicationPolicyState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param recoveryVaultName The name of the vault that should be updated.
+         * @param recoveryVaultName The name of the vault that should be updated. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class ReplicationPolicyState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param resourceGroupName Name of the resource group where the vault that should be updated is located.
+         * @param resourceGroupName Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class ReplicationPolicyState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param resourceGroupName Name of the resource group where the vault that should be updated is located.
+         * @param resourceGroupName Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

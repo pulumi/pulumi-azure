@@ -132,7 +132,7 @@ type ResolverVirtualNetworkLink struct {
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
 	// Specifies the name which should be used for this Private DNS Resolver Virtual Network Link. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link.
+	// The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link. Changing this forces a new resource to be created.
 	VirtualNetworkId pulumi.StringOutput `pulumi:"virtualNetworkId"`
 }
 
@@ -177,7 +177,7 @@ type resolverVirtualNetworkLinkState struct {
 	Metadata map[string]string `pulumi:"metadata"`
 	// Specifies the name which should be used for this Private DNS Resolver Virtual Network Link. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
 	Name *string `pulumi:"name"`
-	// The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link.
+	// The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link. Changing this forces a new resource to be created.
 	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
 }
 
@@ -188,7 +188,7 @@ type ResolverVirtualNetworkLinkState struct {
 	Metadata pulumi.StringMapInput
 	// Specifies the name which should be used for this Private DNS Resolver Virtual Network Link. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
 	Name pulumi.StringPtrInput
-	// The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link.
+	// The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link. Changing this forces a new resource to be created.
 	VirtualNetworkId pulumi.StringPtrInput
 }
 
@@ -203,7 +203,7 @@ type resolverVirtualNetworkLinkArgs struct {
 	Metadata map[string]string `pulumi:"metadata"`
 	// Specifies the name which should be used for this Private DNS Resolver Virtual Network Link. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
 	Name *string `pulumi:"name"`
-	// The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link.
+	// The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link. Changing this forces a new resource to be created.
 	VirtualNetworkId string `pulumi:"virtualNetworkId"`
 }
 
@@ -215,7 +215,7 @@ type ResolverVirtualNetworkLinkArgs struct {
 	Metadata pulumi.StringMapInput
 	// Specifies the name which should be used for this Private DNS Resolver Virtual Network Link. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
 	Name pulumi.StringPtrInput
-	// The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link.
+	// The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link. Changing this forces a new resource to be created.
 	VirtualNetworkId pulumi.StringInput
 }
 
@@ -321,7 +321,7 @@ func (o ResolverVirtualNetworkLinkOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverVirtualNetworkLink) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link.
+// The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link. Changing this forces a new resource to be created.
 func (o ResolverVirtualNetworkLinkOutput) VirtualNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverVirtualNetworkLink) pulumi.StringOutput { return v.VirtualNetworkId }).(pulumi.StringOutput)
 }

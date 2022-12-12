@@ -133,14 +133,14 @@ public class FirewallRule extends com.pulumi.resources.CustomResource {
         return this.redisCacheName;
     }
     /**
-     * The name of the resource group in which this Redis Cache exists.
+     * The name of the resource group in which this Redis Cache exists. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which this Redis Cache exists.
+     * @return The name of the resource group in which this Redis Cache exists. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {

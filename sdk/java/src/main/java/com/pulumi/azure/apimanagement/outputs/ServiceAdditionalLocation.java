@@ -56,7 +56,7 @@ public final class ServiceAdditionalLocation {
      */
     private @Nullable ServiceAdditionalLocationVirtualNetworkConfiguration virtualNetworkConfiguration;
     /**
-     * @return A list of availability zones.
+     * @return A list of availability zones. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable List<String> zones;
@@ -119,7 +119,7 @@ public final class ServiceAdditionalLocation {
         return Optional.ofNullable(this.virtualNetworkConfiguration);
     }
     /**
-     * @return A list of availability zones.
+     * @return A list of availability zones. Changing this forces a new resource to be created.
      * 
      */
     public List<String> zones() {

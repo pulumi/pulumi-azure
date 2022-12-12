@@ -54,7 +54,7 @@ class GlobalVMShutdownScheduleNotificationSettings(dict):
         :param bool enabled: Whether to enable pre-shutdown notifications. Possible values are `true` and `false`. Defaults to `false`
         :param str email: E-mail address to which the notification will be sent.
         :param int time_in_minutes: Time in minutes between 15 and 120 before a shutdown event at which a notification will be sent. Defaults to `30`.
-        :param str webhook_url: The webhook URL to which the notification will be sent. Required if `enabled` is `true`. Optional otherwise.
+        :param str webhook_url: The webhook URL to which the notification will be sent.
         """
         pulumi.set(__self__, "enabled", enabled)
         if email is not None:
@@ -92,7 +92,7 @@ class GlobalVMShutdownScheduleNotificationSettings(dict):
     @pulumi.getter(name="webhookUrl")
     def webhook_url(self) -> Optional[str]:
         """
-        The webhook URL to which the notification will be sent. Required if `enabled` is `true`. Optional otherwise.
+        The webhook URL to which the notification will be sent.
         """
         return pulumi.get(self, "webhook_url")
 
@@ -175,7 +175,7 @@ class LinuxVirtualMachineInboundNatRule(dict):
                  frontend_port: Optional[int] = None):
         """
         :param int backend_port: The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
-        :param str protocol: The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
+        :param str protocol: The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
         :param int frontend_port: The frontend port associated with this Inbound NAT Rule.
         """
         pulumi.set(__self__, "backend_port", backend_port)
@@ -195,7 +195,7 @@ class LinuxVirtualMachineInboundNatRule(dict):
     @pulumi.getter
     def protocol(self) -> str:
         """
-        The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
+        The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
         """
         return pulumi.get(self, "protocol")
 
@@ -487,7 +487,7 @@ class WindowsVirtualMachineInboundNatRule(dict):
                  frontend_port: Optional[int] = None):
         """
         :param int backend_port: The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
-        :param str protocol: The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
+        :param str protocol: The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
         :param int frontend_port: The frontend port associated with this Inbound NAT Rule.
         """
         pulumi.set(__self__, "backend_port", backend_port)
@@ -507,7 +507,7 @@ class WindowsVirtualMachineInboundNatRule(dict):
     @pulumi.getter
     def protocol(self) -> str:
         """
-        The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
+        The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
         """
         return pulumi.get(self, "protocol")
 

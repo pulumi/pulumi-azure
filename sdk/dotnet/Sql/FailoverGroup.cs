@@ -122,7 +122,7 @@ namespace Pulumi.Azure.Sql
         public Output<Outputs.FailoverGroupReadonlyEndpointFailoverPolicy> ReadonlyEndpointFailoverPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group containing the SQL server
+        /// The name of the resource group containing the SQL server Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -234,7 +234,7 @@ namespace Pulumi.Azure.Sql
         public Input<Inputs.FailoverGroupReadonlyEndpointFailoverPolicyArgs>? ReadonlyEndpointFailoverPolicy { get; set; }
 
         /// <summary>
-        /// The name of the resource group containing the SQL server
+        /// The name of the resource group containing the SQL server Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -314,7 +314,7 @@ namespace Pulumi.Azure.Sql
         public Input<Inputs.FailoverGroupReadonlyEndpointFailoverPolicyGetArgs>? ReadonlyEndpointFailoverPolicy { get; set; }
 
         /// <summary>
-        /// The name of the resource group containing the SQL server
+        /// The name of the resource group containing the SQL server Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

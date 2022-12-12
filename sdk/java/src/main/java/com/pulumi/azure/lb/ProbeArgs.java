@@ -32,14 +32,14 @@ public final class ProbeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the LoadBalancer in which to create the NAT Rule.
+     * The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="loadbalancerId", required=true)
     private Output<String> loadbalancerId;
 
     /**
-     * @return The ID of the LoadBalancer in which to create the NAT Rule.
+     * @return The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> loadbalancerId() {
@@ -47,14 +47,14 @@ public final class ProbeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the name of the Probe.
+     * Specifies the name of the Probe. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the Probe.
+     * @return Specifies the name of the Probe. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -89,6 +89,21 @@ public final class ProbeArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<Integer> port() {
         return this.port;
+    }
+
+    /**
+     * The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
+     * 
+     */
+    @Import(name="probeThreshold")
+    private @Nullable Output<Integer> probeThreshold;
+
+    /**
+     * @return The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
+     * 
+     */
+    public Optional<Output<Integer>> probeThreshold() {
+        return Optional.ofNullable(this.probeThreshold);
     }
 
     /**
@@ -129,6 +144,7 @@ public final class ProbeArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.numberOfProbes = $.numberOfProbes;
         this.port = $.port;
+        this.probeThreshold = $.probeThreshold;
         this.protocol = $.protocol;
         this.requestPath = $.requestPath;
     }
@@ -173,7 +189,7 @@ public final class ProbeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadbalancerId The ID of the LoadBalancer in which to create the NAT Rule.
+         * @param loadbalancerId The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -184,7 +200,7 @@ public final class ProbeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadbalancerId The ID of the LoadBalancer in which to create the NAT Rule.
+         * @param loadbalancerId The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -194,7 +210,7 @@ public final class ProbeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the Probe.
+         * @param name Specifies the name of the Probe. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -205,7 +221,7 @@ public final class ProbeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the Probe.
+         * @param name Specifies the name of the Probe. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -254,6 +270,27 @@ public final class ProbeArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder port(Integer port) {
             return port(Output.of(port));
+        }
+
+        /**
+         * @param probeThreshold The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder probeThreshold(@Nullable Output<Integer> probeThreshold) {
+            $.probeThreshold = probeThreshold;
+            return this;
+        }
+
+        /**
+         * @param probeThreshold The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder probeThreshold(Integer probeThreshold) {
+            return probeThreshold(Output.of(probeThreshold));
         }
 
         /**

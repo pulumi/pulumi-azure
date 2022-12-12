@@ -24,7 +24,7 @@ class IotHubCertificateArgs:
         :param pulumi.Input[str] certificate_content: The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content.
         :param pulumi.Input[str] iot_dps_name: The name of the IoT Device Provisioning Service that this certificate will be attached to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Iot Device Provisioning Service Certificate resource has to be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] is_verified: Specifies if the certificate is created in verified state. Defaults to `false`.
+        :param pulumi.Input[bool] is_verified: Specifies if the certificate is created in verified state. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "certificate_content", certificate_content)
@@ -75,7 +75,7 @@ class IotHubCertificateArgs:
     @pulumi.getter(name="isVerified")
     def is_verified(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if the certificate is created in verified state. Defaults to `false`.
+        Specifies if the certificate is created in verified state. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "is_verified")
 
@@ -108,7 +108,7 @@ class _IotHubCertificateState:
         Input properties used for looking up and filtering IotHubCertificate resources.
         :param pulumi.Input[str] certificate_content: The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content.
         :param pulumi.Input[str] iot_dps_name: The name of the IoT Device Provisioning Service that this certificate will be attached to. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] is_verified: Specifies if the certificate is created in verified state. Defaults to `false`.
+        :param pulumi.Input[bool] is_verified: Specifies if the certificate is created in verified state. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Iot Device Provisioning Service Certificate resource has to be created. Changing this forces a new resource to be created.
         """
@@ -151,7 +151,7 @@ class _IotHubCertificateState:
     @pulumi.getter(name="isVerified")
     def is_verified(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if the certificate is created in verified state. Defaults to `false`.
+        Specifies if the certificate is created in verified state. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "is_verified")
 
@@ -231,7 +231,7 @@ class IotHubCertificate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_content: The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content.
         :param pulumi.Input[str] iot_dps_name: The name of the IoT Device Provisioning Service that this certificate will be attached to. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] is_verified: Specifies if the certificate is created in verified state. Defaults to `false`.
+        :param pulumi.Input[bool] is_verified: Specifies if the certificate is created in verified state. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Iot Device Provisioning Service Certificate resource has to be created. Changing this forces a new resource to be created.
         """
@@ -337,7 +337,7 @@ class IotHubCertificate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_content: The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content.
         :param pulumi.Input[str] iot_dps_name: The name of the IoT Device Provisioning Service that this certificate will be attached to. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] is_verified: Specifies if the certificate is created in verified state. Defaults to `false`.
+        :param pulumi.Input[bool] is_verified: Specifies if the certificate is created in verified state. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Iot Device Provisioning Service Certificate resource has to be created. Changing this forces a new resource to be created.
         """
@@ -372,7 +372,7 @@ class IotHubCertificate(pulumi.CustomResource):
     @pulumi.getter(name="isVerified")
     def is_verified(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies if the certificate is created in verified state. Defaults to `false`.
+        Specifies if the certificate is created in verified state. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "is_verified")
 

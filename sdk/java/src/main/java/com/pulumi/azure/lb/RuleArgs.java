@@ -154,14 +154,14 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the Load Balancer in which to create the Rule.
+     * The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="loadbalancerId", required=true)
     private Output<String> loadbalancerId;
 
     /**
-     * @return The ID of the Load Balancer in which to create the Rule.
+     * @return The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> loadbalancerId() {
@@ -169,14 +169,14 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the name of the LB Rule.
+     * Specifies the name of the LB Rule. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the LB Rule.
+     * @return Specifies the name of the LB Rule. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -449,7 +449,7 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadbalancerId The ID of the Load Balancer in which to create the Rule.
+         * @param loadbalancerId The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -460,7 +460,7 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadbalancerId The ID of the Load Balancer in which to create the Rule.
+         * @param loadbalancerId The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -470,7 +470,7 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the LB Rule.
+         * @param name Specifies the name of the LB Rule. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -481,7 +481,7 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the LB Rule.
+         * @param name Specifies the name of the LB Rule. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

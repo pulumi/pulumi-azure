@@ -182,7 +182,7 @@ namespace Pulumi.Azure.Batch
         public Output<ImmutableArray<Outputs.PoolDiskEncryption>> DiskEncryptions { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the display name of the Batch pool.
+        /// Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
         /// </summary>
         [Output("displayName")]
         public Output<string?> DisplayName { get; private set; } = null!;
@@ -248,7 +248,7 @@ namespace Pulumi.Azure.Batch
         public Output<Outputs.PoolNetworkConfiguration?> NetworkConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the SKU of the node agents that will be created in the Batch pool.
+        /// Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
         /// </summary>
         [Output("nodeAgentSkuId")]
         public Output<string> NodeAgentSkuId { get; private set; } = null!;
@@ -299,7 +299,7 @@ namespace Pulumi.Azure.Batch
         public Output<ImmutableArray<Outputs.PoolUserAccount>> UserAccounts { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the size of the VM created in the Batch pool.
+        /// Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
         /// </summary>
         [Output("vmSize")]
         public Output<string> VmSize { get; private set; } = null!;
@@ -411,7 +411,7 @@ namespace Pulumi.Azure.Batch
         }
 
         /// <summary>
-        /// Specifies the display name of the Batch pool.
+        /// Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
@@ -495,7 +495,7 @@ namespace Pulumi.Azure.Batch
         public Input<Inputs.PoolNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
 
         /// <summary>
-        /// Specifies the SKU of the node agents that will be created in the Batch pool.
+        /// Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
         /// </summary>
         [Input("nodeAgentSkuId", required: true)]
         public Input<string> NodeAgentSkuId { get; set; } = null!;
@@ -564,7 +564,7 @@ namespace Pulumi.Azure.Batch
         }
 
         /// <summary>
-        /// Specifies the size of the VM created in the Batch pool.
+        /// Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
         /// </summary>
         [Input("vmSize", required: true)]
         public Input<string> VmSize { get; set; } = null!;
@@ -644,7 +644,7 @@ namespace Pulumi.Azure.Batch
         }
 
         /// <summary>
-        /// Specifies the display name of the Batch pool.
+        /// Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
@@ -728,7 +728,7 @@ namespace Pulumi.Azure.Batch
         public Input<Inputs.PoolNetworkConfigurationGetArgs>? NetworkConfiguration { get; set; }
 
         /// <summary>
-        /// Specifies the SKU of the node agents that will be created in the Batch pool.
+        /// Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
         /// </summary>
         [Input("nodeAgentSkuId")]
         public Input<string>? NodeAgentSkuId { get; set; }
@@ -797,7 +797,7 @@ namespace Pulumi.Azure.Batch
         }
 
         /// <summary>
-        /// Specifies the size of the VM created in the Batch pool.
+        /// Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
         /// </summary>
         [Input("vmSize")]
         public Input<string>? VmSize { get; set; }

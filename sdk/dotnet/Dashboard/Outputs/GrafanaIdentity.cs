@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Dashboard.Outputs
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// Specifies the type of Managed Service Identity. The only possible values is `SystemAssigned`.
+        /// Specifies the type of Managed Service Identity. The only possible values is `SystemAssigned`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Type;
 

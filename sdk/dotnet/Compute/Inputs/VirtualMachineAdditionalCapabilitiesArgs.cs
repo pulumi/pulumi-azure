@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class VirtualMachineAdditionalCapabilitiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should Ultra SSD disk be enabled for this Virtual Machine?
+        /// Should Ultra SSD disk be enabled for this Virtual Machine? Changing this forces a new resource to be created.
         /// </summary>
         [Input("ultraSsdEnabled", required: true)]
         public Input<bool> UltraSsdEnabled { get; set; } = null!;

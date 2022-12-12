@@ -23,14 +23,14 @@ public final class LiveEventState extends com.pulumi.resources.ResourceArgs {
     public static final LiveEventState Empty = new LiveEventState();
 
     /**
-     * The flag indicates if the resource should be automatically started on creation. Default is `false`.
+     * The flag indicates if the resource should be automatically started on creation. Default is `false`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="autoStartEnabled")
     private @Nullable Output<Boolean> autoStartEnabled;
 
     /**
-     * @return The flag indicates if the resource should be automatically started on creation. Default is `false`.
+     * @return The flag indicates if the resource should be automatically started on creation. Default is `false`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> autoStartEnabled() {
@@ -270,7 +270,7 @@ public final class LiveEventState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoStartEnabled The flag indicates if the resource should be automatically started on creation. Default is `false`.
+         * @param autoStartEnabled The flag indicates if the resource should be automatically started on creation. Default is `false`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class LiveEventState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoStartEnabled The flag indicates if the resource should be automatically started on creation. Default is `false`.
+         * @param autoStartEnabled The flag indicates if the resource should be automatically started on creation. Default is `false`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

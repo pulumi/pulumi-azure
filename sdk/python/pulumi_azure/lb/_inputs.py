@@ -155,7 +155,7 @@ class LoadBalancerFrontendIpConfigurationArgs:
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[str] name: Specifies the name of the frontend IP configuration.
+        :param pulumi.Input[str] name: Specifies the name of the frontend IP configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] gateway_load_balancer_frontend_ip_configuration_id: The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
         :param pulumi.Input[str] id: The id of the Frontend IP Configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inbound_nat_rules: The list of IDs of inbound rules that use this frontend IP.
@@ -199,7 +199,7 @@ class LoadBalancerFrontendIpConfigurationArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name of the frontend IP configuration.
+        Specifies the name of the frontend IP configuration. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

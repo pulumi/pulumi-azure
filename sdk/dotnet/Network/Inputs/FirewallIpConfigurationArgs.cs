@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string> PublicIpAddressId { get; set; } = null!;
 
         /// <summary>
-        /// Reference to the subnet associated with the IP Configuration.
+        /// Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }

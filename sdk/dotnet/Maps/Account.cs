@@ -75,7 +75,7 @@ namespace Pulumi.Azure.Maps
         public Output<string> SecondaryAccessKey { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`.
+        /// The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.Azure.Maps
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`.
+        /// The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
@@ -201,7 +201,7 @@ namespace Pulumi.Azure.Maps
         public Input<string>? SecondaryAccessKey { get; set; }
 
         /// <summary>
-        /// The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`.
+        /// The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }

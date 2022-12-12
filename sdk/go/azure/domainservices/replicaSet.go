@@ -35,7 +35,7 @@ type ReplicaSet struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The current service status for the replica set.
 	ServiceStatus pulumi.StringOutput `pulumi:"serviceStatus"`
-	// The ID of the subnet in which to place this Replica Set.
+	// The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 }
 
@@ -84,7 +84,7 @@ type replicaSetState struct {
 	Location *string `pulumi:"location"`
 	// The current service status for the replica set.
 	ServiceStatus *string `pulumi:"serviceStatus"`
-	// The ID of the subnet in which to place this Replica Set.
+	// The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
 }
 
@@ -99,7 +99,7 @@ type ReplicaSetState struct {
 	Location pulumi.StringPtrInput
 	// The current service status for the replica set.
 	ServiceStatus pulumi.StringPtrInput
-	// The ID of the subnet in which to place this Replica Set.
+	// The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput
 }
 
@@ -112,7 +112,7 @@ type replicaSetArgs struct {
 	DomainServiceId string `pulumi:"domainServiceId"`
 	// The Azure location where this Replica Set should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The ID of the subnet in which to place this Replica Set.
+	// The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created.
 	SubnetId string `pulumi:"subnetId"`
 }
 
@@ -122,7 +122,7 @@ type ReplicaSetArgs struct {
 	DomainServiceId pulumi.StringInput
 	// The Azure location where this Replica Set should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The ID of the subnet in which to place this Replica Set.
+	// The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringInput
 }
 
@@ -238,7 +238,7 @@ func (o ReplicaSetOutput) ServiceStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicaSet) pulumi.StringOutput { return v.ServiceStatus }).(pulumi.StringOutput)
 }
 
-// The ID of the subnet in which to place this Replica Set.
+// The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created.
 func (o ReplicaSetOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicaSet) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }

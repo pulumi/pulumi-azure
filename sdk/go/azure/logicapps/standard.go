@@ -192,7 +192,7 @@ type Standard struct {
 	OutboundIpAddresses pulumi.StringOutput `pulumi:"outboundIpAddresses"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses pulumi.StringOutput `pulumi:"possibleOutboundIpAddresses"`
-	// The name of the resource group in which to create the Logic App
+	// The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `siteConfig` object as defined below.
 	SiteConfig StandardSiteConfigOutput `pulumi:"siteConfig"`
@@ -200,7 +200,7 @@ type Standard struct {
 	SiteCredentials StandardSiteCredentialArrayOutput `pulumi:"siteCredentials"`
 	// The access key which will be used to access the backend storage account for the Logic App
 	StorageAccountAccessKey pulumi.StringOutput `pulumi:"storageAccountAccessKey"`
-	// The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data)
+	// The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
 	// The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name.  This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share
 	StorageAccountShareName pulumi.StringOutput `pulumi:"storageAccountShareName"`
@@ -287,7 +287,7 @@ type standardState struct {
 	OutboundIpAddresses *string `pulumi:"outboundIpAddresses"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses *string `pulumi:"possibleOutboundIpAddresses"`
-	// The name of the resource group in which to create the Logic App
+	// The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `siteConfig` object as defined below.
 	SiteConfig *StandardSiteConfig `pulumi:"siteConfig"`
@@ -295,7 +295,7 @@ type standardState struct {
 	SiteCredentials []StandardSiteCredential `pulumi:"siteCredentials"`
 	// The access key which will be used to access the backend storage account for the Logic App
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
-	// The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data)
+	// The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
 	StorageAccountName *string `pulumi:"storageAccountName"`
 	// The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name.  This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share
 	StorageAccountShareName *string `pulumi:"storageAccountShareName"`
@@ -342,7 +342,7 @@ type StandardState struct {
 	OutboundIpAddresses pulumi.StringPtrInput
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses pulumi.StringPtrInput
-	// The name of the resource group in which to create the Logic App
+	// The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `siteConfig` object as defined below.
 	SiteConfig StandardSiteConfigPtrInput
@@ -350,7 +350,7 @@ type StandardState struct {
 	SiteCredentials StandardSiteCredentialArrayInput
 	// The access key which will be used to access the backend storage account for the Logic App
 	StorageAccountAccessKey pulumi.StringPtrInput
-	// The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data)
+	// The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringPtrInput
 	// The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name.  This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share
 	StorageAccountShareName pulumi.StringPtrInput
@@ -391,13 +391,13 @@ type standardArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Logic App Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the Logic App
+	// The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `siteConfig` object as defined below.
 	SiteConfig *StandardSiteConfig `pulumi:"siteConfig"`
 	// The access key which will be used to access the backend storage account for the Logic App
 	StorageAccountAccessKey string `pulumi:"storageAccountAccessKey"`
-	// The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data)
+	// The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
 	StorageAccountName string `pulumi:"storageAccountName"`
 	// The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name.  This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share
 	StorageAccountShareName *string `pulumi:"storageAccountShareName"`
@@ -435,13 +435,13 @@ type StandardArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Logic App Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the Logic App
+	// The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `siteConfig` object as defined below.
 	SiteConfig StandardSiteConfigPtrInput
 	// The access key which will be used to access the backend storage account for the Logic App
 	StorageAccountAccessKey pulumi.StringInput
-	// The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data)
+	// The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringInput
 	// The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name.  This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share
 	StorageAccountShareName pulumi.StringPtrInput
@@ -622,7 +622,7 @@ func (o StandardOutput) PossibleOutboundIpAddresses() pulumi.StringOutput {
 	return o.ApplyT(func(v *Standard) pulumi.StringOutput { return v.PossibleOutboundIpAddresses }).(pulumi.StringOutput)
 }
 
-// The name of the resource group in which to create the Logic App
+// The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
 func (o StandardOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Standard) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
@@ -642,7 +642,7 @@ func (o StandardOutput) StorageAccountAccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Standard) pulumi.StringOutput { return v.StorageAccountAccessKey }).(pulumi.StringOutput)
 }
 
-// The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data)
+// The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
 func (o StandardOutput) StorageAccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Standard) pulumi.StringOutput { return v.StorageAccountName }).(pulumi.StringOutput)
 }

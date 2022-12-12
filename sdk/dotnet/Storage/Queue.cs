@@ -60,7 +60,7 @@ namespace Pulumi.Azure.Storage
         public Output<ImmutableDictionary<string, string>?> Metadata { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
+        /// The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -130,7 +130,7 @@ namespace Pulumi.Azure.Storage
         }
 
         /// <summary>
-        /// The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
+        /// The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -162,7 +162,7 @@ namespace Pulumi.Azure.Storage
         }
 
         /// <summary>
-        /// The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
+        /// The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

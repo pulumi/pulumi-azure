@@ -65,14 +65,14 @@ public final class VirtualMachineOsProfileWindowsConfigArgs extends com.pulumi.r
     }
 
     /**
-     * Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+     * Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
      * 
      */
     @Import(name="timezone")
     private @Nullable Output<String> timezone;
 
     /**
-     * @return Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+     * @return Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> timezone() {
@@ -196,7 +196,7 @@ public final class VirtualMachineOsProfileWindowsConfigArgs extends com.pulumi.r
         }
 
         /**
-         * @param timezone Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+         * @param timezone Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class VirtualMachineOsProfileWindowsConfigArgs extends com.pulumi.r
         }
 
         /**
-         * @param timezone Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+         * @param timezone Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

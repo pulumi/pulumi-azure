@@ -80,13 +80,19 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> CapacityReservationGroupId { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether to trust a Custom CA. Defaults to `false`.
+        /// </summary>
+        [Output("customCaTrustEnabled")]
+        public Output<bool?> CustomCaTrustEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
         /// </summary>
         [Output("enableAutoScaling")]
         public Output<bool?> EnableAutoScaling { get; private set; } = null!;
 
         /// <summary>
-        /// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+        /// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("enableHostEncryption")]
         public Output<bool?> EnableHostEncryption { get; private set; } = null!;
@@ -266,7 +272,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+        /// Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
         /// </summary>
         [Output("ultraSsdEnabled")]
         public Output<bool?> UltraSsdEnabled { get; private set; } = null!;
@@ -284,7 +290,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> VmSize { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Subnet where this Node Pool should exist.
+        /// The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("vnetSubnetId")]
         public Output<string?> VnetSubnetId { get; private set; } = null!;
@@ -354,13 +360,19 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? CapacityReservationGroupId { get; set; }
 
         /// <summary>
+        /// Specifies whether to trust a Custom CA. Defaults to `false`.
+        /// </summary>
+        [Input("customCaTrustEnabled")]
+        public Input<bool>? CustomCaTrustEnabled { get; set; }
+
+        /// <summary>
         /// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
         /// </summary>
         [Input("enableAutoScaling")]
         public Input<bool>? EnableAutoScaling { get; set; }
 
         /// <summary>
-        /// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+        /// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("enableHostEncryption")]
         public Input<bool>? EnableHostEncryption { get; set; }
@@ -558,7 +570,7 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+        /// Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
         /// </summary>
         [Input("ultraSsdEnabled")]
         public Input<bool>? UltraSsdEnabled { get; set; }
@@ -576,7 +588,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string> VmSize { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Subnet where this Node Pool should exist.
+        /// The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("vnetSubnetId")]
         public Input<string>? VnetSubnetId { get; set; }
@@ -614,13 +626,19 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? CapacityReservationGroupId { get; set; }
 
         /// <summary>
+        /// Specifies whether to trust a Custom CA. Defaults to `false`.
+        /// </summary>
+        [Input("customCaTrustEnabled")]
+        public Input<bool>? CustomCaTrustEnabled { get; set; }
+
+        /// <summary>
         /// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
         /// </summary>
         [Input("enableAutoScaling")]
         public Input<bool>? EnableAutoScaling { get; set; }
 
         /// <summary>
-        /// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+        /// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("enableHostEncryption")]
         public Input<bool>? EnableHostEncryption { get; set; }
@@ -818,7 +836,7 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+        /// Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
         /// </summary>
         [Input("ultraSsdEnabled")]
         public Input<bool>? UltraSsdEnabled { get; set; }
@@ -836,7 +854,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? VmSize { get; set; }
 
         /// <summary>
-        /// The ID of the Subnet where this Node Pool should exist.
+        /// The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("vnetSubnetId")]
         public Input<string>? VnetSubnetId { get; set; }

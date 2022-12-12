@@ -21,7 +21,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import azure:iot/enrichment:Enrichment enrichment1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/Enrichments/enrichment1
+//	$ pulumi import azure:iot/enrichment:Enrichment enrichment1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/enrichments/enrichment1
 //
 // ```
 type Enrichment struct {
@@ -30,7 +30,7 @@ type Enrichment struct {
 	// The list of endpoints which will be enriched.
 	EndpointNames pulumi.StringArrayOutput `pulumi:"endpointNames"`
 	IothubName    pulumi.StringOutput      `pulumi:"iothubName"`
-	// The key of the enrichment.
+	// The key of the enrichment. Changing this forces a new resource to be created.
 	Key               pulumi.StringOutput `pulumi:"key"`
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
@@ -84,7 +84,7 @@ type enrichmentState struct {
 	// The list of endpoints which will be enriched.
 	EndpointNames []string `pulumi:"endpointNames"`
 	IothubName    *string  `pulumi:"iothubName"`
-	// The key of the enrichment.
+	// The key of the enrichment. Changing this forces a new resource to be created.
 	Key               *string `pulumi:"key"`
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
@@ -95,7 +95,7 @@ type EnrichmentState struct {
 	// The list of endpoints which will be enriched.
 	EndpointNames pulumi.StringArrayInput
 	IothubName    pulumi.StringPtrInput
-	// The key of the enrichment.
+	// The key of the enrichment. Changing this forces a new resource to be created.
 	Key               pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringPtrInput
 	// The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
@@ -110,7 +110,7 @@ type enrichmentArgs struct {
 	// The list of endpoints which will be enriched.
 	EndpointNames []string `pulumi:"endpointNames"`
 	IothubName    string   `pulumi:"iothubName"`
-	// The key of the enrichment.
+	// The key of the enrichment. Changing this forces a new resource to be created.
 	Key               string `pulumi:"key"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
@@ -122,7 +122,7 @@ type EnrichmentArgs struct {
 	// The list of endpoints which will be enriched.
 	EndpointNames pulumi.StringArrayInput
 	IothubName    pulumi.StringInput
-	// The key of the enrichment.
+	// The key of the enrichment. Changing this forces a new resource to be created.
 	Key               pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
 	// The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
@@ -225,7 +225,7 @@ func (o EnrichmentOutput) IothubName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Enrichment) pulumi.StringOutput { return v.IothubName }).(pulumi.StringOutput)
 }
 
-// The key of the enrichment.
+// The key of the enrichment. Changing this forces a new resource to be created.
 func (o EnrichmentOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *Enrichment) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }

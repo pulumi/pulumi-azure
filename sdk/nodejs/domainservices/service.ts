@@ -52,7 +52,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly domainConfigurationType!: pulumi.Output<string | undefined>;
     /**
-     * The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
+     * The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations. Changing this forces a new resource to be created.
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
@@ -183,7 +183,7 @@ export interface ServiceState {
      */
     domainConfigurationType?: pulumi.Input<string>;
     /**
-     * The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
+     * The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations. Changing this forces a new resource to be created.
      */
     domainName?: pulumi.Input<string>;
     /**
@@ -244,7 +244,7 @@ export interface ServiceArgs {
      */
     domainConfigurationType?: pulumi.Input<string>;
     /**
-     * The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
+     * The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations. Changing this forces a new resource to be created.
      */
     domainName: pulumi.Input<string>;
     /**

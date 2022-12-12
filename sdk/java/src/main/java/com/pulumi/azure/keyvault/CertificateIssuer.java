@@ -111,14 +111,14 @@ public class CertificateIssuer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.admins);
     }
     /**
-     * The ID of the Key Vault in which to create the Certificate Issuer.
+     * The ID of the Key Vault in which to create the Certificate Issuer. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="keyVaultId", type=String.class, parameters={})
     private Output<String> keyVaultId;
 
     /**
-     * @return The ID of the Key Vault in which to create the Certificate Issuer.
+     * @return The ID of the Key Vault in which to create the Certificate Issuer. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> keyVaultId() {

@@ -921,7 +921,7 @@ func (o FailoverGroupReadonlyEndpointFailoverPolicyPtrOutput) Mode() pulumi.Stri
 }
 
 type ManagedInstanceFailoverGroupPartnerRegion struct {
-	// The Azure Region where the SQL Instance Failover Group exists.
+	// The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The partner replication role of the SQL Instance Failover Group.
 	Role *string `pulumi:"role"`
@@ -939,7 +939,7 @@ type ManagedInstanceFailoverGroupPartnerRegionInput interface {
 }
 
 type ManagedInstanceFailoverGroupPartnerRegionArgs struct {
-	// The Azure Region where the SQL Instance Failover Group exists.
+	// The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput `pulumi:"location"`
 	// The partner replication role of the SQL Instance Failover Group.
 	Role pulumi.StringPtrInput `pulumi:"role"`
@@ -996,7 +996,7 @@ func (o ManagedInstanceFailoverGroupPartnerRegionOutput) ToManagedInstanceFailov
 	return o
 }
 
-// The Azure Region where the SQL Instance Failover Group exists.
+// The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created.
 func (o ManagedInstanceFailoverGroupPartnerRegionOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedInstanceFailoverGroupPartnerRegion) *string { return v.Location }).(pulumi.StringPtrOutput)
 }

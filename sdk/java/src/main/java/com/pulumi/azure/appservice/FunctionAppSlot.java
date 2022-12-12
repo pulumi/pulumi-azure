@@ -109,14 +109,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:appservice/functionAppSlot:FunctionAppSlot")
 public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the App Service Plan within which to create this Function App Slot.
+     * The ID of the App Service Plan within which to create this Function App Slot. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="appServicePlanId", type=String.class, parameters={})
     private Output<String> appServicePlanId;
 
     /**
-     * @return The ID of the App Service Plan within which to create this Function App Slot.
+     * @return The ID of the App Service Plan within which to create this Function App Slot. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> appServicePlanId() {
@@ -305,14 +305,14 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A string indicating the Operating System type for this function app. The only possible value is `linux`.
+     * A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="osType", type=String.class, parameters={})
     private Output</* @Nullable */ String> osType;
 
     /**
-     * @return A string indicating the Operating System type for this function app. The only possible value is `linux`.
+     * @return A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> osType() {
@@ -347,14 +347,14 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
         return this.possibleOutboundIpAddresses;
     }
     /**
-     * The name of the resource group in which to create the Function App Slot.
+     * The name of the resource group in which to create the Function App Slot. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the Function App Slot.
+     * @return The name of the resource group in which to create the Function App Slot. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -403,14 +403,14 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
         return this.storageAccountAccessKey;
     }
     /**
-     * The backend storage account name which will be used by the Function App (such as the dashboard, logs).
+     * The backend storage account name which will be used by the Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
      * 
      */
     @Export(name="storageAccountName", type=String.class, parameters={})
     private Output<String> storageAccountName;
 
     /**
-     * @return The backend storage account name which will be used by the Function App (such as the dashboard, logs).
+     * @return The backend storage account name which will be used by the Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
      * 
      */
     public Output<String> storageAccountName() {

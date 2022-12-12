@@ -10,8 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate {
     /**
-     * @return A user-defined name of the IP configuration. Defaults to
-     * `vnetGatewayConfig`.
+     * @return A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
      * 
      */
     private String name;
@@ -19,8 +18,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate
 
     private VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate() {}
     /**
-     * @return A user-defined name of the IP configuration. Defaults to
-     * `vnetGatewayConfig`.
+     * @return A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
      * 
      */
     public String name() {

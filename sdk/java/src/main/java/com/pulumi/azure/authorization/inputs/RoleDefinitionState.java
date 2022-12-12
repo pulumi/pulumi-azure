@@ -48,14 +48,14 @@ public final class RoleDefinitionState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The name of the Role Definition. Changing this forces a new resource to be created.
+     * The name of the Role Definition.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Role Definition. Changing this forces a new resource to be created.
+     * @return The name of the Role Definition.
      * 
      */
     public Optional<Output<String>> name() {
@@ -205,7 +205,7 @@ public final class RoleDefinitionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name of the Role Definition. Changing this forces a new resource to be created.
+         * @param name The name of the Role Definition.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class RoleDefinitionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name of the Role Definition. Changing this forces a new resource to be created.
+         * @param name The name of the Role Definition.
          * 
          * @return builder
          * 

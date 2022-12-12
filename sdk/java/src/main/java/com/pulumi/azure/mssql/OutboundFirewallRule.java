@@ -75,28 +75,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:mssql/outboundFirewallRule:OutboundFirewallRule")
 public class OutboundFirewallRule extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the outbound firewall rule. This should be a FQDN.
+     * The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the outbound firewall rule. This should be a FQDN.
+     * @return The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The resource ID of the SQL Server on which to create the Outbound Firewall Rule.
+     * The resource ID of the SQL Server on which to create the Outbound Firewall Rule. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="serverId", type=String.class, parameters={})
     private Output<String> serverId;
 
     /**
-     * @return The resource ID of the SQL Server on which to create the Outbound Firewall Rule.
+     * @return The resource ID of the SQL Server on which to create the Outbound Firewall Rule. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> serverId() {

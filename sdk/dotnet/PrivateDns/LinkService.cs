@@ -148,7 +148,7 @@ namespace Pulumi.Azure.PrivateDns
         public Output<ImmutableArray<string>> Fqdns { get; private set; } = null!;
 
         /// <summary>
-        /// A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
+        /// A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
         /// </summary>
         [Output("loadBalancerFrontendIpConfigurationIds")]
         public Output<ImmutableArray<string>> LoadBalancerFrontendIpConfigurationIds { get; private set; } = null!;
@@ -178,7 +178,7 @@ namespace Pulumi.Azure.PrivateDns
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -269,7 +269,7 @@ namespace Pulumi.Azure.PrivateDns
         private InputList<string>? _loadBalancerFrontendIpConfigurationIds;
 
         /// <summary>
-        /// A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
+        /// A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> LoadBalancerFrontendIpConfigurationIds
         {
@@ -311,7 +311,7 @@ namespace Pulumi.Azure.PrivateDns
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        /// A mapping of tags to assign to the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -379,7 +379,7 @@ namespace Pulumi.Azure.PrivateDns
         private InputList<string>? _loadBalancerFrontendIpConfigurationIds;
 
         /// <summary>
-        /// A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
+        /// A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> LoadBalancerFrontendIpConfigurationIds
         {
@@ -421,7 +421,7 @@ namespace Pulumi.Azure.PrivateDns
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        /// A mapping of tags to assign to the resource.
         /// </summary>
         public InputMap<string> Tags
         {

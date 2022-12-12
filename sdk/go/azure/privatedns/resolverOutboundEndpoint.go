@@ -109,7 +109,7 @@ type ResolverOutboundEndpoint struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the ID of the Private DNS Resolver Outbound Endpoint. Changing this forces a new Private DNS Resolver Outbound Endpoint to be created.
 	PrivateDnsResolverId pulumi.StringOutput `pulumi:"privateDnsResolverId"`
-	// The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint.
+	// The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 	// A mapping of tags which should be assigned to the Private DNS Resolver Outbound Endpoint.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -156,7 +156,7 @@ type resolverOutboundEndpointState struct {
 	Name *string `pulumi:"name"`
 	// Specifies the ID of the Private DNS Resolver Outbound Endpoint. Changing this forces a new Private DNS Resolver Outbound Endpoint to be created.
 	PrivateDnsResolverId *string `pulumi:"privateDnsResolverId"`
-	// The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint.
+	// The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
 	// A mapping of tags which should be assigned to the Private DNS Resolver Outbound Endpoint.
 	Tags map[string]string `pulumi:"tags"`
@@ -169,7 +169,7 @@ type ResolverOutboundEndpointState struct {
 	Name pulumi.StringPtrInput
 	// Specifies the ID of the Private DNS Resolver Outbound Endpoint. Changing this forces a new Private DNS Resolver Outbound Endpoint to be created.
 	PrivateDnsResolverId pulumi.StringPtrInput
-	// The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint.
+	// The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Private DNS Resolver Outbound Endpoint.
 	Tags pulumi.StringMapInput
@@ -186,7 +186,7 @@ type resolverOutboundEndpointArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the ID of the Private DNS Resolver Outbound Endpoint. Changing this forces a new Private DNS Resolver Outbound Endpoint to be created.
 	PrivateDnsResolverId string `pulumi:"privateDnsResolverId"`
-	// The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint.
+	// The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint. Changing this forces a new resource to be created.
 	SubnetId string `pulumi:"subnetId"`
 	// A mapping of tags which should be assigned to the Private DNS Resolver Outbound Endpoint.
 	Tags map[string]string `pulumi:"tags"`
@@ -200,7 +200,7 @@ type ResolverOutboundEndpointArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the ID of the Private DNS Resolver Outbound Endpoint. Changing this forces a new Private DNS Resolver Outbound Endpoint to be created.
 	PrivateDnsResolverId pulumi.StringInput
-	// The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint.
+	// The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringInput
 	// A mapping of tags which should be assigned to the Private DNS Resolver Outbound Endpoint.
 	Tags pulumi.StringMapInput
@@ -308,7 +308,7 @@ func (o ResolverOutboundEndpointOutput) PrivateDnsResolverId() pulumi.StringOutp
 	return o.ApplyT(func(v *ResolverOutboundEndpoint) pulumi.StringOutput { return v.PrivateDnsResolverId }).(pulumi.StringOutput)
 }
 
-// The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint.
+// The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint. Changing this forces a new resource to be created.
 func (o ResolverOutboundEndpointOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverOutboundEndpoint) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }

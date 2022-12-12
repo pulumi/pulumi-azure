@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class FunctionAppSlotConnectionString {
     /**
-     * @return The name of the Connection String.
+     * @return The name of the Connection String. Changing this forces a new resource to be created.
      * 
      */
     private String name;
@@ -27,7 +27,7 @@ public final class FunctionAppSlotConnectionString {
 
     private FunctionAppSlotConnectionString() {}
     /**
-     * @return The name of the Connection String.
+     * @return The name of the Connection String. Changing this forces a new resource to be created.
      * 
      */
     public String name() {

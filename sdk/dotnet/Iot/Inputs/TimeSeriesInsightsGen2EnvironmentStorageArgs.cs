@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Iot.Inputs
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// Name of storage account for Azure IoT Time Series Insights Gen2 Environment
+        /// Name of storage account for Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

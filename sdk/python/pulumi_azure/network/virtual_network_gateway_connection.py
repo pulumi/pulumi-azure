@@ -42,23 +42,14 @@ class VirtualNetworkGatewayConnectionArgs:
                  use_policy_based_traffic_selectors: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a VirtualNetworkGatewayConnection resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the connection Changing the name forces a new resource to be created.
-        :param pulumi.Input[str] type: The type of connection. Valid options are `IPsec`
-               (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
-               Each connection type requires different mandatory arguments (refer to the
-               examples above). Changing the connection type will force a new connection
-               to be created.
-        :param pulumi.Input[str] virtual_network_gateway_id: The ID of the Virtual Network Gateway
-               in which the connection will be created. Changing the gateway forces a new
-               resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the connection Changing this forces a new resource to be created.
+        :param pulumi.Input[str] type: The type of connection. Valid options are `IPsec` (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet). Each connection type requires different mandatory arguments (refer to the examples above). Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_network_gateway_id: The ID of the Virtual Network Gateway in which the connection will be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] authorization_key: The authorization key associated with the
                Express Route Circuit. This field is required only if the type is an
                ExpressRoute connection.
         :param pulumi.Input[str] connection_mode: Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
-        :param pulumi.Input[str] connection_protocol: The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
-               values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
-               Changing this value will force a resource to be created.
+        :param pulumi.Input[str] connection_protocol: The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
                > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
         :param pulumi.Input['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs'] custom_bgp_addresses: A `custom_bgp_addresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
                The block can only be used on `IPSec` / `activeactive` connections,
@@ -67,9 +58,7 @@ class VirtualNetworkGatewayConnectionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] egress_nat_rule_ids: A list of the egress NAT Rule Ids.
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) is enabled
                for this connection. Defaults to `false`.
-        :param pulumi.Input[str] express_route_circuit_id: The ID of the Express Route Circuit
-               when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
-               The Express Route Circuit can be in the same or in a different subscription.
+        :param pulumi.Input[str] express_route_circuit_id: The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] express_route_gateway_bypass: If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ingress_nat_rule_ids: A list of the ingress NAT Rule Ids.
         :param pulumi.Input['VirtualNetworkGatewayConnectionIpsecPolicyArgs'] ipsec_policy: A `ipsec_policy` block which is documented below.
@@ -78,14 +67,10 @@ class VirtualNetworkGatewayConnectionArgs:
         :param pulumi.Input[bool] local_azure_ip_address_enabled: Use private local Azure IP for the connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] local_network_gateway_id: The ID of the local network gateway
                when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
-        :param pulumi.Input[str] location: The location/region where the connection is
-               located. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: The location/region where the connection is located. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the connection. Changing the name forces a
                new resource to be created.
-        :param pulumi.Input[str] peer_virtual_network_gateway_id: The ID of the peer virtual
-               network gateway when creating a VNet-to-VNet connection (i.e. when `type`
-               is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or
-               in a different subscription.
+        :param pulumi.Input[str] peer_virtual_network_gateway_id: The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[int] routing_weight: The routing weight. Defaults to `10`.
         :param pulumi.Input[str] shared_key: The shared IPSec key. A key could be provided if a
                Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
@@ -147,8 +132,7 @@ class VirtualNetworkGatewayConnectionArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to
-        create the connection Changing the name forces a new resource to be created.
+        The name of the resource group in which to create the connection Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -160,11 +144,7 @@ class VirtualNetworkGatewayConnectionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of connection. Valid options are `IPsec`
-        (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
-        Each connection type requires different mandatory arguments (refer to the
-        examples above). Changing the connection type will force a new connection
-        to be created.
+        The type of connection. Valid options are `IPsec` (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet). Each connection type requires different mandatory arguments (refer to the examples above). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
@@ -176,9 +156,7 @@ class VirtualNetworkGatewayConnectionArgs:
     @pulumi.getter(name="virtualNetworkGatewayId")
     def virtual_network_gateway_id(self) -> pulumi.Input[str]:
         """
-        The ID of the Virtual Network Gateway
-        in which the connection will be created. Changing the gateway forces a new
-        resource to be created.
+        The ID of the Virtual Network Gateway in which the connection will be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_gateway_id")
 
@@ -216,9 +194,7 @@ class VirtualNetworkGatewayConnectionArgs:
     @pulumi.getter(name="connectionProtocol")
     def connection_protocol(self) -> Optional[pulumi.Input[str]]:
         """
-        The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
-        values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
-        Changing this value will force a resource to be created.
+        The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
         > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
         """
         return pulumi.get(self, "connection_protocol")
@@ -282,9 +258,7 @@ class VirtualNetworkGatewayConnectionArgs:
     @pulumi.getter(name="expressRouteCircuitId")
     def express_route_circuit_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Express Route Circuit
-        when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
-        The Express Route Circuit can be in the same or in a different subscription.
+        The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "express_route_circuit_id")
 
@@ -359,8 +333,7 @@ class VirtualNetworkGatewayConnectionArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The location/region where the connection is
-        located. Changing this forces a new resource to be created.
+        The location/region where the connection is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -385,10 +358,7 @@ class VirtualNetworkGatewayConnectionArgs:
     @pulumi.getter(name="peerVirtualNetworkGatewayId")
     def peer_virtual_network_gateway_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the peer virtual
-        network gateway when creating a VNet-to-VNet connection (i.e. when `type`
-        is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or
-        in a different subscription.
+        The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "peer_virtual_network_gateway_id")
 
@@ -495,9 +465,7 @@ class _VirtualNetworkGatewayConnectionState:
                Express Route Circuit. This field is required only if the type is an
                ExpressRoute connection.
         :param pulumi.Input[str] connection_mode: Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
-        :param pulumi.Input[str] connection_protocol: The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
-               values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
-               Changing this value will force a resource to be created.
+        :param pulumi.Input[str] connection_protocol: The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
                > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
         :param pulumi.Input['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs'] custom_bgp_addresses: A `custom_bgp_addresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
                The block can only be used on `IPSec` / `activeactive` connections,
@@ -506,9 +474,7 @@ class _VirtualNetworkGatewayConnectionState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] egress_nat_rule_ids: A list of the egress NAT Rule Ids.
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) is enabled
                for this connection. Defaults to `false`.
-        :param pulumi.Input[str] express_route_circuit_id: The ID of the Express Route Circuit
-               when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
-               The Express Route Circuit can be in the same or in a different subscription.
+        :param pulumi.Input[str] express_route_circuit_id: The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] express_route_gateway_bypass: If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ingress_nat_rule_ids: A list of the ingress NAT Rule Ids.
         :param pulumi.Input['VirtualNetworkGatewayConnectionIpsecPolicyArgs'] ipsec_policy: A `ipsec_policy` block which is documented below.
@@ -517,16 +483,11 @@ class _VirtualNetworkGatewayConnectionState:
         :param pulumi.Input[bool] local_azure_ip_address_enabled: Use private local Azure IP for the connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] local_network_gateway_id: The ID of the local network gateway
                when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
-        :param pulumi.Input[str] location: The location/region where the connection is
-               located. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: The location/region where the connection is located. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the connection. Changing the name forces a
                new resource to be created.
-        :param pulumi.Input[str] peer_virtual_network_gateway_id: The ID of the peer virtual
-               network gateway when creating a VNet-to-VNet connection (i.e. when `type`
-               is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or
-               in a different subscription.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the connection Changing the name forces a new resource to be created.
+        :param pulumi.Input[str] peer_virtual_network_gateway_id: The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the connection Changing this forces a new resource to be created.
         :param pulumi.Input[int] routing_weight: The routing weight. Defaults to `10`.
         :param pulumi.Input[str] shared_key: The shared IPSec key. A key could be provided if a
                Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
@@ -534,17 +495,11 @@ class _VirtualNetworkGatewayConnectionState:
         :param pulumi.Input['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs'] traffic_selector_policy: One or more `traffic_selector_policy` blocks which are documented below.
                A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
                For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
-        :param pulumi.Input[str] type: The type of connection. Valid options are `IPsec`
-               (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
-               Each connection type requires different mandatory arguments (refer to the
-               examples above). Changing the connection type will force a new connection
-               to be created.
+        :param pulumi.Input[str] type: The type of connection. Valid options are `IPsec` (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet). Each connection type requires different mandatory arguments (refer to the examples above). Changing this forces a new resource to be created.
         :param pulumi.Input[bool] use_policy_based_traffic_selectors: If `true`, policy-based traffic
                selectors are enabled for this connection. Enabling policy-based traffic
                selectors requires an `ipsec_policy` block. Defaults to `false`.
-        :param pulumi.Input[str] virtual_network_gateway_id: The ID of the Virtual Network Gateway
-               in which the connection will be created. Changing the gateway forces a new
-               resource to be created.
+        :param pulumi.Input[str] virtual_network_gateway_id: The ID of the Virtual Network Gateway in which the connection will be created. Changing this forces a new resource to be created.
         """
         if authorization_key is not None:
             pulumi.set(__self__, "authorization_key", authorization_key)
@@ -625,9 +580,7 @@ class _VirtualNetworkGatewayConnectionState:
     @pulumi.getter(name="connectionProtocol")
     def connection_protocol(self) -> Optional[pulumi.Input[str]]:
         """
-        The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
-        values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
-        Changing this value will force a resource to be created.
+        The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
         > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
         """
         return pulumi.get(self, "connection_protocol")
@@ -691,9 +644,7 @@ class _VirtualNetworkGatewayConnectionState:
     @pulumi.getter(name="expressRouteCircuitId")
     def express_route_circuit_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Express Route Circuit
-        when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
-        The Express Route Circuit can be in the same or in a different subscription.
+        The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "express_route_circuit_id")
 
@@ -768,8 +719,7 @@ class _VirtualNetworkGatewayConnectionState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The location/region where the connection is
-        located. Changing this forces a new resource to be created.
+        The location/region where the connection is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -794,10 +744,7 @@ class _VirtualNetworkGatewayConnectionState:
     @pulumi.getter(name="peerVirtualNetworkGatewayId")
     def peer_virtual_network_gateway_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the peer virtual
-        network gateway when creating a VNet-to-VNet connection (i.e. when `type`
-        is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or
-        in a different subscription.
+        The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "peer_virtual_network_gateway_id")
 
@@ -809,8 +756,7 @@ class _VirtualNetworkGatewayConnectionState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to
-        create the connection Changing the name forces a new resource to be created.
+        The name of the resource group in which to create the connection Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -873,11 +819,7 @@ class _VirtualNetworkGatewayConnectionState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of connection. Valid options are `IPsec`
-        (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
-        Each connection type requires different mandatory arguments (refer to the
-        examples above). Changing the connection type will force a new connection
-        to be created.
+        The type of connection. Valid options are `IPsec` (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet). Each connection type requires different mandatory arguments (refer to the examples above). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
@@ -903,9 +845,7 @@ class _VirtualNetworkGatewayConnectionState:
     @pulumi.getter(name="virtualNetworkGatewayId")
     def virtual_network_gateway_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Virtual Network Gateway
-        in which the connection will be created. Changing the gateway forces a new
-        resource to be created.
+        The ID of the Virtual Network Gateway in which the connection will be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_gateway_id")
 
@@ -1083,9 +1023,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                Express Route Circuit. This field is required only if the type is an
                ExpressRoute connection.
         :param pulumi.Input[str] connection_mode: Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
-        :param pulumi.Input[str] connection_protocol: The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
-               values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
-               Changing this value will force a resource to be created.
+        :param pulumi.Input[str] connection_protocol: The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
                > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs']] custom_bgp_addresses: A `custom_bgp_addresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
                The block can only be used on `IPSec` / `activeactive` connections,
@@ -1094,9 +1032,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] egress_nat_rule_ids: A list of the egress NAT Rule Ids.
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) is enabled
                for this connection. Defaults to `false`.
-        :param pulumi.Input[str] express_route_circuit_id: The ID of the Express Route Circuit
-               when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
-               The Express Route Circuit can be in the same or in a different subscription.
+        :param pulumi.Input[str] express_route_circuit_id: The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] express_route_gateway_bypass: If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ingress_nat_rule_ids: A list of the ingress NAT Rule Ids.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionIpsecPolicyArgs']] ipsec_policy: A `ipsec_policy` block which is documented below.
@@ -1105,16 +1041,11 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[bool] local_azure_ip_address_enabled: Use private local Azure IP for the connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] local_network_gateway_id: The ID of the local network gateway
                when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
-        :param pulumi.Input[str] location: The location/region where the connection is
-               located. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: The location/region where the connection is located. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the connection. Changing the name forces a
                new resource to be created.
-        :param pulumi.Input[str] peer_virtual_network_gateway_id: The ID of the peer virtual
-               network gateway when creating a VNet-to-VNet connection (i.e. when `type`
-               is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or
-               in a different subscription.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the connection Changing the name forces a new resource to be created.
+        :param pulumi.Input[str] peer_virtual_network_gateway_id: The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the connection Changing this forces a new resource to be created.
         :param pulumi.Input[int] routing_weight: The routing weight. Defaults to `10`.
         :param pulumi.Input[str] shared_key: The shared IPSec key. A key could be provided if a
                Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
@@ -1122,17 +1053,11 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs']] traffic_selector_policy: One or more `traffic_selector_policy` blocks which are documented below.
                A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
                For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
-        :param pulumi.Input[str] type: The type of connection. Valid options are `IPsec`
-               (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
-               Each connection type requires different mandatory arguments (refer to the
-               examples above). Changing the connection type will force a new connection
-               to be created.
+        :param pulumi.Input[str] type: The type of connection. Valid options are `IPsec` (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet). Each connection type requires different mandatory arguments (refer to the examples above). Changing this forces a new resource to be created.
         :param pulumi.Input[bool] use_policy_based_traffic_selectors: If `true`, policy-based traffic
                selectors are enabled for this connection. Enabling policy-based traffic
                selectors requires an `ipsec_policy` block. Defaults to `false`.
-        :param pulumi.Input[str] virtual_network_gateway_id: The ID of the Virtual Network Gateway
-               in which the connection will be created. Changing the gateway forces a new
-               resource to be created.
+        :param pulumi.Input[str] virtual_network_gateway_id: The ID of the Virtual Network Gateway in which the connection will be created. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -1396,9 +1321,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                Express Route Circuit. This field is required only if the type is an
                ExpressRoute connection.
         :param pulumi.Input[str] connection_mode: Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
-        :param pulumi.Input[str] connection_protocol: The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
-               values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
-               Changing this value will force a resource to be created.
+        :param pulumi.Input[str] connection_protocol: The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
                > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs']] custom_bgp_addresses: A `custom_bgp_addresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
                The block can only be used on `IPSec` / `activeactive` connections,
@@ -1407,9 +1330,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] egress_nat_rule_ids: A list of the egress NAT Rule Ids.
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) is enabled
                for this connection. Defaults to `false`.
-        :param pulumi.Input[str] express_route_circuit_id: The ID of the Express Route Circuit
-               when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
-               The Express Route Circuit can be in the same or in a different subscription.
+        :param pulumi.Input[str] express_route_circuit_id: The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] express_route_gateway_bypass: If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ingress_nat_rule_ids: A list of the ingress NAT Rule Ids.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionIpsecPolicyArgs']] ipsec_policy: A `ipsec_policy` block which is documented below.
@@ -1418,16 +1339,11 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[bool] local_azure_ip_address_enabled: Use private local Azure IP for the connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] local_network_gateway_id: The ID of the local network gateway
                when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
-        :param pulumi.Input[str] location: The location/region where the connection is
-               located. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: The location/region where the connection is located. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the connection. Changing the name forces a
                new resource to be created.
-        :param pulumi.Input[str] peer_virtual_network_gateway_id: The ID of the peer virtual
-               network gateway when creating a VNet-to-VNet connection (i.e. when `type`
-               is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or
-               in a different subscription.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the connection Changing the name forces a new resource to be created.
+        :param pulumi.Input[str] peer_virtual_network_gateway_id: The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the connection Changing this forces a new resource to be created.
         :param pulumi.Input[int] routing_weight: The routing weight. Defaults to `10`.
         :param pulumi.Input[str] shared_key: The shared IPSec key. A key could be provided if a
                Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
@@ -1435,17 +1351,11 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs']] traffic_selector_policy: One or more `traffic_selector_policy` blocks which are documented below.
                A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
                For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
-        :param pulumi.Input[str] type: The type of connection. Valid options are `IPsec`
-               (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
-               Each connection type requires different mandatory arguments (refer to the
-               examples above). Changing the connection type will force a new connection
-               to be created.
+        :param pulumi.Input[str] type: The type of connection. Valid options are `IPsec` (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet). Each connection type requires different mandatory arguments (refer to the examples above). Changing this forces a new resource to be created.
         :param pulumi.Input[bool] use_policy_based_traffic_selectors: If `true`, policy-based traffic
                selectors are enabled for this connection. Enabling policy-based traffic
                selectors requires an `ipsec_policy` block. Defaults to `false`.
-        :param pulumi.Input[str] virtual_network_gateway_id: The ID of the Virtual Network Gateway
-               in which the connection will be created. Changing the gateway forces a new
-               resource to be created.
+        :param pulumi.Input[str] virtual_network_gateway_id: The ID of the Virtual Network Gateway in which the connection will be created. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1499,9 +1409,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
     @pulumi.getter(name="connectionProtocol")
     def connection_protocol(self) -> pulumi.Output[str]:
         """
-        The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
-        values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
-        Changing this value will force a resource to be created.
+        The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
         > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
         """
         return pulumi.get(self, "connection_protocol")
@@ -1545,9 +1453,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
     @pulumi.getter(name="expressRouteCircuitId")
     def express_route_circuit_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of the Express Route Circuit
-        when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
-        The Express Route Circuit can be in the same or in a different subscription.
+        The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "express_route_circuit_id")
 
@@ -1598,8 +1504,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        The location/region where the connection is
-        located. Changing this forces a new resource to be created.
+        The location/region where the connection is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -1616,10 +1521,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
     @pulumi.getter(name="peerVirtualNetworkGatewayId")
     def peer_virtual_network_gateway_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of the peer virtual
-        network gateway when creating a VNet-to-VNet connection (i.e. when `type`
-        is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or
-        in a different subscription.
+        The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "peer_virtual_network_gateway_id")
 
@@ -1627,8 +1529,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to
-        create the connection Changing the name forces a new resource to be created.
+        The name of the resource group in which to create the connection Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -1671,11 +1572,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of connection. Valid options are `IPsec`
-        (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
-        Each connection type requires different mandatory arguments (refer to the
-        examples above). Changing the connection type will force a new connection
-        to be created.
+        The type of connection. Valid options are `IPsec` (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet). Each connection type requires different mandatory arguments (refer to the examples above). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
@@ -1693,9 +1590,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
     @pulumi.getter(name="virtualNetworkGatewayId")
     def virtual_network_gateway_id(self) -> pulumi.Output[str]:
         """
-        The ID of the Virtual Network Gateway
-        in which the connection will be created. Changing the gateway forces a new
-        resource to be created.
+        The ID of the Virtual Network Gateway in which the connection will be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_gateway_id")
 

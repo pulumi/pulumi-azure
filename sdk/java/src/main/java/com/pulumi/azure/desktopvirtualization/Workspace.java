@@ -111,34 +111,28 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * The name of the Virtual Desktop Workspace. Changing the name
-     * forces a new resource to be created.
+     * The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the Virtual Desktop Workspace. Changing the name
-     * forces a new resource to be created.
+     * @return The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The name of the resource group in which to
-     * create the Virtual Desktop Workspace. Changing the resource group name forces
-     * a new resource to be created.
+     * The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to
-     * create the Virtual Desktop Workspace. Changing the resource group name forces
-     * a new resource to be created.
+     * @return The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {

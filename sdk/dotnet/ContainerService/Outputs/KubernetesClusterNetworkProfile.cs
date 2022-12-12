@@ -22,6 +22,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? DockerBridgeCidr;
         /// <summary>
+        /// Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string? EbpfDataPlane;
+        /// <summary>
         /// Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<string> IpVersions;
@@ -30,7 +34,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly Outputs.KubernetesClusterNetworkProfileLoadBalancerProfile? LoadBalancerProfile;
         /// <summary>
-        /// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`.
+        /// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? LoadBalancerSku;
         /// <summary>
@@ -46,11 +50,15 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string NetworkPlugin;
         /// <summary>
+        /// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string? NetworkPluginMode;
+        /// <summary>
         /// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? NetworkPolicy;
         /// <summary>
-        /// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`.
+        /// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? OutboundType;
         /// <summary>
@@ -76,6 +84,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             string? dockerBridgeCidr,
 
+            string? ebpfDataPlane,
+
             ImmutableArray<string> ipVersions,
 
             Outputs.KubernetesClusterNetworkProfileLoadBalancerProfile? loadBalancerProfile,
@@ -87,6 +97,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
             string? networkMode,
 
             string networkPlugin,
+
+            string? networkPluginMode,
 
             string? networkPolicy,
 
@@ -102,12 +114,14 @@ namespace Pulumi.Azure.ContainerService.Outputs
         {
             DnsServiceIp = dnsServiceIp;
             DockerBridgeCidr = dockerBridgeCidr;
+            EbpfDataPlane = ebpfDataPlane;
             IpVersions = ipVersions;
             LoadBalancerProfile = loadBalancerProfile;
             LoadBalancerSku = loadBalancerSku;
             NatGatewayProfile = natGatewayProfile;
             NetworkMode = networkMode;
             NetworkPlugin = networkPlugin;
+            NetworkPluginMode = networkPluginMode;
             NetworkPolicy = networkPolicy;
             OutboundType = outboundType;
             PodCidr = podCidr;

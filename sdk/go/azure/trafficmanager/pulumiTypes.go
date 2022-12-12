@@ -437,7 +437,7 @@ func (o ProfileMonitorConfigPtrOutput) ToleratedNumberOfFailures() pulumi.IntPtr
 }
 
 type ProfileMonitorConfigCustomHeader struct {
-	// The name of the custom header.
+	// The name of the custom header. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// The value of custom header. Applicable for HTTP and HTTPS protocol.
 	Value string `pulumi:"value"`
@@ -455,7 +455,7 @@ type ProfileMonitorConfigCustomHeaderInput interface {
 }
 
 type ProfileMonitorConfigCustomHeaderArgs struct {
-	// The name of the custom header.
+	// The name of the custom header. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The value of custom header. Applicable for HTTP and HTTPS protocol.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -512,7 +512,7 @@ func (o ProfileMonitorConfigCustomHeaderOutput) ToProfileMonitorConfigCustomHead
 	return o
 }
 
-// The name of the custom header.
+// The name of the custom header. Changing this forces a new resource to be created.
 func (o ProfileMonitorConfigCustomHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ProfileMonitorConfigCustomHeader) string { return v.Name }).(pulumi.StringOutput)
 }

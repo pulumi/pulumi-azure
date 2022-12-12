@@ -85,7 +85,7 @@ type ServerTransparentDataEncryption struct {
 	AutoRotationEnabled pulumi.BoolPtrOutput `pulumi:"autoRotationEnabled"`
 	// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
 	KeyVaultKeyId pulumi.StringPtrOutput `pulumi:"keyVaultKeyId"`
-	// Specifies the name of the MS SQL Server.
+	// Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
 	ServerId pulumi.StringOutput `pulumi:"serverId"`
 }
 
@@ -125,7 +125,7 @@ type serverTransparentDataEncryptionState struct {
 	AutoRotationEnabled *bool `pulumi:"autoRotationEnabled"`
 	// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
-	// Specifies the name of the MS SQL Server.
+	// Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
 	ServerId *string `pulumi:"serverId"`
 }
 
@@ -134,7 +134,7 @@ type ServerTransparentDataEncryptionState struct {
 	AutoRotationEnabled pulumi.BoolPtrInput
 	// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
 	KeyVaultKeyId pulumi.StringPtrInput
-	// Specifies the name of the MS SQL Server.
+	// Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
 	ServerId pulumi.StringPtrInput
 }
 
@@ -147,7 +147,7 @@ type serverTransparentDataEncryptionArgs struct {
 	AutoRotationEnabled *bool `pulumi:"autoRotationEnabled"`
 	// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
-	// Specifies the name of the MS SQL Server.
+	// Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
 	ServerId string `pulumi:"serverId"`
 }
 
@@ -157,7 +157,7 @@ type ServerTransparentDataEncryptionArgs struct {
 	AutoRotationEnabled pulumi.BoolPtrInput
 	// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
 	KeyVaultKeyId pulumi.StringPtrInput
-	// Specifies the name of the MS SQL Server.
+	// Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
 	ServerId pulumi.StringInput
 }
 
@@ -258,7 +258,7 @@ func (o ServerTransparentDataEncryptionOutput) KeyVaultKeyId() pulumi.StringPtrO
 	return o.ApplyT(func(v *ServerTransparentDataEncryption) pulumi.StringPtrOutput { return v.KeyVaultKeyId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the MS SQL Server.
+// Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
 func (o ServerTransparentDataEncryptionOutput) ServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerTransparentDataEncryption) pulumi.StringOutput { return v.ServerId }).(pulumi.StringOutput)
 }

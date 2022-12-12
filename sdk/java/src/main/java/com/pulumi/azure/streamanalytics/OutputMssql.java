@@ -171,14 +171,14 @@ public class OutputMssql extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+     * Password used together with username, to login to the Microsoft SQL Server.
      * 
      */
     @Export(name="password", type=String.class, parameters={})
     private Output<String> password;
 
     /**
-     * @return Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+     * @return Password used together with username, to login to the Microsoft SQL Server.
      * 
      */
     public Output<String> password() {

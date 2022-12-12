@@ -100,7 +100,7 @@ type OutputBlob struct {
 	// The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
 	BatchMaxWaitTime pulumi.StringPtrOutput `pulumi:"batchMaxWaitTime"`
 	// The minimum number of rows per batch (must be between `0` and `10000`).
-	BatchMinRows pulumi.Float64PtrOutput `pulumi:"batchMinRows"`
+	BatchMinRows pulumi.IntPtrOutput `pulumi:"batchMinRows"`
 	// The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
 	DateFormat pulumi.StringOutput `pulumi:"dateFormat"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
@@ -181,7 +181,7 @@ type outputBlobState struct {
 	// The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
 	BatchMaxWaitTime *string `pulumi:"batchMaxWaitTime"`
 	// The minimum number of rows per batch (must be between `0` and `10000`).
-	BatchMinRows *float64 `pulumi:"batchMinRows"`
+	BatchMinRows *int `pulumi:"batchMinRows"`
 	// The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
 	DateFormat *string `pulumi:"dateFormat"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
@@ -210,7 +210,7 @@ type OutputBlobState struct {
 	// The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
 	BatchMaxWaitTime pulumi.StringPtrInput
 	// The minimum number of rows per batch (must be between `0` and `10000`).
-	BatchMinRows pulumi.Float64PtrInput
+	BatchMinRows pulumi.IntPtrInput
 	// The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
 	DateFormat pulumi.StringPtrInput
 	// The name of the Stream Output. Changing this forces a new resource to be created.
@@ -243,7 +243,7 @@ type outputBlobArgs struct {
 	// The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
 	BatchMaxWaitTime *string `pulumi:"batchMaxWaitTime"`
 	// The minimum number of rows per batch (must be between `0` and `10000`).
-	BatchMinRows *float64 `pulumi:"batchMinRows"`
+	BatchMinRows *int `pulumi:"batchMinRows"`
 	// The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
 	DateFormat string `pulumi:"dateFormat"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
@@ -273,7 +273,7 @@ type OutputBlobArgs struct {
 	// The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
 	BatchMaxWaitTime pulumi.StringPtrInput
 	// The minimum number of rows per batch (must be between `0` and `10000`).
-	BatchMinRows pulumi.Float64PtrInput
+	BatchMinRows pulumi.IntPtrInput
 	// The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
 	DateFormat pulumi.StringInput
 	// The name of the Stream Output. Changing this forces a new resource to be created.
@@ -394,8 +394,8 @@ func (o OutputBlobOutput) BatchMaxWaitTime() pulumi.StringPtrOutput {
 }
 
 // The minimum number of rows per batch (must be between `0` and `10000`).
-func (o OutputBlobOutput) BatchMinRows() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *OutputBlob) pulumi.Float64PtrOutput { return v.BatchMinRows }).(pulumi.Float64PtrOutput)
+func (o OutputBlobOutput) BatchMinRows() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OutputBlob) pulumi.IntPtrOutput { return v.BatchMinRows }).(pulumi.IntPtrOutput)
 }
 
 // The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.

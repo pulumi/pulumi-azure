@@ -86,7 +86,7 @@ type Server struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
 	MinimumTlsVersion pulumi.StringPtrOutput `pulumi:"minimumTlsVersion"`
-	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Whether outbound network traffic is restricted for this server. Defaults to `false`.
 	OutboundNetworkRestrictionEnabled pulumi.BoolPtrOutput `pulumi:"outboundNetworkRestrictionEnabled"`
@@ -94,13 +94,13 @@ type Server struct {
 	PrimaryUserAssignedIdentityId pulumi.StringOutput `pulumi:"primaryUserAssignedIdentityId"`
 	// Whether public network access is allowed for this server. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
-	// The name of the resource group in which to create the Microsoft SQL Server.
+	// The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A list of dropped restorable database IDs on the server.
 	RestorableDroppedDatabaseIds pulumi.StringArrayOutput `pulumi:"restorableDroppedDatabaseIds"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
 	Version pulumi.StringOutput `pulumi:"version"`
 }
 
@@ -155,7 +155,7 @@ type serverState struct {
 	Location *string `pulumi:"location"`
 	// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
-	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Whether outbound network traffic is restricted for this server. Defaults to `false`.
 	OutboundNetworkRestrictionEnabled *bool `pulumi:"outboundNetworkRestrictionEnabled"`
@@ -163,13 +163,13 @@ type serverState struct {
 	PrimaryUserAssignedIdentityId *string `pulumi:"primaryUserAssignedIdentityId"`
 	// Whether public network access is allowed for this server. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
-	// The name of the resource group in which to create the Microsoft SQL Server.
+	// The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A list of dropped restorable database IDs on the server.
 	RestorableDroppedDatabaseIds []string `pulumi:"restorableDroppedDatabaseIds"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
 	Version *string `pulumi:"version"`
 }
 
@@ -190,7 +190,7 @@ type ServerState struct {
 	Location pulumi.StringPtrInput
 	// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
 	MinimumTlsVersion pulumi.StringPtrInput
-	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Whether outbound network traffic is restricted for this server. Defaults to `false`.
 	OutboundNetworkRestrictionEnabled pulumi.BoolPtrInput
@@ -198,13 +198,13 @@ type ServerState struct {
 	PrimaryUserAssignedIdentityId pulumi.StringPtrInput
 	// Whether public network access is allowed for this server. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
-	// The name of the resource group in which to create the Microsoft SQL Server.
+	// The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A list of dropped restorable database IDs on the server.
 	RestorableDroppedDatabaseIds pulumi.StringArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
 	Version pulumi.StringPtrInput
 }
 
@@ -227,7 +227,7 @@ type serverArgs struct {
 	Location *string `pulumi:"location"`
 	// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
-	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Whether outbound network traffic is restricted for this server. Defaults to `false`.
 	OutboundNetworkRestrictionEnabled *bool `pulumi:"outboundNetworkRestrictionEnabled"`
@@ -235,11 +235,11 @@ type serverArgs struct {
 	PrimaryUserAssignedIdentityId *string `pulumi:"primaryUserAssignedIdentityId"`
 	// Whether public network access is allowed for this server. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
-	// The name of the resource group in which to create the Microsoft SQL Server.
+	// The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
 	Version string `pulumi:"version"`
 }
 
@@ -259,7 +259,7 @@ type ServerArgs struct {
 	Location pulumi.StringPtrInput
 	// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
 	MinimumTlsVersion pulumi.StringPtrInput
-	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Whether outbound network traffic is restricted for this server. Defaults to `false`.
 	OutboundNetworkRestrictionEnabled pulumi.BoolPtrInput
@@ -267,11 +267,11 @@ type ServerArgs struct {
 	PrimaryUserAssignedIdentityId pulumi.StringPtrInput
 	// Whether public network access is allowed for this server. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
-	// The name of the resource group in which to create the Microsoft SQL Server.
+	// The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
 	Version pulumi.StringInput
 }
 
@@ -402,7 +402,7 @@ func (o ServerOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+// The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 func (o ServerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -422,7 +422,7 @@ func (o ServerOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the resource group in which to create the Microsoft SQL Server.
+// The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
 func (o ServerOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
@@ -437,7 +437,7 @@ func (o ServerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
 func (o ServerOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

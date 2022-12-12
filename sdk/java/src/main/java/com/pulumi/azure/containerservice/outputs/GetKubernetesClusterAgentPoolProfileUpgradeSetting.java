@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class GetKubernetesClusterAgentPoolProfileUpgradeSetting {
     /**
-     * @return The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+     * @return The maximum number or percentage of nodes that will be added to the Node Pool size during an upgrade.
      * 
      */
     private String maxSurge;
 
     private GetKubernetesClusterAgentPoolProfileUpgradeSetting() {}
     /**
-     * @return The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+     * @return The maximum number or percentage of nodes that will be added to the Node Pool size during an upgrade.
      * 
      */
     public String maxSurge() {

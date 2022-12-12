@@ -70,11 +70,11 @@ type CustomProvider struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Custom Provider. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the resource group in which to create the Custom Provider.
+	// The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Any number of `resourceType` block as defined below. One of `resourceType` or `action` must be specified.
 	ResourceTypes CustomProviderResourceTypeArrayOutput `pulumi:"resourceTypes"`
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Any number of `validation` block as defined below.
 	Validations CustomProviderValidationArrayOutput `pulumi:"validations"`
@@ -118,11 +118,11 @@ type customProviderState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Custom Provider. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the Custom Provider.
+	// The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Any number of `resourceType` block as defined below. One of `resourceType` or `action` must be specified.
 	ResourceTypes []CustomProviderResourceType `pulumi:"resourceTypes"`
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
 	Tags map[string]string `pulumi:"tags"`
 	// Any number of `validation` block as defined below.
 	Validations []CustomProviderValidation `pulumi:"validations"`
@@ -135,11 +135,11 @@ type CustomProviderState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Custom Provider. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the Custom Provider.
+	// The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Any number of `resourceType` block as defined below. One of `resourceType` or `action` must be specified.
 	ResourceTypes CustomProviderResourceTypeArrayInput
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
 	Tags pulumi.StringMapInput
 	// Any number of `validation` block as defined below.
 	Validations CustomProviderValidationArrayInput
@@ -156,11 +156,11 @@ type customProviderArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Custom Provider. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the Custom Provider.
+	// The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Any number of `resourceType` block as defined below. One of `resourceType` or `action` must be specified.
 	ResourceTypes []CustomProviderResourceType `pulumi:"resourceTypes"`
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
 	Tags map[string]string `pulumi:"tags"`
 	// Any number of `validation` block as defined below.
 	Validations []CustomProviderValidation `pulumi:"validations"`
@@ -174,11 +174,11 @@ type CustomProviderArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Custom Provider. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the Custom Provider.
+	// The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Any number of `resourceType` block as defined below. One of `resourceType` or `action` must be specified.
 	ResourceTypes CustomProviderResourceTypeArrayInput
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
 	Tags pulumi.StringMapInput
 	// Any number of `validation` block as defined below.
 	Validations CustomProviderValidationArrayInput
@@ -286,7 +286,7 @@ func (o CustomProviderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomProvider) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the resource group in which to create the Custom Provider.
+// The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created.
 func (o CustomProviderOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomProvider) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
@@ -296,7 +296,7 @@ func (o CustomProviderOutput) ResourceTypes() CustomProviderResourceTypeArrayOut
 	return o.ApplyT(func(v *CustomProvider) CustomProviderResourceTypeArrayOutput { return v.ResourceTypes }).(CustomProviderResourceTypeArrayOutput)
 }
 
-// A mapping of tags to assign to the resource.
+// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
 func (o CustomProviderOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CustomProvider) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

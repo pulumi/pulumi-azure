@@ -47,14 +47,14 @@ public final class ServerTransparentDataEncryptionArgs extends com.pulumi.resour
     }
 
     /**
-     * Specifies the name of the MS SQL Server.
+     * Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="serverId", required=true)
     private Output<String> serverId;
 
     /**
-     * @return Specifies the name of the MS SQL Server.
+     * @return Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> serverId() {
@@ -130,7 +130,7 @@ public final class ServerTransparentDataEncryptionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param serverId Specifies the name of the MS SQL Server.
+         * @param serverId Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ServerTransparentDataEncryptionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param serverId Specifies the name of the MS SQL Server.
+         * @param serverId Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

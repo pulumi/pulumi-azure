@@ -79,18 +79,15 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
      */
     public readonly gatewayFqdn!: pulumi.Output<string | undefined>;
     /**
-     * The location/region where the local network gateway is
-     * created. Changing this forces a new resource to be created.
+     * The location/region where the local network gateway is created. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The name of the local network gateway. Changing this
-     * forces a new resource to be created.
+     * The name of the local network gateway. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to
-     * create the local network gateway.
+     * The name of the resource group in which to create the local network gateway. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -161,18 +158,15 @@ export interface LocalNetworkGatewayState {
      */
     gatewayFqdn?: pulumi.Input<string>;
     /**
-     * The location/region where the local network gateway is
-     * created. Changing this forces a new resource to be created.
+     * The location/region where the local network gateway is created. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the local network gateway. Changing this
-     * forces a new resource to be created.
+     * The name of the local network gateway. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to
-     * create the local network gateway.
+     * The name of the resource group in which to create the local network gateway. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -204,18 +198,15 @@ export interface LocalNetworkGatewayArgs {
      */
     gatewayFqdn?: pulumi.Input<string>;
     /**
-     * The location/region where the local network gateway is
-     * created. Changing this forces a new resource to be created.
+     * The location/region where the local network gateway is created. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the local network gateway. Changing this
-     * forces a new resource to be created.
+     * The name of the local network gateway. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to
-     * create the local network gateway.
+     * The name of the resource group in which to create the local network gateway. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

@@ -31,7 +31,7 @@ namespace Pulumi.Azure.DevTest.Inputs
         public Input<int>? TimeInMinutes { get; set; }
 
         /// <summary>
-        /// The webhook URL to which the notification will be sent. Required if `enabled` is `true`. Optional otherwise.
+        /// The webhook URL to which the notification will be sent.
         /// </summary>
         [Input("webhookUrl")]
         public Input<string>? WebhookUrl { get; set; }

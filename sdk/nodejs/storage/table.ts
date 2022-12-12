@@ -66,12 +66,11 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly acls!: pulumi.Output<outputs.storage.TableAcl[] | undefined>;
     /**
-     * The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located.
+     * The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the storage account in which to create the storage table.
-     * Changing this forces a new resource to be created.
+     * Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
      */
     public readonly storageAccountName!: pulumi.Output<string>;
 
@@ -114,12 +113,11 @@ export interface TableState {
      */
     acls?: pulumi.Input<pulumi.Input<inputs.storage.TableAcl>[]>;
     /**
-     * The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located.
+     * The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the storage account in which to create the storage table.
-     * Changing this forces a new resource to be created.
+     * Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
      */
     storageAccountName?: pulumi.Input<string>;
 }
@@ -133,12 +131,11 @@ export interface TableArgs {
      */
     acls?: pulumi.Input<pulumi.Input<inputs.storage.TableAcl>[]>;
     /**
-     * The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located.
+     * The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the storage account in which to create the storage table.
-     * Changing this forces a new resource to be created.
+     * Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
      */
     storageAccountName: pulumi.Input<string>;
 }

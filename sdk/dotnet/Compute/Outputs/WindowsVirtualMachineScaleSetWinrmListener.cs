@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class WindowsVirtualMachineScaleSetWinrmListener
     {
         /// <summary>
-        /// The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
+        /// The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? CertificateUrl;
         /// <summary>
-        /// The Protocol of the WinRM Listener. Possible values are `Http` and `Https`.
+        /// The Protocol of the WinRM Listener. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Protocol;
 

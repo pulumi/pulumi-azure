@@ -112,98 +112,98 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:siterecovery/networkMapping:NetworkMapping")
 public class NetworkMapping extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the network mapping.
+     * The name of the network mapping. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the network mapping.
+     * @return The name of the network mapping. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The name of the vault that should be updated.
+     * The name of the vault that should be updated. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="recoveryVaultName", type=String.class, parameters={})
     private Output<String> recoveryVaultName;
 
     /**
-     * @return The name of the vault that should be updated.
+     * @return The name of the vault that should be updated. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> recoveryVaultName() {
         return this.recoveryVaultName;
     }
     /**
-     * Name of the resource group where the vault that should be updated is located.
+     * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return Name of the resource group where the vault that should be updated is located.
+     * @return Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
     /**
-     * The id of the primary network.
+     * The id of the primary network. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="sourceNetworkId", type=String.class, parameters={})
     private Output<String> sourceNetworkId;
 
     /**
-     * @return The id of the primary network.
+     * @return The id of the primary network. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> sourceNetworkId() {
         return this.sourceNetworkId;
     }
     /**
-     * Specifies the ASR fabric where mapping should be created.
+     * Specifies the ASR fabric where mapping should be created. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="sourceRecoveryFabricName", type=String.class, parameters={})
     private Output<String> sourceRecoveryFabricName;
 
     /**
-     * @return Specifies the ASR fabric where mapping should be created.
+     * @return Specifies the ASR fabric where mapping should be created. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> sourceRecoveryFabricName() {
         return this.sourceRecoveryFabricName;
     }
     /**
-     * The id of the recovery network.
+     * The id of the recovery network. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="targetNetworkId", type=String.class, parameters={})
     private Output<String> targetNetworkId;
 
     /**
-     * @return The id of the recovery network.
+     * @return The id of the recovery network. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> targetNetworkId() {
         return this.targetNetworkId;
     }
     /**
-     * The Azure Site Recovery fabric object corresponding to the recovery Azure region.
+     * The Azure Site Recovery fabric object corresponding to the recovery Azure region. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="targetRecoveryFabricName", type=String.class, parameters={})
     private Output<String> targetRecoveryFabricName;
 
     /**
-     * @return The Azure Site Recovery fabric object corresponding to the recovery Azure region.
+     * @return The Azure Site Recovery fabric object corresponding to the recovery Azure region. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> targetRecoveryFabricName() {

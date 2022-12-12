@@ -77,7 +77,7 @@ type TxtRecord struct {
 
 	// The FQDN of the DNS TXT Record.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
-	// The name of the DNS TXT Record.
+	// The name of the DNS TXT Record. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of values that make up the txt record. Each `record` block supports fields documented below.
 	Records TxtRecordRecordArrayOutput `pulumi:"records"`
@@ -134,7 +134,7 @@ func GetTxtRecord(ctx *pulumi.Context,
 type txtRecordState struct {
 	// The FQDN of the DNS TXT Record.
 	Fqdn *string `pulumi:"fqdn"`
-	// The name of the DNS TXT Record.
+	// The name of the DNS TXT Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A list of values that make up the txt record. Each `record` block supports fields documented below.
 	Records []TxtRecordRecord `pulumi:"records"`
@@ -151,7 +151,7 @@ type txtRecordState struct {
 type TxtRecordState struct {
 	// The FQDN of the DNS TXT Record.
 	Fqdn pulumi.StringPtrInput
-	// The name of the DNS TXT Record.
+	// The name of the DNS TXT Record. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A list of values that make up the txt record. Each `record` block supports fields documented below.
 	Records TxtRecordRecordArrayInput
@@ -170,7 +170,7 @@ func (TxtRecordState) ElementType() reflect.Type {
 }
 
 type txtRecordArgs struct {
-	// The name of the DNS TXT Record.
+	// The name of the DNS TXT Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A list of values that make up the txt record. Each `record` block supports fields documented below.
 	Records []TxtRecordRecord `pulumi:"records"`
@@ -186,7 +186,7 @@ type txtRecordArgs struct {
 
 // The set of arguments for constructing a TxtRecord resource.
 type TxtRecordArgs struct {
-	// The name of the DNS TXT Record.
+	// The name of the DNS TXT Record. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A list of values that make up the txt record. Each `record` block supports fields documented below.
 	Records TxtRecordRecordArrayInput
@@ -292,7 +292,7 @@ func (o TxtRecordOutput) Fqdn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TxtRecord) pulumi.StringOutput { return v.Fqdn }).(pulumi.StringOutput)
 }
 
-// The name of the DNS TXT Record.
+// The name of the DNS TXT Record. Changing this forces a new resource to be created.
 func (o TxtRecordOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TxtRecord) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

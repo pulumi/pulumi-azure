@@ -38,6 +38,21 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
+     * Specifies whether to trust a Custom CA. Defaults to `false`.
+     * 
+     */
+    @Import(name="customCaTrustEnabled")
+    private @Nullable Output<Boolean> customCaTrustEnabled;
+
+    /**
+     * @return Specifies whether to trust a Custom CA. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> customCaTrustEnabled() {
+        return Optional.ofNullable(this.customCaTrustEnabled);
+    }
+
+    /**
      * Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
      * 
      */
@@ -53,14 +68,14 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
-     * Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
+     * Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="enableHostEncryption")
     private @Nullable Output<Boolean> enableHostEncryption;
 
     /**
-     * @return Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
+     * @return Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> enableHostEncryption() {
@@ -404,14 +419,14 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
-     * The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
+     * The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
+     * @return The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> type() {
@@ -419,14 +434,14 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
-     * Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+     * Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="ultraSsdEnabled")
     private @Nullable Output<Boolean> ultraSsdEnabled;
 
     /**
-     * @return Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+     * @return Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> ultraSsdEnabled() {
@@ -512,6 +527,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
 
     private KubernetesClusterDefaultNodePoolArgs(KubernetesClusterDefaultNodePoolArgs $) {
         this.capacityReservationGroupId = $.capacityReservationGroupId;
+        this.customCaTrustEnabled = $.customCaTrustEnabled;
         this.enableAutoScaling = $.enableAutoScaling;
         this.enableHostEncryption = $.enableHostEncryption;
         this.enableNodePublicIp = $.enableNodePublicIp;
@@ -587,6 +603,27 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
+         * @param customCaTrustEnabled Specifies whether to trust a Custom CA. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customCaTrustEnabled(@Nullable Output<Boolean> customCaTrustEnabled) {
+            $.customCaTrustEnabled = customCaTrustEnabled;
+            return this;
+        }
+
+        /**
+         * @param customCaTrustEnabled Specifies whether to trust a Custom CA. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customCaTrustEnabled(Boolean customCaTrustEnabled) {
+            return customCaTrustEnabled(Output.of(customCaTrustEnabled));
+        }
+
+        /**
          * @param enableAutoScaling Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
          * 
          * @return builder
@@ -608,7 +645,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param enableHostEncryption Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
+         * @param enableHostEncryption Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -619,7 +656,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param enableHostEncryption Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
+         * @param enableHostEncryption Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1101,7 +1138,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param type The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
+         * @param type The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1112,7 +1149,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param type The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
+         * @param type The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1122,7 +1159,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param ultraSsdEnabled Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+         * @param ultraSsdEnabled Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1133,7 +1170,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param ultraSsdEnabled Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+         * @param ultraSsdEnabled Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

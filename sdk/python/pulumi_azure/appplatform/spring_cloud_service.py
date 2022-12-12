@@ -38,7 +38,7 @@ class SpringCloudServiceArgs:
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         :param pulumi.Input['SpringCloudServiceNetworkArgs'] network: A `network` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] service_registry_enabled: Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
-        :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
+        :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['SpringCloudServiceTraceArgs'] trace: A `trace` block as defined below.
         :param pulumi.Input[bool] zone_redundant: Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
@@ -167,7 +167,7 @@ class SpringCloudServiceArgs:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
+        Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -243,7 +243,7 @@ class _SpringCloudServiceState:
         :param pulumi.Input[str] resource_group_name: Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] service_registry_enabled: Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
         :param pulumi.Input[str] service_registry_id: The ID of the Spring Cloud Service Registry.
-        :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
+        :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['SpringCloudServiceTraceArgs'] trace: A `trace` block as defined below.
         :param pulumi.Input[bool] zone_redundant: Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
@@ -415,7 +415,7 @@ class _SpringCloudServiceState:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
+        Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -518,7 +518,7 @@ class SpringCloudService(pulumi.CustomResource):
         Spring Cloud services can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:appplatform/springCloudService:SpringCloudService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AppPlatform/Spring/spring1
+         $ pulumi import azure:appplatform/springCloudService:SpringCloudService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AppPlatform/spring/spring1
         ```
 
         :param str resource_name: The name of the resource.
@@ -531,7 +531,7 @@ class SpringCloudService(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SpringCloudServiceNetworkArgs']] network: A `network` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] service_registry_enabled: Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
-        :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
+        :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['SpringCloudServiceTraceArgs']] trace: A `trace` block as defined below.
         :param pulumi.Input[bool] zone_redundant: Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
@@ -582,7 +582,7 @@ class SpringCloudService(pulumi.CustomResource):
         Spring Cloud services can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:appplatform/springCloudService:SpringCloudService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AppPlatform/Spring/spring1
+         $ pulumi import azure:appplatform/springCloudService:SpringCloudService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AppPlatform/spring/spring1
         ```
 
         :param str resource_name: The name of the resource.
@@ -681,7 +681,7 @@ class SpringCloudService(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] service_registry_enabled: Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
         :param pulumi.Input[str] service_registry_id: The ID of the Spring Cloud Service Registry.
-        :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
+        :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['SpringCloudServiceTraceArgs']] trace: A `trace` block as defined below.
         :param pulumi.Input[bool] zone_redundant: Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
@@ -799,7 +799,7 @@ class SpringCloudService(pulumi.CustomResource):
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
+        Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku_name")
 

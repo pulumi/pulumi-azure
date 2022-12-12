@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class ActionGroupArmRoleReceiver
     {
         /// <summary>
-        /// The name of the ARM role receiver.
+        /// The name of the ARM role receiver. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
         /// <summary>

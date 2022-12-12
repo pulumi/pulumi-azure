@@ -20,7 +20,7 @@ class SpatialAnchorsAccountArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a SpatialAnchorsAccount resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Spatial Anchors Account.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Spatial Anchors Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Spatial Anchors Account. Changing this forces a new resource to be created. Must be globally unique.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -37,7 +37,7 @@ class SpatialAnchorsAccountArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to create the Spatial Anchors Account.
+        The name of the resource group in which to create the Spatial Anchors Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -97,7 +97,7 @@ class _SpatialAnchorsAccountState:
         :param pulumi.Input[str] account_id: The account ID of the Spatial Anchors Account.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Spatial Anchors Account. Changing this forces a new resource to be created. Must be globally unique.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Spatial Anchors Account.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Spatial Anchors Account. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if account_domain is not None:
@@ -165,7 +165,7 @@ class _SpatialAnchorsAccountState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to create the Spatial Anchors Account.
+        The name of the resource group in which to create the Spatial Anchors Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -223,7 +223,7 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Spatial Anchors Account. Changing this forces a new resource to be created. Must be globally unique.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Spatial Anchors Account.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Spatial Anchors Account. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -318,7 +318,7 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
         :param pulumi.Input[str] account_id: The account ID of the Spatial Anchors Account.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Spatial Anchors Account. Changing this forces a new resource to be created. Must be globally unique.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Spatial Anchors Account.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Spatial Anchors Account. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -369,7 +369,7 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to create the Spatial Anchors Account.
+        The name of the resource group in which to create the Spatial Anchors Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 

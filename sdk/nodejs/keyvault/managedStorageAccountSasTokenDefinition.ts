@@ -144,7 +144,7 @@ export class ManagedStorageAccountSasTokenDefinition extends pulumi.CustomResour
      */
     public /*out*/ readonly secretId!: pulumi.Output<string>;
     /**
-     * A mapping of tags which should be assigned to the SAS Definition.
+     * A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -224,7 +224,7 @@ export interface ManagedStorageAccountSasTokenDefinitionState {
      */
     secretId?: pulumi.Input<string>;
     /**
-     * A mapping of tags which should be assigned to the SAS Definition.
+     * A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -254,7 +254,7 @@ export interface ManagedStorageAccountSasTokenDefinitionArgs {
      */
     sasType: pulumi.Input<string>;
     /**
-     * A mapping of tags which should be assigned to the SAS Definition.
+     * A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

@@ -23,7 +23,7 @@ class FirewallRuleArgs:
         The set of arguments for constructing a FirewallRule resource.
         :param pulumi.Input[str] end_ip: The highest IP address included in the range.
         :param pulumi.Input[str] redis_cache_name: The name of the Redis Cache. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which this Redis Cache exists.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which this Redis Cache exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] start_ip: The lowest IP address included in the range
         :param pulumi.Input[str] name: The name of the Firewall Rule. Changing this forces a new resource to be created.
         """
@@ -62,7 +62,7 @@ class FirewallRuleArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which this Redis Cache exists.
+        The name of the resource group in which this Redis Cache exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -108,7 +108,7 @@ class _FirewallRuleState:
         :param pulumi.Input[str] end_ip: The highest IP address included in the range.
         :param pulumi.Input[str] name: The name of the Firewall Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] redis_cache_name: The name of the Redis Cache. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which this Redis Cache exists.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which this Redis Cache exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] start_ip: The lowest IP address included in the range
         """
         if end_ip is not None:
@@ -162,7 +162,7 @@ class _FirewallRuleState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which this Redis Cache exists.
+        The name of the resource group in which this Redis Cache exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -242,7 +242,7 @@ class FirewallRule(pulumi.CustomResource):
         :param pulumi.Input[str] end_ip: The highest IP address included in the range.
         :param pulumi.Input[str] name: The name of the Firewall Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] redis_cache_name: The name of the Redis Cache. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which this Redis Cache exists.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which this Redis Cache exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] start_ip: The lowest IP address included in the range
         """
         ...
@@ -361,7 +361,7 @@ class FirewallRule(pulumi.CustomResource):
         :param pulumi.Input[str] end_ip: The highest IP address included in the range.
         :param pulumi.Input[str] name: The name of the Firewall Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] redis_cache_name: The name of the Redis Cache. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which this Redis Cache exists.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which this Redis Cache exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] start_ip: The lowest IP address included in the range
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -403,7 +403,7 @@ class FirewallRule(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which this Redis Cache exists.
+        The name of the resource group in which this Redis Cache exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 

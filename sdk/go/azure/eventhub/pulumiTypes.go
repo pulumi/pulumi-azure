@@ -6495,7 +6495,7 @@ func (o EventSubscriptionWebhookEndpointPtrOutput) Url() pulumi.StringPtrOutput 
 type NamespaceCustomerManagedKeyType struct {
 	// The ID of the User Assigned Identity that has access to the key.
 	IdentityId string `pulumi:"identityId"`
-	// Used to specify whether enable Infrastructure Encryption (Double Encryption).
+	// Used to specify whether enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled *bool `pulumi:"infrastructureEncryptionEnabled"`
 	// The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
 	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
@@ -6515,7 +6515,7 @@ type NamespaceCustomerManagedKeyTypeInput interface {
 type NamespaceCustomerManagedKeyTypeArgs struct {
 	// The ID of the User Assigned Identity that has access to the key.
 	IdentityId pulumi.StringInput `pulumi:"identityId"`
-	// Used to specify whether enable Infrastructure Encryption (Double Encryption).
+	// Used to specify whether enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled pulumi.BoolPtrInput `pulumi:"infrastructureEncryptionEnabled"`
 	// The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
 	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
@@ -6603,7 +6603,7 @@ func (o NamespaceCustomerManagedKeyTypeOutput) IdentityId() pulumi.StringOutput 
 	return o.ApplyT(func(v NamespaceCustomerManagedKeyType) string { return v.IdentityId }).(pulumi.StringOutput)
 }
 
-// Used to specify whether enable Infrastructure Encryption (Double Encryption).
+// Used to specify whether enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
 func (o NamespaceCustomerManagedKeyTypeOutput) InfrastructureEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NamespaceCustomerManagedKeyType) *bool { return v.InfrastructureEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -6647,7 +6647,7 @@ func (o NamespaceCustomerManagedKeyTypePtrOutput) IdentityId() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Used to specify whether enable Infrastructure Encryption (Double Encryption).
+// Used to specify whether enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
 func (o NamespaceCustomerManagedKeyTypePtrOutput) InfrastructureEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NamespaceCustomerManagedKeyType) *bool {
 		if v == nil {
@@ -6862,11 +6862,11 @@ func (o NamespaceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type SubscriptionClientScopedSubscription struct {
-	// Specifies the Client ID of the application that created the client-scoped subscription.
+	// Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
 	ClientId *string `pulumi:"clientId"`
 	// Whether the client scoped subscription is durable. This property can only be controlled from the application side.
 	IsClientScopedSubscriptionDurable *bool `pulumi:"isClientScopedSubscriptionDurable"`
-	// Whether the client scoped subscription is shareable. Defaults to `true`
+	// Whether the client scoped subscription is shareable. Defaults to `true` Changing this forces a new resource to be created.
 	IsClientScopedSubscriptionShareable *bool `pulumi:"isClientScopedSubscriptionShareable"`
 }
 
@@ -6882,11 +6882,11 @@ type SubscriptionClientScopedSubscriptionInput interface {
 }
 
 type SubscriptionClientScopedSubscriptionArgs struct {
-	// Specifies the Client ID of the application that created the client-scoped subscription.
+	// Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
 	// Whether the client scoped subscription is durable. This property can only be controlled from the application side.
 	IsClientScopedSubscriptionDurable pulumi.BoolPtrInput `pulumi:"isClientScopedSubscriptionDurable"`
-	// Whether the client scoped subscription is shareable. Defaults to `true`
+	// Whether the client scoped subscription is shareable. Defaults to `true` Changing this forces a new resource to be created.
 	IsClientScopedSubscriptionShareable pulumi.BoolPtrInput `pulumi:"isClientScopedSubscriptionShareable"`
 }
 
@@ -6967,7 +6967,7 @@ func (o SubscriptionClientScopedSubscriptionOutput) ToSubscriptionClientScopedSu
 	}).(SubscriptionClientScopedSubscriptionPtrOutput)
 }
 
-// Specifies the Client ID of the application that created the client-scoped subscription.
+// Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
 func (o SubscriptionClientScopedSubscriptionOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriptionClientScopedSubscription) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
@@ -6977,7 +6977,7 @@ func (o SubscriptionClientScopedSubscriptionOutput) IsClientScopedSubscriptionDu
 	return o.ApplyT(func(v SubscriptionClientScopedSubscription) *bool { return v.IsClientScopedSubscriptionDurable }).(pulumi.BoolPtrOutput)
 }
 
-// Whether the client scoped subscription is shareable. Defaults to `true`
+// Whether the client scoped subscription is shareable. Defaults to `true` Changing this forces a new resource to be created.
 func (o SubscriptionClientScopedSubscriptionOutput) IsClientScopedSubscriptionShareable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SubscriptionClientScopedSubscription) *bool { return v.IsClientScopedSubscriptionShareable }).(pulumi.BoolPtrOutput)
 }
@@ -7006,7 +7006,7 @@ func (o SubscriptionClientScopedSubscriptionPtrOutput) Elem() SubscriptionClient
 	}).(SubscriptionClientScopedSubscriptionOutput)
 }
 
-// Specifies the Client ID of the application that created the client-scoped subscription.
+// Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
 func (o SubscriptionClientScopedSubscriptionPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionClientScopedSubscription) *string {
 		if v == nil {
@@ -7026,7 +7026,7 @@ func (o SubscriptionClientScopedSubscriptionPtrOutput) IsClientScopedSubscriptio
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Whether the client scoped subscription is shareable. Defaults to `true`
+// Whether the client scoped subscription is shareable. Defaults to `true` Changing this forces a new resource to be created.
 func (o SubscriptionClientScopedSubscriptionPtrOutput) IsClientScopedSubscriptionShareable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SubscriptionClientScopedSubscription) *bool {
 		if v == nil {

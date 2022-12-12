@@ -11,13 +11,13 @@ import (
 )
 
 type WorkbookIdentity struct {
-	// The list of User Assigned Managed Identity IDs assigned to this Workbook.
+	// The list of User Assigned Managed Identity IDs assigned to this Workbook. Changing this forces a new resource to be created.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Workbook.
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Workbook.
 	TenantId *string `pulumi:"tenantId"`
-	// The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
+	// The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. Changing this forces a new resource to be created.
 	Type string `pulumi:"type"`
 }
 
@@ -33,13 +33,13 @@ type WorkbookIdentityInput interface {
 }
 
 type WorkbookIdentityArgs struct {
-	// The list of User Assigned Managed Identity IDs assigned to this Workbook.
+	// The list of User Assigned Managed Identity IDs assigned to this Workbook. Changing this forces a new resource to be created.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Workbook.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Workbook.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
+	// The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. Changing this forces a new resource to be created.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -120,7 +120,7 @@ func (o WorkbookIdentityOutput) ToWorkbookIdentityPtrOutputWithContext(ctx conte
 	}).(WorkbookIdentityPtrOutput)
 }
 
-// The list of User Assigned Managed Identity IDs assigned to this Workbook.
+// The list of User Assigned Managed Identity IDs assigned to this Workbook. Changing this forces a new resource to be created.
 func (o WorkbookIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WorkbookIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -135,7 +135,7 @@ func (o WorkbookIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkbookIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
+// The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. Changing this forces a new resource to be created.
 func (o WorkbookIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkbookIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -164,7 +164,7 @@ func (o WorkbookIdentityPtrOutput) Elem() WorkbookIdentityOutput {
 	}).(WorkbookIdentityOutput)
 }
 
-// The list of User Assigned Managed Identity IDs assigned to this Workbook.
+// The list of User Assigned Managed Identity IDs assigned to this Workbook. Changing this forces a new resource to be created.
 func (o WorkbookIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WorkbookIdentity) []string {
 		if v == nil {
@@ -194,7 +194,7 @@ func (o WorkbookIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
+// The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. Changing this forces a new resource to be created.
 func (o WorkbookIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkbookIdentity) *string {
 		if v == nil {

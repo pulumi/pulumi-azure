@@ -143,7 +143,7 @@ export class ScaleSet extends pulumi.CustomResource {
      */
     public readonly bootDiagnostics!: pulumi.Output<outputs.compute.ScaleSetBootDiagnostics | undefined>;
     /**
-     * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
+     * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      */
     public readonly evictionPolicy!: pulumi.Output<string | undefined>;
     /**
@@ -196,7 +196,7 @@ export class ScaleSet extends pulumi.CustomResource {
      */
     public readonly plan!: pulumi.Output<outputs.compute.ScaleSetPlan | undefined>;
     /**
-     * Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
+     * Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
      */
     public readonly priority!: pulumi.Output<string | undefined>;
     /**
@@ -240,7 +240,7 @@ export class ScaleSet extends pulumi.CustomResource {
      */
     public readonly upgradePolicyMode!: pulumi.Output<string>;
     /**
-     * A collection of availability zones to spread the Virtual Machines over.
+     * A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
      */
     public readonly zones!: pulumi.Output<string[] | undefined>;
 
@@ -352,7 +352,7 @@ export interface ScaleSetState {
      */
     bootDiagnostics?: pulumi.Input<inputs.compute.ScaleSetBootDiagnostics>;
     /**
-     * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
+     * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      */
     evictionPolicy?: pulumi.Input<string>;
     /**
@@ -405,7 +405,7 @@ export interface ScaleSetState {
      */
     plan?: pulumi.Input<inputs.compute.ScaleSetPlan>;
     /**
-     * Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
+     * Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
      */
     priority?: pulumi.Input<string>;
     /**
@@ -449,7 +449,7 @@ export interface ScaleSetState {
      */
     upgradePolicyMode?: pulumi.Input<string>;
     /**
-     * A collection of availability zones to spread the Virtual Machines over.
+     * A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -467,7 +467,7 @@ export interface ScaleSetArgs {
      */
     bootDiagnostics?: pulumi.Input<inputs.compute.ScaleSetBootDiagnostics>;
     /**
-     * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
+     * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      */
     evictionPolicy?: pulumi.Input<string>;
     /**
@@ -520,7 +520,7 @@ export interface ScaleSetArgs {
      */
     plan?: pulumi.Input<inputs.compute.ScaleSetPlan>;
     /**
-     * Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
+     * Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
      */
     priority?: pulumi.Input<string>;
     /**
@@ -564,7 +564,7 @@ export interface ScaleSetArgs {
      */
     upgradePolicyMode: pulumi.Input<string>;
     /**
-     * A collection of availability zones to spread the Virtual Machines over.
+     * A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -89,37 +89,36 @@ export class Blob extends pulumi.CustomResource {
      */
     public readonly metadata!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The name of the storage blob. Must be unique within the storage container the blob is located.
+     * The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
+     * The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
      */
     public readonly parallelism!: pulumi.Output<number | undefined>;
     /**
-     * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
+     * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. Changing this forces a new resource to be created.
      */
     public readonly size!: pulumi.Output<number | undefined>;
     /**
-     * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
+     * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified. Changing this forces a new resource to be created.
      */
     public readonly source!: pulumi.Output<pulumi.asset.Asset | pulumi.asset.Archive | undefined>;
     /**
-     * The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
+     * The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified. Changing this forces a new resource to be created.
      */
     public readonly sourceContent!: pulumi.Output<string | undefined>;
     /**
-     * The URI of an existing blob, or a file in the Azure File service, to use as the source contents
-     * for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
+     * The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
      */
     public readonly sourceUri!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the storage account in which to create the storage container.
+     * Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
      * Changing this forces a new resource to be created.
      */
     public readonly storageAccountName!: pulumi.Output<string>;
     /**
-     * The name of the storage container in which this blob should be created.
+     * The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
      */
     public readonly storageContainerName!: pulumi.Output<string>;
     /**
@@ -216,37 +215,36 @@ export interface BlobState {
      */
     metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The name of the storage blob. Must be unique within the storage container the blob is located.
+     * The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
+     * The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
      */
     parallelism?: pulumi.Input<number>;
     /**
-     * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
+     * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. Changing this forces a new resource to be created.
      */
     size?: pulumi.Input<number>;
     /**
-     * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
+     * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified. Changing this forces a new resource to be created.
      */
     source?: pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive>;
     /**
-     * The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
+     * The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified. Changing this forces a new resource to be created.
      */
     sourceContent?: pulumi.Input<string>;
     /**
-     * The URI of an existing blob, or a file in the Azure File service, to use as the source contents
-     * for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
+     * The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
      */
     sourceUri?: pulumi.Input<string>;
     /**
-     * Specifies the storage account in which to create the storage container.
+     * Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
      * Changing this forces a new resource to be created.
      */
     storageAccountName?: pulumi.Input<string>;
     /**
-     * The name of the storage container in which this blob should be created.
+     * The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
      */
     storageContainerName?: pulumi.Input<string>;
     /**
@@ -284,37 +282,36 @@ export interface BlobArgs {
      */
     metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The name of the storage blob. Must be unique within the storage container the blob is located.
+     * The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
+     * The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
      */
     parallelism?: pulumi.Input<number>;
     /**
-     * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
+     * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. Changing this forces a new resource to be created.
      */
     size?: pulumi.Input<number>;
     /**
-     * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
+     * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified. Changing this forces a new resource to be created.
      */
     source?: pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive>;
     /**
-     * The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
+     * The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified. Changing this forces a new resource to be created.
      */
     sourceContent?: pulumi.Input<string>;
     /**
-     * The URI of an existing blob, or a file in the Azure File service, to use as the source contents
-     * for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
+     * The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
      */
     sourceUri?: pulumi.Input<string>;
     /**
-     * Specifies the storage account in which to create the storage container.
+     * Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
      * Changing this forces a new resource to be created.
      */
     storageAccountName: pulumi.Input<string>;
     /**
-     * The name of the storage container in which this blob should be created.
+     * The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
      */
     storageContainerName: pulumi.Input<string>;
     /**

@@ -81,11 +81,11 @@ import (
 type ContainerStorageAccount struct {
 	pulumi.CustomResourceState
 
-	// The name of the vault where the storage account will be registered.
+	// The name of the vault where the storage account will be registered. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringOutput `pulumi:"recoveryVaultName"`
-	// Name of the resource group where the vault is located.
+	// Name of the resource group where the vault is located. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The ID of the Storage Account to be registered
+	// The ID of the Storage Account to be registered Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
 }
 
@@ -127,20 +127,20 @@ func GetContainerStorageAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ContainerStorageAccount resources.
 type containerStorageAccountState struct {
-	// The name of the vault where the storage account will be registered.
+	// The name of the vault where the storage account will be registered. Changing this forces a new resource to be created.
 	RecoveryVaultName *string `pulumi:"recoveryVaultName"`
-	// Name of the resource group where the vault is located.
+	// Name of the resource group where the vault is located. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The ID of the Storage Account to be registered
+	// The ID of the Storage Account to be registered Changing this forces a new resource to be created.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 }
 
 type ContainerStorageAccountState struct {
-	// The name of the vault where the storage account will be registered.
+	// The name of the vault where the storage account will be registered. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringPtrInput
-	// Name of the resource group where the vault is located.
+	// Name of the resource group where the vault is located. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The ID of the Storage Account to be registered
+	// The ID of the Storage Account to be registered Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrInput
 }
 
@@ -149,21 +149,21 @@ func (ContainerStorageAccountState) ElementType() reflect.Type {
 }
 
 type containerStorageAccountArgs struct {
-	// The name of the vault where the storage account will be registered.
+	// The name of the vault where the storage account will be registered. Changing this forces a new resource to be created.
 	RecoveryVaultName string `pulumi:"recoveryVaultName"`
-	// Name of the resource group where the vault is located.
+	// Name of the resource group where the vault is located. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The ID of the Storage Account to be registered
+	// The ID of the Storage Account to be registered Changing this forces a new resource to be created.
 	StorageAccountId string `pulumi:"storageAccountId"`
 }
 
 // The set of arguments for constructing a ContainerStorageAccount resource.
 type ContainerStorageAccountArgs struct {
-	// The name of the vault where the storage account will be registered.
+	// The name of the vault where the storage account will be registered. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringInput
-	// Name of the resource group where the vault is located.
+	// Name of the resource group where the vault is located. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The ID of the Storage Account to be registered
+	// The ID of the Storage Account to be registered Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringInput
 }
 
@@ -254,17 +254,17 @@ func (o ContainerStorageAccountOutput) ToContainerStorageAccountOutputWithContex
 	return o
 }
 
-// The name of the vault where the storage account will be registered.
+// The name of the vault where the storage account will be registered. Changing this forces a new resource to be created.
 func (o ContainerStorageAccountOutput) RecoveryVaultName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerStorageAccount) pulumi.StringOutput { return v.RecoveryVaultName }).(pulumi.StringOutput)
 }
 
-// Name of the resource group where the vault is located.
+// Name of the resource group where the vault is located. Changing this forces a new resource to be created.
 func (o ContainerStorageAccountOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerStorageAccount) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The ID of the Storage Account to be registered
+// The ID of the Storage Account to be registered Changing this forces a new resource to be created.
 func (o ContainerStorageAccountOutput) StorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerStorageAccount) pulumi.StringOutput { return v.StorageAccountId }).(pulumi.StringOutput)
 }

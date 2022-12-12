@@ -33,14 +33,14 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Azure Region in which this Notification Hub Namespace should be created.
+     * The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return The Azure Region in which this Notification Hub Namespace should be created.
+     * @return The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> location() {
@@ -63,14 +63,14 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
+     * The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
      * 
      */
     @Import(name="namespaceType")
     private @Nullable Output<String> namespaceType;
 
     /**
-     * @return The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
+     * @return The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
      * 
      */
     public Optional<Output<String>> namespaceType() {
@@ -108,14 +108,14 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+     * The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
      * 
      */
     @Import(name="skuName")
     private @Nullable Output<String> skuName;
 
     /**
-     * @return The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+     * @return The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
      * 
      */
     public Optional<Output<String>> skuName() {
@@ -190,7 +190,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The Azure Region in which this Notification Hub Namespace should be created.
+         * @param location The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The Azure Region in which this Notification Hub Namespace should be created.
+         * @param location The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namespaceType The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
+         * @param namespaceType The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namespaceType The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
+         * @param namespaceType The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skuName The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+         * @param skuName The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skuName The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+         * @param skuName The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
          * 
          * @return builder
          * 

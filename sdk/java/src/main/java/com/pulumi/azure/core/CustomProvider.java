@@ -118,14 +118,14 @@ public class CustomProvider extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The name of the resource group in which to create the Custom Provider.
+     * The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the Custom Provider.
+     * @return The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -146,14 +146,14 @@ public class CustomProvider extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.resourceTypes);
     }
     /**
-     * A mapping of tags to assign to the resource.
+     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags to assign to the resource.
+     * @return A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

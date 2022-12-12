@@ -121,14 +121,14 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+     * The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="generation")
     private @Nullable Output<String> generation;
 
     /**
-     * @return The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+     * @return The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> generation() {
@@ -157,16 +157,14 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The location/region where the Virtual Network Gateway is
-     * located. Changing the location/region forces a new resource to be created.
+     * The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return The location/region where the Virtual Network Gateway is
-     * located. Changing the location/region forces a new resource to be created.
+     * @return The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> location() {
@@ -174,16 +172,14 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
     }
 
     /**
-     * A user-defined name of the IP configuration. Defaults to
-     * `vnetGatewayConfig`.
+     * A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A user-defined name of the IP configuration. Defaults to
-     * `vnetGatewayConfig`.
+     * @return A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -206,18 +202,14 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The name of the resource group in which to
-     * create the Virtual Network Gateway. Changing the resource group name forces
-     * a new resource to be created.
+     * The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to
-     * create the Virtual Network Gateway. Changing the resource group name forces
-     * a new resource to be created.
+     * @return The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -301,14 +293,14 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+     * The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="vpnType")
     private @Nullable Output<String> vpnType;
 
     /**
-     * @return The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+     * @return The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> vpnType() {
@@ -486,7 +478,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param generation The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+         * @param generation The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -497,7 +489,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param generation The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+         * @param generation The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -547,8 +539,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param location The location/region where the Virtual Network Gateway is
-         * located. Changing the location/region forces a new resource to be created.
+         * @param location The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -559,8 +550,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param location The location/region where the Virtual Network Gateway is
-         * located. Changing the location/region forces a new resource to be created.
+         * @param location The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -570,8 +560,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name A user-defined name of the IP configuration. Defaults to
-         * `vnetGatewayConfig`.
+         * @param name A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -582,8 +571,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name A user-defined name of the IP configuration. Defaults to
-         * `vnetGatewayConfig`.
+         * @param name A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -614,9 +602,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to
-         * create the Virtual Network Gateway. Changing the resource group name forces
-         * a new resource to be created.
+         * @param resourceGroupName The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -627,9 +613,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to
-         * create the Virtual Network Gateway. Changing the resource group name forces
-         * a new resource to be created.
+         * @param resourceGroupName The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -739,7 +723,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param vpnType The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+         * @param vpnType The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -750,7 +734,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param vpnType The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+         * @param vpnType The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

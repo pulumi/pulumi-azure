@@ -64,7 +64,7 @@ export class ReplicaSet extends pulumi.CustomResource {
      */
     public /*out*/ readonly serviceStatus!: pulumi.Output<string>;
     /**
-     * The ID of the subnet in which to place this Replica Set.
+     * The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created.
      */
     public readonly subnetId!: pulumi.Output<string>;
 
@@ -132,7 +132,7 @@ export interface ReplicaSetState {
      */
     serviceStatus?: pulumi.Input<string>;
     /**
-     * The ID of the subnet in which to place this Replica Set.
+     * The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created.
      */
     subnetId?: pulumi.Input<string>;
 }
@@ -150,7 +150,7 @@ export interface ReplicaSetArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The ID of the subnet in which to place this Replica Set.
+     * The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created.
      */
     subnetId: pulumi.Input<string>;
 }

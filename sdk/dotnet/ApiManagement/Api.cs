@@ -158,7 +158,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The Revision which used for this API.
+        /// The Revision which used for this API. Changing this forces a new resource to be created.
         /// </summary>
         [Output("revision")]
         public Output<string> Revision { get; private set; } = null!;
@@ -354,7 +354,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The Revision which used for this API.
+        /// The Revision which used for this API. Changing this forces a new resource to be created.
         /// </summary>
         [Input("revision", required: true)]
         public Input<string> Revision { get; set; } = null!;
@@ -524,7 +524,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The Revision which used for this API.
+        /// The Revision which used for this API. Changing this forces a new resource to be created.
         /// </summary>
         [Input("revision")]
         public Input<string>? Revision { get; set; }

@@ -93,14 +93,14 @@ public final class DataLakeGen2PathArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies the type for path to create. Currently only `directory` is supported.
+     * Specifies the type for path to create. Currently only `directory` is supported. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resource", required=true)
     private Output<String> resource;
 
     /**
-     * @return Specifies the type for path to create. Currently only `directory` is supported.
+     * @return Specifies the type for path to create. Currently only `directory` is supported. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resource() {
@@ -268,7 +268,7 @@ public final class DataLakeGen2PathArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param resource Specifies the type for path to create. Currently only `directory` is supported.
+         * @param resource Specifies the type for path to create. Currently only `directory` is supported. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class DataLakeGen2PathArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param resource Specifies the type for path to create. Currently only `directory` is supported.
+         * @param resource Specifies the type for path to create. Currently only `directory` is supported. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

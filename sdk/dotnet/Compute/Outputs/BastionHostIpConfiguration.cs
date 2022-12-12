@@ -14,15 +14,15 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class BastionHostIpConfiguration
     {
         /// <summary>
-        /// The name of the IP configuration.
+        /// The name of the IP configuration. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Reference to a Public IP Address to associate with this Bastion Host.
+        /// Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string PublicIpAddressId;
         /// <summary>
-        /// Reference to a subnet in which this Bastion Host has been created.
+        /// Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string SubnetId;
 

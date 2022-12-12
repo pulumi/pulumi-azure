@@ -21,7 +21,7 @@ class AccountArgs:
         """
         The set of arguments for constructing a Account resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku_name: The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`.
+        :param pulumi.Input[str] sku_name: The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Azure Maps Account. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Azure Maps Account.
         """
@@ -48,7 +48,7 @@ class AccountArgs:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Input[str]:
         """
-        The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`.
+        The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -97,7 +97,7 @@ class _AccountState:
         :param pulumi.Input[str] primary_access_key: The primary key used to authenticate and authorize access to the Maps REST APIs.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_access_key: The secondary key used to authenticate and authorize access to the Maps REST APIs.
-        :param pulumi.Input[str] sku_name: The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`.
+        :param pulumi.Input[str] sku_name: The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Azure Maps Account.
         :param pulumi.Input[str] x_ms_client_id: A unique identifier for the Maps Account.
         """
@@ -168,7 +168,7 @@ class _AccountState:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`.
+        The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -241,7 +241,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the Azure Maps Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku_name: The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`.
+        :param pulumi.Input[str] sku_name: The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Azure Maps Account.
         """
         ...
@@ -343,7 +343,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] primary_access_key: The primary key used to authenticate and authorize access to the Maps REST APIs.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_access_key: The secondary key used to authenticate and authorize access to the Maps REST APIs.
-        :param pulumi.Input[str] sku_name: The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`.
+        :param pulumi.Input[str] sku_name: The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Azure Maps Account.
         :param pulumi.Input[str] x_ms_client_id: A unique identifier for the Maps Account.
         """
@@ -396,7 +396,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Output[str]:
         """
-        The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`.
+        The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku_name")
 

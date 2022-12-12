@@ -187,7 +187,7 @@ export class Standard extends pulumi.CustomResource {
      */
     public /*out*/ readonly possibleOutboundIpAddresses!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to create the Logic App
+     * The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -203,7 +203,7 @@ export class Standard extends pulumi.CustomResource {
      */
     public readonly storageAccountAccessKey!: pulumi.Output<string>;
     /**
-     * The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data)
+     * The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
      */
     public readonly storageAccountName!: pulumi.Output<string>;
     /**
@@ -381,7 +381,7 @@ export interface StandardState {
      */
     possibleOutboundIpAddresses?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the Logic App
+     * The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -397,7 +397,7 @@ export interface StandardState {
      */
     storageAccountAccessKey?: pulumi.Input<string>;
     /**
-     * The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data)
+     * The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
      */
     storageAccountName?: pulumi.Input<string>;
     /**
@@ -471,7 +471,7 @@ export interface StandardArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the Logic App
+     * The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -483,7 +483,7 @@ export interface StandardArgs {
      */
     storageAccountAccessKey: pulumi.Input<string>;
     /**
-     * The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data)
+     * The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
      */
     storageAccountName: pulumi.Input<string>;
     /**

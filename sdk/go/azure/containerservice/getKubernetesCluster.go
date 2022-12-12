@@ -122,10 +122,12 @@ type LookupKubernetesClusterResult struct {
 	// The FQDN of this Kubernetes Cluster when private link has been enabled. This name is only resolvable inside the Virtual Network where the Azure Kubernetes Service is located
 	PrivateFqdn       string `pulumi:"privateFqdn"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Is Role Based Access Control enabled for this managed Kubernetes Cluster.
+	// Is Role Based Access Control enabled for this managed Kubernetes Cluster?
 	RoleBasedAccessControlEnabled bool `pulumi:"roleBasedAccessControlEnabled"`
 	// A `servicePrincipal` block as documented below.
 	ServicePrincipals []GetKubernetesClusterServicePrincipal `pulumi:"servicePrincipals"`
+	// A `storageProfile` block as documented below.
+	StorageProfiles []GetKubernetesClusterStorageProfile `pulumi:"storageProfiles"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// A `windowsProfile` block as documented below.
@@ -350,7 +352,7 @@ func (o LookupKubernetesClusterResultOutput) ResourceGroupName() pulumi.StringOu
 	return o.ApplyT(func(v LookupKubernetesClusterResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// Is Role Based Access Control enabled for this managed Kubernetes Cluster.
+// Is Role Based Access Control enabled for this managed Kubernetes Cluster?
 func (o LookupKubernetesClusterResultOutput) RoleBasedAccessControlEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) bool { return v.RoleBasedAccessControlEnabled }).(pulumi.BoolOutput)
 }
@@ -360,6 +362,11 @@ func (o LookupKubernetesClusterResultOutput) ServicePrincipals() GetKubernetesCl
 	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterServicePrincipal {
 		return v.ServicePrincipals
 	}).(GetKubernetesClusterServicePrincipalArrayOutput)
+}
+
+// A `storageProfile` block as documented below.
+func (o LookupKubernetesClusterResultOutput) StorageProfiles() GetKubernetesClusterStorageProfileArrayOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterStorageProfile { return v.StorageProfiles }).(GetKubernetesClusterStorageProfileArrayOutput)
 }
 
 // A mapping of tags to assign to the resource.

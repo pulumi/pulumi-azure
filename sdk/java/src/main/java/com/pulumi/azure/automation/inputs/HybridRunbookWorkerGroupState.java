@@ -46,14 +46,14 @@ public final class HybridRunbookWorkerGroupState extends com.pulumi.resources.Re
     }
 
     /**
-     * The name which should be used for this Automation Account Runbook Worker Group.
+     * The name which should be used for this Automation Account Runbook Worker Group. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Automation Account Runbook Worker Group.
+     * @return The name which should be used for this Automation Account Runbook Worker Group. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -145,7 +145,7 @@ public final class HybridRunbookWorkerGroupState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param name The name which should be used for this Automation Account Runbook Worker Group.
+         * @param name The name which should be used for this Automation Account Runbook Worker Group. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class HybridRunbookWorkerGroupState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param name The name which should be used for this Automation Account Runbook Worker Group.
+         * @param name The name which should be used for this Automation Account Runbook Worker Group. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -172,8 +172,7 @@ type Extension struct {
 	AutomaticUpgradeEnabled pulumi.BoolPtrOutput `pulumi:"automaticUpgradeEnabled"`
 	// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
 	FailureSuppressionEnabled pulumi.BoolPtrOutput `pulumi:"failureSuppressionEnabled"`
-	// The name of the virtual machine extension peering. Changing
-	// this forces a new resource to be created.
+	// The name of the virtual machine extension peering. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The protectedSettings passed to the
 	// extension, like settings, these are specified as a JSON object in a string.
@@ -245,8 +244,7 @@ type extensionState struct {
 	AutomaticUpgradeEnabled *bool `pulumi:"automaticUpgradeEnabled"`
 	// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
 	FailureSuppressionEnabled *bool `pulumi:"failureSuppressionEnabled"`
-	// The name of the virtual machine extension peering. Changing
-	// this forces a new resource to be created.
+	// The name of the virtual machine extension peering. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The protectedSettings passed to the
 	// extension, like settings, these are specified as a JSON object in a string.
@@ -278,8 +276,7 @@ type ExtensionState struct {
 	AutomaticUpgradeEnabled pulumi.BoolPtrInput
 	// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
 	FailureSuppressionEnabled pulumi.BoolPtrInput
-	// The name of the virtual machine extension peering. Changing
-	// this forces a new resource to be created.
+	// The name of the virtual machine extension peering. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The protectedSettings passed to the
 	// extension, like settings, these are specified as a JSON object in a string.
@@ -315,8 +312,7 @@ type extensionArgs struct {
 	AutomaticUpgradeEnabled *bool `pulumi:"automaticUpgradeEnabled"`
 	// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
 	FailureSuppressionEnabled *bool `pulumi:"failureSuppressionEnabled"`
-	// The name of the virtual machine extension peering. Changing
-	// this forces a new resource to be created.
+	// The name of the virtual machine extension peering. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The protectedSettings passed to the
 	// extension, like settings, these are specified as a JSON object in a string.
@@ -349,8 +345,7 @@ type ExtensionArgs struct {
 	AutomaticUpgradeEnabled pulumi.BoolPtrInput
 	// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
 	FailureSuppressionEnabled pulumi.BoolPtrInput
-	// The name of the virtual machine extension peering. Changing
-	// this forces a new resource to be created.
+	// The name of the virtual machine extension peering. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The protectedSettings passed to the
 	// extension, like settings, these are specified as a JSON object in a string.
@@ -477,8 +472,7 @@ func (o ExtensionOutput) FailureSuppressionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Extension) pulumi.BoolPtrOutput { return v.FailureSuppressionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the virtual machine extension peering. Changing
-// this forces a new resource to be created.
+// The name of the virtual machine extension peering. Changing this forces a new resource to be created.
 func (o ExtensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

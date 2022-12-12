@@ -54,7 +54,7 @@ namespace Pulumi.Azure.DomainServices
         public Output<string> ServiceStatus { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the subnet in which to place this Replica Set.
+        /// The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created.
         /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
@@ -118,7 +118,7 @@ namespace Pulumi.Azure.DomainServices
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The ID of the subnet in which to place this Replica Set.
+        /// The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created.
         /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Azure.DomainServices
         public Input<string>? ServiceStatus { get; set; }
 
         /// <summary>
-        /// The ID of the subnet in which to place this Replica Set.
+        /// The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }

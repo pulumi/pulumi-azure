@@ -81,7 +81,7 @@ export class Namespace extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryKey!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to create the Azure Relay Namespace.
+     * The name of the resource group in which to create the Azure Relay Namespace. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -173,7 +173,7 @@ export interface NamespaceState {
      */
     primaryKey?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the Azure Relay Namespace.
+     * The name of the resource group in which to create the Azure Relay Namespace. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -207,7 +207,7 @@ export interface NamespaceArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the Azure Relay Namespace.
+     * The name of the resource group in which to create the Azure Relay Namespace. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

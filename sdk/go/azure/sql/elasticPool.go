@@ -91,7 +91,7 @@ type ElasticPool struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The maximum size in MB that all databases in the elastic pool can grow to. The maximum size must be consistent with combination of `edition` and `dtu` and the limits documented in [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus). If not defined when creating an elastic pool, the value is set to the size implied by `edition` and `dtu`.
 	PoolSize pulumi.IntOutput `pulumi:"poolSize"`
-	// The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+	// The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
 	ServerName pulumi.StringOutput `pulumi:"serverName"`
@@ -156,7 +156,7 @@ type elasticPoolState struct {
 	Name *string `pulumi:"name"`
 	// The maximum size in MB that all databases in the elastic pool can grow to. The maximum size must be consistent with combination of `edition` and `dtu` and the limits documented in [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus). If not defined when creating an elastic pool, the value is set to the size implied by `edition` and `dtu`.
 	PoolSize *int `pulumi:"poolSize"`
-	// The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+	// The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
 	ServerName *string `pulumi:"serverName"`
@@ -181,7 +181,7 @@ type ElasticPoolState struct {
 	Name pulumi.StringPtrInput
 	// The maximum size in MB that all databases in the elastic pool can grow to. The maximum size must be consistent with combination of `edition` and `dtu` and the limits documented in [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus). If not defined when creating an elastic pool, the value is set to the size implied by `edition` and `dtu`.
 	PoolSize pulumi.IntPtrInput
-	// The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+	// The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
 	ServerName pulumi.StringPtrInput
@@ -208,7 +208,7 @@ type elasticPoolArgs struct {
 	Name *string `pulumi:"name"`
 	// The maximum size in MB that all databases in the elastic pool can grow to. The maximum size must be consistent with combination of `edition` and `dtu` and the limits documented in [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus). If not defined when creating an elastic pool, the value is set to the size implied by `edition` and `dtu`.
 	PoolSize *int `pulumi:"poolSize"`
-	// The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+	// The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
 	ServerName string `pulumi:"serverName"`
@@ -232,7 +232,7 @@ type ElasticPoolArgs struct {
 	Name pulumi.StringPtrInput
 	// The maximum size in MB that all databases in the elastic pool can grow to. The maximum size must be consistent with combination of `edition` and `dtu` and the limits documented in [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus). If not defined when creating an elastic pool, the value is set to the size implied by `edition` and `dtu`.
 	PoolSize pulumi.IntPtrInput
-	// The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+	// The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
 	ServerName pulumi.StringInput
@@ -367,7 +367,7 @@ func (o ElasticPoolOutput) PoolSize() pulumi.IntOutput {
 	return o.ApplyT(func(v *ElasticPool) pulumi.IntOutput { return v.PoolSize }).(pulumi.IntOutput)
 }
 
-// The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+// The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
 func (o ElasticPoolOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ElasticPool) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

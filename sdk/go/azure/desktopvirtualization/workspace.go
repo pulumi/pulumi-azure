@@ -67,12 +67,9 @@ type Workspace struct {
 	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
 	// The location/region where the Virtual Desktop Workspace is located. Changing the location/region forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the Virtual Desktop Workspace. Changing the name
-	// forces a new resource to be created.
+	// The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the resource group in which to
-	// create the Virtual Desktop Workspace. Changing the resource group name forces
-	// a new resource to be created.
+	// The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -116,12 +113,9 @@ type workspaceState struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// The location/region where the Virtual Desktop Workspace is located. Changing the location/region forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the Virtual Desktop Workspace. Changing the name
-	// forces a new resource to be created.
+	// The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to
-	// create the Virtual Desktop Workspace. Changing the resource group name forces
-	// a new resource to be created.
+	// The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -134,12 +128,9 @@ type WorkspaceState struct {
 	FriendlyName pulumi.StringPtrInput
 	// The location/region where the Virtual Desktop Workspace is located. Changing the location/region forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the Virtual Desktop Workspace. Changing the name
-	// forces a new resource to be created.
+	// The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to
-	// create the Virtual Desktop Workspace. Changing the resource group name forces
-	// a new resource to be created.
+	// The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -156,12 +147,9 @@ type workspaceArgs struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// The location/region where the Virtual Desktop Workspace is located. Changing the location/region forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the Virtual Desktop Workspace. Changing the name
-	// forces a new resource to be created.
+	// The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to
-	// create the Virtual Desktop Workspace. Changing the resource group name forces
-	// a new resource to be created.
+	// The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -175,12 +163,9 @@ type WorkspaceArgs struct {
 	FriendlyName pulumi.StringPtrInput
 	// The location/region where the Virtual Desktop Workspace is located. Changing the location/region forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the Virtual Desktop Workspace. Changing the name
-	// forces a new resource to be created.
+	// The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to
-	// create the Virtual Desktop Workspace. Changing the resource group name forces
-	// a new resource to be created.
+	// The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -288,15 +273,12 @@ func (o WorkspaceOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The name of the Virtual Desktop Workspace. Changing the name
-// forces a new resource to be created.
+// The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
 func (o WorkspaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the resource group in which to
-// create the Virtual Desktop Workspace. Changing the resource group name forces
-// a new resource to be created.
+// The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
 func (o WorkspaceOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

@@ -90,14 +90,14 @@ type Namespace struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
-	// The name of the resource group in which to
+	// The name of the resource group in which to Changing this forces a new resource to be created.
 	// create the namespace.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
 	Sku pulumi.StringOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`. Changing this forces a new resource to be created.
 	ZoneRedundant pulumi.BoolPtrOutput `pulumi:"zoneRedundant"`
 }
 
@@ -169,14 +169,14 @@ type namespaceState struct {
 	Name *string `pulumi:"name"`
 	// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
-	// The name of the resource group in which to
+	// The name of the resource group in which to Changing this forces a new resource to be created.
 	// create the namespace.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`. Changing this forces a new resource to be created.
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
@@ -208,14 +208,14 @@ type NamespaceState struct {
 	Name pulumi.StringPtrInput
 	// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
-	// The name of the resource group in which to
+	// The name of the resource group in which to Changing this forces a new resource to be created.
 	// create the namespace.
 	ResourceGroupName pulumi.StringPtrInput
 	// Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`. Changing this forces a new resource to be created.
 	ZoneRedundant pulumi.BoolPtrInput
 }
 
@@ -241,14 +241,14 @@ type namespaceArgs struct {
 	Name *string `pulumi:"name"`
 	// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
-	// The name of the resource group in which to
+	// The name of the resource group in which to Changing this forces a new resource to be created.
 	// create the namespace.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
 	Sku string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`. Changing this forces a new resource to be created.
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
@@ -271,14 +271,14 @@ type NamespaceArgs struct {
 	Name pulumi.StringPtrInput
 	// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
-	// The name of the resource group in which to
+	// The name of the resource group in which to Changing this forces a new resource to be created.
 	// create the namespace.
 	ResourceGroupName pulumi.StringInput
 	// Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
 	Sku pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`. Changing this forces a new resource to be created.
 	ZoneRedundant pulumi.BoolPtrInput
 }
 
@@ -432,7 +432,7 @@ func (o NamespaceOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the resource group in which to
+// The name of the resource group in which to Changing this forces a new resource to be created.
 // create the namespace.
 func (o NamespaceOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
@@ -448,7 +448,7 @@ func (o NamespaceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`. Changing this forces a new resource to be created.
 func (o NamespaceOutput) ZoneRedundant() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.BoolPtrOutput { return v.ZoneRedundant }).(pulumi.BoolPtrOutput)
 }

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Redis.Outputs
     public sealed class EnterpriseDatabaseModule
     {
         /// <summary>
-        /// Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
+        /// Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? Args;
         /// <summary>

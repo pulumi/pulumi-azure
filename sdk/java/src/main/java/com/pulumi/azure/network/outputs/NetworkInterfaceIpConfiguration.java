@@ -18,7 +18,7 @@ public final class NetworkInterfaceIpConfiguration {
      */
     private @Nullable String gatewayLoadBalancerFrontendIpConfigurationId;
     /**
-     * @return A name used for this IP Configuration.
+     * @return A name used for this IP Configuration. Changing this forces a new resource to be created.
      * 
      */
     private String name;
@@ -62,7 +62,7 @@ public final class NetworkInterfaceIpConfiguration {
         return Optional.ofNullable(this.gatewayLoadBalancerFrontendIpConfigurationId);
     }
     /**
-     * @return A name used for this IP Configuration.
+     * @return A name used for this IP Configuration. Changing this forces a new resource to be created.
      * 
      */
     public String name() {

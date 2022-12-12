@@ -157,14 +157,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dnsNameLabel);
     }
     /**
-     * The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+     * The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
      * 
      */
     @Export(name="dnsNameLabelReusePolicy", type=String.class, parameters={})
     private Output</* @Nullable */ String> dnsNameLabelReusePolicy;
 
     /**
-     * @return The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+     * @return The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
      * 
      */
     public Output<Optional<String>> dnsNameLabelReusePolicy() {
@@ -393,14 +393,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A list of Availability Zones in which this Container Group is located.
+     * A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="zones", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> zones;
 
     /**
-     * @return A list of Availability Zones in which this Container Group is located.
+     * @return A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<List<String>>> zones() {

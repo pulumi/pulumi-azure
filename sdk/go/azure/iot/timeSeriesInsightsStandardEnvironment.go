@@ -69,7 +69,7 @@ type TimeSeriesInsightsStandardEnvironment struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the event property which will be used to partition data. Changing this forces a new resource to be created.
 	PartitionKey pulumi.StringPtrOutput `pulumi:"partitionKey"`
-	// The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment.
+	// The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies the SKU Name for this IoT Time Series Insights Standard Environment. It is string consisting of two parts separated by an underscore(\_).The first part is the `name`, valid values include: `S1` and `S2`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `S1_1`). Possible values are `S1_1`, `S1_2`, `S1_3`, `S1_4`, `S1_5`, `S1_6`, `S1_7`, `S1_8`, `S1_9`, `S1_10`, `S2_1`, `S2_2`, `S2_3`, `S2_4`, `S2_5`, `S2_6`, `S2_7`, `S2_8`, `S2_9` and `S2_10`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
@@ -125,7 +125,7 @@ type timeSeriesInsightsStandardEnvironmentState struct {
 	Name *string `pulumi:"name"`
 	// The name of the event property which will be used to partition data. Changing this forces a new resource to be created.
 	PartitionKey *string `pulumi:"partitionKey"`
-	// The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment.
+	// The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the SKU Name for this IoT Time Series Insights Standard Environment. It is string consisting of two parts separated by an underscore(\_).The first part is the `name`, valid values include: `S1` and `S2`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `S1_1`). Possible values are `S1_1`, `S1_2`, `S1_3`, `S1_4`, `S1_5`, `S1_6`, `S1_7`, `S1_8`, `S1_9`, `S1_10`, `S2_1`, `S2_2`, `S2_3`, `S2_4`, `S2_5`, `S2_6`, `S2_7`, `S2_8`, `S2_9` and `S2_10`. Changing this forces a new resource to be created.
 	SkuName *string `pulumi:"skuName"`
@@ -144,7 +144,7 @@ type TimeSeriesInsightsStandardEnvironmentState struct {
 	Name pulumi.StringPtrInput
 	// The name of the event property which will be used to partition data. Changing this forces a new resource to be created.
 	PartitionKey pulumi.StringPtrInput
-	// The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment.
+	// The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the SKU Name for this IoT Time Series Insights Standard Environment. It is string consisting of two parts separated by an underscore(\_).The first part is the `name`, valid values include: `S1` and `S2`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `S1_1`). Possible values are `S1_1`, `S1_2`, `S1_3`, `S1_4`, `S1_5`, `S1_6`, `S1_7`, `S1_8`, `S1_9`, `S1_10`, `S2_1`, `S2_2`, `S2_3`, `S2_4`, `S2_5`, `S2_6`, `S2_7`, `S2_8`, `S2_9` and `S2_10`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringPtrInput
@@ -167,7 +167,7 @@ type timeSeriesInsightsStandardEnvironmentArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the event property which will be used to partition data. Changing this forces a new resource to be created.
 	PartitionKey *string `pulumi:"partitionKey"`
-	// The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment.
+	// The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the SKU Name for this IoT Time Series Insights Standard Environment. It is string consisting of two parts separated by an underscore(\_).The first part is the `name`, valid values include: `S1` and `S2`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `S1_1`). Possible values are `S1_1`, `S1_2`, `S1_3`, `S1_4`, `S1_5`, `S1_6`, `S1_7`, `S1_8`, `S1_9`, `S1_10`, `S2_1`, `S2_2`, `S2_3`, `S2_4`, `S2_5`, `S2_6`, `S2_7`, `S2_8`, `S2_9` and `S2_10`. Changing this forces a new resource to be created.
 	SkuName string `pulumi:"skuName"`
@@ -187,7 +187,7 @@ type TimeSeriesInsightsStandardEnvironmentArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the event property which will be used to partition data. Changing this forces a new resource to be created.
 	PartitionKey pulumi.StringPtrInput
-	// The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment.
+	// The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Specifies the SKU Name for this IoT Time Series Insights Standard Environment. It is string consisting of two parts separated by an underscore(\_).The first part is the `name`, valid values include: `S1` and `S2`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `S1_1`). Possible values are `S1_1`, `S1_2`, `S1_3`, `S1_4`, `S1_5`, `S1_6`, `S1_7`, `S1_8`, `S1_9`, `S1_10`, `S2_1`, `S2_2`, `S2_3`, `S2_4`, `S2_5`, `S2_6`, `S2_7`, `S2_8`, `S2_9` and `S2_10`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringInput
@@ -304,7 +304,7 @@ func (o TimeSeriesInsightsStandardEnvironmentOutput) PartitionKey() pulumi.Strin
 	return o.ApplyT(func(v *TimeSeriesInsightsStandardEnvironment) pulumi.StringPtrOutput { return v.PartitionKey }).(pulumi.StringPtrOutput)
 }
 
-// The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment.
+// The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment. Changing this forces a new resource to be created.
 func (o TimeSeriesInsightsStandardEnvironmentOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TimeSeriesInsightsStandardEnvironment) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

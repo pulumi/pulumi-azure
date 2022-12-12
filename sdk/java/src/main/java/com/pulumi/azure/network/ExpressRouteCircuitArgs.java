@@ -66,14 +66,14 @@ public final class ExpressRouteCircuitArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The ID of the Express Route Port this Express Route Circuit is based on.
+     * The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="expressRoutePortId")
     private @Nullable Output<String> expressRoutePortId;
 
     /**
-     * @return The ID of the Express Route Port this Express Route Circuit is based on.
+     * @return The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> expressRoutePortId() {
@@ -283,7 +283,7 @@ public final class ExpressRouteCircuitArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param expressRoutePortId The ID of the Express Route Port this Express Route Circuit is based on.
+         * @param expressRoutePortId The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class ExpressRouteCircuitArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param expressRoutePortId The ID of the Express Route Port this Express Route Circuit is based on.
+         * @param expressRoutePortId The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

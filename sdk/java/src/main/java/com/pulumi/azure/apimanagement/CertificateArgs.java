@@ -31,14 +31,14 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
+     * The base-64 encoded certificate data, which must be a PFX file.
      * 
      */
     @Import(name="data")
     private @Nullable Output<String> data;
 
     /**
-     * @return The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
+     * @return The base-64 encoded certificate data, which must be a PFX file.
      * 
      */
     public Optional<Output<String>> data() {
@@ -91,14 +91,14 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The password used for this certificate. Changing this forces a new resource to be created.
+     * The password used for this certificate.
      * 
      */
     @Import(name="password")
     private @Nullable Output<String> password;
 
     /**
-     * @return The password used for this certificate. Changing this forces a new resource to be created.
+     * @return The password used for this certificate.
      * 
      */
     public Optional<Output<String>> password() {
@@ -172,7 +172,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param data The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
+         * @param data The base-64 encoded certificate data, which must be a PFX file.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param data The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
+         * @param data The base-64 encoded certificate data, which must be a PFX file.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param password The password used for this certificate. Changing this forces a new resource to be created.
+         * @param password The password used for this certificate.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param password The password used for this certificate. Changing this forces a new resource to be created.
+         * @param password The password used for this certificate.
          * 
          * @return builder
          * 

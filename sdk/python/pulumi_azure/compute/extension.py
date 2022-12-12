@@ -40,8 +40,7 @@ class ExtensionArgs:
                the latest minor version update to the `type_handler_version` specified.
         :param pulumi.Input[bool] automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
         :param pulumi.Input[bool] failure_suppression_enabled: Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
-        :param pulumi.Input[str] name: The name of the virtual machine extension peering. Changing
-               this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the virtual machine extension peering. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protected_settings: The protected_settings passed to the
                extension, like settings, these are specified as a JSON object in a string.
         :param pulumi.Input['ExtensionProtectedSettingsFromKeyVaultArgs'] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
@@ -161,8 +160,7 @@ class ExtensionArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the virtual machine extension peering. Changing
-        this forces a new resource to be created.
+        The name of the virtual machine extension peering. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -242,8 +240,7 @@ class _ExtensionState:
                the latest minor version update to the `type_handler_version` specified.
         :param pulumi.Input[bool] automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
         :param pulumi.Input[bool] failure_suppression_enabled: Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
-        :param pulumi.Input[str] name: The name of the virtual machine extension peering. Changing
-               this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the virtual machine extension peering. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protected_settings: The protected_settings passed to the
                extension, like settings, these are specified as a JSON object in a string.
         :param pulumi.Input['ExtensionProtectedSettingsFromKeyVaultArgs'] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
@@ -323,8 +320,7 @@ class _ExtensionState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the virtual machine extension peering. Changing
-        this forces a new resource to be created.
+        The name of the virtual machine extension peering. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -549,8 +545,7 @@ class Extension(pulumi.CustomResource):
                the latest minor version update to the `type_handler_version` specified.
         :param pulumi.Input[bool] automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
         :param pulumi.Input[bool] failure_suppression_enabled: Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
-        :param pulumi.Input[str] name: The name of the virtual machine extension peering. Changing
-               this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the virtual machine extension peering. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protected_settings: The protected_settings passed to the
                extension, like settings, these are specified as a JSON object in a string.
         :param pulumi.Input[pulumi.InputType['ExtensionProtectedSettingsFromKeyVaultArgs']] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
@@ -751,8 +746,7 @@ class Extension(pulumi.CustomResource):
                the latest minor version update to the `type_handler_version` specified.
         :param pulumi.Input[bool] automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
         :param pulumi.Input[bool] failure_suppression_enabled: Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
-        :param pulumi.Input[str] name: The name of the virtual machine extension peering. Changing
-               this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the virtual machine extension peering. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protected_settings: The protected_settings passed to the
                extension, like settings, these are specified as a JSON object in a string.
         :param pulumi.Input[pulumi.InputType['ExtensionProtectedSettingsFromKeyVaultArgs']] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
@@ -813,8 +807,7 @@ class Extension(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the virtual machine extension peering. Changing
-        this forces a new resource to be created.
+        The name of the virtual machine extension peering. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

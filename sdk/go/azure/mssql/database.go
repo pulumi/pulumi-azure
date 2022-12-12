@@ -91,7 +91,7 @@ type Database struct {
 	AutoPauseDelayInMinutes pulumi.IntOutput `pulumi:"autoPauseDelayInMinutes"`
 	// Specifies the collation of the database. Changing this forces a new resource to be created.
 	Collation pulumi.StringOutput `pulumi:"collation"`
-	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`.
+	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created.
 	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
 	// The ID of the source database from which to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
 	CreationSourceDatabaseId pulumi.StringOutput `pulumi:"creationSourceDatabaseId"`
@@ -181,7 +181,7 @@ type databaseState struct {
 	AutoPauseDelayInMinutes *int `pulumi:"autoPauseDelayInMinutes"`
 	// Specifies the collation of the database. Changing this forces a new resource to be created.
 	Collation *string `pulumi:"collation"`
-	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`.
+	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created.
 	CreateMode *string `pulumi:"createMode"`
 	// The ID of the source database from which to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
 	CreationSourceDatabaseId *string `pulumi:"creationSourceDatabaseId"`
@@ -240,7 +240,7 @@ type DatabaseState struct {
 	AutoPauseDelayInMinutes pulumi.IntPtrInput
 	// Specifies the collation of the database. Changing this forces a new resource to be created.
 	Collation pulumi.StringPtrInput
-	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`.
+	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created.
 	CreateMode pulumi.StringPtrInput
 	// The ID of the source database from which to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
 	CreationSourceDatabaseId pulumi.StringPtrInput
@@ -303,7 +303,7 @@ type databaseArgs struct {
 	AutoPauseDelayInMinutes *int `pulumi:"autoPauseDelayInMinutes"`
 	// Specifies the collation of the database. Changing this forces a new resource to be created.
 	Collation *string `pulumi:"collation"`
-	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`.
+	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created.
 	CreateMode *string `pulumi:"createMode"`
 	// The ID of the source database from which to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
 	CreationSourceDatabaseId *string `pulumi:"creationSourceDatabaseId"`
@@ -363,7 +363,7 @@ type DatabaseArgs struct {
 	AutoPauseDelayInMinutes pulumi.IntPtrInput
 	// Specifies the collation of the database. Changing this forces a new resource to be created.
 	Collation pulumi.StringPtrInput
-	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`.
+	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created.
 	CreateMode pulumi.StringPtrInput
 	// The ID of the source database from which to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
 	CreationSourceDatabaseId pulumi.StringPtrInput
@@ -514,7 +514,7 @@ func (o DatabaseOutput) Collation() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Collation }).(pulumi.StringOutput)
 }
 
-// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`.
+// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created.
 func (o DatabaseOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.CreateMode }).(pulumi.StringPtrOutput)
 }

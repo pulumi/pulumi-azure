@@ -278,9 +278,7 @@ type VirtualNetworkGatewayConnection struct {
 	AuthorizationKey pulumi.StringPtrOutput `pulumi:"authorizationKey"`
 	// Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
 	ConnectionMode pulumi.StringPtrOutput `pulumi:"connectionMode"`
-	// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
-	// values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
-	// Changing this value will force a resource to be created.
+	// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
 	// > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
 	ConnectionProtocol pulumi.StringOutput `pulumi:"connectionProtocol"`
 	// A `customBgpAddresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
@@ -294,9 +292,7 @@ type VirtualNetworkGatewayConnection struct {
 	// If `true`, BGP (Border Gateway Protocol) is enabled
 	// for this connection. Defaults to `false`.
 	EnableBgp pulumi.BoolOutput `pulumi:"enableBgp"`
-	// The ID of the Express Route Circuit
-	// when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
-	// The Express Route Circuit can be in the same or in a different subscription.
+	// The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
 	ExpressRouteCircuitId pulumi.StringPtrOutput `pulumi:"expressRouteCircuitId"`
 	// If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
 	ExpressRouteGatewayBypass pulumi.BoolOutput `pulumi:"expressRouteGatewayBypass"`
@@ -311,19 +307,14 @@ type VirtualNetworkGatewayConnection struct {
 	// The ID of the local network gateway
 	// when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
 	LocalNetworkGatewayId pulumi.StringPtrOutput `pulumi:"localNetworkGatewayId"`
-	// The location/region where the connection is
-	// located. Changing this forces a new resource to be created.
+	// The location/region where the connection is located. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the connection. Changing the name forces a
 	// new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The ID of the peer virtual
-	// network gateway when creating a VNet-to-VNet connection (i.e. when `type`
-	// is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or
-	// in a different subscription.
+	// The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
 	PeerVirtualNetworkGatewayId pulumi.StringPtrOutput `pulumi:"peerVirtualNetworkGatewayId"`
-	// The name of the resource group in which to
-	// create the connection Changing the name forces a new resource to be created.
+	// The name of the resource group in which to create the connection Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The routing weight. Defaults to `10`.
 	RoutingWeight pulumi.IntOutput `pulumi:"routingWeight"`
@@ -336,19 +327,13 @@ type VirtualNetworkGatewayConnection struct {
 	// A `trafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
 	// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
 	TrafficSelectorPolicy VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput `pulumi:"trafficSelectorPolicy"`
-	// The type of connection. Valid options are `IPsec`
-	// (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
-	// Each connection type requires different mandatory arguments (refer to the
-	// examples above). Changing the connection type will force a new connection
-	// to be created.
+	// The type of connection. Valid options are `IPsec` (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet). Each connection type requires different mandatory arguments (refer to the examples above). Changing this forces a new resource to be created.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// If `true`, policy-based traffic
 	// selectors are enabled for this connection. Enabling policy-based traffic
 	// selectors requires an `ipsecPolicy` block. Defaults to `false`.
 	UsePolicyBasedTrafficSelectors pulumi.BoolOutput `pulumi:"usePolicyBasedTrafficSelectors"`
-	// The ID of the Virtual Network Gateway
-	// in which the connection will be created. Changing the gateway forces a new
-	// resource to be created.
+	// The ID of the Virtual Network Gateway in which the connection will be created. Changing this forces a new resource to be created.
 	VirtualNetworkGatewayId pulumi.StringOutput `pulumi:"virtualNetworkGatewayId"`
 }
 
@@ -396,9 +381,7 @@ type virtualNetworkGatewayConnectionState struct {
 	AuthorizationKey *string `pulumi:"authorizationKey"`
 	// Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
 	ConnectionMode *string `pulumi:"connectionMode"`
-	// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
-	// values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
-	// Changing this value will force a resource to be created.
+	// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
 	// > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
 	ConnectionProtocol *string `pulumi:"connectionProtocol"`
 	// A `customBgpAddresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
@@ -412,9 +395,7 @@ type virtualNetworkGatewayConnectionState struct {
 	// If `true`, BGP (Border Gateway Protocol) is enabled
 	// for this connection. Defaults to `false`.
 	EnableBgp *bool `pulumi:"enableBgp"`
-	// The ID of the Express Route Circuit
-	// when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
-	// The Express Route Circuit can be in the same or in a different subscription.
+	// The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
 	ExpressRouteCircuitId *string `pulumi:"expressRouteCircuitId"`
 	// If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
 	ExpressRouteGatewayBypass *bool `pulumi:"expressRouteGatewayBypass"`
@@ -429,19 +410,14 @@ type virtualNetworkGatewayConnectionState struct {
 	// The ID of the local network gateway
 	// when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
 	LocalNetworkGatewayId *string `pulumi:"localNetworkGatewayId"`
-	// The location/region where the connection is
-	// located. Changing this forces a new resource to be created.
+	// The location/region where the connection is located. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the connection. Changing the name forces a
 	// new resource to be created.
 	Name *string `pulumi:"name"`
-	// The ID of the peer virtual
-	// network gateway when creating a VNet-to-VNet connection (i.e. when `type`
-	// is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or
-	// in a different subscription.
+	// The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
 	PeerVirtualNetworkGatewayId *string `pulumi:"peerVirtualNetworkGatewayId"`
-	// The name of the resource group in which to
-	// create the connection Changing the name forces a new resource to be created.
+	// The name of the resource group in which to create the connection Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The routing weight. Defaults to `10`.
 	RoutingWeight *int `pulumi:"routingWeight"`
@@ -454,19 +430,13 @@ type virtualNetworkGatewayConnectionState struct {
 	// A `trafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
 	// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
 	TrafficSelectorPolicy *VirtualNetworkGatewayConnectionTrafficSelectorPolicy `pulumi:"trafficSelectorPolicy"`
-	// The type of connection. Valid options are `IPsec`
-	// (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
-	// Each connection type requires different mandatory arguments (refer to the
-	// examples above). Changing the connection type will force a new connection
-	// to be created.
+	// The type of connection. Valid options are `IPsec` (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet). Each connection type requires different mandatory arguments (refer to the examples above). Changing this forces a new resource to be created.
 	Type *string `pulumi:"type"`
 	// If `true`, policy-based traffic
 	// selectors are enabled for this connection. Enabling policy-based traffic
 	// selectors requires an `ipsecPolicy` block. Defaults to `false`.
 	UsePolicyBasedTrafficSelectors *bool `pulumi:"usePolicyBasedTrafficSelectors"`
-	// The ID of the Virtual Network Gateway
-	// in which the connection will be created. Changing the gateway forces a new
-	// resource to be created.
+	// The ID of the Virtual Network Gateway in which the connection will be created. Changing this forces a new resource to be created.
 	VirtualNetworkGatewayId *string `pulumi:"virtualNetworkGatewayId"`
 }
 
@@ -477,9 +447,7 @@ type VirtualNetworkGatewayConnectionState struct {
 	AuthorizationKey pulumi.StringPtrInput
 	// Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
 	ConnectionMode pulumi.StringPtrInput
-	// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
-	// values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
-	// Changing this value will force a resource to be created.
+	// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
 	// > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
 	ConnectionProtocol pulumi.StringPtrInput
 	// A `customBgpAddresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
@@ -493,9 +461,7 @@ type VirtualNetworkGatewayConnectionState struct {
 	// If `true`, BGP (Border Gateway Protocol) is enabled
 	// for this connection. Defaults to `false`.
 	EnableBgp pulumi.BoolPtrInput
-	// The ID of the Express Route Circuit
-	// when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
-	// The Express Route Circuit can be in the same or in a different subscription.
+	// The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
 	ExpressRouteCircuitId pulumi.StringPtrInput
 	// If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
 	ExpressRouteGatewayBypass pulumi.BoolPtrInput
@@ -510,19 +476,14 @@ type VirtualNetworkGatewayConnectionState struct {
 	// The ID of the local network gateway
 	// when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
 	LocalNetworkGatewayId pulumi.StringPtrInput
-	// The location/region where the connection is
-	// located. Changing this forces a new resource to be created.
+	// The location/region where the connection is located. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the connection. Changing the name forces a
 	// new resource to be created.
 	Name pulumi.StringPtrInput
-	// The ID of the peer virtual
-	// network gateway when creating a VNet-to-VNet connection (i.e. when `type`
-	// is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or
-	// in a different subscription.
+	// The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
 	PeerVirtualNetworkGatewayId pulumi.StringPtrInput
-	// The name of the resource group in which to
-	// create the connection Changing the name forces a new resource to be created.
+	// The name of the resource group in which to create the connection Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The routing weight. Defaults to `10`.
 	RoutingWeight pulumi.IntPtrInput
@@ -535,19 +496,13 @@ type VirtualNetworkGatewayConnectionState struct {
 	// A `trafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
 	// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
 	TrafficSelectorPolicy VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrInput
-	// The type of connection. Valid options are `IPsec`
-	// (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
-	// Each connection type requires different mandatory arguments (refer to the
-	// examples above). Changing the connection type will force a new connection
-	// to be created.
+	// The type of connection. Valid options are `IPsec` (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet). Each connection type requires different mandatory arguments (refer to the examples above). Changing this forces a new resource to be created.
 	Type pulumi.StringPtrInput
 	// If `true`, policy-based traffic
 	// selectors are enabled for this connection. Enabling policy-based traffic
 	// selectors requires an `ipsecPolicy` block. Defaults to `false`.
 	UsePolicyBasedTrafficSelectors pulumi.BoolPtrInput
-	// The ID of the Virtual Network Gateway
-	// in which the connection will be created. Changing the gateway forces a new
-	// resource to be created.
+	// The ID of the Virtual Network Gateway in which the connection will be created. Changing this forces a new resource to be created.
 	VirtualNetworkGatewayId pulumi.StringPtrInput
 }
 
@@ -562,9 +517,7 @@ type virtualNetworkGatewayConnectionArgs struct {
 	AuthorizationKey *string `pulumi:"authorizationKey"`
 	// Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
 	ConnectionMode *string `pulumi:"connectionMode"`
-	// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
-	// values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
-	// Changing this value will force a resource to be created.
+	// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
 	// > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
 	ConnectionProtocol *string `pulumi:"connectionProtocol"`
 	// A `customBgpAddresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
@@ -578,9 +531,7 @@ type virtualNetworkGatewayConnectionArgs struct {
 	// If `true`, BGP (Border Gateway Protocol) is enabled
 	// for this connection. Defaults to `false`.
 	EnableBgp *bool `pulumi:"enableBgp"`
-	// The ID of the Express Route Circuit
-	// when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
-	// The Express Route Circuit can be in the same or in a different subscription.
+	// The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
 	ExpressRouteCircuitId *string `pulumi:"expressRouteCircuitId"`
 	// If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
 	ExpressRouteGatewayBypass *bool `pulumi:"expressRouteGatewayBypass"`
@@ -595,19 +546,14 @@ type virtualNetworkGatewayConnectionArgs struct {
 	// The ID of the local network gateway
 	// when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
 	LocalNetworkGatewayId *string `pulumi:"localNetworkGatewayId"`
-	// The location/region where the connection is
-	// located. Changing this forces a new resource to be created.
+	// The location/region where the connection is located. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the connection. Changing the name forces a
 	// new resource to be created.
 	Name *string `pulumi:"name"`
-	// The ID of the peer virtual
-	// network gateway when creating a VNet-to-VNet connection (i.e. when `type`
-	// is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or
-	// in a different subscription.
+	// The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
 	PeerVirtualNetworkGatewayId *string `pulumi:"peerVirtualNetworkGatewayId"`
-	// The name of the resource group in which to
-	// create the connection Changing the name forces a new resource to be created.
+	// The name of the resource group in which to create the connection Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The routing weight. Defaults to `10`.
 	RoutingWeight *int `pulumi:"routingWeight"`
@@ -620,19 +566,13 @@ type virtualNetworkGatewayConnectionArgs struct {
 	// A `trafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
 	// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
 	TrafficSelectorPolicy *VirtualNetworkGatewayConnectionTrafficSelectorPolicy `pulumi:"trafficSelectorPolicy"`
-	// The type of connection. Valid options are `IPsec`
-	// (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
-	// Each connection type requires different mandatory arguments (refer to the
-	// examples above). Changing the connection type will force a new connection
-	// to be created.
+	// The type of connection. Valid options are `IPsec` (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet). Each connection type requires different mandatory arguments (refer to the examples above). Changing this forces a new resource to be created.
 	Type string `pulumi:"type"`
 	// If `true`, policy-based traffic
 	// selectors are enabled for this connection. Enabling policy-based traffic
 	// selectors requires an `ipsecPolicy` block. Defaults to `false`.
 	UsePolicyBasedTrafficSelectors *bool `pulumi:"usePolicyBasedTrafficSelectors"`
-	// The ID of the Virtual Network Gateway
-	// in which the connection will be created. Changing the gateway forces a new
-	// resource to be created.
+	// The ID of the Virtual Network Gateway in which the connection will be created. Changing this forces a new resource to be created.
 	VirtualNetworkGatewayId string `pulumi:"virtualNetworkGatewayId"`
 }
 
@@ -644,9 +584,7 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	AuthorizationKey pulumi.StringPtrInput
 	// Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
 	ConnectionMode pulumi.StringPtrInput
-	// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
-	// values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
-	// Changing this value will force a resource to be created.
+	// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
 	// > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
 	ConnectionProtocol pulumi.StringPtrInput
 	// A `customBgpAddresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
@@ -660,9 +598,7 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	// If `true`, BGP (Border Gateway Protocol) is enabled
 	// for this connection. Defaults to `false`.
 	EnableBgp pulumi.BoolPtrInput
-	// The ID of the Express Route Circuit
-	// when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
-	// The Express Route Circuit can be in the same or in a different subscription.
+	// The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
 	ExpressRouteCircuitId pulumi.StringPtrInput
 	// If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
 	ExpressRouteGatewayBypass pulumi.BoolPtrInput
@@ -677,19 +613,14 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	// The ID of the local network gateway
 	// when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
 	LocalNetworkGatewayId pulumi.StringPtrInput
-	// The location/region where the connection is
-	// located. Changing this forces a new resource to be created.
+	// The location/region where the connection is located. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the connection. Changing the name forces a
 	// new resource to be created.
 	Name pulumi.StringPtrInput
-	// The ID of the peer virtual
-	// network gateway when creating a VNet-to-VNet connection (i.e. when `type`
-	// is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or
-	// in a different subscription.
+	// The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
 	PeerVirtualNetworkGatewayId pulumi.StringPtrInput
-	// The name of the resource group in which to
-	// create the connection Changing the name forces a new resource to be created.
+	// The name of the resource group in which to create the connection Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The routing weight. Defaults to `10`.
 	RoutingWeight pulumi.IntPtrInput
@@ -702,19 +633,13 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	// A `trafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
 	// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
 	TrafficSelectorPolicy VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrInput
-	// The type of connection. Valid options are `IPsec`
-	// (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
-	// Each connection type requires different mandatory arguments (refer to the
-	// examples above). Changing the connection type will force a new connection
-	// to be created.
+	// The type of connection. Valid options are `IPsec` (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet). Each connection type requires different mandatory arguments (refer to the examples above). Changing this forces a new resource to be created.
 	Type pulumi.StringInput
 	// If `true`, policy-based traffic
 	// selectors are enabled for this connection. Enabling policy-based traffic
 	// selectors requires an `ipsecPolicy` block. Defaults to `false`.
 	UsePolicyBasedTrafficSelectors pulumi.BoolPtrInput
-	// The ID of the Virtual Network Gateway
-	// in which the connection will be created. Changing the gateway forces a new
-	// resource to be created.
+	// The ID of the Virtual Network Gateway in which the connection will be created. Changing this forces a new resource to be created.
 	VirtualNetworkGatewayId pulumi.StringInput
 }
 
@@ -817,9 +742,7 @@ func (o VirtualNetworkGatewayConnectionOutput) ConnectionMode() pulumi.StringPtr
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringPtrOutput { return v.ConnectionMode }).(pulumi.StringPtrOutput)
 }
 
-// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
-// values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
-// Changing this value will force a resource to be created.
+// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
 // > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
 func (o VirtualNetworkGatewayConnectionOutput) ConnectionProtocol() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringOutput { return v.ConnectionProtocol }).(pulumi.StringOutput)
@@ -850,9 +773,7 @@ func (o VirtualNetworkGatewayConnectionOutput) EnableBgp() pulumi.BoolOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.BoolOutput { return v.EnableBgp }).(pulumi.BoolOutput)
 }
 
-// The ID of the Express Route Circuit
-// when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
-// The Express Route Circuit can be in the same or in a different subscription.
+// The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
 func (o VirtualNetworkGatewayConnectionOutput) ExpressRouteCircuitId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringPtrOutput { return v.ExpressRouteCircuitId }).(pulumi.StringPtrOutput)
 }
@@ -887,8 +808,7 @@ func (o VirtualNetworkGatewayConnectionOutput) LocalNetworkGatewayId() pulumi.St
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringPtrOutput { return v.LocalNetworkGatewayId }).(pulumi.StringPtrOutput)
 }
 
-// The location/region where the connection is
-// located. Changing this forces a new resource to be created.
+// The location/region where the connection is located. Changing this forces a new resource to be created.
 func (o VirtualNetworkGatewayConnectionOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
@@ -899,16 +819,12 @@ func (o VirtualNetworkGatewayConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The ID of the peer virtual
-// network gateway when creating a VNet-to-VNet connection (i.e. when `type`
-// is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or
-// in a different subscription.
+// The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
 func (o VirtualNetworkGatewayConnectionOutput) PeerVirtualNetworkGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringPtrOutput { return v.PeerVirtualNetworkGatewayId }).(pulumi.StringPtrOutput)
 }
 
-// The name of the resource group in which to
-// create the connection Changing the name forces a new resource to be created.
+// The name of the resource group in which to create the connection Changing this forces a new resource to be created.
 func (o VirtualNetworkGatewayConnectionOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
@@ -938,11 +854,7 @@ func (o VirtualNetworkGatewayConnectionOutput) TrafficSelectorPolicy() VirtualNe
 	}).(VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput)
 }
 
-// The type of connection. Valid options are `IPsec`
-// (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
-// Each connection type requires different mandatory arguments (refer to the
-// examples above). Changing the connection type will force a new connection
-// to be created.
+// The type of connection. Valid options are `IPsec` (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet). Each connection type requires different mandatory arguments (refer to the examples above). Changing this forces a new resource to be created.
 func (o VirtualNetworkGatewayConnectionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
@@ -954,9 +866,7 @@ func (o VirtualNetworkGatewayConnectionOutput) UsePolicyBasedTrafficSelectors() 
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.BoolOutput { return v.UsePolicyBasedTrafficSelectors }).(pulumi.BoolOutput)
 }
 
-// The ID of the Virtual Network Gateway
-// in which the connection will be created. Changing the gateway forces a new
-// resource to be created.
+// The ID of the Virtual Network Gateway in which the connection will be created. Changing this forces a new resource to be created.
 func (o VirtualNetworkGatewayConnectionOutput) VirtualNetworkGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringOutput { return v.VirtualNetworkGatewayId }).(pulumi.StringOutput)
 }

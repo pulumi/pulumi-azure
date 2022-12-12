@@ -23,7 +23,7 @@ public final class LinuxVirtualMachineInboundNatRule {
      */
     private @Nullable Integer frontendPort;
     /**
-     * @return The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
+     * @return The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
      * 
      */
     private String protocol;
@@ -44,7 +44,7 @@ public final class LinuxVirtualMachineInboundNatRule {
         return Optional.ofNullable(this.frontendPort);
     }
     /**
-     * @return The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
+     * @return The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
      * 
      */
     public String protocol() {

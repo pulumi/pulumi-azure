@@ -64,7 +64,7 @@ export class HybridRunbookWorkerGroup extends pulumi.CustomResource {
      */
     public readonly credentialName!: pulumi.Output<string | undefined>;
     /**
-     * The name which should be used for this Automation Account Runbook Worker Group.
+     * The name which should be used for this Automation Account Runbook Worker Group. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -120,7 +120,7 @@ export interface HybridRunbookWorkerGroupState {
      */
     credentialName?: pulumi.Input<string>;
     /**
-     * The name which should be used for this Automation Account Runbook Worker Group.
+     * The name which should be used for this Automation Account Runbook Worker Group. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -142,7 +142,7 @@ export interface HybridRunbookWorkerGroupArgs {
      */
     credentialName?: pulumi.Input<string>;
     /**
-     * The name which should be used for this Automation Account Runbook Worker Group.
+     * The name which should be used for this Automation Account Runbook Worker Group. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

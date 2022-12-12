@@ -79,7 +79,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`.
+        /// The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("osType")]
         public Output<string> OsType { get; private set; } = null!;
@@ -121,7 +121,7 @@ namespace Pulumi.Azure.AppService
         public Output<int> WorkerCount { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
+        /// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("zoneBalancingEnabled")]
         public Output<bool?> ZoneBalancingEnabled { get; private set; } = null!;
@@ -197,7 +197,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`.
+        /// The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("osType", required: true)]
         public Input<string> OsType { get; set; } = null!;
@@ -239,7 +239,7 @@ namespace Pulumi.Azure.AppService
         public Input<int>? WorkerCount { get; set; }
 
         /// <summary>
-        /// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
+        /// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("zoneBalancingEnabled")]
         public Input<bool>? ZoneBalancingEnabled { get; set; }
@@ -283,7 +283,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`.
+        /// The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }
@@ -331,7 +331,7 @@ namespace Pulumi.Azure.AppService
         public Input<int>? WorkerCount { get; set; }
 
         /// <summary>
-        /// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
+        /// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("zoneBalancingEnabled")]
         public Input<bool>? ZoneBalancingEnabled { get; set; }

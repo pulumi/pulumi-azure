@@ -162,24 +162,20 @@ type VirtualNetworkGateway struct {
 	// If `true`, BGP (Border Gateway Protocol) will be enabled
 	// for this Virtual Network Gateway. Defaults to `false`.
 	EnableBgp pulumi.BoolOutput `pulumi:"enableBgp"`
-	// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+	// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
 	Generation pulumi.StringOutput `pulumi:"generation"`
 	// One, two or three `ipConfiguration` blocks documented below.
 	// An active-standby gateway requires exactly one `ipConfiguration` block,
 	// an active-active gateway requires exactly two `ipConfiguration` blocks whereas
 	// an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
 	IpConfigurations VirtualNetworkGatewayIpConfigurationArrayOutput `pulumi:"ipConfigurations"`
-	// The location/region where the Virtual Network Gateway is
-	// located. Changing the location/region forces a new resource to be created.
+	// The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// A user-defined name of the IP configuration. Defaults to
-	// `vnetGatewayConfig`.
+	// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
 	PrivateIpAddressEnabled pulumi.BoolPtrOutput `pulumi:"privateIpAddressEnabled"`
-	// The name of the resource group in which to
-	// create the Virtual Network Gateway. Changing the resource group name forces
-	// a new resource to be created.
+	// The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Configuration of the size and capacity of the virtual network
 	// gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
@@ -197,7 +193,7 @@ type VirtualNetworkGateway struct {
 	// is documented below. In this block the Virtual Network Gateway can be configured
 	// to accept IPSec point-to-site connections.
 	VpnClientConfiguration VirtualNetworkGatewayVpnClientConfigurationPtrOutput `pulumi:"vpnClientConfiguration"`
-	// The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+	// The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
 	VpnType pulumi.StringPtrOutput `pulumi:"vpnType"`
 }
 
@@ -261,24 +257,20 @@ type virtualNetworkGatewayState struct {
 	// If `true`, BGP (Border Gateway Protocol) will be enabled
 	// for this Virtual Network Gateway. Defaults to `false`.
 	EnableBgp *bool `pulumi:"enableBgp"`
-	// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+	// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
 	Generation *string `pulumi:"generation"`
 	// One, two or three `ipConfiguration` blocks documented below.
 	// An active-standby gateway requires exactly one `ipConfiguration` block,
 	// an active-active gateway requires exactly two `ipConfiguration` blocks whereas
 	// an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
 	IpConfigurations []VirtualNetworkGatewayIpConfiguration `pulumi:"ipConfigurations"`
-	// The location/region where the Virtual Network Gateway is
-	// located. Changing the location/region forces a new resource to be created.
+	// The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// A user-defined name of the IP configuration. Defaults to
-	// `vnetGatewayConfig`.
+	// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
 	PrivateIpAddressEnabled *bool `pulumi:"privateIpAddressEnabled"`
-	// The name of the resource group in which to
-	// create the Virtual Network Gateway. Changing the resource group name forces
-	// a new resource to be created.
+	// The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Configuration of the size and capacity of the virtual network
 	// gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
@@ -296,7 +288,7 @@ type virtualNetworkGatewayState struct {
 	// is documented below. In this block the Virtual Network Gateway can be configured
 	// to accept IPSec point-to-site connections.
 	VpnClientConfiguration *VirtualNetworkGatewayVpnClientConfiguration `pulumi:"vpnClientConfiguration"`
-	// The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+	// The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
 	VpnType *string `pulumi:"vpnType"`
 }
 
@@ -320,24 +312,20 @@ type VirtualNetworkGatewayState struct {
 	// If `true`, BGP (Border Gateway Protocol) will be enabled
 	// for this Virtual Network Gateway. Defaults to `false`.
 	EnableBgp pulumi.BoolPtrInput
-	// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+	// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
 	Generation pulumi.StringPtrInput
 	// One, two or three `ipConfiguration` blocks documented below.
 	// An active-standby gateway requires exactly one `ipConfiguration` block,
 	// an active-active gateway requires exactly two `ipConfiguration` blocks whereas
 	// an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
 	IpConfigurations VirtualNetworkGatewayIpConfigurationArrayInput
-	// The location/region where the Virtual Network Gateway is
-	// located. Changing the location/region forces a new resource to be created.
+	// The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// A user-defined name of the IP configuration. Defaults to
-	// `vnetGatewayConfig`.
+	// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
 	PrivateIpAddressEnabled pulumi.BoolPtrInput
-	// The name of the resource group in which to
-	// create the Virtual Network Gateway. Changing the resource group name forces
-	// a new resource to be created.
+	// The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Configuration of the size and capacity of the virtual network
 	// gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
@@ -355,7 +343,7 @@ type VirtualNetworkGatewayState struct {
 	// is documented below. In this block the Virtual Network Gateway can be configured
 	// to accept IPSec point-to-site connections.
 	VpnClientConfiguration VirtualNetworkGatewayVpnClientConfigurationPtrInput
-	// The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+	// The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
 	VpnType pulumi.StringPtrInput
 }
 
@@ -383,24 +371,20 @@ type virtualNetworkGatewayArgs struct {
 	// If `true`, BGP (Border Gateway Protocol) will be enabled
 	// for this Virtual Network Gateway. Defaults to `false`.
 	EnableBgp *bool `pulumi:"enableBgp"`
-	// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+	// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
 	Generation *string `pulumi:"generation"`
 	// One, two or three `ipConfiguration` blocks documented below.
 	// An active-standby gateway requires exactly one `ipConfiguration` block,
 	// an active-active gateway requires exactly two `ipConfiguration` blocks whereas
 	// an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
 	IpConfigurations []VirtualNetworkGatewayIpConfiguration `pulumi:"ipConfigurations"`
-	// The location/region where the Virtual Network Gateway is
-	// located. Changing the location/region forces a new resource to be created.
+	// The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// A user-defined name of the IP configuration. Defaults to
-	// `vnetGatewayConfig`.
+	// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
 	PrivateIpAddressEnabled *bool `pulumi:"privateIpAddressEnabled"`
-	// The name of the resource group in which to
-	// create the Virtual Network Gateway. Changing the resource group name forces
-	// a new resource to be created.
+	// The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Configuration of the size and capacity of the virtual network
 	// gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
@@ -418,7 +402,7 @@ type virtualNetworkGatewayArgs struct {
 	// is documented below. In this block the Virtual Network Gateway can be configured
 	// to accept IPSec point-to-site connections.
 	VpnClientConfiguration *VirtualNetworkGatewayVpnClientConfiguration `pulumi:"vpnClientConfiguration"`
-	// The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+	// The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
 	VpnType *string `pulumi:"vpnType"`
 }
 
@@ -443,24 +427,20 @@ type VirtualNetworkGatewayArgs struct {
 	// If `true`, BGP (Border Gateway Protocol) will be enabled
 	// for this Virtual Network Gateway. Defaults to `false`.
 	EnableBgp pulumi.BoolPtrInput
-	// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+	// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
 	Generation pulumi.StringPtrInput
 	// One, two or three `ipConfiguration` blocks documented below.
 	// An active-standby gateway requires exactly one `ipConfiguration` block,
 	// an active-active gateway requires exactly two `ipConfiguration` blocks whereas
 	// an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
 	IpConfigurations VirtualNetworkGatewayIpConfigurationArrayInput
-	// The location/region where the Virtual Network Gateway is
-	// located. Changing the location/region forces a new resource to be created.
+	// The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// A user-defined name of the IP configuration. Defaults to
-	// `vnetGatewayConfig`.
+	// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
 	PrivateIpAddressEnabled pulumi.BoolPtrInput
-	// The name of the resource group in which to
-	// create the Virtual Network Gateway. Changing the resource group name forces
-	// a new resource to be created.
+	// The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Configuration of the size and capacity of the virtual network
 	// gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
@@ -478,7 +458,7 @@ type VirtualNetworkGatewayArgs struct {
 	// is documented below. In this block the Virtual Network Gateway can be configured
 	// to accept IPSec point-to-site connections.
 	VpnClientConfiguration VirtualNetworkGatewayVpnClientConfigurationPtrInput
-	// The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+	// The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
 	VpnType pulumi.StringPtrInput
 }
 
@@ -606,7 +586,7 @@ func (o VirtualNetworkGatewayOutput) EnableBgp() pulumi.BoolOutput {
 	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.BoolOutput { return v.EnableBgp }).(pulumi.BoolOutput)
 }
 
-// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
 func (o VirtualNetworkGatewayOutput) Generation() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.StringOutput { return v.Generation }).(pulumi.StringOutput)
 }
@@ -621,14 +601,12 @@ func (o VirtualNetworkGatewayOutput) IpConfigurations() VirtualNetworkGatewayIpC
 	}).(VirtualNetworkGatewayIpConfigurationArrayOutput)
 }
 
-// The location/region where the Virtual Network Gateway is
-// located. Changing the location/region forces a new resource to be created.
+// The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
 func (o VirtualNetworkGatewayOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// A user-defined name of the IP configuration. Defaults to
-// `vnetGatewayConfig`.
+// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
 func (o VirtualNetworkGatewayOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -638,9 +616,7 @@ func (o VirtualNetworkGatewayOutput) PrivateIpAddressEnabled() pulumi.BoolPtrOut
 	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.BoolPtrOutput { return v.PrivateIpAddressEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the resource group in which to
-// create the Virtual Network Gateway. Changing the resource group name forces
-// a new resource to be created.
+// The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
 func (o VirtualNetworkGatewayOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
@@ -675,7 +651,7 @@ func (o VirtualNetworkGatewayOutput) VpnClientConfiguration() VirtualNetworkGate
 	}).(VirtualNetworkGatewayVpnClientConfigurationPtrOutput)
 }
 
-// The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+// The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
 func (o VirtualNetworkGatewayOutput) VpnType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.StringPtrOutput { return v.VpnType }).(pulumi.StringPtrOutput)
 }

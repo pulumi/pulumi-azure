@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ScheduledQueryRulesLogCriteriaDimension {
     /**
-     * @return Name of the dimension.
+     * @return Name of the dimension. Changing this forces a new resource to be created.
      * 
      */
     private String name;
@@ -30,7 +30,7 @@ public final class ScheduledQueryRulesLogCriteriaDimension {
 
     private ScheduledQueryRulesLogCriteriaDimension() {}
     /**
-     * @return Name of the dimension.
+     * @return Name of the dimension. Changing this forces a new resource to be created.
      * 
      */
     public String name() {

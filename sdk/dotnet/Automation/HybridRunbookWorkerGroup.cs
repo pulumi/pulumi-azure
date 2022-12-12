@@ -54,7 +54,7 @@ namespace Pulumi.Azure.Automation
         public Output<string?> CredentialName { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Automation Account Runbook Worker Group.
+        /// The name which should be used for this Automation Account Runbook Worker Group. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? CredentialName { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Automation Account Runbook Worker Group.
+        /// The name which should be used for this Automation Account Runbook Worker Group. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -156,7 +156,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? CredentialName { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Automation Account Runbook Worker Group.
+        /// The name which should be used for this Automation Account Runbook Worker Group. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -31,7 +31,7 @@ public final class VirtualMachineOsProfileWindowsConfig {
      */
     private @Nullable Boolean provisionVmAgent;
     /**
-     * @return Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+     * @return Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String timezone;
@@ -64,7 +64,7 @@ public final class VirtualMachineOsProfileWindowsConfig {
         return Optional.ofNullable(this.provisionVmAgent);
     }
     /**
-     * @return Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+     * @return Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> timezone() {

@@ -69,7 +69,7 @@ type PtrRecord struct {
 
 	// The FQDN of the DNS PTR Record.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
-	// The name of the DNS PTR Record.
+	// The name of the DNS PTR Record. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of Fully Qualified Domain Names.
 	Records pulumi.StringArrayOutput `pulumi:"records"`
@@ -126,7 +126,7 @@ func GetPtrRecord(ctx *pulumi.Context,
 type ptrRecordState struct {
 	// The FQDN of the DNS PTR Record.
 	Fqdn *string `pulumi:"fqdn"`
-	// The name of the DNS PTR Record.
+	// The name of the DNS PTR Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// List of Fully Qualified Domain Names.
 	Records []string `pulumi:"records"`
@@ -143,7 +143,7 @@ type ptrRecordState struct {
 type PtrRecordState struct {
 	// The FQDN of the DNS PTR Record.
 	Fqdn pulumi.StringPtrInput
-	// The name of the DNS PTR Record.
+	// The name of the DNS PTR Record. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// List of Fully Qualified Domain Names.
 	Records pulumi.StringArrayInput
@@ -162,7 +162,7 @@ func (PtrRecordState) ElementType() reflect.Type {
 }
 
 type ptrRecordArgs struct {
-	// The name of the DNS PTR Record.
+	// The name of the DNS PTR Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// List of Fully Qualified Domain Names.
 	Records []string `pulumi:"records"`
@@ -178,7 +178,7 @@ type ptrRecordArgs struct {
 
 // The set of arguments for constructing a PtrRecord resource.
 type PtrRecordArgs struct {
-	// The name of the DNS PTR Record.
+	// The name of the DNS PTR Record. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// List of Fully Qualified Domain Names.
 	Records pulumi.StringArrayInput
@@ -284,7 +284,7 @@ func (o PtrRecordOutput) Fqdn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PtrRecord) pulumi.StringOutput { return v.Fqdn }).(pulumi.StringOutput)
 }
 
-// The name of the DNS PTR Record.
+// The name of the DNS PTR Record. Changing this forces a new resource to be created.
 func (o PtrRecordOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PtrRecord) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

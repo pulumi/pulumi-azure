@@ -31,14 +31,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:sql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup")
 public class ManagedInstanceFailoverGroup extends com.pulumi.resources.CustomResource {
     /**
-     * The Azure Region where the SQL Instance Failover Group exists.
+     * The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
-     * @return The Azure Region where the SQL Instance Failover Group exists.
+     * @return The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> location() {
@@ -73,14 +73,14 @@ public class ManagedInstanceFailoverGroup extends com.pulumi.resources.CustomRes
         return this.name;
     }
     /**
-     * ID of the SQL Managed Instance which will be replicated to.
+     * ID of the SQL Managed Instance which will be replicated to. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="partnerManagedInstanceId", type=String.class, parameters={})
     private Output<String> partnerManagedInstanceId;
 
     /**
-     * @return ID of the SQL Managed Instance which will be replicated to.
+     * @return ID of the SQL Managed Instance which will be replicated to. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> partnerManagedInstanceId() {

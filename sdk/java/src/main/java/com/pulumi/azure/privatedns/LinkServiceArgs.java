@@ -65,14 +65,14 @@ public final class LinkServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
+     * A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="loadBalancerFrontendIpConfigurationIds", required=true)
     private Output<List<String>> loadBalancerFrontendIpConfigurationIds;
 
     /**
-     * @return A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
+     * @return A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
      * 
      */
     public Output<List<String>> loadBalancerFrontendIpConfigurationIds() {
@@ -140,14 +140,14 @@ public final class LinkServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+     * A mapping of tags to assign to the resource.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+     * @return A mapping of tags to assign to the resource.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -286,7 +286,7 @@ public final class LinkServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancerFrontendIpConfigurationIds A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
+         * @param loadBalancerFrontendIpConfigurationIds A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class LinkServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancerFrontendIpConfigurationIds A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
+         * @param loadBalancerFrontendIpConfigurationIds A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class LinkServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancerFrontendIpConfigurationIds A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
+         * @param loadBalancerFrontendIpConfigurationIds A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -411,7 +411,7 @@ public final class LinkServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+         * @param tags A mapping of tags to assign to the resource.
          * 
          * @return builder
          * 
@@ -422,7 +422,7 @@ public final class LinkServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+         * @param tags A mapping of tags to assign to the resource.
          * 
          * @return builder
          * 

@@ -81,7 +81,7 @@ export class PublicIpPrefix extends pulumi.CustomResource {
      */
     public readonly prefixLength!: pulumi.Output<number | undefined>;
     /**
-     * The name of the resource group in which to create the Public IP Prefix.
+     * The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -164,7 +164,7 @@ export interface PublicIpPrefixState {
      */
     prefixLength?: pulumi.Input<number>;
     /**
-     * The name of the resource group in which to create the Public IP Prefix.
+     * The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -202,7 +202,7 @@ export interface PublicIpPrefixArgs {
      */
     prefixLength?: pulumi.Input<number>;
     /**
-     * The name of the resource group in which to create the Public IP Prefix.
+     * The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

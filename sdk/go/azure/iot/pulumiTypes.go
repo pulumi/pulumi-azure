@@ -3552,7 +3552,7 @@ func (o SecuritySolutionRecommendationsEnabledPtrOutput) VulnerableTlsCipherSuit
 type TimeSeriesInsightsGen2EnvironmentStorage struct {
 	// Access key of storage account for Azure IoT Time Series Insights Gen2 Environment
 	Key string `pulumi:"key"`
-	// Name of storage account for Azure IoT Time Series Insights Gen2 Environment
+	// Name of storage account for Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 }
 
@@ -3570,7 +3570,7 @@ type TimeSeriesInsightsGen2EnvironmentStorageInput interface {
 type TimeSeriesInsightsGen2EnvironmentStorageArgs struct {
 	// Access key of storage account for Azure IoT Time Series Insights Gen2 Environment
 	Key pulumi.StringInput `pulumi:"key"`
-	// Name of storage account for Azure IoT Time Series Insights Gen2 Environment
+	// Name of storage account for Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -3656,7 +3656,7 @@ func (o TimeSeriesInsightsGen2EnvironmentStorageOutput) Key() pulumi.StringOutpu
 	return o.ApplyT(func(v TimeSeriesInsightsGen2EnvironmentStorage) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// Name of storage account for Azure IoT Time Series Insights Gen2 Environment
+// Name of storage account for Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
 func (o TimeSeriesInsightsGen2EnvironmentStorageOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TimeSeriesInsightsGen2EnvironmentStorage) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3695,7 +3695,7 @@ func (o TimeSeriesInsightsGen2EnvironmentStoragePtrOutput) Key() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of storage account for Azure IoT Time Series Insights Gen2 Environment
+// Name of storage account for Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
 func (o TimeSeriesInsightsGen2EnvironmentStoragePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TimeSeriesInsightsGen2EnvironmentStorage) *string {
 		if v == nil {

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Redis.Inputs
     public sealed class EnterpriseDatabaseModuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
+        /// Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created.
         /// </summary>
         [Input("args")]
         public Input<string>? Args { get; set; }

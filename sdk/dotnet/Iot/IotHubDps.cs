@@ -59,7 +59,7 @@ namespace Pulumi.Azure.Iot
         public Output<string?> AllocationPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`.
+        /// Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("dataResidencyEnabled")]
         public Output<bool?> DataResidencyEnabled { get; private set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? AllocationPolicy { get; set; }
 
         /// <summary>
-        /// Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`.
+        /// Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dataResidencyEnabled")]
         public Input<bool>? DataResidencyEnabled { get; set; }
@@ -269,7 +269,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? AllocationPolicy { get; set; }
 
         /// <summary>
-        /// Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`.
+        /// Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dataResidencyEnabled")]
         public Input<bool>? DataResidencyEnabled { get; set; }

@@ -21,10 +21,10 @@ class FirewallRuleArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FirewallRule resource.
-        :param pulumi.Input[str] end_ip_address: Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] end_ip_address: Specifies the End IP Address associated with this Firewall Rule.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the MariaDB Server exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] start_ip_address: Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] start_ip_address: Specifies the Start IP Address associated with this Firewall Rule.
         :param pulumi.Input[str] name: Specifies the name of the MariaDB Firewall Rule. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "end_ip_address", end_ip_address)
@@ -38,7 +38,7 @@ class FirewallRuleArgs:
     @pulumi.getter(name="endIpAddress")
     def end_ip_address(self) -> pulumi.Input[str]:
         """
-        Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+        Specifies the End IP Address associated with this Firewall Rule.
         """
         return pulumi.get(self, "end_ip_address")
 
@@ -74,7 +74,7 @@ class FirewallRuleArgs:
     @pulumi.getter(name="startIpAddress")
     def start_ip_address(self) -> pulumi.Input[str]:
         """
-        Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+        Specifies the Start IP Address associated with this Firewall Rule.
         """
         return pulumi.get(self, "start_ip_address")
 
@@ -105,11 +105,11 @@ class _FirewallRuleState:
                  start_ip_address: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering FirewallRule resources.
-        :param pulumi.Input[str] end_ip_address: Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] end_ip_address: Specifies the End IP Address associated with this Firewall Rule.
         :param pulumi.Input[str] name: Specifies the name of the MariaDB Firewall Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the MariaDB Server exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] start_ip_address: Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] start_ip_address: Specifies the Start IP Address associated with this Firewall Rule.
         """
         if end_ip_address is not None:
             pulumi.set(__self__, "end_ip_address", end_ip_address)
@@ -126,7 +126,7 @@ class _FirewallRuleState:
     @pulumi.getter(name="endIpAddress")
     def end_ip_address(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+        Specifies the End IP Address associated with this Firewall Rule.
         """
         return pulumi.get(self, "end_ip_address")
 
@@ -174,7 +174,7 @@ class _FirewallRuleState:
     @pulumi.getter(name="startIpAddress")
     def start_ip_address(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+        Specifies the Start IP Address associated with this Firewall Rule.
         """
         return pulumi.get(self, "start_ip_address")
 
@@ -233,11 +233,11 @@ class FirewallRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] end_ip_address: Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] end_ip_address: Specifies the End IP Address associated with this Firewall Rule.
         :param pulumi.Input[str] name: Specifies the name of the MariaDB Firewall Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the MariaDB Server exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] start_ip_address: Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] start_ip_address: Specifies the Start IP Address associated with this Firewall Rule.
         """
         ...
     @overload
@@ -346,11 +346,11 @@ class FirewallRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] end_ip_address: Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] end_ip_address: Specifies the End IP Address associated with this Firewall Rule.
         :param pulumi.Input[str] name: Specifies the name of the MariaDB Firewall Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the MariaDB Server exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] start_ip_address: Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] start_ip_address: Specifies the Start IP Address associated with this Firewall Rule.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -367,7 +367,7 @@ class FirewallRule(pulumi.CustomResource):
     @pulumi.getter(name="endIpAddress")
     def end_ip_address(self) -> pulumi.Output[str]:
         """
-        Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+        Specifies the End IP Address associated with this Firewall Rule.
         """
         return pulumi.get(self, "end_ip_address")
 
@@ -399,7 +399,7 @@ class FirewallRule(pulumi.CustomResource):
     @pulumi.getter(name="startIpAddress")
     def start_ip_address(self) -> pulumi.Output[str]:
         """
-        Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+        Specifies the Start IP Address associated with this Firewall Rule.
         """
         return pulumi.get(self, "start_ip_address")
 

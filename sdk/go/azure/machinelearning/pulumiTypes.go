@@ -11,13 +11,13 @@ import (
 )
 
 type ComputeClusterIdentity struct {
-	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster. Changing this forces a new resource to be created.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster.
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+	// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
 	Type string `pulumi:"type"`
 }
 
@@ -33,13 +33,13 @@ type ComputeClusterIdentityInput interface {
 }
 
 type ComputeClusterIdentityArgs struct {
-	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster. Changing this forces a new resource to be created.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+	// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -120,7 +120,7 @@ func (o ComputeClusterIdentityOutput) ToComputeClusterIdentityPtrOutputWithConte
 	}).(ComputeClusterIdentityPtrOutput)
 }
 
-// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster. Changing this forces a new resource to be created.
 func (o ComputeClusterIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ComputeClusterIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -135,7 +135,7 @@ func (o ComputeClusterIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeClusterIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
 func (o ComputeClusterIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ComputeClusterIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -164,7 +164,7 @@ func (o ComputeClusterIdentityPtrOutput) Elem() ComputeClusterIdentityOutput {
 	}).(ComputeClusterIdentityOutput)
 }
 
-// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster. Changing this forces a new resource to be created.
 func (o ComputeClusterIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ComputeClusterIdentity) []string {
 		if v == nil {
@@ -194,7 +194,7 @@ func (o ComputeClusterIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
 func (o ComputeClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeClusterIdentity) *string {
 		if v == nil {
@@ -711,13 +711,13 @@ func (o ComputeInstanceAssignToUserPtrOutput) TenantId() pulumi.StringPtrOutput 
 }
 
 type ComputeInstanceIdentity struct {
-	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance. Changing this forces a new resource to be created.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
 	PrincipalId *string `pulumi:"principalId"`
 	// User’s AAD Tenant Id.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+	// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
 	Type string `pulumi:"type"`
 }
 
@@ -733,13 +733,13 @@ type ComputeInstanceIdentityInput interface {
 }
 
 type ComputeInstanceIdentityArgs struct {
-	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance. Changing this forces a new resource to be created.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// User’s AAD Tenant Id.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+	// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -820,7 +820,7 @@ func (o ComputeInstanceIdentityOutput) ToComputeInstanceIdentityPtrOutputWithCon
 	}).(ComputeInstanceIdentityPtrOutput)
 }
 
-// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance. Changing this forces a new resource to be created.
 func (o ComputeInstanceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ComputeInstanceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -835,7 +835,7 @@ func (o ComputeInstanceIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeInstanceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
 func (o ComputeInstanceIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ComputeInstanceIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -864,7 +864,7 @@ func (o ComputeInstanceIdentityPtrOutput) Elem() ComputeInstanceIdentityOutput {
 	}).(ComputeInstanceIdentityOutput)
 }
 
-// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance. Changing this forces a new resource to be created.
 func (o ComputeInstanceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ComputeInstanceIdentity) []string {
 		if v == nil {
@@ -894,7 +894,7 @@ func (o ComputeInstanceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
 func (o ComputeInstanceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeInstanceIdentity) *string {
 		if v == nil {
@@ -1080,13 +1080,13 @@ func (o ComputeInstanceSshPtrOutput) Username() pulumi.StringPtrOutput {
 }
 
 type InferenceClusterIdentity struct {
-	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Inference Cluster.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Inference Cluster. Changing this forces a new resource to be created.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Inference Cluster.
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Inference Cluster.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Inference Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+	// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Inference Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
 	Type string `pulumi:"type"`
 }
 
@@ -1102,13 +1102,13 @@ type InferenceClusterIdentityInput interface {
 }
 
 type InferenceClusterIdentityArgs struct {
-	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Inference Cluster.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Inference Cluster. Changing this forces a new resource to be created.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Inference Cluster.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Inference Cluster.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Inference Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+	// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Inference Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1189,7 +1189,7 @@ func (o InferenceClusterIdentityOutput) ToInferenceClusterIdentityPtrOutputWithC
 	}).(InferenceClusterIdentityPtrOutput)
 }
 
-// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Inference Cluster.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Inference Cluster. Changing this forces a new resource to be created.
 func (o InferenceClusterIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InferenceClusterIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -1204,7 +1204,7 @@ func (o InferenceClusterIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InferenceClusterIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Inference Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Inference Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
 func (o InferenceClusterIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v InferenceClusterIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1233,7 +1233,7 @@ func (o InferenceClusterIdentityPtrOutput) Elem() InferenceClusterIdentityOutput
 	}).(InferenceClusterIdentityOutput)
 }
 
-// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Inference Cluster.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Inference Cluster. Changing this forces a new resource to be created.
 func (o InferenceClusterIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InferenceClusterIdentity) []string {
 		if v == nil {
@@ -1263,7 +1263,7 @@ func (o InferenceClusterIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Inference Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Inference Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
 func (o InferenceClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InferenceClusterIdentity) *string {
 		if v == nil {
@@ -1487,13 +1487,13 @@ func (o InferenceClusterSslPtrOutput) OverwriteExistingDomain() pulumi.BoolPtrOu
 }
 
 type SynapseSparkIdentity struct {
-	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Synapse Spark.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Synapse Spark. Changing this forces a new resource to be created.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark.
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+	// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
 	Type string `pulumi:"type"`
 }
 
@@ -1509,13 +1509,13 @@ type SynapseSparkIdentityInput interface {
 }
 
 type SynapseSparkIdentityArgs struct {
-	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Synapse Spark.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Synapse Spark. Changing this forces a new resource to be created.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+	// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1596,7 +1596,7 @@ func (o SynapseSparkIdentityOutput) ToSynapseSparkIdentityPtrOutputWithContext(c
 	}).(SynapseSparkIdentityPtrOutput)
 }
 
-// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Synapse Spark.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Synapse Spark. Changing this forces a new resource to be created.
 func (o SynapseSparkIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SynapseSparkIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -1611,7 +1611,7 @@ func (o SynapseSparkIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SynapseSparkIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
 func (o SynapseSparkIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SynapseSparkIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1640,7 +1640,7 @@ func (o SynapseSparkIdentityPtrOutput) Elem() SynapseSparkIdentityOutput {
 	}).(SynapseSparkIdentityOutput)
 }
 
-// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Synapse Spark.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Synapse Spark. Changing this forces a new resource to be created.
 func (o SynapseSparkIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SynapseSparkIdentity) []string {
 		if v == nil {
@@ -1670,7 +1670,7 @@ func (o SynapseSparkIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
 func (o SynapseSparkIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SynapseSparkIdentity) *string {
 		if v == nil {

@@ -71,7 +71,7 @@ type ServicePlan struct {
 	MaximumElasticWorkerCount pulumi.IntOutput `pulumi:"maximumElasticWorkerCount"`
 	// The name which should be used for this Service Plan. Changing this forces a new AppService to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`.
+	// The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`. Changing this forces a new resource to be created.
 	OsType pulumi.StringOutput `pulumi:"osType"`
 	// Should Per Site Scaling be enabled. Defaults to `false`.
 	PerSiteScalingEnabled pulumi.BoolPtrOutput `pulumi:"perSiteScalingEnabled"`
@@ -85,7 +85,7 @@ type ServicePlan struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The number of Workers (instances) to be allocated.
 	WorkerCount pulumi.IntOutput `pulumi:"workerCount"`
-	// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
+	// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`. Changing this forces a new resource to be created.
 	ZoneBalancingEnabled pulumi.BoolPtrOutput `pulumi:"zoneBalancingEnabled"`
 }
 
@@ -137,7 +137,7 @@ type servicePlanState struct {
 	MaximumElasticWorkerCount *int `pulumi:"maximumElasticWorkerCount"`
 	// The name which should be used for this Service Plan. Changing this forces a new AppService to be created.
 	Name *string `pulumi:"name"`
-	// The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`.
+	// The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`. Changing this forces a new resource to be created.
 	OsType *string `pulumi:"osType"`
 	// Should Per Site Scaling be enabled. Defaults to `false`.
 	PerSiteScalingEnabled *bool `pulumi:"perSiteScalingEnabled"`
@@ -151,7 +151,7 @@ type servicePlanState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The number of Workers (instances) to be allocated.
 	WorkerCount *int `pulumi:"workerCount"`
-	// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
+	// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`. Changing this forces a new resource to be created.
 	ZoneBalancingEnabled *bool `pulumi:"zoneBalancingEnabled"`
 }
 
@@ -166,7 +166,7 @@ type ServicePlanState struct {
 	MaximumElasticWorkerCount pulumi.IntPtrInput
 	// The name which should be used for this Service Plan. Changing this forces a new AppService to be created.
 	Name pulumi.StringPtrInput
-	// The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`.
+	// The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`. Changing this forces a new resource to be created.
 	OsType pulumi.StringPtrInput
 	// Should Per Site Scaling be enabled. Defaults to `false`.
 	PerSiteScalingEnabled pulumi.BoolPtrInput
@@ -180,7 +180,7 @@ type ServicePlanState struct {
 	Tags pulumi.StringMapInput
 	// The number of Workers (instances) to be allocated.
 	WorkerCount pulumi.IntPtrInput
-	// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
+	// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`. Changing this forces a new resource to be created.
 	ZoneBalancingEnabled pulumi.BoolPtrInput
 }
 
@@ -197,7 +197,7 @@ type servicePlanArgs struct {
 	MaximumElasticWorkerCount *int `pulumi:"maximumElasticWorkerCount"`
 	// The name which should be used for this Service Plan. Changing this forces a new AppService to be created.
 	Name *string `pulumi:"name"`
-	// The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`.
+	// The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`. Changing this forces a new resource to be created.
 	OsType string `pulumi:"osType"`
 	// Should Per Site Scaling be enabled. Defaults to `false`.
 	PerSiteScalingEnabled *bool `pulumi:"perSiteScalingEnabled"`
@@ -209,7 +209,7 @@ type servicePlanArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The number of Workers (instances) to be allocated.
 	WorkerCount *int `pulumi:"workerCount"`
-	// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
+	// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`. Changing this forces a new resource to be created.
 	ZoneBalancingEnabled *bool `pulumi:"zoneBalancingEnabled"`
 }
 
@@ -223,7 +223,7 @@ type ServicePlanArgs struct {
 	MaximumElasticWorkerCount pulumi.IntPtrInput
 	// The name which should be used for this Service Plan. Changing this forces a new AppService to be created.
 	Name pulumi.StringPtrInput
-	// The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`.
+	// The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`. Changing this forces a new resource to be created.
 	OsType pulumi.StringInput
 	// Should Per Site Scaling be enabled. Defaults to `false`.
 	PerSiteScalingEnabled pulumi.BoolPtrInput
@@ -235,7 +235,7 @@ type ServicePlanArgs struct {
 	Tags pulumi.StringMapInput
 	// The number of Workers (instances) to be allocated.
 	WorkerCount pulumi.IntPtrInput
-	// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
+	// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`. Changing this forces a new resource to be created.
 	ZoneBalancingEnabled pulumi.BoolPtrInput
 }
 
@@ -351,7 +351,7 @@ func (o ServicePlanOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServicePlan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`.
+// The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`. Changing this forces a new resource to be created.
 func (o ServicePlanOutput) OsType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServicePlan) pulumi.StringOutput { return v.OsType }).(pulumi.StringOutput)
 }
@@ -386,7 +386,7 @@ func (o ServicePlanOutput) WorkerCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *ServicePlan) pulumi.IntOutput { return v.WorkerCount }).(pulumi.IntOutput)
 }
 
-// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
+// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`. Changing this forces a new resource to be created.
 func (o ServicePlanOutput) ZoneBalancingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServicePlan) pulumi.BoolPtrOutput { return v.ZoneBalancingEnabled }).(pulumi.BoolPtrOutput)
 }

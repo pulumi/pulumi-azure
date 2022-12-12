@@ -77,14 +77,14 @@ public final class ScriptArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The SAS token used to access the script. Must be provided when using scriptUrl property.
+     * The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="sasToken")
     private @Nullable Output<String> sasToken;
 
     /**
-     * @return The SAS token used to access the script. Must be provided when using scriptUrl property.
+     * @return The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> sasToken() {
@@ -92,14 +92,14 @@ public final class ScriptArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties.
+     * The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="scriptContent")
     private @Nullable Output<String> scriptContent;
 
     /**
-     * @return The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties.
+     * @return The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> scriptContent() {
@@ -236,7 +236,7 @@ public final class ScriptArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sasToken The SAS token used to access the script. Must be provided when using scriptUrl property.
+         * @param sasToken The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class ScriptArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sasToken The SAS token used to access the script. Must be provided when using scriptUrl property.
+         * @param sasToken The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class ScriptArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scriptContent The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties.
+         * @param scriptContent The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class ScriptArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scriptContent The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties.
+         * @param scriptContent The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

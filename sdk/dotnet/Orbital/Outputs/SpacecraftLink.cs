@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Orbital.Outputs
         /// </summary>
         public readonly string Direction;
         /// <summary>
-        /// Name of the link.
+        /// Name of the link. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
         /// <summary>

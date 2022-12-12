@@ -249,7 +249,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.publicNetworkAccessEnabled);
     }
     /**
-     * The name of the resource group in which to
+     * The name of the resource group in which to Changing this forces a new resource to be created.
      * create the namespace.
      * 
      */
@@ -257,7 +257,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to
+     * @return The name of the resource group in which to Changing this forces a new resource to be created.
      * create the namespace.
      * 
      */
@@ -293,14 +293,14 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+     * Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="zoneRedundant", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> zoneRedundant;
 
     /**
-     * @return Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+     * @return Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> zoneRedundant() {

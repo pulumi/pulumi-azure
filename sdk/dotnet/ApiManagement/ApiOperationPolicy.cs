@@ -94,7 +94,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ApiName { get; private set; } = null!;
 
         /// <summary>
-        /// The operation identifier within an API. Must be unique in the current API Management service instance.
+        /// The operation identifier within an API. Must be unique in the current API Management service instance. Changing this forces a new resource to be created.
         /// </summary>
         [Output("operationId")]
         public Output<string> OperationId { get; private set; } = null!;
@@ -176,7 +176,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> ApiName { get; set; } = null!;
 
         /// <summary>
-        /// The operation identifier within an API. Must be unique in the current API Management service instance.
+        /// The operation identifier within an API. Must be unique in the current API Management service instance. Changing this forces a new resource to be created.
         /// </summary>
         [Input("operationId", required: true)]
         public Input<string> OperationId { get; set; } = null!;
@@ -220,7 +220,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ApiName { get; set; }
 
         /// <summary>
-        /// The operation identifier within an API. Must be unique in the current API Management service instance.
+        /// The operation identifier within an API. Must be unique in the current API Management service instance. Changing this forces a new resource to be created.
         /// </summary>
         [Input("operationId")]
         public Input<string>? OperationId { get; set; }

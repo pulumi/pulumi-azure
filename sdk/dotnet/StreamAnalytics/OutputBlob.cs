@@ -94,7 +94,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// The minimum number of rows per batch (must be between `0` and `10000`).
         /// </summary>
         [Output("batchMinRows")]
-        public Output<double?> BatchMinRows { get; private set; } = null!;
+        public Output<int?> BatchMinRows { get; private set; } = null!;
 
         /// <summary>
         /// The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
@@ -218,7 +218,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// The minimum number of rows per batch (must be between `0` and `10000`).
         /// </summary>
         [Input("batchMinRows")]
-        public Input<double>? BatchMinRows { get; set; }
+        public Input<int>? BatchMinRows { get; set; }
 
         /// <summary>
         /// The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
@@ -304,7 +304,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// The minimum number of rows per batch (must be between `0` and `10000`).
         /// </summary>
         [Input("batchMinRows")]
-        public Input<double>? BatchMinRows { get; set; }
+        public Input<int>? BatchMinRows { get; set; }
 
         /// <summary>
         /// The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.

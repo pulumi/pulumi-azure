@@ -92,90 +92,77 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:network/virtualNetworkPeering:VirtualNetworkPeering")
 public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
     /**
-     * Controls if forwarded traffic from  VMs
-     * in the remote virtual network is allowed. Defaults to false.
+     * Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to false.
      * 
      */
     @Export(name="allowForwardedTraffic", type=Boolean.class, parameters={})
     private Output<Boolean> allowForwardedTraffic;
 
     /**
-     * @return Controls if forwarded traffic from  VMs
-     * in the remote virtual network is allowed. Defaults to false.
+     * @return Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to false.
      * 
      */
     public Output<Boolean> allowForwardedTraffic() {
         return this.allowForwardedTraffic;
     }
     /**
-     * Controls gatewayLinks can be used in the
-     * remote virtual network’s link to the local virtual network.
+     * Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
      * 
      */
     @Export(name="allowGatewayTransit", type=Boolean.class, parameters={})
     private Output<Boolean> allowGatewayTransit;
 
     /**
-     * @return Controls gatewayLinks can be used in the
-     * remote virtual network’s link to the local virtual network.
+     * @return Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
      * 
      */
     public Output<Boolean> allowGatewayTransit() {
         return this.allowGatewayTransit;
     }
     /**
-     * Controls if the VMs in the remote
-     * virtual network can access VMs in the local virtual network. Defaults to
-     * true.
+     * Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to true.
      * 
      */
     @Export(name="allowVirtualNetworkAccess", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> allowVirtualNetworkAccess;
 
     /**
-     * @return Controls if the VMs in the remote
-     * virtual network can access VMs in the local virtual network. Defaults to
-     * true.
+     * @return Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to true.
      * 
      */
     public Output<Optional<Boolean>> allowVirtualNetworkAccess() {
         return Codegen.optional(this.allowVirtualNetworkAccess);
     }
     /**
-     * The name of the virtual network peering. Changing this
-     * forces a new resource to be created.
+     * The name of the virtual network peering. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the virtual network peering. Changing this
-     * forces a new resource to be created.
+     * @return The name of the virtual network peering. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The full Azure resource ID of the
-     * remote virtual network.  Changing this forces a new resource to be created.
+     * The full Azure resource ID of the remote virtual network.  Changing this forces a new resource to be created.
      * 
      */
     @Export(name="remoteVirtualNetworkId", type=String.class, parameters={})
     private Output<String> remoteVirtualNetworkId;
 
     /**
-     * @return The full Azure resource ID of the
-     * remote virtual network.  Changing this forces a new resource to be created.
+     * @return The full Azure resource ID of the remote virtual network.  Changing this forces a new resource to be created.
      * 
      */
     public Output<String> remoteVirtualNetworkId() {
         return this.remoteVirtualNetworkId;
     }
     /**
-     * The name of the resource group in which to
-     * create the virtual network peering. Changing this forces a new resource to be
+     * The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be
      * created.
      * 
      */
@@ -183,8 +170,7 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to
-     * create the virtual network peering. Changing this forces a new resource to be
+     * @return The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be
      * created.
      * 
      */
@@ -216,16 +202,14 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
         return this.useRemoteGateways;
     }
     /**
-     * The name of the virtual network. Changing
-     * this forces a new resource to be created.
+     * The name of the virtual network. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="virtualNetworkName", type=String.class, parameters={})
     private Output<String> virtualNetworkName;
 
     /**
-     * @return The name of the virtual network. Changing
-     * this forces a new resource to be created.
+     * @return The name of the virtual network. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> virtualNetworkName() {

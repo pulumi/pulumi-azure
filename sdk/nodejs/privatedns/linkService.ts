@@ -122,7 +122,7 @@ export class LinkService extends pulumi.CustomResource {
      */
     public readonly fqdns!: pulumi.Output<string[] | undefined>;
     /**
-     * A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
+     * A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
      */
     public readonly loadBalancerFrontendIpConfigurationIds!: pulumi.Output<string[]>;
     /**
@@ -142,7 +142,7 @@ export class LinkService extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+     * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -223,7 +223,7 @@ export interface LinkServiceState {
      */
     fqdns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
+     * A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
      */
     loadBalancerFrontendIpConfigurationIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -243,7 +243,7 @@ export interface LinkServiceState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+     * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -269,7 +269,7 @@ export interface LinkServiceArgs {
      */
     fqdns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
+     * A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
      */
     loadBalancerFrontendIpConfigurationIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -289,7 +289,7 @@ export interface LinkServiceArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+     * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

@@ -4119,9 +4119,11 @@ func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) Te
 type KubernetesClusterDefaultNodePool struct {
 	// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
+	// Specifies whether to trust a Custom CA. Defaults to `false`.
+	CustomCaTrustEnabled *bool `pulumi:"customCaTrustEnabled"`
 	// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
-	// Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
+	// Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	EnableHostEncryption *bool `pulumi:"enableHostEncryption"`
 	// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
 	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
@@ -4168,9 +4170,9 @@ type KubernetesClusterDefaultNodePool struct {
 	ScaleDownMode *string `pulumi:"scaleDownMode"`
 	// A mapping of tags to assign to the Node Pool.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
+	// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
 	Type *string `pulumi:"type"`
-	// Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+	// Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
 	UltraSsdEnabled *bool `pulumi:"ultraSsdEnabled"`
 	// A `upgradeSettings` block as documented below.
 	UpgradeSettings *KubernetesClusterDefaultNodePoolUpgradeSettings `pulumi:"upgradeSettings"`
@@ -4198,9 +4200,11 @@ type KubernetesClusterDefaultNodePoolInput interface {
 type KubernetesClusterDefaultNodePoolArgs struct {
 	// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrInput `pulumi:"capacityReservationGroupId"`
+	// Specifies whether to trust a Custom CA. Defaults to `false`.
+	CustomCaTrustEnabled pulumi.BoolPtrInput `pulumi:"customCaTrustEnabled"`
 	// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
 	EnableAutoScaling pulumi.BoolPtrInput `pulumi:"enableAutoScaling"`
-	// Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
+	// Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	EnableHostEncryption pulumi.BoolPtrInput `pulumi:"enableHostEncryption"`
 	// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
 	EnableNodePublicIp pulumi.BoolPtrInput `pulumi:"enableNodePublicIp"`
@@ -4247,9 +4251,9 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	ScaleDownMode pulumi.StringPtrInput `pulumi:"scaleDownMode"`
 	// A mapping of tags to assign to the Node Pool.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
+	// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
 	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+	// Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
 	UltraSsdEnabled pulumi.BoolPtrInput `pulumi:"ultraSsdEnabled"`
 	// A `upgradeSettings` block as documented below.
 	UpgradeSettings KubernetesClusterDefaultNodePoolUpgradeSettingsPtrInput `pulumi:"upgradeSettings"`
@@ -4345,12 +4349,17 @@ func (o KubernetesClusterDefaultNodePoolOutput) CapacityReservationGroupId() pul
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.CapacityReservationGroupId }).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether to trust a Custom CA. Defaults to `false`.
+func (o KubernetesClusterDefaultNodePoolOutput) CustomCaTrustEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.CustomCaTrustEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
 func (o KubernetesClusterDefaultNodePoolOutput) EnableAutoScaling() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.EnableAutoScaling }).(pulumi.BoolPtrOutput)
 }
 
-// Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
+// Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolOutput) EnableHostEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.EnableHostEncryption }).(pulumi.BoolPtrOutput)
 }
@@ -4476,12 +4485,12 @@ func (o KubernetesClusterDefaultNodePoolOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
+// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+// Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -4547,6 +4556,16 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) CapacityReservationGroupId() 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether to trust a Custom CA. Defaults to `false`.
+func (o KubernetesClusterDefaultNodePoolPtrOutput) CustomCaTrustEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CustomCaTrustEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) EnableAutoScaling() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *bool {
@@ -4557,7 +4576,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) EnableAutoScaling() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
+// Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) EnableHostEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *bool {
 		if v == nil {
@@ -4804,7 +4823,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) Tags() pulumi.StringMapOutput
 	}).(pulumi.StringMapOutput)
 }
 
-// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
+// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
 		if v == nil {
@@ -4814,7 +4833,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) Type() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+// Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *bool {
 		if v == nil {
@@ -5183,7 +5202,7 @@ func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) TopologyManagerP
 }
 
 type KubernetesClusterDefaultNodePoolLinuxOsConfig struct {
-	// Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
+	// Specifies the size of the swap file on each node in MB. Changing this forces a new resource to be created.
 	SwapFileSizeMb *int `pulumi:"swapFileSizeMb"`
 	// A `sysctlConfig` block as defined below. Changing this forces a new resource to be created.
 	SysctlConfig *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig `pulumi:"sysctlConfig"`
@@ -5205,7 +5224,7 @@ type KubernetesClusterDefaultNodePoolLinuxOsConfigInput interface {
 }
 
 type KubernetesClusterDefaultNodePoolLinuxOsConfigArgs struct {
-	// Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
+	// Specifies the size of the swap file on each node in MB. Changing this forces a new resource to be created.
 	SwapFileSizeMb pulumi.IntPtrInput `pulumi:"swapFileSizeMb"`
 	// A `sysctlConfig` block as defined below. Changing this forces a new resource to be created.
 	SysctlConfig KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrInput `pulumi:"sysctlConfig"`
@@ -5292,7 +5311,7 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigOutput) ToKubernetesCluster
 	}).(KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput)
 }
 
-// Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
+// Specifies the size of the swap file on each node in MB. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolLinuxOsConfigOutput) SwapFileSizeMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfig) *int { return v.SwapFileSizeMb }).(pulumi.IntPtrOutput)
 }
@@ -5338,7 +5357,7 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput) Elem() Kubernete
 	}).(KubernetesClusterDefaultNodePoolLinuxOsConfigOutput)
 }
 
-// Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
+// Specifies the size of the swap file on each node in MB. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput) SwapFileSizeMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfig) *int {
 		if v == nil {
@@ -6213,11 +6232,11 @@ func (o KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput) MaxSurge() pul
 }
 
 type KubernetesClusterHttpProxyConfig struct {
-	// The proxy address to be used when communicating over HTTP.
+	// The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
 	HttpProxy *string `pulumi:"httpProxy"`
-	// The proxy address to be used when communicating over HTTPS.
+	// The proxy address to be used when communicating over HTTPS. Changing this forces a new resource to be created.
 	HttpsProxy *string `pulumi:"httpsProxy"`
-	// The list of domains that will not use the proxy for communication.
+	// The list of domains that will not use the proxy for communication. Changing this forces a new resource to be created.
 	NoProxies []string `pulumi:"noProxies"`
 	// The base64 encoded alternative CA certificate content in PEM format.
 	TrustedCa *string `pulumi:"trustedCa"`
@@ -6235,11 +6254,11 @@ type KubernetesClusterHttpProxyConfigInput interface {
 }
 
 type KubernetesClusterHttpProxyConfigArgs struct {
-	// The proxy address to be used when communicating over HTTP.
+	// The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
 	HttpProxy pulumi.StringPtrInput `pulumi:"httpProxy"`
-	// The proxy address to be used when communicating over HTTPS.
+	// The proxy address to be used when communicating over HTTPS. Changing this forces a new resource to be created.
 	HttpsProxy pulumi.StringPtrInput `pulumi:"httpsProxy"`
-	// The list of domains that will not use the proxy for communication.
+	// The list of domains that will not use the proxy for communication. Changing this forces a new resource to be created.
 	NoProxies pulumi.StringArrayInput `pulumi:"noProxies"`
 	// The base64 encoded alternative CA certificate content in PEM format.
 	TrustedCa pulumi.StringPtrInput `pulumi:"trustedCa"`
@@ -6322,17 +6341,17 @@ func (o KubernetesClusterHttpProxyConfigOutput) ToKubernetesClusterHttpProxyConf
 	}).(KubernetesClusterHttpProxyConfigPtrOutput)
 }
 
-// The proxy address to be used when communicating over HTTP.
+// The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
 func (o KubernetesClusterHttpProxyConfigOutput) HttpProxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterHttpProxyConfig) *string { return v.HttpProxy }).(pulumi.StringPtrOutput)
 }
 
-// The proxy address to be used when communicating over HTTPS.
+// The proxy address to be used when communicating over HTTPS. Changing this forces a new resource to be created.
 func (o KubernetesClusterHttpProxyConfigOutput) HttpsProxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterHttpProxyConfig) *string { return v.HttpsProxy }).(pulumi.StringPtrOutput)
 }
 
-// The list of domains that will not use the proxy for communication.
+// The list of domains that will not use the proxy for communication. Changing this forces a new resource to be created.
 func (o KubernetesClusterHttpProxyConfigOutput) NoProxies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterHttpProxyConfig) []string { return v.NoProxies }).(pulumi.StringArrayOutput)
 }
@@ -6366,7 +6385,7 @@ func (o KubernetesClusterHttpProxyConfigPtrOutput) Elem() KubernetesClusterHttpP
 	}).(KubernetesClusterHttpProxyConfigOutput)
 }
 
-// The proxy address to be used when communicating over HTTP.
+// The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
 func (o KubernetesClusterHttpProxyConfigPtrOutput) HttpProxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterHttpProxyConfig) *string {
 		if v == nil {
@@ -6376,7 +6395,7 @@ func (o KubernetesClusterHttpProxyConfigPtrOutput) HttpProxy() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The proxy address to be used when communicating over HTTPS.
+// The proxy address to be used when communicating over HTTPS. Changing this forces a new resource to be created.
 func (o KubernetesClusterHttpProxyConfigPtrOutput) HttpsProxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterHttpProxyConfig) *string {
 		if v == nil {
@@ -6386,7 +6405,7 @@ func (o KubernetesClusterHttpProxyConfigPtrOutput) HttpsProxy() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of domains that will not use the proxy for communication.
+// The list of domains that will not use the proxy for communication. Changing this forces a new resource to be created.
 func (o KubernetesClusterHttpProxyConfigPtrOutput) NoProxies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubernetesClusterHttpProxyConfig) []string {
 		if v == nil {
@@ -8002,7 +8021,7 @@ func (o KubernetesClusterLinuxProfileSshKeyPtrOutput) KeyData() pulumi.StringPtr
 }
 
 type KubernetesClusterMaintenanceWindow struct {
-	// One or more `allowed` block as defined below.
+	// One or more `allowed` blocks as defined below.
 	Alloweds []KubernetesClusterMaintenanceWindowAllowed `pulumi:"alloweds"`
 	// One or more `notAllowed` block as defined below.
 	NotAlloweds []KubernetesClusterMaintenanceWindowNotAllowed `pulumi:"notAlloweds"`
@@ -8020,7 +8039,7 @@ type KubernetesClusterMaintenanceWindowInput interface {
 }
 
 type KubernetesClusterMaintenanceWindowArgs struct {
-	// One or more `allowed` block as defined below.
+	// One or more `allowed` blocks as defined below.
 	Alloweds KubernetesClusterMaintenanceWindowAllowedArrayInput `pulumi:"alloweds"`
 	// One or more `notAllowed` block as defined below.
 	NotAlloweds KubernetesClusterMaintenanceWindowNotAllowedArrayInput `pulumi:"notAlloweds"`
@@ -8103,7 +8122,7 @@ func (o KubernetesClusterMaintenanceWindowOutput) ToKubernetesClusterMaintenance
 	}).(KubernetesClusterMaintenanceWindowPtrOutput)
 }
 
-// One or more `allowed` block as defined below.
+// One or more `allowed` blocks as defined below.
 func (o KubernetesClusterMaintenanceWindowOutput) Alloweds() KubernetesClusterMaintenanceWindowAllowedArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterMaintenanceWindow) []KubernetesClusterMaintenanceWindowAllowed {
 		return v.Alloweds
@@ -8141,7 +8160,7 @@ func (o KubernetesClusterMaintenanceWindowPtrOutput) Elem() KubernetesClusterMai
 	}).(KubernetesClusterMaintenanceWindowOutput)
 }
 
-// One or more `allowed` block as defined below.
+// One or more `allowed` blocks as defined below.
 func (o KubernetesClusterMaintenanceWindowPtrOutput) Alloweds() KubernetesClusterMaintenanceWindowAllowedArrayOutput {
 	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindow) []KubernetesClusterMaintenanceWindowAllowed {
 		if v == nil {
@@ -8515,11 +8534,13 @@ type KubernetesClusterNetworkProfile struct {
 	DnsServiceIp *string `pulumi:"dnsServiceIp"`
 	// IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
 	DockerBridgeCidr *string `pulumi:"dockerBridgeCidr"`
+	// Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
+	EbpfDataPlane *string `pulumi:"ebpfDataPlane"`
 	// Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
 	IpVersions []string `pulumi:"ipVersions"`
 	// A `loadBalancerProfile` block. This can only be specified when `loadBalancerSku` is set to `standard`.
 	LoadBalancerProfile *KubernetesClusterNetworkProfileLoadBalancerProfile `pulumi:"loadBalancerProfile"`
-	// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`.
+	// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`. Changing this forces a new resource to be created.
 	LoadBalancerSku *string `pulumi:"loadBalancerSku"`
 	// A `natGatewayProfile` block. This can only be specified when `loadBalancerSku` is set to `standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`.
 	NatGatewayProfile *KubernetesClusterNetworkProfileNatGatewayProfile `pulumi:"natGatewayProfile"`
@@ -8527,9 +8548,11 @@ type KubernetesClusterNetworkProfile struct {
 	NetworkMode *string `pulumi:"networkMode"`
 	// Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
 	NetworkPlugin string `pulumi:"networkPlugin"`
+	// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+	NetworkPluginMode *string `pulumi:"networkPluginMode"`
 	// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
 	NetworkPolicy *string `pulumi:"networkPolicy"`
-	// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`.
+	// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
 	OutboundType *string `pulumi:"outboundType"`
 	// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet`. Changing this forces a new resource to be created.
 	PodCidr *string `pulumi:"podCidr"`
@@ -8557,11 +8580,13 @@ type KubernetesClusterNetworkProfileArgs struct {
 	DnsServiceIp pulumi.StringPtrInput `pulumi:"dnsServiceIp"`
 	// IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
 	DockerBridgeCidr pulumi.StringPtrInput `pulumi:"dockerBridgeCidr"`
+	// Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
+	EbpfDataPlane pulumi.StringPtrInput `pulumi:"ebpfDataPlane"`
 	// Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
 	IpVersions pulumi.StringArrayInput `pulumi:"ipVersions"`
 	// A `loadBalancerProfile` block. This can only be specified when `loadBalancerSku` is set to `standard`.
 	LoadBalancerProfile KubernetesClusterNetworkProfileLoadBalancerProfilePtrInput `pulumi:"loadBalancerProfile"`
-	// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`.
+	// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`. Changing this forces a new resource to be created.
 	LoadBalancerSku pulumi.StringPtrInput `pulumi:"loadBalancerSku"`
 	// A `natGatewayProfile` block. This can only be specified when `loadBalancerSku` is set to `standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`.
 	NatGatewayProfile KubernetesClusterNetworkProfileNatGatewayProfilePtrInput `pulumi:"natGatewayProfile"`
@@ -8569,9 +8594,11 @@ type KubernetesClusterNetworkProfileArgs struct {
 	NetworkMode pulumi.StringPtrInput `pulumi:"networkMode"`
 	// Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
 	NetworkPlugin pulumi.StringInput `pulumi:"networkPlugin"`
+	// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+	NetworkPluginMode pulumi.StringPtrInput `pulumi:"networkPluginMode"`
 	// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
 	NetworkPolicy pulumi.StringPtrInput `pulumi:"networkPolicy"`
-	// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`.
+	// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
 	OutboundType pulumi.StringPtrInput `pulumi:"outboundType"`
 	// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet`. Changing this forces a new resource to be created.
 	PodCidr pulumi.StringPtrInput `pulumi:"podCidr"`
@@ -8670,6 +8697,11 @@ func (o KubernetesClusterNetworkProfileOutput) DockerBridgeCidr() pulumi.StringP
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.DockerBridgeCidr }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNetworkProfileOutput) EbpfDataPlane() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.EbpfDataPlane }).(pulumi.StringPtrOutput)
+}
+
 // Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfileOutput) IpVersions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) []string { return v.IpVersions }).(pulumi.StringArrayOutput)
@@ -8682,7 +8714,7 @@ func (o KubernetesClusterNetworkProfileOutput) LoadBalancerProfile() KubernetesC
 	}).(KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput)
 }
 
-// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`.
+// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfileOutput) LoadBalancerSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.LoadBalancerSku }).(pulumi.StringPtrOutput)
 }
@@ -8704,12 +8736,17 @@ func (o KubernetesClusterNetworkProfileOutput) NetworkPlugin() pulumi.StringOutp
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) string { return v.NetworkPlugin }).(pulumi.StringOutput)
 }
 
+// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNetworkProfileOutput) NetworkPluginMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.NetworkPluginMode }).(pulumi.StringPtrOutput)
+}
+
 // Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfileOutput) NetworkPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.NetworkPolicy }).(pulumi.StringPtrOutput)
 }
 
-// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`.
+// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfileOutput) OutboundType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.OutboundType }).(pulumi.StringPtrOutput)
 }
@@ -8778,6 +8815,16 @@ func (o KubernetesClusterNetworkProfilePtrOutput) DockerBridgeCidr() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNetworkProfilePtrOutput) EbpfDataPlane() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EbpfDataPlane
+	}).(pulumi.StringPtrOutput)
+}
+
 // Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfilePtrOutput) IpVersions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) []string {
@@ -8798,7 +8845,7 @@ func (o KubernetesClusterNetworkProfilePtrOutput) LoadBalancerProfile() Kubernet
 	}).(KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput)
 }
 
-// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`.
+// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfilePtrOutput) LoadBalancerSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
 		if v == nil {
@@ -8838,6 +8885,16 @@ func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPlugin() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPluginMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkPluginMode
+	}).(pulumi.StringPtrOutput)
+}
+
 // Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
@@ -8848,7 +8905,7 @@ func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPolicy() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`.
+// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfilePtrOutput) OutboundType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
 		if v == nil {
@@ -11065,6 +11122,219 @@ func (o KubernetesClusterServicePrincipalPtrOutput) ClientSecret() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+type KubernetesClusterStorageProfile struct {
+	// Is the Blob CSI driver enabled? Defaults to `false`.
+	BlobDriverEnabled *bool `pulumi:"blobDriverEnabled"`
+	// Is the Disk CSI driver enabled? Defaults to `true`.
+	DiskDriverEnabled *bool `pulumi:"diskDriverEnabled"`
+	// Disk CSI Driver version to be used. Possible values are `v1` and `v2`. Defaults to `v1`.
+	DiskDriverVersion *string `pulumi:"diskDriverVersion"`
+	// Is the File CSI driver enabled? Defaults to `true`.
+	FileDriverEnabled *bool `pulumi:"fileDriverEnabled"`
+	// Is the Snapshot Controller enabled? Defaults to `true`.
+	SnapshotControllerEnabled *bool `pulumi:"snapshotControllerEnabled"`
+}
+
+// KubernetesClusterStorageProfileInput is an input type that accepts KubernetesClusterStorageProfileArgs and KubernetesClusterStorageProfileOutput values.
+// You can construct a concrete instance of `KubernetesClusterStorageProfileInput` via:
+//
+//	KubernetesClusterStorageProfileArgs{...}
+type KubernetesClusterStorageProfileInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterStorageProfileOutput() KubernetesClusterStorageProfileOutput
+	ToKubernetesClusterStorageProfileOutputWithContext(context.Context) KubernetesClusterStorageProfileOutput
+}
+
+type KubernetesClusterStorageProfileArgs struct {
+	// Is the Blob CSI driver enabled? Defaults to `false`.
+	BlobDriverEnabled pulumi.BoolPtrInput `pulumi:"blobDriverEnabled"`
+	// Is the Disk CSI driver enabled? Defaults to `true`.
+	DiskDriverEnabled pulumi.BoolPtrInput `pulumi:"diskDriverEnabled"`
+	// Disk CSI Driver version to be used. Possible values are `v1` and `v2`. Defaults to `v1`.
+	DiskDriverVersion pulumi.StringPtrInput `pulumi:"diskDriverVersion"`
+	// Is the File CSI driver enabled? Defaults to `true`.
+	FileDriverEnabled pulumi.BoolPtrInput `pulumi:"fileDriverEnabled"`
+	// Is the Snapshot Controller enabled? Defaults to `true`.
+	SnapshotControllerEnabled pulumi.BoolPtrInput `pulumi:"snapshotControllerEnabled"`
+}
+
+func (KubernetesClusterStorageProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterStorageProfile)(nil)).Elem()
+}
+
+func (i KubernetesClusterStorageProfileArgs) ToKubernetesClusterStorageProfileOutput() KubernetesClusterStorageProfileOutput {
+	return i.ToKubernetesClusterStorageProfileOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterStorageProfileArgs) ToKubernetesClusterStorageProfileOutputWithContext(ctx context.Context) KubernetesClusterStorageProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterStorageProfileOutput)
+}
+
+func (i KubernetesClusterStorageProfileArgs) ToKubernetesClusterStorageProfilePtrOutput() KubernetesClusterStorageProfilePtrOutput {
+	return i.ToKubernetesClusterStorageProfilePtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterStorageProfileArgs) ToKubernetesClusterStorageProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterStorageProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterStorageProfileOutput).ToKubernetesClusterStorageProfilePtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterStorageProfilePtrInput is an input type that accepts KubernetesClusterStorageProfileArgs, KubernetesClusterStorageProfilePtr and KubernetesClusterStorageProfilePtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterStorageProfilePtrInput` via:
+//
+//	        KubernetesClusterStorageProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type KubernetesClusterStorageProfilePtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterStorageProfilePtrOutput() KubernetesClusterStorageProfilePtrOutput
+	ToKubernetesClusterStorageProfilePtrOutputWithContext(context.Context) KubernetesClusterStorageProfilePtrOutput
+}
+
+type kubernetesClusterStorageProfilePtrType KubernetesClusterStorageProfileArgs
+
+func KubernetesClusterStorageProfilePtr(v *KubernetesClusterStorageProfileArgs) KubernetesClusterStorageProfilePtrInput {
+	return (*kubernetesClusterStorageProfilePtrType)(v)
+}
+
+func (*kubernetesClusterStorageProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterStorageProfile)(nil)).Elem()
+}
+
+func (i *kubernetesClusterStorageProfilePtrType) ToKubernetesClusterStorageProfilePtrOutput() KubernetesClusterStorageProfilePtrOutput {
+	return i.ToKubernetesClusterStorageProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterStorageProfilePtrType) ToKubernetesClusterStorageProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterStorageProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterStorageProfilePtrOutput)
+}
+
+type KubernetesClusterStorageProfileOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterStorageProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterStorageProfile)(nil)).Elem()
+}
+
+func (o KubernetesClusterStorageProfileOutput) ToKubernetesClusterStorageProfileOutput() KubernetesClusterStorageProfileOutput {
+	return o
+}
+
+func (o KubernetesClusterStorageProfileOutput) ToKubernetesClusterStorageProfileOutputWithContext(ctx context.Context) KubernetesClusterStorageProfileOutput {
+	return o
+}
+
+func (o KubernetesClusterStorageProfileOutput) ToKubernetesClusterStorageProfilePtrOutput() KubernetesClusterStorageProfilePtrOutput {
+	return o.ToKubernetesClusterStorageProfilePtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterStorageProfileOutput) ToKubernetesClusterStorageProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterStorageProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterStorageProfile) *KubernetesClusterStorageProfile {
+		return &v
+	}).(KubernetesClusterStorageProfilePtrOutput)
+}
+
+// Is the Blob CSI driver enabled? Defaults to `false`.
+func (o KubernetesClusterStorageProfileOutput) BlobDriverEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterStorageProfile) *bool { return v.BlobDriverEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Is the Disk CSI driver enabled? Defaults to `true`.
+func (o KubernetesClusterStorageProfileOutput) DiskDriverEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterStorageProfile) *bool { return v.DiskDriverEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Disk CSI Driver version to be used. Possible values are `v1` and `v2`. Defaults to `v1`.
+func (o KubernetesClusterStorageProfileOutput) DiskDriverVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterStorageProfile) *string { return v.DiskDriverVersion }).(pulumi.StringPtrOutput)
+}
+
+// Is the File CSI driver enabled? Defaults to `true`.
+func (o KubernetesClusterStorageProfileOutput) FileDriverEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterStorageProfile) *bool { return v.FileDriverEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Is the Snapshot Controller enabled? Defaults to `true`.
+func (o KubernetesClusterStorageProfileOutput) SnapshotControllerEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterStorageProfile) *bool { return v.SnapshotControllerEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type KubernetesClusterStorageProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterStorageProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterStorageProfile)(nil)).Elem()
+}
+
+func (o KubernetesClusterStorageProfilePtrOutput) ToKubernetesClusterStorageProfilePtrOutput() KubernetesClusterStorageProfilePtrOutput {
+	return o
+}
+
+func (o KubernetesClusterStorageProfilePtrOutput) ToKubernetesClusterStorageProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterStorageProfilePtrOutput {
+	return o
+}
+
+func (o KubernetesClusterStorageProfilePtrOutput) Elem() KubernetesClusterStorageProfileOutput {
+	return o.ApplyT(func(v *KubernetesClusterStorageProfile) KubernetesClusterStorageProfile {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterStorageProfile
+		return ret
+	}).(KubernetesClusterStorageProfileOutput)
+}
+
+// Is the Blob CSI driver enabled? Defaults to `false`.
+func (o KubernetesClusterStorageProfilePtrOutput) BlobDriverEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterStorageProfile) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.BlobDriverEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Is the Disk CSI driver enabled? Defaults to `true`.
+func (o KubernetesClusterStorageProfilePtrOutput) DiskDriverEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterStorageProfile) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DiskDriverEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Disk CSI Driver version to be used. Possible values are `v1` and `v2`. Defaults to `v1`.
+func (o KubernetesClusterStorageProfilePtrOutput) DiskDriverVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterStorageProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DiskDriverVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Is the File CSI driver enabled? Defaults to `true`.
+func (o KubernetesClusterStorageProfilePtrOutput) FileDriverEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterStorageProfile) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FileDriverEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Is the Snapshot Controller enabled? Defaults to `true`.
+func (o KubernetesClusterStorageProfilePtrOutput) SnapshotControllerEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterStorageProfile) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotControllerEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type KubernetesClusterWebAppRouting struct {
 	// Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled.
 	DnsZoneId string `pulumi:"dnsZoneId"`
@@ -11205,7 +11475,7 @@ func (o KubernetesClusterWebAppRoutingPtrOutput) DnsZoneId() pulumi.StringPtrOut
 type KubernetesClusterWindowsProfile struct {
 	// The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
 	AdminPassword *string `pulumi:"adminPassword"`
-	// The Admin Username for Windows VMs.
+	// The Admin Username for Windows VMs. Changing this forces a new resource to be created.
 	AdminUsername string `pulumi:"adminUsername"`
 	// A `gmsa` block as defined below.
 	Gmsa *KubernetesClusterWindowsProfileGmsa `pulumi:"gmsa"`
@@ -11227,7 +11497,7 @@ type KubernetesClusterWindowsProfileInput interface {
 type KubernetesClusterWindowsProfileArgs struct {
 	// The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
 	AdminPassword pulumi.StringPtrInput `pulumi:"adminPassword"`
-	// The Admin Username for Windows VMs.
+	// The Admin Username for Windows VMs. Changing this forces a new resource to be created.
 	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
 	// A `gmsa` block as defined below.
 	Gmsa KubernetesClusterWindowsProfileGmsaPtrInput `pulumi:"gmsa"`
@@ -11317,7 +11587,7 @@ func (o KubernetesClusterWindowsProfileOutput) AdminPassword() pulumi.StringPtrO
 	return o.ApplyT(func(v KubernetesClusterWindowsProfile) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
 }
 
-// The Admin Username for Windows VMs.
+// The Admin Username for Windows VMs. Changing this forces a new resource to be created.
 func (o KubernetesClusterWindowsProfileOutput) AdminUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterWindowsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
@@ -11366,7 +11636,7 @@ func (o KubernetesClusterWindowsProfilePtrOutput) AdminPassword() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Admin Username for Windows VMs.
+// The Admin Username for Windows VMs. Changing this forces a new resource to be created.
 func (o KubernetesClusterWindowsProfilePtrOutput) AdminUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterWindowsProfile) *string {
 		if v == nil {
@@ -12028,13 +12298,13 @@ func (o RegistryEncryptionPtrOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
 }
 
 type RegistryGeoreplication struct {
-	// A location where the container registry should be geo-replicated.
+	// A location where the container registry should be geo-replicated. Changing this forces a new resource to be created.
 	Location string `pulumi:"location"`
 	// Whether regional endpoint is enabled for this Container Registry? Defaults to `false`.
 	RegionalEndpointEnabled *bool `pulumi:"regionalEndpointEnabled"`
 	// A mapping of tags to assign to this replication location.
 	Tags map[string]string `pulumi:"tags"`
-	// Whether zone redundancy is enabled for this replication location? Defaults to `false`.
+	// Whether zone redundancy is enabled for this replication location? Defaults to `false`. Changing this forces a new resource to be created.
 	ZoneRedundancyEnabled *bool `pulumi:"zoneRedundancyEnabled"`
 }
 
@@ -12050,13 +12320,13 @@ type RegistryGeoreplicationInput interface {
 }
 
 type RegistryGeoreplicationArgs struct {
-	// A location where the container registry should be geo-replicated.
+	// A location where the container registry should be geo-replicated. Changing this forces a new resource to be created.
 	Location pulumi.StringInput `pulumi:"location"`
 	// Whether regional endpoint is enabled for this Container Registry? Defaults to `false`.
 	RegionalEndpointEnabled pulumi.BoolPtrInput `pulumi:"regionalEndpointEnabled"`
 	// A mapping of tags to assign to this replication location.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Whether zone redundancy is enabled for this replication location? Defaults to `false`.
+	// Whether zone redundancy is enabled for this replication location? Defaults to `false`. Changing this forces a new resource to be created.
 	ZoneRedundancyEnabled pulumi.BoolPtrInput `pulumi:"zoneRedundancyEnabled"`
 }
 
@@ -12111,7 +12381,7 @@ func (o RegistryGeoreplicationOutput) ToRegistryGeoreplicationOutputWithContext(
 	return o
 }
 
-// A location where the container registry should be geo-replicated.
+// A location where the container registry should be geo-replicated. Changing this forces a new resource to be created.
 func (o RegistryGeoreplicationOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistryGeoreplication) string { return v.Location }).(pulumi.StringOutput)
 }
@@ -12126,7 +12396,7 @@ func (o RegistryGeoreplicationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v RegistryGeoreplication) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Whether zone redundancy is enabled for this replication location? Defaults to `false`.
+// Whether zone redundancy is enabled for this replication location? Defaults to `false`. Changing this forces a new resource to be created.
 func (o RegistryGeoreplicationOutput) ZoneRedundancyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RegistryGeoreplication) *bool { return v.ZoneRedundancyEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -16024,7 +16294,7 @@ func (o GetKubernetesClusterAciConnectorLinuxArrayOutput) Index(i pulumi.IntInpu
 }
 
 type GetKubernetesClusterAgentPoolProfile struct {
-	// The number of Agents (VM's) in the Pool.
+	// The number of Agents (VMs) in the Pool.
 	Count int `pulumi:"count"`
 	// If the auto-scaler is enabled.
 	EnableAutoScaling bool `pulumi:"enableAutoScaling"`
@@ -16074,7 +16344,7 @@ type GetKubernetesClusterAgentPoolProfileInput interface {
 }
 
 type GetKubernetesClusterAgentPoolProfileArgs struct {
-	// The number of Agents (VM's) in the Pool.
+	// The number of Agents (VMs) in the Pool.
 	Count pulumi.IntInput `pulumi:"count"`
 	// If the auto-scaler is enabled.
 	EnableAutoScaling pulumi.BoolInput `pulumi:"enableAutoScaling"`
@@ -16163,7 +16433,7 @@ func (o GetKubernetesClusterAgentPoolProfileOutput) ToGetKubernetesClusterAgentP
 	return o
 }
 
-// The number of Agents (VM's) in the Pool.
+// The number of Agents (VMs) in the Pool.
 func (o GetKubernetesClusterAgentPoolProfileOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) int { return v.Count }).(pulumi.IntOutput)
 }
@@ -16279,7 +16549,7 @@ func (o GetKubernetesClusterAgentPoolProfileArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetKubernetesClusterAgentPoolProfileUpgradeSetting struct {
-	// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+	// The maximum number or percentage of nodes that will be added to the Node Pool size during an upgrade.
 	MaxSurge string `pulumi:"maxSurge"`
 }
 
@@ -16295,7 +16565,7 @@ type GetKubernetesClusterAgentPoolProfileUpgradeSettingInput interface {
 }
 
 type GetKubernetesClusterAgentPoolProfileUpgradeSettingArgs struct {
-	// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+	// The maximum number or percentage of nodes that will be added to the Node Pool size during an upgrade.
 	MaxSurge pulumi.StringInput `pulumi:"maxSurge"`
 }
 
@@ -16350,7 +16620,7 @@ func (o GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput) ToGetKubernete
 	return o
 }
 
-// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+// The maximum number or percentage of nodes that will be added to the Node Pool size during an upgrade.
 func (o GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput) MaxSurge() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfileUpgradeSetting) string { return v.MaxSurge }).(pulumi.StringOutput)
 }
@@ -16382,7 +16652,7 @@ type GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl struct {
 	AzureRbacEnabled bool `pulumi:"azureRbacEnabled"`
 	// The Client ID of an Azure Active Directory Application.
 	ClientAppId string `pulumi:"clientAppId"`
-	// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+	// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration?
 	Managed bool `pulumi:"managed"`
 	// The Server ID of an Azure Active Directory Application.
 	ServerAppId string `pulumi:"serverAppId"`
@@ -16408,7 +16678,7 @@ type GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs struct {
 	AzureRbacEnabled pulumi.BoolInput `pulumi:"azureRbacEnabled"`
 	// The Client ID of an Azure Active Directory Application.
 	ClientAppId pulumi.StringInput `pulumi:"clientAppId"`
-	// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+	// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration?
 	Managed pulumi.BoolInput `pulumi:"managed"`
 	// The Server ID of an Azure Active Directory Application.
 	ServerAppId pulumi.StringInput `pulumi:"serverAppId"`
@@ -16484,7 +16754,7 @@ func (o GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) Cl
 	return o.ApplyT(func(v GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) string { return v.ClientAppId }).(pulumi.StringOutput)
 }
 
-// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration?
 func (o GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) Managed() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) bool { return v.Managed }).(pulumi.BoolOutput)
 }
@@ -17742,7 +18012,7 @@ func (o GetKubernetesClusterLinuxProfileSshKeyArrayOutput) Index(i pulumi.IntInp
 }
 
 type GetKubernetesClusterMicrosoftDefender struct {
-	// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
+	// The ID of the Log Analytics Workspace to which the OMS Agent should send data.
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
 }
 
@@ -17758,7 +18028,7 @@ type GetKubernetesClusterMicrosoftDefenderInput interface {
 }
 
 type GetKubernetesClusterMicrosoftDefenderArgs struct {
-	// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
+	// The ID of the Log Analytics Workspace to which the OMS Agent should send data.
 	LogAnalyticsWorkspaceId pulumi.StringInput `pulumi:"logAnalyticsWorkspaceId"`
 }
 
@@ -17813,7 +18083,7 @@ func (o GetKubernetesClusterMicrosoftDefenderOutput) ToGetKubernetesClusterMicro
 	return o
 }
 
-// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
+// The ID of the Log Analytics Workspace to which the OMS Agent should send data.
 func (o GetKubernetesClusterMicrosoftDefenderOutput) LogAnalyticsWorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKubernetesClusterMicrosoftDefender) string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
 }
@@ -17987,7 +18257,7 @@ func (o GetKubernetesClusterNetworkProfileArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetKubernetesClusterOmsAgent struct {
-	// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
+	// The ID of the Log Analytics Workspace to which the OMS Agent should send data.
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
 	// An `omsAgentIdentity` block as defined below.
 	OmsAgentIdentities []GetKubernetesClusterOmsAgentOmsAgentIdentity `pulumi:"omsAgentIdentities"`
@@ -18005,7 +18275,7 @@ type GetKubernetesClusterOmsAgentInput interface {
 }
 
 type GetKubernetesClusterOmsAgentArgs struct {
-	// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
+	// The ID of the Log Analytics Workspace to which the OMS Agent should send data.
 	LogAnalyticsWorkspaceId pulumi.StringInput `pulumi:"logAnalyticsWorkspaceId"`
 	// An `omsAgentIdentity` block as defined below.
 	OmsAgentIdentities GetKubernetesClusterOmsAgentOmsAgentIdentityArrayInput `pulumi:"omsAgentIdentities"`
@@ -18062,7 +18332,7 @@ func (o GetKubernetesClusterOmsAgentOutput) ToGetKubernetesClusterOmsAgentOutput
 	return o
 }
 
-// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
+// The ID of the Log Analytics Workspace to which the OMS Agent should send data.
 func (o GetKubernetesClusterOmsAgentOutput) LogAnalyticsWorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKubernetesClusterOmsAgent) string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
 }
@@ -18306,6 +18576,124 @@ func (o GetKubernetesClusterServicePrincipalArrayOutput) Index(i pulumi.IntInput
 	}).(GetKubernetesClusterServicePrincipalOutput)
 }
 
+type GetKubernetesClusterStorageProfile struct {
+	BlobDriverEnabled         bool   `pulumi:"blobDriverEnabled"`
+	DiskDriverEnabled         bool   `pulumi:"diskDriverEnabled"`
+	DiskDriverVersion         string `pulumi:"diskDriverVersion"`
+	FileDriverEnabled         bool   `pulumi:"fileDriverEnabled"`
+	SnapshotControllerEnabled bool   `pulumi:"snapshotControllerEnabled"`
+}
+
+// GetKubernetesClusterStorageProfileInput is an input type that accepts GetKubernetesClusterStorageProfileArgs and GetKubernetesClusterStorageProfileOutput values.
+// You can construct a concrete instance of `GetKubernetesClusterStorageProfileInput` via:
+//
+//	GetKubernetesClusterStorageProfileArgs{...}
+type GetKubernetesClusterStorageProfileInput interface {
+	pulumi.Input
+
+	ToGetKubernetesClusterStorageProfileOutput() GetKubernetesClusterStorageProfileOutput
+	ToGetKubernetesClusterStorageProfileOutputWithContext(context.Context) GetKubernetesClusterStorageProfileOutput
+}
+
+type GetKubernetesClusterStorageProfileArgs struct {
+	BlobDriverEnabled         pulumi.BoolInput   `pulumi:"blobDriverEnabled"`
+	DiskDriverEnabled         pulumi.BoolInput   `pulumi:"diskDriverEnabled"`
+	DiskDriverVersion         pulumi.StringInput `pulumi:"diskDriverVersion"`
+	FileDriverEnabled         pulumi.BoolInput   `pulumi:"fileDriverEnabled"`
+	SnapshotControllerEnabled pulumi.BoolInput   `pulumi:"snapshotControllerEnabled"`
+}
+
+func (GetKubernetesClusterStorageProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKubernetesClusterStorageProfile)(nil)).Elem()
+}
+
+func (i GetKubernetesClusterStorageProfileArgs) ToGetKubernetesClusterStorageProfileOutput() GetKubernetesClusterStorageProfileOutput {
+	return i.ToGetKubernetesClusterStorageProfileOutputWithContext(context.Background())
+}
+
+func (i GetKubernetesClusterStorageProfileArgs) ToGetKubernetesClusterStorageProfileOutputWithContext(ctx context.Context) GetKubernetesClusterStorageProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterStorageProfileOutput)
+}
+
+// GetKubernetesClusterStorageProfileArrayInput is an input type that accepts GetKubernetesClusterStorageProfileArray and GetKubernetesClusterStorageProfileArrayOutput values.
+// You can construct a concrete instance of `GetKubernetesClusterStorageProfileArrayInput` via:
+//
+//	GetKubernetesClusterStorageProfileArray{ GetKubernetesClusterStorageProfileArgs{...} }
+type GetKubernetesClusterStorageProfileArrayInput interface {
+	pulumi.Input
+
+	ToGetKubernetesClusterStorageProfileArrayOutput() GetKubernetesClusterStorageProfileArrayOutput
+	ToGetKubernetesClusterStorageProfileArrayOutputWithContext(context.Context) GetKubernetesClusterStorageProfileArrayOutput
+}
+
+type GetKubernetesClusterStorageProfileArray []GetKubernetesClusterStorageProfileInput
+
+func (GetKubernetesClusterStorageProfileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKubernetesClusterStorageProfile)(nil)).Elem()
+}
+
+func (i GetKubernetesClusterStorageProfileArray) ToGetKubernetesClusterStorageProfileArrayOutput() GetKubernetesClusterStorageProfileArrayOutput {
+	return i.ToGetKubernetesClusterStorageProfileArrayOutputWithContext(context.Background())
+}
+
+func (i GetKubernetesClusterStorageProfileArray) ToGetKubernetesClusterStorageProfileArrayOutputWithContext(ctx context.Context) GetKubernetesClusterStorageProfileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterStorageProfileArrayOutput)
+}
+
+type GetKubernetesClusterStorageProfileOutput struct{ *pulumi.OutputState }
+
+func (GetKubernetesClusterStorageProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKubernetesClusterStorageProfile)(nil)).Elem()
+}
+
+func (o GetKubernetesClusterStorageProfileOutput) ToGetKubernetesClusterStorageProfileOutput() GetKubernetesClusterStorageProfileOutput {
+	return o
+}
+
+func (o GetKubernetesClusterStorageProfileOutput) ToGetKubernetesClusterStorageProfileOutputWithContext(ctx context.Context) GetKubernetesClusterStorageProfileOutput {
+	return o
+}
+
+func (o GetKubernetesClusterStorageProfileOutput) BlobDriverEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetKubernetesClusterStorageProfile) bool { return v.BlobDriverEnabled }).(pulumi.BoolOutput)
+}
+
+func (o GetKubernetesClusterStorageProfileOutput) DiskDriverEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetKubernetesClusterStorageProfile) bool { return v.DiskDriverEnabled }).(pulumi.BoolOutput)
+}
+
+func (o GetKubernetesClusterStorageProfileOutput) DiskDriverVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterStorageProfile) string { return v.DiskDriverVersion }).(pulumi.StringOutput)
+}
+
+func (o GetKubernetesClusterStorageProfileOutput) FileDriverEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetKubernetesClusterStorageProfile) bool { return v.FileDriverEnabled }).(pulumi.BoolOutput)
+}
+
+func (o GetKubernetesClusterStorageProfileOutput) SnapshotControllerEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetKubernetesClusterStorageProfile) bool { return v.SnapshotControllerEnabled }).(pulumi.BoolOutput)
+}
+
+type GetKubernetesClusterStorageProfileArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKubernetesClusterStorageProfileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKubernetesClusterStorageProfile)(nil)).Elem()
+}
+
+func (o GetKubernetesClusterStorageProfileArrayOutput) ToGetKubernetesClusterStorageProfileArrayOutput() GetKubernetesClusterStorageProfileArrayOutput {
+	return o
+}
+
+func (o GetKubernetesClusterStorageProfileArrayOutput) ToGetKubernetesClusterStorageProfileArrayOutputWithContext(ctx context.Context) GetKubernetesClusterStorageProfileArrayOutput {
+	return o
+}
+
+func (o GetKubernetesClusterStorageProfileArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterStorageProfileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterStorageProfile {
+		return vs[0].([]GetKubernetesClusterStorageProfile)[vs[1].(int)]
+	}).(GetKubernetesClusterStorageProfileOutput)
+}
+
 type GetKubernetesClusterWindowsProfile struct {
 	// The username associated with the administrator account of the Windows VMs.
 	AdminUsername string `pulumi:"adminUsername"`
@@ -18510,6 +18898,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterOmsAgentOmsAgentIdentityArrayInput)(nil)).Elem(), KubernetesClusterOmsAgentOmsAgentIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterServicePrincipalInput)(nil)).Elem(), KubernetesClusterServicePrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterServicePrincipalPtrInput)(nil)).Elem(), KubernetesClusterServicePrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterStorageProfileInput)(nil)).Elem(), KubernetesClusterStorageProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterStorageProfilePtrInput)(nil)).Elem(), KubernetesClusterStorageProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterWebAppRoutingInput)(nil)).Elem(), KubernetesClusterWebAppRoutingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterWebAppRoutingPtrInput)(nil)).Elem(), KubernetesClusterWebAppRoutingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterWindowsProfileInput)(nil)).Elem(), KubernetesClusterWindowsProfileArgs{})
@@ -18608,6 +18998,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterOmsAgentOmsAgentIdentityArrayInput)(nil)).Elem(), GetKubernetesClusterOmsAgentOmsAgentIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterServicePrincipalInput)(nil)).Elem(), GetKubernetesClusterServicePrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterServicePrincipalArrayInput)(nil)).Elem(), GetKubernetesClusterServicePrincipalArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterStorageProfileInput)(nil)).Elem(), GetKubernetesClusterStorageProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterStorageProfileArrayInput)(nil)).Elem(), GetKubernetesClusterStorageProfileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterWindowsProfileInput)(nil)).Elem(), GetKubernetesClusterWindowsProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterWindowsProfileArrayInput)(nil)).Elem(), GetKubernetesClusterWindowsProfileArray{})
 	pulumi.RegisterOutputType(ConnectedRegistryNotificationOutput{})
@@ -18716,6 +19108,8 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterOmsAgentOmsAgentIdentityArrayOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterServicePrincipalOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterServicePrincipalPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterStorageProfileOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterStorageProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterWebAppRoutingOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterWebAppRoutingPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterWindowsProfileOutput{})
@@ -18814,6 +19208,8 @@ func init() {
 	pulumi.RegisterOutputType(GetKubernetesClusterOmsAgentOmsAgentIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterServicePrincipalOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterServicePrincipalArrayOutput{})
+	pulumi.RegisterOutputType(GetKubernetesClusterStorageProfileOutput{})
+	pulumi.RegisterOutputType(GetKubernetesClusterStorageProfileArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterWindowsProfileOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterWindowsProfileArrayOutput{})
 }

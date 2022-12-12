@@ -135,7 +135,7 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly encryptionSettings!: pulumi.Output<outputs.compute.ManagedDiskEncryptionSettings | undefined>;
     /**
-     * ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified.
+     * ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified. Changing this forces a new resource to be created.
      */
     public readonly galleryImageReferenceId!: pulumi.Output<string | undefined>;
     /**
@@ -143,7 +143,7 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly hyperVGeneration!: pulumi.Output<string | undefined>;
     /**
-     * ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`. This field cannot be specified if galleryImageReferenceId is specified.
+     * ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`. This field cannot be specified if galleryImageReferenceId is specified. Changing this forces a new resource to be created.
      */
     public readonly imageReferenceId!: pulumi.Output<string | undefined>;
     /**
@@ -179,7 +179,7 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The name of the Resource Group where the Managed Disk should exist.
+     * The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -191,11 +191,11 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly securityType!: pulumi.Output<string | undefined>;
     /**
-     * The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
+     * The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`. Changing this forces a new resource to be created.
      */
     public readonly sourceResourceId!: pulumi.Output<string | undefined>;
     /**
-     * URI to a valid VHD file to be used when `createOption` is `Import`.
+     * URI to a valid VHD file to be used when `createOption` is `Import`. Changing this forces a new resource to be created.
      */
     public readonly sourceUri!: pulumi.Output<string>;
     /**
@@ -215,7 +215,7 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly tier!: pulumi.Output<string>;
     /**
-     * Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+     * Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
      */
     public readonly trustedLaunchEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -368,7 +368,7 @@ export interface ManagedDiskState {
      */
     encryptionSettings?: pulumi.Input<inputs.compute.ManagedDiskEncryptionSettings>;
     /**
-     * ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified.
+     * ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified. Changing this forces a new resource to be created.
      */
     galleryImageReferenceId?: pulumi.Input<string>;
     /**
@@ -376,7 +376,7 @@ export interface ManagedDiskState {
      */
     hyperVGeneration?: pulumi.Input<string>;
     /**
-     * ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`. This field cannot be specified if galleryImageReferenceId is specified.
+     * ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`. This field cannot be specified if galleryImageReferenceId is specified. Changing this forces a new resource to be created.
      */
     imageReferenceId?: pulumi.Input<string>;
     /**
@@ -412,7 +412,7 @@ export interface ManagedDiskState {
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
-     * The name of the Resource Group where the Managed Disk should exist.
+     * The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -424,11 +424,11 @@ export interface ManagedDiskState {
      */
     securityType?: pulumi.Input<string>;
     /**
-     * The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
+     * The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`. Changing this forces a new resource to be created.
      */
     sourceResourceId?: pulumi.Input<string>;
     /**
-     * URI to a valid VHD file to be used when `createOption` is `Import`.
+     * URI to a valid VHD file to be used when `createOption` is `Import`. Changing this forces a new resource to be created.
      */
     sourceUri?: pulumi.Input<string>;
     /**
@@ -448,7 +448,7 @@ export interface ManagedDiskState {
      */
     tier?: pulumi.Input<string>;
     /**
-     * Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+     * Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
      */
     trustedLaunchEnabled?: pulumi.Input<boolean>;
     /**
@@ -506,7 +506,7 @@ export interface ManagedDiskArgs {
      */
     encryptionSettings?: pulumi.Input<inputs.compute.ManagedDiskEncryptionSettings>;
     /**
-     * ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified.
+     * ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified. Changing this forces a new resource to be created.
      */
     galleryImageReferenceId?: pulumi.Input<string>;
     /**
@@ -514,7 +514,7 @@ export interface ManagedDiskArgs {
      */
     hyperVGeneration?: pulumi.Input<string>;
     /**
-     * ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`. This field cannot be specified if galleryImageReferenceId is specified.
+     * ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`. This field cannot be specified if galleryImageReferenceId is specified. Changing this forces a new resource to be created.
      */
     imageReferenceId?: pulumi.Input<string>;
     /**
@@ -550,7 +550,7 @@ export interface ManagedDiskArgs {
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
-     * The name of the Resource Group where the Managed Disk should exist.
+     * The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -562,11 +562,11 @@ export interface ManagedDiskArgs {
      */
     securityType?: pulumi.Input<string>;
     /**
-     * The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
+     * The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`. Changing this forces a new resource to be created.
      */
     sourceResourceId?: pulumi.Input<string>;
     /**
-     * URI to a valid VHD file to be used when `createOption` is `Import`.
+     * URI to a valid VHD file to be used when `createOption` is `Import`. Changing this forces a new resource to be created.
      */
     sourceUri?: pulumi.Input<string>;
     /**
@@ -586,7 +586,7 @@ export interface ManagedDiskArgs {
      */
     tier?: pulumi.Input<string>;
     /**
-     * Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+     * Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
      */
     trustedLaunchEnabled?: pulumi.Input<boolean>;
     /**

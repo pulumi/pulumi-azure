@@ -295,14 +295,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return this.probePath;
     }
     /**
-     * The CDN Profile to which to attach the CDN Endpoint.
+     * The CDN Profile to which to attach the CDN Endpoint. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="profileName", type=String.class, parameters={})
     private Output<String> profileName;
 
     /**
-     * @return The CDN Profile to which to attach the CDN Endpoint.
+     * @return The CDN Profile to which to attach the CDN Endpoint. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> profileName() {
@@ -323,14 +323,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.querystringCachingBehaviour);
     }
     /**
-     * The name of the resource group in which to create the CDN Endpoint.
+     * The name of the resource group in which to create the CDN Endpoint. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the CDN Endpoint.
+     * @return The name of the resource group in which to create the CDN Endpoint. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {

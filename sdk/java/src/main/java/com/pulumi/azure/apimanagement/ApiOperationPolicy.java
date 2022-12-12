@@ -133,14 +133,14 @@ public class ApiOperationPolicy extends com.pulumi.resources.CustomResource {
         return this.apiName;
     }
     /**
-     * The operation identifier within an API. Must be unique in the current API Management service instance.
+     * The operation identifier within an API. Must be unique in the current API Management service instance. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="operationId", type=String.class, parameters={})
     private Output<String> operationId;
 
     /**
-     * @return The operation identifier within an API. Must be unique in the current API Management service instance.
+     * @return The operation identifier within an API. Must be unique in the current API Management service instance. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> operationId() {

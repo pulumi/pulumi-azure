@@ -98,7 +98,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The password that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created.
+        /// The password that will be used to connect to the Azure SQL database.
         /// </summary>
         [Output("password")]
         public Output<string> Password { get; private set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The password that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created.
+        /// The password that will be used to connect to the Azure SQL database.
         /// </summary>
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
@@ -248,7 +248,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The password that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created.
+        /// The password that will be used to connect to the Azure SQL database.
         /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }

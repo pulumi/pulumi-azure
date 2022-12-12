@@ -172,14 +172,14 @@ public class CustomerManagedKey extends com.pulumi.resources.CustomResource {
         return this.keyName;
     }
     /**
-     * The ID of the Key Vault. Changing this forces a new resource to be created.
+     * The ID of the Key Vault.
      * 
      */
     @Export(name="keyVaultId", type=String.class, parameters={})
     private Output<String> keyVaultId;
 
     /**
-     * @return The ID of the Key Vault. Changing this forces a new resource to be created.
+     * @return The ID of the Key Vault.
      * 
      */
     public Output<String> keyVaultId() {

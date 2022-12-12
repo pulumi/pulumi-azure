@@ -35,7 +35,7 @@ class LiveEventArgs:
         :param pulumi.Input['LiveEventInputArgs'] input: A `input` block as defined below.
         :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Live Event to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Live Event should exist. Changing this forces a new Live Event to be created.
-        :param pulumi.Input[bool] auto_start_enabled: The flag indicates if the resource should be automatically started on creation. Default is `false`.
+        :param pulumi.Input[bool] auto_start_enabled: The flag indicates if the resource should be automatically started on creation. Default is `false`. Changing this forces a new resource to be created.
         :param pulumi.Input['LiveEventCrossSiteAccessPolicyArgs'] cross_site_access_policy: A `cross_site_access_policy` block as defined below.
         :param pulumi.Input[str] description: A description for the live event.
         :param pulumi.Input['LiveEventEncodingArgs'] encoding: A `encoding` block as defined below.
@@ -113,7 +113,7 @@ class LiveEventArgs:
     @pulumi.getter(name="autoStartEnabled")
     def auto_start_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        The flag indicates if the resource should be automatically started on creation. Default is `false`.
+        The flag indicates if the resource should be automatically started on creation. Default is `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "auto_start_enabled")
 
@@ -261,7 +261,7 @@ class _LiveEventState:
                  use_static_hostname: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering LiveEvent resources.
-        :param pulumi.Input[bool] auto_start_enabled: The flag indicates if the resource should be automatically started on creation. Default is `false`.
+        :param pulumi.Input[bool] auto_start_enabled: The flag indicates if the resource should be automatically started on creation. Default is `false`. Changing this forces a new resource to be created.
         :param pulumi.Input['LiveEventCrossSiteAccessPolicyArgs'] cross_site_access_policy: A `cross_site_access_policy` block as defined below.
         :param pulumi.Input[str] description: A description for the live event.
         :param pulumi.Input['LiveEventEncodingArgs'] encoding: A `encoding` block as defined below.
@@ -309,7 +309,7 @@ class _LiveEventState:
     @pulumi.getter(name="autoStartEnabled")
     def auto_start_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        The flag indicates if the resource should be automatically started on creation. Default is `false`.
+        The flag indicates if the resource should be automatically started on creation. Default is `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "auto_start_enabled")
 
@@ -557,7 +557,7 @@ class LiveEvent(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] auto_start_enabled: The flag indicates if the resource should be automatically started on creation. Default is `false`.
+        :param pulumi.Input[bool] auto_start_enabled: The flag indicates if the resource should be automatically started on creation. Default is `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['LiveEventCrossSiteAccessPolicyArgs']] cross_site_access_policy: A `cross_site_access_policy` block as defined below.
         :param pulumi.Input[str] description: A description for the live event.
         :param pulumi.Input[pulumi.InputType['LiveEventEncodingArgs']] encoding: A `encoding` block as defined below.
@@ -728,7 +728,7 @@ class LiveEvent(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] auto_start_enabled: The flag indicates if the resource should be automatically started on creation. Default is `false`.
+        :param pulumi.Input[bool] auto_start_enabled: The flag indicates if the resource should be automatically started on creation. Default is `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['LiveEventCrossSiteAccessPolicyArgs']] cross_site_access_policy: A `cross_site_access_policy` block as defined below.
         :param pulumi.Input[str] description: A description for the live event.
         :param pulumi.Input[pulumi.InputType['LiveEventEncodingArgs']] encoding: A `encoding` block as defined below.
@@ -767,7 +767,7 @@ class LiveEvent(pulumi.CustomResource):
     @pulumi.getter(name="autoStartEnabled")
     def auto_start_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        The flag indicates if the resource should be automatically started on creation. Default is `false`.
+        The flag indicates if the resource should be automatically started on creation. Default is `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "auto_start_enabled")
 

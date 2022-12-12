@@ -84,14 +84,14 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enabled);
     }
     /**
-     * The Azure Region in which this Notification Hub Namespace should be created.
+     * The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
-     * @return The Azure Region in which this Notification Hub Namespace should be created.
+     * @return The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> location() {
@@ -112,14 +112,14 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
+     * The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
      * 
      */
     @Export(name="namespaceType", type=String.class, parameters={})
     private Output<String> namespaceType;
 
     /**
-     * @return The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
+     * @return The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
      * 
      */
     public Output<String> namespaceType() {
@@ -154,14 +154,14 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return this.servicebusEndpoint;
     }
     /**
-     * The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+     * The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
      * 
      */
     @Export(name="skuName", type=String.class, parameters={})
     private Output<String> skuName;
 
     /**
-     * @return The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+     * @return The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
      * 
      */
     public Output<String> skuName() {

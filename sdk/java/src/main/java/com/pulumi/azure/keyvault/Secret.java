@@ -122,14 +122,14 @@ public class Secret extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.expirationDate);
     }
     /**
-     * The ID of the Key Vault where the Secret should be created.
+     * The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="keyVaultId", type=String.class, parameters={})
     private Output<String> keyVaultId;
 
     /**
-     * @return The ID of the Key Vault where the Secret should be created.
+     * @return The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> keyVaultId() {

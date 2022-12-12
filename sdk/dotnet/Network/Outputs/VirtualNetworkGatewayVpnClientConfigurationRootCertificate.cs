@@ -14,8 +14,7 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class VirtualNetworkGatewayVpnClientConfigurationRootCertificate
     {
         /// <summary>
-        /// A user-defined name of the IP configuration. Defaults to
-        /// `vnetGatewayConfig`.
+        /// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
         /// <summary>

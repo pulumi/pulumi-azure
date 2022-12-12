@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class GetKubernetesClusterOmsAgentResult
     {
         /// <summary>
-        /// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
+        /// The ID of the Log Analytics Workspace to which the OMS Agent should send data.
         /// </summary>
         public readonly string LogAnalyticsWorkspaceId;
         /// <summary>

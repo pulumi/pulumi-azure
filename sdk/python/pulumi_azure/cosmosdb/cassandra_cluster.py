@@ -32,7 +32,7 @@ class CassandraClusterArgs:
                  version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CassandraCluster resource.
-        :param pulumi.Input[str] default_admin_password: The initial admin password for this Cassandra Cluster.
+        :param pulumi.Input[str] default_admin_password: The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] delegated_management_subnet_id: The ID of the delegated management subnet for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[str] authentication_method: The authentication method that is used to authenticate clients. Possible values are `None` and `Cassandra`. Defaults to `Cassandra`.
@@ -77,7 +77,7 @@ class CassandraClusterArgs:
     @pulumi.getter(name="defaultAdminPassword")
     def default_admin_password(self) -> pulumi.Input[str]:
         """
-        The initial admin password for this Cassandra Cluster.
+        The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "default_admin_password")
 
@@ -263,7 +263,7 @@ class _CassandraClusterState:
         Input properties used for looking up and filtering CassandraCluster resources.
         :param pulumi.Input[str] authentication_method: The authentication method that is used to authenticate clients. Possible values are `None` and `Cassandra`. Defaults to `Cassandra`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_certificate_pems: A list of TLS certificates that is used to authorize client connecting to the Cassandra Cluster.
-        :param pulumi.Input[str] default_admin_password: The initial admin password for this Cassandra Cluster.
+        :param pulumi.Input[str] default_admin_password: The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] delegated_management_subnet_id: The ID of the delegated management subnet for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_gossip_certificate_pems: A list of TLS certificates that is used to authorize gossip from unmanaged Cassandra Data Center.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_seed_node_ip_addresses: A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
@@ -333,7 +333,7 @@ class _CassandraClusterState:
     @pulumi.getter(name="defaultAdminPassword")
     def default_admin_password(self) -> Optional[pulumi.Input[str]]:
         """
-        The initial admin password for this Cassandra Cluster.
+        The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "default_admin_password")
 
@@ -544,7 +544,7 @@ class CassandraCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authentication_method: The authentication method that is used to authenticate clients. Possible values are `None` and `Cassandra`. Defaults to `Cassandra`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_certificate_pems: A list of TLS certificates that is used to authorize client connecting to the Cassandra Cluster.
-        :param pulumi.Input[str] default_admin_password: The initial admin password for this Cassandra Cluster.
+        :param pulumi.Input[str] default_admin_password: The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] delegated_management_subnet_id: The ID of the delegated management subnet for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_gossip_certificate_pems: A list of TLS certificates that is used to authorize gossip from unmanaged Cassandra Data Center.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_seed_node_ip_addresses: A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
@@ -700,7 +700,7 @@ class CassandraCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authentication_method: The authentication method that is used to authenticate clients. Possible values are `None` and `Cassandra`. Defaults to `Cassandra`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_certificate_pems: A list of TLS certificates that is used to authorize client connecting to the Cassandra Cluster.
-        :param pulumi.Input[str] default_admin_password: The initial admin password for this Cassandra Cluster.
+        :param pulumi.Input[str] default_admin_password: The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] delegated_management_subnet_id: The ID of the delegated management subnet for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_gossip_certificate_pems: A list of TLS certificates that is used to authorize gossip from unmanaged Cassandra Data Center.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_seed_node_ip_addresses: A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
@@ -753,7 +753,7 @@ class CassandraCluster(pulumi.CustomResource):
     @pulumi.getter(name="defaultAdminPassword")
     def default_admin_password(self) -> pulumi.Output[str]:
         """
-        The initial admin password for this Cassandra Cluster.
+        The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "default_admin_password")
 

@@ -251,14 +251,14 @@ public final class FunctionAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
+     * Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
+     * @return Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
      * 
      */
     public Optional<Output<String>> name() {
@@ -266,14 +266,14 @@ public final class FunctionAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
+     * A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
      * 
      */
     @Import(name="osType")
     private @Nullable Output<String> osType;
 
     /**
-     * @return A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
+     * @return A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> osType() {
@@ -311,14 +311,14 @@ public final class FunctionAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the resource group in which to create the Function App.
+     * The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the Function App.
+     * @return The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -386,14 +386,14 @@ public final class FunctionAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+     * The backend storage account name which will be used by this Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
      * 
      */
     @Import(name="storageAccountName")
     private @Nullable Output<String> storageAccountName;
 
     /**
-     * @return The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+     * @return The backend storage account name which will be used by this Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> storageAccountName() {
@@ -806,7 +806,7 @@ public final class FunctionAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
+         * @param name Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
          * 
          * @return builder
          * 
@@ -817,7 +817,7 @@ public final class FunctionAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
+         * @param name Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
          * 
          * @return builder
          * 
@@ -827,7 +827,7 @@ public final class FunctionAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osType A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
+         * @param osType A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -838,7 +838,7 @@ public final class FunctionAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osType A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
+         * @param osType A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -890,7 +890,7 @@ public final class FunctionAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the Function App.
+         * @param resourceGroupName The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -901,7 +901,7 @@ public final class FunctionAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the Function App.
+         * @param resourceGroupName The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1005,7 +1005,7 @@ public final class FunctionAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountName The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+         * @param storageAccountName The backend storage account name which will be used by this Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1016,7 +1016,7 @@ public final class FunctionAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountName The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+         * @param storageAccountName The backend storage account name which will be used by this Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

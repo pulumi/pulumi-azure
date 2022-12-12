@@ -81,7 +81,7 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
      */
     public readonly bandwidthInMbps!: pulumi.Output<number | undefined>;
     /**
-     * The ID of the Express Route Port this Express Route Circuit is based on.
+     * The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
      */
     public readonly expressRoutePortId!: pulumi.Output<string | undefined>;
     /**
@@ -191,7 +191,7 @@ export interface ExpressRouteCircuitState {
      */
     bandwidthInMbps?: pulumi.Input<number>;
     /**
-     * The ID of the Express Route Port this Express Route Circuit is based on.
+     * The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
      */
     expressRoutePortId?: pulumi.Input<string>;
     /**
@@ -249,7 +249,7 @@ export interface ExpressRouteCircuitArgs {
      */
     bandwidthInMbps?: pulumi.Input<number>;
     /**
-     * The ID of the Express Route Port this Express Route Circuit is based on.
+     * The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
      */
     expressRoutePortId?: pulumi.Input<string>;
     /**

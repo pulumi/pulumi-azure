@@ -47,14 +47,14 @@ public final class ManagedInstanceTransparentDataEncryptionState extends com.pul
     }
 
     /**
-     * Specifies the name of the MS SQL Managed Instance.
+     * Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="managedInstanceId")
     private @Nullable Output<String> managedInstanceId;
 
     /**
-     * @return Specifies the name of the MS SQL Managed Instance.
+     * @return Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> managedInstanceId() {
@@ -130,7 +130,7 @@ public final class ManagedInstanceTransparentDataEncryptionState extends com.pul
         }
 
         /**
-         * @param managedInstanceId Specifies the name of the MS SQL Managed Instance.
+         * @param managedInstanceId Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ManagedInstanceTransparentDataEncryptionState extends com.pul
         }
 
         /**
-         * @param managedInstanceId Specifies the name of the MS SQL Managed Instance.
+         * @param managedInstanceId Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

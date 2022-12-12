@@ -82,7 +82,7 @@ export class ServerTransparentDataEncryption extends pulumi.CustomResource {
      */
     public readonly keyVaultKeyId!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the name of the MS SQL Server.
+     * Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
      */
     public readonly serverId!: pulumi.Output<string>;
 
@@ -129,7 +129,7 @@ export interface ServerTransparentDataEncryptionState {
      */
     keyVaultKeyId?: pulumi.Input<string>;
     /**
-     * Specifies the name of the MS SQL Server.
+     * Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
      */
     serverId?: pulumi.Input<string>;
 }
@@ -147,7 +147,7 @@ export interface ServerTransparentDataEncryptionArgs {
      */
     keyVaultKeyId?: pulumi.Input<string>;
     /**
-     * Specifies the name of the MS SQL Server.
+     * Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
      */
     serverId: pulumi.Input<string>;
 }

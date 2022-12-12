@@ -303,14 +303,14 @@ public class Api extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * The Revision which used for this API.
+     * The Revision which used for this API. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="revision", type=String.class, parameters={})
     private Output<String> revision;
 
     /**
-     * @return The Revision which used for this API.
+     * @return The Revision which used for this API. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> revision() {

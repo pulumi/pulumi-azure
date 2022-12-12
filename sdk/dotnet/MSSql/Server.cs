@@ -108,7 +108,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string?> MinimumTlsVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+        /// The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.Azure.MSSql
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create the Microsoft SQL Server.
+        /// The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Azure.MSSql
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+        /// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
         /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
@@ -244,7 +244,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? MinimumTlsVersion { get; set; }
 
         /// <summary>
-        /// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+        /// The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -268,7 +268,7 @@ namespace Pulumi.Azure.MSSql
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the Microsoft SQL Server.
+        /// The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -286,7 +286,7 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+        /// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
         /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
@@ -348,7 +348,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? MinimumTlsVersion { get; set; }
 
         /// <summary>
-        /// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+        /// The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -372,7 +372,7 @@ namespace Pulumi.Azure.MSSql
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the Microsoft SQL Server.
+        /// The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
@@ -402,7 +402,7 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+        /// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

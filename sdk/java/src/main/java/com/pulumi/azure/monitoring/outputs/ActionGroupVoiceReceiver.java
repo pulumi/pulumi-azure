@@ -15,7 +15,7 @@ public final class ActionGroupVoiceReceiver {
      */
     private String countryCode;
     /**
-     * @return The name of the voice receiver.
+     * @return The name of the voice receiver. Changing this forces a new resource to be created.
      * 
      */
     private String name;
@@ -34,7 +34,7 @@ public final class ActionGroupVoiceReceiver {
         return this.countryCode;
     }
     /**
-     * @return The name of the voice receiver.
+     * @return The name of the voice receiver. Changing this forces a new resource to be created.
      * 
      */
     public String name() {

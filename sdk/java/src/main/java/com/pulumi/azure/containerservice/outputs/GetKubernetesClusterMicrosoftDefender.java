@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class GetKubernetesClusterMicrosoftDefender {
     /**
-     * @return The ID of the Log Analytics Workspace which the OMS Agent should send data to.
+     * @return The ID of the Log Analytics Workspace to which the OMS Agent should send data.
      * 
      */
     private String logAnalyticsWorkspaceId;
 
     private GetKubernetesClusterMicrosoftDefender() {}
     /**
-     * @return The ID of the Log Analytics Workspace which the OMS Agent should send data to.
+     * @return The ID of the Log Analytics Workspace to which the OMS Agent should send data.
      * 
      */
     public String logAnalyticsWorkspaceId() {

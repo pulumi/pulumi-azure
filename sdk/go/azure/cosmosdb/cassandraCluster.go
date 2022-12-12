@@ -123,7 +123,7 @@ type CassandraCluster struct {
 	AuthenticationMethod pulumi.StringPtrOutput `pulumi:"authenticationMethod"`
 	// A list of TLS certificates that is used to authorize client connecting to the Cassandra Cluster.
 	ClientCertificatePems pulumi.StringArrayOutput `pulumi:"clientCertificatePems"`
-	// The initial admin password for this Cassandra Cluster.
+	// The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
 	DefaultAdminPassword pulumi.StringOutput `pulumi:"defaultAdminPassword"`
 	// The ID of the delegated management subnet for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
 	DelegatedManagementSubnetId pulumi.StringOutput `pulumi:"delegatedManagementSubnetId"`
@@ -191,7 +191,7 @@ type cassandraClusterState struct {
 	AuthenticationMethod *string `pulumi:"authenticationMethod"`
 	// A list of TLS certificates that is used to authorize client connecting to the Cassandra Cluster.
 	ClientCertificatePems []string `pulumi:"clientCertificatePems"`
-	// The initial admin password for this Cassandra Cluster.
+	// The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
 	DefaultAdminPassword *string `pulumi:"defaultAdminPassword"`
 	// The ID of the delegated management subnet for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
 	DelegatedManagementSubnetId *string `pulumi:"delegatedManagementSubnetId"`
@@ -222,7 +222,7 @@ type CassandraClusterState struct {
 	AuthenticationMethod pulumi.StringPtrInput
 	// A list of TLS certificates that is used to authorize client connecting to the Cassandra Cluster.
 	ClientCertificatePems pulumi.StringArrayInput
-	// The initial admin password for this Cassandra Cluster.
+	// The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
 	DefaultAdminPassword pulumi.StringPtrInput
 	// The ID of the delegated management subnet for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
 	DelegatedManagementSubnetId pulumi.StringPtrInput
@@ -257,7 +257,7 @@ type cassandraClusterArgs struct {
 	AuthenticationMethod *string `pulumi:"authenticationMethod"`
 	// A list of TLS certificates that is used to authorize client connecting to the Cassandra Cluster.
 	ClientCertificatePems []string `pulumi:"clientCertificatePems"`
-	// The initial admin password for this Cassandra Cluster.
+	// The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
 	DefaultAdminPassword string `pulumi:"defaultAdminPassword"`
 	// The ID of the delegated management subnet for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
 	DelegatedManagementSubnetId string `pulumi:"delegatedManagementSubnetId"`
@@ -289,7 +289,7 @@ type CassandraClusterArgs struct {
 	AuthenticationMethod pulumi.StringPtrInput
 	// A list of TLS certificates that is used to authorize client connecting to the Cassandra Cluster.
 	ClientCertificatePems pulumi.StringArrayInput
-	// The initial admin password for this Cassandra Cluster.
+	// The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
 	DefaultAdminPassword pulumi.StringInput
 	// The ID of the delegated management subnet for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
 	DelegatedManagementSubnetId pulumi.StringInput
@@ -412,7 +412,7 @@ func (o CassandraClusterOutput) ClientCertificatePems() pulumi.StringArrayOutput
 	return o.ApplyT(func(v *CassandraCluster) pulumi.StringArrayOutput { return v.ClientCertificatePems }).(pulumi.StringArrayOutput)
 }
 
-// The initial admin password for this Cassandra Cluster.
+// The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
 func (o CassandraClusterOutput) DefaultAdminPassword() pulumi.StringOutput {
 	return o.ApplyT(func(v *CassandraCluster) pulumi.StringOutput { return v.DefaultAdminPassword }).(pulumi.StringOutput)
 }

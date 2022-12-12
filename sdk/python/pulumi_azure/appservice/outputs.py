@@ -3477,7 +3477,7 @@ class FunctionAppConnectionString(dict):
                  type: str,
                  value: str):
         """
-        :param str name: The name of the Connection String.
+        :param str name: The name of the Connection String. Changing this forces a new resource to be created.
         :param str type: The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
         :param str value: The value for the Connection String.
         """
@@ -3489,7 +3489,7 @@ class FunctionAppConnectionString(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the Connection String.
+        The name of the Connection String. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -3516,8 +3516,8 @@ class FunctionAppFunctionFile(dict):
                  content: str,
                  name: str):
         """
-        :param str content: The content of the file.
-        :param str name: The filename of the file to be uploaded.
+        :param str content: The content of the file. Changing this forces a new resource to be created.
+        :param str name: The filename of the file to be uploaded. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "name", name)
@@ -3526,7 +3526,7 @@ class FunctionAppFunctionFile(dict):
     @pulumi.getter
     def content(self) -> str:
         """
-        The content of the file.
+        The content of the file. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "content")
 
@@ -3534,7 +3534,7 @@ class FunctionAppFunctionFile(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The filename of the file to be uploaded.
+        The filename of the file to be uploaded. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -4893,7 +4893,7 @@ class FunctionAppSlotConnectionString(dict):
                  type: str,
                  value: str):
         """
-        :param str name: The name of the Connection String.
+        :param str name: The name of the Connection String. Changing this forces a new resource to be created.
         :param str type: The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
         :param str value: The value for the Connection String.
         """
@@ -4905,7 +4905,7 @@ class FunctionAppSlotConnectionString(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the Connection String.
+        The name of the Connection String. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -16687,7 +16687,7 @@ class SlotConnectionString(dict):
                  type: str,
                  value: str):
         """
-        :param str name: The name of the Connection String.
+        :param str name: The name of the Connection String. Changing this forces a new resource to be created.
         :param str type: The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
         :param str value: The value for the Connection String.
         """
@@ -16699,7 +16699,7 @@ class SlotConnectionString(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the Connection String.
+        The name of the Connection String. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

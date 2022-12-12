@@ -91,7 +91,7 @@ export class FirewallRule extends pulumi.CustomResource {
      */
     public readonly redisCacheName!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which this Redis Cache exists.
+     * The name of the resource group in which this Redis Cache exists. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -159,7 +159,7 @@ export interface FirewallRuleState {
      */
     redisCacheName?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which this Redis Cache exists.
+     * The name of the resource group in which this Redis Cache exists. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -185,7 +185,7 @@ export interface FirewallRuleArgs {
      */
     redisCacheName: pulumi.Input<string>;
     /**
-     * The name of the resource group in which this Redis Cache exists.
+     * The name of the resource group in which this Redis Cache exists. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

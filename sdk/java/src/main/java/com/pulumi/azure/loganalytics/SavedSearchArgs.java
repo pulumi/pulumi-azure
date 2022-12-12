@@ -123,14 +123,14 @@ public final class SavedSearchArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A mapping of tags which should be assigned to the Logs Analytics Saved Search.
+     * A mapping of tags which should be assigned to the Logs Analytics Saved Search. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags which should be assigned to the Logs Analytics Saved Search.
+     * @return A mapping of tags which should be assigned to the Logs Analytics Saved Search. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -326,7 +326,7 @@ public final class SavedSearchArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A mapping of tags which should be assigned to the Logs Analytics Saved Search.
+         * @param tags A mapping of tags which should be assigned to the Logs Analytics Saved Search. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class SavedSearchArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A mapping of tags which should be assigned to the Logs Analytics Saved Search.
+         * @param tags A mapping of tags which should be assigned to the Logs Analytics Saved Search. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

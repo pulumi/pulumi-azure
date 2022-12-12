@@ -100,8 +100,7 @@ namespace Pulumi.Azure.WebPubSub
         public Output<bool?> LocalAuthEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the supported Azure location where the Web PubSub service exists. Changing this
-        /// forces a new resource to be created.
+        /// Specifies the supported Azure location where the Web PubSub service exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -137,8 +136,7 @@ namespace Pulumi.Azure.WebPubSub
         public Output<int> PublicPort { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create the Web PubSub service. Changing
-        /// this forces a new resource to be created.
+        /// The name of the resource group in which to create the Web PubSub service. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -261,8 +259,7 @@ namespace Pulumi.Azure.WebPubSub
         public Input<bool>? LocalAuthEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the supported Azure location where the Web PubSub service exists. Changing this
-        /// forces a new resource to be created.
+        /// Specifies the supported Azure location where the Web PubSub service exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -280,8 +277,7 @@ namespace Pulumi.Azure.WebPubSub
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the Web PubSub service. Changing
-        /// this forces a new resource to be created.
+        /// The name of the resource group in which to create the Web PubSub service. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -360,8 +356,7 @@ namespace Pulumi.Azure.WebPubSub
         public Input<bool>? LocalAuthEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the supported Azure location where the Web PubSub service exists. Changing this
-        /// forces a new resource to be created.
+        /// Specifies the supported Azure location where the Web PubSub service exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -397,8 +392,7 @@ namespace Pulumi.Azure.WebPubSub
         public Input<int>? PublicPort { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the Web PubSub service. Changing
-        /// this forces a new resource to be created.
+        /// The name of the resource group in which to create the Web PubSub service. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

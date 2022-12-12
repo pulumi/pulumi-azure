@@ -97,7 +97,7 @@ type Group struct {
 	DnsConfig GroupDnsConfigPtrOutput `pulumi:"dnsConfig"`
 	// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
 	DnsNameLabel pulumi.StringPtrOutput `pulumi:"dnsNameLabel"`
-	// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+	// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
 	DnsNameLabelReusePolicy pulumi.StringPtrOutput `pulumi:"dnsNameLabelReusePolicy"`
 	// Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
 	ExposedPorts GroupExposedPortArrayOutput `pulumi:"exposedPorts"`
@@ -131,7 +131,7 @@ type Group struct {
 	SubnetIds pulumi.StringPtrOutput `pulumi:"subnetIds"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A list of Availability Zones in which this Container Group is located.
+	// A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created.
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
@@ -181,7 +181,7 @@ type groupState struct {
 	DnsConfig *GroupDnsConfig `pulumi:"dnsConfig"`
 	// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
 	DnsNameLabel *string `pulumi:"dnsNameLabel"`
-	// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+	// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
 	DnsNameLabelReusePolicy *string `pulumi:"dnsNameLabelReusePolicy"`
 	// Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
 	ExposedPorts []GroupExposedPort `pulumi:"exposedPorts"`
@@ -215,7 +215,7 @@ type groupState struct {
 	SubnetIds *string `pulumi:"subnetIds"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A list of Availability Zones in which this Container Group is located.
+	// A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -228,7 +228,7 @@ type GroupState struct {
 	DnsConfig GroupDnsConfigPtrInput
 	// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
 	DnsNameLabel pulumi.StringPtrInput
-	// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+	// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
 	DnsNameLabelReusePolicy pulumi.StringPtrInput
 	// Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
 	ExposedPorts GroupExposedPortArrayInput
@@ -262,7 +262,7 @@ type GroupState struct {
 	SubnetIds pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// A list of Availability Zones in which this Container Group is located.
+	// A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created.
 	Zones pulumi.StringArrayInput
 }
 
@@ -279,7 +279,7 @@ type groupArgs struct {
 	DnsConfig *GroupDnsConfig `pulumi:"dnsConfig"`
 	// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
 	DnsNameLabel *string `pulumi:"dnsNameLabel"`
-	// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+	// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
 	DnsNameLabelReusePolicy *string `pulumi:"dnsNameLabelReusePolicy"`
 	// Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
 	ExposedPorts []GroupExposedPort `pulumi:"exposedPorts"`
@@ -309,7 +309,7 @@ type groupArgs struct {
 	SubnetIds *string `pulumi:"subnetIds"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A list of Availability Zones in which this Container Group is located.
+	// A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -323,7 +323,7 @@ type GroupArgs struct {
 	DnsConfig GroupDnsConfigPtrInput
 	// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
 	DnsNameLabel pulumi.StringPtrInput
-	// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+	// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
 	DnsNameLabelReusePolicy pulumi.StringPtrInput
 	// Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
 	ExposedPorts GroupExposedPortArrayInput
@@ -353,7 +353,7 @@ type GroupArgs struct {
 	SubnetIds pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// A list of Availability Zones in which this Container Group is located.
+	// A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created.
 	Zones pulumi.StringArrayInput
 }
 
@@ -464,7 +464,7 @@ func (o GroupOutput) DnsNameLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.DnsNameLabel }).(pulumi.StringPtrOutput)
 }
 
-// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
 func (o GroupOutput) DnsNameLabelReusePolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.DnsNameLabelReusePolicy }).(pulumi.StringPtrOutput)
 }
@@ -549,7 +549,7 @@ func (o GroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A list of Availability Zones in which this Container Group is located.
+// A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created.
 func (o GroupOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
 }

@@ -62,11 +62,11 @@ export class OutboundFirewallRule extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the outbound firewall rule. This should be a FQDN.
+     * The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The resource ID of the SQL Server on which to create the Outbound Firewall Rule.
+     * The resource ID of the SQL Server on which to create the Outbound Firewall Rule. Changing this forces a new resource to be created.
      */
     public readonly serverId!: pulumi.Output<string>;
 
@@ -103,11 +103,11 @@ export class OutboundFirewallRule extends pulumi.CustomResource {
  */
 export interface OutboundFirewallRuleState {
     /**
-     * The name of the outbound firewall rule. This should be a FQDN.
+     * The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The resource ID of the SQL Server on which to create the Outbound Firewall Rule.
+     * The resource ID of the SQL Server on which to create the Outbound Firewall Rule. Changing this forces a new resource to be created.
      */
     serverId?: pulumi.Input<string>;
 }
@@ -117,11 +117,11 @@ export interface OutboundFirewallRuleState {
  */
 export interface OutboundFirewallRuleArgs {
     /**
-     * The name of the outbound firewall rule. This should be a FQDN.
+     * The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The resource ID of the SQL Server on which to create the Outbound Firewall Rule.
+     * The resource ID of the SQL Server on which to create the Outbound Firewall Rule. Changing this forces a new resource to be created.
      */
     serverId: pulumi.Input<string>;
 }

@@ -183,14 +183,14 @@ public class ScheduledQueryRulesAlert extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.queryType);
     }
     /**
-     * The name of the resource group in which to create the scheduled query rule instance.
+     * The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the scheduled query rule instance.
+     * @return The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {

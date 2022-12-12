@@ -21,8 +21,8 @@ class BackendAddressPoolArgs:
                  tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]]] = None):
         """
         The set of arguments for constructing a BackendAddressPool resource.
-        :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Backend Address Pool.
-        :param pulumi.Input[str] name: Specifies the name of the Backend Address Pool.
+        :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]] tunnel_interfaces: One or more `tunnel_interface` blocks as defined below.
         """
         pulumi.set(__self__, "loadbalancer_id", loadbalancer_id)
@@ -35,7 +35,7 @@ class BackendAddressPoolArgs:
     @pulumi.getter(name="loadbalancerId")
     def loadbalancer_id(self) -> pulumi.Input[str]:
         """
-        The ID of the Load Balancer in which to create the Backend Address Pool.
+        The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "loadbalancer_id")
 
@@ -47,7 +47,7 @@ class BackendAddressPoolArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Backend Address Pool.
+        Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -83,8 +83,8 @@ class _BackendAddressPoolState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] backend_ip_configurations: The Backend IP Configurations associated with this Backend Address Pool.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inbound_nat_rules: An array of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancing_rules: The Load Balancing Rules associated with this Backend Address Pool.
-        :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Backend Address Pool.
-        :param pulumi.Input[str] name: Specifies the name of the Backend Address Pool.
+        :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_rules: An array of the Load Balancing Outbound Rules associated with this Backend Address Pool.
         :param pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]] tunnel_interfaces: One or more `tunnel_interface` blocks as defined below.
         """
@@ -143,7 +143,7 @@ class _BackendAddressPoolState:
     @pulumi.getter(name="loadbalancerId")
     def loadbalancer_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Load Balancer in which to create the Backend Address Pool.
+        The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "loadbalancer_id")
 
@@ -155,7 +155,7 @@ class _BackendAddressPoolState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Backend Address Pool.
+        Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -233,8 +233,8 @@ class BackendAddressPool(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Backend Address Pool.
-        :param pulumi.Input[str] name: Specifies the name of the Backend Address Pool.
+        :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackendAddressPoolTunnelInterfaceArgs']]]] tunnel_interfaces: One or more `tunnel_interface` blocks as defined below.
         """
         ...
@@ -340,8 +340,8 @@ class BackendAddressPool(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] backend_ip_configurations: The Backend IP Configurations associated with this Backend Address Pool.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inbound_nat_rules: An array of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancing_rules: The Load Balancing Rules associated with this Backend Address Pool.
-        :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Backend Address Pool.
-        :param pulumi.Input[str] name: Specifies the name of the Backend Address Pool.
+        :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_rules: An array of the Load Balancing Outbound Rules associated with this Backend Address Pool.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackendAddressPoolTunnelInterfaceArgs']]]] tunnel_interfaces: One or more `tunnel_interface` blocks as defined below.
         """
@@ -386,7 +386,7 @@ class BackendAddressPool(pulumi.CustomResource):
     @pulumi.getter(name="loadbalancerId")
     def loadbalancer_id(self) -> pulumi.Output[str]:
         """
-        The ID of the Load Balancer in which to create the Backend Address Pool.
+        The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "loadbalancer_id")
 
@@ -394,7 +394,7 @@ class BackendAddressPool(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the Backend Address Pool.
+        Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppPlatform
 {
     /// <summary>
-    /// Manages a Spring Cloud Buildpack Binding.
+    /// Manages a Spring Cloud Build Pack Binding.
     /// 
     /// &gt; **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
     /// 
@@ -45,13 +45,13 @@ namespace Pulumi.Azure.AppPlatform
     ///                 Name = "mix",
     ///                 BuildPackIds = new[]
     ///                 {
-    ///                     "tanzu-buildpacks/java-azure",
+    ///                     "tanzu-Build Packs/java-azure",
     ///                 },
     ///             },
     ///         },
     ///         Stack = new Azure.AppPlatform.Inputs.SpringCloudBuilderStackArgs
     ///         {
-    ///             Id = "io.buildpacks.stacks.bionic",
+    ///             Id = "io.Build Packs.stacks.bionic",
     ///             Version = "base",
     ///         },
     ///     });
@@ -80,17 +80,17 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// ## Import
     /// 
-    /// Spring Cloud Buildpack Bindings can be imported using the `resource id`, e.g.
+    /// Spring Cloud Build Pack Bindings can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:appplatform/springCloudBuildPackBinding:SpringCloudBuildPackBinding example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/Spring/service1/buildServices/buildService1/builders/builder1/buildpackBindings/buildpackBinding1
+    ///  $ pulumi import azure:appplatform/springCloudBuildPackBinding:SpringCloudBuildPackBinding example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/spring/service1/buildServices/buildService1/builders/builder1/Build PackBindings/Build PackBinding1
     /// ```
     /// </summary>
     [AzureResourceType("azure:appplatform/springCloudBuildPackBinding:SpringCloudBuildPackBinding")]
     public partial class SpringCloudBuildPackBinding : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the Buildpack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
+        /// Specifies the Build Pack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
         /// </summary>
         [Output("bindingType")]
         public Output<string?> BindingType { get; private set; } = null!;
@@ -102,13 +102,13 @@ namespace Pulumi.Azure.AppPlatform
         public Output<Outputs.SpringCloudBuildPackBindingLaunch?> Launch { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Spring Cloud Buildpack Binding. Changing this forces a new Spring Cloud Buildpack Binding to be created.
+        /// The name which should be used for this Spring Cloud Build Pack Binding. Changing this forces a new Spring Cloud Build Pack Binding to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Buildpack Binding to be created.
+        /// The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Build Pack Binding to be created.
         /// </summary>
         [Output("springCloudBuilderId")]
         public Output<string> SpringCloudBuilderId { get; private set; } = null!;
@@ -160,7 +160,7 @@ namespace Pulumi.Azure.AppPlatform
     public sealed class SpringCloudBuildPackBindingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the Buildpack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
+        /// Specifies the Build Pack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
         /// </summary>
         [Input("bindingType")]
         public Input<string>? BindingType { get; set; }
@@ -172,13 +172,13 @@ namespace Pulumi.Azure.AppPlatform
         public Input<Inputs.SpringCloudBuildPackBindingLaunchArgs>? Launch { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Spring Cloud Buildpack Binding. Changing this forces a new Spring Cloud Buildpack Binding to be created.
+        /// The name which should be used for this Spring Cloud Build Pack Binding. Changing this forces a new Spring Cloud Build Pack Binding to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Buildpack Binding to be created.
+        /// The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Build Pack Binding to be created.
         /// </summary>
         [Input("springCloudBuilderId", required: true)]
         public Input<string> SpringCloudBuilderId { get; set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.Azure.AppPlatform
     public sealed class SpringCloudBuildPackBindingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the Buildpack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
+        /// Specifies the Build Pack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
         /// </summary>
         [Input("bindingType")]
         public Input<string>? BindingType { get; set; }
@@ -204,13 +204,13 @@ namespace Pulumi.Azure.AppPlatform
         public Input<Inputs.SpringCloudBuildPackBindingLaunchGetArgs>? Launch { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Spring Cloud Buildpack Binding. Changing this forces a new Spring Cloud Buildpack Binding to be created.
+        /// The name which should be used for this Spring Cloud Build Pack Binding. Changing this forces a new Spring Cloud Build Pack Binding to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Buildpack Binding to be created.
+        /// The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Build Pack Binding to be created.
         /// </summary>
         [Input("springCloudBuilderId")]
         public Input<string>? SpringCloudBuilderId { get; set; }

@@ -92,14 +92,14 @@ public final class ServiceInitialReplicaSetArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The ID of the subnet in which to place the initial replica set.
+     * The ID of the subnet in which to place the initial replica set. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="subnetId", required=true)
     private Output<String> subnetId;
 
     /**
-     * @return The ID of the subnet in which to place the initial replica set.
+     * @return The ID of the subnet in which to place the initial replica set. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> subnetId() {
@@ -251,7 +251,7 @@ public final class ServiceInitialReplicaSetArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param subnetId The ID of the subnet in which to place the initial replica set.
+         * @param subnetId The ID of the subnet in which to place the initial replica set. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -262,7 +262,7 @@ public final class ServiceInitialReplicaSetArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param subnetId The ID of the subnet in which to place the initial replica set.
+         * @param subnetId The ID of the subnet in which to place the initial replica set. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

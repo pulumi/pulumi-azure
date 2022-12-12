@@ -39,7 +39,7 @@ class GrafanaIdentity(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: Specifies the type of Managed Service Identity. The only possible values is `SystemAssigned`.
+        :param str type: Specifies the type of Managed Service Identity. The only possible values is `SystemAssigned`. Changing this forces a new resource to be created.
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -53,7 +53,7 @@ class GrafanaIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the type of Managed Service Identity. The only possible values is `SystemAssigned`.
+        Specifies the type of Managed Service Identity. The only possible values is `SystemAssigned`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 

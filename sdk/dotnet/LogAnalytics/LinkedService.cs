@@ -85,7 +85,7 @@ namespace Pulumi.Azure.LogAnalytics
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
+        /// The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
         /// </summary>
         [Output("workspaceId")]
         public Output<string> WorkspaceId { get; private set; } = null!;
@@ -155,7 +155,7 @@ namespace Pulumi.Azure.LogAnalytics
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
+        /// The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
         /// </summary>
         [Input("workspaceId", required: true)]
         public Input<string> WorkspaceId { get; set; } = null!;
@@ -193,7 +193,7 @@ namespace Pulumi.Azure.LogAnalytics
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
+        /// The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
         /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }

@@ -64,7 +64,7 @@ export class Queue extends pulumi.CustomResource {
      */
     public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
+     * The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -111,7 +111,7 @@ export interface QueueState {
      */
     metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
+     * The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -129,7 +129,7 @@ export interface QueueArgs {
      */
     metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
+     * The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

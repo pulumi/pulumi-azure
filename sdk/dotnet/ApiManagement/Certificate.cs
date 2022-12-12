@@ -165,7 +165,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ApiManagementName { get; private set; } = null!;
 
         /// <summary>
-        /// The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
+        /// The base-64 encoded certificate data, which must be a PFX file.
         /// </summary>
         [Output("data")]
         public Output<string?> Data { get; private set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The password used for this certificate. Changing this forces a new resource to be created.
+        /// The password used for this certificate.
         /// </summary>
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
@@ -271,7 +271,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> ApiManagementName { get; set; } = null!;
 
         /// <summary>
-        /// The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
+        /// The base-64 encoded certificate data, which must be a PFX file.
         /// </summary>
         [Input("data")]
         public Input<string>? Data { get; set; }
@@ -295,7 +295,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The password used for this certificate. Changing this forces a new resource to be created.
+        /// The password used for this certificate.
         /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
@@ -321,7 +321,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ApiManagementName { get; set; }
 
         /// <summary>
-        /// The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
+        /// The base-64 encoded certificate data, which must be a PFX file.
         /// </summary>
         [Input("data")]
         public Input<string>? Data { get; set; }
@@ -351,7 +351,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The password used for this certificate. Changing this forces a new resource to be created.
+        /// The password used for this certificate.
         /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }

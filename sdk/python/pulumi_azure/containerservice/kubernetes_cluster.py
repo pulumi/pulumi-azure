@@ -32,6 +32,8 @@ class KubernetesClusterArgs:
                  http_application_routing_enabled: Optional[pulumi.Input[bool]] = None,
                  http_proxy_config: Optional[pulumi.Input['KubernetesClusterHttpProxyConfigArgs']] = None,
                  identity: Optional[pulumi.Input['KubernetesClusterIdentityArgs']] = None,
+                 image_cleaner_enabled: Optional[pulumi.Input[bool]] = None,
+                 image_cleaner_interval_hours: Optional[pulumi.Input[int]] = None,
                  ingress_application_gateway: Optional[pulumi.Input['KubernetesClusterIngressApplicationGatewayArgs']] = None,
                  key_vault_secrets_provider: Optional[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArgs']] = None,
                  kubelet_identity: Optional[pulumi.Input['KubernetesClusterKubeletIdentityArgs']] = None,
@@ -55,6 +57,7 @@ class KubernetesClusterArgs:
                  run_command_enabled: Optional[pulumi.Input[bool]] = None,
                  service_principal: Optional[pulumi.Input['KubernetesClusterServicePrincipalArgs']] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
+                 storage_profile: Optional[pulumi.Input['KubernetesClusterStorageProfileArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  web_app_routing: Optional[pulumi.Input['KubernetesClusterWebAppRoutingArgs']] = None,
                  windows_profile: Optional[pulumi.Input['KubernetesClusterWindowsProfileArgs']] = None,
@@ -77,6 +80,8 @@ class KubernetesClusterArgs:
         :param pulumi.Input[bool] http_application_routing_enabled: Should HTTP Application Routing be enabled?
         :param pulumi.Input['KubernetesClusterHttpProxyConfigArgs'] http_proxy_config: A `http_proxy_config` block as defined below.
         :param pulumi.Input['KubernetesClusterIdentityArgs'] identity: An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
+        :param pulumi.Input[bool] image_cleaner_enabled: Specifies whether Image Cleaner is enabled.
+        :param pulumi.Input[int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up.
         :param pulumi.Input['KubernetesClusterIngressApplicationGatewayArgs'] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
         :param pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArgs'] key_vault_secrets_provider: A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
         :param pulumi.Input['KubernetesClusterKubeletIdentityArgs'] kubelet_identity: A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
@@ -94,11 +99,12 @@ class KubernetesClusterArgs:
         :param pulumi.Input[bool] open_service_mesh_enabled: Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
         :param pulumi.Input[bool] private_cluster_enabled: Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_cluster_public_fqdn_enabled: Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
-        :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] run_command_enabled: Whether to enable run command for the cluster or not. Defaults to `true`.
         :param pulumi.Input['KubernetesClusterServicePrincipalArgs'] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+        :param pulumi.Input['KubernetesClusterStorageProfileArgs'] storage_profile: A `storage_profile` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['KubernetesClusterWebAppRoutingArgs'] web_app_routing: A `web_app_routing` block as defined below.
         :param pulumi.Input['KubernetesClusterWindowsProfileArgs'] windows_profile: A `windows_profile` block as defined below.
@@ -135,6 +141,10 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "http_proxy_config", http_proxy_config)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if image_cleaner_enabled is not None:
+            pulumi.set(__self__, "image_cleaner_enabled", image_cleaner_enabled)
+        if image_cleaner_interval_hours is not None:
+            pulumi.set(__self__, "image_cleaner_interval_hours", image_cleaner_interval_hours)
         if ingress_application_gateway is not None:
             pulumi.set(__self__, "ingress_application_gateway", ingress_application_gateway)
         if key_vault_secrets_provider is not None:
@@ -181,6 +191,8 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "service_principal", service_principal)
         if sku_tier is not None:
             pulumi.set(__self__, "sku_tier", sku_tier)
+        if storage_profile is not None:
+            pulumi.set(__self__, "storage_profile", storage_profile)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if web_app_routing is not None:
@@ -380,6 +392,30 @@ class KubernetesClusterArgs:
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['KubernetesClusterIdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="imageCleanerEnabled")
+    def image_cleaner_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether Image Cleaner is enabled.
+        """
+        return pulumi.get(self, "image_cleaner_enabled")
+
+    @image_cleaner_enabled.setter
+    def image_cleaner_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "image_cleaner_enabled", value)
+
+    @property
+    @pulumi.getter(name="imageCleanerIntervalHours")
+    def image_cleaner_interval_hours(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the interval in hours when images should be cleaned up.
+        """
+        return pulumi.get(self, "image_cleaner_interval_hours")
+
+    @image_cleaner_interval_hours.setter
+    def image_cleaner_interval_hours(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "image_cleaner_interval_hours", value)
 
     @property
     @pulumi.getter(name="ingressApplicationGateway")
@@ -589,7 +625,7 @@ class KubernetesClusterArgs:
     @pulumi.getter(name="privateDnsZoneId")
     def private_dns_zone_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
+        Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_dns_zone_id")
 
@@ -653,6 +689,18 @@ class KubernetesClusterArgs:
     @sku_tier.setter
     def sku_tier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sku_tier", value)
+
+    @property
+    @pulumi.getter(name="storageProfile")
+    def storage_profile(self) -> Optional[pulumi.Input['KubernetesClusterStorageProfileArgs']]:
+        """
+        A `storage_profile` block as defined below.
+        """
+        return pulumi.get(self, "storage_profile")
+
+    @storage_profile.setter
+    def storage_profile(self, value: Optional[pulumi.Input['KubernetesClusterStorageProfileArgs']]):
+        pulumi.set(self, "storage_profile", value)
 
     @property
     @pulumi.getter
@@ -735,6 +783,8 @@ class _KubernetesClusterState:
                  http_application_routing_zone_name: Optional[pulumi.Input[str]] = None,
                  http_proxy_config: Optional[pulumi.Input['KubernetesClusterHttpProxyConfigArgs']] = None,
                  identity: Optional[pulumi.Input['KubernetesClusterIdentityArgs']] = None,
+                 image_cleaner_enabled: Optional[pulumi.Input[bool]] = None,
+                 image_cleaner_interval_hours: Optional[pulumi.Input[int]] = None,
                  ingress_application_gateway: Optional[pulumi.Input['KubernetesClusterIngressApplicationGatewayArgs']] = None,
                  key_vault_secrets_provider: Optional[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArgs']] = None,
                  kube_admin_config_raw: Optional[pulumi.Input[str]] = None,
@@ -766,6 +816,7 @@ class _KubernetesClusterState:
                  run_command_enabled: Optional[pulumi.Input[bool]] = None,
                  service_principal: Optional[pulumi.Input['KubernetesClusterServicePrincipalArgs']] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
+                 storage_profile: Optional[pulumi.Input['KubernetesClusterStorageProfileArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  web_app_routing: Optional[pulumi.Input['KubernetesClusterWebAppRoutingArgs']] = None,
                  windows_profile: Optional[pulumi.Input['KubernetesClusterWindowsProfileArgs']] = None,
@@ -789,6 +840,8 @@ class _KubernetesClusterState:
         :param pulumi.Input[str] http_application_routing_zone_name: The Zone Name of the HTTP Application Routing.
         :param pulumi.Input['KubernetesClusterHttpProxyConfigArgs'] http_proxy_config: A `http_proxy_config` block as defined below.
         :param pulumi.Input['KubernetesClusterIdentityArgs'] identity: An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
+        :param pulumi.Input[bool] image_cleaner_enabled: Specifies whether Image Cleaner is enabled.
+        :param pulumi.Input[int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up.
         :param pulumi.Input['KubernetesClusterIngressApplicationGatewayArgs'] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
         :param pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArgs'] key_vault_secrets_provider: A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
         :param pulumi.Input[str] kube_admin_config_raw: Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
@@ -812,13 +865,14 @@ class _KubernetesClusterState:
         :param pulumi.Input[str] portal_fqdn: The FQDN for the Azure Portal resources when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         :param pulumi.Input[bool] private_cluster_enabled: Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_cluster_public_fqdn_enabled: Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
-        :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_fqdn: The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] run_command_enabled: Whether to enable run command for the cluster or not. Defaults to `true`.
         :param pulumi.Input['KubernetesClusterServicePrincipalArgs'] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+        :param pulumi.Input['KubernetesClusterStorageProfileArgs'] storage_profile: A `storage_profile` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['KubernetesClusterWebAppRoutingArgs'] web_app_routing: A `web_app_routing` block as defined below.
         :param pulumi.Input['KubernetesClusterWindowsProfileArgs'] windows_profile: A `windows_profile` block as defined below.
@@ -859,6 +913,10 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "http_proxy_config", http_proxy_config)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if image_cleaner_enabled is not None:
+            pulumi.set(__self__, "image_cleaner_enabled", image_cleaner_enabled)
+        if image_cleaner_interval_hours is not None:
+            pulumi.set(__self__, "image_cleaner_interval_hours", image_cleaner_interval_hours)
         if ingress_application_gateway is not None:
             pulumi.set(__self__, "ingress_application_gateway", ingress_application_gateway)
         if key_vault_secrets_provider is not None:
@@ -921,6 +979,8 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "service_principal", service_principal)
         if sku_tier is not None:
             pulumi.set(__self__, "sku_tier", sku_tier)
+        if storage_profile is not None:
+            pulumi.set(__self__, "storage_profile", storage_profile)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if web_app_routing is not None:
@@ -1132,6 +1192,30 @@ class _KubernetesClusterState:
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['KubernetesClusterIdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="imageCleanerEnabled")
+    def image_cleaner_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether Image Cleaner is enabled.
+        """
+        return pulumi.get(self, "image_cleaner_enabled")
+
+    @image_cleaner_enabled.setter
+    def image_cleaner_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "image_cleaner_enabled", value)
+
+    @property
+    @pulumi.getter(name="imageCleanerIntervalHours")
+    def image_cleaner_interval_hours(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the interval in hours when images should be cleaned up.
+        """
+        return pulumi.get(self, "image_cleaner_interval_hours")
+
+    @image_cleaner_interval_hours.setter
+    def image_cleaner_interval_hours(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "image_cleaner_interval_hours", value)
 
     @property
     @pulumi.getter(name="ingressApplicationGateway")
@@ -1413,7 +1497,7 @@ class _KubernetesClusterState:
     @pulumi.getter(name="privateDnsZoneId")
     def private_dns_zone_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
+        Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_dns_zone_id")
 
@@ -1503,6 +1587,18 @@ class _KubernetesClusterState:
         pulumi.set(self, "sku_tier", value)
 
     @property
+    @pulumi.getter(name="storageProfile")
+    def storage_profile(self) -> Optional[pulumi.Input['KubernetesClusterStorageProfileArgs']]:
+        """
+        A `storage_profile` block as defined below.
+        """
+        return pulumi.get(self, "storage_profile")
+
+    @storage_profile.setter
+    def storage_profile(self, value: Optional[pulumi.Input['KubernetesClusterStorageProfileArgs']]):
+        pulumi.set(self, "storage_profile", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -1583,6 +1679,8 @@ class KubernetesCluster(pulumi.CustomResource):
                  http_application_routing_enabled: Optional[pulumi.Input[bool]] = None,
                  http_proxy_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterHttpProxyConfigArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']]] = None,
+                 image_cleaner_enabled: Optional[pulumi.Input[bool]] = None,
+                 image_cleaner_interval_hours: Optional[pulumi.Input[int]] = None,
                  ingress_application_gateway: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIngressApplicationGatewayArgs']]] = None,
                  key_vault_secrets_provider: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterKeyVaultSecretsProviderArgs']]] = None,
                  kubelet_identity: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']]] = None,
@@ -1607,6 +1705,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  run_command_enabled: Optional[pulumi.Input[bool]] = None,
                  service_principal: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']]] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
+                 storage_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterStorageProfileArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  web_app_routing: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWebAppRoutingArgs']]] = None,
                  windows_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArgs']]] = None,
@@ -1668,6 +1767,8 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] http_application_routing_enabled: Should HTTP Application Routing be enabled?
         :param pulumi.Input[pulumi.InputType['KubernetesClusterHttpProxyConfigArgs']] http_proxy_config: A `http_proxy_config` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']] identity: An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
+        :param pulumi.Input[bool] image_cleaner_enabled: Specifies whether Image Cleaner is enabled.
+        :param pulumi.Input[int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterIngressApplicationGatewayArgs']] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterKeyVaultSecretsProviderArgs']] key_vault_secrets_provider: A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
         :param pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']] kubelet_identity: A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
@@ -1685,12 +1786,13 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] open_service_mesh_enabled: Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
         :param pulumi.Input[bool] private_cluster_enabled: Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_cluster_public_fqdn_enabled: Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
-        :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] run_command_enabled: Whether to enable run command for the cluster or not. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterStorageProfileArgs']] storage_profile: A `storage_profile` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterWebAppRoutingArgs']] web_app_routing: A `web_app_routing` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArgs']] windows_profile: A `windows_profile` block as defined below.
@@ -1772,6 +1874,8 @@ class KubernetesCluster(pulumi.CustomResource):
                  http_application_routing_enabled: Optional[pulumi.Input[bool]] = None,
                  http_proxy_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterHttpProxyConfigArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']]] = None,
+                 image_cleaner_enabled: Optional[pulumi.Input[bool]] = None,
+                 image_cleaner_interval_hours: Optional[pulumi.Input[int]] = None,
                  ingress_application_gateway: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIngressApplicationGatewayArgs']]] = None,
                  key_vault_secrets_provider: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterKeyVaultSecretsProviderArgs']]] = None,
                  kubelet_identity: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']]] = None,
@@ -1796,6 +1900,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  run_command_enabled: Optional[pulumi.Input[bool]] = None,
                  service_principal: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']]] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
+                 storage_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterStorageProfileArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  web_app_routing: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWebAppRoutingArgs']]] = None,
                  windows_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArgs']]] = None,
@@ -1827,6 +1932,8 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["http_application_routing_enabled"] = http_application_routing_enabled
             __props__.__dict__["http_proxy_config"] = http_proxy_config
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["image_cleaner_enabled"] = image_cleaner_enabled
+            __props__.__dict__["image_cleaner_interval_hours"] = image_cleaner_interval_hours
             __props__.__dict__["ingress_application_gateway"] = ingress_application_gateway
             __props__.__dict__["key_vault_secrets_provider"] = key_vault_secrets_provider
             __props__.__dict__["kubelet_identity"] = kubelet_identity
@@ -1853,6 +1960,7 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["run_command_enabled"] = run_command_enabled
             __props__.__dict__["service_principal"] = service_principal
             __props__.__dict__["sku_tier"] = sku_tier
+            __props__.__dict__["storage_profile"] = storage_profile
             __props__.__dict__["tags"] = tags
             __props__.__dict__["web_app_routing"] = web_app_routing
             __props__.__dict__["windows_profile"] = windows_profile
@@ -1894,6 +2002,8 @@ class KubernetesCluster(pulumi.CustomResource):
             http_application_routing_zone_name: Optional[pulumi.Input[str]] = None,
             http_proxy_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterHttpProxyConfigArgs']]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']]] = None,
+            image_cleaner_enabled: Optional[pulumi.Input[bool]] = None,
+            image_cleaner_interval_hours: Optional[pulumi.Input[int]] = None,
             ingress_application_gateway: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIngressApplicationGatewayArgs']]] = None,
             key_vault_secrets_provider: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterKeyVaultSecretsProviderArgs']]] = None,
             kube_admin_config_raw: Optional[pulumi.Input[str]] = None,
@@ -1925,6 +2035,7 @@ class KubernetesCluster(pulumi.CustomResource):
             run_command_enabled: Optional[pulumi.Input[bool]] = None,
             service_principal: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']]] = None,
             sku_tier: Optional[pulumi.Input[str]] = None,
+            storage_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterStorageProfileArgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             web_app_routing: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWebAppRoutingArgs']]] = None,
             windows_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArgs']]] = None,
@@ -1953,6 +2064,8 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] http_application_routing_zone_name: The Zone Name of the HTTP Application Routing.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterHttpProxyConfigArgs']] http_proxy_config: A `http_proxy_config` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']] identity: An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
+        :param pulumi.Input[bool] image_cleaner_enabled: Specifies whether Image Cleaner is enabled.
+        :param pulumi.Input[int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterIngressApplicationGatewayArgs']] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterKeyVaultSecretsProviderArgs']] key_vault_secrets_provider: A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
         :param pulumi.Input[str] kube_admin_config_raw: Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
@@ -1976,13 +2089,14 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] portal_fqdn: The FQDN for the Azure Portal resources when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         :param pulumi.Input[bool] private_cluster_enabled: Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_cluster_public_fqdn_enabled: Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
-        :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_fqdn: The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] run_command_enabled: Whether to enable run command for the cluster or not. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterStorageProfileArgs']] storage_profile: A `storage_profile` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterWebAppRoutingArgs']] web_app_routing: A `web_app_routing` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArgs']] windows_profile: A `windows_profile` block as defined below.
@@ -2010,6 +2124,8 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["http_application_routing_zone_name"] = http_application_routing_zone_name
         __props__.__dict__["http_proxy_config"] = http_proxy_config
         __props__.__dict__["identity"] = identity
+        __props__.__dict__["image_cleaner_enabled"] = image_cleaner_enabled
+        __props__.__dict__["image_cleaner_interval_hours"] = image_cleaner_interval_hours
         __props__.__dict__["ingress_application_gateway"] = ingress_application_gateway
         __props__.__dict__["key_vault_secrets_provider"] = key_vault_secrets_provider
         __props__.__dict__["kube_admin_config_raw"] = kube_admin_config_raw
@@ -2041,6 +2157,7 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["run_command_enabled"] = run_command_enabled
         __props__.__dict__["service_principal"] = service_principal
         __props__.__dict__["sku_tier"] = sku_tier
+        __props__.__dict__["storage_profile"] = storage_profile
         __props__.__dict__["tags"] = tags
         __props__.__dict__["web_app_routing"] = web_app_routing
         __props__.__dict__["windows_profile"] = windows_profile
@@ -2180,6 +2297,22 @@ class KubernetesCluster(pulumi.CustomResource):
         An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="imageCleanerEnabled")
+    def image_cleaner_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether Image Cleaner is enabled.
+        """
+        return pulumi.get(self, "image_cleaner_enabled")
+
+    @property
+    @pulumi.getter(name="imageCleanerIntervalHours")
+    def image_cleaner_interval_hours(self) -> pulumi.Output[Optional[int]]:
+        """
+        Specifies the interval in hours when images should be cleaned up.
+        """
+        return pulumi.get(self, "image_cleaner_interval_hours")
 
     @property
     @pulumi.getter(name="ingressApplicationGateway")
@@ -2369,7 +2502,7 @@ class KubernetesCluster(pulumi.CustomResource):
     @pulumi.getter(name="privateDnsZoneId")
     def private_dns_zone_id(self) -> pulumi.Output[str]:
         """
-        Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
+        Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_dns_zone_id")
 
@@ -2425,6 +2558,14 @@ class KubernetesCluster(pulumi.CustomResource):
         The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
         """
         return pulumi.get(self, "sku_tier")
+
+    @property
+    @pulumi.getter(name="storageProfile")
+    def storage_profile(self) -> pulumi.Output[Optional['outputs.KubernetesClusterStorageProfile']]:
+        """
+        A `storage_profile` block as defined below.
+        """
+        return pulumi.get(self, "storage_profile")
 
     @property
     @pulumi.getter

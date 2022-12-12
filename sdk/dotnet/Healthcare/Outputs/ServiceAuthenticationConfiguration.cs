@@ -23,7 +23,7 @@ namespace Pulumi.Azure.Healthcare.Outputs
         /// </summary>
         public readonly string? Authority;
         /// <summary>
-        /// Enables the 'SMART on FHIR' option for mobile and web implementations.
+        /// (Boolean) Enables the 'SMART on FHIR' option for mobile and web implementations.
         /// </summary>
         public readonly bool? SmartProxyEnabled;
 

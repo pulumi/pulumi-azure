@@ -31,7 +31,7 @@ public final class FirewallPolicyCustomRule {
      */
     private @Nullable List<FirewallPolicyCustomRuleMatchCondition> matchConditions;
     /**
-     * @return Gets name of the resource that is unique within a policy. This name can be used to access the resource.
+     * @return Gets name of the resource that is unique within a policy. This name can be used to access the resource. Changing this forces a new resource to be created.
      * 
      */
     private String name;
@@ -79,7 +79,7 @@ public final class FirewallPolicyCustomRule {
         return this.matchConditions == null ? List.of() : this.matchConditions;
     }
     /**
-     * @return Gets name of the resource that is unique within a policy. This name can be used to access the resource.
+     * @return Gets name of the resource that is unique within a policy. This name can be used to access the resource. Changing this forces a new resource to be created.
      * 
      */
     public String name() {

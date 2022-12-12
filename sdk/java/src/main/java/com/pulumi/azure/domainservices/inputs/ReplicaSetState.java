@@ -92,14 +92,14 @@ public final class ReplicaSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the subnet in which to place this Replica Set.
+     * The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
     /**
-     * @return The ID of the subnet in which to place this Replica Set.
+     * @return The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -251,7 +251,7 @@ public final class ReplicaSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetId The ID of the subnet in which to place this Replica Set.
+         * @param subnetId The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -262,7 +262,7 @@ public final class ReplicaSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetId The ID of the subnet in which to place this Replica Set.
+         * @param subnetId The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

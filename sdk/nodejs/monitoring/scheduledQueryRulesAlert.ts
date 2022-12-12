@@ -88,7 +88,7 @@ export class ScheduledQueryRulesAlert extends pulumi.CustomResource {
     public readonly query!: pulumi.Output<string>;
     public readonly queryType!: pulumi.Output<string | undefined>;
     /**
-     * The name of the resource group in which to create the scheduled query rule instance.
+     * The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -235,7 +235,7 @@ export interface ScheduledQueryRulesAlertState {
     query?: pulumi.Input<string>;
     queryType?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the scheduled query rule instance.
+     * The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -307,7 +307,7 @@ export interface ScheduledQueryRulesAlertArgs {
     query: pulumi.Input<string>;
     queryType?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the scheduled query rule instance.
+     * The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

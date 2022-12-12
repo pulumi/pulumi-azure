@@ -175,9 +175,9 @@ class BastionHostIpConfigurationArgs:
                  public_ip_address_id: pulumi.Input[str],
                  subnet_id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] name: The name of the IP configuration.
-        :param pulumi.Input[str] public_ip_address_id: Reference to a Public IP Address to associate with this Bastion Host.
-        :param pulumi.Input[str] subnet_id: Reference to a subnet in which this Bastion Host has been created.
+        :param pulumi.Input[str] name: The name of the IP configuration. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] public_ip_address_id: Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
@@ -187,7 +187,7 @@ class BastionHostIpConfigurationArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the IP configuration.
+        The name of the IP configuration. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -199,7 +199,7 @@ class BastionHostIpConfigurationArgs:
     @pulumi.getter(name="publicIpAddressId")
     def public_ip_address_id(self) -> pulumi.Input[str]:
         """
-        Reference to a Public IP Address to associate with this Bastion Host.
+        Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "public_ip_address_id")
 
@@ -211,7 +211,7 @@ class BastionHostIpConfigurationArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[str]:
         """
-        Reference to a subnet in which this Bastion Host has been created.
+        Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -1337,7 +1337,7 @@ class LinuxVirtualMachineScaleSetDataDiskArgs:
         :param pulumi.Input[int] lun: The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
         :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
         :param pulumi.Input[str] create_option: The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
-        :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
+        :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Data Disk.
         :param pulumi.Input[bool] write_accelerator_enabled: Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
         """
@@ -1422,7 +1422,7 @@ class LinuxVirtualMachineScaleSetDataDiskArgs:
     @pulumi.getter(name="diskEncryptionSetId")
     def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
+        The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
@@ -2242,9 +2242,9 @@ class LinuxVirtualMachineScaleSetOsDiskArgs:
                  write_accelerator_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
-        :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
+        :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
         :param pulumi.Input['LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs'] diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
+        :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
         :param pulumi.Input[str] secure_vm_disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] security_encryption_type: Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
@@ -2281,7 +2281,7 @@ class LinuxVirtualMachineScaleSetOsDiskArgs:
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> pulumi.Input[str]:
         """
-        The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
+        The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -2305,7 +2305,7 @@ class LinuxVirtualMachineScaleSetOsDiskArgs:
     @pulumi.getter(name="diskEncryptionSetId")
     def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
+        The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
@@ -4617,7 +4617,7 @@ class ScaleSetExtensionArgs:
                  provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  settings: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: Specifies the name of the extension.
+        :param pulumi.Input[str] name: Specifies the name of the extension. Changing this forces a new resource to be created.
         :param pulumi.Input[str] publisher: The publisher of the extension, available publishers can be found by using the Azure CLI.
         :param pulumi.Input[str] type: The type of extension, available types for a publisher can be found using the Azure CLI.
         :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
@@ -4643,7 +4643,7 @@ class ScaleSetExtensionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name of the extension.
+        Specifies the name of the extension. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -4798,7 +4798,7 @@ class ScaleSetNetworkProfileArgs:
                  network_security_group_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileIpConfigurationArgs']]] ip_configurations: An ip_configuration block as documented below.
-        :param pulumi.Input[str] name: Specifies the name of the network interface configuration.
+        :param pulumi.Input[str] name: Specifies the name of the network interface configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] primary: Indicates whether network interfaces created from the network interface configuration will be the primary NIC of the VM.
         :param pulumi.Input[bool] accelerated_networking: Specifies whether to enable accelerated networking or not. Defaults to `false`.
         :param pulumi.Input['ScaleSetNetworkProfileDnsSettingsArgs'] dns_settings: A dns_settings block as documented below.
@@ -4833,7 +4833,7 @@ class ScaleSetNetworkProfileArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name of the network interface configuration.
+        Specifies the name of the network interface configuration. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -4936,7 +4936,7 @@ class ScaleSetNetworkProfileIpConfigurationArgs:
                  load_balancer_inbound_nat_rules_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  public_ip_address_configuration: Optional[pulumi.Input['ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs']] = None):
         """
-        :param pulumi.Input[str] name: Specifies name of the IP configuration.
+        :param pulumi.Input[str] name: Specifies name of the IP configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] primary: Specifies if this ip_configuration is the primary one.
         :param pulumi.Input[str] subnet_id: Specifies the identifier of the subnet.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] application_gateway_backend_address_pool_ids: Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets can use the same application gateway.
@@ -4963,7 +4963,7 @@ class ScaleSetNetworkProfileIpConfigurationArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies name of the IP configuration.
+        Specifies name of the IP configuration. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -5065,7 +5065,7 @@ class ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs:
         """
         :param pulumi.Input[str] domain_name_label: The domain name label for the DNS settings.
         :param pulumi.Input[int] idle_timeout: The idle timeout in minutes. This value must be between 4 and 30.
-        :param pulumi.Input[str] name: The name of the public IP address configuration
+        :param pulumi.Input[str] name: The name of the public IP address configuration Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "domain_name_label", domain_name_label)
         pulumi.set(__self__, "idle_timeout", idle_timeout)
@@ -5099,7 +5099,7 @@ class ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the public IP address configuration
+        The name of the public IP address configuration Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -5503,7 +5503,7 @@ class ScaleSetPlanArgs:
                  product: pulumi.Input[str],
                  publisher: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] name: Specifies the name of the image from the marketplace.
+        :param pulumi.Input[str] name: Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] product: Specifies the product of the image from the marketplace.
         :param pulumi.Input[str] publisher: Specifies the publisher of the image.
         """
@@ -5515,7 +5515,7 @@ class ScaleSetPlanArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name of the image from the marketplace.
+        Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -5627,7 +5627,7 @@ class ScaleSetSkuArgs:
                  tier: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] capacity: Specifies the number of virtual machines in the scale set.
-        :param pulumi.Input[str] name: Specifies the size of virtual machines in a scale set.
+        :param pulumi.Input[str] name: Specifies the size of virtual machines in a scale set. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tier: Specifies the tier of virtual machines in a scale set. Possible values, `standard` or `basic`.
         """
         pulumi.set(__self__, "capacity", capacity)
@@ -5651,7 +5651,7 @@ class ScaleSetSkuArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the size of virtual machines in a scale set.
+        Specifies the size of virtual machines in a scale set. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -5863,7 +5863,7 @@ class ScaleSetStorageProfileOsDiskArgs:
                Updating the osDisk image causes the existing disk to be deleted and a new one created with the new image. If the VM scale set is in Manual upgrade mode then the virtual machines are not updated until they have manualUpgrade applied to them.
                When setting this field `os_type` needs to be specified. Cannot be used when `vhd_containers`, `managed_disk_type` or `storage_profile_image_reference` are specified.
         :param pulumi.Input[str] managed_disk_type: Specifies the type of managed disk to create. Value you must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`. Cannot be used when `vhd_containers` or `image` is specified.
-        :param pulumi.Input[str] name: Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set).
+        :param pulumi.Input[str] name: Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set). Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_type: Specifies the operating system Type, valid values are windows, Linux.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vhd_containers: Specifies the VHD URI. Cannot be used when `image` or `managed_disk_type` is specified.
         """
@@ -5935,7 +5935,7 @@ class ScaleSetStorageProfileOsDiskArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set).
+        Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -6082,7 +6082,7 @@ class SharedImageVersionTargetRegionArgs:
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  storage_account_type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: The Azure Region in which this Image Version should exist.
+        :param pulumi.Input[str] name: The Azure Region in which this Image Version should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[int] regional_replica_count: The number of replicas of the Image Version to be created per region.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set to encrypt the Image Version in the target region. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_type: The storage account type for the image version. Possible values are `Standard_LRS`, `Premium_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
@@ -6098,7 +6098,7 @@ class SharedImageVersionTargetRegionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The Azure Region in which this Image Version should exist.
+        The Azure Region in which this Image Version should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -6276,7 +6276,7 @@ class VirtualMachineAdditionalCapabilitiesArgs:
     def __init__(__self__, *,
                  ultra_ssd_enabled: pulumi.Input[bool]):
         """
-        :param pulumi.Input[bool] ultra_ssd_enabled: Should Ultra SSD disk be enabled for this Virtual Machine?
+        :param pulumi.Input[bool] ultra_ssd_enabled: Should Ultra SSD disk be enabled for this Virtual Machine? Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "ultra_ssd_enabled", ultra_ssd_enabled)
 
@@ -6284,7 +6284,7 @@ class VirtualMachineAdditionalCapabilitiesArgs:
     @pulumi.getter(name="ultraSsdEnabled")
     def ultra_ssd_enabled(self) -> pulumi.Input[bool]:
         """
-        Should Ultra SSD disk be enabled for this Virtual Machine?
+        Should Ultra SSD disk be enabled for this Virtual Machine? Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ultra_ssd_enabled")
 
@@ -6393,9 +6393,9 @@ class VirtualMachineOsProfileArgs:
                  custom_data: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] admin_username: Specifies the name of the local administrator account.
-        :param pulumi.Input[str] computer_name: Specifies the name of the Virtual Machine.
+        :param pulumi.Input[str] computer_name: Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] admin_password: The password associated with the local administrator account.
-        :param pulumi.Input[str] custom_data: Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
+        :param pulumi.Input[str] custom_data: Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "admin_username", admin_username)
         pulumi.set(__self__, "computer_name", computer_name)
@@ -6420,7 +6420,7 @@ class VirtualMachineOsProfileArgs:
     @pulumi.getter(name="computerName")
     def computer_name(self) -> pulumi.Input[str]:
         """
-        Specifies the name of the Virtual Machine.
+        Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "computer_name")
 
@@ -6444,7 +6444,7 @@ class VirtualMachineOsProfileArgs:
     @pulumi.getter(name="customData")
     def custom_data(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
+        Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "custom_data")
 
@@ -6616,7 +6616,7 @@ class VirtualMachineOsProfileWindowsConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs']]] additional_unattend_configs: An `additional_unattend_config` block as defined below.
         :param pulumi.Input[bool] enable_automatic_upgrades: Are automatic updates enabled on this Virtual Machine? Defaults to `false.`
         :param pulumi.Input[bool] provision_vm_agent: Should the Azure Virtual Machine Guest Agent be installed on this Virtual Machine? Defaults to `false`.
-        :param pulumi.Input[str] timezone: Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+        :param pulumi.Input[str] timezone: Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileWindowsConfigWinrmArgs']]] winrms: One or more `winrm` blocks as defined below.
         """
         if additional_unattend_configs is not None:
@@ -6670,7 +6670,7 @@ class VirtualMachineOsProfileWindowsConfigArgs:
     @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+        Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "timezone")
 
@@ -6905,7 +6905,7 @@ class VirtualMachineStorageDataDiskArgs:
         :param pulumi.Input[int] disk_size_gb: Specifies the size of the data disk in gigabytes.
         :param pulumi.Input[str] managed_disk_id: Specifies the ID of an Existing Managed Disk which should be attached to this Virtual Machine. When this field is set `create_option` must be set to `Attach`.
         :param pulumi.Input[str] managed_disk_type: Specifies the type of managed disk to create. Possible values are either `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` or `UltraSSD_LRS`.
-        :param pulumi.Input[str] vhd_uri: Specifies the URI of the VHD file backing this Unmanaged Data Disk. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] vhd_uri: Specifies the URI of the VHD file backing this Unmanaged Data Disk.
         :param pulumi.Input[bool] write_accelerator_enabled: Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
         """
         pulumi.set(__self__, "create_option", create_option)
@@ -7012,7 +7012,7 @@ class VirtualMachineStorageDataDiskArgs:
     @pulumi.getter(name="vhdUri")
     def vhd_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the URI of the VHD file backing this Unmanaged Data Disk. Changing this forces a new resource to be created.
+        Specifies the URI of the VHD file backing this Unmanaged Data Disk.
         """
         return pulumi.get(self, "vhd_uri")
 
@@ -7139,7 +7139,7 @@ class VirtualMachineStorageOsDiskArgs:
         :param pulumi.Input[str] caching: Specifies the caching requirements for the OS Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
         :param pulumi.Input[int] disk_size_gb: Specifies the size of the OS Disk in gigabytes.
         :param pulumi.Input[str] image_uri: Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `os_type` field must be set.
-        :param pulumi.Input[str] managed_disk_id: Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `create_option` must be set to `Attach`.
+        :param pulumi.Input[str] managed_disk_id: Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `create_option` must be set to `Attach`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_disk_type: Specifies the type of Managed Disk which should be created. Possible values are `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
         :param pulumi.Input[str] os_type: Specifies the Operating System on the OS Disk. Possible values are `Linux` and `Windows`.
         :param pulumi.Input[str] vhd_uri: Specifies the URI of the VHD file backing this Unmanaged OS Disk. Changing this forces a new resource to be created.
@@ -7228,7 +7228,7 @@ class VirtualMachineStorageOsDiskArgs:
     @pulumi.getter(name="managedDiskId")
     def managed_disk_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `create_option` must be set to `Attach`.
+        Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `create_option` must be set to `Attach`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "managed_disk_id")
 
@@ -7924,7 +7924,7 @@ class WindowsVirtualMachineScaleSetDataDiskArgs:
         :param pulumi.Input[int] lun: The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
         :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
         :param pulumi.Input[str] create_option: The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
-        :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
+        :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Data Disk.
         :param pulumi.Input[bool] write_accelerator_enabled: Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
         """
@@ -8009,7 +8009,7 @@ class WindowsVirtualMachineScaleSetDataDiskArgs:
     @pulumi.getter(name="diskEncryptionSetId")
     def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
+        The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
@@ -8829,9 +8829,9 @@ class WindowsVirtualMachineScaleSetOsDiskArgs:
                  write_accelerator_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
-        :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
+        :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
         :param pulumi.Input['WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs'] diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
+        :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
         :param pulumi.Input[str] secure_vm_disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] security_encryption_type: Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
@@ -8868,7 +8868,7 @@ class WindowsVirtualMachineScaleSetOsDiskArgs:
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> pulumi.Input[str]:
         """
-        The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
+        The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -8892,7 +8892,7 @@ class WindowsVirtualMachineScaleSetOsDiskArgs:
     @pulumi.getter(name="diskEncryptionSetId")
     def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
+        The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
@@ -9439,8 +9439,8 @@ class WindowsVirtualMachineScaleSetWinrmListenerArgs:
                  protocol: pulumi.Input[str],
                  certificate_url: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] protocol: The Protocol of the WinRM Listener. Possible values are `Http` and `Https`.
-        :param pulumi.Input[str] certificate_url: The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
+        :param pulumi.Input[str] protocol: The Protocol of the WinRM Listener. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] certificate_url: The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "protocol", protocol)
         if certificate_url is not None:
@@ -9450,7 +9450,7 @@ class WindowsVirtualMachineScaleSetWinrmListenerArgs:
     @pulumi.getter
     def protocol(self) -> pulumi.Input[str]:
         """
-        The Protocol of the WinRM Listener. Possible values are `Http` and `Https`.
+        The Protocol of the WinRM Listener. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "protocol")
 
@@ -9462,7 +9462,7 @@ class WindowsVirtualMachineScaleSetWinrmListenerArgs:
     @pulumi.getter(name="certificateUrl")
     def certificate_url(self) -> Optional[pulumi.Input[str]]:
         """
-        The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
+        The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "certificate_url")
 
@@ -9656,7 +9656,7 @@ class WindowsVirtualMachineWinrmListenerArgs:
                  protocol: pulumi.Input[str],
                  certificate_url: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] certificate_url: The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
+        :param pulumi.Input[str] certificate_url: The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "protocol", protocol)
         if certificate_url is not None:
@@ -9675,7 +9675,7 @@ class WindowsVirtualMachineWinrmListenerArgs:
     @pulumi.getter(name="certificateUrl")
     def certificate_url(self) -> Optional[pulumi.Input[str]]:
         """
-        The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
+        The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "certificate_url")
 

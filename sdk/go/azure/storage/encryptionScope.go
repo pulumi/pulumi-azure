@@ -73,7 +73,7 @@ import (
 type EncryptionScope struct {
 	pulumi.CustomResourceState
 
-	// Is a secondary layer of encryption with Platform Managed Keys for data applied?
+	// Is a secondary layer of encryption with Platform Managed Keys for data applied? Changing this forces a new resource to be created.
 	InfrastructureEncryptionRequired pulumi.BoolPtrOutput `pulumi:"infrastructureEncryptionRequired"`
 	// The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`.
 	KeyVaultKeyId pulumi.StringPtrOutput `pulumi:"keyVaultKeyId"`
@@ -120,7 +120,7 @@ func GetEncryptionScope(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EncryptionScope resources.
 type encryptionScopeState struct {
-	// Is a secondary layer of encryption with Platform Managed Keys for data applied?
+	// Is a secondary layer of encryption with Platform Managed Keys for data applied? Changing this forces a new resource to be created.
 	InfrastructureEncryptionRequired *bool `pulumi:"infrastructureEncryptionRequired"`
 	// The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
@@ -133,7 +133,7 @@ type encryptionScopeState struct {
 }
 
 type EncryptionScopeState struct {
-	// Is a secondary layer of encryption with Platform Managed Keys for data applied?
+	// Is a secondary layer of encryption with Platform Managed Keys for data applied? Changing this forces a new resource to be created.
 	InfrastructureEncryptionRequired pulumi.BoolPtrInput
 	// The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`.
 	KeyVaultKeyId pulumi.StringPtrInput
@@ -150,7 +150,7 @@ func (EncryptionScopeState) ElementType() reflect.Type {
 }
 
 type encryptionScopeArgs struct {
-	// Is a secondary layer of encryption with Platform Managed Keys for data applied?
+	// Is a secondary layer of encryption with Platform Managed Keys for data applied? Changing this forces a new resource to be created.
 	InfrastructureEncryptionRequired *bool `pulumi:"infrastructureEncryptionRequired"`
 	// The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
@@ -164,7 +164,7 @@ type encryptionScopeArgs struct {
 
 // The set of arguments for constructing a EncryptionScope resource.
 type EncryptionScopeArgs struct {
-	// Is a secondary layer of encryption with Platform Managed Keys for data applied?
+	// Is a secondary layer of encryption with Platform Managed Keys for data applied? Changing this forces a new resource to be created.
 	InfrastructureEncryptionRequired pulumi.BoolPtrInput
 	// The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`.
 	KeyVaultKeyId pulumi.StringPtrInput
@@ -263,7 +263,7 @@ func (o EncryptionScopeOutput) ToEncryptionScopeOutputWithContext(ctx context.Co
 	return o
 }
 
-// Is a secondary layer of encryption with Platform Managed Keys for data applied?
+// Is a secondary layer of encryption with Platform Managed Keys for data applied? Changing this forces a new resource to be created.
 func (o EncryptionScopeOutput) InfrastructureEncryptionRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EncryptionScope) pulumi.BoolPtrOutput { return v.InfrastructureEncryptionRequired }).(pulumi.BoolPtrOutput)
 }

@@ -102,7 +102,7 @@ export class OutputMssql extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+     * Password used together with username, to login to the Microsoft SQL Server.
      */
     public readonly password!: pulumi.Output<string>;
     /**
@@ -215,7 +215,7 @@ export interface OutputMssqlState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+     * Password used together with username, to login to the Microsoft SQL Server.
      */
     password?: pulumi.Input<string>;
     /**
@@ -265,7 +265,7 @@ export interface OutputMssqlArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+     * Password used together with username, to login to the Microsoft SQL Server.
      */
     password: pulumi.Input<string>;
     /**

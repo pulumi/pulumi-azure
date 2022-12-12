@@ -205,14 +205,14 @@ public class Factory extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.purviewId);
     }
     /**
-     * The name of the resource group in which to create the Data Factory.
+     * The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the Data Factory.
+     * @return The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {

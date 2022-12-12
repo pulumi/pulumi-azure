@@ -90,13 +90,13 @@ namespace Pulumi.Azure.Iot
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment.
+        /// The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified.
+        /// Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.Iot
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
+        /// Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
         /// </summary>
         [Output("warmStoreDataRetentionTime")]
         public Output<string?> WarmStoreDataRetentionTime { get; private set; } = null!;
@@ -190,13 +190,13 @@ namespace Pulumi.Azure.Iot
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment.
+        /// The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified.
+        /// Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created.
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
@@ -220,7 +220,7 @@ namespace Pulumi.Azure.Iot
         }
 
         /// <summary>
-        /// Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
+        /// Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
         /// </summary>
         [Input("warmStoreDataRetentionTime")]
         public Input<string>? WarmStoreDataRetentionTime { get; set; }
@@ -264,13 +264,13 @@ namespace Pulumi.Azure.Iot
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment.
+        /// The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified.
+        /// Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
@@ -294,7 +294,7 @@ namespace Pulumi.Azure.Iot
         }
 
         /// <summary>
-        /// Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
+        /// Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
         /// </summary>
         [Input("warmStoreDataRetentionTime")]
         public Input<string>? WarmStoreDataRetentionTime { get; set; }

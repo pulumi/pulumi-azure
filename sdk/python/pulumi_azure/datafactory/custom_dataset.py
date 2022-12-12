@@ -31,7 +31,7 @@ class CustomDatasetArgs:
         The set of arguments for constructing a CustomDataset resource.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
         :param pulumi.Input['CustomDatasetLinkedServiceArgs'] linked_service: A `linked_service` block as defined below.
-        :param pulumi.Input[str] type: The type of dataset that will be associated with Data Factory.
+        :param pulumi.Input[str] type: The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type_properties_json: A JSON object that contains the properties of the Data Factory Dataset.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
@@ -88,7 +88,7 @@ class CustomDatasetArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of dataset that will be associated with Data Factory.
+        The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
@@ -218,7 +218,7 @@ class _CustomDatasetState:
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
         :param pulumi.Input[str] schema_json: A JSON object that contains the schema of the Data Factory Dataset.
-        :param pulumi.Input[str] type: The type of dataset that will be associated with Data Factory.
+        :param pulumi.Input[str] type: The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type_properties_json: A JSON object that contains the properties of the Data Factory Dataset.
         """
         if additional_properties is not None:
@@ -356,7 +356,7 @@ class _CustomDatasetState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of dataset that will be associated with Data Factory.
+        The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
@@ -501,7 +501,7 @@ class CustomDataset(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
         :param pulumi.Input[str] schema_json: A JSON object that contains the schema of the Data Factory Dataset.
-        :param pulumi.Input[str] type: The type of dataset that will be associated with Data Factory.
+        :param pulumi.Input[str] type: The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type_properties_json: A JSON object that contains the properties of the Data Factory Dataset.
         """
         ...
@@ -697,7 +697,7 @@ class CustomDataset(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
         :param pulumi.Input[str] schema_json: A JSON object that contains the schema of the Data Factory Dataset.
-        :param pulumi.Input[str] type: The type of dataset that will be associated with Data Factory.
+        :param pulumi.Input[str] type: The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type_properties_json: A JSON object that contains the properties of the Data Factory Dataset.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -793,7 +793,7 @@ class CustomDataset(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of dataset that will be associated with Data Factory.
+        The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 

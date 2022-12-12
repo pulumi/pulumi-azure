@@ -24,6 +24,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("dockerBridgeCidr")]
         public Input<string>? DockerBridgeCidr { get; set; }
 
+        /// <summary>
+        /// Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("ebpfDataPlane")]
+        public Input<string>? EbpfDataPlane { get; set; }
+
         [Input("ipVersions")]
         private InputList<string>? _ipVersions;
 
@@ -43,7 +49,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<Inputs.KubernetesClusterNetworkProfileLoadBalancerProfileGetArgs>? LoadBalancerProfile { get; set; }
 
         /// <summary>
-        /// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`.
+        /// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("loadBalancerSku")]
         public Input<string>? LoadBalancerSku { get; set; }
@@ -67,13 +73,19 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string> NetworkPlugin { get; set; } = null!;
 
         /// <summary>
+        /// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("networkPluginMode")]
+        public Input<string>? NetworkPluginMode { get; set; }
+
+        /// <summary>
         /// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("networkPolicy")]
         public Input<string>? NetworkPolicy { get; set; }
 
         /// <summary>
-        /// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`.
+        /// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("outboundType")]
         public Input<string>? OutboundType { get; set; }

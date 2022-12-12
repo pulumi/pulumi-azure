@@ -75,7 +75,7 @@ type DscConfiguration struct {
 	ContentEmbedded pulumi.StringOutput `pulumi:"contentEmbedded"`
 	// Description to go with DSC Configuration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Must be the same location as the Automation Account.
+	// Must be the same location as the Automation Account. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Verbose log option.
 	LogVerbose pulumi.BoolPtrOutput `pulumi:"logVerbose"`
@@ -132,7 +132,7 @@ type dscConfigurationState struct {
 	ContentEmbedded *string `pulumi:"contentEmbedded"`
 	// Description to go with DSC Configuration.
 	Description *string `pulumi:"description"`
-	// Must be the same location as the Automation Account.
+	// Must be the same location as the Automation Account. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Verbose log option.
 	LogVerbose *bool `pulumi:"logVerbose"`
@@ -152,7 +152,7 @@ type DscConfigurationState struct {
 	ContentEmbedded pulumi.StringPtrInput
 	// Description to go with DSC Configuration.
 	Description pulumi.StringPtrInput
-	// Must be the same location as the Automation Account.
+	// Must be the same location as the Automation Account. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Verbose log option.
 	LogVerbose pulumi.BoolPtrInput
@@ -176,7 +176,7 @@ type dscConfigurationArgs struct {
 	ContentEmbedded string `pulumi:"contentEmbedded"`
 	// Description to go with DSC Configuration.
 	Description *string `pulumi:"description"`
-	// Must be the same location as the Automation Account.
+	// Must be the same location as the Automation Account. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Verbose log option.
 	LogVerbose *bool `pulumi:"logVerbose"`
@@ -196,7 +196,7 @@ type DscConfigurationArgs struct {
 	ContentEmbedded pulumi.StringInput
 	// Description to go with DSC Configuration.
 	Description pulumi.StringPtrInput
-	// Must be the same location as the Automation Account.
+	// Must be the same location as the Automation Account. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Verbose log option.
 	LogVerbose pulumi.BoolPtrInput
@@ -310,7 +310,7 @@ func (o DscConfigurationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DscConfiguration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Must be the same location as the Automation Account.
+// Must be the same location as the Automation Account. Changing this forces a new resource to be created.
 func (o DscConfigurationOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *DscConfiguration) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }

@@ -83,16 +83,14 @@ public final class TemplateDeploymentArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The name of the resource group in which to
-     * create the template deployment.
+     * The name of the resource group in which to create the template deployment. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to
-     * create the template deployment.
+     * @return The name of the resource group in which to create the template deployment. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -234,8 +232,7 @@ public final class TemplateDeploymentArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to
-         * create the template deployment.
+         * @param resourceGroupName The name of the resource group in which to create the template deployment. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -246,8 +243,7 @@ public final class TemplateDeploymentArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to
-         * create the template deployment.
+         * @param resourceGroupName The name of the resource group in which to create the template deployment. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

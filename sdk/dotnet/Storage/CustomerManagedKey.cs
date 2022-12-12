@@ -155,7 +155,7 @@ namespace Pulumi.Azure.Storage
         public Output<string> KeyName { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Key Vault. Changing this forces a new resource to be created.
+        /// The ID of the Key Vault.
         /// </summary>
         [Output("keyVaultId")]
         public Output<string> KeyVaultId { get; private set; } = null!;
@@ -231,7 +231,7 @@ namespace Pulumi.Azure.Storage
         public Input<string> KeyName { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Key Vault. Changing this forces a new resource to be created.
+        /// The ID of the Key Vault.
         /// </summary>
         [Input("keyVaultId", required: true)]
         public Input<string> KeyVaultId { get; set; } = null!;
@@ -269,7 +269,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? KeyName { get; set; }
 
         /// <summary>
-        /// The ID of the Key Vault. Changing this forces a new resource to be created.
+        /// The ID of the Key Vault.
         /// </summary>
         [Input("keyVaultId")]
         public Input<string>? KeyVaultId { get; set; }

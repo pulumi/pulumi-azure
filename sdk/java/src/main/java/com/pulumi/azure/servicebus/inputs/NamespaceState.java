@@ -207,7 +207,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the resource group in which to
+     * The name of the resource group in which to Changing this forces a new resource to be created.
      * create the namespace.
      * 
      */
@@ -215,7 +215,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to
+     * @return The name of the resource group in which to Changing this forces a new resource to be created.
      * create the namespace.
      * 
      */
@@ -254,14 +254,14 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+     * Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="zoneRedundant")
     private @Nullable Output<Boolean> zoneRedundant;
 
     /**
-     * @return Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+     * @return Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> zoneRedundant() {
@@ -566,7 +566,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to
+         * @param resourceGroupName The name of the resource group in which to Changing this forces a new resource to be created.
          * create the namespace.
          * 
          * @return builder
@@ -578,7 +578,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to
+         * @param resourceGroupName The name of the resource group in which to Changing this forces a new resource to be created.
          * create the namespace.
          * 
          * @return builder
@@ -631,7 +631,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zoneRedundant Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+         * @param zoneRedundant Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -642,7 +642,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zoneRedundant Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+         * @param zoneRedundant Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

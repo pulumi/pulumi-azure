@@ -35,7 +35,7 @@ class ScheduleArgs:
         :param pulumi.Input[str] task_type: The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
         :param pulumi.Input[str] time_zone_id: The time zone ID (e.g. Pacific Standard time).
         :param pulumi.Input[str] location: The location where the schedule is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the dev test lab schedule. Valid value for name depends on the `task_type`. For instance for task_type `LabVmsStartupTask` the name needs to be `LabVmAutoStart`.
+        :param pulumi.Input[str] name: The name of the dev test lab schedule. Valid value for name depends on the `task_type`. For instance for task_type `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] status: The status of this schedule. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -150,7 +150,7 @@ class ScheduleArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the dev test lab schedule. Valid value for name depends on the `task_type`. For instance for task_type `LabVmsStartupTask` the name needs to be `LabVmAutoStart`.
+        The name of the dev test lab schedule. Valid value for name depends on the `task_type`. For instance for task_type `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -211,7 +211,7 @@ class _ScheduleState:
         Input properties used for looking up and filtering Schedule resources.
         :param pulumi.Input[str] lab_name: The name of the dev test lab. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the schedule is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the dev test lab schedule. Valid value for name depends on the `task_type`. For instance for task_type `LabVmsStartupTask` the name needs to be `LabVmAutoStart`.
+        :param pulumi.Input[str] name: The name of the dev test lab schedule. Valid value for name depends on the `task_type`. For instance for task_type `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] status: The status of this schedule. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -289,7 +289,7 @@ class _ScheduleState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the dev test lab schedule. Valid value for name depends on the `task_type`. For instance for task_type `LabVmsStartupTask` the name needs to be `LabVmAutoStart`.
+        The name of the dev test lab schedule. Valid value for name depends on the `task_type`. For instance for task_type `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -438,7 +438,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] lab_name: The name of the dev test lab. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the schedule is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the dev test lab schedule. Valid value for name depends on the `task_type`. For instance for task_type `LabVmsStartupTask` the name needs to be `LabVmAutoStart`.
+        :param pulumi.Input[str] name: The name of the dev test lab schedule. Valid value for name depends on the `task_type`. For instance for task_type `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] status: The status of this schedule. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -580,7 +580,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] lab_name: The name of the dev test lab. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the schedule is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the dev test lab schedule. Valid value for name depends on the `task_type`. For instance for task_type `LabVmsStartupTask` the name needs to be `LabVmAutoStart`.
+        :param pulumi.Input[str] name: The name of the dev test lab schedule. Valid value for name depends on the `task_type`. For instance for task_type `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] status: The status of this schedule. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -635,7 +635,7 @@ class Schedule(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the dev test lab schedule. Valid value for name depends on the `task_type`. For instance for task_type `LabVmsStartupTask` the name needs to be `LabVmAutoStart`.
+        The name of the dev test lab schedule. Valid value for name depends on the `task_type`. For instance for task_type `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

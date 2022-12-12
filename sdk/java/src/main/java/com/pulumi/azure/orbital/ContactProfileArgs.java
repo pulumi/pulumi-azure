@@ -65,14 +65,14 @@ public final class ContactProfileArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The location where the contact profile exists.
+     * The location where the contact profile exists. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return The location where the contact profile exists.
+     * @return The location where the contact profile exists. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> location() {
@@ -125,14 +125,14 @@ public final class ContactProfileArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
+     * ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="networkConfigurationSubnetId", required=true)
     private Output<String> networkConfigurationSubnetId;
 
     /**
-     * @return ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
+     * @return ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> networkConfigurationSubnetId() {
@@ -140,14 +140,14 @@ public final class ContactProfileArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The name of the Resource Group where the contact profile exists.
+     * The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the contact profile exists.
+     * @return The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -268,7 +268,7 @@ public final class ContactProfileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param location The location where the contact profile exists.
+         * @param location The location where the contact profile exists. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class ContactProfileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param location The location where the contact profile exists.
+         * @param location The location where the contact profile exists. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class ContactProfileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param networkConfigurationSubnetId ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
+         * @param networkConfigurationSubnetId ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class ContactProfileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param networkConfigurationSubnetId ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
+         * @param networkConfigurationSubnetId ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class ContactProfileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the contact profile exists.
+         * @param resourceGroupName The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -384,7 +384,7 @@ public final class ContactProfileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the contact profile exists.
+         * @param resourceGroupName The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

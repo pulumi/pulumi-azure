@@ -20,10 +20,10 @@ class ContainerArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Container resource.
-        :param pulumi.Input[str] storage_account_name: The name of the Storage Account where the Container should be created.
+        :param pulumi.Input[str] storage_account_name: The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] container_access_type: The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this Container. All metadata keys should be lowercase.
-        :param pulumi.Input[str] name: The name of the Container which should be created within the Storage Account.
+        :param pulumi.Input[str] name: The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "storage_account_name", storage_account_name)
         if container_access_type is not None:
@@ -37,7 +37,7 @@ class ContainerArgs:
     @pulumi.getter(name="storageAccountName")
     def storage_account_name(self) -> pulumi.Input[str]:
         """
-        The name of the Storage Account where the Container should be created.
+        The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_name")
 
@@ -73,7 +73,7 @@ class ContainerArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Container which should be created within the Storage Account.
+        The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -98,9 +98,9 @@ class _ContainerState:
         :param pulumi.Input[bool] has_immutability_policy: Is there an Immutability Policy configured on this Storage Container?
         :param pulumi.Input[bool] has_legal_hold: Is there a Legal Hold configured on this Storage Container?
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this Container. All metadata keys should be lowercase.
-        :param pulumi.Input[str] name: The name of the Container which should be created within the Storage Account.
+        :param pulumi.Input[str] name: The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_manager_id: The Resource Manager ID of this Storage Container.
-        :param pulumi.Input[str] storage_account_name: The name of the Storage Account where the Container should be created.
+        :param pulumi.Input[str] storage_account_name: The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
         """
         if container_access_type is not None:
             pulumi.set(__self__, "container_access_type", container_access_type)
@@ -169,7 +169,7 @@ class _ContainerState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Container which should be created within the Storage Account.
+        The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -193,7 +193,7 @@ class _ContainerState:
     @pulumi.getter(name="storageAccountName")
     def storage_account_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Storage Account where the Container should be created.
+        The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_name")
 
@@ -247,8 +247,8 @@ class Container(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_access_type: The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this Container. All metadata keys should be lowercase.
-        :param pulumi.Input[str] name: The name of the Container which should be created within the Storage Account.
-        :param pulumi.Input[str] storage_account_name: The name of the Storage Account where the Container should be created.
+        :param pulumi.Input[str] name: The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_name: The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -352,9 +352,9 @@ class Container(pulumi.CustomResource):
         :param pulumi.Input[bool] has_immutability_policy: Is there an Immutability Policy configured on this Storage Container?
         :param pulumi.Input[bool] has_legal_hold: Is there a Legal Hold configured on this Storage Container?
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this Container. All metadata keys should be lowercase.
-        :param pulumi.Input[str] name: The name of the Container which should be created within the Storage Account.
+        :param pulumi.Input[str] name: The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_manager_id: The Resource Manager ID of this Storage Container.
-        :param pulumi.Input[str] storage_account_name: The name of the Storage Account where the Container should be created.
+        :param pulumi.Input[str] storage_account_name: The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -405,7 +405,7 @@ class Container(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the Container which should be created within the Storage Account.
+        The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -421,7 +421,7 @@ class Container(pulumi.CustomResource):
     @pulumi.getter(name="storageAccountName")
     def storage_account_name(self) -> pulumi.Output[str]:
         """
-        The name of the Storage Account where the Container should be created.
+        The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_name")
 

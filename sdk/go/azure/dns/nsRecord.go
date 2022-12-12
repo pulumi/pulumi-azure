@@ -73,7 +73,7 @@ type NsRecord struct {
 
 	// The FQDN of the DNS NS Record.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
-	// The name of the DNS NS Record.
+	// The name of the DNS NS Record. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of values that make up the NS record.
 	Records pulumi.StringArrayOutput `pulumi:"records"`
@@ -130,7 +130,7 @@ func GetNsRecord(ctx *pulumi.Context,
 type nsRecordState struct {
 	// The FQDN of the DNS NS Record.
 	Fqdn *string `pulumi:"fqdn"`
-	// The name of the DNS NS Record.
+	// The name of the DNS NS Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A list of values that make up the NS record.
 	Records []string `pulumi:"records"`
@@ -147,7 +147,7 @@ type nsRecordState struct {
 type NsRecordState struct {
 	// The FQDN of the DNS NS Record.
 	Fqdn pulumi.StringPtrInput
-	// The name of the DNS NS Record.
+	// The name of the DNS NS Record. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A list of values that make up the NS record.
 	Records pulumi.StringArrayInput
@@ -166,7 +166,7 @@ func (NsRecordState) ElementType() reflect.Type {
 }
 
 type nsRecordArgs struct {
-	// The name of the DNS NS Record.
+	// The name of the DNS NS Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A list of values that make up the NS record.
 	Records []string `pulumi:"records"`
@@ -182,7 +182,7 @@ type nsRecordArgs struct {
 
 // The set of arguments for constructing a NsRecord resource.
 type NsRecordArgs struct {
-	// The name of the DNS NS Record.
+	// The name of the DNS NS Record. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A list of values that make up the NS record.
 	Records pulumi.StringArrayInput
@@ -288,7 +288,7 @@ func (o NsRecordOutput) Fqdn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NsRecord) pulumi.StringOutput { return v.Fqdn }).(pulumi.StringOutput)
 }
 
-// The name of the DNS NS Record.
+// The name of the DNS NS Record. Changing this forces a new resource to be created.
 func (o NsRecordOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NsRecord) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

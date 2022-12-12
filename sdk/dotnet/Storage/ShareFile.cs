@@ -109,7 +109,7 @@ namespace Pulumi.Azure.Storage
         public Output<string?> Path { get; private set; } = null!;
 
         /// <summary>
-        /// An absolute path to a file on the local system.
+        /// An absolute path to a file on the local system. Changing this forces a new resource to be created.
         /// </summary>
         [Output("source")]
         public Output<string?> Source { get; private set; } = null!;
@@ -215,7 +215,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// An absolute path to a file on the local system.
+        /// An absolute path to a file on the local system. Changing this forces a new resource to be created.
         /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }
@@ -289,7 +289,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// An absolute path to a file on the local system.
+        /// An absolute path to a file on the local system. Changing this forces a new resource to be created.
         /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }

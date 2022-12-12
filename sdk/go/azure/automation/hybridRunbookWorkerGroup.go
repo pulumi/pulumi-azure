@@ -56,7 +56,7 @@ type HybridRunbookWorkerGroup struct {
 	AutomationAccountName pulumi.StringOutput `pulumi:"automationAccountName"`
 	// The name of resource type `automation.Credential` to use for hybrid worker.
 	CredentialName pulumi.StringPtrOutput `pulumi:"credentialName"`
-	// The name which should be used for this Automation Account Runbook Worker Group.
+	// The name which should be used for this Automation Account Runbook Worker Group. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -101,7 +101,7 @@ type hybridRunbookWorkerGroupState struct {
 	AutomationAccountName *string `pulumi:"automationAccountName"`
 	// The name of resource type `automation.Credential` to use for hybrid worker.
 	CredentialName *string `pulumi:"credentialName"`
-	// The name which should be used for this Automation Account Runbook Worker Group.
+	// The name which should be used for this Automation Account Runbook Worker Group. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -112,7 +112,7 @@ type HybridRunbookWorkerGroupState struct {
 	AutomationAccountName pulumi.StringPtrInput
 	// The name of resource type `automation.Credential` to use for hybrid worker.
 	CredentialName pulumi.StringPtrInput
-	// The name which should be used for this Automation Account Runbook Worker Group.
+	// The name which should be used for this Automation Account Runbook Worker Group. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -127,7 +127,7 @@ type hybridRunbookWorkerGroupArgs struct {
 	AutomationAccountName string `pulumi:"automationAccountName"`
 	// The name of resource type `automation.Credential` to use for hybrid worker.
 	CredentialName *string `pulumi:"credentialName"`
-	// The name which should be used for this Automation Account Runbook Worker Group.
+	// The name which should be used for this Automation Account Runbook Worker Group. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -139,7 +139,7 @@ type HybridRunbookWorkerGroupArgs struct {
 	AutomationAccountName pulumi.StringInput
 	// The name of resource type `automation.Credential` to use for hybrid worker.
 	CredentialName pulumi.StringPtrInput
-	// The name which should be used for this Automation Account Runbook Worker Group.
+	// The name which should be used for this Automation Account Runbook Worker Group. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.
 	ResourceGroupName pulumi.StringInput
@@ -242,7 +242,7 @@ func (o HybridRunbookWorkerGroupOutput) CredentialName() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v *HybridRunbookWorkerGroup) pulumi.StringPtrOutput { return v.CredentialName }).(pulumi.StringPtrOutput)
 }
 
-// The name which should be used for this Automation Account Runbook Worker Group.
+// The name which should be used for this Automation Account Runbook Worker Group. Changing this forces a new resource to be created.
 func (o HybridRunbookWorkerGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *HybridRunbookWorkerGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

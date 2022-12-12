@@ -112,7 +112,7 @@ namespace Pulumi.Azure.Network
         public Output<string?> SkuName { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -203,7 +203,7 @@ namespace Pulumi.Azure.Network
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        /// A mapping of tags to assign to the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -271,7 +271,7 @@ namespace Pulumi.Azure.Network
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        /// A mapping of tags to assign to the resource.
         /// </summary>
         public InputMap<string> Tags
         {

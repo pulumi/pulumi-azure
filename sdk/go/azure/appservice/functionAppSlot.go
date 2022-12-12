@@ -93,7 +93,7 @@ import (
 type FunctionAppSlot struct {
 	pulumi.CustomResourceState
 
-	// The ID of the App Service Plan within which to create this Function App Slot.
+	// The ID of the App Service Plan within which to create this Function App Slot. Changing this forces a new resource to be created.
 	AppServicePlanId pulumi.StringOutput `pulumi:"appServicePlanId"`
 	// A key-value pair of App Settings.
 	AppSettings pulumi.StringMapOutput `pulumi:"appSettings"`
@@ -121,13 +121,13 @@ type FunctionAppSlot struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Function App. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A string indicating the Operating System type for this function app. The only possible value is `linux`.
+	// A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
 	OsType pulumi.StringPtrOutput `pulumi:"osType"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses pulumi.StringOutput `pulumi:"outboundIpAddresses"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses pulumi.StringOutput `pulumi:"possibleOutboundIpAddresses"`
-	// The name of the resource group in which to create the Function App Slot.
+	// The name of the resource group in which to create the Function App Slot. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `siteConfig` object as defined below.
 	SiteConfig FunctionAppSlotSiteConfigOutput `pulumi:"siteConfig"`
@@ -135,7 +135,7 @@ type FunctionAppSlot struct {
 	SiteCredentials FunctionAppSlotSiteCredentialArrayOutput `pulumi:"siteCredentials"`
 	// The access key which will be used to access the backend storage account for the Function App.
 	StorageAccountAccessKey pulumi.StringOutput `pulumi:"storageAccountAccessKey"`
-	// The backend storage account name which will be used by the Function App (such as the dashboard, logs).
+	// The backend storage account name which will be used by the Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -187,7 +187,7 @@ func GetFunctionAppSlot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FunctionAppSlot resources.
 type functionAppSlotState struct {
-	// The ID of the App Service Plan within which to create this Function App Slot.
+	// The ID of the App Service Plan within which to create this Function App Slot. Changing this forces a new resource to be created.
 	AppServicePlanId *string `pulumi:"appServicePlanId"`
 	// A key-value pair of App Settings.
 	AppSettings map[string]string `pulumi:"appSettings"`
@@ -215,13 +215,13 @@ type functionAppSlotState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Function App. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A string indicating the Operating System type for this function app. The only possible value is `linux`.
+	// A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
 	OsType *string `pulumi:"osType"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses *string `pulumi:"outboundIpAddresses"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses *string `pulumi:"possibleOutboundIpAddresses"`
-	// The name of the resource group in which to create the Function App Slot.
+	// The name of the resource group in which to create the Function App Slot. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `siteConfig` object as defined below.
 	SiteConfig *FunctionAppSlotSiteConfig `pulumi:"siteConfig"`
@@ -229,7 +229,7 @@ type functionAppSlotState struct {
 	SiteCredentials []FunctionAppSlotSiteCredential `pulumi:"siteCredentials"`
 	// The access key which will be used to access the backend storage account for the Function App.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
-	// The backend storage account name which will be used by the Function App (such as the dashboard, logs).
+	// The backend storage account name which will be used by the Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
 	StorageAccountName *string `pulumi:"storageAccountName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -238,7 +238,7 @@ type functionAppSlotState struct {
 }
 
 type FunctionAppSlotState struct {
-	// The ID of the App Service Plan within which to create this Function App Slot.
+	// The ID of the App Service Plan within which to create this Function App Slot. Changing this forces a new resource to be created.
 	AppServicePlanId pulumi.StringPtrInput
 	// A key-value pair of App Settings.
 	AppSettings pulumi.StringMapInput
@@ -266,13 +266,13 @@ type FunctionAppSlotState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Function App. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A string indicating the Operating System type for this function app. The only possible value is `linux`.
+	// A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
 	OsType pulumi.StringPtrInput
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses pulumi.StringPtrInput
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses pulumi.StringPtrInput
-	// The name of the resource group in which to create the Function App Slot.
+	// The name of the resource group in which to create the Function App Slot. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `siteConfig` object as defined below.
 	SiteConfig FunctionAppSlotSiteConfigPtrInput
@@ -280,7 +280,7 @@ type FunctionAppSlotState struct {
 	SiteCredentials FunctionAppSlotSiteCredentialArrayInput
 	// The access key which will be used to access the backend storage account for the Function App.
 	StorageAccountAccessKey pulumi.StringPtrInput
-	// The backend storage account name which will be used by the Function App (such as the dashboard, logs).
+	// The backend storage account name which will be used by the Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -293,7 +293,7 @@ func (FunctionAppSlotState) ElementType() reflect.Type {
 }
 
 type functionAppSlotArgs struct {
-	// The ID of the App Service Plan within which to create this Function App Slot.
+	// The ID of the App Service Plan within which to create this Function App Slot. Changing this forces a new resource to be created.
 	AppServicePlanId string `pulumi:"appServicePlanId"`
 	// A key-value pair of App Settings.
 	AppSettings map[string]string `pulumi:"appSettings"`
@@ -317,15 +317,15 @@ type functionAppSlotArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Function App. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A string indicating the Operating System type for this function app. The only possible value is `linux`.
+	// A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
 	OsType *string `pulumi:"osType"`
-	// The name of the resource group in which to create the Function App Slot.
+	// The name of the resource group in which to create the Function App Slot. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `siteConfig` object as defined below.
 	SiteConfig *FunctionAppSlotSiteConfig `pulumi:"siteConfig"`
 	// The access key which will be used to access the backend storage account for the Function App.
 	StorageAccountAccessKey string `pulumi:"storageAccountAccessKey"`
-	// The backend storage account name which will be used by the Function App (such as the dashboard, logs).
+	// The backend storage account name which will be used by the Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
 	StorageAccountName string `pulumi:"storageAccountName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -335,7 +335,7 @@ type functionAppSlotArgs struct {
 
 // The set of arguments for constructing a FunctionAppSlot resource.
 type FunctionAppSlotArgs struct {
-	// The ID of the App Service Plan within which to create this Function App Slot.
+	// The ID of the App Service Plan within which to create this Function App Slot. Changing this forces a new resource to be created.
 	AppServicePlanId pulumi.StringInput
 	// A key-value pair of App Settings.
 	AppSettings pulumi.StringMapInput
@@ -359,15 +359,15 @@ type FunctionAppSlotArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Function App. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A string indicating the Operating System type for this function app. The only possible value is `linux`.
+	// A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
 	OsType pulumi.StringPtrInput
-	// The name of the resource group in which to create the Function App Slot.
+	// The name of the resource group in which to create the Function App Slot. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `siteConfig` object as defined below.
 	SiteConfig FunctionAppSlotSiteConfigPtrInput
 	// The access key which will be used to access the backend storage account for the Function App.
 	StorageAccountAccessKey pulumi.StringInput
-	// The backend storage account name which will be used by the Function App (such as the dashboard, logs).
+	// The backend storage account name which will be used by the Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -462,7 +462,7 @@ func (o FunctionAppSlotOutput) ToFunctionAppSlotOutputWithContext(ctx context.Co
 	return o
 }
 
-// The ID of the App Service Plan within which to create this Function App Slot.
+// The ID of the App Service Plan within which to create this Function App Slot. Changing this forces a new resource to be created.
 func (o FunctionAppSlotOutput) AppServicePlanId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionAppSlot) pulumi.StringOutput { return v.AppServicePlanId }).(pulumi.StringOutput)
 }
@@ -532,7 +532,7 @@ func (o FunctionAppSlotOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionAppSlot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A string indicating the Operating System type for this function app. The only possible value is `linux`.
+// A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
 func (o FunctionAppSlotOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionAppSlot) pulumi.StringPtrOutput { return v.OsType }).(pulumi.StringPtrOutput)
 }
@@ -547,7 +547,7 @@ func (o FunctionAppSlotOutput) PossibleOutboundIpAddresses() pulumi.StringOutput
 	return o.ApplyT(func(v *FunctionAppSlot) pulumi.StringOutput { return v.PossibleOutboundIpAddresses }).(pulumi.StringOutput)
 }
 
-// The name of the resource group in which to create the Function App Slot.
+// The name of the resource group in which to create the Function App Slot. Changing this forces a new resource to be created.
 func (o FunctionAppSlotOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionAppSlot) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
@@ -567,7 +567,7 @@ func (o FunctionAppSlotOutput) StorageAccountAccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionAppSlot) pulumi.StringOutput { return v.StorageAccountAccessKey }).(pulumi.StringOutput)
 }
 
-// The backend storage account name which will be used by the Function App (such as the dashboard, logs).
+// The backend storage account name which will be used by the Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
 func (o FunctionAppSlotOutput) StorageAccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionAppSlot) pulumi.StringOutput { return v.StorageAccountName }).(pulumi.StringOutput)
 }

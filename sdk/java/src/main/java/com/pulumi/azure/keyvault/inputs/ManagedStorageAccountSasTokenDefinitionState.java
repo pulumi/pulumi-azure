@@ -92,14 +92,14 @@ public final class ManagedStorageAccountSasTokenDefinitionState extends com.pulu
     }
 
     /**
-     * A mapping of tags which should be assigned to the SAS Definition.
+     * A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags which should be assigned to the SAS Definition.
+     * @return A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -257,7 +257,7 @@ public final class ManagedStorageAccountSasTokenDefinitionState extends com.pulu
         }
 
         /**
-         * @param tags A mapping of tags which should be assigned to the SAS Definition.
+         * @param tags A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class ManagedStorageAccountSasTokenDefinitionState extends com.pulu
         }
 
         /**
-         * @param tags A mapping of tags which should be assigned to the SAS Definition.
+         * @param tags A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

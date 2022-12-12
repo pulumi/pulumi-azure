@@ -144,14 +144,14 @@ public class ResolverOutboundEndpoint extends com.pulumi.resources.CustomResourc
         return this.privateDnsResolverId;
     }
     /**
-     * The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint.
+     * The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="subnetId", type=String.class, parameters={})
     private Output<String> subnetId;
 
     /**
-     * @return The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint.
+     * @return The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> subnetId() {

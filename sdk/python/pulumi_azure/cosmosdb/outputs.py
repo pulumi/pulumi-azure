@@ -404,7 +404,7 @@ class AccountGeoLocation(dict):
                  zone_redundant: Optional[bool] = None):
         """
         :param int failover_priority: The failover priority of the region. A failover priority of `0` indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists. Changing this causes the location to be re-provisioned and cannot be changed for the location with failover priority `0`.
-        :param str location: The name of the Azure region to host replicated data.
+        :param str location: The name of the Azure region to host replicated data. Changing this forces a new resource to be created.
         :param str id: The ID of the virtual network subnet.
         :param bool zone_redundant: Should zone redundancy be enabled for this region? Defaults to `false`.
         """
@@ -427,7 +427,7 @@ class AccountGeoLocation(dict):
     @pulumi.getter
     def location(self) -> str:
         """
-        The name of the Azure region to host replicated data.
+        The name of the Azure region to host replicated data. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -1269,7 +1269,7 @@ class GremlinGraphUniqueKey(dict):
     def __init__(__self__, *,
                  paths: Sequence[str]):
         """
-        :param Sequence[str] paths: A list of paths to use for this unique key.
+        :param Sequence[str] paths: A list of paths to use for this unique key. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "paths", paths)
 
@@ -1277,7 +1277,7 @@ class GremlinGraphUniqueKey(dict):
     @pulumi.getter
     def paths(self) -> Sequence[str]:
         """
-        A list of paths to use for this unique key.
+        A list of paths to use for this unique key. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "paths")
 
@@ -1722,7 +1722,7 @@ class SqlContainerUniqueKey(dict):
     def __init__(__self__, *,
                  paths: Sequence[str]):
         """
-        :param Sequence[str] paths: A list of paths to use for this unique key.
+        :param Sequence[str] paths: A list of paths to use for this unique key. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "paths", paths)
 
@@ -1730,7 +1730,7 @@ class SqlContainerUniqueKey(dict):
     @pulumi.getter
     def paths(self) -> Sequence[str]:
         """
-        A list of paths to use for this unique key.
+        A list of paths to use for this unique key. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "paths")
 

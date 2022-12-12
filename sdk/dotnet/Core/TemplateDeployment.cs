@@ -145,8 +145,7 @@ namespace Pulumi.Azure.Core
         public Output<string?> ParametersBody { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the template deployment.
+        /// The name of the resource group in which to create the template deployment. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -237,8 +236,7 @@ namespace Pulumi.Azure.Core
         public Input<string>? ParametersBody { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the template deployment.
+        /// The name of the resource group in which to create the template deployment. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -303,8 +301,7 @@ namespace Pulumi.Azure.Core
         public Input<string>? ParametersBody { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the template deployment.
+        /// The name of the resource group in which to create the template deployment. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

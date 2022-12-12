@@ -26,7 +26,7 @@ class OutputBlobArgs:
                  time_format: pulumi.Input[str],
                  authentication_mode: Optional[pulumi.Input[str]] = None,
                  batch_max_wait_time: Optional[pulumi.Input[str]] = None,
-                 batch_min_rows: Optional[pulumi.Input[float]] = None,
+                 batch_min_rows: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  storage_account_key: Optional[pulumi.Input[str]] = None):
         """
@@ -41,7 +41,7 @@ class OutputBlobArgs:
         :param pulumi.Input[str] time_format: The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead.
         :param pulumi.Input[str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         :param pulumi.Input[str] batch_max_wait_time: The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
-        :param pulumi.Input[float] batch_min_rows: The minimum number of rows per batch (must be between `0` and `10000`).
+        :param pulumi.Input[int] batch_min_rows: The minimum number of rows per batch (must be between `0` and `10000`).
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_key: The Access Key which should be used to connect to this Storage Account.
         """
@@ -186,14 +186,14 @@ class OutputBlobArgs:
 
     @property
     @pulumi.getter(name="batchMinRows")
-    def batch_min_rows(self) -> Optional[pulumi.Input[float]]:
+    def batch_min_rows(self) -> Optional[pulumi.Input[int]]:
         """
         The minimum number of rows per batch (must be between `0` and `10000`).
         """
         return pulumi.get(self, "batch_min_rows")
 
     @batch_min_rows.setter
-    def batch_min_rows(self, value: Optional[pulumi.Input[float]]):
+    def batch_min_rows(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "batch_min_rows", value)
 
     @property
@@ -226,7 +226,7 @@ class _OutputBlobState:
     def __init__(__self__, *,
                  authentication_mode: Optional[pulumi.Input[str]] = None,
                  batch_max_wait_time: Optional[pulumi.Input[str]] = None,
-                 batch_min_rows: Optional[pulumi.Input[float]] = None,
+                 batch_min_rows: Optional[pulumi.Input[int]] = None,
                  date_format: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  path_pattern: Optional[pulumi.Input[str]] = None,
@@ -241,7 +241,7 @@ class _OutputBlobState:
         Input properties used for looking up and filtering OutputBlob resources.
         :param pulumi.Input[str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         :param pulumi.Input[str] batch_max_wait_time: The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
-        :param pulumi.Input[float] batch_min_rows: The minimum number of rows per batch (must be between `0` and `10000`).
+        :param pulumi.Input[int] batch_min_rows: The minimum number of rows per batch (must be between `0` and `10000`).
         :param pulumi.Input[str] date_format: The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         :param pulumi.Input[str] path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job.
@@ -306,14 +306,14 @@ class _OutputBlobState:
 
     @property
     @pulumi.getter(name="batchMinRows")
-    def batch_min_rows(self) -> Optional[pulumi.Input[float]]:
+    def batch_min_rows(self) -> Optional[pulumi.Input[int]]:
         """
         The minimum number of rows per batch (must be between `0` and `10000`).
         """
         return pulumi.get(self, "batch_min_rows")
 
     @batch_min_rows.setter
-    def batch_min_rows(self, value: Optional[pulumi.Input[float]]):
+    def batch_min_rows(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "batch_min_rows", value)
 
     @property
@@ -444,7 +444,7 @@ class OutputBlob(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authentication_mode: Optional[pulumi.Input[str]] = None,
                  batch_max_wait_time: Optional[pulumi.Input[str]] = None,
-                 batch_min_rows: Optional[pulumi.Input[float]] = None,
+                 batch_min_rows: Optional[pulumi.Input[int]] = None,
                  date_format: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  path_pattern: Optional[pulumi.Input[str]] = None,
@@ -504,7 +504,7 @@ class OutputBlob(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         :param pulumi.Input[str] batch_max_wait_time: The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
-        :param pulumi.Input[float] batch_min_rows: The minimum number of rows per batch (must be between `0` and `10000`).
+        :param pulumi.Input[int] batch_min_rows: The minimum number of rows per batch (must be between `0` and `10000`).
         :param pulumi.Input[str] date_format: The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         :param pulumi.Input[str] path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job.
@@ -583,7 +583,7 @@ class OutputBlob(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authentication_mode: Optional[pulumi.Input[str]] = None,
                  batch_max_wait_time: Optional[pulumi.Input[str]] = None,
-                 batch_min_rows: Optional[pulumi.Input[float]] = None,
+                 batch_min_rows: Optional[pulumi.Input[int]] = None,
                  date_format: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  path_pattern: Optional[pulumi.Input[str]] = None,
@@ -644,7 +644,7 @@ class OutputBlob(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             authentication_mode: Optional[pulumi.Input[str]] = None,
             batch_max_wait_time: Optional[pulumi.Input[str]] = None,
-            batch_min_rows: Optional[pulumi.Input[float]] = None,
+            batch_min_rows: Optional[pulumi.Input[int]] = None,
             date_format: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             path_pattern: Optional[pulumi.Input[str]] = None,
@@ -664,7 +664,7 @@ class OutputBlob(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         :param pulumi.Input[str] batch_max_wait_time: The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
-        :param pulumi.Input[float] batch_min_rows: The minimum number of rows per batch (must be between `0` and `10000`).
+        :param pulumi.Input[int] batch_min_rows: The minimum number of rows per batch (must be between `0` and `10000`).
         :param pulumi.Input[str] date_format: The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         :param pulumi.Input[str] path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job.
@@ -713,7 +713,7 @@ class OutputBlob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="batchMinRows")
-    def batch_min_rows(self) -> pulumi.Output[Optional[float]]:
+    def batch_min_rows(self) -> pulumi.Output[Optional[int]]:
         """
         The minimum number of rows per batch (must be between `0` and `10000`).
         """

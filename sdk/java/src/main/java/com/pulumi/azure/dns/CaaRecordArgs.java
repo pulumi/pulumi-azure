@@ -20,14 +20,14 @@ public final class CaaRecordArgs extends com.pulumi.resources.ResourceArgs {
     public static final CaaRecordArgs Empty = new CaaRecordArgs();
 
     /**
-     * The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `&#34;@&#34;` as the name.
+     * The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `&#34;@&#34;` as the name. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `&#34;@&#34;` as the name.
+     * @return The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `&#34;@&#34;` as the name. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -139,7 +139,7 @@ public final class CaaRecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `&#34;@&#34;` as the name.
+         * @param name The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `&#34;@&#34;` as the name. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class CaaRecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `&#34;@&#34;` as the name.
+         * @param name The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `&#34;@&#34;` as the name. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -114,7 +114,7 @@ import (
 type LiveEvent struct {
 	pulumi.CustomResourceState
 
-	// The flag indicates if the resource should be automatically started on creation. Default is `false`.
+	// The flag indicates if the resource should be automatically started on creation. Default is `false`. Changing this forces a new resource to be created.
 	AutoStartEnabled pulumi.BoolPtrOutput `pulumi:"autoStartEnabled"`
 	// A `crossSiteAccessPolicy` block as defined below.
 	CrossSiteAccessPolicy LiveEventCrossSiteAccessPolicyPtrOutput `pulumi:"crossSiteAccessPolicy"`
@@ -182,7 +182,7 @@ func GetLiveEvent(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LiveEvent resources.
 type liveEventState struct {
-	// The flag indicates if the resource should be automatically started on creation. Default is `false`.
+	// The flag indicates if the resource should be automatically started on creation. Default is `false`. Changing this forces a new resource to be created.
 	AutoStartEnabled *bool `pulumi:"autoStartEnabled"`
 	// A `crossSiteAccessPolicy` block as defined below.
 	CrossSiteAccessPolicy *LiveEventCrossSiteAccessPolicy `pulumi:"crossSiteAccessPolicy"`
@@ -213,7 +213,7 @@ type liveEventState struct {
 }
 
 type LiveEventState struct {
-	// The flag indicates if the resource should be automatically started on creation. Default is `false`.
+	// The flag indicates if the resource should be automatically started on creation. Default is `false`. Changing this forces a new resource to be created.
 	AutoStartEnabled pulumi.BoolPtrInput
 	// A `crossSiteAccessPolicy` block as defined below.
 	CrossSiteAccessPolicy LiveEventCrossSiteAccessPolicyPtrInput
@@ -248,7 +248,7 @@ func (LiveEventState) ElementType() reflect.Type {
 }
 
 type liveEventArgs struct {
-	// The flag indicates if the resource should be automatically started on creation. Default is `false`.
+	// The flag indicates if the resource should be automatically started on creation. Default is `false`. Changing this forces a new resource to be created.
 	AutoStartEnabled *bool `pulumi:"autoStartEnabled"`
 	// A `crossSiteAccessPolicy` block as defined below.
 	CrossSiteAccessPolicy *LiveEventCrossSiteAccessPolicy `pulumi:"crossSiteAccessPolicy"`
@@ -280,7 +280,7 @@ type liveEventArgs struct {
 
 // The set of arguments for constructing a LiveEvent resource.
 type LiveEventArgs struct {
-	// The flag indicates if the resource should be automatically started on creation. Default is `false`.
+	// The flag indicates if the resource should be automatically started on creation. Default is `false`. Changing this forces a new resource to be created.
 	AutoStartEnabled pulumi.BoolPtrInput
 	// A `crossSiteAccessPolicy` block as defined below.
 	CrossSiteAccessPolicy LiveEventCrossSiteAccessPolicyPtrInput
@@ -397,7 +397,7 @@ func (o LiveEventOutput) ToLiveEventOutputWithContext(ctx context.Context) LiveE
 	return o
 }
 
-// The flag indicates if the resource should be automatically started on creation. Default is `false`.
+// The flag indicates if the resource should be automatically started on creation. Default is `false`. Changing this forces a new resource to be created.
 func (o LiveEventOutput) AutoStartEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LiveEvent) pulumi.BoolPtrOutput { return v.AutoStartEnabled }).(pulumi.BoolPtrOutput)
 }

@@ -49,13 +49,13 @@ type NatRule struct {
 	FrontendPortStart pulumi.IntPtrOutput `pulumi:"frontendPortStart"`
 	// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
 	IdleTimeoutInMinutes pulumi.IntOutput `pulumi:"idleTimeoutInMinutes"`
-	// The ID of the Load Balancer in which to create the NAT Rule.
+	// The ID of the Load Balancer in which to create the NAT Rule. Changing this forces a new resource to be created.
 	LoadbalancerId pulumi.StringOutput `pulumi:"loadbalancerId"`
-	// Specifies the name of the NAT Rule.
+	// Specifies the name of the NAT Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
-	// The name of the resource group in which to create the resource.
+	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
@@ -123,13 +123,13 @@ type natRuleState struct {
 	FrontendPortStart *int `pulumi:"frontendPortStart"`
 	// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
-	// The ID of the Load Balancer in which to create the NAT Rule.
+	// The ID of the Load Balancer in which to create the NAT Rule. Changing this forces a new resource to be created.
 	LoadbalancerId *string `pulumi:"loadbalancerId"`
-	// Specifies the name of the NAT Rule.
+	// Specifies the name of the NAT Rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
 	Protocol *string `pulumi:"protocol"`
-	// The name of the resource group in which to create the resource.
+	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
@@ -154,13 +154,13 @@ type NatRuleState struct {
 	FrontendPortStart pulumi.IntPtrInput
 	// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
 	IdleTimeoutInMinutes pulumi.IntPtrInput
-	// The ID of the Load Balancer in which to create the NAT Rule.
+	// The ID of the Load Balancer in which to create the NAT Rule. Changing this forces a new resource to be created.
 	LoadbalancerId pulumi.StringPtrInput
-	// Specifies the name of the NAT Rule.
+	// Specifies the name of the NAT Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
 	Protocol pulumi.StringPtrInput
-	// The name of the resource group in which to create the resource.
+	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 }
 
@@ -187,13 +187,13 @@ type natRuleArgs struct {
 	FrontendPortStart *int `pulumi:"frontendPortStart"`
 	// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
-	// The ID of the Load Balancer in which to create the NAT Rule.
+	// The ID of the Load Balancer in which to create the NAT Rule. Changing this forces a new resource to be created.
 	LoadbalancerId string `pulumi:"loadbalancerId"`
-	// Specifies the name of the NAT Rule.
+	// Specifies the name of the NAT Rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
 	Protocol string `pulumi:"protocol"`
-	// The name of the resource group in which to create the resource.
+	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
@@ -217,13 +217,13 @@ type NatRuleArgs struct {
 	FrontendPortStart pulumi.IntPtrInput
 	// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
 	IdleTimeoutInMinutes pulumi.IntPtrInput
-	// The ID of the Load Balancer in which to create the NAT Rule.
+	// The ID of the Load Balancer in which to create the NAT Rule. Changing this forces a new resource to be created.
 	LoadbalancerId pulumi.StringInput
-	// Specifies the name of the NAT Rule.
+	// Specifies the name of the NAT Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
 	Protocol pulumi.StringInput
-	// The name of the resource group in which to create the resource.
+	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -367,12 +367,12 @@ func (o NatRuleOutput) IdleTimeoutInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v *NatRule) pulumi.IntOutput { return v.IdleTimeoutInMinutes }).(pulumi.IntOutput)
 }
 
-// The ID of the Load Balancer in which to create the NAT Rule.
+// The ID of the Load Balancer in which to create the NAT Rule. Changing this forces a new resource to be created.
 func (o NatRuleOutput) LoadbalancerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NatRule) pulumi.StringOutput { return v.LoadbalancerId }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the NAT Rule.
+// Specifies the name of the NAT Rule. Changing this forces a new resource to be created.
 func (o NatRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NatRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -382,7 +382,7 @@ func (o NatRuleOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v *NatRule) pulumi.StringOutput { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// The name of the resource group in which to create the resource.
+// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 func (o NatRuleOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *NatRule) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

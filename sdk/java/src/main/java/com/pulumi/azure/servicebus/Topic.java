@@ -163,7 +163,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableExpress);
     }
     /**
-     * Boolean flag which controls whether to enable
+     * Boolean flag which controls whether to enable Changing this forces a new resource to be created.
      * the topic to be partitioned across multiple message brokers. Defaults to false.
      * Changing this forces a new resource to be created.
      * 
@@ -172,7 +172,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Boolean> enablePartitioning;
 
     /**
-     * @return Boolean flag which controls whether to enable
+     * @return Boolean flag which controls whether to enable Changing this forces a new resource to be created.
      * the topic to be partitioned across multiple message brokers. Defaults to false.
      * Changing this forces a new resource to be created.
      * 
@@ -233,7 +233,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The ID of the ServiceBus Namespace to create
+     * The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
      * this topic in. Changing this forces a new resource to be created.
      * 
      */
@@ -241,7 +241,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
     private Output<String> namespaceId;
 
     /**
-     * @return The ID of the ServiceBus Namespace to create
+     * @return The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
      * this topic in. Changing this forces a new resource to be created.
      * 
      */
@@ -255,7 +255,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
         return this.namespaceName;
     }
     /**
-     * Boolean flag which controls whether
+     * Boolean flag which controls whether Changing this forces a new resource to be created.
      * the Topic requires duplicate detection. Defaults to false. Changing this forces
      * a new resource to be created.
      * 
@@ -264,7 +264,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Boolean> requiresDuplicateDetection;
 
     /**
-     * @return Boolean flag which controls whether
+     * @return Boolean flag which controls whether Changing this forces a new resource to be created.
      * the Topic requires duplicate detection. Defaults to false. Changing this forces
      * a new resource to be created.
      * 

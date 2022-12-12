@@ -261,7 +261,7 @@ type ManagedInstanceTransparentDataEncryption struct {
 	AutoRotationEnabled pulumi.BoolPtrOutput `pulumi:"autoRotationEnabled"`
 	// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
 	KeyVaultKeyId pulumi.StringPtrOutput `pulumi:"keyVaultKeyId"`
-	// Specifies the name of the MS SQL Managed Instance.
+	// Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
 	ManagedInstanceId pulumi.StringOutput `pulumi:"managedInstanceId"`
 }
 
@@ -301,7 +301,7 @@ type managedInstanceTransparentDataEncryptionState struct {
 	AutoRotationEnabled *bool `pulumi:"autoRotationEnabled"`
 	// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
-	// Specifies the name of the MS SQL Managed Instance.
+	// Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
 	ManagedInstanceId *string `pulumi:"managedInstanceId"`
 }
 
@@ -310,7 +310,7 @@ type ManagedInstanceTransparentDataEncryptionState struct {
 	AutoRotationEnabled pulumi.BoolPtrInput
 	// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
 	KeyVaultKeyId pulumi.StringPtrInput
-	// Specifies the name of the MS SQL Managed Instance.
+	// Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
 	ManagedInstanceId pulumi.StringPtrInput
 }
 
@@ -323,7 +323,7 @@ type managedInstanceTransparentDataEncryptionArgs struct {
 	AutoRotationEnabled *bool `pulumi:"autoRotationEnabled"`
 	// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
-	// Specifies the name of the MS SQL Managed Instance.
+	// Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
 	ManagedInstanceId string `pulumi:"managedInstanceId"`
 }
 
@@ -333,7 +333,7 @@ type ManagedInstanceTransparentDataEncryptionArgs struct {
 	AutoRotationEnabled pulumi.BoolPtrInput
 	// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
 	KeyVaultKeyId pulumi.StringPtrInput
-	// Specifies the name of the MS SQL Managed Instance.
+	// Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
 	ManagedInstanceId pulumi.StringInput
 }
 
@@ -434,7 +434,7 @@ func (o ManagedInstanceTransparentDataEncryptionOutput) KeyVaultKeyId() pulumi.S
 	return o.ApplyT(func(v *ManagedInstanceTransparentDataEncryption) pulumi.StringPtrOutput { return v.KeyVaultKeyId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the MS SQL Managed Instance.
+// Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
 func (o ManagedInstanceTransparentDataEncryptionOutput) ManagedInstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedInstanceTransparentDataEncryption) pulumi.StringOutput { return v.ManagedInstanceId }).(pulumi.StringOutput)
 }

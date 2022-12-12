@@ -16,14 +16,14 @@ public final class OutboundFirewallRuleState extends com.pulumi.resources.Resour
     public static final OutboundFirewallRuleState Empty = new OutboundFirewallRuleState();
 
     /**
-     * The name of the outbound firewall rule. This should be a FQDN.
+     * The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the outbound firewall rule. This should be a FQDN.
+     * @return The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -31,14 +31,14 @@ public final class OutboundFirewallRuleState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The resource ID of the SQL Server on which to create the Outbound Firewall Rule.
+     * The resource ID of the SQL Server on which to create the Outbound Firewall Rule. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="serverId")
     private @Nullable Output<String> serverId;
 
     /**
-     * @return The resource ID of the SQL Server on which to create the Outbound Firewall Rule.
+     * @return The resource ID of the SQL Server on which to create the Outbound Firewall Rule. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> serverId() {
@@ -71,7 +71,7 @@ public final class OutboundFirewallRuleState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The name of the outbound firewall rule. This should be a FQDN.
+         * @param name The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class OutboundFirewallRuleState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The name of the outbound firewall rule. This should be a FQDN.
+         * @param name The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class OutboundFirewallRuleState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param serverId The resource ID of the SQL Server on which to create the Outbound Firewall Rule.
+         * @param serverId The resource ID of the SQL Server on which to create the Outbound Firewall Rule. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class OutboundFirewallRuleState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param serverId The resource ID of the SQL Server on which to create the Outbound Firewall Rule.
+         * @param serverId The resource ID of the SQL Server on which to create the Outbound Firewall Rule. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

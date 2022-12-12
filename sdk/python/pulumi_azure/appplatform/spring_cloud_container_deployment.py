@@ -435,7 +435,7 @@ class SpringCloudContainerDeployment(pulumi.CustomResource):
         Spring Cloud Container Deployments can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:appplatform/springCloudContainerDeployment:SpringCloudContainerDeployment example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.AppPlatform/Spring/spring1/apps/app1/deployments/deploy1
+         $ pulumi import azure:appplatform/springCloudContainerDeployment:SpringCloudContainerDeployment example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.AppPlatform/spring/spring1/apps/app1/deployments/deploy1
         ```
 
         :param str resource_name: The name of the resource.
@@ -498,7 +498,7 @@ class SpringCloudContainerDeployment(pulumi.CustomResource):
         Spring Cloud Container Deployments can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:appplatform/springCloudContainerDeployment:SpringCloudContainerDeployment example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.AppPlatform/Spring/spring1/apps/app1/deployments/deploy1
+         $ pulumi import azure:appplatform/springCloudContainerDeployment:SpringCloudContainerDeployment example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.AppPlatform/spring/spring1/apps/app1/deployments/deploy1
         ```
 
         :param str resource_name: The name of the resource.

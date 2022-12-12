@@ -23,6 +23,7 @@ import com.pulumi.azure.containerservice.outputs.KubernetesClusterMicrosoftDefen
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterNetworkProfile;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterOmsAgent;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterServicePrincipal;
+import com.pulumi.azure.containerservice.outputs.KubernetesClusterStorageProfile;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterWebAppRouting;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterWindowsProfile;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterWorkloadAutoscalerProfile;
@@ -31,6 +32,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -333,6 +335,34 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<KubernetesClusterIdentity>> identity() {
         return Codegen.optional(this.identity);
+    }
+    /**
+     * Specifies whether Image Cleaner is enabled.
+     * 
+     */
+    @Export(name="imageCleanerEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> imageCleanerEnabled;
+
+    /**
+     * @return Specifies whether Image Cleaner is enabled.
+     * 
+     */
+    public Output<Optional<Boolean>> imageCleanerEnabled() {
+        return Codegen.optional(this.imageCleanerEnabled);
+    }
+    /**
+     * Specifies the interval in hours when images should be cleaned up.
+     * 
+     */
+    @Export(name="imageCleanerIntervalHours", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> imageCleanerIntervalHours;
+
+    /**
+     * @return Specifies the interval in hours when images should be cleaned up.
+     * 
+     */
+    public Output<Optional<Integer>> imageCleanerIntervalHours() {
+        return Codegen.optional(this.imageCleanerIntervalHours);
     }
     /**
      * A `ingress_application_gateway` block as defined below.
@@ -657,14 +687,14 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.privateClusterPublicFqdnEnabled);
     }
     /**
-     * Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
+     * Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="privateDnsZoneId", type=String.class, parameters={})
     private Output<String> privateDnsZoneId;
 
     /**
-     * @return Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
+     * @return Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> privateDnsZoneId() {
@@ -759,6 +789,20 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> skuTier() {
         return Codegen.optional(this.skuTier);
+    }
+    /**
+     * A `storage_profile` block as defined below.
+     * 
+     */
+    @Export(name="storageProfile", type=KubernetesClusterStorageProfile.class, parameters={})
+    private Output</* @Nullable */ KubernetesClusterStorageProfile> storageProfile;
+
+    /**
+     * @return A `storage_profile` block as defined below.
+     * 
+     */
+    public Output<Optional<KubernetesClusterStorageProfile>> storageProfile() {
+        return Codegen.optional(this.storageProfile);
     }
     /**
      * A mapping of tags to assign to the resource.

@@ -20,14 +20,14 @@ public final class TxtRecordArgs extends com.pulumi.resources.ResourceArgs {
     public static final TxtRecordArgs Empty = new TxtRecordArgs();
 
     /**
-     * The name of the DNS TXT Record.
+     * The name of the DNS TXT Record. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the DNS TXT Record.
+     * @return The name of the DNS TXT Record. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -139,7 +139,7 @@ public final class TxtRecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the DNS TXT Record.
+         * @param name The name of the DNS TXT Record. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class TxtRecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the DNS TXT Record.
+         * @param name The name of the DNS TXT Record. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

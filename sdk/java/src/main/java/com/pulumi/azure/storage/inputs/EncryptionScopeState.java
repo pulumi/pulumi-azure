@@ -17,14 +17,14 @@ public final class EncryptionScopeState extends com.pulumi.resources.ResourceArg
     public static final EncryptionScopeState Empty = new EncryptionScopeState();
 
     /**
-     * Is a secondary layer of encryption with Platform Managed Keys for data applied?
+     * Is a secondary layer of encryption with Platform Managed Keys for data applied? Changing this forces a new resource to be created.
      * 
      */
     @Import(name="infrastructureEncryptionRequired")
     private @Nullable Output<Boolean> infrastructureEncryptionRequired;
 
     /**
-     * @return Is a secondary layer of encryption with Platform Managed Keys for data applied?
+     * @return Is a secondary layer of encryption with Platform Managed Keys for data applied? Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> infrastructureEncryptionRequired() {
@@ -120,7 +120,7 @@ public final class EncryptionScopeState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param infrastructureEncryptionRequired Is a secondary layer of encryption with Platform Managed Keys for data applied?
+         * @param infrastructureEncryptionRequired Is a secondary layer of encryption with Platform Managed Keys for data applied? Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class EncryptionScopeState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param infrastructureEncryptionRequired Is a secondary layer of encryption with Platform Managed Keys for data applied?
+         * @param infrastructureEncryptionRequired Is a secondary layer of encryption with Platform Managed Keys for data applied? Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -134,7 +134,7 @@ namespace Pulumi.Azure.Orbital
         public Output<ImmutableArray<Outputs.ContactProfileLink>> Links { get; private set; } = null!;
 
         /// <summary>
-        /// The location where the contact profile exists.
+        /// The location where the contact profile exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -158,13 +158,13 @@ namespace Pulumi.Azure.Orbital
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
+        /// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
         /// </summary>
         [Output("networkConfigurationSubnetId")]
         public Output<string> NetworkConfigurationSubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the contact profile exists.
+        /// The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -243,7 +243,7 @@ namespace Pulumi.Azure.Orbital
         }
 
         /// <summary>
-        /// The location where the contact profile exists.
+        /// The location where the contact profile exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -267,13 +267,13 @@ namespace Pulumi.Azure.Orbital
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
+        /// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
         /// </summary>
         [Input("networkConfigurationSubnetId", required: true)]
         public Input<string> NetworkConfigurationSubnetId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the contact profile exists.
+        /// The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -319,7 +319,7 @@ namespace Pulumi.Azure.Orbital
         }
 
         /// <summary>
-        /// The location where the contact profile exists.
+        /// The location where the contact profile exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -343,13 +343,13 @@ namespace Pulumi.Azure.Orbital
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
+        /// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
         /// </summary>
         [Input("networkConfigurationSubnetId")]
         public Input<string>? NetworkConfigurationSubnetId { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group where the contact profile exists.
+        /// The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string PublicIpAddressId;
         /// <summary>
-        /// Reference to the subnet associated with the IP Configuration.
+        /// Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? SubnetId;
 

@@ -80,14 +80,14 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `&#34;Web, Publishing&#34;`. Defaults to `None`.
+     * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `&#34;Web, Publishing&#34;`. Defaults to `None`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="internalLoadBalancingMode")
     private @Nullable Output<String> internalLoadBalancingMode;
 
     /**
-     * @return Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `&#34;Web, Publishing&#34;`. Defaults to `None`.
+     * @return Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `&#34;Web, Publishing&#34;`. Defaults to `None`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> internalLoadBalancingMode() {
@@ -355,7 +355,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param internalLoadBalancingMode Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `&#34;Web, Publishing&#34;`. Defaults to `None`.
+         * @param internalLoadBalancingMode Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `&#34;Web, Publishing&#34;`. Defaults to `None`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param internalLoadBalancingMode Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `&#34;Web, Publishing&#34;`. Defaults to `None`.
+         * @param internalLoadBalancingMode Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `&#34;Web, Publishing&#34;`. Defaults to `None`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

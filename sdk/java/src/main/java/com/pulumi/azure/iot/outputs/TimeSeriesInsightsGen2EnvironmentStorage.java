@@ -15,7 +15,7 @@ public final class TimeSeriesInsightsGen2EnvironmentStorage {
      */
     private String key;
     /**
-     * @return Name of storage account for Azure IoT Time Series Insights Gen2 Environment
+     * @return Name of storage account for Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
      * 
      */
     private String name;
@@ -29,7 +29,7 @@ public final class TimeSeriesInsightsGen2EnvironmentStorage {
         return this.key;
     }
     /**
-     * @return Name of storage account for Azure IoT Time Series Insights Gen2 Environment
+     * @return Name of storage account for Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
      * 
      */
     public String name() {

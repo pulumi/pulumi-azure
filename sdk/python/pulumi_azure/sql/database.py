@@ -38,8 +38,8 @@ class DatabaseArgs:
                  zone_redundant: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Database resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
-        :param pulumi.Input[str] server_name: The name of the SQL Server on which to create the database.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] server_name: The name of the SQL Server on which to create the database. Changing this forces a new resource to be created.
         :param pulumi.Input[str] collation: The name of the collation. Applies only if `create_mode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] create_mode: Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`,  `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate#createmode)
         :param pulumi.Input[str] edition: The edition of the database to be created. Applies only if `create_mode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
@@ -47,7 +47,7 @@ class DatabaseArgs:
         :param pulumi.Input['DatabaseImportArgs'] import_: A Database Import block as documented below. `create_mode` must be set to `Default`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] max_size_bytes: The maximum size that the database can grow to. Applies only if `create_mode` is `Default`.  Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
-        :param pulumi.Input[str] name: The name of the database.
+        :param pulumi.Input[str] name: The name of the database. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] read_scale: Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/azure/sql-database/sql-database-read-scale-out).
         :param pulumi.Input[str] requested_service_objective_id: A GUID/UUID corresponding to a configured Service Level Objective for the Azure SQL database which can be used to configure a performance level.
                .
@@ -102,7 +102,7 @@ class DatabaseArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
+        The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -114,7 +114,7 @@ class DatabaseArgs:
     @pulumi.getter(name="serverName")
     def server_name(self) -> pulumi.Input[str]:
         """
-        The name of the SQL Server on which to create the database.
+        The name of the SQL Server on which to create the database. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server_name")
 
@@ -219,7 +219,7 @@ class DatabaseArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the database.
+        The name of the database. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -374,14 +374,14 @@ class _DatabaseState:
         :param pulumi.Input['DatabaseImportArgs'] import_: A Database Import block as documented below. `create_mode` must be set to `Default`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] max_size_bytes: The maximum size that the database can grow to. Applies only if `create_mode` is `Default`.  Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
-        :param pulumi.Input[str] name: The name of the database.
+        :param pulumi.Input[str] name: The name of the database. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] read_scale: Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/azure/sql-database/sql-database-read-scale-out).
         :param pulumi.Input[str] requested_service_objective_id: A GUID/UUID corresponding to a configured Service Level Objective for the Azure SQL database which can be used to configure a performance level.
                .
         :param pulumi.Input[str] requested_service_objective_name: The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the CLI: `shell az sql db list-editions -l westus -o table`. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions).
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
         :param pulumi.Input[str] restore_point_in_time: The point in time for the restore. Only applies if `create_mode` is `PointInTimeRestore`, it should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
-        :param pulumi.Input[str] server_name: The name of the SQL Server on which to create the database.
+        :param pulumi.Input[str] server_name: The name of the SQL Server on which to create the database. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_database_deletion_date: The deletion date time of the source database. Only applies to deleted databases where `create_mode` is `PointInTimeRestore`.
         :param pulumi.Input[str] source_database_id: The URI of the source database if `create_mode` value is not `Default`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -565,7 +565,7 @@ class _DatabaseState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the database.
+        The name of the database. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -614,7 +614,7 @@ class _DatabaseState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
+        The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -638,7 +638,7 @@ class _DatabaseState:
     @pulumi.getter(name="serverName")
     def server_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the SQL Server on which to create the database.
+        The name of the SQL Server on which to create the database. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server_name")
 
@@ -751,14 +751,14 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DatabaseImportArgs']] import_: A Database Import block as documented below. `create_mode` must be set to `Default`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] max_size_bytes: The maximum size that the database can grow to. Applies only if `create_mode` is `Default`.  Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
-        :param pulumi.Input[str] name: The name of the database.
+        :param pulumi.Input[str] name: The name of the database. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] read_scale: Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/azure/sql-database/sql-database-read-scale-out).
         :param pulumi.Input[str] requested_service_objective_id: A GUID/UUID corresponding to a configured Service Level Objective for the Azure SQL database which can be used to configure a performance level.
                .
         :param pulumi.Input[str] requested_service_objective_name: The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the CLI: `shell az sql db list-editions -l westus -o table`. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions).
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
         :param pulumi.Input[str] restore_point_in_time: The point in time for the restore. Only applies if `create_mode` is `PointInTimeRestore`, it should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
-        :param pulumi.Input[str] server_name: The name of the SQL Server on which to create the database.
+        :param pulumi.Input[str] server_name: The name of the SQL Server on which to create the database. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_database_deletion_date: The deletion date time of the source database. Only applies to deleted databases where `create_mode` is `PointInTimeRestore`.
         :param pulumi.Input[str] source_database_id: The URI of the source database if `create_mode` value is not `Default`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -900,14 +900,14 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DatabaseImportArgs']] import_: A Database Import block as documented below. `create_mode` must be set to `Default`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] max_size_bytes: The maximum size that the database can grow to. Applies only if `create_mode` is `Default`.  Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
-        :param pulumi.Input[str] name: The name of the database.
+        :param pulumi.Input[str] name: The name of the database. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] read_scale: Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/azure/sql-database/sql-database-read-scale-out).
         :param pulumi.Input[str] requested_service_objective_id: A GUID/UUID corresponding to a configured Service Level Objective for the Azure SQL database which can be used to configure a performance level.
                .
         :param pulumi.Input[str] requested_service_objective_name: The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the CLI: `shell az sql db list-editions -l westus -o table`. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions).
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
         :param pulumi.Input[str] restore_point_in_time: The point in time for the restore. Only applies if `create_mode` is `PointInTimeRestore`, it should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
-        :param pulumi.Input[str] server_name: The name of the SQL Server on which to create the database.
+        :param pulumi.Input[str] server_name: The name of the SQL Server on which to create the database. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_database_deletion_date: The deletion date time of the source database. Only applies to deleted databases where `create_mode` is `PointInTimeRestore`.
         :param pulumi.Input[str] source_database_id: The URI of the source database if `create_mode` value is not `Default`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -1029,7 +1029,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the database.
+        The name of the database. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -1062,7 +1062,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
+        The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -1078,7 +1078,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="serverName")
     def server_name(self) -> pulumi.Output[str]:
         """
-        The name of the SQL Server on which to create the database.
+        The name of the SQL Server on which to create the database. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server_name")
 

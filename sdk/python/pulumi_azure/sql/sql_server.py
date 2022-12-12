@@ -30,12 +30,12 @@ class SqlServerArgs:
         The set of arguments for constructing a SqlServer resource.
         :param pulumi.Input[str] administrator_login: The administrator login name for the new server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server.
-        :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
         :param pulumi.Input[str] connection_policy: The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
         :param pulumi.Input['SqlServerIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+        :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['SqlServerThreatDetectionPolicyArgs'] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         """
@@ -84,7 +84,7 @@ class SqlServerArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to create the Microsoft SQL Server.
+        The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -96,7 +96,7 @@ class SqlServerArgs:
     @pulumi.getter
     def version(self) -> pulumi.Input[str]:
         """
-        The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+        The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "version")
 
@@ -144,7 +144,7 @@ class SqlServerArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+        The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -199,11 +199,11 @@ class _SqlServerState:
         :param pulumi.Input[str] fully_qualified_domain_name: The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
         :param pulumi.Input['SqlServerIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server.
+        :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['SqlServerThreatDetectionPolicyArgs'] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
-        :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+        :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
         """
         if administrator_login is not None:
             pulumi.set(__self__, "administrator_login", administrator_login)
@@ -304,7 +304,7 @@ class _SqlServerState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+        The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -316,7 +316,7 @@ class _SqlServerState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to create the Microsoft SQL Server.
+        The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -352,7 +352,7 @@ class _SqlServerState:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+        The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "version")
 
@@ -418,11 +418,11 @@ class SqlServer(pulumi.CustomResource):
         :param pulumi.Input[str] connection_policy: The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
         :param pulumi.Input[pulumi.InputType['SqlServerIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server.
+        :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['SqlServerThreatDetectionPolicyArgs']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
-        :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+        :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -551,11 +551,11 @@ class SqlServer(pulumi.CustomResource):
         :param pulumi.Input[str] fully_qualified_domain_name: The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
         :param pulumi.Input[pulumi.InputType['SqlServerIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server.
+        :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['SqlServerThreatDetectionPolicyArgs']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
-        :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+        :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -626,7 +626,7 @@ class SqlServer(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+        The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -634,7 +634,7 @@ class SqlServer(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to create the Microsoft SQL Server.
+        The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -658,7 +658,7 @@ class SqlServer(pulumi.CustomResource):
     @pulumi.getter
     def version(self) -> pulumi.Output[str]:
         """
-        The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+        The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "version")
 

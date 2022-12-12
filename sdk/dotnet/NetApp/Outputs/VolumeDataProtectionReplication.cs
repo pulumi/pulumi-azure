@@ -18,7 +18,7 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// </summary>
         public readonly string? EndpointType;
         /// <summary>
-        /// Location of the primary volume.
+        /// Location of the primary volume. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string RemoteVolumeLocation;
         /// <summary>

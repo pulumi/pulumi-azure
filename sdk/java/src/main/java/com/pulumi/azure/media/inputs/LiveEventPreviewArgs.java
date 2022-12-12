@@ -19,14 +19,14 @@ public final class LiveEventPreviewArgs extends com.pulumi.resources.ResourceArg
     public static final LiveEventPreviewArgs Empty = new LiveEventPreviewArgs();
 
     /**
-     * An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streaming_policy_name` field. Changing this forces a new resource to be created.
+     * An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streaming_policy_name` field.
      * 
      */
     @Import(name="alternativeMediaId")
     private @Nullable Output<String> alternativeMediaId;
 
     /**
-     * @return An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streaming_policy_name` field. Changing this forces a new resource to be created.
+     * @return An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streaming_policy_name` field.
      * 
      */
     public Optional<Output<String>> alternativeMediaId() {
@@ -114,7 +114,7 @@ public final class LiveEventPreviewArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param alternativeMediaId An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streaming_policy_name` field. Changing this forces a new resource to be created.
+         * @param alternativeMediaId An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streaming_policy_name` field.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class LiveEventPreviewArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param alternativeMediaId An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streaming_policy_name` field. Changing this forces a new resource to be created.
+         * @param alternativeMediaId An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streaming_policy_name` field.
          * 
          * @return builder
          * 

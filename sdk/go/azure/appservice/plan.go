@@ -195,7 +195,7 @@ type Plan struct {
 	PerSiteScaling pulumi.BoolPtrOutput `pulumi:"perSiteScaling"`
 	// Is this App Service Plan `Reserved`. Defaults to `false`.
 	Reserved pulumi.BoolPtrOutput `pulumi:"reserved"`
-	// The name of the resource group in which to create the App Service Plan component.
+	// The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `sku` block as documented below.
 	Sku PlanSkuOutput `pulumi:"sku"`
@@ -257,7 +257,7 @@ type planState struct {
 	PerSiteScaling *bool `pulumi:"perSiteScaling"`
 	// Is this App Service Plan `Reserved`. Defaults to `false`.
 	Reserved *bool `pulumi:"reserved"`
-	// The name of the resource group in which to create the App Service Plan component.
+	// The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `sku` block as documented below.
 	Sku *PlanSku `pulumi:"sku"`
@@ -285,7 +285,7 @@ type PlanState struct {
 	PerSiteScaling pulumi.BoolPtrInput
 	// Is this App Service Plan `Reserved`. Defaults to `false`.
 	Reserved pulumi.BoolPtrInput
-	// The name of the resource group in which to create the App Service Plan component.
+	// The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `sku` block as documented below.
 	Sku PlanSkuPtrInput
@@ -315,7 +315,7 @@ type planArgs struct {
 	PerSiteScaling *bool `pulumi:"perSiteScaling"`
 	// Is this App Service Plan `Reserved`. Defaults to `false`.
 	Reserved *bool `pulumi:"reserved"`
-	// The name of the resource group in which to create the App Service Plan component.
+	// The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `sku` block as documented below.
 	Sku PlanSku `pulumi:"sku"`
@@ -342,7 +342,7 @@ type PlanArgs struct {
 	PerSiteScaling pulumi.BoolPtrInput
 	// Is this App Service Plan `Reserved`. Defaults to `false`.
 	Reserved pulumi.BoolPtrInput
-	// The name of the resource group in which to create the App Service Plan component.
+	// The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `sku` block as documented below.
 	Sku PlanSkuInput
@@ -483,7 +483,7 @@ func (o PlanOutput) Reserved() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Plan) pulumi.BoolPtrOutput { return v.Reserved }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the resource group in which to create the App Service Plan component.
+// The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
 func (o PlanOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Plan) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

@@ -89,44 +89,42 @@ public class FirewallRule extends com.pulumi.resources.CustomResource {
         return this.endIpAddress;
     }
     /**
-     * The name of the firewall rule.
+     * The name of the firewall rule. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the firewall rule.
+     * @return The name of the firewall rule. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The name of the resource group in which to
-     * create the SQL Server.
+     * The name of the resource group in which to create the SQL Server. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to
-     * create the SQL Server.
+     * @return The name of the resource group in which to create the SQL Server. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
     /**
-     * The name of the SQL Server on which to create the Firewall Rule.
+     * The name of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="serverName", type=String.class, parameters={})
     private Output<String> serverName;
 
     /**
-     * @return The name of the SQL Server on which to create the Firewall Rule.
+     * @return The name of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> serverName() {

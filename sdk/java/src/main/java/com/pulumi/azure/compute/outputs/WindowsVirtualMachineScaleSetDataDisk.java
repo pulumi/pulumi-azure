@@ -24,7 +24,7 @@ public final class WindowsVirtualMachineScaleSetDataDisk {
      */
     private @Nullable String createOption;
     /**
-     * @return The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
+     * @return The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String diskEncryptionSetId;
@@ -72,7 +72,7 @@ public final class WindowsVirtualMachineScaleSetDataDisk {
         return Optional.ofNullable(this.createOption);
     }
     /**
-     * @return The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
+     * @return The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> diskEncryptionSetId() {

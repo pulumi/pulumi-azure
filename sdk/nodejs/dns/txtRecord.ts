@@ -74,7 +74,7 @@ export class TxtRecord extends pulumi.CustomResource {
      */
     public /*out*/ readonly fqdn!: pulumi.Output<string>;
     /**
-     * The name of the DNS TXT Record.
+     * The name of the DNS TXT Record. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -154,7 +154,7 @@ export interface TxtRecordState {
      */
     fqdn?: pulumi.Input<string>;
     /**
-     * The name of the DNS TXT Record.
+     * The name of the DNS TXT Record. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -184,7 +184,7 @@ export interface TxtRecordState {
  */
 export interface TxtRecordArgs {
     /**
-     * The name of the DNS TXT Record.
+     * The name of the DNS TXT Record. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

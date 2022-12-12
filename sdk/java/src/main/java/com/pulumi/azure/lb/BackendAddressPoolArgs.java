@@ -18,14 +18,14 @@ public final class BackendAddressPoolArgs extends com.pulumi.resources.ResourceA
     public static final BackendAddressPoolArgs Empty = new BackendAddressPoolArgs();
 
     /**
-     * The ID of the Load Balancer in which to create the Backend Address Pool.
+     * The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="loadbalancerId", required=true)
     private Output<String> loadbalancerId;
 
     /**
-     * @return The ID of the Load Balancer in which to create the Backend Address Pool.
+     * @return The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> loadbalancerId() {
@@ -33,14 +33,14 @@ public final class BackendAddressPoolArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies the name of the Backend Address Pool.
+     * Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the Backend Address Pool.
+     * @return Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -89,7 +89,7 @@ public final class BackendAddressPoolArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param loadbalancerId The ID of the Load Balancer in which to create the Backend Address Pool.
+         * @param loadbalancerId The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class BackendAddressPoolArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param loadbalancerId The ID of the Load Balancer in which to create the Backend Address Pool.
+         * @param loadbalancerId The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class BackendAddressPoolArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name Specifies the name of the Backend Address Pool.
+         * @param name Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class BackendAddressPoolArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name Specifies the name of the Backend Address Pool.
+         * @param name Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

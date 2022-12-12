@@ -18,7 +18,7 @@ public final class AnalyticsSolutionPlan {
      */
     private String product;
     /**
-     * @return A promotion code to be used with the solution.
+     * @return A promotion code to be used with the solution. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String promotionCode;
@@ -40,7 +40,7 @@ public final class AnalyticsSolutionPlan {
         return this.product;
     }
     /**
-     * @return A promotion code to be used with the solution.
+     * @return A promotion code to be used with the solution. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> promotionCode() {

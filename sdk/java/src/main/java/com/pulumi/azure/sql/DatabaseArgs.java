@@ -132,14 +132,14 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the database.
+     * The name of the database. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the database.
+     * @return The name of the database. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -194,14 +194,14 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
+     * The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
+     * @return The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -224,14 +224,14 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the SQL Server on which to create the database.
+     * The name of the SQL Server on which to create the database. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="serverName", required=true)
     private Output<String> serverName;
 
     /**
-     * @return The name of the SQL Server on which to create the database.
+     * @return The name of the SQL Server on which to create the database. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> serverName() {
@@ -513,7 +513,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the database.
+         * @param name The name of the database. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -524,7 +524,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the database.
+         * @param name The name of the database. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -599,7 +599,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
+         * @param resourceGroupName The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -610,7 +610,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
+         * @param resourceGroupName The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -641,7 +641,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverName The name of the SQL Server on which to create the database.
+         * @param serverName The name of the SQL Server on which to create the database. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -652,7 +652,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverName The name of the SQL Server on which to create the database.
+         * @param serverName The name of the SQL Server on which to create the database. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

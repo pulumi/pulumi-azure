@@ -35,14 +35,14 @@ public final class ExpressRouteCircuitPeeringState extends com.pulumi.resources.
     }
 
     /**
-     * The name of the ExpressRoute Circuit in which to create the Peering.
+     * The name of the ExpressRoute Circuit in which to create the Peering. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="expressRouteCircuitName")
     private @Nullable Output<String> expressRouteCircuitName;
 
     /**
-     * @return The name of the ExpressRoute Circuit in which to create the Peering.
+     * @return The name of the ExpressRoute Circuit in which to create the Peering. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> expressRouteCircuitName() {
@@ -117,14 +117,14 @@ public final class ExpressRouteCircuitPeeringState extends com.pulumi.resources.
     }
 
     /**
-     * The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. Changing this forces a new resource to be created.
+     * The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
      * 
      */
     @Import(name="peeringType")
     private @Nullable Output<String> peeringType;
 
     /**
-     * @return The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. Changing this forces a new resource to be created.
+     * @return The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
      * 
      */
     public Optional<Output<String>> peeringType() {
@@ -312,7 +312,7 @@ public final class ExpressRouteCircuitPeeringState extends com.pulumi.resources.
         }
 
         /**
-         * @param expressRouteCircuitName The name of the ExpressRoute Circuit in which to create the Peering.
+         * @param expressRouteCircuitName The name of the ExpressRoute Circuit in which to create the Peering. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -323,7 +323,7 @@ public final class ExpressRouteCircuitPeeringState extends com.pulumi.resources.
         }
 
         /**
-         * @param expressRouteCircuitName The name of the ExpressRoute Circuit in which to create the Peering.
+         * @param expressRouteCircuitName The name of the ExpressRoute Circuit in which to create the Peering. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -426,7 +426,7 @@ public final class ExpressRouteCircuitPeeringState extends com.pulumi.resources.
         }
 
         /**
-         * @param peeringType The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. Changing this forces a new resource to be created.
+         * @param peeringType The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
          * 
          * @return builder
          * 
@@ -437,7 +437,7 @@ public final class ExpressRouteCircuitPeeringState extends com.pulumi.resources.
         }
 
         /**
-         * @param peeringType The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. Changing this forces a new resource to be created.
+         * @param peeringType The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
          * 
          * @return builder
          * 

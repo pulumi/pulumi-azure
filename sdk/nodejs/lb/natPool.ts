@@ -104,11 +104,11 @@ export class NatPool extends pulumi.CustomResource {
      */
     public readonly idleTimeoutInMinutes!: pulumi.Output<number | undefined>;
     /**
-     * The ID of the Load Balancer in which to create the NAT pool.
+     * The ID of the Load Balancer in which to create the NAT pool. Changing this forces a new resource to be created.
      */
     public readonly loadbalancerId!: pulumi.Output<string>;
     /**
-     * Specifies the name of the NAT pool.
+     * Specifies the name of the NAT pool. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -116,7 +116,7 @@ export class NatPool extends pulumi.CustomResource {
      */
     public readonly protocol!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to create the resource.
+     * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -220,11 +220,11 @@ export interface NatPoolState {
      */
     idleTimeoutInMinutes?: pulumi.Input<number>;
     /**
-     * The ID of the Load Balancer in which to create the NAT pool.
+     * The ID of the Load Balancer in which to create the NAT pool. Changing this forces a new resource to be created.
      */
     loadbalancerId?: pulumi.Input<string>;
     /**
-     * Specifies the name of the NAT pool.
+     * Specifies the name of the NAT pool. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -232,7 +232,7 @@ export interface NatPoolState {
      */
     protocol?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the resource.
+     * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -270,11 +270,11 @@ export interface NatPoolArgs {
      */
     idleTimeoutInMinutes?: pulumi.Input<number>;
     /**
-     * The ID of the Load Balancer in which to create the NAT pool.
+     * The ID of the Load Balancer in which to create the NAT pool. Changing this forces a new resource to be created.
      */
     loadbalancerId: pulumi.Input<string>;
     /**
-     * Specifies the name of the NAT pool.
+     * Specifies the name of the NAT pool. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -282,7 +282,7 @@ export interface NatPoolArgs {
      */
     protocol: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the resource.
+     * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

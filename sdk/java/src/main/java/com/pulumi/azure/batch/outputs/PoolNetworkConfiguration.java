@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PoolNetworkConfiguration {
     /**
-     * @return The scope of dynamic vnet assignment. Allowed values: `none`, `job`.
+     * @return The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String dynamicVnetAssignmentScope;
@@ -41,7 +41,7 @@ public final class PoolNetworkConfiguration {
 
     private PoolNetworkConfiguration() {}
     /**
-     * @return The scope of dynamic vnet assignment. Allowed values: `none`, `job`.
+     * @return The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> dynamicVnetAssignmentScope() {

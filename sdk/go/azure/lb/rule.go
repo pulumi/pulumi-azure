@@ -105,9 +105,9 @@ type Rule struct {
 	IdleTimeoutInMinutes pulumi.IntOutput `pulumi:"idleTimeoutInMinutes"`
 	// Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where  the options are called `None`, `Client IP` and `Client IP and Protocol` respectively.
 	LoadDistribution pulumi.StringOutput `pulumi:"loadDistribution"`
-	// The ID of the Load Balancer in which to create the Rule.
+	// The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
 	LoadbalancerId pulumi.StringOutput `pulumi:"loadbalancerId"`
-	// Specifies the name of the LB Rule.
+	// Specifies the name of the LB Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A reference to a Probe used by this Load Balancing Rule.
 	ProbeId pulumi.StringOutput `pulumi:"probeId"`
@@ -178,9 +178,9 @@ type ruleState struct {
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
 	// Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where  the options are called `None`, `Client IP` and `Client IP and Protocol` respectively.
 	LoadDistribution *string `pulumi:"loadDistribution"`
-	// The ID of the Load Balancer in which to create the Rule.
+	// The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
 	LoadbalancerId *string `pulumi:"loadbalancerId"`
-	// Specifies the name of the LB Rule.
+	// Specifies the name of the LB Rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A reference to a Probe used by this Load Balancing Rule.
 	ProbeId *string `pulumi:"probeId"`
@@ -208,9 +208,9 @@ type RuleState struct {
 	IdleTimeoutInMinutes pulumi.IntPtrInput
 	// Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where  the options are called `None`, `Client IP` and `Client IP and Protocol` respectively.
 	LoadDistribution pulumi.StringPtrInput
-	// The ID of the Load Balancer in which to create the Rule.
+	// The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
 	LoadbalancerId pulumi.StringPtrInput
-	// Specifies the name of the LB Rule.
+	// Specifies the name of the LB Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A reference to a Probe used by this Load Balancing Rule.
 	ProbeId pulumi.StringPtrInput
@@ -241,9 +241,9 @@ type ruleArgs struct {
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
 	// Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where  the options are called `None`, `Client IP` and `Client IP and Protocol` respectively.
 	LoadDistribution *string `pulumi:"loadDistribution"`
-	// The ID of the Load Balancer in which to create the Rule.
+	// The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
 	LoadbalancerId string `pulumi:"loadbalancerId"`
-	// Specifies the name of the LB Rule.
+	// Specifies the name of the LB Rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A reference to a Probe used by this Load Balancing Rule.
 	ProbeId *string `pulumi:"probeId"`
@@ -271,9 +271,9 @@ type RuleArgs struct {
 	IdleTimeoutInMinutes pulumi.IntPtrInput
 	// Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where  the options are called `None`, `Client IP` and `Client IP and Protocol` respectively.
 	LoadDistribution pulumi.StringPtrInput
-	// The ID of the Load Balancer in which to create the Rule.
+	// The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
 	LoadbalancerId pulumi.StringInput
-	// Specifies the name of the LB Rule.
+	// Specifies the name of the LB Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A reference to a Probe used by this Load Balancing Rule.
 	ProbeId pulumi.StringPtrInput
@@ -417,12 +417,12 @@ func (o RuleOutput) LoadDistribution() pulumi.StringOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.LoadDistribution }).(pulumi.StringOutput)
 }
 
-// The ID of the Load Balancer in which to create the Rule.
+// The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
 func (o RuleOutput) LoadbalancerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.LoadbalancerId }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the LB Rule.
+// Specifies the name of the LB Rule. Changing this forces a new resource to be created.
 func (o RuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

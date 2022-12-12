@@ -778,9 +778,9 @@ func (o PoolCertificateArrayOutput) Index(i pulumi.IntInput) PoolCertificateOutp
 }
 
 type PoolContainerConfiguration struct {
-	// A list of container image names to use, as would be specified by `docker pull`.
+	// A list of container image names to use, as would be specified by `docker pull`. Changing this forces a new resource to be created.
 	ContainerImageNames []string `pulumi:"containerImageNames"`
-	// Additional container registries from which container images can be pulled by the pool's VMs.
+	// Additional container registries from which container images can be pulled by the pool's VMs. Changing this forces a new resource to be created.
 	ContainerRegistries []PoolContainerConfigurationContainerRegistry `pulumi:"containerRegistries"`
 	// The type of container configuration. Possible value is `DockerCompatible`.
 	Type *string `pulumi:"type"`
@@ -798,9 +798,9 @@ type PoolContainerConfigurationInput interface {
 }
 
 type PoolContainerConfigurationArgs struct {
-	// A list of container image names to use, as would be specified by `docker pull`.
+	// A list of container image names to use, as would be specified by `docker pull`. Changing this forces a new resource to be created.
 	ContainerImageNames pulumi.StringArrayInput `pulumi:"containerImageNames"`
-	// Additional container registries from which container images can be pulled by the pool's VMs.
+	// Additional container registries from which container images can be pulled by the pool's VMs. Changing this forces a new resource to be created.
 	ContainerRegistries PoolContainerConfigurationContainerRegistryArrayInput `pulumi:"containerRegistries"`
 	// The type of container configuration. Possible value is `DockerCompatible`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -883,12 +883,12 @@ func (o PoolContainerConfigurationOutput) ToPoolContainerConfigurationPtrOutputW
 	}).(PoolContainerConfigurationPtrOutput)
 }
 
-// A list of container image names to use, as would be specified by `docker pull`.
+// A list of container image names to use, as would be specified by `docker pull`. Changing this forces a new resource to be created.
 func (o PoolContainerConfigurationOutput) ContainerImageNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PoolContainerConfiguration) []string { return v.ContainerImageNames }).(pulumi.StringArrayOutput)
 }
 
-// Additional container registries from which container images can be pulled by the pool's VMs.
+// Additional container registries from which container images can be pulled by the pool's VMs. Changing this forces a new resource to be created.
 func (o PoolContainerConfigurationOutput) ContainerRegistries() PoolContainerConfigurationContainerRegistryArrayOutput {
 	return o.ApplyT(func(v PoolContainerConfiguration) []PoolContainerConfigurationContainerRegistry {
 		return v.ContainerRegistries
@@ -924,7 +924,7 @@ func (o PoolContainerConfigurationPtrOutput) Elem() PoolContainerConfigurationOu
 	}).(PoolContainerConfigurationOutput)
 }
 
-// A list of container image names to use, as would be specified by `docker pull`.
+// A list of container image names to use, as would be specified by `docker pull`. Changing this forces a new resource to be created.
 func (o PoolContainerConfigurationPtrOutput) ContainerImageNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PoolContainerConfiguration) []string {
 		if v == nil {
@@ -934,7 +934,7 @@ func (o PoolContainerConfigurationPtrOutput) ContainerImageNames() pulumi.String
 	}).(pulumi.StringArrayOutput)
 }
 
-// Additional container registries from which container images can be pulled by the pool's VMs.
+// Additional container registries from which container images can be pulled by the pool's VMs. Changing this forces a new resource to be created.
 func (o PoolContainerConfigurationPtrOutput) ContainerRegistries() PoolContainerConfigurationContainerRegistryArrayOutput {
 	return o.ApplyT(func(v *PoolContainerConfiguration) []PoolContainerConfigurationContainerRegistry {
 		if v == nil {
@@ -2566,7 +2566,7 @@ func (o PoolMountNfsMountArrayOutput) Index(i pulumi.IntInput) PoolMountNfsMount
 }
 
 type PoolNetworkConfiguration struct {
-	// The scope of dynamic vnet assignment. Allowed values: `none`, `job`.
+	// The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
 	DynamicVnetAssignmentScope *string `pulumi:"dynamicVnetAssignmentScope"`
 	// A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inboundNatPools block below. Changing this forces a new resource to be created.
 	EndpointConfigurations []PoolNetworkConfigurationEndpointConfiguration `pulumi:"endpointConfigurations"`
@@ -2590,7 +2590,7 @@ type PoolNetworkConfigurationInput interface {
 }
 
 type PoolNetworkConfigurationArgs struct {
-	// The scope of dynamic vnet assignment. Allowed values: `none`, `job`.
+	// The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
 	DynamicVnetAssignmentScope pulumi.StringPtrInput `pulumi:"dynamicVnetAssignmentScope"`
 	// A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inboundNatPools block below. Changing this forces a new resource to be created.
 	EndpointConfigurations PoolNetworkConfigurationEndpointConfigurationArrayInput `pulumi:"endpointConfigurations"`
@@ -2679,7 +2679,7 @@ func (o PoolNetworkConfigurationOutput) ToPoolNetworkConfigurationPtrOutputWithC
 	}).(PoolNetworkConfigurationPtrOutput)
 }
 
-// The scope of dynamic vnet assignment. Allowed values: `none`, `job`.
+// The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
 func (o PoolNetworkConfigurationOutput) DynamicVnetAssignmentScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolNetworkConfiguration) *string { return v.DynamicVnetAssignmentScope }).(pulumi.StringPtrOutput)
 }
@@ -2730,7 +2730,7 @@ func (o PoolNetworkConfigurationPtrOutput) Elem() PoolNetworkConfigurationOutput
 	}).(PoolNetworkConfigurationOutput)
 }
 
-// The scope of dynamic vnet assignment. Allowed values: `none`, `job`.
+// The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
 func (o PoolNetworkConfigurationPtrOutput) DynamicVnetAssignmentScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PoolNetworkConfiguration) *string {
 		if v == nil {

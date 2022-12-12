@@ -66,7 +66,7 @@ namespace Pulumi.Azure.EventHub
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
+        /// The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
@@ -142,7 +142,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
+        /// The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
@@ -186,7 +186,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
+        /// The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }

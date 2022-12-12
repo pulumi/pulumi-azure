@@ -49,14 +49,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the supported Azure Region where the Load Balancer should be created.
+     * Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return Specifies the supported Azure Region where the Load Balancer should be created.
+     * @return Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> location() {
@@ -64,14 +64,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the name of the Load Balancer.
+     * Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the Load Balancer.
+     * @return Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -79,14 +79,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Resource Group in which to create the Load Balancer.
+     * The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group in which to create the Load Balancer.
+     * @return The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -94,14 +94,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`.
+     * The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="sku")
     private @Nullable Output<String> sku;
 
     /**
-     * @return The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`.
+     * @return The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> sku() {
@@ -222,7 +222,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location Specifies the supported Azure Region where the Load Balancer should be created.
+         * @param location Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location Specifies the supported Azure Region where the Load Balancer should be created.
+         * @param location Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the Load Balancer.
+         * @param name Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the Load Balancer.
+         * @param name Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group in which to create the Load Balancer.
+         * @param resourceGroupName The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group in which to create the Load Balancer.
+         * @param resourceGroupName The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`.
+         * @param sku The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`.
+         * @param sku The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

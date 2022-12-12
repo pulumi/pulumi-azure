@@ -18,7 +18,7 @@ public final class SharedImageVersionTargetRegion {
      */
     private @Nullable String diskEncryptionSetId;
     /**
-     * @return The Azure Region in which this Image Version should exist.
+     * @return The Azure Region in which this Image Version should exist. Changing this forces a new resource to be created.
      * 
      */
     private String name;
@@ -42,7 +42,7 @@ public final class SharedImageVersionTargetRegion {
         return Optional.ofNullable(this.diskEncryptionSetId);
     }
     /**
-     * @return The Azure Region in which this Image Version should exist.
+     * @return The Azure Region in which this Image Version should exist. Changing this forces a new resource to be created.
      * 
      */
     public String name() {

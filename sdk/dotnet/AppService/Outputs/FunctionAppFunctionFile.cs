@@ -14,11 +14,11 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class FunctionAppFunctionFile
     {
         /// <summary>
-        /// The content of the file.
+        /// The content of the file. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Content;
         /// <summary>
-        /// The filename of the file to be uploaded.
+        /// The filename of the file to be uploaded. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
 

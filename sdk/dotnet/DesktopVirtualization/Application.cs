@@ -81,8 +81,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     public partial class Application : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Resource ID for a Virtual Desktop Application Group to associate with the
-        /// Virtual Desktop Application. Changing the ID forces a new resource to be created.
+        /// Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
         /// </summary>
         [Output("applicationGroupId")]
         public Output<string> ApplicationGroupId { get; private set; } = null!;
@@ -188,8 +187,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Resource ID for a Virtual Desktop Application Group to associate with the
-        /// Virtual Desktop Application. Changing the ID forces a new resource to be created.
+        /// Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
         /// </summary>
         [Input("applicationGroupId", required: true)]
         public Input<string> ApplicationGroupId { get; set; } = null!;
@@ -257,8 +255,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     public sealed class ApplicationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Resource ID for a Virtual Desktop Application Group to associate with the
-        /// Virtual Desktop Application. Changing the ID forces a new resource to be created.
+        /// Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
         /// </summary>
         [Input("applicationGroupId")]
         public Input<string>? ApplicationGroupId { get; set; }

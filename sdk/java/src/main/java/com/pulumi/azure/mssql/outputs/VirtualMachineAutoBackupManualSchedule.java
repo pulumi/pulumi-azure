@@ -6,10 +6,17 @@ package com.pulumi.azure.mssql.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class VirtualMachineAutoBackupManualSchedule {
+    /**
+     * @return A list of days on which backup can take place. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`
+     * 
+     */
+    private @Nullable List<String> daysOfWeeks;
     /**
      * @return Frequency of full backups. Valid values include `Daily` or `Weekly`.
      * 
@@ -32,6 +39,13 @@ public final class VirtualMachineAutoBackupManualSchedule {
     private Integer logBackupFrequencyInMinutes;
 
     private VirtualMachineAutoBackupManualSchedule() {}
+    /**
+     * @return A list of days on which backup can take place. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`
+     * 
+     */
+    public List<String> daysOfWeeks() {
+        return this.daysOfWeeks == null ? List.of() : this.daysOfWeeks;
+    }
     /**
      * @return Frequency of full backups. Valid values include `Daily` or `Weekly`.
      * 
@@ -70,6 +84,7 @@ public final class VirtualMachineAutoBackupManualSchedule {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<String> daysOfWeeks;
         private String fullBackupFrequency;
         private Integer fullBackupStartHour;
         private Integer fullBackupWindowInHours;
@@ -77,12 +92,21 @@ public final class VirtualMachineAutoBackupManualSchedule {
         public Builder() {}
         public Builder(VirtualMachineAutoBackupManualSchedule defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.daysOfWeeks = defaults.daysOfWeeks;
     	      this.fullBackupFrequency = defaults.fullBackupFrequency;
     	      this.fullBackupStartHour = defaults.fullBackupStartHour;
     	      this.fullBackupWindowInHours = defaults.fullBackupWindowInHours;
     	      this.logBackupFrequencyInMinutes = defaults.logBackupFrequencyInMinutes;
         }
 
+        @CustomType.Setter
+        public Builder daysOfWeeks(@Nullable List<String> daysOfWeeks) {
+            this.daysOfWeeks = daysOfWeeks;
+            return this;
+        }
+        public Builder daysOfWeeks(String... daysOfWeeks) {
+            return daysOfWeeks(List.of(daysOfWeeks));
+        }
         @CustomType.Setter
         public Builder fullBackupFrequency(String fullBackupFrequency) {
             this.fullBackupFrequency = Objects.requireNonNull(fullBackupFrequency);
@@ -105,6 +129,7 @@ public final class VirtualMachineAutoBackupManualSchedule {
         }
         public VirtualMachineAutoBackupManualSchedule build() {
             final var o = new VirtualMachineAutoBackupManualSchedule();
+            o.daysOfWeeks = daysOfWeeks;
             o.fullBackupFrequency = fullBackupFrequency;
             o.fullBackupStartHour = fullBackupStartHour;
             o.fullBackupWindowInHours = fullBackupWindowInHours;

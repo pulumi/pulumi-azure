@@ -125,14 +125,14 @@ public class TimeSeriesInsightsStandardEnvironment extends com.pulumi.resources.
         return Codegen.optional(this.partitionKey);
     }
     /**
-     * The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment.
+     * The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment.
+     * @return The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {

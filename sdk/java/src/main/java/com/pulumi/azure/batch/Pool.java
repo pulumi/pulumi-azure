@@ -251,14 +251,14 @@ public class Pool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.diskEncryptions);
     }
     /**
-     * Specifies the display name of the Batch pool.
+     * Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="displayName", type=String.class, parameters={})
     private Output</* @Nullable */ String> displayName;
 
     /**
-     * @return Specifies the display name of the Batch pool.
+     * @return Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> displayName() {
@@ -405,14 +405,14 @@ public class Pool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.networkConfiguration);
     }
     /**
-     * Specifies the SKU of the node agents that will be created in the Batch pool.
+     * Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="nodeAgentSkuId", type=String.class, parameters={})
     private Output<String> nodeAgentSkuId;
 
     /**
-     * @return Specifies the SKU of the node agents that will be created in the Batch pool.
+     * @return Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> nodeAgentSkuId() {
@@ -523,14 +523,14 @@ public class Pool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.userAccounts);
     }
     /**
-     * Specifies the size of the VM created in the Batch pool.
+     * Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="vmSize", type=String.class, parameters={})
     private Output<String> vmSize;
 
     /**
-     * @return Specifies the size of the VM created in the Batch pool.
+     * @return Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> vmSize() {

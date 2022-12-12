@@ -28,7 +28,7 @@ namespace Pulumi.Azure.AppPlatform.Outputs
         /// <summary>
         /// Specifies the route processing order.
         /// </summary>
-        public readonly int? Order;
+        public readonly int Order;
         /// <summary>
         /// Specifies a list of conditions to evaluate a route for each request. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.AppPlatform.Outputs
 
             ImmutableArray<string> filters,
 
-            int? order,
+            int order,
 
             ImmutableArray<string> predicates,
 

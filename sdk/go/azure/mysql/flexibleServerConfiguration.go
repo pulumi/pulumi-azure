@@ -80,7 +80,7 @@ type FlexibleServerConfiguration struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies the name of the MySQL Flexible Server. Changing this forces a new resource to be created.
 	ServerName pulumi.StringOutput `pulumi:"serverName"`
-	// Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values.
+	// Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values. Changing this forces a new resource to be created.
 	Value pulumi.StringOutput `pulumi:"value"`
 }
 
@@ -128,7 +128,7 @@ type flexibleServerConfigurationState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the name of the MySQL Flexible Server. Changing this forces a new resource to be created.
 	ServerName *string `pulumi:"serverName"`
-	// Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values.
+	// Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values. Changing this forces a new resource to be created.
 	Value *string `pulumi:"value"`
 }
 
@@ -139,7 +139,7 @@ type FlexibleServerConfigurationState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the name of the MySQL Flexible Server. Changing this forces a new resource to be created.
 	ServerName pulumi.StringPtrInput
-	// Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values.
+	// Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values. Changing this forces a new resource to be created.
 	Value pulumi.StringPtrInput
 }
 
@@ -154,7 +154,7 @@ type flexibleServerConfigurationArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the name of the MySQL Flexible Server. Changing this forces a new resource to be created.
 	ServerName string `pulumi:"serverName"`
-	// Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values.
+	// Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values. Changing this forces a new resource to be created.
 	Value string `pulumi:"value"`
 }
 
@@ -166,7 +166,7 @@ type FlexibleServerConfigurationArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Specifies the name of the MySQL Flexible Server. Changing this forces a new resource to be created.
 	ServerName pulumi.StringInput
-	// Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values.
+	// Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values. Changing this forces a new resource to be created.
 	Value pulumi.StringInput
 }
 
@@ -272,7 +272,7 @@ func (o FlexibleServerConfigurationOutput) ServerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServerConfiguration) pulumi.StringOutput { return v.ServerName }).(pulumi.StringOutput)
 }
 
-// Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values.
+// Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values. Changing this forces a new resource to be created.
 func (o FlexibleServerConfigurationOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServerConfiguration) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
 }

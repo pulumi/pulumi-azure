@@ -135,8 +135,7 @@ export class Insights extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to
-     * create the Application Insights component.
+     * The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -277,8 +276,7 @@ export interface InsightsState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to
-     * create the Application Insights component.
+     * The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -345,8 +343,7 @@ export interface InsightsArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to
-     * create the Application Insights component.
+     * The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

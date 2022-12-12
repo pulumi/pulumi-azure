@@ -122,7 +122,7 @@ import javax.annotation.Nullable;
  * Kusto IotHub Data Connections can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:kusto/iotHubDataConnection:IotHubDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1/Databases/database1/DataConnections/dataConnection1
+ *  $ pulumi import azure:kusto/iotHubDataConnection:IotHubDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/databases/database1/dataConnections/dataConnection1
  * ```
  * 
  */
@@ -157,14 +157,14 @@ public class IotHubDataConnection extends com.pulumi.resources.CustomResource {
         return this.consumerGroup;
     }
     /**
-     * Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
+     * Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="dataFormat", type=String.class, parameters={})
     private Output</* @Nullable */ String> dataFormat;
 
     /**
-     * @return Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
+     * @return Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> dataFormat() {
@@ -185,14 +185,14 @@ public class IotHubDataConnection extends com.pulumi.resources.CustomResource {
         return this.databaseName;
     }
     /**
-     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="databaseRoutingType", type=String.class, parameters={})
     private Output</* @Nullable */ String> databaseRoutingType;
 
     /**
-     * @return Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     * @return Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> databaseRoutingType() {
@@ -241,14 +241,14 @@ public class IotHubDataConnection extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+     * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="mappingRuleName", type=String.class, parameters={})
     private Output</* @Nullable */ String> mappingRuleName;
 
     /**
-     * @return Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+     * @return Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> mappingRuleName() {
@@ -297,14 +297,14 @@ public class IotHubDataConnection extends com.pulumi.resources.CustomResource {
         return this.sharedAccessPolicyName;
     }
     /**
-     * Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+     * Specifies the target table name used for the message ingestion. Table must exist before resource is created. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="tableName", type=String.class, parameters={})
     private Output</* @Nullable */ String> tableName;
 
     /**
-     * @return Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+     * @return Specifies the target table name used for the message ingestion. Table must exist before resource is created. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> tableName() {

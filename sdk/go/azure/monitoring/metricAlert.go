@@ -126,7 +126,7 @@ type MetricAlert struct {
 	Frequency pulumi.StringPtrOutput `pulumi:"frequency"`
 	// The name of the Metric Alert. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the resource group in which to create the Metric Alert instance.
+	// The name of the resource group in which to create the Metric Alert instance. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A set of strings of resource IDs at which the metric criteria should be applied.
 	Scopes pulumi.StringArrayOutput `pulumi:"scopes"`
@@ -195,7 +195,7 @@ type metricAlertState struct {
 	Frequency *string `pulumi:"frequency"`
 	// The name of the Metric Alert. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the Metric Alert instance.
+	// The name of the resource group in which to create the Metric Alert instance. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A set of strings of resource IDs at which the metric criteria should be applied.
 	Scopes []string `pulumi:"scopes"`
@@ -230,7 +230,7 @@ type MetricAlertState struct {
 	Frequency pulumi.StringPtrInput
 	// The name of the Metric Alert. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the Metric Alert instance.
+	// The name of the resource group in which to create the Metric Alert instance. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A set of strings of resource IDs at which the metric criteria should be applied.
 	Scopes pulumi.StringArrayInput
@@ -269,7 +269,7 @@ type metricAlertArgs struct {
 	Frequency *string `pulumi:"frequency"`
 	// The name of the Metric Alert. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the Metric Alert instance.
+	// The name of the resource group in which to create the Metric Alert instance. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A set of strings of resource IDs at which the metric criteria should be applied.
 	Scopes []string `pulumi:"scopes"`
@@ -305,7 +305,7 @@ type MetricAlertArgs struct {
 	Frequency pulumi.StringPtrInput
 	// The name of the Metric Alert. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the Metric Alert instance.
+	// The name of the resource group in which to create the Metric Alert instance. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A set of strings of resource IDs at which the metric criteria should be applied.
 	Scopes pulumi.StringArrayInput
@@ -455,7 +455,7 @@ func (o MetricAlertOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MetricAlert) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the resource group in which to create the Metric Alert instance.
+// The name of the resource group in which to create the Metric Alert instance. Changing this forces a new resource to be created.
 func (o MetricAlertOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *MetricAlert) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

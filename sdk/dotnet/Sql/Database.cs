@@ -82,7 +82,7 @@ namespace Pulumi.Azure.Sql
         public Output<string> MaxSizeGb { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the database.
+        /// The name of the database. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -107,7 +107,7 @@ namespace Pulumi.Azure.Sql
         public Output<string> RequestedServiceObjectiveName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
+        /// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -119,7 +119,7 @@ namespace Pulumi.Azure.Sql
         public Output<string> RestorePointInTime { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the SQL Server on which to create the database.
+        /// The name of the SQL Server on which to create the database. Changing this forces a new resource to be created.
         /// </summary>
         [Output("serverName")]
         public Output<string> ServerName { get; private set; } = null!;
@@ -246,7 +246,7 @@ namespace Pulumi.Azure.Sql
         public Input<string>? MaxSizeGb { get; set; }
 
         /// <summary>
-        /// The name of the database.
+        /// The name of the database. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -271,7 +271,7 @@ namespace Pulumi.Azure.Sql
         public Input<string>? RequestedServiceObjectiveName { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
+        /// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -283,7 +283,7 @@ namespace Pulumi.Azure.Sql
         public Input<string>? RestorePointInTime { get; set; }
 
         /// <summary>
-        /// The name of the SQL Server on which to create the database.
+        /// The name of the SQL Server on which to create the database. Changing this forces a new resource to be created.
         /// </summary>
         [Input("serverName", required: true)]
         public Input<string> ServerName { get; set; } = null!;
@@ -393,7 +393,7 @@ namespace Pulumi.Azure.Sql
         public Input<string>? MaxSizeGb { get; set; }
 
         /// <summary>
-        /// The name of the database.
+        /// The name of the database. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -418,7 +418,7 @@ namespace Pulumi.Azure.Sql
         public Input<string>? RequestedServiceObjectiveName { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
+        /// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
@@ -430,7 +430,7 @@ namespace Pulumi.Azure.Sql
         public Input<string>? RestorePointInTime { get; set; }
 
         /// <summary>
-        /// The name of the SQL Server on which to create the database.
+        /// The name of the SQL Server on which to create the database. Changing this forces a new resource to be created.
         /// </summary>
         [Input("serverName")]
         public Input<string>? ServerName { get; set; }

@@ -78,7 +78,7 @@ namespace Pulumi.Azure.AppService
     public partial class FunctionAppSlot : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the App Service Plan within which to create this Function App Slot.
+        /// The ID of the App Service Plan within which to create this Function App Slot. Changing this forces a new resource to be created.
         /// </summary>
         [Output("appServicePlanId")]
         public Output<string> AppServicePlanId { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A string indicating the Operating System type for this function app. The only possible value is `linux`.
+        /// A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("osType")]
         public Output<string?> OsType { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> PossibleOutboundIpAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create the Function App Slot.
+        /// The name of the resource group in which to create the Function App Slot. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -204,7 +204,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> StorageAccountAccessKey { get; private set; } = null!;
 
         /// <summary>
-        /// The backend storage account name which will be used by the Function App (such as the dashboard, logs).
+        /// The backend storage account name which will be used by the Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageAccountName")]
         public Output<string> StorageAccountName { get; private set; } = null!;
@@ -268,7 +268,7 @@ namespace Pulumi.Azure.AppService
     public sealed class FunctionAppSlotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the App Service Plan within which to create this Function App Slot.
+        /// The ID of the App Service Plan within which to create this Function App Slot. Changing this forces a new resource to be created.
         /// </summary>
         [Input("appServicePlanId", required: true)]
         public Input<string> AppServicePlanId { get; set; } = null!;
@@ -352,13 +352,13 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A string indicating the Operating System type for this function app. The only possible value is `linux`.
+        /// A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the Function App Slot.
+        /// The name of the resource group in which to create the Function App Slot. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -376,7 +376,7 @@ namespace Pulumi.Azure.AppService
         public Input<string> StorageAccountAccessKey { get; set; } = null!;
 
         /// <summary>
-        /// The backend storage account name which will be used by the Function App (such as the dashboard, logs).
+        /// The backend storage account name which will be used by the Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountName", required: true)]
         public Input<string> StorageAccountName { get; set; } = null!;
@@ -408,7 +408,7 @@ namespace Pulumi.Azure.AppService
     public sealed class FunctionAppSlotState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the App Service Plan within which to create this Function App Slot.
+        /// The ID of the App Service Plan within which to create this Function App Slot. Changing this forces a new resource to be created.
         /// </summary>
         [Input("appServicePlanId")]
         public Input<string>? AppServicePlanId { get; set; }
@@ -504,7 +504,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A string indicating the Operating System type for this function app. The only possible value is `linux`.
+        /// A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }
@@ -522,7 +522,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? PossibleOutboundIpAddresses { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the Function App Slot.
+        /// The name of the resource group in which to create the Function App Slot. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
@@ -552,7 +552,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? StorageAccountAccessKey { get; set; }
 
         /// <summary>
-        /// The backend storage account name which will be used by the Function App (such as the dashboard, logs).
+        /// The backend storage account name which will be used by the Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountName")]
         public Input<string>? StorageAccountName { get; set; }

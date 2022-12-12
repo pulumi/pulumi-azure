@@ -94,7 +94,7 @@ type Secret struct {
 	ContentType pulumi.StringPtrOutput `pulumi:"contentType"`
 	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
 	ExpirationDate pulumi.StringPtrOutput `pulumi:"expirationDate"`
-	// The ID of the Key Vault where the Secret should be created.
+	// The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringOutput `pulumi:"keyVaultId"`
 	// Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -153,7 +153,7 @@ type secretState struct {
 	ContentType *string `pulumi:"contentType"`
 	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
 	ExpirationDate *string `pulumi:"expirationDate"`
-	// The ID of the Key Vault where the Secret should be created.
+	// The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -178,7 +178,7 @@ type SecretState struct {
 	ContentType pulumi.StringPtrInput
 	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
 	ExpirationDate pulumi.StringPtrInput
-	// The ID of the Key Vault where the Secret should be created.
+	// The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringPtrInput
 	// Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -207,7 +207,7 @@ type secretArgs struct {
 	ContentType *string `pulumi:"contentType"`
 	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
 	ExpirationDate *string `pulumi:"expirationDate"`
-	// The ID of the Key Vault where the Secret should be created.
+	// The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
 	KeyVaultId string `pulumi:"keyVaultId"`
 	// Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -225,7 +225,7 @@ type SecretArgs struct {
 	ContentType pulumi.StringPtrInput
 	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
 	ExpirationDate pulumi.StringPtrInput
-	// The ID of the Key Vault where the Secret should be created.
+	// The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringInput
 	// Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -334,7 +334,7 @@ func (o SecretOutput) ExpirationDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Secret) pulumi.StringPtrOutput { return v.ExpirationDate }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Key Vault where the Secret should be created.
+// The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
 func (o SecretOutput) KeyVaultId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Secret) pulumi.StringOutput { return v.KeyVaultId }).(pulumi.StringOutput)
 }

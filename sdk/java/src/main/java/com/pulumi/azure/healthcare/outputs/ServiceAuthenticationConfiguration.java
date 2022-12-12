@@ -24,7 +24,7 @@ public final class ServiceAuthenticationConfiguration {
      */
     private @Nullable String authority;
     /**
-     * @return Enables the &#39;SMART on FHIR&#39; option for mobile and web implementations.
+     * @return (Boolean) Enables the &#39;SMART on FHIR&#39; option for mobile and web implementations.
      * 
      */
     private @Nullable Boolean smartProxyEnabled;
@@ -46,7 +46,7 @@ public final class ServiceAuthenticationConfiguration {
         return Optional.ofNullable(this.authority);
     }
     /**
-     * @return Enables the &#39;SMART on FHIR&#39; option for mobile and web implementations.
+     * @return (Boolean) Enables the &#39;SMART on FHIR&#39; option for mobile and web implementations.
      * 
      */
     public Optional<Boolean> smartProxyEnabled() {

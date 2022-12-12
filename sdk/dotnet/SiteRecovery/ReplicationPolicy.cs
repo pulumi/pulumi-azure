@@ -62,7 +62,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Output<int> ApplicationConsistentSnapshotFrequencyInMinutes { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the replication policy.
+        /// The name of the replication policy. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -74,13 +74,13 @@ namespace Pulumi.Azure.SiteRecovery
         public Output<int> RecoveryPointRetentionInMinutes { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the vault that should be updated.
+        /// The name of the vault that should be updated. Changing this forces a new resource to be created.
         /// </summary>
         [Output("recoveryVaultName")]
         public Output<string> RecoveryVaultName { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the resource group where the vault that should be updated is located.
+        /// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Input<int> ApplicationConsistentSnapshotFrequencyInMinutes { get; set; } = null!;
 
         /// <summary>
-        /// The name of the replication policy.
+        /// The name of the replication policy. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -150,13 +150,13 @@ namespace Pulumi.Azure.SiteRecovery
         public Input<int> RecoveryPointRetentionInMinutes { get; set; } = null!;
 
         /// <summary>
-        /// The name of the vault that should be updated.
+        /// The name of the vault that should be updated. Changing this forces a new resource to be created.
         /// </summary>
         [Input("recoveryVaultName", required: true)]
         public Input<string> RecoveryVaultName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the resource group where the vault that should be updated is located.
+        /// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -176,7 +176,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Input<int>? ApplicationConsistentSnapshotFrequencyInMinutes { get; set; }
 
         /// <summary>
-        /// The name of the replication policy.
+        /// The name of the replication policy. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -188,13 +188,13 @@ namespace Pulumi.Azure.SiteRecovery
         public Input<int>? RecoveryPointRetentionInMinutes { get; set; }
 
         /// <summary>
-        /// The name of the vault that should be updated.
+        /// The name of the vault that should be updated. Changing this forces a new resource to be created.
         /// </summary>
         [Input("recoveryVaultName")]
         public Input<string>? RecoveryVaultName { get; set; }
 
         /// <summary>
-        /// Name of the resource group where the vault that should be updated is located.
+        /// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

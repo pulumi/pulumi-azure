@@ -31,7 +31,7 @@ class ResourceGroupCostManagementExportArgs:
         :param pulumi.Input[str] recurrence_period_end_date: The date the export will stop capturing information.
         :param pulumi.Input[str] recurrence_period_start_date: The date the export will start capturing information.
         :param pulumi.Input[str] recurrence_type: How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`.
-        :param pulumi.Input[str] resource_group_id: The id of the resource group on which to create an export.
+        :param pulumi.Input[str] resource_group_id: The id of the resource group on which to create an export. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] active: Is the cost management export active? Default is `true`.
         :param pulumi.Input[str] name: Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
         """
@@ -110,7 +110,7 @@ class ResourceGroupCostManagementExportArgs:
     @pulumi.getter(name="resourceGroupId")
     def resource_group_id(self) -> pulumi.Input[str]:
         """
-        The id of the resource group on which to create an export.
+        The id of the resource group on which to create an export. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_id")
 
@@ -163,7 +163,7 @@ class _ResourceGroupCostManagementExportState:
         :param pulumi.Input[str] recurrence_period_end_date: The date the export will stop capturing information.
         :param pulumi.Input[str] recurrence_period_start_date: The date the export will start capturing information.
         :param pulumi.Input[str] recurrence_type: How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`.
-        :param pulumi.Input[str] resource_group_id: The id of the resource group on which to create an export.
+        :param pulumi.Input[str] resource_group_id: The id of the resource group on which to create an export. Changing this forces a new resource to be created.
         """
         if active is not None:
             pulumi.set(__self__, "active", active)
@@ -270,7 +270,7 @@ class _ResourceGroupCostManagementExportState:
     @pulumi.getter(name="resourceGroupId")
     def resource_group_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The id of the resource group on which to create an export.
+        The id of the resource group on which to create an export. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_id")
 
@@ -341,7 +341,7 @@ class ResourceGroupCostManagementExport(pulumi.CustomResource):
         :param pulumi.Input[str] recurrence_period_end_date: The date the export will stop capturing information.
         :param pulumi.Input[str] recurrence_period_start_date: The date the export will start capturing information.
         :param pulumi.Input[str] recurrence_type: How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`.
-        :param pulumi.Input[str] resource_group_id: The id of the resource group on which to create an export.
+        :param pulumi.Input[str] resource_group_id: The id of the resource group on which to create an export. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -472,7 +472,7 @@ class ResourceGroupCostManagementExport(pulumi.CustomResource):
         :param pulumi.Input[str] recurrence_period_end_date: The date the export will stop capturing information.
         :param pulumi.Input[str] recurrence_period_start_date: The date the export will start capturing information.
         :param pulumi.Input[str] recurrence_type: How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`.
-        :param pulumi.Input[str] resource_group_id: The id of the resource group on which to create an export.
+        :param pulumi.Input[str] resource_group_id: The id of the resource group on which to create an export. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -548,7 +548,7 @@ class ResourceGroupCostManagementExport(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupId")
     def resource_group_id(self) -> pulumi.Output[str]:
         """
-        The id of the resource group on which to create an export.
+        The id of the resource group on which to create an export. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_id")
 

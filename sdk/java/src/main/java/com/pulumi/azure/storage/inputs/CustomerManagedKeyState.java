@@ -31,14 +31,14 @@ public final class CustomerManagedKeyState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The ID of the Key Vault. Changing this forces a new resource to be created.
+     * The ID of the Key Vault.
      * 
      */
     @Import(name="keyVaultId")
     private @Nullable Output<String> keyVaultId;
 
     /**
-     * @return The ID of the Key Vault. Changing this forces a new resource to be created.
+     * @return The ID of the Key Vault.
      * 
      */
     public Optional<Output<String>> keyVaultId() {
@@ -140,7 +140,7 @@ public final class CustomerManagedKeyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param keyVaultId The ID of the Key Vault. Changing this forces a new resource to be created.
+         * @param keyVaultId The ID of the Key Vault.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class CustomerManagedKeyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param keyVaultId The ID of the Key Vault. Changing this forces a new resource to be created.
+         * @param keyVaultId The ID of the Key Vault.
          * 
          * @return builder
          * 

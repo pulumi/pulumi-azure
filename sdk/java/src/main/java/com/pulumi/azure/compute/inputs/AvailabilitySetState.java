@@ -34,14 +34,14 @@ public final class AvailabilitySetState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`.
+     * Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="managed")
     private @Nullable Output<Boolean> managed;
 
     /**
-     * @return Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`.
+     * @return Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> managed() {
@@ -191,7 +191,7 @@ public final class AvailabilitySetState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param managed Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`.
+         * @param managed Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class AvailabilitySetState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param managed Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`.
+         * @param managed Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

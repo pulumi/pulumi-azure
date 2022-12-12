@@ -119,11 +119,11 @@ export class Image extends pulumi.CustomResource {
      */
     public readonly dataDisks!: pulumi.Output<outputs.compute.ImageDataDisk[] | undefined>;
     /**
-     * The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
+     * The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
      */
     public readonly hyperVGeneration!: pulumi.Output<string | undefined>;
     /**
-     * Specified the supported Azure location where the resource exists.
+     * Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -137,7 +137,7 @@ export class Image extends pulumi.CustomResource {
      */
     public readonly osDisk!: pulumi.Output<outputs.compute.ImageOsDisk | undefined>;
     /**
-     * The name of the resource group in which to create
+     * The name of the resource group in which to create. Changing this forces a new resource to be created.
      * the image. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -205,11 +205,11 @@ export interface ImageState {
      */
     dataDisks?: pulumi.Input<pulumi.Input<inputs.compute.ImageDataDisk>[]>;
     /**
-     * The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
+     * The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
      */
     hyperVGeneration?: pulumi.Input<string>;
     /**
-     * Specified the supported Azure location where the resource exists.
+     * Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
@@ -223,7 +223,7 @@ export interface ImageState {
      */
     osDisk?: pulumi.Input<inputs.compute.ImageOsDisk>;
     /**
-     * The name of the resource group in which to create
+     * The name of the resource group in which to create. Changing this forces a new resource to be created.
      * the image. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
@@ -250,11 +250,11 @@ export interface ImageArgs {
      */
     dataDisks?: pulumi.Input<pulumi.Input<inputs.compute.ImageDataDisk>[]>;
     /**
-     * The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
+     * The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
      */
     hyperVGeneration?: pulumi.Input<string>;
     /**
-     * Specified the supported Azure location where the resource exists.
+     * Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
@@ -268,7 +268,7 @@ export interface ImageArgs {
      */
     osDisk?: pulumi.Input<inputs.compute.ImageOsDisk>;
     /**
-     * The name of the resource group in which to create
+     * The name of the resource group in which to create. Changing this forces a new resource to be created.
      * the image. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;

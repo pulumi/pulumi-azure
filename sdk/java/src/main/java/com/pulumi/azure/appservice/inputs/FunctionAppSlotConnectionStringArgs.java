@@ -14,14 +14,14 @@ public final class FunctionAppSlotConnectionStringArgs extends com.pulumi.resour
     public static final FunctionAppSlotConnectionStringArgs Empty = new FunctionAppSlotConnectionStringArgs();
 
     /**
-     * The name of the Connection String.
+     * The name of the Connection String. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the Connection String.
+     * @return The name of the Connection String. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -85,7 +85,7 @@ public final class FunctionAppSlotConnectionStringArgs extends com.pulumi.resour
         }
 
         /**
-         * @param name The name of the Connection String.
+         * @param name The name of the Connection String. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -96,7 +96,7 @@ public final class FunctionAppSlotConnectionStringArgs extends com.pulumi.resour
         }
 
         /**
-         * @param name The name of the Connection String.
+         * @param name The name of the Connection String. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -66,6 +66,7 @@ __all__ = [
     'FirewallNatRuleCollectionRule',
     'FirewallNetworkRuleCollectionRule',
     'FirewallPolicyDns',
+    'FirewallPolicyExplicitProxy',
     'FirewallPolicyIdentity',
     'FirewallPolicyInsights',
     'FirewallPolicyInsightsLogAnalyticsWorkspace',
@@ -4473,7 +4474,7 @@ class FirewallIpConfiguration(dict):
         :param str name: Specifies the name of the IP Configuration.
         :param str public_ip_address_id: The ID of the Public IP Address associated with the firewall.
         :param str private_ip_address: The private IP address associated with the Firewall.
-        :param str subnet_id: Reference to the subnet associated with the IP Configuration.
+        :param str subnet_id: Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
@@ -4510,7 +4511,7 @@ class FirewallIpConfiguration(dict):
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[str]:
         """
-        Reference to the subnet associated with the IP Configuration.
+        Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -4909,6 +4910,110 @@ class FirewallPolicyDns(dict):
         A list of custom DNS servers' IP addresses.
         """
         return pulumi.get(self, "servers")
+
+
+@pulumi.output_type
+class FirewallPolicyExplicitProxy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enablePacFile":
+            suggest = "enable_pac_file"
+        elif key == "httpPort":
+            suggest = "http_port"
+        elif key == "httpsPort":
+            suggest = "https_port"
+        elif key == "pacFile":
+            suggest = "pac_file"
+        elif key == "pacFilePort":
+            suggest = "pac_file_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyExplicitProxy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyExplicitProxy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyExplicitProxy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_pac_file: Optional[bool] = None,
+                 enabled: Optional[bool] = None,
+                 http_port: Optional[int] = None,
+                 https_port: Optional[int] = None,
+                 pac_file: Optional[str] = None,
+                 pac_file_port: Optional[int] = None):
+        """
+        :param bool enable_pac_file: Whether the pac file port and url need to be provided.
+        :param bool enabled: Whether the explicit proxy is enabled for this Firewall Policy.
+        :param int http_port: The port number for explicit http protocol.
+        :param int https_port: The port number for explicit proxy https protocol.
+        :param str pac_file: Specifies a SAS URL for PAC file.
+        :param int pac_file_port: Specifies a port number for firewall to serve PAC file.
+        """
+        if enable_pac_file is not None:
+            pulumi.set(__self__, "enable_pac_file", enable_pac_file)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if http_port is not None:
+            pulumi.set(__self__, "http_port", http_port)
+        if https_port is not None:
+            pulumi.set(__self__, "https_port", https_port)
+        if pac_file is not None:
+            pulumi.set(__self__, "pac_file", pac_file)
+        if pac_file_port is not None:
+            pulumi.set(__self__, "pac_file_port", pac_file_port)
+
+    @property
+    @pulumi.getter(name="enablePacFile")
+    def enable_pac_file(self) -> Optional[bool]:
+        """
+        Whether the pac file port and url need to be provided.
+        """
+        return pulumi.get(self, "enable_pac_file")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Whether the explicit proxy is enabled for this Firewall Policy.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="httpPort")
+    def http_port(self) -> Optional[int]:
+        """
+        The port number for explicit http protocol.
+        """
+        return pulumi.get(self, "http_port")
+
+    @property
+    @pulumi.getter(name="httpsPort")
+    def https_port(self) -> Optional[int]:
+        """
+        The port number for explicit proxy https protocol.
+        """
+        return pulumi.get(self, "https_port")
+
+    @property
+    @pulumi.getter(name="pacFile")
+    def pac_file(self) -> Optional[str]:
+        """
+        Specifies a SAS URL for PAC file.
+        """
+        return pulumi.get(self, "pac_file")
+
+    @property
+    @pulumi.getter(name="pacFilePort")
+    def pac_file_port(self) -> Optional[int]:
+        """
+        Specifies a port number for firewall to serve PAC file.
+        """
+        return pulumi.get(self, "pac_file_port")
 
 
 @pulumi.output_type
@@ -6880,7 +6985,7 @@ class NetworkInterfaceIpConfiguration(dict):
                  public_ip_address_id: Optional[str] = None,
                  subnet_id: Optional[str] = None):
         """
-        :param str name: A name used for this IP Configuration.
+        :param str name: A name used for this IP Configuration. Changing this forces a new resource to be created.
         :param str private_ip_address_allocation: The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
         :param str gateway_load_balancer_frontend_ip_configuration_id: The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
         :param bool primary: Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
@@ -6908,7 +7013,7 @@ class NetworkInterfaceIpConfiguration(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        A name used for this IP Configuration.
+        A name used for this IP Configuration. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -7179,7 +7284,7 @@ class NetworkSecurityGroupSecurityRule(dict):
         """
         :param str access: Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
         :param str direction: The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
-        :param str name: The name of the security rule.
+        :param str name: The name of the security rule. Changing this forces a new resource to be created.
         :param int priority: Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         :param str protocol: Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah` or `*` (which matches all).
         :param str description: A description for this rule. Restricted to 140 characters.
@@ -7242,7 +7347,7 @@ class NetworkSecurityGroupSecurityRule(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the security rule.
+        The name of the security rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -7842,7 +7947,7 @@ class RouteTableRoute(dict):
                  next_hop_in_ip_address: Optional[str] = None):
         """
         :param str address_prefix: The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
-        :param str name: The name of the route.
+        :param str name: The name of the route. Changing this forces a new resource to be created.
         :param str next_hop_type: The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
         :param str next_hop_in_ip_address: Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
         """
@@ -7864,7 +7969,7 @@ class RouteTableRoute(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the route.
+        The name of the route. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -8410,7 +8515,7 @@ class TrafficManagerProfileMonitorConfigCustomHeader(dict):
                  name: str,
                  value: str):
         """
-        :param str name: The name of the custom header.
+        :param str name: The name of the custom header. Changing this forces a new resource to be created.
         :param str value: The value of custom header. Applicable for HTTP and HTTPS protocol.
         """
         pulumi.set(__self__, "name", name)
@@ -8420,7 +8525,7 @@ class TrafficManagerProfileMonitorConfigCustomHeader(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the custom header.
+        The name of the custom header. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -9206,8 +9311,7 @@ class VirtualNetworkGatewayIpConfiguration(dict):
                which the virtual network gateway will be created. It is mandatory that
                the associated subnet is named `GatewaySubnet`. Therefore, each virtual
                network can contain at most a single Virtual Network Gateway.
-        :param str name: A user-defined name of the IP configuration. Defaults to
-               `vnetGatewayConfig`.
+        :param str name: A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
         :param str private_ip_address_allocation: Defines how the private IP address
                of the gateways virtual interface is assigned. Valid options are `Static` or
                `Dynamic`. Defaults to `Dynamic`.
@@ -9243,8 +9347,7 @@ class VirtualNetworkGatewayIpConfiguration(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        A user-defined name of the IP configuration. Defaults to
-        `vnetGatewayConfig`.
+        A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -9544,8 +9647,7 @@ class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate(dict):
                  name: str,
                  thumbprint: str):
         """
-        :param str name: A user-defined name of the IP configuration. Defaults to
-               `vnetGatewayConfig`.
+        :param str name: A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "thumbprint", thumbprint)
@@ -9554,8 +9656,7 @@ class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        A user-defined name of the IP configuration. Defaults to
-        `vnetGatewayConfig`.
+        A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -9588,8 +9689,7 @@ class VirtualNetworkGatewayVpnClientConfigurationRootCertificate(dict):
                  name: str,
                  public_cert_data: str):
         """
-        :param str name: A user-defined name of the IP configuration. Defaults to
-               `vnetGatewayConfig`.
+        :param str name: A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
         :param str public_cert_data: The public certificate of the root certificate
                authority. The certificate must be provided in Base-64 encoded X.509 format
                (PEM). In particular, this argument *must not* include the
@@ -9603,8 +9703,7 @@ class VirtualNetworkGatewayVpnClientConfigurationRootCertificate(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        A user-defined name of the IP configuration. Defaults to
-        `vnetGatewayConfig`.
+        A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

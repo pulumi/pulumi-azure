@@ -93,7 +93,7 @@ type FirewallRule struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Redis Cache. Changing this forces a new resource to be created.
 	RedisCacheName pulumi.StringOutput `pulumi:"redisCacheName"`
-	// The name of the resource group in which this Redis Cache exists.
+	// The name of the resource group in which this Redis Cache exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The lowest IP address included in the range
 	StartIp pulumi.StringOutput `pulumi:"startIp"`
@@ -146,7 +146,7 @@ type firewallRuleState struct {
 	Name *string `pulumi:"name"`
 	// The name of the Redis Cache. Changing this forces a new resource to be created.
 	RedisCacheName *string `pulumi:"redisCacheName"`
-	// The name of the resource group in which this Redis Cache exists.
+	// The name of the resource group in which this Redis Cache exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The lowest IP address included in the range
 	StartIp *string `pulumi:"startIp"`
@@ -159,7 +159,7 @@ type FirewallRuleState struct {
 	Name pulumi.StringPtrInput
 	// The name of the Redis Cache. Changing this forces a new resource to be created.
 	RedisCacheName pulumi.StringPtrInput
-	// The name of the resource group in which this Redis Cache exists.
+	// The name of the resource group in which this Redis Cache exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The lowest IP address included in the range
 	StartIp pulumi.StringPtrInput
@@ -176,7 +176,7 @@ type firewallRuleArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the Redis Cache. Changing this forces a new resource to be created.
 	RedisCacheName string `pulumi:"redisCacheName"`
-	// The name of the resource group in which this Redis Cache exists.
+	// The name of the resource group in which this Redis Cache exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The lowest IP address included in the range
 	StartIp string `pulumi:"startIp"`
@@ -190,7 +190,7 @@ type FirewallRuleArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the Redis Cache. Changing this forces a new resource to be created.
 	RedisCacheName pulumi.StringInput
-	// The name of the resource group in which this Redis Cache exists.
+	// The name of the resource group in which this Redis Cache exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The lowest IP address included in the range
 	StartIp pulumi.StringInput
@@ -298,7 +298,7 @@ func (o FirewallRuleOutput) RedisCacheName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallRule) pulumi.StringOutput { return v.RedisCacheName }).(pulumi.StringOutput)
 }
 
-// The name of the resource group in which this Redis Cache exists.
+// The name of the resource group in which this Redis Cache exists. Changing this forces a new resource to be created.
 func (o FirewallRuleOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallRule) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

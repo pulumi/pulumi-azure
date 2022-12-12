@@ -141,8 +141,7 @@ export class TemplateDeployment extends pulumi.CustomResource {
      */
     public readonly parametersBody!: pulumi.Output<string | undefined>;
     /**
-     * The name of the resource group in which to
-     * create the template deployment.
+     * The name of the resource group in which to create the template deployment. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -219,8 +218,7 @@ export interface TemplateDeploymentState {
      */
     parametersBody?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to
-     * create the template deployment.
+     * The name of the resource group in which to create the template deployment. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -253,8 +251,7 @@ export interface TemplateDeploymentArgs {
      */
     parametersBody?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to
-     * create the template deployment.
+     * The name of the resource group in which to create the template deployment. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

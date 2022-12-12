@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceCorsConfiguration {
     /**
-     * @return If credentials are allowed via CORS.
+     * @return (Boolean) If credentials are allowed via CORS.
      * 
      */
     private @Nullable Boolean allowCredentials;
@@ -42,7 +42,7 @@ public final class ServiceCorsConfiguration {
 
     private ServiceCorsConfiguration() {}
     /**
-     * @return If credentials are allowed via CORS.
+     * @return (Boolean) If credentials are allowed via CORS.
      * 
      */
     public Optional<Boolean> allowCredentials() {

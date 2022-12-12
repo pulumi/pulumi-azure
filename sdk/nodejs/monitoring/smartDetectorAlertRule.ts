@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  * Monitor Smart Detector Alert Rule can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:monitoring/smartDetectorAlertRule:SmartDetectorAlertRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AlertsManagement/smartdetectoralertrules/rule1
+ *  $ pulumi import azure:monitoring/smartDetectorAlertRule:SmartDetectorAlertRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AlertsManagement/smartDetectorAlertRules/rule1
  * ```
  */
 export class SmartDetectorAlertRule extends pulumi.CustomResource {

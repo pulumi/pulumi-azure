@@ -142,28 +142,28 @@ public class TimeSeriesInsightsGen2Environment extends com.pulumi.resources.Cust
         return this.name;
     }
     /**
-     * The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment.
+     * The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment.
+     * @return The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
     /**
-     * Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified.
+     * Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="skuName", type=String.class, parameters={})
     private Output<String> skuName;
 
     /**
-     * @return Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified.
+     * @return Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> skuName() {
@@ -198,14 +198,14 @@ public class TimeSeriesInsightsGen2Environment extends com.pulumi.resources.Cust
         return Codegen.optional(this.tags);
     }
     /**
-     * Specifies the ISO8601 timespan specifying the minimum number of days the environment&#39;s events will be available for query. Changing this forces a new resource to be created.
+     * Specifies the ISO8601 timespan specifying the minimum number of days the environment&#39;s events will be available for query.
      * 
      */
     @Export(name="warmStoreDataRetentionTime", type=String.class, parameters={})
     private Output</* @Nullable */ String> warmStoreDataRetentionTime;
 
     /**
-     * @return Specifies the ISO8601 timespan specifying the minimum number of days the environment&#39;s events will be available for query. Changing this forces a new resource to be created.
+     * @return Specifies the ISO8601 timespan specifying the minimum number of days the environment&#39;s events will be available for query.
      * 
      */
     public Output<Optional<String>> warmStoreDataRetentionTime() {

@@ -24,7 +24,7 @@ class PublicIpPrefixArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a PublicIpPrefix resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Public IP Prefix.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ip_version: The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
@@ -53,7 +53,7 @@ class PublicIpPrefixArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to create the Public IP Prefix.
+        The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -165,7 +165,7 @@ class _PublicIpPrefixState:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
         :param pulumi.Input[int] prefix_length: Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Public IP Prefix.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
@@ -253,7 +253,7 @@ class _PublicIpPrefixState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to create the Public IP Prefix.
+        The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -345,7 +345,7 @@ class PublicIpPrefix(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
         :param pulumi.Input[int] prefix_length: Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Public IP Prefix.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
@@ -457,7 +457,7 @@ class PublicIpPrefix(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
         :param pulumi.Input[int] prefix_length: Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Public IP Prefix.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
@@ -521,7 +521,7 @@ class PublicIpPrefix(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to create the Public IP Prefix.
+        The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 

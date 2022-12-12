@@ -124,7 +124,7 @@ namespace Pulumi.Azure.Storage
         public Output<string> AccessTier { get; private set; } = null!;
 
         /// <summary>
-        /// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+        /// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
         /// </summary>
         [Output("accountKind")]
         public Output<string?> AccountKind { get; private set; } = null!;
@@ -484,6 +484,9 @@ namespace Pulumi.Azure.Storage
         [Output("secondaryWebHost")]
         public Output<string> SecondaryWebHost { get; private set; } = null!;
 
+        /// <summary>
+        /// Boolean, enable SFTP for the storage account
+        /// </summary>
         [Output("sftpEnabled")]
         public Output<bool?> SftpEnabled { get; private set; } = null!;
 
@@ -570,7 +573,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? AccessTier { get; set; }
 
         /// <summary>
-        /// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+        /// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
         /// </summary>
         [Input("accountKind")]
         public Input<string>? AccountKind { get; set; }
@@ -738,6 +741,9 @@ namespace Pulumi.Azure.Storage
         [Input("sasPolicy")]
         public Input<Inputs.AccountSasPolicyArgs>? SasPolicy { get; set; }
 
+        /// <summary>
+        /// Boolean, enable SFTP for the storage account
+        /// </summary>
         [Input("sftpEnabled")]
         public Input<bool>? SftpEnabled { get; set; }
 
@@ -792,7 +798,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? AccessTier { get; set; }
 
         /// <summary>
-        /// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+        /// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
         /// </summary>
         [Input("accountKind")]
         public Input<string>? AccountKind { get; set; }
@@ -1152,6 +1158,9 @@ namespace Pulumi.Azure.Storage
         [Input("secondaryWebHost")]
         public Input<string>? SecondaryWebHost { get; set; }
 
+        /// <summary>
+        /// Boolean, enable SFTP for the storage account
+        /// </summary>
         [Input("sftpEnabled")]
         public Input<bool>? SftpEnabled { get; set; }
 

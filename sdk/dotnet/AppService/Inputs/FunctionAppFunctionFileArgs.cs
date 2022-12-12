@@ -13,13 +13,13 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class FunctionAppFunctionFileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The content of the file.
+        /// The content of the file. Changing this forces a new resource to be created.
         /// </summary>
         [Input("content", required: true)]
         public Input<string> Content { get; set; } = null!;
 
         /// <summary>
-        /// The filename of the file to be uploaded.
+        /// The filename of the file to be uploaded. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

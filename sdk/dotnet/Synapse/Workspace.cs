@@ -228,7 +228,7 @@ namespace Pulumi.Azure.Synapse
         public Output<Outputs.WorkspaceAzureDevopsRepo?> AzureDevopsRepo { get; private set; } = null!;
 
         /// <summary>
-        /// Subnet ID used for computes in workspace
+        /// Subnet ID used for computes in workspace Changing this forces a new resource to be created.
         /// </summary>
         [Output("computeSubnetId")]
         public Output<string?> ComputeSubnetId { get; private set; } = null!;
@@ -276,7 +276,7 @@ namespace Pulumi.Azure.Synapse
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Workspace managed resource group.
+        /// Workspace managed resource group. Changing this forces a new resource to be created.
         /// </summary>
         [Output("managedResourceGroupName")]
         public Output<string> ManagedResourceGroupName { get; private set; } = null!;
@@ -406,7 +406,7 @@ namespace Pulumi.Azure.Synapse
         public Input<Inputs.WorkspaceAzureDevopsRepoArgs>? AzureDevopsRepo { get; set; }
 
         /// <summary>
-        /// Subnet ID used for computes in workspace
+        /// Subnet ID used for computes in workspace Changing this forces a new resource to be created.
         /// </summary>
         [Input("computeSubnetId")]
         public Input<string>? ComputeSubnetId { get; set; }
@@ -454,7 +454,7 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Workspace managed resource group.
+        /// Workspace managed resource group. Changing this forces a new resource to be created.
         /// </summary>
         [Input("managedResourceGroupName")]
         public Input<string>? ManagedResourceGroupName { get; set; }
@@ -552,7 +552,7 @@ namespace Pulumi.Azure.Synapse
         public Input<Inputs.WorkspaceAzureDevopsRepoGetArgs>? AzureDevopsRepo { get; set; }
 
         /// <summary>
-        /// Subnet ID used for computes in workspace
+        /// Subnet ID used for computes in workspace Changing this forces a new resource to be created.
         /// </summary>
         [Input("computeSubnetId")]
         public Input<string>? ComputeSubnetId { get; set; }
@@ -612,7 +612,7 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Workspace managed resource group.
+        /// Workspace managed resource group. Changing this forces a new resource to be created.
         /// </summary>
         [Input("managedResourceGroupName")]
         public Input<string>? ManagedResourceGroupName { get; set; }

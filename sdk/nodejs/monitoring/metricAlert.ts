@@ -125,7 +125,7 @@ export class MetricAlert extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to create the Metric Alert instance.
+     * The name of the resource group in which to create the Metric Alert instance. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -253,7 +253,7 @@ export interface MetricAlertState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the Metric Alert instance.
+     * The name of the resource group in which to create the Metric Alert instance. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -323,7 +323,7 @@ export interface MetricAlertArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the Metric Alert instance.
+     * The name of the resource group in which to create the Metric Alert instance. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

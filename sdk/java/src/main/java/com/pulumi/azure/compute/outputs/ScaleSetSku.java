@@ -18,7 +18,7 @@ public final class ScaleSetSku {
      */
     private Integer capacity;
     /**
-     * @return Specifies the size of virtual machines in a scale set.
+     * @return Specifies the size of virtual machines in a scale set. Changing this forces a new resource to be created.
      * 
      */
     private String name;
@@ -37,7 +37,7 @@ public final class ScaleSetSku {
         return this.capacity;
     }
     /**
-     * @return Specifies the size of virtual machines in a scale set.
+     * @return Specifies the size of virtual machines in a scale set. Changing this forces a new resource to be created.
      * 
      */
     public String name() {

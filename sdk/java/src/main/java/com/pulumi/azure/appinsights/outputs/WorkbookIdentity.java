@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WorkbookIdentity {
     /**
-     * @return The list of User Assigned Managed Identity IDs assigned to this Workbook.
+     * @return The list of User Assigned Managed Identity IDs assigned to this Workbook. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable List<String> identityIds;
@@ -28,14 +28,14 @@ public final class WorkbookIdentity {
      */
     private @Nullable String tenantId;
     /**
-     * @return The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
+     * @return The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. Changing this forces a new resource to be created.
      * 
      */
     private String type;
 
     private WorkbookIdentity() {}
     /**
-     * @return The list of User Assigned Managed Identity IDs assigned to this Workbook.
+     * @return The list of User Assigned Managed Identity IDs assigned to this Workbook. Changing this forces a new resource to be created.
      * 
      */
     public List<String> identityIds() {
@@ -56,7 +56,7 @@ public final class WorkbookIdentity {
         return Optional.ofNullable(this.tenantId);
     }
     /**
-     * @return The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
+     * @return The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. Changing this forces a new resource to be created.
      * 
      */
     public String type() {

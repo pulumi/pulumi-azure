@@ -76,7 +76,7 @@ export class ManagementGroup extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The ID of the Parent Management Group. Changing this forces a new resource to be created.
+     * The ID of the Parent Management Group.
      */
     public readonly parentManagementGroupId!: pulumi.Output<string>;
     /**
@@ -129,7 +129,7 @@ export interface ManagementGroupState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the Parent Management Group. Changing this forces a new resource to be created.
+     * The ID of the Parent Management Group.
      */
     parentManagementGroupId?: pulumi.Input<string>;
     /**
@@ -151,7 +151,7 @@ export interface ManagementGroupArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the Parent Management Group. Changing this forces a new resource to be created.
+     * The ID of the Parent Management Group.
      */
     parentManagementGroupId?: pulumi.Input<string>;
     /**

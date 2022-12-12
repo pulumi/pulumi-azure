@@ -85,7 +85,7 @@ import * as utilities from "../utilities";
  * Kusto Event Grid Data Connections can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:kusto/eventGridDataConnection:EventGridDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1/Databases/database1/DataConnections/dataConnection1
+ *  $ pulumi import azure:kusto/eventGridDataConnection:EventGridDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/databases/database1/dataConnections/dataConnection1
  * ```
  */
 export class EventGridDataConnection extends pulumi.CustomResource {
@@ -133,7 +133,7 @@ export class EventGridDataConnection extends pulumi.CustomResource {
      */
     public readonly databaseName!: pulumi.Output<string>;
     /**
-     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
      */
     public readonly databaseRoutingType!: pulumi.Output<string | undefined>;
     /**
@@ -141,13 +141,11 @@ export class EventGridDataConnection extends pulumi.CustomResource {
      */
     public readonly eventgridResourceId!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the Event Hub consumer group this data connection will use for
-     * ingestion. Changing this forces a new resource to be created.
+     * Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
     public readonly eventhubConsumerGroupName!: pulumi.Output<string>;
     /**
-     * Specifies the resource id of the Event Hub this data connection will use for ingestion.
-     * Changing this forces a new resource to be created.
+     * Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
     public readonly eventhubId!: pulumi.Output<string>;
     /**
@@ -275,7 +273,7 @@ export interface EventGridDataConnectionState {
      */
     databaseName?: pulumi.Input<string>;
     /**
-     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
      */
     databaseRoutingType?: pulumi.Input<string>;
     /**
@@ -283,13 +281,11 @@ export interface EventGridDataConnectionState {
      */
     eventgridResourceId?: pulumi.Input<string>;
     /**
-     * Specifies the Event Hub consumer group this data connection will use for
-     * ingestion. Changing this forces a new resource to be created.
+     * Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
     eventhubConsumerGroupName?: pulumi.Input<string>;
     /**
-     * Specifies the resource id of the Event Hub this data connection will use for ingestion.
-     * Changing this forces a new resource to be created.
+     * Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
     eventhubId?: pulumi.Input<string>;
     /**
@@ -347,7 +343,7 @@ export interface EventGridDataConnectionArgs {
      */
     databaseName: pulumi.Input<string>;
     /**
-     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
      */
     databaseRoutingType?: pulumi.Input<string>;
     /**
@@ -355,13 +351,11 @@ export interface EventGridDataConnectionArgs {
      */
     eventgridResourceId?: pulumi.Input<string>;
     /**
-     * Specifies the Event Hub consumer group this data connection will use for
-     * ingestion. Changing this forces a new resource to be created.
+     * Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
     eventhubConsumerGroupName: pulumi.Input<string>;
     /**
-     * Specifies the resource id of the Event Hub this data connection will use for ingestion.
-     * Changing this forces a new resource to be created.
+     * Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
     eventhubId: pulumi.Input<string>;
     /**

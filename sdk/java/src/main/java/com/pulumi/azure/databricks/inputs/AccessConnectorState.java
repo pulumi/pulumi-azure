@@ -17,9 +17,17 @@ public final class AccessConnectorState extends com.pulumi.resources.ResourceArg
 
     public static final AccessConnectorState Empty = new AccessConnectorState();
 
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
     @Import(name="identity")
     private @Nullable Output<AccessConnectorIdentityArgs> identity;
 
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
     public Optional<Output<AccessConnectorIdentityArgs>> identity() {
         return Optional.ofNullable(this.identity);
     }
@@ -112,11 +120,23 @@ public final class AccessConnectorState extends com.pulumi.resources.ResourceArg
             $ = new AccessConnectorState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identity(@Nullable Output<AccessConnectorIdentityArgs> identity) {
             $.identity = identity;
             return this;
         }
 
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identity(AccessConnectorIdentityArgs identity) {
             return identity(Output.of(identity));
         }

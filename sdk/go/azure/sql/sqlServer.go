@@ -87,15 +87,15 @@ type SqlServer struct {
 	Identity SqlServerIdentityPtrOutput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the resource group in which to create the Microsoft SQL Server.
+	// The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
 	ThreatDetectionPolicy SqlServerThreatDetectionPolicyOutput `pulumi:"threatDetectionPolicy"`
-	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
 	Version pulumi.StringOutput `pulumi:"version"`
 }
 
@@ -152,15 +152,15 @@ type sqlServerState struct {
 	Identity *SqlServerIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the Microsoft SQL Server.
+	// The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
 	ThreatDetectionPolicy *SqlServerThreatDetectionPolicy `pulumi:"threatDetectionPolicy"`
-	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
 	Version *string `pulumi:"version"`
 }
 
@@ -177,15 +177,15 @@ type SqlServerState struct {
 	Identity SqlServerIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the Microsoft SQL Server.
+	// The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
 	ThreatDetectionPolicy SqlServerThreatDetectionPolicyPtrInput
-	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
 	Version pulumi.StringPtrInput
 }
 
@@ -204,15 +204,15 @@ type sqlServerArgs struct {
 	Identity *SqlServerIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the Microsoft SQL Server.
+	// The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
 	ThreatDetectionPolicy *SqlServerThreatDetectionPolicy `pulumi:"threatDetectionPolicy"`
-	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
 	Version string `pulumi:"version"`
 }
 
@@ -228,15 +228,15 @@ type SqlServerArgs struct {
 	Identity SqlServerIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the Microsoft SQL Server.
+	// The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
 	ThreatDetectionPolicy SqlServerThreatDetectionPolicyPtrInput
-	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
 	Version pulumi.StringInput
 }
 
@@ -357,12 +357,12 @@ func (o SqlServerOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *SqlServer) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+// The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 func (o SqlServerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SqlServer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the resource group in which to create the Microsoft SQL Server.
+// The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
 func (o SqlServerOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SqlServer) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
@@ -377,7 +377,7 @@ func (o SqlServerOutput) ThreatDetectionPolicy() SqlServerThreatDetectionPolicyO
 	return o.ApplyT(func(v *SqlServer) SqlServerThreatDetectionPolicyOutput { return v.ThreatDetectionPolicy }).(SqlServerThreatDetectionPolicyOutput)
 }
 
-// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
 func (o SqlServerOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *SqlServer) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

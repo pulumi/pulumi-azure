@@ -108,7 +108,7 @@ export class FailoverGroup extends pulumi.CustomResource {
      */
     public readonly readonlyEndpointFailoverPolicy!: pulumi.Output<outputs.sql.FailoverGroupReadonlyEndpointFailoverPolicy>;
     /**
-     * The name of the resource group containing the SQL server
+     * The name of the resource group containing the SQL server Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -206,7 +206,7 @@ export interface FailoverGroupState {
      */
     readonlyEndpointFailoverPolicy?: pulumi.Input<inputs.sql.FailoverGroupReadonlyEndpointFailoverPolicy>;
     /**
-     * The name of the resource group containing the SQL server
+     * The name of the resource group containing the SQL server Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -248,7 +248,7 @@ export interface FailoverGroupArgs {
      */
     readonlyEndpointFailoverPolicy?: pulumi.Input<inputs.sql.FailoverGroupReadonlyEndpointFailoverPolicy>;
     /**
-     * The name of the resource group containing the SQL server
+     * The name of the resource group containing the SQL server Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

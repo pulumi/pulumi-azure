@@ -27,12 +27,12 @@ public final class ClusterNodeType {
      */
     private @Nullable Map<String,String> capacities;
     /**
-     * @return The Port used for the Client Endpoint for this Node Type. Changing this forces a new resource to be created.
+     * @return The Port used for the Client Endpoint for this Node Type.
      * 
      */
     private Integer clientEndpointPort;
     /**
-     * @return The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`. Changing this forces a new resource to be created.
+     * @return The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`.
      * 
      */
     private @Nullable String durabilityLevel;
@@ -42,7 +42,7 @@ public final class ClusterNodeType {
      */
     private @Nullable ClusterNodeTypeEphemeralPorts ephemeralPorts;
     /**
-     * @return The Port used for the HTTP Endpoint for this Node Type. Changing this forces a new resource to be created.
+     * @return The Port used for the HTTP Endpoint for this Node Type.
      * 
      */
     private Integer httpEndpointPort;
@@ -52,7 +52,7 @@ public final class ClusterNodeType {
      */
     private Integer instanceCount;
     /**
-     * @return Is this the Primary Node Type? Changing this forces a new resource to be created.
+     * @return Is this the Primary Node Type?
      * 
      */
     private Boolean isPrimary;
@@ -67,7 +67,7 @@ public final class ClusterNodeType {
      */
     private @Nullable Boolean multipleAvailabilityZones;
     /**
-     * @return The name of the Node Type. Changing this forces a new resource to be created.
+     * @return The name of the Node Type.
      * 
      */
     private String name;
@@ -98,14 +98,14 @@ public final class ClusterNodeType {
         return this.capacities == null ? Map.of() : this.capacities;
     }
     /**
-     * @return The Port used for the Client Endpoint for this Node Type. Changing this forces a new resource to be created.
+     * @return The Port used for the Client Endpoint for this Node Type.
      * 
      */
     public Integer clientEndpointPort() {
         return this.clientEndpointPort;
     }
     /**
-     * @return The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`. Changing this forces a new resource to be created.
+     * @return The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`.
      * 
      */
     public Optional<String> durabilityLevel() {
@@ -119,7 +119,7 @@ public final class ClusterNodeType {
         return Optional.ofNullable(this.ephemeralPorts);
     }
     /**
-     * @return The Port used for the HTTP Endpoint for this Node Type. Changing this forces a new resource to be created.
+     * @return The Port used for the HTTP Endpoint for this Node Type.
      * 
      */
     public Integer httpEndpointPort() {
@@ -133,7 +133,7 @@ public final class ClusterNodeType {
         return this.instanceCount;
     }
     /**
-     * @return Is this the Primary Node Type? Changing this forces a new resource to be created.
+     * @return Is this the Primary Node Type?
      * 
      */
     public Boolean isPrimary() {
@@ -154,7 +154,7 @@ public final class ClusterNodeType {
         return Optional.ofNullable(this.multipleAvailabilityZones);
     }
     /**
-     * @return The name of the Node Type. Changing this forces a new resource to be created.
+     * @return The name of the Node Type.
      * 
      */
     public String name() {

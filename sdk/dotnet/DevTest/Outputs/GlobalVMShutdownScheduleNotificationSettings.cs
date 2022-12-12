@@ -26,7 +26,7 @@ namespace Pulumi.Azure.DevTest.Outputs
         /// </summary>
         public readonly int? TimeInMinutes;
         /// <summary>
-        /// The webhook URL to which the notification will be sent. Required if `enabled` is `true`. Optional otherwise.
+        /// The webhook URL to which the notification will be sent.
         /// </summary>
         public readonly string? WebhookUrl;
 

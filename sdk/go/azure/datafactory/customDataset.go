@@ -174,7 +174,7 @@ type CustomDataset struct {
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// A JSON object that contains the schema of the Data Factory Dataset.
 	SchemaJson pulumi.StringPtrOutput `pulumi:"schemaJson"`
-	// The type of dataset that will be associated with Data Factory.
+	// The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// A JSON object that contains the properties of the Data Factory Dataset.
 	TypePropertiesJson pulumi.StringOutput `pulumi:"typePropertiesJson"`
@@ -239,7 +239,7 @@ type customDatasetState struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// A JSON object that contains the schema of the Data Factory Dataset.
 	SchemaJson *string `pulumi:"schemaJson"`
-	// The type of dataset that will be associated with Data Factory.
+	// The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
 	Type *string `pulumi:"type"`
 	// A JSON object that contains the properties of the Data Factory Dataset.
 	TypePropertiesJson *string `pulumi:"typePropertiesJson"`
@@ -264,7 +264,7 @@ type CustomDatasetState struct {
 	Parameters pulumi.StringMapInput
 	// A JSON object that contains the schema of the Data Factory Dataset.
 	SchemaJson pulumi.StringPtrInput
-	// The type of dataset that will be associated with Data Factory.
+	// The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
 	Type pulumi.StringPtrInput
 	// A JSON object that contains the properties of the Data Factory Dataset.
 	TypePropertiesJson pulumi.StringPtrInput
@@ -293,7 +293,7 @@ type customDatasetArgs struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// A JSON object that contains the schema of the Data Factory Dataset.
 	SchemaJson *string `pulumi:"schemaJson"`
-	// The type of dataset that will be associated with Data Factory.
+	// The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
 	Type string `pulumi:"type"`
 	// A JSON object that contains the properties of the Data Factory Dataset.
 	TypePropertiesJson string `pulumi:"typePropertiesJson"`
@@ -319,7 +319,7 @@ type CustomDatasetArgs struct {
 	Parameters pulumi.StringMapInput
 	// A JSON object that contains the schema of the Data Factory Dataset.
 	SchemaJson pulumi.StringPtrInput
-	// The type of dataset that will be associated with Data Factory.
+	// The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
 	Type pulumi.StringInput
 	// A JSON object that contains the properties of the Data Factory Dataset.
 	TypePropertiesJson pulumi.StringInput
@@ -457,7 +457,7 @@ func (o CustomDatasetOutput) SchemaJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomDataset) pulumi.StringPtrOutput { return v.SchemaJson }).(pulumi.StringPtrOutput)
 }
 
-// The type of dataset that will be associated with Data Factory.
+// The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
 func (o CustomDatasetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomDataset) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

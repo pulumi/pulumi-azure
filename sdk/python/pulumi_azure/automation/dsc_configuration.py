@@ -28,7 +28,7 @@ class DscConfigurationArgs:
         :param pulumi.Input[str] content_embedded: The PowerShell DSC Configuration script.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the DSC Configuration is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: Description to go with DSC Configuration.
-        :param pulumi.Input[str] location: Must be the same location as the Automation Account.
+        :param pulumi.Input[str] location: Must be the same location as the Automation Account. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] log_verbose: Verbose log option.
         :param pulumi.Input[str] name: Specifies the name of the DSC Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -99,7 +99,7 @@ class DscConfigurationArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        Must be the same location as the Automation Account.
+        Must be the same location as the Automation Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -161,7 +161,7 @@ class _DscConfigurationState:
         :param pulumi.Input[str] automation_account_name: The name of the automation account in which the DSC Configuration is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] content_embedded: The PowerShell DSC Configuration script.
         :param pulumi.Input[str] description: Description to go with DSC Configuration.
-        :param pulumi.Input[str] location: Must be the same location as the Automation Account.
+        :param pulumi.Input[str] location: Must be the same location as the Automation Account. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] log_verbose: Verbose log option.
         :param pulumi.Input[str] name: Specifies the name of the DSC Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the DSC Configuration is created. Changing this forces a new resource to be created.
@@ -226,7 +226,7 @@ class _DscConfigurationState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        Must be the same location as the Automation Account.
+        Must be the same location as the Automation Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -340,7 +340,7 @@ class DscConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] automation_account_name: The name of the automation account in which the DSC Configuration is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] content_embedded: The PowerShell DSC Configuration script.
         :param pulumi.Input[str] description: Description to go with DSC Configuration.
-        :param pulumi.Input[str] location: Must be the same location as the Automation Account.
+        :param pulumi.Input[str] location: Must be the same location as the Automation Account. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] log_verbose: Verbose log option.
         :param pulumi.Input[str] name: Specifies the name of the DSC Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the DSC Configuration is created. Changing this forces a new resource to be created.
@@ -457,7 +457,7 @@ class DscConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] automation_account_name: The name of the automation account in which the DSC Configuration is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] content_embedded: The PowerShell DSC Configuration script.
         :param pulumi.Input[str] description: Description to go with DSC Configuration.
-        :param pulumi.Input[str] location: Must be the same location as the Automation Account.
+        :param pulumi.Input[str] location: Must be the same location as the Automation Account. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] log_verbose: Verbose log option.
         :param pulumi.Input[str] name: Specifies the name of the DSC Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the DSC Configuration is created. Changing this forces a new resource to be created.
@@ -506,7 +506,7 @@ class DscConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        Must be the same location as the Automation Account.
+        Must be the same location as the Automation Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 

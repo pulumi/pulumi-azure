@@ -72,7 +72,7 @@ import * as utilities from "../utilities";
  * Kusto Scripts can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:kusto/script:Script example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Kusto/Clusters/cluster1/Databases/database1/Scripts/script1
+ *  $ pulumi import azure:kusto/script:Script example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Kusto/clusters/cluster1/databases/database1/scripts/script1
  * ```
  */
 export class Script extends pulumi.CustomResource {
@@ -120,11 +120,11 @@ export class Script extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The SAS token used to access the script. Must be provided when using scriptUrl property.
+     * The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
      */
     public readonly sasToken!: pulumi.Output<string | undefined>;
     /**
-     * The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties.
+     * The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties. Changing this forces a new resource to be created.
      */
     public readonly scriptContent!: pulumi.Output<string | undefined>;
     /**
@@ -191,11 +191,11 @@ export interface ScriptState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The SAS token used to access the script. Must be provided when using scriptUrl property.
+     * The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
      */
     sasToken?: pulumi.Input<string>;
     /**
-     * The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties.
+     * The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties. Changing this forces a new resource to be created.
      */
     scriptContent?: pulumi.Input<string>;
     /**
@@ -225,11 +225,11 @@ export interface ScriptArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The SAS token used to access the script. Must be provided when using scriptUrl property.
+     * The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
      */
     sasToken?: pulumi.Input<string>;
     /**
-     * The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties.
+     * The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties. Changing this forces a new resource to be created.
      */
     scriptContent?: pulumi.Input<string>;
     /**

@@ -113,6 +113,20 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.capacityReservationGroupId);
     }
     /**
+     * Specifies whether to trust a Custom CA. Defaults to `false`.
+     * 
+     */
+    @Export(name="customCaTrustEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> customCaTrustEnabled;
+
+    /**
+     * @return Specifies whether to trust a Custom CA. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> customCaTrustEnabled() {
+        return Codegen.optional(this.customCaTrustEnabled);
+    }
+    /**
      * Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
      * 
      */
@@ -127,14 +141,14 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.enableAutoScaling);
     }
     /**
-     * Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+     * Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="enableHostEncryption", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableHostEncryption;
 
     /**
-     * @return Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+     * @return Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> enableHostEncryption() {
@@ -547,14 +561,14 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.tags);
     }
     /**
-     * Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+     * Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="ultraSsdEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> ultraSsdEnabled;
 
     /**
-     * @return Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+     * @return Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> ultraSsdEnabled() {
@@ -589,14 +603,14 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return this.vmSize;
     }
     /**
-     * The ID of the Subnet where this Node Pool should exist.
+     * The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="vnetSubnetId", type=String.class, parameters={})
     private Output</* @Nullable */ String> vnetSubnetId;
 
     /**
-     * @return The ID of the Subnet where this Node Pool should exist.
+     * @return The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> vnetSubnetId() {

@@ -117,7 +117,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> InternalIpAddress { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
+        /// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("internalLoadBalancingMode")]
         public Output<string?> InternalLoadBalancingMode { get; private set; } = null!;
@@ -247,7 +247,7 @@ namespace Pulumi.Azure.AppService
         public Input<int>? FrontEndScaleFactor { get; set; }
 
         /// <summary>
-        /// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
+        /// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("internalLoadBalancingMode")]
         public Input<string>? InternalLoadBalancingMode { get; set; }
@@ -333,7 +333,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? InternalIpAddress { get; set; }
 
         /// <summary>
-        /// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
+        /// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("internalLoadBalancingMode")]
         public Input<string>? InternalLoadBalancingMode { get; set; }

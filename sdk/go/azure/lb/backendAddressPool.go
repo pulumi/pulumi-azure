@@ -88,9 +88,9 @@ type BackendAddressPool struct {
 	InboundNatRules pulumi.StringArrayOutput `pulumi:"inboundNatRules"`
 	// The Load Balancing Rules associated with this Backend Address Pool.
 	LoadBalancingRules pulumi.StringArrayOutput `pulumi:"loadBalancingRules"`
-	// The ID of the Load Balancer in which to create the Backend Address Pool.
+	// The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
 	LoadbalancerId pulumi.StringOutput `pulumi:"loadbalancerId"`
-	// Specifies the name of the Backend Address Pool.
+	// Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// An array of the Load Balancing Outbound Rules associated with this Backend Address Pool.
 	OutboundRules pulumi.StringArrayOutput `pulumi:"outboundRules"`
@@ -136,9 +136,9 @@ type backendAddressPoolState struct {
 	InboundNatRules []string `pulumi:"inboundNatRules"`
 	// The Load Balancing Rules associated with this Backend Address Pool.
 	LoadBalancingRules []string `pulumi:"loadBalancingRules"`
-	// The ID of the Load Balancer in which to create the Backend Address Pool.
+	// The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
 	LoadbalancerId *string `pulumi:"loadbalancerId"`
-	// Specifies the name of the Backend Address Pool.
+	// Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// An array of the Load Balancing Outbound Rules associated with this Backend Address Pool.
 	OutboundRules []string `pulumi:"outboundRules"`
@@ -153,9 +153,9 @@ type BackendAddressPoolState struct {
 	InboundNatRules pulumi.StringArrayInput
 	// The Load Balancing Rules associated with this Backend Address Pool.
 	LoadBalancingRules pulumi.StringArrayInput
-	// The ID of the Load Balancer in which to create the Backend Address Pool.
+	// The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
 	LoadbalancerId pulumi.StringPtrInput
-	// Specifies the name of the Backend Address Pool.
+	// Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// An array of the Load Balancing Outbound Rules associated with this Backend Address Pool.
 	OutboundRules pulumi.StringArrayInput
@@ -168,9 +168,9 @@ func (BackendAddressPoolState) ElementType() reflect.Type {
 }
 
 type backendAddressPoolArgs struct {
-	// The ID of the Load Balancer in which to create the Backend Address Pool.
+	// The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
 	LoadbalancerId string `pulumi:"loadbalancerId"`
-	// Specifies the name of the Backend Address Pool.
+	// Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// One or more `tunnelInterface` blocks as defined below.
 	TunnelInterfaces []BackendAddressPoolTunnelInterface `pulumi:"tunnelInterfaces"`
@@ -178,9 +178,9 @@ type backendAddressPoolArgs struct {
 
 // The set of arguments for constructing a BackendAddressPool resource.
 type BackendAddressPoolArgs struct {
-	// The ID of the Load Balancer in which to create the Backend Address Pool.
+	// The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
 	LoadbalancerId pulumi.StringInput
-	// Specifies the name of the Backend Address Pool.
+	// Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// One or more `tunnelInterface` blocks as defined below.
 	TunnelInterfaces BackendAddressPoolTunnelInterfaceArrayInput
@@ -288,12 +288,12 @@ func (o BackendAddressPoolOutput) LoadBalancingRules() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v *BackendAddressPool) pulumi.StringArrayOutput { return v.LoadBalancingRules }).(pulumi.StringArrayOutput)
 }
 
-// The ID of the Load Balancer in which to create the Backend Address Pool.
+// The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
 func (o BackendAddressPoolOutput) LoadbalancerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackendAddressPool) pulumi.StringOutput { return v.LoadbalancerId }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Backend Address Pool.
+// Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
 func (o BackendAddressPoolOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackendAddressPool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

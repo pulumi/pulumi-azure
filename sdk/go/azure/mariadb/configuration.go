@@ -79,7 +79,7 @@ type Configuration struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
 	ServerName pulumi.StringOutput `pulumi:"serverName"`
-	// Specifies the value of the MariaDB Configuration. See the MariaDB documentation for valid values.
+	// Specifies the value of the MariaDB Configuration. See the MariaDB documentation for valid values. Changing this forces a new resource to be created.
 	Value pulumi.StringOutput `pulumi:"value"`
 }
 
@@ -130,7 +130,7 @@ type configurationState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
 	ServerName *string `pulumi:"serverName"`
-	// Specifies the value of the MariaDB Configuration. See the MariaDB documentation for valid values.
+	// Specifies the value of the MariaDB Configuration. See the MariaDB documentation for valid values. Changing this forces a new resource to be created.
 	Value *string `pulumi:"value"`
 }
 
@@ -141,7 +141,7 @@ type ConfigurationState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
 	ServerName pulumi.StringPtrInput
-	// Specifies the value of the MariaDB Configuration. See the MariaDB documentation for valid values.
+	// Specifies the value of the MariaDB Configuration. See the MariaDB documentation for valid values. Changing this forces a new resource to be created.
 	Value pulumi.StringPtrInput
 }
 
@@ -156,7 +156,7 @@ type configurationArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
 	ServerName string `pulumi:"serverName"`
-	// Specifies the value of the MariaDB Configuration. See the MariaDB documentation for valid values.
+	// Specifies the value of the MariaDB Configuration. See the MariaDB documentation for valid values. Changing this forces a new resource to be created.
 	Value string `pulumi:"value"`
 }
 
@@ -168,7 +168,7 @@ type ConfigurationArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
 	ServerName pulumi.StringInput
-	// Specifies the value of the MariaDB Configuration. See the MariaDB documentation for valid values.
+	// Specifies the value of the MariaDB Configuration. See the MariaDB documentation for valid values. Changing this forces a new resource to be created.
 	Value pulumi.StringInput
 }
 
@@ -274,7 +274,7 @@ func (o ConfigurationOutput) ServerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.ServerName }).(pulumi.StringOutput)
 }
 
-// Specifies the value of the MariaDB Configuration. See the MariaDB documentation for valid values.
+// Specifies the value of the MariaDB Configuration. See the MariaDB documentation for valid values. Changing this forces a new resource to be created.
 func (o ConfigurationOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
 }

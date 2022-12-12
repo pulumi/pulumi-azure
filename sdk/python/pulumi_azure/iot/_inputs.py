@@ -1741,7 +1741,7 @@ class TimeSeriesInsightsGen2EnvironmentStorageArgs:
                  name: pulumi.Input[str]):
         """
         :param pulumi.Input[str] key: Access key of storage account for Azure IoT Time Series Insights Gen2 Environment
-        :param pulumi.Input[str] name: Name of storage account for Azure IoT Time Series Insights Gen2 Environment
+        :param pulumi.Input[str] name: Name of storage account for Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "name", name)
@@ -1762,7 +1762,7 @@ class TimeSeriesInsightsGen2EnvironmentStorageArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of storage account for Azure IoT Time Series Insights Gen2 Environment
+        Name of storage account for Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

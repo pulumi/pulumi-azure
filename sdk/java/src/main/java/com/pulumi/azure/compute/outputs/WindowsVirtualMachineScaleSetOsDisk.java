@@ -25,7 +25,7 @@ public final class WindowsVirtualMachineScaleSetOsDisk {
      */
     private @Nullable WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings diffDiskSettings;
     /**
-     * @return The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
+     * @return The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String diskEncryptionSetId;
@@ -45,7 +45,7 @@ public final class WindowsVirtualMachineScaleSetOsDisk {
      */
     private @Nullable String securityEncryptionType;
     /**
-     * @return The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
+     * @return The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
      * 
      */
     private String storageAccountType;
@@ -71,7 +71,7 @@ public final class WindowsVirtualMachineScaleSetOsDisk {
         return Optional.ofNullable(this.diffDiskSettings);
     }
     /**
-     * @return The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
+     * @return The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> diskEncryptionSetId() {
@@ -99,7 +99,7 @@ public final class WindowsVirtualMachineScaleSetOsDisk {
         return Optional.ofNullable(this.securityEncryptionType);
     }
     /**
-     * @return The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
+     * @return The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
      * 
      */
     public String storageAccountType() {

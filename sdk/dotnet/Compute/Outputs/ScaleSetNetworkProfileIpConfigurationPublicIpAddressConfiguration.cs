@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly int IdleTimeout;
         /// <summary>
-        /// The name of the public IP address configuration
+        /// The name of the public IP address configuration Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
 

@@ -66,14 +66,14 @@ public final class CustomProviderArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The name of the resource group in which to create the Custom Provider.
+     * The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the Custom Provider.
+     * @return The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -96,14 +96,14 @@ public final class CustomProviderArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A mapping of tags to assign to the resource.
+     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags to assign to the resource.
+     * @return A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -229,7 +229,7 @@ public final class CustomProviderArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the Custom Provider.
+         * @param resourceGroupName The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class CustomProviderArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the Custom Provider.
+         * @param resourceGroupName The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class CustomProviderArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tags A mapping of tags to assign to the resource.
+         * @param tags A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -292,7 +292,7 @@ public final class CustomProviderArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tags A mapping of tags to assign to the resource.
+         * @param tags A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

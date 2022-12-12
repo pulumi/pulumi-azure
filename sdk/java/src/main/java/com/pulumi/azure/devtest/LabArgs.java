@@ -62,7 +62,7 @@ public final class LabArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. Changing this forces a new resource to be created.
+     * The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`.
      * 
      * @deprecated
      * `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
@@ -73,7 +73,7 @@ public final class LabArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> storageType;
 
     /**
-     * @return The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. Changing this forces a new resource to be created.
+     * @return The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`.
      * 
      * @deprecated
      * `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
@@ -191,7 +191,7 @@ public final class LabArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageType The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. Changing this forces a new resource to be created.
+         * @param storageType The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class LabArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageType The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. Changing this forces a new resource to be created.
+         * @param storageType The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`.
          * 
          * @return builder
          * 

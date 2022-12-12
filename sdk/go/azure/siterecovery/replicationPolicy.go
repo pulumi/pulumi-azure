@@ -72,13 +72,13 @@ type ReplicationPolicy struct {
 
 	// Specifies the frequency(in minutes) at which to create application consistent recovery points.
 	ApplicationConsistentSnapshotFrequencyInMinutes pulumi.IntOutput `pulumi:"applicationConsistentSnapshotFrequencyInMinutes"`
-	// The name of the replication policy.
+	// The name of the replication policy. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The duration in minutes for which the recovery points need to be stored.
 	RecoveryPointRetentionInMinutes pulumi.IntOutput `pulumi:"recoveryPointRetentionInMinutes"`
-	// The name of the vault that should be updated.
+	// The name of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringOutput `pulumi:"recoveryVaultName"`
-	// Name of the resource group where the vault that should be updated is located.
+	// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
@@ -125,26 +125,26 @@ func GetReplicationPolicy(ctx *pulumi.Context,
 type replicationPolicyState struct {
 	// Specifies the frequency(in minutes) at which to create application consistent recovery points.
 	ApplicationConsistentSnapshotFrequencyInMinutes *int `pulumi:"applicationConsistentSnapshotFrequencyInMinutes"`
-	// The name of the replication policy.
+	// The name of the replication policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The duration in minutes for which the recovery points need to be stored.
 	RecoveryPointRetentionInMinutes *int `pulumi:"recoveryPointRetentionInMinutes"`
-	// The name of the vault that should be updated.
+	// The name of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultName *string `pulumi:"recoveryVaultName"`
-	// Name of the resource group where the vault that should be updated is located.
+	// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
 type ReplicationPolicyState struct {
 	// Specifies the frequency(in minutes) at which to create application consistent recovery points.
 	ApplicationConsistentSnapshotFrequencyInMinutes pulumi.IntPtrInput
-	// The name of the replication policy.
+	// The name of the replication policy. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The duration in minutes for which the recovery points need to be stored.
 	RecoveryPointRetentionInMinutes pulumi.IntPtrInput
-	// The name of the vault that should be updated.
+	// The name of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringPtrInput
-	// Name of the resource group where the vault that should be updated is located.
+	// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 }
 
@@ -155,13 +155,13 @@ func (ReplicationPolicyState) ElementType() reflect.Type {
 type replicationPolicyArgs struct {
 	// Specifies the frequency(in minutes) at which to create application consistent recovery points.
 	ApplicationConsistentSnapshotFrequencyInMinutes int `pulumi:"applicationConsistentSnapshotFrequencyInMinutes"`
-	// The name of the replication policy.
+	// The name of the replication policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The duration in minutes for which the recovery points need to be stored.
 	RecoveryPointRetentionInMinutes int `pulumi:"recoveryPointRetentionInMinutes"`
-	// The name of the vault that should be updated.
+	// The name of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultName string `pulumi:"recoveryVaultName"`
-	// Name of the resource group where the vault that should be updated is located.
+	// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
@@ -169,13 +169,13 @@ type replicationPolicyArgs struct {
 type ReplicationPolicyArgs struct {
 	// Specifies the frequency(in minutes) at which to create application consistent recovery points.
 	ApplicationConsistentSnapshotFrequencyInMinutes pulumi.IntInput
-	// The name of the replication policy.
+	// The name of the replication policy. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The duration in minutes for which the recovery points need to be stored.
 	RecoveryPointRetentionInMinutes pulumi.IntInput
-	// The name of the vault that should be updated.
+	// The name of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringInput
-	// Name of the resource group where the vault that should be updated is located.
+	// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -271,7 +271,7 @@ func (o ReplicationPolicyOutput) ApplicationConsistentSnapshotFrequencyInMinutes
 	return o.ApplyT(func(v *ReplicationPolicy) pulumi.IntOutput { return v.ApplicationConsistentSnapshotFrequencyInMinutes }).(pulumi.IntOutput)
 }
 
-// The name of the replication policy.
+// The name of the replication policy. Changing this forces a new resource to be created.
 func (o ReplicationPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -281,12 +281,12 @@ func (o ReplicationPolicyOutput) RecoveryPointRetentionInMinutes() pulumi.IntOut
 	return o.ApplyT(func(v *ReplicationPolicy) pulumi.IntOutput { return v.RecoveryPointRetentionInMinutes }).(pulumi.IntOutput)
 }
 
-// The name of the vault that should be updated.
+// The name of the vault that should be updated. Changing this forces a new resource to be created.
 func (o ReplicationPolicyOutput) RecoveryVaultName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationPolicy) pulumi.StringOutput { return v.RecoveryVaultName }).(pulumi.StringOutput)
 }
 
-// Name of the resource group where the vault that should be updated is located.
+// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 func (o ReplicationPolicyOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationPolicy) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

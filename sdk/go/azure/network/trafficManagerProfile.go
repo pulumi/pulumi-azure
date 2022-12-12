@@ -96,7 +96,7 @@ type TrafficManagerProfile struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
 	ProfileStatus pulumi.StringOutput `pulumi:"profileStatus"`
-	// The name of the resource group in which to create the Traffic Manager profile.
+	// The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -165,7 +165,7 @@ type trafficManagerProfileState struct {
 	Name *string `pulumi:"name"`
 	// The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
 	ProfileStatus *string `pulumi:"profileStatus"`
-	// The name of the resource group in which to create the Traffic Manager profile.
+	// The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -188,7 +188,7 @@ type TrafficManagerProfileState struct {
 	Name pulumi.StringPtrInput
 	// The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
 	ProfileStatus pulumi.StringPtrInput
-	// The name of the resource group in which to create the Traffic Manager profile.
+	// The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -213,7 +213,7 @@ type trafficManagerProfileArgs struct {
 	Name *string `pulumi:"name"`
 	// The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
 	ProfileStatus *string `pulumi:"profileStatus"`
-	// The name of the resource group in which to create the Traffic Manager profile.
+	// The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -235,7 +235,7 @@ type TrafficManagerProfileArgs struct {
 	Name pulumi.StringPtrInput
 	// The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
 	ProfileStatus pulumi.StringPtrInput
-	// The name of the resource group in which to create the Traffic Manager profile.
+	// The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -362,7 +362,7 @@ func (o TrafficManagerProfileOutput) ProfileStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrafficManagerProfile) pulumi.StringOutput { return v.ProfileStatus }).(pulumi.StringOutput)
 }
 
-// The name of the resource group in which to create the Traffic Manager profile.
+// The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.
 func (o TrafficManagerProfileOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrafficManagerProfile) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

@@ -44,7 +44,7 @@ class GroupArgs:
         :param pulumi.Input['GroupDiagnosticsArgs'] diagnostics: A `diagnostics` block as documented below.
         :param pulumi.Input['GroupDnsConfigArgs'] dns_config: A `dns_config` block as documented below.
         :param pulumi.Input[str] dns_name_label: The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] dns_name_label_reuse_policy: The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] dns_name_label_reuse_policy: The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
         :param pulumi.Input[Sequence[pulumi.Input['GroupExposedPortArgs']]] exposed_ports: Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['GroupIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['GroupImageRegistryCredentialArgs']]] image_registry_credentials: An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
@@ -56,7 +56,7 @@ class GroupArgs:
         :param pulumi.Input[str] restart_policy: Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_ids: The subnet resource IDs for a container group. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Availability Zones in which this Container Group is located.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "containers", containers)
         pulumi.set(__self__, "os_type", os_type)
@@ -175,7 +175,7 @@ class GroupArgs:
     @pulumi.getter(name="dnsNameLabelReusePolicy")
     def dns_name_label_reuse_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+        The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
         """
         return pulumi.get(self, "dns_name_label_reuse_policy")
 
@@ -328,7 +328,7 @@ class GroupArgs:
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of Availability Zones in which this Container Group is located.
+        A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "zones")
 
@@ -368,7 +368,7 @@ class _GroupState:
         :param pulumi.Input['GroupDiagnosticsArgs'] diagnostics: A `diagnostics` block as documented below.
         :param pulumi.Input['GroupDnsConfigArgs'] dns_config: A `dns_config` block as documented below.
         :param pulumi.Input[str] dns_name_label: The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] dns_name_label_reuse_policy: The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] dns_name_label_reuse_policy: The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
         :param pulumi.Input[Sequence[pulumi.Input['GroupExposedPortArgs']]] exposed_ports: Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The FQDN of the container group derived from `dns_name_label`.
         :param pulumi.Input['GroupIdentityArgs'] identity: An `identity` block as defined below.
@@ -384,7 +384,7 @@ class _GroupState:
         :param pulumi.Input[str] restart_policy: Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_ids: The subnet resource IDs for a container group. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Availability Zones in which this Container Group is located.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created.
         """
         if containers is not None:
             pulumi.set(__self__, "containers", containers)
@@ -486,7 +486,7 @@ class _GroupState:
     @pulumi.getter(name="dnsNameLabelReusePolicy")
     def dns_name_label_reuse_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+        The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
         """
         return pulumi.get(self, "dns_name_label_reuse_policy")
 
@@ -687,7 +687,7 @@ class _GroupState:
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of Availability Zones in which this Container Group is located.
+        A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "zones")
 
@@ -779,7 +779,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['GroupDiagnosticsArgs']] diagnostics: A `diagnostics` block as documented below.
         :param pulumi.Input[pulumi.InputType['GroupDnsConfigArgs']] dns_config: A `dns_config` block as documented below.
         :param pulumi.Input[str] dns_name_label: The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] dns_name_label_reuse_policy: The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] dns_name_label_reuse_policy: The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupExposedPortArgs']]]] exposed_ports: Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['GroupIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupImageRegistryCredentialArgs']]]] image_registry_credentials: An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
@@ -793,7 +793,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] restart_policy: Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_ids: The subnet resource IDs for a container group. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Availability Zones in which this Container Group is located.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -970,7 +970,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['GroupDiagnosticsArgs']] diagnostics: A `diagnostics` block as documented below.
         :param pulumi.Input[pulumi.InputType['GroupDnsConfigArgs']] dns_config: A `dns_config` block as documented below.
         :param pulumi.Input[str] dns_name_label: The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] dns_name_label_reuse_policy: The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] dns_name_label_reuse_policy: The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupExposedPortArgs']]]] exposed_ports: Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The FQDN of the container group derived from `dns_name_label`.
         :param pulumi.Input[pulumi.InputType['GroupIdentityArgs']] identity: An `identity` block as defined below.
@@ -986,7 +986,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] restart_policy: Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_ids: The subnet resource IDs for a container group. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Availability Zones in which this Container Group is located.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1052,7 +1052,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter(name="dnsNameLabelReusePolicy")
     def dns_name_label_reuse_policy(self) -> pulumi.Output[Optional[str]]:
         """
-        The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+        The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
         """
         return pulumi.get(self, "dns_name_label_reuse_policy")
 
@@ -1185,7 +1185,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter
     def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A list of Availability Zones in which this Container Group is located.
+        A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "zones")
 

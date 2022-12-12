@@ -390,7 +390,7 @@ class VolumeDataProtectionReplication(dict):
                  replication_frequency: str,
                  endpoint_type: Optional[str] = None):
         """
-        :param str remote_volume_location: Location of the primary volume.
+        :param str remote_volume_location: Location of the primary volume. Changing this forces a new resource to be created.
         :param str remote_volume_resource_id: Resource ID of the primary volume.
         :param str replication_frequency: Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
         :param str endpoint_type: The endpoint type, default value is `dst` for destination.
@@ -405,7 +405,7 @@ class VolumeDataProtectionReplication(dict):
     @pulumi.getter(name="remoteVolumeLocation")
     def remote_volume_location(self) -> str:
         """
-        Location of the primary volume.
+        Location of the primary volume. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "remote_volume_location")
 

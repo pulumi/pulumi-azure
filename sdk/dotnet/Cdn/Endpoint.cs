@@ -151,7 +151,7 @@ namespace Pulumi.Azure.Cdn
         public Output<string> ProbePath { get; private set; } = null!;
 
         /// <summary>
-        /// The CDN Profile to which to attach the CDN Endpoint.
+        /// The CDN Profile to which to attach the CDN Endpoint. Changing this forces a new resource to be created.
         /// </summary>
         [Output("profileName")]
         public Output<string> ProfileName { get; private set; } = null!;
@@ -163,7 +163,7 @@ namespace Pulumi.Azure.Cdn
         public Output<string?> QuerystringCachingBehaviour { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create the CDN Endpoint.
+        /// The name of the resource group in which to create the CDN Endpoint. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -329,7 +329,7 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? ProbePath { get; set; }
 
         /// <summary>
-        /// The CDN Profile to which to attach the CDN Endpoint.
+        /// The CDN Profile to which to attach the CDN Endpoint. Changing this forces a new resource to be created.
         /// </summary>
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;
@@ -341,7 +341,7 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? QuerystringCachingBehaviour { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the CDN Endpoint.
+        /// The name of the resource group in which to create the CDN Endpoint. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -481,7 +481,7 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? ProbePath { get; set; }
 
         /// <summary>
-        /// The CDN Profile to which to attach the CDN Endpoint.
+        /// The CDN Profile to which to attach the CDN Endpoint. Changing this forces a new resource to be created.
         /// </summary>
         [Input("profileName")]
         public Input<string>? ProfileName { get; set; }
@@ -493,7 +493,7 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? QuerystringCachingBehaviour { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the CDN Endpoint.
+        /// The name of the resource group in which to create the CDN Endpoint. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

@@ -110,7 +110,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<Outputs.StreamInputIotHubSerialization> Serialization { get; private set; } = null!;
 
         /// <summary>
-        /// The shared access policy key for the specified shared access policy.
+        /// The shared access policy key for the specified shared access policy. Changing this forces a new resource to be created.
         /// </summary>
         [Output("sharedAccessPolicyKey")]
         public Output<string> SharedAccessPolicyKey { get; private set; } = null!;
@@ -210,7 +210,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<Inputs.StreamInputIotHubSerializationArgs> Serialization { get; set; } = null!;
 
         /// <summary>
-        /// The shared access policy key for the specified shared access policy.
+        /// The shared access policy key for the specified shared access policy. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sharedAccessPolicyKey", required: true)]
         public Input<string> SharedAccessPolicyKey { get; set; } = null!;
@@ -272,7 +272,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<Inputs.StreamInputIotHubSerializationGetArgs>? Serialization { get; set; }
 
         /// <summary>
-        /// The shared access policy key for the specified shared access policy.
+        /// The shared access policy key for the specified shared access policy. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sharedAccessPolicyKey")]
         public Input<string>? SharedAccessPolicyKey { get; set; }

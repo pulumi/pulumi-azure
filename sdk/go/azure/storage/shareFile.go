@@ -91,7 +91,7 @@ type ShareFile struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
 	Path pulumi.StringPtrOutput `pulumi:"path"`
-	// An absolute path to a file on the local system.
+	// An absolute path to a file on the local system. Changing this forces a new resource to be created.
 	Source pulumi.StringPtrOutput `pulumi:"source"`
 	// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
 	StorageShareId pulumi.StringOutput `pulumi:"storageShareId"`
@@ -145,7 +145,7 @@ type shareFileState struct {
 	Name *string `pulumi:"name"`
 	// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
 	Path *string `pulumi:"path"`
-	// An absolute path to a file on the local system.
+	// An absolute path to a file on the local system. Changing this forces a new resource to be created.
 	Source *string `pulumi:"source"`
 	// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
 	StorageShareId *string `pulumi:"storageShareId"`
@@ -168,7 +168,7 @@ type ShareFileState struct {
 	Name pulumi.StringPtrInput
 	// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
 	Path pulumi.StringPtrInput
-	// An absolute path to a file on the local system.
+	// An absolute path to a file on the local system. Changing this forces a new resource to be created.
 	Source pulumi.StringPtrInput
 	// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
 	StorageShareId pulumi.StringPtrInput
@@ -193,7 +193,7 @@ type shareFileArgs struct {
 	Name *string `pulumi:"name"`
 	// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
 	Path *string `pulumi:"path"`
-	// An absolute path to a file on the local system.
+	// An absolute path to a file on the local system. Changing this forces a new resource to be created.
 	Source *string `pulumi:"source"`
 	// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
 	StorageShareId string `pulumi:"storageShareId"`
@@ -215,7 +215,7 @@ type ShareFileArgs struct {
 	Name pulumi.StringPtrInput
 	// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
 	Path pulumi.StringPtrInput
-	// An absolute path to a file on the local system.
+	// An absolute path to a file on the local system. Changing this forces a new resource to be created.
 	Source pulumi.StringPtrInput
 	// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
 	StorageShareId pulumi.StringInput
@@ -348,7 +348,7 @@ func (o ShareFileOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShareFile) pulumi.StringPtrOutput { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// An absolute path to a file on the local system.
+// An absolute path to a file on the local system. Changing this forces a new resource to be created.
 func (o ShareFileOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShareFile) pulumi.StringPtrOutput { return v.Source }).(pulumi.StringPtrOutput)
 }

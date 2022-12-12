@@ -508,28 +508,28 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
+     * Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
+     * @return Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
+     * A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
      * 
      */
     @Export(name="osType", type=String.class, parameters={})
     private Output</* @Nullable */ String> osType;
 
     /**
-     * @return A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
+     * @return A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> osType() {
@@ -564,14 +564,14 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
         return this.possibleOutboundIpAddresses;
     }
     /**
-     * The name of the resource group in which to create the Function App.
+     * The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the Function App.
+     * @return The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -634,14 +634,14 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
         return this.storageAccountAccessKey;
     }
     /**
-     * The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+     * The backend storage account name which will be used by this Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
      * 
      */
     @Export(name="storageAccountName", type=String.class, parameters={})
     private Output<String> storageAccountName;
 
     /**
-     * @return The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+     * @return The backend storage account name which will be used by this Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
      * 
      */
     public Output<String> storageAccountName() {

@@ -130,13 +130,13 @@ namespace Pulumi.Azure.Lb
         public Output<string> LoadDistribution { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Load Balancer in which to create the Rule.
+        /// The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
         /// </summary>
         [Output("loadbalancerId")]
         public Output<string> LoadbalancerId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the LB Rule.
+        /// Specifies the name of the LB Rule. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -260,13 +260,13 @@ namespace Pulumi.Azure.Lb
         public Input<string>? LoadDistribution { get; set; }
 
         /// <summary>
-        /// The ID of the Load Balancer in which to create the Rule.
+        /// The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
         /// </summary>
         [Input("loadbalancerId", required: true)]
         public Input<string> LoadbalancerId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the LB Rule.
+        /// Specifies the name of the LB Rule. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -355,13 +355,13 @@ namespace Pulumi.Azure.Lb
         public Input<string>? LoadDistribution { get; set; }
 
         /// <summary>
-        /// The ID of the Load Balancer in which to create the Rule.
+        /// The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
         /// </summary>
         [Input("loadbalancerId")]
         public Input<string>? LoadbalancerId { get; set; }
 
         /// <summary>
-        /// Specifies the name of the LB Rule.
+        /// Specifies the name of the LB Rule. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

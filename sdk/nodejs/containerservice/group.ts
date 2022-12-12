@@ -103,7 +103,7 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly dnsNameLabel!: pulumi.Output<string | undefined>;
     /**
-     * The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+     * The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
      */
     public readonly dnsNameLabelReusePolicy!: pulumi.Output<string | undefined>;
     /**
@@ -171,7 +171,7 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A list of Availability Zones in which this Container Group is located.
+     * A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created.
      */
     public readonly zones!: pulumi.Output<string[] | undefined>;
 
@@ -270,7 +270,7 @@ export interface GroupState {
      */
     dnsNameLabel?: pulumi.Input<string>;
     /**
-     * The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+     * The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
      */
     dnsNameLabelReusePolicy?: pulumi.Input<string>;
     /**
@@ -338,7 +338,7 @@ export interface GroupState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A list of Availability Zones in which this Container Group is located.
+     * A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -364,7 +364,7 @@ export interface GroupArgs {
      */
     dnsNameLabel?: pulumi.Input<string>;
     /**
-     * The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+     * The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
      */
     dnsNameLabelReusePolicy?: pulumi.Input<string>;
     /**
@@ -424,7 +424,7 @@ export interface GroupArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A list of Availability Zones in which this Container Group is located.
+     * A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

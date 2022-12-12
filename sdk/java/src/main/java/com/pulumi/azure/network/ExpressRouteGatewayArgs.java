@@ -93,14 +93,14 @@ public final class ExpressRouteGatewayArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The ID of a Virtual HUB within which the ExpressRoute gateway should be created.
+     * The ID of a Virtual HUB within which the ExpressRoute gateway should be created. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="virtualHubId", required=true)
     private Output<String> virtualHubId;
 
     /**
-     * @return The ID of a Virtual HUB within which the ExpressRoute gateway should be created.
+     * @return The ID of a Virtual HUB within which the ExpressRoute gateway should be created. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> virtualHubId() {
@@ -242,7 +242,7 @@ public final class ExpressRouteGatewayArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param virtualHubId The ID of a Virtual HUB within which the ExpressRoute gateway should be created.
+         * @param virtualHubId The ID of a Virtual HUB within which the ExpressRoute gateway should be created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class ExpressRouteGatewayArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param virtualHubId The ID of a Virtual HUB within which the ExpressRoute gateway should be created.
+         * @param virtualHubId The ID of a Virtual HUB within which the ExpressRoute gateway should be created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

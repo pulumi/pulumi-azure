@@ -17,14 +17,14 @@ public final class SubscriptionClientScopedSubscriptionArgs extends com.pulumi.r
     public static final SubscriptionClientScopedSubscriptionArgs Empty = new SubscriptionClientScopedSubscriptionArgs();
 
     /**
-     * Specifies the Client ID of the application that created the client-scoped subscription.
+     * Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="clientId")
     private @Nullable Output<String> clientId;
 
     /**
-     * @return Specifies the Client ID of the application that created the client-scoped subscription.
+     * @return Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> clientId() {
@@ -47,14 +47,14 @@ public final class SubscriptionClientScopedSubscriptionArgs extends com.pulumi.r
     }
 
     /**
-     * Whether the client scoped subscription is shareable. Defaults to `true`
+     * Whether the client scoped subscription is shareable. Defaults to `true` Changing this forces a new resource to be created.
      * 
      */
     @Import(name="isClientScopedSubscriptionShareable")
     private @Nullable Output<Boolean> isClientScopedSubscriptionShareable;
 
     /**
-     * @return Whether the client scoped subscription is shareable. Defaults to `true`
+     * @return Whether the client scoped subscription is shareable. Defaults to `true` Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> isClientScopedSubscriptionShareable() {
@@ -88,7 +88,7 @@ public final class SubscriptionClientScopedSubscriptionArgs extends com.pulumi.r
         }
 
         /**
-         * @param clientId Specifies the Client ID of the application that created the client-scoped subscription.
+         * @param clientId Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class SubscriptionClientScopedSubscriptionArgs extends com.pulumi.r
         }
 
         /**
-         * @param clientId Specifies the Client ID of the application that created the client-scoped subscription.
+         * @param clientId Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class SubscriptionClientScopedSubscriptionArgs extends com.pulumi.r
         }
 
         /**
-         * @param isClientScopedSubscriptionShareable Whether the client scoped subscription is shareable. Defaults to `true`
+         * @param isClientScopedSubscriptionShareable Whether the client scoped subscription is shareable. Defaults to `true` Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class SubscriptionClientScopedSubscriptionArgs extends com.pulumi.r
         }
 
         /**
-         * @param isClientScopedSubscriptionShareable Whether the client scoped subscription is shareable. Defaults to `true`
+         * @param isClientScopedSubscriptionShareable Whether the client scoped subscription is shareable. Defaults to `true` Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

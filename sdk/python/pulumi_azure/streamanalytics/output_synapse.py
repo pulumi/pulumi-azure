@@ -25,7 +25,7 @@ class OutputSynapseArgs:
         """
         The set of arguments for constructing a OutputSynapse resource.
         :param pulumi.Input[str] database: The name of the Azure SQL database. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] password: The password that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] password: The password that will be used to connect to the Azure SQL database.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server: The name of the SQL server containing the Azure SQL database. Changing this forces a new resource to be created.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
@@ -59,7 +59,7 @@ class OutputSynapseArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        The password that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created.
+        The password that will be used to connect to the Azure SQL database.
         """
         return pulumi.get(self, "password")
 
@@ -155,7 +155,7 @@ class _OutputSynapseState:
         Input properties used for looking up and filtering OutputSynapse resources.
         :param pulumi.Input[str] database: The name of the Azure SQL database. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] password: The password that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] password: The password that will be used to connect to the Azure SQL database.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server: The name of the SQL server containing the Azure SQL database. Changing this forces a new resource to be created.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
@@ -207,7 +207,7 @@ class _OutputSynapseState:
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
         """
-        The password that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created.
+        The password that will be used to connect to the Azure SQL database.
         """
         return pulumi.get(self, "password")
 
@@ -305,7 +305,7 @@ class OutputSynapse(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database: The name of the Azure SQL database. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] password: The password that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] password: The password that will be used to connect to the Azure SQL database.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server: The name of the SQL server containing the Azure SQL database. Changing this forces a new resource to be created.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
@@ -410,7 +410,7 @@ class OutputSynapse(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database: The name of the Azure SQL database. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] password: The password that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] password: The password that will be used to connect to the Azure SQL database.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server: The name of the SQL server containing the Azure SQL database. Changing this forces a new resource to be created.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
@@ -451,7 +451,7 @@ class OutputSynapse(pulumi.CustomResource):
     @pulumi.getter
     def password(self) -> pulumi.Output[str]:
         """
-        The password that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created.
+        The password that will be used to connect to the Azure SQL database.
         """
         return pulumi.get(self, "password")
 

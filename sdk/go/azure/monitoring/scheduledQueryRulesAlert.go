@@ -47,7 +47,7 @@ type ScheduledQueryRulesAlert struct {
 	// Log search query.
 	Query     pulumi.StringOutput    `pulumi:"query"`
 	QueryType pulumi.StringPtrOutput `pulumi:"queryType"`
-	// The name of the resource group in which to create the scheduled query rule instance.
+	// The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Severity of the alert. Possible values include: 0, 1, 2, 3, or 4.
 	Severity pulumi.IntPtrOutput `pulumi:"severity"`
@@ -133,7 +133,7 @@ type scheduledQueryRulesAlertState struct {
 	// Log search query.
 	Query     *string `pulumi:"query"`
 	QueryType *string `pulumi:"queryType"`
-	// The name of the resource group in which to create the scheduled query rule instance.
+	// The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Severity of the alert. Possible values include: 0, 1, 2, 3, or 4.
 	Severity *int `pulumi:"severity"`
@@ -170,7 +170,7 @@ type ScheduledQueryRulesAlertState struct {
 	// Log search query.
 	Query     pulumi.StringPtrInput
 	QueryType pulumi.StringPtrInput
-	// The name of the resource group in which to create the scheduled query rule instance.
+	// The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Severity of the alert. Possible values include: 0, 1, 2, 3, or 4.
 	Severity pulumi.IntPtrInput
@@ -211,7 +211,7 @@ type scheduledQueryRulesAlertArgs struct {
 	// Log search query.
 	Query     string  `pulumi:"query"`
 	QueryType *string `pulumi:"queryType"`
-	// The name of the resource group in which to create the scheduled query rule instance.
+	// The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Severity of the alert. Possible values include: 0, 1, 2, 3, or 4.
 	Severity *int `pulumi:"severity"`
@@ -249,7 +249,7 @@ type ScheduledQueryRulesAlertArgs struct {
 	// Log search query.
 	Query     pulumi.StringInput
 	QueryType pulumi.StringPtrInput
-	// The name of the resource group in which to create the scheduled query rule instance.
+	// The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Severity of the alert. Possible values include: 0, 1, 2, 3, or 4.
 	Severity pulumi.IntPtrInput
@@ -405,7 +405,7 @@ func (o ScheduledQueryRulesAlertOutput) QueryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlert) pulumi.StringPtrOutput { return v.QueryType }).(pulumi.StringPtrOutput)
 }
 
-// The name of the resource group in which to create the scheduled query rule instance.
+// The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
 func (o ScheduledQueryRulesAlertOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlert) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

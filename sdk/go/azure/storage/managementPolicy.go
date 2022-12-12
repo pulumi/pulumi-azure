@@ -131,7 +131,7 @@ type ManagementPolicy struct {
 
 	// A `rule` block as documented below.
 	Rules ManagementPolicyRuleArrayOutput `pulumi:"rules"`
-	// Specifies the id of the storage account to apply the management policy to.
+	// Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
 }
 
@@ -169,14 +169,14 @@ func GetManagementPolicy(ctx *pulumi.Context,
 type managementPolicyState struct {
 	// A `rule` block as documented below.
 	Rules []ManagementPolicyRule `pulumi:"rules"`
-	// Specifies the id of the storage account to apply the management policy to.
+	// Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 }
 
 type ManagementPolicyState struct {
 	// A `rule` block as documented below.
 	Rules ManagementPolicyRuleArrayInput
-	// Specifies the id of the storage account to apply the management policy to.
+	// Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrInput
 }
 
@@ -187,7 +187,7 @@ func (ManagementPolicyState) ElementType() reflect.Type {
 type managementPolicyArgs struct {
 	// A `rule` block as documented below.
 	Rules []ManagementPolicyRule `pulumi:"rules"`
-	// Specifies the id of the storage account to apply the management policy to.
+	// Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created.
 	StorageAccountId string `pulumi:"storageAccountId"`
 }
 
@@ -195,7 +195,7 @@ type managementPolicyArgs struct {
 type ManagementPolicyArgs struct {
 	// A `rule` block as documented below.
 	Rules ManagementPolicyRuleArrayInput
-	// Specifies the id of the storage account to apply the management policy to.
+	// Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringInput
 }
 
@@ -291,7 +291,7 @@ func (o ManagementPolicyOutput) Rules() ManagementPolicyRuleArrayOutput {
 	return o.ApplyT(func(v *ManagementPolicy) ManagementPolicyRuleArrayOutput { return v.Rules }).(ManagementPolicyRuleArrayOutput)
 }
 
-// Specifies the id of the storage account to apply the management policy to.
+// Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created.
 func (o ManagementPolicyOutput) StorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagementPolicy) pulumi.StringOutput { return v.StorageAccountId }).(pulumi.StringOutput)
 }

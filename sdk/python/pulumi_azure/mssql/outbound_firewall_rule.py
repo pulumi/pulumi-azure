@@ -18,8 +18,8 @@ class OutboundFirewallRuleArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a OutboundFirewallRule resource.
-        :param pulumi.Input[str] server_id: The resource ID of the SQL Server on which to create the Outbound Firewall Rule.
-        :param pulumi.Input[str] name: The name of the outbound firewall rule. This should be a FQDN.
+        :param pulumi.Input[str] server_id: The resource ID of the SQL Server on which to create the Outbound Firewall Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "server_id", server_id)
         if name is not None:
@@ -29,7 +29,7 @@ class OutboundFirewallRuleArgs:
     @pulumi.getter(name="serverId")
     def server_id(self) -> pulumi.Input[str]:
         """
-        The resource ID of the SQL Server on which to create the Outbound Firewall Rule.
+        The resource ID of the SQL Server on which to create the Outbound Firewall Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server_id")
 
@@ -41,7 +41,7 @@ class OutboundFirewallRuleArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the outbound firewall rule. This should be a FQDN.
+        The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -57,8 +57,8 @@ class _OutboundFirewallRuleState:
                  server_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering OutboundFirewallRule resources.
-        :param pulumi.Input[str] name: The name of the outbound firewall rule. This should be a FQDN.
-        :param pulumi.Input[str] server_id: The resource ID of the SQL Server on which to create the Outbound Firewall Rule.
+        :param pulumi.Input[str] name: The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] server_id: The resource ID of the SQL Server on which to create the Outbound Firewall Rule. Changing this forces a new resource to be created.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -69,7 +69,7 @@ class _OutboundFirewallRuleState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the outbound firewall rule. This should be a FQDN.
+        The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -81,7 +81,7 @@ class _OutboundFirewallRuleState:
     @pulumi.getter(name="serverId")
     def server_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The resource ID of the SQL Server on which to create the Outbound Firewall Rule.
+        The resource ID of the SQL Server on which to create the Outbound Firewall Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server_id")
 
@@ -128,8 +128,8 @@ class OutboundFirewallRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the outbound firewall rule. This should be a FQDN.
-        :param pulumi.Input[str] server_id: The resource ID of the SQL Server on which to create the Outbound Firewall Rule.
+        :param pulumi.Input[str] name: The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] server_id: The resource ID of the SQL Server on which to create the Outbound Firewall Rule. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -214,8 +214,8 @@ class OutboundFirewallRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the outbound firewall rule. This should be a FQDN.
-        :param pulumi.Input[str] server_id: The resource ID of the SQL Server on which to create the Outbound Firewall Rule.
+        :param pulumi.Input[str] name: The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] server_id: The resource ID of the SQL Server on which to create the Outbound Firewall Rule. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -229,7 +229,7 @@ class OutboundFirewallRule(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the outbound firewall rule. This should be a FQDN.
+        The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -237,7 +237,7 @@ class OutboundFirewallRule(pulumi.CustomResource):
     @pulumi.getter(name="serverId")
     def server_id(self) -> pulumi.Output[str]:
         """
-        The resource ID of the SQL Server on which to create the Outbound Firewall Rule.
+        The resource ID of the SQL Server on which to create the Outbound Firewall Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server_id")
 

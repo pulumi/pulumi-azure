@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class WindowsVirtualMachineWinrmListenerGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
+        /// The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("certificateUrl")]
         public Input<string>? CertificateUrl { get; set; }

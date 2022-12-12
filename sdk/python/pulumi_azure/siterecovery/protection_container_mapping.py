@@ -23,13 +23,13 @@ class ProtectionContainerMappingArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ProtectionContainerMapping resource.
-        :param pulumi.Input[str] recovery_fabric_name: Name of fabric that should contains the protection container to map.
-        :param pulumi.Input[str] recovery_replication_policy_id: Id of the policy to use for this mapping.
-        :param pulumi.Input[str] recovery_source_protection_container_name: Name of the source protection container to map.
-        :param pulumi.Input[str] recovery_target_protection_container_id: Id of target protection container to map to.
-        :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
-        :param pulumi.Input[str] name: The name of the protection container mapping.
+        :param pulumi.Input[str] recovery_fabric_name: Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] recovery_replication_policy_id: Id of the policy to use for this mapping. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] recovery_source_protection_container_name: Name of the source protection container to map. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] recovery_target_protection_container_id: Id of target protection container to map to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the protection container mapping. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "recovery_fabric_name", recovery_fabric_name)
         pulumi.set(__self__, "recovery_replication_policy_id", recovery_replication_policy_id)
@@ -44,7 +44,7 @@ class ProtectionContainerMappingArgs:
     @pulumi.getter(name="recoveryFabricName")
     def recovery_fabric_name(self) -> pulumi.Input[str]:
         """
-        Name of fabric that should contains the protection container to map.
+        Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_fabric_name")
 
@@ -56,7 +56,7 @@ class ProtectionContainerMappingArgs:
     @pulumi.getter(name="recoveryReplicationPolicyId")
     def recovery_replication_policy_id(self) -> pulumi.Input[str]:
         """
-        Id of the policy to use for this mapping.
+        Id of the policy to use for this mapping. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_replication_policy_id")
 
@@ -68,7 +68,7 @@ class ProtectionContainerMappingArgs:
     @pulumi.getter(name="recoverySourceProtectionContainerName")
     def recovery_source_protection_container_name(self) -> pulumi.Input[str]:
         """
-        Name of the source protection container to map.
+        Name of the source protection container to map. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_source_protection_container_name")
 
@@ -80,7 +80,7 @@ class ProtectionContainerMappingArgs:
     @pulumi.getter(name="recoveryTargetProtectionContainerId")
     def recovery_target_protection_container_id(self) -> pulumi.Input[str]:
         """
-        Id of target protection container to map to.
+        Id of target protection container to map to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_target_protection_container_id")
 
@@ -92,7 +92,7 @@ class ProtectionContainerMappingArgs:
     @pulumi.getter(name="recoveryVaultName")
     def recovery_vault_name(self) -> pulumi.Input[str]:
         """
-        The name of the vault that should be updated.
+        The name of the vault that should be updated. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_vault_name")
 
@@ -104,7 +104,7 @@ class ProtectionContainerMappingArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        Name of the resource group where the vault that should be updated is located.
+        Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -116,7 +116,7 @@ class ProtectionContainerMappingArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the protection container mapping.
+        The name of the protection container mapping. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -137,13 +137,13 @@ class _ProtectionContainerMappingState:
                  resource_group_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ProtectionContainerMapping resources.
-        :param pulumi.Input[str] name: The name of the protection container mapping.
-        :param pulumi.Input[str] recovery_fabric_name: Name of fabric that should contains the protection container to map.
-        :param pulumi.Input[str] recovery_replication_policy_id: Id of the policy to use for this mapping.
-        :param pulumi.Input[str] recovery_source_protection_container_name: Name of the source protection container to map.
-        :param pulumi.Input[str] recovery_target_protection_container_id: Id of target protection container to map to.
-        :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
+        :param pulumi.Input[str] name: The name of the protection container mapping. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] recovery_fabric_name: Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] recovery_replication_policy_id: Id of the policy to use for this mapping. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] recovery_source_protection_container_name: Name of the source protection container to map. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] recovery_target_protection_container_id: Id of target protection container to map to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -164,7 +164,7 @@ class _ProtectionContainerMappingState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the protection container mapping.
+        The name of the protection container mapping. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -176,7 +176,7 @@ class _ProtectionContainerMappingState:
     @pulumi.getter(name="recoveryFabricName")
     def recovery_fabric_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of fabric that should contains the protection container to map.
+        Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_fabric_name")
 
@@ -188,7 +188,7 @@ class _ProtectionContainerMappingState:
     @pulumi.getter(name="recoveryReplicationPolicyId")
     def recovery_replication_policy_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Id of the policy to use for this mapping.
+        Id of the policy to use for this mapping. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_replication_policy_id")
 
@@ -200,7 +200,7 @@ class _ProtectionContainerMappingState:
     @pulumi.getter(name="recoverySourceProtectionContainerName")
     def recovery_source_protection_container_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the source protection container to map.
+        Name of the source protection container to map. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_source_protection_container_name")
 
@@ -212,7 +212,7 @@ class _ProtectionContainerMappingState:
     @pulumi.getter(name="recoveryTargetProtectionContainerId")
     def recovery_target_protection_container_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Id of target protection container to map to.
+        Id of target protection container to map to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_target_protection_container_id")
 
@@ -224,7 +224,7 @@ class _ProtectionContainerMappingState:
     @pulumi.getter(name="recoveryVaultName")
     def recovery_vault_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the vault that should be updated.
+        The name of the vault that should be updated. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_vault_name")
 
@@ -236,7 +236,7 @@ class _ProtectionContainerMappingState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the resource group where the vault that should be updated is located.
+        Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -313,13 +313,13 @@ class ProtectionContainerMapping(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the protection container mapping.
-        :param pulumi.Input[str] recovery_fabric_name: Name of fabric that should contains the protection container to map.
-        :param pulumi.Input[str] recovery_replication_policy_id: Id of the policy to use for this mapping.
-        :param pulumi.Input[str] recovery_source_protection_container_name: Name of the source protection container to map.
-        :param pulumi.Input[str] recovery_target_protection_container_id: Id of target protection container to map to.
-        :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
+        :param pulumi.Input[str] name: The name of the protection container mapping. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] recovery_fabric_name: Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] recovery_replication_policy_id: Id of the policy to use for this mapping. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] recovery_source_protection_container_name: Name of the source protection container to map. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] recovery_target_protection_container_id: Id of target protection container to map to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -454,13 +454,13 @@ class ProtectionContainerMapping(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the protection container mapping.
-        :param pulumi.Input[str] recovery_fabric_name: Name of fabric that should contains the protection container to map.
-        :param pulumi.Input[str] recovery_replication_policy_id: Id of the policy to use for this mapping.
-        :param pulumi.Input[str] recovery_source_protection_container_name: Name of the source protection container to map.
-        :param pulumi.Input[str] recovery_target_protection_container_id: Id of target protection container to map to.
-        :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
+        :param pulumi.Input[str] name: The name of the protection container mapping. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] recovery_fabric_name: Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] recovery_replication_policy_id: Id of the policy to use for this mapping. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] recovery_source_protection_container_name: Name of the source protection container to map. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] recovery_target_protection_container_id: Id of target protection container to map to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -479,7 +479,7 @@ class ProtectionContainerMapping(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the protection container mapping.
+        The name of the protection container mapping. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -487,7 +487,7 @@ class ProtectionContainerMapping(pulumi.CustomResource):
     @pulumi.getter(name="recoveryFabricName")
     def recovery_fabric_name(self) -> pulumi.Output[str]:
         """
-        Name of fabric that should contains the protection container to map.
+        Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_fabric_name")
 
@@ -495,7 +495,7 @@ class ProtectionContainerMapping(pulumi.CustomResource):
     @pulumi.getter(name="recoveryReplicationPolicyId")
     def recovery_replication_policy_id(self) -> pulumi.Output[str]:
         """
-        Id of the policy to use for this mapping.
+        Id of the policy to use for this mapping. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_replication_policy_id")
 
@@ -503,7 +503,7 @@ class ProtectionContainerMapping(pulumi.CustomResource):
     @pulumi.getter(name="recoverySourceProtectionContainerName")
     def recovery_source_protection_container_name(self) -> pulumi.Output[str]:
         """
-        Name of the source protection container to map.
+        Name of the source protection container to map. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_source_protection_container_name")
 
@@ -511,7 +511,7 @@ class ProtectionContainerMapping(pulumi.CustomResource):
     @pulumi.getter(name="recoveryTargetProtectionContainerId")
     def recovery_target_protection_container_id(self) -> pulumi.Output[str]:
         """
-        Id of target protection container to map to.
+        Id of target protection container to map to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_target_protection_container_id")
 
@@ -519,7 +519,7 @@ class ProtectionContainerMapping(pulumi.CustomResource):
     @pulumi.getter(name="recoveryVaultName")
     def recovery_vault_name(self) -> pulumi.Output[str]:
         """
-        The name of the vault that should be updated.
+        The name of the vault that should be updated. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_vault_name")
 
@@ -527,7 +527,7 @@ class ProtectionContainerMapping(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        Name of the resource group where the vault that should be updated is located.
+        Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 

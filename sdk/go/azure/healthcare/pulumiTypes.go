@@ -1248,7 +1248,7 @@ type ServiceAuthenticationConfiguration struct {
 	// The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
 	// Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
 	Authority *string `pulumi:"authority"`
-	// Enables the 'SMART on FHIR' option for mobile and web implementations.
+	// (Boolean) Enables the 'SMART on FHIR' option for mobile and web implementations.
 	SmartProxyEnabled *bool `pulumi:"smartProxyEnabled"`
 }
 
@@ -1269,7 +1269,7 @@ type ServiceAuthenticationConfigurationArgs struct {
 	// The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
 	// Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
 	Authority pulumi.StringPtrInput `pulumi:"authority"`
-	// Enables the 'SMART on FHIR' option for mobile and web implementations.
+	// (Boolean) Enables the 'SMART on FHIR' option for mobile and web implementations.
 	SmartProxyEnabled pulumi.BoolPtrInput `pulumi:"smartProxyEnabled"`
 }
 
@@ -1361,7 +1361,7 @@ func (o ServiceAuthenticationConfigurationOutput) Authority() pulumi.StringPtrOu
 	return o.ApplyT(func(v ServiceAuthenticationConfiguration) *string { return v.Authority }).(pulumi.StringPtrOutput)
 }
 
-// Enables the 'SMART on FHIR' option for mobile and web implementations.
+// (Boolean) Enables the 'SMART on FHIR' option for mobile and web implementations.
 func (o ServiceAuthenticationConfigurationOutput) SmartProxyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceAuthenticationConfiguration) *bool { return v.SmartProxyEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -1411,7 +1411,7 @@ func (o ServiceAuthenticationConfigurationPtrOutput) Authority() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enables the 'SMART on FHIR' option for mobile and web implementations.
+// (Boolean) Enables the 'SMART on FHIR' option for mobile and web implementations.
 func (o ServiceAuthenticationConfigurationPtrOutput) SmartProxyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceAuthenticationConfiguration) *bool {
 		if v == nil {
@@ -1422,7 +1422,7 @@ func (o ServiceAuthenticationConfigurationPtrOutput) SmartProxyEnabled() pulumi.
 }
 
 type ServiceCorsConfiguration struct {
-	// If credentials are allowed via CORS.
+	// (Boolean) If credentials are allowed via CORS.
 	AllowCredentials *bool `pulumi:"allowCredentials"`
 	// A set of headers to be allowed via CORS.
 	AllowedHeaders []string `pulumi:"allowedHeaders"`
@@ -1446,7 +1446,7 @@ type ServiceCorsConfigurationInput interface {
 }
 
 type ServiceCorsConfigurationArgs struct {
-	// If credentials are allowed via CORS.
+	// (Boolean) If credentials are allowed via CORS.
 	AllowCredentials pulumi.BoolPtrInput `pulumi:"allowCredentials"`
 	// A set of headers to be allowed via CORS.
 	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
@@ -1535,7 +1535,7 @@ func (o ServiceCorsConfigurationOutput) ToServiceCorsConfigurationPtrOutputWithC
 	}).(ServiceCorsConfigurationPtrOutput)
 }
 
-// If credentials are allowed via CORS.
+// (Boolean) If credentials are allowed via CORS.
 func (o ServiceCorsConfigurationOutput) AllowCredentials() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceCorsConfiguration) *bool { return v.AllowCredentials }).(pulumi.BoolPtrOutput)
 }
@@ -1584,7 +1584,7 @@ func (o ServiceCorsConfigurationPtrOutput) Elem() ServiceCorsConfigurationOutput
 	}).(ServiceCorsConfigurationOutput)
 }
 
-// If credentials are allowed via CORS.
+// (Boolean) If credentials are allowed via CORS.
 func (o ServiceCorsConfigurationPtrOutput) AllowCredentials() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceCorsConfiguration) *bool {
 		if v == nil {

@@ -17,16 +17,14 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
     public static final VirtualNetworkPeeringState Empty = new VirtualNetworkPeeringState();
 
     /**
-     * Controls if forwarded traffic from  VMs
-     * in the remote virtual network is allowed. Defaults to false.
+     * Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to false.
      * 
      */
     @Import(name="allowForwardedTraffic")
     private @Nullable Output<Boolean> allowForwardedTraffic;
 
     /**
-     * @return Controls if forwarded traffic from  VMs
-     * in the remote virtual network is allowed. Defaults to false.
+     * @return Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to false.
      * 
      */
     public Optional<Output<Boolean>> allowForwardedTraffic() {
@@ -34,16 +32,14 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Controls gatewayLinks can be used in the
-     * remote virtual network’s link to the local virtual network.
+     * Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
      * 
      */
     @Import(name="allowGatewayTransit")
     private @Nullable Output<Boolean> allowGatewayTransit;
 
     /**
-     * @return Controls gatewayLinks can be used in the
-     * remote virtual network’s link to the local virtual network.
+     * @return Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
      * 
      */
     public Optional<Output<Boolean>> allowGatewayTransit() {
@@ -51,18 +47,14 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Controls if the VMs in the remote
-     * virtual network can access VMs in the local virtual network. Defaults to
-     * true.
+     * Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to true.
      * 
      */
     @Import(name="allowVirtualNetworkAccess")
     private @Nullable Output<Boolean> allowVirtualNetworkAccess;
 
     /**
-     * @return Controls if the VMs in the remote
-     * virtual network can access VMs in the local virtual network. Defaults to
-     * true.
+     * @return Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to true.
      * 
      */
     public Optional<Output<Boolean>> allowVirtualNetworkAccess() {
@@ -70,16 +62,14 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The name of the virtual network peering. Changing this
-     * forces a new resource to be created.
+     * The name of the virtual network peering. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the virtual network peering. Changing this
-     * forces a new resource to be created.
+     * @return The name of the virtual network peering. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -87,16 +77,14 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The full Azure resource ID of the
-     * remote virtual network.  Changing this forces a new resource to be created.
+     * The full Azure resource ID of the remote virtual network.  Changing this forces a new resource to be created.
      * 
      */
     @Import(name="remoteVirtualNetworkId")
     private @Nullable Output<String> remoteVirtualNetworkId;
 
     /**
-     * @return The full Azure resource ID of the
-     * remote virtual network.  Changing this forces a new resource to be created.
+     * @return The full Azure resource ID of the remote virtual network.  Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> remoteVirtualNetworkId() {
@@ -104,8 +92,7 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The name of the resource group in which to
-     * create the virtual network peering. Changing this forces a new resource to be
+     * The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be
      * created.
      * 
      */
@@ -113,8 +100,7 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to
-     * create the virtual network peering. Changing this forces a new resource to be
+     * @return The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be
      * created.
      * 
      */
@@ -148,16 +134,14 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The name of the virtual network. Changing
-     * this forces a new resource to be created.
+     * The name of the virtual network. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="virtualNetworkName")
     private @Nullable Output<String> virtualNetworkName;
 
     /**
-     * @return The name of the virtual network. Changing
-     * this forces a new resource to be created.
+     * @return The name of the virtual network. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> virtualNetworkName() {
@@ -196,8 +180,7 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param allowForwardedTraffic Controls if forwarded traffic from  VMs
-         * in the remote virtual network is allowed. Defaults to false.
+         * @param allowForwardedTraffic Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to false.
          * 
          * @return builder
          * 
@@ -208,8 +191,7 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param allowForwardedTraffic Controls if forwarded traffic from  VMs
-         * in the remote virtual network is allowed. Defaults to false.
+         * @param allowForwardedTraffic Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to false.
          * 
          * @return builder
          * 
@@ -219,8 +201,7 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param allowGatewayTransit Controls gatewayLinks can be used in the
-         * remote virtual network’s link to the local virtual network.
+         * @param allowGatewayTransit Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
          * 
          * @return builder
          * 
@@ -231,8 +212,7 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param allowGatewayTransit Controls gatewayLinks can be used in the
-         * remote virtual network’s link to the local virtual network.
+         * @param allowGatewayTransit Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
          * 
          * @return builder
          * 
@@ -242,9 +222,7 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param allowVirtualNetworkAccess Controls if the VMs in the remote
-         * virtual network can access VMs in the local virtual network. Defaults to
-         * true.
+         * @param allowVirtualNetworkAccess Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to true.
          * 
          * @return builder
          * 
@@ -255,9 +233,7 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param allowVirtualNetworkAccess Controls if the VMs in the remote
-         * virtual network can access VMs in the local virtual network. Defaults to
-         * true.
+         * @param allowVirtualNetworkAccess Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to true.
          * 
          * @return builder
          * 
@@ -267,8 +243,7 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name The name of the virtual network peering. Changing this
-         * forces a new resource to be created.
+         * @param name The name of the virtual network peering. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -279,8 +254,7 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name The name of the virtual network peering. Changing this
-         * forces a new resource to be created.
+         * @param name The name of the virtual network peering. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -290,8 +264,7 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param remoteVirtualNetworkId The full Azure resource ID of the
-         * remote virtual network.  Changing this forces a new resource to be created.
+         * @param remoteVirtualNetworkId The full Azure resource ID of the remote virtual network.  Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -302,8 +275,7 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param remoteVirtualNetworkId The full Azure resource ID of the
-         * remote virtual network.  Changing this forces a new resource to be created.
+         * @param remoteVirtualNetworkId The full Azure resource ID of the remote virtual network.  Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -313,8 +285,7 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to
-         * create the virtual network peering. Changing this forces a new resource to be
+         * @param resourceGroupName The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be
          * created.
          * 
          * @return builder
@@ -326,8 +297,7 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to
-         * create the virtual network peering. Changing this forces a new resource to be
+         * @param resourceGroupName The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be
          * created.
          * 
          * @return builder
@@ -369,8 +339,7 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param virtualNetworkName The name of the virtual network. Changing
-         * this forces a new resource to be created.
+         * @param virtualNetworkName The name of the virtual network. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -381,8 +350,7 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param virtualNetworkName The name of the virtual network. Changing
-         * this forces a new resource to be created.
+         * @param virtualNetworkName The name of the virtual network. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

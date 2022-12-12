@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Media.Outputs
     public sealed class LiveEventPreview
     {
         /// <summary>
-        /// An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streaming_policy_name` field. Changing this forces a new resource to be created.
+        /// An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streaming_policy_name` field.
         /// </summary>
         public readonly string? AlternativeMediaId;
         public readonly ImmutableArray<Outputs.LiveEventPreviewEndpoint> Endpoints;

@@ -31,7 +31,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         }
 
         /// <summary>
-        /// The name of the rule.
+        /// The name of the rule. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

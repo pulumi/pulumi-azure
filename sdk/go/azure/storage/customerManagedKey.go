@@ -163,7 +163,7 @@ type CustomerManagedKey struct {
 
 	// The name of Key Vault Key.
 	KeyName pulumi.StringOutput `pulumi:"keyName"`
-	// The ID of the Key Vault. Changing this forces a new resource to be created.
+	// The ID of the Key Vault.
 	KeyVaultId pulumi.StringOutput `pulumi:"keyVaultId"`
 	// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
 	KeyVersion pulumi.StringPtrOutput `pulumi:"keyVersion"`
@@ -213,7 +213,7 @@ func GetCustomerManagedKey(ctx *pulumi.Context,
 type customerManagedKeyState struct {
 	// The name of Key Vault Key.
 	KeyName *string `pulumi:"keyName"`
-	// The ID of the Key Vault. Changing this forces a new resource to be created.
+	// The ID of the Key Vault.
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
 	KeyVersion *string `pulumi:"keyVersion"`
@@ -226,7 +226,7 @@ type customerManagedKeyState struct {
 type CustomerManagedKeyState struct {
 	// The name of Key Vault Key.
 	KeyName pulumi.StringPtrInput
-	// The ID of the Key Vault. Changing this forces a new resource to be created.
+	// The ID of the Key Vault.
 	KeyVaultId pulumi.StringPtrInput
 	// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
 	KeyVersion pulumi.StringPtrInput
@@ -243,7 +243,7 @@ func (CustomerManagedKeyState) ElementType() reflect.Type {
 type customerManagedKeyArgs struct {
 	// The name of Key Vault Key.
 	KeyName string `pulumi:"keyName"`
-	// The ID of the Key Vault. Changing this forces a new resource to be created.
+	// The ID of the Key Vault.
 	KeyVaultId string `pulumi:"keyVaultId"`
 	// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
 	KeyVersion *string `pulumi:"keyVersion"`
@@ -257,7 +257,7 @@ type customerManagedKeyArgs struct {
 type CustomerManagedKeyArgs struct {
 	// The name of Key Vault Key.
 	KeyName pulumi.StringInput
-	// The ID of the Key Vault. Changing this forces a new resource to be created.
+	// The ID of the Key Vault.
 	KeyVaultId pulumi.StringInput
 	// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
 	KeyVersion pulumi.StringPtrInput
@@ -359,7 +359,7 @@ func (o CustomerManagedKeyOutput) KeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomerManagedKey) pulumi.StringOutput { return v.KeyName }).(pulumi.StringOutput)
 }
 
-// The ID of the Key Vault. Changing this forces a new resource to be created.
+// The ID of the Key Vault.
 func (o CustomerManagedKeyOutput) KeyVaultId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomerManagedKey) pulumi.StringOutput { return v.KeyVaultId }).(pulumi.StringOutput)
 }

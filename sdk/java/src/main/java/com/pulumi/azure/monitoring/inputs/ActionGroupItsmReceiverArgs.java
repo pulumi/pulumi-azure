@@ -29,14 +29,14 @@ public final class ActionGroupItsmReceiverArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The name of the ITSM receiver.
+     * The name of the ITSM receiver. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the ITSM receiver.
+     * @return The name of the ITSM receiver. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -138,7 +138,7 @@ public final class ActionGroupItsmReceiverArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name The name of the ITSM receiver.
+         * @param name The name of the ITSM receiver. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class ActionGroupItsmReceiverArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name The name of the ITSM receiver.
+         * @param name The name of the ITSM receiver. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

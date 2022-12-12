@@ -46,14 +46,14 @@ public final class ExpressRouteCircuitAuthorizationState extends com.pulumi.reso
     }
 
     /**
-     * The name of the Express Route Circuit in which to create the Authorization.
+     * The name of the Express Route Circuit in which to create the Authorization. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="expressRouteCircuitName")
     private @Nullable Output<String> expressRouteCircuitName;
 
     /**
-     * @return The name of the Express Route Circuit in which to create the Authorization.
+     * @return The name of the Express Route Circuit in which to create the Authorization. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> expressRouteCircuitName() {
@@ -78,7 +78,7 @@ public final class ExpressRouteCircuitAuthorizationState extends com.pulumi.reso
     }
 
     /**
-     * The name of the resource group in which to
+     * The name of the resource group in which to Changing this forces a new resource to be created.
      * create the ExpressRoute circuit. Changing this forces a new resource to be created.
      * 
      */
@@ -86,7 +86,7 @@ public final class ExpressRouteCircuitAuthorizationState extends com.pulumi.reso
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to
+     * @return The name of the resource group in which to Changing this forces a new resource to be created.
      * create the ExpressRoute circuit. Changing this forces a new resource to be created.
      * 
      */
@@ -165,7 +165,7 @@ public final class ExpressRouteCircuitAuthorizationState extends com.pulumi.reso
         }
 
         /**
-         * @param expressRouteCircuitName The name of the Express Route Circuit in which to create the Authorization.
+         * @param expressRouteCircuitName The name of the Express Route Circuit in which to create the Authorization. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class ExpressRouteCircuitAuthorizationState extends com.pulumi.reso
         }
 
         /**
-         * @param expressRouteCircuitName The name of the Express Route Circuit in which to create the Authorization.
+         * @param expressRouteCircuitName The name of the Express Route Circuit in which to create the Authorization. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class ExpressRouteCircuitAuthorizationState extends com.pulumi.reso
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to
+         * @param resourceGroupName The name of the resource group in which to Changing this forces a new resource to be created.
          * create the ExpressRoute circuit. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -221,7 +221,7 @@ public final class ExpressRouteCircuitAuthorizationState extends com.pulumi.reso
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to
+         * @param resourceGroupName The name of the resource group in which to Changing this forces a new resource to be created.
          * create the ExpressRoute circuit. Changing this forces a new resource to be created.
          * 
          * @return builder

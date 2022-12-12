@@ -48,14 +48,14 @@ public final class CertificateIssuerState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The ID of the Key Vault in which to create the Certificate Issuer.
+     * The ID of the Key Vault in which to create the Certificate Issuer. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="keyVaultId")
     private @Nullable Output<String> keyVaultId;
 
     /**
-     * @return The ID of the Key Vault in which to create the Certificate Issuer.
+     * @return The ID of the Key Vault in which to create the Certificate Issuer. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> keyVaultId() {
@@ -205,7 +205,7 @@ public final class CertificateIssuerState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param keyVaultId The ID of the Key Vault in which to create the Certificate Issuer.
+         * @param keyVaultId The ID of the Key Vault in which to create the Certificate Issuer. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class CertificateIssuerState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param keyVaultId The ID of the Key Vault in which to create the Certificate Issuer.
+         * @param keyVaultId The ID of the Key Vault in which to create the Certificate Issuer. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

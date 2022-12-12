@@ -21,7 +21,7 @@ type ServiceInitialReplicaSet struct {
 	Location *string `pulumi:"location"`
 	// The current service status for the initial replica set.
 	ServiceStatus *string `pulumi:"serviceStatus"`
-	// The ID of the subnet in which to place the initial replica set.
+	// The ID of the subnet in which to place the initial replica set. Changing this forces a new resource to be created.
 	SubnetId string `pulumi:"subnetId"`
 }
 
@@ -47,7 +47,7 @@ type ServiceInitialReplicaSetArgs struct {
 	Location pulumi.StringPtrInput `pulumi:"location"`
 	// The current service status for the initial replica set.
 	ServiceStatus pulumi.StringPtrInput `pulumi:"serviceStatus"`
-	// The ID of the subnet in which to place the initial replica set.
+	// The ID of the subnet in which to place the initial replica set. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
@@ -153,7 +153,7 @@ func (o ServiceInitialReplicaSetOutput) ServiceStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceInitialReplicaSet) *string { return v.ServiceStatus }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the subnet in which to place the initial replica set.
+// The ID of the subnet in which to place the initial replica set. Changing this forces a new resource to be created.
 func (o ServiceInitialReplicaSetOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceInitialReplicaSet) string { return v.SubnetId }).(pulumi.StringOutput)
 }
@@ -232,7 +232,7 @@ func (o ServiceInitialReplicaSetPtrOutput) ServiceStatus() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the subnet in which to place the initial replica set.
+// The ID of the subnet in which to place the initial replica set. Changing this forces a new resource to be created.
 func (o ServiceInitialReplicaSetPtrOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceInitialReplicaSet) *string {
 		if v == nil {

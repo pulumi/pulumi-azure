@@ -80,7 +80,7 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
      */
     public /*out*/ readonly authorizationUseStatus!: pulumi.Output<string>;
     /**
-     * The name of the Express Route Circuit in which to create the Authorization.
+     * The name of the Express Route Circuit in which to create the Authorization. Changing this forces a new resource to be created.
      */
     public readonly expressRouteCircuitName!: pulumi.Output<string>;
     /**
@@ -89,7 +89,7 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to
+     * The name of the resource group in which to Changing this forces a new resource to be created.
      * create the ExpressRoute circuit. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -144,7 +144,7 @@ export interface ExpressRouteCircuitAuthorizationState {
      */
     authorizationUseStatus?: pulumi.Input<string>;
     /**
-     * The name of the Express Route Circuit in which to create the Authorization.
+     * The name of the Express Route Circuit in which to create the Authorization. Changing this forces a new resource to be created.
      */
     expressRouteCircuitName?: pulumi.Input<string>;
     /**
@@ -153,7 +153,7 @@ export interface ExpressRouteCircuitAuthorizationState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to
+     * The name of the resource group in which to Changing this forces a new resource to be created.
      * create the ExpressRoute circuit. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
@@ -164,7 +164,7 @@ export interface ExpressRouteCircuitAuthorizationState {
  */
 export interface ExpressRouteCircuitAuthorizationArgs {
     /**
-     * The name of the Express Route Circuit in which to create the Authorization.
+     * The name of the Express Route Circuit in which to create the Authorization. Changing this forces a new resource to be created.
      */
     expressRouteCircuitName: pulumi.Input<string>;
     /**
@@ -173,7 +173,7 @@ export interface ExpressRouteCircuitAuthorizationArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to
+     * The name of the resource group in which to Changing this forces a new resource to be created.
      * create the ExpressRoute circuit. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;

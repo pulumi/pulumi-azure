@@ -66,7 +66,7 @@ type ApplicationSecurityGroup struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Application Security Group. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the resource group in which to create the Application Security Group.
+	// The name of the resource group in which to create the Application Security Group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -108,7 +108,7 @@ type applicationSecurityGroupState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Application Security Group. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the Application Security Group.
+	// The name of the resource group in which to create the Application Security Group. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -119,7 +119,7 @@ type ApplicationSecurityGroupState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Application Security Group. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the Application Security Group.
+	// The name of the resource group in which to create the Application Security Group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -134,7 +134,7 @@ type applicationSecurityGroupArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Application Security Group. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the Application Security Group.
+	// The name of the resource group in which to create the Application Security Group. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -146,7 +146,7 @@ type ApplicationSecurityGroupArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Application Security Group. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the Application Security Group.
+	// The name of the resource group in which to create the Application Security Group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -249,7 +249,7 @@ func (o ApplicationSecurityGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationSecurityGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the resource group in which to create the Application Security Group.
+// The name of the resource group in which to create the Application Security Group. Changing this forces a new resource to be created.
 func (o ApplicationSecurityGroupOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationSecurityGroup) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

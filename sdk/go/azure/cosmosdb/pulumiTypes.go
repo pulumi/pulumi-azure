@@ -968,7 +968,7 @@ type AccountGeoLocation struct {
 	FailoverPriority int `pulumi:"failoverPriority"`
 	// The ID of the virtual network subnet.
 	Id *string `pulumi:"id"`
-	// The name of the Azure region to host replicated data.
+	// The name of the Azure region to host replicated data. Changing this forces a new resource to be created.
 	Location string `pulumi:"location"`
 	// Should zone redundancy be enabled for this region? Defaults to `false`.
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
@@ -990,7 +990,7 @@ type AccountGeoLocationArgs struct {
 	FailoverPriority pulumi.IntInput `pulumi:"failoverPriority"`
 	// The ID of the virtual network subnet.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The name of the Azure region to host replicated data.
+	// The name of the Azure region to host replicated data. Changing this forces a new resource to be created.
 	Location pulumi.StringInput `pulumi:"location"`
 	// Should zone redundancy be enabled for this region? Defaults to `false`.
 	ZoneRedundant pulumi.BoolPtrInput `pulumi:"zoneRedundant"`
@@ -1057,7 +1057,7 @@ func (o AccountGeoLocationOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountGeoLocation) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Azure region to host replicated data.
+// The name of the Azure region to host replicated data. Changing this forces a new resource to be created.
 func (o AccountGeoLocationOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountGeoLocation) string { return v.Location }).(pulumi.StringOutput)
 }
@@ -3583,7 +3583,7 @@ func (o GremlinGraphIndexPolicySpatialIndexArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GremlinGraphUniqueKey struct {
-	// A list of paths to use for this unique key.
+	// A list of paths to use for this unique key. Changing this forces a new resource to be created.
 	Paths []string `pulumi:"paths"`
 }
 
@@ -3599,7 +3599,7 @@ type GremlinGraphUniqueKeyInput interface {
 }
 
 type GremlinGraphUniqueKeyArgs struct {
-	// A list of paths to use for this unique key.
+	// A list of paths to use for this unique key. Changing this forces a new resource to be created.
 	Paths pulumi.StringArrayInput `pulumi:"paths"`
 }
 
@@ -3654,7 +3654,7 @@ func (o GremlinGraphUniqueKeyOutput) ToGremlinGraphUniqueKeyOutputWithContext(ct
 	return o
 }
 
-// A list of paths to use for this unique key.
+// A list of paths to use for this unique key. Changing this forces a new resource to be created.
 func (o GremlinGraphUniqueKeyOutput) Paths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GremlinGraphUniqueKey) []string { return v.Paths }).(pulumi.StringArrayOutput)
 }
@@ -5198,7 +5198,7 @@ func (o SqlContainerIndexingPolicySpatialIndexArrayOutput) Index(i pulumi.IntInp
 }
 
 type SqlContainerUniqueKey struct {
-	// A list of paths to use for this unique key.
+	// A list of paths to use for this unique key. Changing this forces a new resource to be created.
 	Paths []string `pulumi:"paths"`
 }
 
@@ -5214,7 +5214,7 @@ type SqlContainerUniqueKeyInput interface {
 }
 
 type SqlContainerUniqueKeyArgs struct {
-	// A list of paths to use for this unique key.
+	// A list of paths to use for this unique key. Changing this forces a new resource to be created.
 	Paths pulumi.StringArrayInput `pulumi:"paths"`
 }
 
@@ -5269,7 +5269,7 @@ func (o SqlContainerUniqueKeyOutput) ToSqlContainerUniqueKeyOutputWithContext(ct
 	return o
 }
 
-// A list of paths to use for this unique key.
+// A list of paths to use for this unique key. Changing this forces a new resource to be created.
 func (o SqlContainerUniqueKeyOutput) Paths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SqlContainerUniqueKey) []string { return v.Paths }).(pulumi.StringArrayOutput)
 }

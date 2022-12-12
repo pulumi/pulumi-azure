@@ -51,14 +51,14 @@ public final class ClusterNodeTypeArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The Port used for the Client Endpoint for this Node Type. Changing this forces a new resource to be created.
+     * The Port used for the Client Endpoint for this Node Type.
      * 
      */
     @Import(name="clientEndpointPort", required=true)
     private Output<Integer> clientEndpointPort;
 
     /**
-     * @return The Port used for the Client Endpoint for this Node Type. Changing this forces a new resource to be created.
+     * @return The Port used for the Client Endpoint for this Node Type.
      * 
      */
     public Output<Integer> clientEndpointPort() {
@@ -66,14 +66,14 @@ public final class ClusterNodeTypeArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`. Changing this forces a new resource to be created.
+     * The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`.
      * 
      */
     @Import(name="durabilityLevel")
     private @Nullable Output<String> durabilityLevel;
 
     /**
-     * @return The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`. Changing this forces a new resource to be created.
+     * @return The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`.
      * 
      */
     public Optional<Output<String>> durabilityLevel() {
@@ -96,14 +96,14 @@ public final class ClusterNodeTypeArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The Port used for the HTTP Endpoint for this Node Type. Changing this forces a new resource to be created.
+     * The Port used for the HTTP Endpoint for this Node Type.
      * 
      */
     @Import(name="httpEndpointPort", required=true)
     private Output<Integer> httpEndpointPort;
 
     /**
-     * @return The Port used for the HTTP Endpoint for this Node Type. Changing this forces a new resource to be created.
+     * @return The Port used for the HTTP Endpoint for this Node Type.
      * 
      */
     public Output<Integer> httpEndpointPort() {
@@ -126,14 +126,14 @@ public final class ClusterNodeTypeArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Is this the Primary Node Type? Changing this forces a new resource to be created.
+     * Is this the Primary Node Type?
      * 
      */
     @Import(name="isPrimary", required=true)
     private Output<Boolean> isPrimary;
 
     /**
-     * @return Is this the Primary Node Type? Changing this forces a new resource to be created.
+     * @return Is this the Primary Node Type?
      * 
      */
     public Output<Boolean> isPrimary() {
@@ -171,14 +171,14 @@ public final class ClusterNodeTypeArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The name of the Node Type. Changing this forces a new resource to be created.
+     * The name of the Node Type.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the Node Type. Changing this forces a new resource to be created.
+     * @return The name of the Node Type.
      * 
      */
     public Output<String> name() {
@@ -294,7 +294,7 @@ public final class ClusterNodeTypeArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param clientEndpointPort The Port used for the Client Endpoint for this Node Type. Changing this forces a new resource to be created.
+         * @param clientEndpointPort The Port used for the Client Endpoint for this Node Type.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class ClusterNodeTypeArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param clientEndpointPort The Port used for the Client Endpoint for this Node Type. Changing this forces a new resource to be created.
+         * @param clientEndpointPort The Port used for the Client Endpoint for this Node Type.
          * 
          * @return builder
          * 
@@ -315,7 +315,7 @@ public final class ClusterNodeTypeArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param durabilityLevel The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`. Changing this forces a new resource to be created.
+         * @param durabilityLevel The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class ClusterNodeTypeArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param durabilityLevel The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`. Changing this forces a new resource to be created.
+         * @param durabilityLevel The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`.
          * 
          * @return builder
          * 
@@ -357,7 +357,7 @@ public final class ClusterNodeTypeArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param httpEndpointPort The Port used for the HTTP Endpoint for this Node Type. Changing this forces a new resource to be created.
+         * @param httpEndpointPort The Port used for the HTTP Endpoint for this Node Type.
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class ClusterNodeTypeArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param httpEndpointPort The Port used for the HTTP Endpoint for this Node Type. Changing this forces a new resource to be created.
+         * @param httpEndpointPort The Port used for the HTTP Endpoint for this Node Type.
          * 
          * @return builder
          * 
@@ -399,7 +399,7 @@ public final class ClusterNodeTypeArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param isPrimary Is this the Primary Node Type? Changing this forces a new resource to be created.
+         * @param isPrimary Is this the Primary Node Type?
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class ClusterNodeTypeArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param isPrimary Is this the Primary Node Type? Changing this forces a new resource to be created.
+         * @param isPrimary Is this the Primary Node Type?
          * 
          * @return builder
          * 
@@ -462,7 +462,7 @@ public final class ClusterNodeTypeArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name of the Node Type. Changing this forces a new resource to be created.
+         * @param name The name of the Node Type.
          * 
          * @return builder
          * 
@@ -473,7 +473,7 @@ public final class ClusterNodeTypeArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name of the Node Type. Changing this forces a new resource to be created.
+         * @param name The name of the Node Type.
          * 
          * @return builder
          * 

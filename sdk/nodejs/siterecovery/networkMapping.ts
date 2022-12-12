@@ -90,31 +90,31 @@ export class NetworkMapping extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the network mapping.
+     * The name of the network mapping. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the vault that should be updated.
+     * The name of the vault that should be updated. Changing this forces a new resource to be created.
      */
     public readonly recoveryVaultName!: pulumi.Output<string>;
     /**
-     * Name of the resource group where the vault that should be updated is located.
+     * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The id of the primary network.
+     * The id of the primary network. Changing this forces a new resource to be created.
      */
     public readonly sourceNetworkId!: pulumi.Output<string>;
     /**
-     * Specifies the ASR fabric where mapping should be created.
+     * Specifies the ASR fabric where mapping should be created. Changing this forces a new resource to be created.
      */
     public readonly sourceRecoveryFabricName!: pulumi.Output<string>;
     /**
-     * The id of the recovery network.
+     * The id of the recovery network. Changing this forces a new resource to be created.
      */
     public readonly targetNetworkId!: pulumi.Output<string>;
     /**
-     * The Azure Site Recovery fabric object corresponding to the recovery Azure region.
+     * The Azure Site Recovery fabric object corresponding to the recovery Azure region. Changing this forces a new resource to be created.
      */
     public readonly targetRecoveryFabricName!: pulumi.Output<string>;
 
@@ -176,31 +176,31 @@ export class NetworkMapping extends pulumi.CustomResource {
  */
 export interface NetworkMappingState {
     /**
-     * The name of the network mapping.
+     * The name of the network mapping. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the vault that should be updated.
+     * The name of the vault that should be updated. Changing this forces a new resource to be created.
      */
     recoveryVaultName?: pulumi.Input<string>;
     /**
-     * Name of the resource group where the vault that should be updated is located.
+     * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The id of the primary network.
+     * The id of the primary network. Changing this forces a new resource to be created.
      */
     sourceNetworkId?: pulumi.Input<string>;
     /**
-     * Specifies the ASR fabric where mapping should be created.
+     * Specifies the ASR fabric where mapping should be created. Changing this forces a new resource to be created.
      */
     sourceRecoveryFabricName?: pulumi.Input<string>;
     /**
-     * The id of the recovery network.
+     * The id of the recovery network. Changing this forces a new resource to be created.
      */
     targetNetworkId?: pulumi.Input<string>;
     /**
-     * The Azure Site Recovery fabric object corresponding to the recovery Azure region.
+     * The Azure Site Recovery fabric object corresponding to the recovery Azure region. Changing this forces a new resource to be created.
      */
     targetRecoveryFabricName?: pulumi.Input<string>;
 }
@@ -210,31 +210,31 @@ export interface NetworkMappingState {
  */
 export interface NetworkMappingArgs {
     /**
-     * The name of the network mapping.
+     * The name of the network mapping. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the vault that should be updated.
+     * The name of the vault that should be updated. Changing this forces a new resource to be created.
      */
     recoveryVaultName: pulumi.Input<string>;
     /**
-     * Name of the resource group where the vault that should be updated is located.
+     * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The id of the primary network.
+     * The id of the primary network. Changing this forces a new resource to be created.
      */
     sourceNetworkId: pulumi.Input<string>;
     /**
-     * Specifies the ASR fabric where mapping should be created.
+     * Specifies the ASR fabric where mapping should be created. Changing this forces a new resource to be created.
      */
     sourceRecoveryFabricName: pulumi.Input<string>;
     /**
-     * The id of the recovery network.
+     * The id of the recovery network. Changing this forces a new resource to be created.
      */
     targetNetworkId: pulumi.Input<string>;
     /**
-     * The Azure Site Recovery fabric object corresponding to the recovery Azure region.
+     * The Azure Site Recovery fabric object corresponding to the recovery Azure region. Changing this forces a new resource to be created.
      */
     targetRecoveryFabricName: pulumi.Input<string>;
 }

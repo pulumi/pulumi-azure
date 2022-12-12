@@ -134,7 +134,7 @@ export class Api extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The Revision which used for this API.
+     * The Revision which used for this API. Changing this forces a new resource to be created.
      */
     public readonly revision!: pulumi.Output<string>;
     /**
@@ -327,7 +327,7 @@ export interface ApiState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The Revision which used for this API.
+     * The Revision which used for this API. Changing this forces a new resource to be created.
      */
     revision?: pulumi.Input<string>;
     /**
@@ -431,7 +431,7 @@ export interface ApiArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The Revision which used for this API.
+     * The Revision which used for this API. Changing this forces a new resource to be created.
      */
     revision: pulumi.Input<string>;
     /**

@@ -98,7 +98,7 @@ type ResourceGroupCostManagementExport struct {
 	RecurrencePeriodStartDate pulumi.StringOutput `pulumi:"recurrencePeriodStartDate"`
 	// How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`.
 	RecurrenceType pulumi.StringOutput `pulumi:"recurrenceType"`
-	// The id of the resource group on which to create an export.
+	// The id of the resource group on which to create an export. Changing this forces a new resource to be created.
 	ResourceGroupId pulumi.StringOutput `pulumi:"resourceGroupId"`
 }
 
@@ -163,7 +163,7 @@ type resourceGroupCostManagementExportState struct {
 	RecurrencePeriodStartDate *string `pulumi:"recurrencePeriodStartDate"`
 	// How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`.
 	RecurrenceType *string `pulumi:"recurrenceType"`
-	// The id of the resource group on which to create an export.
+	// The id of the resource group on which to create an export. Changing this forces a new resource to be created.
 	ResourceGroupId *string `pulumi:"resourceGroupId"`
 }
 
@@ -182,7 +182,7 @@ type ResourceGroupCostManagementExportState struct {
 	RecurrencePeriodStartDate pulumi.StringPtrInput
 	// How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`.
 	RecurrenceType pulumi.StringPtrInput
-	// The id of the resource group on which to create an export.
+	// The id of the resource group on which to create an export. Changing this forces a new resource to be created.
 	ResourceGroupId pulumi.StringPtrInput
 }
 
@@ -205,7 +205,7 @@ type resourceGroupCostManagementExportArgs struct {
 	RecurrencePeriodStartDate string `pulumi:"recurrencePeriodStartDate"`
 	// How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`.
 	RecurrenceType string `pulumi:"recurrenceType"`
-	// The id of the resource group on which to create an export.
+	// The id of the resource group on which to create an export. Changing this forces a new resource to be created.
 	ResourceGroupId string `pulumi:"resourceGroupId"`
 }
 
@@ -225,7 +225,7 @@ type ResourceGroupCostManagementExportArgs struct {
 	RecurrencePeriodStartDate pulumi.StringInput
 	// How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`.
 	RecurrenceType pulumi.StringInput
-	// The id of the resource group on which to create an export.
+	// The id of the resource group on which to create an export. Changing this forces a new resource to be created.
 	ResourceGroupId pulumi.StringInput
 }
 
@@ -355,7 +355,7 @@ func (o ResourceGroupCostManagementExportOutput) RecurrenceType() pulumi.StringO
 	return o.ApplyT(func(v *ResourceGroupCostManagementExport) pulumi.StringOutput { return v.RecurrenceType }).(pulumi.StringOutput)
 }
 
-// The id of the resource group on which to create an export.
+// The id of the resource group on which to create an export. Changing this forces a new resource to be created.
 func (o ResourceGroupCostManagementExportOutput) ResourceGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceGroupCostManagementExport) pulumi.StringOutput { return v.ResourceGroupId }).(pulumi.StringOutput)
 }

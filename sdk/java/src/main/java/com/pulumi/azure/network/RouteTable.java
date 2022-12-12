@@ -109,14 +109,14 @@ public class RouteTable extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * The name of the route.
+     * The name of the route. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the route.
+     * @return The name of the route. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {

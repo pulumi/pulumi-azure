@@ -41,12 +41,11 @@ class CacheArgs:
         The set of arguments for constructing a Cache resource.
         :param pulumi.Input[int] capacity: The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
         :param pulumi.Input[str] family: The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the Redis instance.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
         :param pulumi.Input[bool] enable_non_ssl_port: Enable the non-SSL port (6379) - disabled by default.
         :param pulumi.Input['CacheIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] location: The location of the resource group.
+        :param pulumi.Input[str] location: The location of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
         :param pulumi.Input[str] name: The name of the Redis instance. Changing this forces a
                new resource to be created.
@@ -130,8 +129,7 @@ class CacheArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to
-        create the Redis instance.
+        The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -179,7 +177,7 @@ class CacheArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The location of the resource group.
+        The location of the resource group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -395,7 +393,7 @@ class _CacheState:
         :param pulumi.Input[str] family: The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
         :param pulumi.Input[str] hostname: The Hostname of the Redis Instance
         :param pulumi.Input['CacheIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] location: The location of the resource group.
+        :param pulumi.Input[str] location: The location of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
         :param pulumi.Input[str] name: The name of the Redis instance. Changing this forces a
                new resource to be created.
@@ -409,8 +407,7 @@ class _CacheState:
         :param pulumi.Input[str] redis_version: Redis version. Only major version needed. Valid values: `4`, `6`.
         :param pulumi.Input[int] replicas_per_master: Amount of replicas to create per master for this Redis Cache.
         :param pulumi.Input[int] replicas_per_primary: Amount of replicas to create per primary for this Redis Cache. If both `replicas_per_primary` and `replicas_per_master` are set, they need to be equal.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the Redis instance.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_access_key: The Secondary Access Key for the Redis Instance
         :param pulumi.Input[str] secondary_connection_string: The secondary connection string of the Redis Instance.
         :param pulumi.Input[int] shard_count: *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
@@ -542,7 +539,7 @@ class _CacheState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The location of the resource group.
+        The location of the resource group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -699,8 +696,7 @@ class _CacheState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to
-        create the Redis instance.
+        The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -910,7 +906,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_non_ssl_port: Enable the non-SSL port (6379) - disabled by default.
         :param pulumi.Input[str] family: The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
         :param pulumi.Input[pulumi.InputType['CacheIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] location: The location of the resource group.
+        :param pulumi.Input[str] location: The location of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
         :param pulumi.Input[str] name: The name of the Redis instance. Changing this forces a
                new resource to be created.
@@ -921,8 +917,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] redis_version: Redis version. Only major version needed. Valid values: `4`, `6`.
         :param pulumi.Input[int] replicas_per_master: Amount of replicas to create per master for this Redis Cache.
         :param pulumi.Input[int] replicas_per_primary: Amount of replicas to create per primary for this Redis Cache. If both `replicas_per_primary` and `replicas_per_master` are set, they need to be equal.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the Redis instance.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
         :param pulumi.Input[int] shard_count: *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
         :param pulumi.Input[str] sku_name: The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
         :param pulumi.Input[str] subnet_id: *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
@@ -1127,7 +1122,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] family: The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
         :param pulumi.Input[str] hostname: The Hostname of the Redis Instance
         :param pulumi.Input[pulumi.InputType['CacheIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] location: The location of the resource group.
+        :param pulumi.Input[str] location: The location of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
         :param pulumi.Input[str] name: The name of the Redis instance. Changing this forces a
                new resource to be created.
@@ -1141,8 +1136,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] redis_version: Redis version. Only major version needed. Valid values: `4`, `6`.
         :param pulumi.Input[int] replicas_per_master: Amount of replicas to create per master for this Redis Cache.
         :param pulumi.Input[int] replicas_per_primary: Amount of replicas to create per primary for this Redis Cache. If both `replicas_per_primary` and `replicas_per_master` are set, they need to be equal.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the Redis instance.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_access_key: The Secondary Access Key for the Redis Instance
         :param pulumi.Input[str] secondary_connection_string: The secondary connection string of the Redis Instance.
         :param pulumi.Input[int] shard_count: *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
@@ -1231,7 +1225,7 @@ class Cache(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        The location of the resource group.
+        The location of the resource group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -1336,8 +1330,7 @@ class Cache(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to
-        create the Redis instance.
+        The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 

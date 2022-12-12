@@ -125,14 +125,14 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+     * The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+     * @return The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -185,14 +185,14 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the resource group in which to create the Microsoft SQL Server.
+     * The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the Microsoft SQL Server.
+     * @return The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -215,14 +215,14 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+     * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
      * 
      */
     @Import(name="version", required=true)
     private Output<String> version;
 
     /**
-     * @return The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+     * @return The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
      * 
      */
     public Output<String> version() {
@@ -414,7 +414,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+         * @param name The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -425,7 +425,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+         * @param name The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -498,7 +498,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the Microsoft SQL Server.
+         * @param resourceGroupName The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -509,7 +509,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the Microsoft SQL Server.
+         * @param resourceGroupName The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -540,7 +540,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param version The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+         * @param version The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -551,7 +551,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param version The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+         * @param version The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

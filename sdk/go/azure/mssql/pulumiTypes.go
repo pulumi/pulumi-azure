@@ -1120,7 +1120,7 @@ type ElasticPoolSku struct {
 	Capacity int `pulumi:"capacity"`
 	// The `family` of hardware `Gen4`, `Gen5`, `Fsv2` or `DC`.
 	Family *string `pulumi:"family"`
-	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
+	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, or `Premium`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
 	Tier string `pulumi:"tier"`
@@ -1142,7 +1142,7 @@ type ElasticPoolSkuArgs struct {
 	Capacity pulumi.IntInput `pulumi:"capacity"`
 	// The `family` of hardware `Gen4`, `Gen5`, `Fsv2` or `DC`.
 	Family pulumi.StringPtrInput `pulumi:"family"`
-	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
+	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, or `Premium`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
 	Tier pulumi.StringInput `pulumi:"tier"`
@@ -1235,7 +1235,7 @@ func (o ElasticPoolSkuOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ElasticPoolSku) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
+// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. Changing this forces a new resource to be created.
 func (o ElasticPoolSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ElasticPoolSku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1289,7 +1289,7 @@ func (o ElasticPoolSkuPtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
+// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. Changing this forces a new resource to be created.
 func (o ElasticPoolSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ElasticPoolSku) *string {
 		if v == nil {
@@ -3395,6 +3395,8 @@ func (o VirtualMachineAutoBackupPtrOutput) SystemDatabasesBackupEnabled() pulumi
 }
 
 type VirtualMachineAutoBackupManualSchedule struct {
+	// A list of days on which backup can take place. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`
+	DaysOfWeeks []string `pulumi:"daysOfWeeks"`
 	// Frequency of full backups. Valid values include `Daily` or `Weekly`.
 	FullBackupFrequency string `pulumi:"fullBackupFrequency"`
 	// Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`.
@@ -3417,6 +3419,8 @@ type VirtualMachineAutoBackupManualScheduleInput interface {
 }
 
 type VirtualMachineAutoBackupManualScheduleArgs struct {
+	// A list of days on which backup can take place. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`
+	DaysOfWeeks pulumi.StringArrayInput `pulumi:"daysOfWeeks"`
 	// Frequency of full backups. Valid values include `Daily` or `Weekly`.
 	FullBackupFrequency pulumi.StringInput `pulumi:"fullBackupFrequency"`
 	// Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`.
@@ -3504,6 +3508,11 @@ func (o VirtualMachineAutoBackupManualScheduleOutput) ToVirtualMachineAutoBackup
 	}).(VirtualMachineAutoBackupManualSchedulePtrOutput)
 }
 
+// A list of days on which backup can take place. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`
+func (o VirtualMachineAutoBackupManualScheduleOutput) DaysOfWeeks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VirtualMachineAutoBackupManualSchedule) []string { return v.DaysOfWeeks }).(pulumi.StringArrayOutput)
+}
+
 // Frequency of full backups. Valid values include `Daily` or `Weekly`.
 func (o VirtualMachineAutoBackupManualScheduleOutput) FullBackupFrequency() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineAutoBackupManualSchedule) string { return v.FullBackupFrequency }).(pulumi.StringOutput)
@@ -3546,6 +3555,16 @@ func (o VirtualMachineAutoBackupManualSchedulePtrOutput) Elem() VirtualMachineAu
 		var ret VirtualMachineAutoBackupManualSchedule
 		return ret
 	}).(VirtualMachineAutoBackupManualScheduleOutput)
+}
+
+// A list of days on which backup can take place. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`
+func (o VirtualMachineAutoBackupManualSchedulePtrOutput) DaysOfWeeks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VirtualMachineAutoBackupManualSchedule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DaysOfWeeks
+	}).(pulumi.StringArrayOutput)
 }
 
 // Frequency of full backups. Valid values include `Daily` or `Weekly`.

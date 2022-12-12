@@ -62,20 +62,19 @@ namespace Pulumi.Azure.Sql
         public Output<string> EndIpAddress { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the firewall rule.
+        /// The name of the firewall rule. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the SQL Server.
+        /// The name of the resource group in which to create the SQL Server. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the SQL Server on which to create the Firewall Rule.
+        /// The name of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
         /// </summary>
         [Output("serverName")]
         public Output<string> ServerName { get; private set; } = null!;
@@ -139,20 +138,19 @@ namespace Pulumi.Azure.Sql
         public Input<string> EndIpAddress { get; set; } = null!;
 
         /// <summary>
-        /// The name of the firewall rule.
+        /// The name of the firewall rule. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the SQL Server.
+        /// The name of the resource group in which to create the SQL Server. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the SQL Server on which to create the Firewall Rule.
+        /// The name of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
         /// </summary>
         [Input("serverName", required: true)]
         public Input<string> ServerName { get; set; } = null!;
@@ -178,20 +176,19 @@ namespace Pulumi.Azure.Sql
         public Input<string>? EndIpAddress { get; set; }
 
         /// <summary>
-        /// The name of the firewall rule.
+        /// The name of the firewall rule. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the SQL Server.
+        /// The name of the resource group in which to create the SQL Server. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The name of the SQL Server on which to create the Firewall Rule.
+        /// The name of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
         /// </summary>
         [Input("serverName")]
         public Input<string>? ServerName { get; set; }

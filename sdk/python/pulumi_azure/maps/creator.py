@@ -23,7 +23,7 @@ class CreatorArgs:
         The set of arguments for constructing a Creator resource.
         :param pulumi.Input[str] maps_account_id: The ID of the Azure Maps Creator. Changing this forces a new resource to be created.
         :param pulumi.Input[int] storage_units: The storage units to be allocated. Integer values from 1 to 100, inclusive.
-        :param pulumi.Input[str] location: The Azure Region where the Azure Maps Creator should exist.
+        :param pulumi.Input[str] location: The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Azure Maps Creator. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Azure Maps Creator.
         """
@@ -64,7 +64,7 @@ class CreatorArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The Azure Region where the Azure Maps Creator should exist.
+        The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -107,7 +107,7 @@ class _CreatorState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Creator resources.
-        :param pulumi.Input[str] location: The Azure Region where the Azure Maps Creator should exist.
+        :param pulumi.Input[str] location: The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] maps_account_id: The ID of the Azure Maps Creator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Azure Maps Creator. Changing this forces a new resource to be created.
         :param pulumi.Input[int] storage_units: The storage units to be allocated. Integer values from 1 to 100, inclusive.
@@ -128,7 +128,7 @@ class _CreatorState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The Azure Region where the Azure Maps Creator should exist.
+        The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -231,7 +231,7 @@ class Creator(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The Azure Region where the Azure Maps Creator should exist.
+        :param pulumi.Input[str] location: The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] maps_account_id: The ID of the Azure Maps Creator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Azure Maps Creator. Changing this forces a new resource to be created.
         :param pulumi.Input[int] storage_units: The storage units to be allocated. Integer values from 1 to 100, inclusive.
@@ -336,7 +336,7 @@ class Creator(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The Azure Region where the Azure Maps Creator should exist.
+        :param pulumi.Input[str] location: The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] maps_account_id: The ID of the Azure Maps Creator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Azure Maps Creator. Changing this forces a new resource to be created.
         :param pulumi.Input[int] storage_units: The storage units to be allocated. Integer values from 1 to 100, inclusive.
@@ -357,7 +357,7 @@ class Creator(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        The Azure Region where the Azure Maps Creator should exist.
+        The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 

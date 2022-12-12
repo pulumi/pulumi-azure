@@ -22,11 +22,11 @@ namespace Pulumi.Azure.ServiceFabric.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Capacities;
         /// <summary>
-        /// The Port used for the Client Endpoint for this Node Type. Changing this forces a new resource to be created.
+        /// The Port used for the Client Endpoint for this Node Type.
         /// </summary>
         public readonly int ClientEndpointPort;
         /// <summary>
-        /// The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`. Changing this forces a new resource to be created.
+        /// The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`.
         /// </summary>
         public readonly string? DurabilityLevel;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.ServiceFabric.Outputs
         /// </summary>
         public readonly Outputs.ClusterNodeTypeEphemeralPorts? EphemeralPorts;
         /// <summary>
-        /// The Port used for the HTTP Endpoint for this Node Type. Changing this forces a new resource to be created.
+        /// The Port used for the HTTP Endpoint for this Node Type.
         /// </summary>
         public readonly int HttpEndpointPort;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Azure.ServiceFabric.Outputs
         /// </summary>
         public readonly int InstanceCount;
         /// <summary>
-        /// Is this the Primary Node Type? Changing this forces a new resource to be created.
+        /// Is this the Primary Node Type?
         /// </summary>
         public readonly bool IsPrimary;
         /// <summary>
@@ -54,7 +54,7 @@ namespace Pulumi.Azure.ServiceFabric.Outputs
         /// </summary>
         public readonly bool? MultipleAvailabilityZones;
         /// <summary>
-        /// The name of the Node Type. Changing this forces a new resource to be created.
+        /// The name of the Node Type.
         /// </summary>
         public readonly string Name;
         /// <summary>

@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Core
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create the Custom Provider.
+        /// The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -85,7 +85,7 @@ namespace Pulumi.Azure.Core
         public Output<ImmutableArray<Outputs.CustomProviderResourceType>> ResourceTypes { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -167,7 +167,7 @@ namespace Pulumi.Azure.Core
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the Custom Provider.
+        /// The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -188,7 +188,7 @@ namespace Pulumi.Azure.Core
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -241,7 +241,7 @@ namespace Pulumi.Azure.Core
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the Custom Provider.
+        /// The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
@@ -262,7 +262,7 @@ namespace Pulumi.Azure.Core
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         /// </summary>
         public InputMap<string> Tags
         {

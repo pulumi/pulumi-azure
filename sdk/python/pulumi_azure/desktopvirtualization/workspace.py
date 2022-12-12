@@ -22,14 +22,11 @@ class WorkspaceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Workspace resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the Virtual Desktop Workspace. Changing the resource group name forces
-               a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description for the Virtual Desktop Workspace.
         :param pulumi.Input[str] friendly_name: A friendly name for the Virtual Desktop Workspace.
         :param pulumi.Input[str] location: The location/region where the Virtual Desktop Workspace is located. Changing the location/region forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the Virtual Desktop Workspace. Changing the name
-               forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -48,9 +45,7 @@ class WorkspaceArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to
-        create the Virtual Desktop Workspace. Changing the resource group name forces
-        a new resource to be created.
+        The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -98,8 +93,7 @@ class WorkspaceArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Virtual Desktop Workspace. Changing the name
-        forces a new resource to be created.
+        The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -134,11 +128,8 @@ class _WorkspaceState:
         :param pulumi.Input[str] description: A description for the Virtual Desktop Workspace.
         :param pulumi.Input[str] friendly_name: A friendly name for the Virtual Desktop Workspace.
         :param pulumi.Input[str] location: The location/region where the Virtual Desktop Workspace is located. Changing the location/region forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the Virtual Desktop Workspace. Changing the name
-               forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the Virtual Desktop Workspace. Changing the resource group name forces
-               a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if description is not None:
@@ -194,8 +185,7 @@ class _WorkspaceState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Virtual Desktop Workspace. Changing the name
-        forces a new resource to be created.
+        The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -207,9 +197,7 @@ class _WorkspaceState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to
-        create the Virtual Desktop Workspace. Changing the resource group name forces
-        a new resource to be created.
+        The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -272,11 +260,8 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description for the Virtual Desktop Workspace.
         :param pulumi.Input[str] friendly_name: A friendly name for the Virtual Desktop Workspace.
         :param pulumi.Input[str] location: The location/region where the Virtual Desktop Workspace is located. Changing the location/region forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the Virtual Desktop Workspace. Changing the name
-               forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the Virtual Desktop Workspace. Changing the resource group name forces
-               a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -374,11 +359,8 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description for the Virtual Desktop Workspace.
         :param pulumi.Input[str] friendly_name: A friendly name for the Virtual Desktop Workspace.
         :param pulumi.Input[str] location: The location/region where the Virtual Desktop Workspace is located. Changing the location/region forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the Virtual Desktop Workspace. Changing the name
-               forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the Virtual Desktop Workspace. Changing the resource group name forces
-               a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -421,8 +403,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the Virtual Desktop Workspace. Changing the name
-        forces a new resource to be created.
+        The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -430,9 +411,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to
-        create the Virtual Desktop Workspace. Changing the resource group name forces
-        a new resource to be created.
+        The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 

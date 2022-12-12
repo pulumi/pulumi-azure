@@ -28,11 +28,11 @@ class SpacecraftArgs:
         The set of arguments for constructing a Spacecraft resource.
         :param pulumi.Input[Sequence[pulumi.Input['SpacecraftLinkArgs']]] links: A `links` block as defined below.
         :param pulumi.Input[str] norad_id: NORAD ID of the Spacecraft.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Spacecraft exists.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] title_line: Title of the two line elements(TLE).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] two_line_elements: A list of the two line elements(TLE), the first string in the list is the first line of TLE, the second one is the second line of TLE.
-        :param pulumi.Input[str] location: The location where the Spacecraft exists.
-        :param pulumi.Input[str] name: Name of the link.
+        :param pulumi.Input[str] location: The location where the Spacecraft exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Name of the link. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "links", links)
         pulumi.set(__self__, "norad_id", norad_id)
@@ -74,7 +74,7 @@ class SpacecraftArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the Resource Group where the Spacecraft exists.
+        The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -110,7 +110,7 @@ class SpacecraftArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The location where the Spacecraft exists.
+        The location where the Spacecraft exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -122,7 +122,7 @@ class SpacecraftArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the link.
+        Name of the link. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -154,10 +154,10 @@ class _SpacecraftState:
         """
         Input properties used for looking up and filtering Spacecraft resources.
         :param pulumi.Input[Sequence[pulumi.Input['SpacecraftLinkArgs']]] links: A `links` block as defined below.
-        :param pulumi.Input[str] location: The location where the Spacecraft exists.
-        :param pulumi.Input[str] name: Name of the link.
+        :param pulumi.Input[str] location: The location where the Spacecraft exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Name of the link. Changing this forces a new resource to be created.
         :param pulumi.Input[str] norad_id: NORAD ID of the Spacecraft.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Spacecraft exists.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] title_line: Title of the two line elements(TLE).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] two_line_elements: A list of the two line elements(TLE), the first string in the list is the first line of TLE, the second one is the second line of TLE.
         """
@@ -194,7 +194,7 @@ class _SpacecraftState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The location where the Spacecraft exists.
+        The location where the Spacecraft exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -206,7 +206,7 @@ class _SpacecraftState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the link.
+        Name of the link. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -230,7 +230,7 @@ class _SpacecraftState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Resource Group where the Spacecraft exists.
+        The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -328,10 +328,10 @@ class Spacecraft(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpacecraftLinkArgs']]]] links: A `links` block as defined below.
-        :param pulumi.Input[str] location: The location where the Spacecraft exists.
-        :param pulumi.Input[str] name: Name of the link.
+        :param pulumi.Input[str] location: The location where the Spacecraft exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Name of the link. Changing this forces a new resource to be created.
         :param pulumi.Input[str] norad_id: NORAD ID of the Spacecraft.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Spacecraft exists.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] title_line: Title of the two line elements(TLE).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] two_line_elements: A list of the two line elements(TLE), the first string in the list is the first line of TLE, the second one is the second line of TLE.
         """
@@ -456,10 +456,10 @@ class Spacecraft(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpacecraftLinkArgs']]]] links: A `links` block as defined below.
-        :param pulumi.Input[str] location: The location where the Spacecraft exists.
-        :param pulumi.Input[str] name: Name of the link.
+        :param pulumi.Input[str] location: The location where the Spacecraft exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Name of the link. Changing this forces a new resource to be created.
         :param pulumi.Input[str] norad_id: NORAD ID of the Spacecraft.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Spacecraft exists.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] title_line: Title of the two line elements(TLE).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] two_line_elements: A list of the two line elements(TLE), the first string in the list is the first line of TLE, the second one is the second line of TLE.
         """
@@ -489,7 +489,7 @@ class Spacecraft(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        The location where the Spacecraft exists.
+        The location where the Spacecraft exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -497,7 +497,7 @@ class Spacecraft(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the link.
+        Name of the link. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -513,7 +513,7 @@ class Spacecraft(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the Resource Group where the Spacecraft exists.
+        The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 

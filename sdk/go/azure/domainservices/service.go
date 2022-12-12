@@ -27,7 +27,7 @@ type Service struct {
 	DeploymentId pulumi.StringOutput `pulumi:"deploymentId"`
 	// The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
 	DomainConfigurationType pulumi.StringPtrOutput `pulumi:"domainConfigurationType"`
-	// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
+	// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations. Changing this forces a new resource to be created.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`.
 	FilteredSyncEnabled pulumi.BoolPtrOutput `pulumi:"filteredSyncEnabled"`
@@ -101,7 +101,7 @@ type serviceState struct {
 	DeploymentId *string `pulumi:"deploymentId"`
 	// The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
 	DomainConfigurationType *string `pulumi:"domainConfigurationType"`
-	// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
+	// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations. Changing this forces a new resource to be created.
 	DomainName *string `pulumi:"domainName"`
 	// Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`.
 	FilteredSyncEnabled *bool `pulumi:"filteredSyncEnabled"`
@@ -135,7 +135,7 @@ type ServiceState struct {
 	DeploymentId pulumi.StringPtrInput
 	// The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
 	DomainConfigurationType pulumi.StringPtrInput
-	// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
+	// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations. Changing this forces a new resource to be created.
 	DomainName pulumi.StringPtrInput
 	// Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`.
 	FilteredSyncEnabled pulumi.BoolPtrInput
@@ -171,7 +171,7 @@ func (ServiceState) ElementType() reflect.Type {
 type serviceArgs struct {
 	// The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
 	DomainConfigurationType *string `pulumi:"domainConfigurationType"`
-	// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
+	// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations. Changing this forces a new resource to be created.
 	DomainName string `pulumi:"domainName"`
 	// Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`.
 	FilteredSyncEnabled *bool `pulumi:"filteredSyncEnabled"`
@@ -199,7 +199,7 @@ type serviceArgs struct {
 type ServiceArgs struct {
 	// The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
 	DomainConfigurationType pulumi.StringPtrInput
-	// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
+	// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations. Changing this forces a new resource to be created.
 	DomainName pulumi.StringInput
 	// Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`.
 	FilteredSyncEnabled pulumi.BoolPtrInput
@@ -320,7 +320,7 @@ func (o ServiceOutput) DomainConfigurationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.DomainConfigurationType }).(pulumi.StringPtrOutput)
 }
 
-// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
+// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations. Changing this forces a new resource to be created.
 func (o ServiceOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }

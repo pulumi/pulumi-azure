@@ -13,7 +13,7 @@ namespace Pulumi.Azure.LogicApps.Inputs
     public sealed class StandardConnectionStringGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Connection String.
+        /// The name of the Connection String. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

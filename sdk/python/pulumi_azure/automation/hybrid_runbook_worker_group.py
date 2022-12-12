@@ -23,7 +23,7 @@ class HybridRunbookWorkerGroupArgs:
         :param pulumi.Input[str] automation_account_name: The name of the Automation Account in which the Runbook Worker Group is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.
         :param pulumi.Input[str] credential_name: The name of resource type `automation.Credential` to use for hybrid worker.
-        :param pulumi.Input[str] name: The name which should be used for this Automation Account Runbook Worker Group.
+        :param pulumi.Input[str] name: The name which should be used for this Automation Account Runbook Worker Group. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -72,7 +72,7 @@ class HybridRunbookWorkerGroupArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Automation Account Runbook Worker Group.
+        The name which should be used for this Automation Account Runbook Worker Group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -92,7 +92,7 @@ class _HybridRunbookWorkerGroupState:
         Input properties used for looking up and filtering HybridRunbookWorkerGroup resources.
         :param pulumi.Input[str] automation_account_name: The name of the Automation Account in which the Runbook Worker Group is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] credential_name: The name of resource type `automation.Credential` to use for hybrid worker.
-        :param pulumi.Input[str] name: The name which should be used for this Automation Account Runbook Worker Group.
+        :param pulumi.Input[str] name: The name which should be used for this Automation Account Runbook Worker Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.
         """
         if automation_account_name is not None:
@@ -132,7 +132,7 @@ class _HybridRunbookWorkerGroupState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Automation Account Runbook Worker Group.
+        The name which should be used for this Automation Account Runbook Worker Group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -189,7 +189,7 @@ class HybridRunbookWorkerGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the Automation Account in which the Runbook Worker Group is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] credential_name: The name of resource type `automation.Credential` to use for hybrid worker.
-        :param pulumi.Input[str] name: The name which should be used for this Automation Account Runbook Worker Group.
+        :param pulumi.Input[str] name: The name which should be used for this Automation Account Runbook Worker Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.
         """
         ...
@@ -279,7 +279,7 @@ class HybridRunbookWorkerGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the Automation Account in which the Runbook Worker Group is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] credential_name: The name of resource type `automation.Credential` to use for hybrid worker.
-        :param pulumi.Input[str] name: The name which should be used for this Automation Account Runbook Worker Group.
+        :param pulumi.Input[str] name: The name which should be used for this Automation Account Runbook Worker Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -312,7 +312,7 @@ class HybridRunbookWorkerGroup(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name which should be used for this Automation Account Runbook Worker Group.
+        The name which should be used for this Automation Account Runbook Worker Group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

@@ -44,7 +44,7 @@ class ApiArgs:
         The set of arguments for constructing a Api resource.
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] revision: The Revision which used for this API.
+        :param pulumi.Input[str] revision: The Revision which used for this API. Changing this forces a new resource to be created.
         :param pulumi.Input[str] api_type: Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
         :param pulumi.Input['ApiContactArgs'] contact: A `contact` block as documented below.
         :param pulumi.Input[str] description: A description of the API Management API, which may include HTML formatting tags.
@@ -144,7 +144,7 @@ class ApiArgs:
     @pulumi.getter
     def revision(self) -> pulumi.Input[str]:
         """
-        The Revision which used for this API.
+        The Revision which used for this API. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "revision")
 
@@ -451,7 +451,7 @@ class _ApiState:
         :param pulumi.Input[str] path: The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] revision: The Revision which used for this API.
+        :param pulumi.Input[str] revision: The Revision which used for this API. Changing this forces a new resource to be created.
         :param pulumi.Input[str] revision_description: The description of the API Revision of the API Management API.
         :param pulumi.Input[str] service_url: Absolute URL of the backend service implementing this API.
         :param pulumi.Input[bool] soap_pass_through: Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
@@ -703,7 +703,7 @@ class _ApiState:
     @pulumi.getter
     def revision(self) -> Optional[pulumi.Input[str]]:
         """
-        The Revision which used for this API.
+        The Revision which used for this API. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "revision")
 
@@ -914,7 +914,7 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[str] path: The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] revision: The Revision which used for this API.
+        :param pulumi.Input[str] revision: The Revision which used for this API. Changing this forces a new resource to be created.
         :param pulumi.Input[str] revision_description: The description of the API Revision of the API Management API.
         :param pulumi.Input[str] service_url: Absolute URL of the backend service implementing this API.
         :param pulumi.Input[bool] soap_pass_through: Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
@@ -1110,7 +1110,7 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[str] path: The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] revision: The Revision which used for this API.
+        :param pulumi.Input[str] revision: The Revision which used for this API. Changing this forces a new resource to be created.
         :param pulumi.Input[str] revision_description: The description of the API Revision of the API Management API.
         :param pulumi.Input[str] service_url: Absolute URL of the backend service implementing this API.
         :param pulumi.Input[bool] soap_pass_through: Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
@@ -1278,7 +1278,7 @@ class Api(pulumi.CustomResource):
     @pulumi.getter
     def revision(self) -> pulumi.Output[str]:
         """
-        The Revision which used for this API.
+        The Revision which used for this API. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "revision")
 

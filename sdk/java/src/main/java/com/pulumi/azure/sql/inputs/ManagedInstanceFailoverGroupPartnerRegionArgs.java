@@ -16,14 +16,14 @@ public final class ManagedInstanceFailoverGroupPartnerRegionArgs extends com.pul
     public static final ManagedInstanceFailoverGroupPartnerRegionArgs Empty = new ManagedInstanceFailoverGroupPartnerRegionArgs();
 
     /**
-     * The Azure Region where the SQL Instance Failover Group exists.
+     * The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return The Azure Region where the SQL Instance Failover Group exists.
+     * @return The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> location() {
@@ -71,7 +71,7 @@ public final class ManagedInstanceFailoverGroupPartnerRegionArgs extends com.pul
         }
 
         /**
-         * @param location The Azure Region where the SQL Instance Failover Group exists.
+         * @param location The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ManagedInstanceFailoverGroupPartnerRegionArgs extends com.pul
         }
 
         /**
-         * @param location The Azure Region where the SQL Instance Failover Group exists.
+         * @param location The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

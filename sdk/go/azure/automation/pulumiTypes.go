@@ -3236,7 +3236,7 @@ func (o SoftwareUpdateConfigurationTargetNonAzureQueryArrayOutput) Index(i pulum
 }
 
 type SoftwareUpdateConfigurationWindows struct {
-	// Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+	// (Deprecated) Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
 	//
 	// Deprecated: windows classification can be set as a list, use `classifications_included` instead.
 	ClassificationIncluded *string `pulumi:"classificationIncluded"`
@@ -3262,7 +3262,7 @@ type SoftwareUpdateConfigurationWindowsInput interface {
 }
 
 type SoftwareUpdateConfigurationWindowsArgs struct {
-	// Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+	// (Deprecated) Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
 	//
 	// Deprecated: windows classification can be set as a list, use `classifications_included` instead.
 	ClassificationIncluded pulumi.StringPtrInput `pulumi:"classificationIncluded"`
@@ -3353,7 +3353,7 @@ func (o SoftwareUpdateConfigurationWindowsOutput) ToSoftwareUpdateConfigurationW
 	}).(SoftwareUpdateConfigurationWindowsPtrOutput)
 }
 
-// Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+// (Deprecated) Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
 //
 // Deprecated: windows classification can be set as a list, use `classifications_included` instead.
 func (o SoftwareUpdateConfigurationWindowsOutput) ClassificationIncluded() pulumi.StringPtrOutput {
@@ -3404,7 +3404,7 @@ func (o SoftwareUpdateConfigurationWindowsPtrOutput) Elem() SoftwareUpdateConfig
 	}).(SoftwareUpdateConfigurationWindowsOutput)
 }
 
-// Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+// (Deprecated) Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
 //
 // Deprecated: windows classification can be set as a list, use `classifications_included` instead.
 func (o SoftwareUpdateConfigurationWindowsPtrOutput) ClassificationIncluded() pulumi.StringPtrOutput {

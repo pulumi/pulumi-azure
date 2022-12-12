@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *
  * const current = azure.core.getClientConfig({});
  * const frontdoor = azuread.getServicePrincipal({
- *     displayName: "Microsoft.AzureFrontDoor-Cdn",
+ *     displayName: "Microsoft.Azure.Cdn",
  * });
  * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
  *     location: azurerm_resource_group.example.location,

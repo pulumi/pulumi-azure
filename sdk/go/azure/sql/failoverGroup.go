@@ -111,7 +111,7 @@ type FailoverGroup struct {
 	ReadWriteEndpointFailoverPolicy FailoverGroupReadWriteEndpointFailoverPolicyOutput `pulumi:"readWriteEndpointFailoverPolicy"`
 	// a read-only policy as documented below
 	ReadonlyEndpointFailoverPolicy FailoverGroupReadonlyEndpointFailoverPolicyOutput `pulumi:"readonlyEndpointFailoverPolicy"`
-	// The name of the resource group containing the SQL server
+	// The name of the resource group containing the SQL server Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// local replication role of the failover group instance.
 	Role pulumi.StringOutput `pulumi:"role"`
@@ -174,7 +174,7 @@ type failoverGroupState struct {
 	ReadWriteEndpointFailoverPolicy *FailoverGroupReadWriteEndpointFailoverPolicy `pulumi:"readWriteEndpointFailoverPolicy"`
 	// a read-only policy as documented below
 	ReadonlyEndpointFailoverPolicy *FailoverGroupReadonlyEndpointFailoverPolicy `pulumi:"readonlyEndpointFailoverPolicy"`
-	// The name of the resource group containing the SQL server
+	// The name of the resource group containing the SQL server Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// local replication role of the failover group instance.
 	Role *string `pulumi:"role"`
@@ -197,7 +197,7 @@ type FailoverGroupState struct {
 	ReadWriteEndpointFailoverPolicy FailoverGroupReadWriteEndpointFailoverPolicyPtrInput
 	// a read-only policy as documented below
 	ReadonlyEndpointFailoverPolicy FailoverGroupReadonlyEndpointFailoverPolicyPtrInput
-	// The name of the resource group containing the SQL server
+	// The name of the resource group containing the SQL server Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// local replication role of the failover group instance.
 	Role pulumi.StringPtrInput
@@ -222,7 +222,7 @@ type failoverGroupArgs struct {
 	ReadWriteEndpointFailoverPolicy FailoverGroupReadWriteEndpointFailoverPolicy `pulumi:"readWriteEndpointFailoverPolicy"`
 	// a read-only policy as documented below
 	ReadonlyEndpointFailoverPolicy *FailoverGroupReadonlyEndpointFailoverPolicy `pulumi:"readonlyEndpointFailoverPolicy"`
-	// The name of the resource group containing the SQL server
+	// The name of the resource group containing the SQL server Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the primary SQL server. Changing this forces a new resource to be created.
 	ServerName string `pulumi:"serverName"`
@@ -242,7 +242,7 @@ type FailoverGroupArgs struct {
 	ReadWriteEndpointFailoverPolicy FailoverGroupReadWriteEndpointFailoverPolicyInput
 	// a read-only policy as documented below
 	ReadonlyEndpointFailoverPolicy FailoverGroupReadonlyEndpointFailoverPolicyPtrInput
-	// The name of the resource group containing the SQL server
+	// The name of the resource group containing the SQL server Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The name of the primary SQL server. Changing this forces a new resource to be created.
 	ServerName pulumi.StringInput
@@ -371,7 +371,7 @@ func (o FailoverGroupOutput) ReadonlyEndpointFailoverPolicy() FailoverGroupReado
 	}).(FailoverGroupReadonlyEndpointFailoverPolicyOutput)
 }
 
-// The name of the resource group containing the SQL server
+// The name of the resource group containing the SQL server Changing this forces a new resource to be created.
 func (o FailoverGroupOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FailoverGroup) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

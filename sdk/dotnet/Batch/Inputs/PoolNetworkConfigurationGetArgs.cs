@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Batch.Inputs
     public sealed class PoolNetworkConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The scope of dynamic vnet assignment. Allowed values: `none`, `job`.
+        /// The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dynamicVnetAssignmentScope")]
         public Input<string>? DynamicVnetAssignmentScope { get; set; }

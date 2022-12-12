@@ -94,7 +94,7 @@ export class ApiOperationPolicy extends pulumi.CustomResource {
      */
     public readonly apiName!: pulumi.Output<string>;
     /**
-     * The operation identifier within an API. Must be unique in the current API Management service instance.
+     * The operation identifier within an API. Must be unique in the current API Management service instance. Changing this forces a new resource to be created.
      */
     public readonly operationId!: pulumi.Output<string>;
     /**
@@ -168,7 +168,7 @@ export interface ApiOperationPolicyState {
      */
     apiName?: pulumi.Input<string>;
     /**
-     * The operation identifier within an API. Must be unique in the current API Management service instance.
+     * The operation identifier within an API. Must be unique in the current API Management service instance. Changing this forces a new resource to be created.
      */
     operationId?: pulumi.Input<string>;
     /**
@@ -198,7 +198,7 @@ export interface ApiOperationPolicyArgs {
      */
     apiName: pulumi.Input<string>;
     /**
-     * The operation identifier within an API. Must be unique in the current API Management service instance.
+     * The operation identifier within an API. Must be unique in the current API Management service instance. Changing this forces a new resource to be created.
      */
     operationId: pulumi.Input<string>;
     /**

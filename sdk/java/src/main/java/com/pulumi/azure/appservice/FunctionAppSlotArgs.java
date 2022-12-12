@@ -24,14 +24,14 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
     public static final FunctionAppSlotArgs Empty = new FunctionAppSlotArgs();
 
     /**
-     * The ID of the App Service Plan within which to create this Function App Slot.
+     * The ID of the App Service Plan within which to create this Function App Slot. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="appServicePlanId", required=true)
     private Output<String> appServicePlanId;
 
     /**
-     * @return The ID of the App Service Plan within which to create this Function App Slot.
+     * @return The ID of the App Service Plan within which to create this Function App Slot. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> appServicePlanId() {
@@ -204,14 +204,14 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A string indicating the Operating System type for this function app. The only possible value is `linux`.
+     * A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="osType")
     private @Nullable Output<String> osType;
 
     /**
-     * @return A string indicating the Operating System type for this function app. The only possible value is `linux`.
+     * @return A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> osType() {
@@ -219,14 +219,14 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The name of the resource group in which to create the Function App Slot.
+     * The name of the resource group in which to create the Function App Slot. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the Function App Slot.
+     * @return The name of the resource group in which to create the Function App Slot. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -264,14 +264,14 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The backend storage account name which will be used by the Function App (such as the dashboard, logs).
+     * The backend storage account name which will be used by the Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
      * 
      */
     @Import(name="storageAccountName", required=true)
     private Output<String> storageAccountName;
 
     /**
-     * @return The backend storage account name which will be used by the Function App (such as the dashboard, logs).
+     * @return The backend storage account name which will be used by the Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
      * 
      */
     public Output<String> storageAccountName() {
@@ -351,7 +351,7 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param appServicePlanId The ID of the App Service Plan within which to create this Function App Slot.
+         * @param appServicePlanId The ID of the App Service Plan within which to create this Function App Slot. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -362,7 +362,7 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param appServicePlanId The ID of the App Service Plan within which to create this Function App Slot.
+         * @param appServicePlanId The ID of the App Service Plan within which to create this Function App Slot. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -613,7 +613,7 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param osType A string indicating the Operating System type for this function app. The only possible value is `linux`.
+         * @param osType A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -624,7 +624,7 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param osType A string indicating the Operating System type for this function app. The only possible value is `linux`.
+         * @param osType A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -634,7 +634,7 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the Function App Slot.
+         * @param resourceGroupName The name of the resource group in which to create the Function App Slot. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -645,7 +645,7 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the Function App Slot.
+         * @param resourceGroupName The name of the resource group in which to create the Function App Slot. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -697,7 +697,7 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param storageAccountName The backend storage account name which will be used by the Function App (such as the dashboard, logs).
+         * @param storageAccountName The backend storage account name which will be used by the Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -708,7 +708,7 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param storageAccountName The backend storage account name which will be used by the Function App (such as the dashboard, logs).
+         * @param storageAccountName The backend storage account name which will be used by the Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

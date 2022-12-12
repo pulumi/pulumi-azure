@@ -71,7 +71,7 @@ type ARecord struct {
 
 	// The FQDN of the DNS A Record.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
-	// The name of the DNS A Record.
+	// The name of the DNS A Record. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of IPv4 Addresses.
 	Records pulumi.StringArrayOutput `pulumi:"records"`
@@ -127,7 +127,7 @@ func GetARecord(ctx *pulumi.Context,
 type arecordState struct {
 	// The FQDN of the DNS A Record.
 	Fqdn *string `pulumi:"fqdn"`
-	// The name of the DNS A Record.
+	// The name of the DNS A Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// List of IPv4 Addresses.
 	Records []string `pulumi:"records"`
@@ -143,7 +143,7 @@ type arecordState struct {
 type ARecordState struct {
 	// The FQDN of the DNS A Record.
 	Fqdn pulumi.StringPtrInput
-	// The name of the DNS A Record.
+	// The name of the DNS A Record. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// List of IPv4 Addresses.
 	Records pulumi.StringArrayInput
@@ -161,7 +161,7 @@ func (ARecordState) ElementType() reflect.Type {
 }
 
 type arecordArgs struct {
-	// The name of the DNS A Record.
+	// The name of the DNS A Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// List of IPv4 Addresses.
 	Records []string `pulumi:"records"`
@@ -176,7 +176,7 @@ type arecordArgs struct {
 
 // The set of arguments for constructing a ARecord resource.
 type ARecordArgs struct {
-	// The name of the DNS A Record.
+	// The name of the DNS A Record. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// List of IPv4 Addresses.
 	Records pulumi.StringArrayInput
@@ -281,7 +281,7 @@ func (o ARecordOutput) Fqdn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ARecord) pulumi.StringOutput { return v.Fqdn }).(pulumi.StringOutput)
 }
 
-// The name of the DNS A Record.
+// The name of the DNS A Record. Changing this forces a new resource to be created.
 func (o ARecordOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ARecord) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

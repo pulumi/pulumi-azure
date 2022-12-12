@@ -18,12 +18,14 @@ import com.pulumi.azure.containerservice.inputs.KubernetesClusterMicrosoftDefend
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterNetworkProfileArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterOmsAgentArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterServicePrincipalArgs;
+import com.pulumi.azure.containerservice.inputs.KubernetesClusterStorageProfileArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterWebAppRoutingArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterWindowsProfileArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterWorkloadAutoscalerProfileArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -251,6 +253,36 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
      */
     public Optional<Output<KubernetesClusterIdentityArgs>> identity() {
         return Optional.ofNullable(this.identity);
+    }
+
+    /**
+     * Specifies whether Image Cleaner is enabled.
+     * 
+     */
+    @Import(name="imageCleanerEnabled")
+    private @Nullable Output<Boolean> imageCleanerEnabled;
+
+    /**
+     * @return Specifies whether Image Cleaner is enabled.
+     * 
+     */
+    public Optional<Output<Boolean>> imageCleanerEnabled() {
+        return Optional.ofNullable(this.imageCleanerEnabled);
+    }
+
+    /**
+     * Specifies the interval in hours when images should be cleaned up.
+     * 
+     */
+    @Import(name="imageCleanerIntervalHours")
+    private @Nullable Output<Integer> imageCleanerIntervalHours;
+
+    /**
+     * @return Specifies the interval in hours when images should be cleaned up.
+     * 
+     */
+    public Optional<Output<Integer>> imageCleanerIntervalHours() {
+        return Optional.ofNullable(this.imageCleanerIntervalHours);
     }
 
     /**
@@ -509,14 +541,14 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
+     * Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="privateDnsZoneId")
     private @Nullable Output<String> privateDnsZoneId;
 
     /**
-     * @return Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
+     * @return Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> privateDnsZoneId() {
@@ -603,6 +635,21 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
      */
     public Optional<Output<String>> skuTier() {
         return Optional.ofNullable(this.skuTier);
+    }
+
+    /**
+     * A `storage_profile` block as defined below.
+     * 
+     */
+    @Import(name="storageProfile")
+    private @Nullable Output<KubernetesClusterStorageProfileArgs> storageProfile;
+
+    /**
+     * @return A `storage_profile` block as defined below.
+     * 
+     */
+    public Optional<Output<KubernetesClusterStorageProfileArgs>> storageProfile() {
+        return Optional.ofNullable(this.storageProfile);
     }
 
     /**
@@ -698,6 +745,8 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         this.httpApplicationRoutingEnabled = $.httpApplicationRoutingEnabled;
         this.httpProxyConfig = $.httpProxyConfig;
         this.identity = $.identity;
+        this.imageCleanerEnabled = $.imageCleanerEnabled;
+        this.imageCleanerIntervalHours = $.imageCleanerIntervalHours;
         this.ingressApplicationGateway = $.ingressApplicationGateway;
         this.keyVaultSecretsProvider = $.keyVaultSecretsProvider;
         this.kubeletIdentity = $.kubeletIdentity;
@@ -722,6 +771,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         this.runCommandEnabled = $.runCommandEnabled;
         this.servicePrincipal = $.servicePrincipal;
         this.skuTier = $.skuTier;
+        this.storageProfile = $.storageProfile;
         this.tags = $.tags;
         this.webAppRouting = $.webAppRouting;
         this.windowsProfile = $.windowsProfile;
@@ -1058,6 +1108,48 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder identity(KubernetesClusterIdentityArgs identity) {
             return identity(Output.of(identity));
+        }
+
+        /**
+         * @param imageCleanerEnabled Specifies whether Image Cleaner is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder imageCleanerEnabled(@Nullable Output<Boolean> imageCleanerEnabled) {
+            $.imageCleanerEnabled = imageCleanerEnabled;
+            return this;
+        }
+
+        /**
+         * @param imageCleanerEnabled Specifies whether Image Cleaner is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder imageCleanerEnabled(Boolean imageCleanerEnabled) {
+            return imageCleanerEnabled(Output.of(imageCleanerEnabled));
+        }
+
+        /**
+         * @param imageCleanerIntervalHours Specifies the interval in hours when images should be cleaned up.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder imageCleanerIntervalHours(@Nullable Output<Integer> imageCleanerIntervalHours) {
+            $.imageCleanerIntervalHours = imageCleanerIntervalHours;
+            return this;
+        }
+
+        /**
+         * @param imageCleanerIntervalHours Specifies the interval in hours when images should be cleaned up.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder imageCleanerIntervalHours(Integer imageCleanerIntervalHours) {
+            return imageCleanerIntervalHours(Output.of(imageCleanerIntervalHours));
         }
 
         /**
@@ -1418,7 +1510,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param privateDnsZoneId Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
+         * @param privateDnsZoneId Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1429,7 +1521,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param privateDnsZoneId Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
+         * @param privateDnsZoneId Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1550,6 +1642,27 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder skuTier(String skuTier) {
             return skuTier(Output.of(skuTier));
+        }
+
+        /**
+         * @param storageProfile A `storage_profile` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageProfile(@Nullable Output<KubernetesClusterStorageProfileArgs> storageProfile) {
+            $.storageProfile = storageProfile;
+            return this;
+        }
+
+        /**
+         * @param storageProfile A `storage_profile` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageProfile(KubernetesClusterStorageProfileArgs storageProfile) {
+            return storageProfile(Output.of(storageProfile));
         }
 
         /**

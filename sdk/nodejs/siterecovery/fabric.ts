@@ -64,19 +64,19 @@ export class Fabric extends pulumi.CustomResource {
     }
 
     /**
-     * In what region should the fabric be located.
+     * In what region should the fabric be located. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The name of the network mapping.
+     * The name of the network mapping. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the vault that should be updated.
+     * The name of the vault that should be updated. Changing this forces a new resource to be created.
      */
     public readonly recoveryVaultName!: pulumi.Output<string>;
     /**
-     * Name of the resource group where the vault that should be updated is located.
+     * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
 
@@ -120,19 +120,19 @@ export class Fabric extends pulumi.CustomResource {
  */
 export interface FabricState {
     /**
-     * In what region should the fabric be located.
+     * In what region should the fabric be located. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the network mapping.
+     * The name of the network mapping. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the vault that should be updated.
+     * The name of the vault that should be updated. Changing this forces a new resource to be created.
      */
     recoveryVaultName?: pulumi.Input<string>;
     /**
-     * Name of the resource group where the vault that should be updated is located.
+     * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
 }
@@ -142,19 +142,19 @@ export interface FabricState {
  */
 export interface FabricArgs {
     /**
-     * In what region should the fabric be located.
+     * In what region should the fabric be located. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the network mapping.
+     * The name of the network mapping. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the vault that should be updated.
+     * The name of the vault that should be updated. Changing this forces a new resource to be created.
      */
     recoveryVaultName: pulumi.Input<string>;
     /**
-     * Name of the resource group where the vault that should be updated is located.
+     * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
 }

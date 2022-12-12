@@ -67,16 +67,13 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Virtual Desktop Workspace. Changing the name
-        /// forces a new resource to be created.
+        /// The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the Virtual Desktop Workspace. Changing the resource group name forces
-        /// a new resource to be created.
+        /// The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -152,16 +149,13 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the Virtual Desktop Workspace. Changing the name
-        /// forces a new resource to be created.
+        /// The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the Virtual Desktop Workspace. Changing the resource group name forces
-        /// a new resource to be created.
+        /// The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -205,16 +199,13 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the Virtual Desktop Workspace. Changing the name
-        /// forces a new resource to be created.
+        /// The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the Virtual Desktop Workspace. Changing the resource group name forces
-        /// a new resource to be created.
+        /// The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

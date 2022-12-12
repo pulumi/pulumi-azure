@@ -64,7 +64,7 @@ import * as utilities from "../utilities";
  * Kusto EventHub Data Connections can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:kusto/eventhubDataConnection:EventhubDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1/Databases/database1/DataConnections/eventHubConnection1
+ *  $ pulumi import azure:kusto/eventhubDataConnection:EventhubDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/databases/database1/dataConnections/eventHubConnection1
  * ```
  */
 export class EventhubDataConnection extends pulumi.CustomResource {
@@ -116,7 +116,7 @@ export class EventhubDataConnection extends pulumi.CustomResource {
      */
     public readonly databaseName!: pulumi.Output<string>;
     /**
-     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
      */
     public readonly databaseRoutingType!: pulumi.Output<string | undefined>;
     /**
@@ -241,7 +241,7 @@ export interface EventhubDataConnectionState {
      */
     databaseName?: pulumi.Input<string>;
     /**
-     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
      */
     databaseRoutingType?: pulumi.Input<string>;
     /**
@@ -303,7 +303,7 @@ export interface EventhubDataConnectionArgs {
      */
     databaseName: pulumi.Input<string>;
     /**
-     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
      */
     databaseRoutingType?: pulumi.Input<string>;
     /**

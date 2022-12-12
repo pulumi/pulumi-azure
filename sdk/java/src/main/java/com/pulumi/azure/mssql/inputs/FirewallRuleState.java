@@ -31,14 +31,14 @@ public final class FirewallRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the firewall rule.
+     * The name of the firewall rule. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the firewall rule.
+     * @return The name of the firewall rule. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -46,14 +46,14 @@ public final class FirewallRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The resource ID of the SQL Server on which to create the Firewall Rule.
+     * The resource ID of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="serverId")
     private @Nullable Output<String> serverId;
 
     /**
-     * @return The resource ID of the SQL Server on which to create the Firewall Rule.
+     * @return The resource ID of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> serverId() {
@@ -124,7 +124,7 @@ public final class FirewallRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the firewall rule.
+         * @param name The name of the firewall rule. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class FirewallRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the firewall rule.
+         * @param name The name of the firewall rule. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class FirewallRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverId The resource ID of the SQL Server on which to create the Firewall Rule.
+         * @param serverId The resource ID of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class FirewallRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverId The resource ID of the SQL Server on which to create the Firewall Rule.
+         * @param serverId The resource ID of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -85,14 +85,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+     * The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
      * 
      */
     @Import(name="dnsNameLabelReusePolicy")
     private @Nullable Output<String> dnsNameLabelReusePolicy;
 
     /**
-     * @return The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+     * @return The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
      * 
      */
     public Optional<Output<String>> dnsNameLabelReusePolicy() {
@@ -344,14 +344,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of Availability Zones in which this Container Group is located.
+     * A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="zones")
     private @Nullable Output<List<String>> zones;
 
     /**
-     * @return A list of Availability Zones in which this Container Group is located.
+     * @return A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<String>>> zones() {
@@ -498,7 +498,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsNameLabelReusePolicy The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+         * @param dnsNameLabelReusePolicy The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
          * 
          * @return builder
          * 
@@ -509,7 +509,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsNameLabelReusePolicy The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
+         * @param dnsNameLabelReusePolicy The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
          * 
          * @return builder
          * 
@@ -889,7 +889,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zones A list of Availability Zones in which this Container Group is located.
+         * @param zones A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -900,7 +900,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zones A list of Availability Zones in which this Container Group is located.
+         * @param zones A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -910,7 +910,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zones A list of Availability Zones in which this Container Group is located.
+         * @param zones A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -269,7 +269,7 @@ class SpacecraftLink(dict):
         :param float bandwidth_mhz: Bandwidth in Mhz.
         :param float center_frequency_mhz: Center frequency in Mhz.
         :param str direction: Direction if the communication. Possible values are `Uplink` and `Downlink`.
-        :param str name: Name of the link.
+        :param str name: Name of the link. Changing this forces a new resource to be created.
         :param str polarization: Polarization. Possible values are `RHCP`, `LHCP`, `linearVertical` and `linearHorizontal`.
         """
         pulumi.set(__self__, "bandwidth_mhz", bandwidth_mhz)
@@ -306,7 +306,7 @@ class SpacecraftLink(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of the link.
+        Name of the link. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

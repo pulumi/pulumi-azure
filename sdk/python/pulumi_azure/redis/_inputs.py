@@ -357,7 +357,7 @@ class EnterpriseDatabaseModuleArgs:
                  version: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The name which should be used for this module. Possible values are `RediSearch`, `RedisBloom` and `RedisTimeSeries`. Changing this forces a new Redis Enterprise Database to be created.
-        :param pulumi.Input[str] args: Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
+        :param pulumi.Input[str] args: Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "name", name)
         if args is not None:
@@ -381,7 +381,7 @@ class EnterpriseDatabaseModuleArgs:
     @pulumi.getter
     def args(self) -> Optional[pulumi.Input[str]]:
         """
-        Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
+        Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "args")
 

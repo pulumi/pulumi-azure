@@ -22,12 +22,12 @@ public final class VirtualMachineOsProfile {
      */
     private String adminUsername;
     /**
-     * @return Specifies the name of the Virtual Machine.
+     * @return Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
      * 
      */
     private String computerName;
     /**
-     * @return Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
+     * @return Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String customData;
@@ -48,14 +48,14 @@ public final class VirtualMachineOsProfile {
         return this.adminUsername;
     }
     /**
-     * @return Specifies the name of the Virtual Machine.
+     * @return Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
      * 
      */
     public String computerName() {
         return this.computerName;
     }
     /**
-     * @return Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
+     * @return Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> customData() {

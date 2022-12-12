@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Core.Inputs
     public sealed class ResourceGroupCostManagementExportExportDataStorageLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Resource Manager ID of the container where exports will be uploaded.
+        /// The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
         /// </summary>
         [Input("containerId", required: true)]
         public Input<string> ContainerId { get; set; } = null!;
 
         /// <summary>
-        /// The path of the directory where exports will be uploaded.
+        /// The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
         /// </summary>
         [Input("rootFolderPath", required: true)]
         public Input<string> RootFolderPath { get; set; } = null!;

@@ -2814,7 +2814,7 @@ type SpringCloudGatewayRouteConfigRoute struct {
 	// Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response.
 	Filters []string `pulumi:"filters"`
 	// Specifies the route processing order.
-	Order *int `pulumi:"order"`
+	Order int `pulumi:"order"`
 	// Specifies a list of conditions to evaluate a route for each request. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
 	Predicates []string `pulumi:"predicates"`
 	// Should the sso validation be enabled?
@@ -2846,7 +2846,7 @@ type SpringCloudGatewayRouteConfigRouteArgs struct {
 	// Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response.
 	Filters pulumi.StringArrayInput `pulumi:"filters"`
 	// Specifies the route processing order.
-	Order pulumi.IntPtrInput `pulumi:"order"`
+	Order pulumi.IntInput `pulumi:"order"`
 	// Specifies a list of conditions to evaluate a route for each request. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
 	Predicates pulumi.StringArrayInput `pulumi:"predicates"`
 	// Should the sso validation be enabled?
@@ -2926,8 +2926,8 @@ func (o SpringCloudGatewayRouteConfigRouteOutput) Filters() pulumi.StringArrayOu
 }
 
 // Specifies the route processing order.
-func (o SpringCloudGatewayRouteConfigRouteOutput) Order() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SpringCloudGatewayRouteConfigRoute) *int { return v.Order }).(pulumi.IntPtrOutput)
+func (o SpringCloudGatewayRouteConfigRouteOutput) Order() pulumi.IntOutput {
+	return o.ApplyT(func(v SpringCloudGatewayRouteConfigRoute) int { return v.Order }).(pulumi.IntOutput)
 }
 
 // Specifies a list of conditions to evaluate a route for each request. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
@@ -3724,7 +3724,7 @@ type SpringCloudServiceConfigServerGitSettingRepository struct {
 	HttpBasicAuth *SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth `pulumi:"httpBasicAuth"`
 	// The default label of the Git repository, should be the branch name, tag name, or commit-id of the repository.
 	Label *string `pulumi:"label"`
-	// A name to identify on the Git repository, required only if repos exists.
+	// A name to identify on the Git repository, required only if repos exists. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// An array of strings used to match an application name. For each pattern, use the `{application}/{profile}` format with wildcards.
 	Patterns []string `pulumi:"patterns"`
@@ -3752,7 +3752,7 @@ type SpringCloudServiceConfigServerGitSettingRepositoryArgs struct {
 	HttpBasicAuth SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrInput `pulumi:"httpBasicAuth"`
 	// The default label of the Git repository, should be the branch name, tag name, or commit-id of the repository.
 	Label pulumi.StringPtrInput `pulumi:"label"`
-	// A name to identify on the Git repository, required only if repos exists.
+	// A name to identify on the Git repository, required only if repos exists. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// An array of strings used to match an application name. For each pattern, use the `{application}/{profile}` format with wildcards.
 	Patterns pulumi.StringArrayInput `pulumi:"patterns"`
@@ -3827,7 +3827,7 @@ func (o SpringCloudServiceConfigServerGitSettingRepositoryOutput) Label() pulumi
 	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSettingRepository) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// A name to identify on the Git repository, required only if repos exists.
+// A name to identify on the Git repository, required only if repos exists. Changing this forces a new resource to be created.
 func (o SpringCloudServiceConfigServerGitSettingRepositoryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSettingRepository) string { return v.Name }).(pulumi.StringOutput)
 }

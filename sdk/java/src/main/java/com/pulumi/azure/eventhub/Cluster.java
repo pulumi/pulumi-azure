@@ -110,14 +110,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
+     * The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="skuName", type=String.class, parameters={})
     private Output<String> skuName;
 
     /**
-     * @return The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
+     * @return The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> skuName() {

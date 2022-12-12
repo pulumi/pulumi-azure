@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  * Spring Cloud Storages can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:appplatform/springCloudStorage:SpringCloudStorage example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/Spring/service1/storages/storage1
+ *  $ pulumi import azure:appplatform/springCloudStorage:SpringCloudStorage example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/spring/service1/storages/storage1
  * ```
  * 
  */

@@ -154,7 +154,7 @@ type DiskEncryptionSet struct {
 
 	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
 	AutoKeyRotationEnabled pulumi.BoolPtrOutput `pulumi:"autoKeyRotationEnabled"`
-	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`.
+	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
 	EncryptionType pulumi.StringPtrOutput `pulumi:"encryptionType"`
 	// Multi-tenant application client id to access key vault in a different tenant.
 	FederatedClientId pulumi.StringPtrOutput `pulumi:"federatedClientId"`
@@ -212,7 +212,7 @@ func GetDiskEncryptionSet(ctx *pulumi.Context,
 type diskEncryptionSetState struct {
 	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
 	AutoKeyRotationEnabled *bool `pulumi:"autoKeyRotationEnabled"`
-	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`.
+	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
 	EncryptionType *string `pulumi:"encryptionType"`
 	// Multi-tenant application client id to access key vault in a different tenant.
 	FederatedClientId *string `pulumi:"federatedClientId"`
@@ -233,7 +233,7 @@ type diskEncryptionSetState struct {
 type DiskEncryptionSetState struct {
 	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
 	AutoKeyRotationEnabled pulumi.BoolPtrInput
-	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`.
+	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
 	EncryptionType pulumi.StringPtrInput
 	// Multi-tenant application client id to access key vault in a different tenant.
 	FederatedClientId pulumi.StringPtrInput
@@ -258,7 +258,7 @@ func (DiskEncryptionSetState) ElementType() reflect.Type {
 type diskEncryptionSetArgs struct {
 	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
 	AutoKeyRotationEnabled *bool `pulumi:"autoKeyRotationEnabled"`
-	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`.
+	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
 	EncryptionType *string `pulumi:"encryptionType"`
 	// Multi-tenant application client id to access key vault in a different tenant.
 	FederatedClientId *string `pulumi:"federatedClientId"`
@@ -280,7 +280,7 @@ type diskEncryptionSetArgs struct {
 type DiskEncryptionSetArgs struct {
 	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
 	AutoKeyRotationEnabled pulumi.BoolPtrInput
-	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`.
+	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
 	EncryptionType pulumi.StringPtrInput
 	// Multi-tenant application client id to access key vault in a different tenant.
 	FederatedClientId pulumi.StringPtrInput
@@ -390,7 +390,7 @@ func (o DiskEncryptionSetOutput) AutoKeyRotationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DiskEncryptionSet) pulumi.BoolPtrOutput { return v.AutoKeyRotationEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`.
+// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
 func (o DiskEncryptionSetOutput) EncryptionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiskEncryptionSet) pulumi.StringPtrOutput { return v.EncryptionType }).(pulumi.StringPtrOutput)
 }

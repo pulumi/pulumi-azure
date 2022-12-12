@@ -111,7 +111,7 @@ namespace Pulumi.Azure.Network
         public Output<string> ProfileStatus { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create the Traffic Manager profile.
+        /// The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -215,7 +215,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? ProfileStatus { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the Traffic Manager profile.
+        /// The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -289,7 +289,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? ProfileStatus { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the Traffic Manager profile.
+        /// The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

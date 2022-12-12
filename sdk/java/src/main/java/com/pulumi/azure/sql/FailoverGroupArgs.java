@@ -96,14 +96,14 @@ public final class FailoverGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the resource group containing the SQL server
+     * The name of the resource group containing the SQL server Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group containing the SQL server
+     * @return The name of the resource group containing the SQL server Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -297,7 +297,7 @@ public final class FailoverGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group containing the SQL server
+         * @param resourceGroupName The name of the resource group containing the SQL server Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -308,7 +308,7 @@ public final class FailoverGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group containing the SQL server
+         * @param resourceGroupName The name of the resource group containing the SQL server Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

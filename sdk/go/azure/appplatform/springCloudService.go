@@ -78,7 +78,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import azure:appplatform/springCloudService:SpringCloudService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AppPlatform/Spring/spring1
+//	$ pulumi import azure:appplatform/springCloudService:SpringCloudService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AppPlatform/spring/spring1
 //
 // ```
 type SpringCloudService struct {
@@ -106,7 +106,7 @@ type SpringCloudService struct {
 	ServiceRegistryEnabled pulumi.BoolPtrOutput `pulumi:"serviceRegistryEnabled"`
 	// The ID of the Spring Cloud Service Registry.
 	ServiceRegistryId pulumi.StringOutput `pulumi:"serviceRegistryId"`
-	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
+	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -170,7 +170,7 @@ type springCloudServiceState struct {
 	ServiceRegistryEnabled *bool `pulumi:"serviceRegistryEnabled"`
 	// The ID of the Spring Cloud Service Registry.
 	ServiceRegistryId *string `pulumi:"serviceRegistryId"`
-	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
+	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -203,7 +203,7 @@ type SpringCloudServiceState struct {
 	ServiceRegistryEnabled pulumi.BoolPtrInput
 	// The ID of the Spring Cloud Service Registry.
 	ServiceRegistryId pulumi.StringPtrInput
-	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
+	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -234,7 +234,7 @@ type springCloudServiceArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
 	ServiceRegistryEnabled *bool `pulumi:"serviceRegistryEnabled"`
-	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
+	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -262,7 +262,7 @@ type SpringCloudServiceArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
 	ServiceRegistryEnabled pulumi.BoolPtrInput
-	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
+	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -418,7 +418,7 @@ func (o SpringCloudServiceOutput) ServiceRegistryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpringCloudService) pulumi.StringOutput { return v.ServiceRegistryId }).(pulumi.StringOutput)
 }
 
-// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
+// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
 func (o SpringCloudServiceOutput) SkuName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpringCloudService) pulumi.StringPtrOutput { return v.SkuName }).(pulumi.StringPtrOutput)
 }

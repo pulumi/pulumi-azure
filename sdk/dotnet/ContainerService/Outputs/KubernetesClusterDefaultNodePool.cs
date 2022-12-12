@@ -18,11 +18,15 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? CapacityReservationGroupId;
         /// <summary>
+        /// Specifies whether to trust a Custom CA. Defaults to `false`.
+        /// </summary>
+        public readonly bool? CustomCaTrustEnabled;
+        /// <summary>
         /// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
         /// </summary>
         public readonly bool? EnableAutoScaling;
         /// <summary>
-        /// Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
+        /// Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly bool? EnableHostEncryption;
         /// <summary>
@@ -113,11 +117,11 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
+        /// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? Type;
         /// <summary>
-        /// Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+        /// Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
         /// </summary>
         public readonly bool? UltraSsdEnabled;
         /// <summary>
@@ -144,6 +148,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
         [OutputConstructor]
         private KubernetesClusterDefaultNodePool(
             string? capacityReservationGroupId,
+
+            bool? customCaTrustEnabled,
 
             bool? enableAutoScaling,
 
@@ -212,6 +218,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             ImmutableArray<string> zones)
         {
             CapacityReservationGroupId = capacityReservationGroupId;
+            CustomCaTrustEnabled = customCaTrustEnabled;
             EnableAutoScaling = enableAutoScaling;
             EnableHostEncryption = enableHostEncryption;
             EnableNodePublicIp = enableNodePublicIp;

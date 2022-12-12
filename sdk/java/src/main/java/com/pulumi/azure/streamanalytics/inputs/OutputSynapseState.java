@@ -46,14 +46,14 @@ public final class OutputSynapseState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The password that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created.
+     * The password that will be used to connect to the Azure SQL database.
      * 
      */
     @Import(name="password")
     private @Nullable Output<String> password;
 
     /**
-     * @return The password that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created.
+     * @return The password that will be used to connect to the Azure SQL database.
      * 
      */
     public Optional<Output<String>> password() {
@@ -209,7 +209,7 @@ public final class OutputSynapseState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param password The password that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created.
+         * @param password The password that will be used to connect to the Azure SQL database.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class OutputSynapseState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param password The password that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created.
+         * @param password The password that will be used to connect to the Azure SQL database.
          * 
          * @return builder
          * 
